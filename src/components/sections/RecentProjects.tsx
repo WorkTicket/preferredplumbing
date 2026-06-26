@@ -9,19 +9,19 @@ import { PHONE_HREF } from '@/lib/utils'
 
 const projects = [
   {
-    src: '/images/gallery-plumbing-trim-faucets-bathtubs.webp',
+    src: '/images/IMG_9155-1920w.webp',
     alt: 'Plumbing trim and faucet installation - Preferred Plumbing Solutions',
     title: 'Bathroom Fixtures',
     tag: 'Residential',
   },
   {
-    src: '/images/gallery-plumbing-showers-tub-toilets.webp',
+    src: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2813%29-1920w.webp',
     alt: 'Shower and tub plumbing installation - Preferred Plumbing Solutions',
     title: 'Shower & Tub Install',
     tag: 'Residential',
   },
   {
-    src: '/images/gallery-grease-trap-commercial.webp',
+    src: '/images/Grease+Trap+Tank.webp',
     alt: 'Commercial grease trap installation - Preferred Plumbing Solutions',
     title: 'Commercial Grease Trap',
     tag: 'Commercial',
@@ -54,7 +54,7 @@ export default function RecentProjects() {
             <Link
               key={project.src}
               href="/gallery"
-              className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-white border border-gray-200 shadow-premium card-lift hover:border-blue/40 hover:ring-1 hover:ring-blue/20"
+              className="group relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-200 border border-gray-200 shadow-premium card-lift hover:border-blue/40 hover:ring-1 hover:ring-blue/20"
             >
               <Image
                 src={project.src}
