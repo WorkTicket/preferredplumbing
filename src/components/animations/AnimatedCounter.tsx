@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from 'framer-motion'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 interface AnimatedCounterProps {
@@ -21,7 +21,7 @@ export default function AnimatedCounter({
 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const inView = useInView(ref, { once: true, amount: 0.2 })
   const reduced = useReducedMotion()
 
   useEffect(() => {
@@ -50,14 +50,8 @@ export default function AnimatedCounter({
   }, [inView, end, duration, reduced])
 
   return (
-    <motion.span
-      ref={ref}
-      className={className}
-      initial={reduced ? undefined : { opacity: 0, y: 16 }}
-      animate={inView ? { opacity: 1, y: 0 } : undefined}
-      transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      {prefix}{count}{suffix}
-    </motion.span>
+    <span ref={ref} className={className}>
+      {prefix}{inView ? count : end}{suffix}
+    </span>
   )
 }

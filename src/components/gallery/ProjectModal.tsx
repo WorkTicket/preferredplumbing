@@ -93,7 +93,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full max-w-4xl bg-white rounded-none sm:rounded-2xl overflow-hidden shadow-premium-2xl max-h-[100vh] sm:max-h-[90vh] flex flex-col"
+            className="relative w-full max-w-4xl bg-white rounded-none sm:rounded-2xl overflow-hidden shadow-premium-2xl max-h-[100dvh] sm:max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}

@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from 'framer-motion'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { SCROLL_TRIGGER_VIEWPORT } from '@/lib/animation-viewport'
 
 interface StaggerChildrenProps {
   children: React.ReactNode
@@ -65,7 +66,7 @@ export default function StaggerChildren({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={SCROLL_TRIGGER_VIEWPORT}
       variants={containerVariants}
     >
       {Array.isArray(children)

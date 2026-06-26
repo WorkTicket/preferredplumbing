@@ -116,7 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-body antialiased">
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen pb-[calc(3.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />

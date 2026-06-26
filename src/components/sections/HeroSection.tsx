@@ -102,12 +102,14 @@ export default function HeroSection() {
             </div>
             <div className="mt-6 sm:mt-10 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/10">
+                <div key={stat.label || stat.number} className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/10">
                   <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-300" />
                   <p className="mt-1 font-bold text-xl sm:text-2xl text-white">
                     {stat.number}<span className="text-blue-300">{stat.suffix}</span>
                   </p>
-                  <p className="text-[10px] sm:text-xs text-gray-400">{stat.label}</p>
+                  {stat.label && (
+                    <p className="text-[10px] sm:text-xs font-medium text-white/75">{stat.label}</p>
+                  )}
                 </div>
               ))}
             </div>
@@ -172,12 +174,14 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/10">
+                <div key={stat.label || stat.number} className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/10">
                   <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-300" />
                   <p className="mt-1 font-bold text-xl sm:text-2xl text-white">
                     {stat.number}<span className="text-blue-300">{stat.suffix}</span>
                   </p>
-                  <p className="text-[10px] sm:text-xs text-gray-400">{stat.label}</p>
+                  {stat.label && (
+                    <p className="text-[10px] sm:text-xs font-medium text-white/75">{stat.label}</p>
+                  )}
                 </div>
               ))}
             </motion.div>

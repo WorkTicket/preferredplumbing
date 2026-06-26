@@ -24,7 +24,7 @@ export default function ServiceCard({ href, image, title, description }: Service
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/10 to-transparent transition-all duration-500 group-hover:from-blue-dark/70" />
           <div className="absolute inset-0 bg-blue/0 transition-all duration-500 group-hover:bg-blue/10" />
-          <div className="absolute top-3 right-3 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0">
+          <div className="absolute top-3 right-3 transition-all duration-300 opacity-100 translate-y-0 sm:opacity-0 sm:translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0">
             <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-blue shadow-premium backdrop-blur-sm">
               <ArrowUpRight className="h-3 w-3" /> View
             </span>

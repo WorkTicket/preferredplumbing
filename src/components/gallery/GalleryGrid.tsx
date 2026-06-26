@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { motion } from 'framer-motion'
 import { galleryProjects } from '@/data/gallery'
 import CategoryFilter from './CategoryFilter'
 import SortDropdown from './SortDropdown'
@@ -33,8 +32,10 @@ export default function GalleryGrid() {
   return (
     <>
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
-        <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto pb-1">
+          <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
+        </div>
         <SortDropdown value={sort} onChange={setSort} />
       </div>
 
@@ -50,8 +51,7 @@ export default function GalleryGrid() {
           </button>
         </div>
       ) : (
-        <motion.div
-          layout
+        <div
           className="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         >
           {filtered.map((project, i) => (
@@ -62,7 +62,7 @@ export default function GalleryGrid() {
               onSelect={setSelectedProject}
             />
           ))}
-        </motion.div>
+        </div>
       )}
 
       {/* Modal */}

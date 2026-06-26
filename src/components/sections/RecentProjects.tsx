@@ -74,7 +74,7 @@ export default function RecentProjects() {
                 <p className="font-display text-lg sm:text-xl font-bold text-white transition-all duration-300 group-hover:translate-y-[-2px]">
                   {project.title}
                 </p>
-                <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold text-blue-200 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1">
+                <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold text-blue-200 opacity-100 translate-y-0 transition-all duration-300 sm:opacity-0 sm:translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0">
                   View Project <ArrowUpRight className="h-3 w-3" />
                 </span>
               </div>

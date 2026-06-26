@@ -47,20 +47,20 @@ export default function Header() {
           'mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-500',
           scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         )}>
-          <Link href="/" className="flex items-center gap-2 shrink-0 group">
+          <Link href="/" className="flex items-center gap-2 min-w-0 shrink group">
             <img
               src="/images/preferred logo.webp"
               alt="Preferred Plumbing Solutions"
               width={32}
               height={32}
               className={cn(
-                'w-auto transition-all duration-500',
+                'w-auto shrink-0 transition-all duration-500',
                 scrolled ? 'h-6 sm:h-7' : 'h-8 sm:h-9'
               )}
             />
             <span className={cn(
-              'font-bold uppercase tracking-wider text-gray-900 leading-tight transition-all duration-500',
-              scrolled ? 'text-xs sm:text-sm' : 'text-base sm:text-xl'
+              'font-bold uppercase tracking-wider text-gray-900 leading-tight transition-all duration-500 truncate max-w-[10.5rem] sm:max-w-none',
+              scrolled ? 'text-xs sm:text-sm' : 'text-sm sm:text-xl'
             )}>
 Preferred Plumbing Solutions
             </span>
