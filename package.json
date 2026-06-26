@@ -1,0 +1,51 @@
+{
+  "name": "preferred-plumbing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sanity": "sanity",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "@next/third-parties": "^14.2.0",
+    "@opennextjs/cloudflare": "^1.14.10",
+    "@sanity/client": "^6.21.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.52.0",
+    "@vercel/analytics": "^1.3.0",
+    "@vercel/speed-insights": "^1.0.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.3.0",
+    "lucide-react": "^0.441.0",
+    "next": "^14.2.0",
+    "next-sanity": "^9.4.0",
+    "next-sitemap": "^4.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "react-hook-form": "^7.52.0",
+    "resend": "^3.5.0",
+    "sanity": "^3.52.0",
+    "sharp": "^0.33.0",
+    "tailwind-merge": "^2.5.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.4.0",
+    "wrangler": "^4.105.0"
+  }
+}
