@@ -44,10 +44,10 @@ export default function Header() {
         )}
       >
         <div className={cn(
-          'mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-500',
+          'mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 sm:px-6 lg:px-8 transition-all duration-500',
           scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         )}>
-          <Link href="/" className="flex items-center gap-2 min-w-0 shrink group">
+          <Link href="/" className="flex min-w-0 flex-1 items-center gap-1.5 pr-1 md:flex-initial md:gap-2 md:pr-0 group">
             <img
               src="/images/preferred logo.webp"
               alt="Preferred Plumbing Solutions"
@@ -55,18 +55,27 @@ export default function Header() {
               height={32}
               className={cn(
                 'w-auto shrink-0 transition-all duration-500',
-                scrolled ? 'h-6 sm:h-7' : 'h-8 sm:h-9'
+                scrolled ? 'h-5 sm:h-7' : 'h-7 sm:h-9'
               )}
             />
-            <span className={cn(
-              'font-bold uppercase tracking-wider text-gray-900 leading-tight transition-all duration-500 truncate max-w-[10.5rem] sm:max-w-none',
-              scrolled ? 'text-xs sm:text-sm' : 'text-sm sm:text-xl'
-            )}>
-Preferred Plumbing Solutions
+            <span
+              className={cn(
+                'min-w-0 font-bold uppercase text-gray-900 transition-all duration-500',
+                scrolled ? 'md:text-sm lg:text-xl' : 'md:text-xl'
+              )}
+            >
+              <span className="block text-[9px] leading-[1.15] tracking-wide sm:text-[10px] md:hidden">
+                Preferred Plumbing
+                <br />
+                Solutions
+              </span>
+              <span className="hidden md:inline md:leading-tight md:tracking-wider">
+                Preferred Plumbing Solutions
+              </span>
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 shrink-0">
             <Link href="/" className="text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full">
               Home
             </Link>
@@ -155,13 +164,13 @@ Preferred Plumbing Solutions
             </div>
           </nav>
 
-          <div className="flex md:hidden">
+          <div className="flex shrink-0 md:hidden">
             <button
               onClick={() => setDrawerOpen(true)}
-              className="flex items-center justify-center rounded-lg p-2 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
+              className="flex items-center justify-center rounded-lg p-1.5 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
               aria-label="Open menu"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             </button>
           </div>
         </div>
