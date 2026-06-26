@@ -47,31 +47,29 @@ export default function Header() {
           'mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 sm:px-6 lg:px-8 transition-all duration-500',
           scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         )}>
-          <Link href="/" className="flex min-w-0 flex-1 items-center gap-1.5 pr-1 md:flex-initial md:gap-2 md:pr-0 group">
+          <Link href="/" className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0">
             <img
               src="/images/preferred logo.webp"
-              alt="Preferred Plumbing Solutions"
-              width={32}
-              height={32}
+              alt=""
+              aria-hidden="true"
+              width={36}
+              height={36}
               className={cn(
                 'w-auto shrink-0 transition-all duration-500',
-                scrolled ? 'h-5 sm:h-7' : 'h-7 sm:h-9'
+                scrolled ? 'h-7 md:h-7' : 'h-8 md:h-9'
               )}
             />
             <span
               className={cn(
-                'min-w-0 font-bold uppercase text-gray-900 transition-all duration-500',
-                scrolled ? 'md:text-sm lg:text-xl' : 'md:text-xl'
+                'min-w-0 -ml-1 font-bold uppercase leading-none text-gray-900 transition-all duration-500 md:ml-0',
+                'whitespace-nowrap tracking-[0.02em] md:tracking-wider',
+                scrolled
+                  ? 'text-[clamp(0.6875rem,3vw,0.8125rem)] md:text-sm lg:text-xl'
+                  : 'text-[clamp(0.75rem,3.15vw,0.875rem)] md:text-xl'
               )}
             >
-              <span className="block text-[9px] leading-[1.15] tracking-wide sm:text-[10px] md:hidden">
-                Preferred Plumbing
-                <br />
-                Solutions
-              </span>
-              <span className="hidden md:inline md:leading-tight md:tracking-wider">
-                Preferred Plumbing Solutions
-              </span>
+              Preferred Plumbing{' '}
+              <span className="text-blue">Solutions</span>
             </span>
           </Link>
 
@@ -167,10 +165,10 @@ export default function Header() {
           <div className="flex shrink-0 md:hidden">
             <button
               onClick={() => setDrawerOpen(true)}
-              className="flex items-center justify-center rounded-lg p-1.5 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
+              className="flex items-center justify-center rounded-lg p-2 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
               aria-label="Open menu"
             >
-              <Menu className="h-5 w-5" />
+              <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
