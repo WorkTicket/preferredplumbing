@@ -48,7 +48,7 @@ export default function Header() {
           scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         )}>
           <Link href="/" className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0">
-            <img
+            <Image
               src="/images/preferred logo.webp"
               alt=""
               aria-hidden="true"

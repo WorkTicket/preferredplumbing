@@ -35,7 +35,10 @@ export default function ContactForm() {
     resolver: zodResolver(schema),
   })
 
+  const [submitError, setSubmitError] = useState(false)
+
   const onSubmit = async (data: FormData) => {
+    setSubmitError(false)
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -45,9 +48,11 @@ export default function ContactForm() {
       if (res.ok) {
         setSubmitted(true)
         setTimeout(() => router.push('/thank-you'), 1500)
+      } else {
+        setSubmitError(true)
       }
     } catch {
-      // silent fail
+      setSubmitError(true)
     }
   }
 
@@ -204,6 +209,16 @@ export default function ContactForm() {
           <option value="Other">Other</option>
         </select>
       </div>
+
+      {submitError && (
+        <motion.p
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-3 text-center"
+        >
+          Something went wrong. Please try again or call us at (208) 290-3889.
+        </motion.p>
+      )}
 
       <button
         type="submit"

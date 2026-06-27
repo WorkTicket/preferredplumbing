@@ -33,9 +33,7 @@ export default function GalleryGrid() {
     <>
       {/* Filters */}
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
-        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto pb-1">
-          <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
-        </div>
+        <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
         <SortDropdown value={sort} onChange={setSort} />
       </div>
 
