@@ -31,7 +31,7 @@ export const galleryProjects: GalleryProject[] = [
     images: [
       '/images/IMG_9155-1920w.webp',
       '/images/IMG_9152-1920w.webp',
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%281%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(1)-1920w.webp',
     ],
     coverImage: '/images/IMG_9155-1920w.webp',
     completionDate: '2025-08-15',
@@ -48,7 +48,7 @@ export const galleryProjects: GalleryProject[] = [
     images: [
       '/images/Gas+Pipe+-1920w.webp',
       '/images/Gas+Pipe-1920w.webp',
-      '/images/Gas+Pipe+%282%29-1920w.webp',
+      '/images/Gas+Pipe+(2)-1920w.webp',
     ],
     coverImage: '/images/Gas+Pipe+-1920w.webp',
     completionDate: '2025-07-22',
@@ -65,7 +65,7 @@ export const galleryProjects: GalleryProject[] = [
     images: [
       '/images/Water+Heater+.webp',
       '/images/Water+Heater.webp',
-      '/images/Water+Heater+%281%29-1920w.webp',
+      '/images/Water+Heater+(1)-1920w.webp',
     ],
     coverImage: '/images/Water+Heater+.webp',
     completionDate: '2025-06-10',
@@ -80,10 +80,10 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Urinal flushometer rough-in and trim, wall-hung trough sink mounting, supply and drain connections, and leak testing before turnover.',
     materials: ['Kohler commercial urinal', 'Flushometer valve', 'Wall-hung trough sink', 'Chrome lever faucet', 'PVC DWV piping'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%287%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(7)-1920w.webp',
       '/images/Commercial+Faucet+.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%287%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(7)-1920w.webp',
     completionDate: '2025-09-05',
   },
   {
@@ -96,7 +96,7 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Underground plumbing, slab preparation, DWV system installation, water supply lines, gas line stub-outs, and shower base installation. Inspection-ready.',
     materials: ['PVC Schedule 40 DWV', 'PEX water lines', 'Copper supply lines', 'Shower bases', 'Fixture stub-outs'],
     images: [
-      '/images/Rough+in+Plumbing+%282%29-1920w.webp',
+      '/images/Rough+in+Plumbing+(2)-1920w.webp',
       '/images/Ground+Rough+Plumbing+-1920w.webp',
       '/images/Rough+In+Plumbing+-975e1bfd-1920w.webp',
     ],
@@ -113,11 +113,11 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Boiler installation, radiant tubing layout in concrete slab, manifold setup, zone valve installation, thermostat wiring, and system balancing.',
     materials: ['Navien condensing boiler', 'Uponor radiant tubing', 'Wiring zone valves', 'Expansion tank', 'System circulation pump'],
     images: [
-      '/images/Boiler_+Radiant+Heat+%281%29-1920w.webp',
+      '/images/Boiler_+Radiant+Heat+(1)-1920w.webp',
       '/images/Boiler_+Radiant+Heat.webp',
       '/images/Radiant+Heat.webp',
     ],
-    coverImage: '/images/Boiler_+Radiant+Heat+%281%29-1920w.webp',
+    coverImage: '/images/Boiler_+Radiant+Heat+(1)-1920w.webp',
     completionDate: '2025-04-30',
   },
   {
@@ -132,7 +132,7 @@ export const galleryProjects: GalleryProject[] = [
     images: [
       '/images/New+Sewer+-1920w.webp',
       '/images/New+Sewer+Line-1920w.webp',
-      '/images/Sewer+Line+%281%29-1920w.webp',
+      '/images/Sewer+Line+(1)-1920w.webp',
     ],
     coverImage: '/images/New+Sewer+-1920w.webp',
     completionDate: '2025-03-12',
@@ -180,7 +180,7 @@ export const galleryProjects: GalleryProject[] = [
     materials: ['Geberit Sigma carrier', 'PEX supply line', 'PVC DWV piping', 'Shut-off valve', 'Floor drain adapter'],
     images: [
       '/images/Rough+in+Plumbing-211d7146.webp',
-      '/images/Rough+in+Plumbing+%281%29-1920w.webp',
+      '/images/Rough+in+Plumbing+(1)-1920w.webp',
     ],
     coverImage: '/images/Rough+in+Plumbing-211d7146.webp',
     completionDate: '2025-11-10',
@@ -272,10 +272,10 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Bathtub trim installation, toilet mounting and connection, faucet assembly, drain assembly, and water testing.',
     materials: ['Bathtub trim kit', 'Toilet', 'Faucet trim kit', 'Drain assembly', 'Supply lines'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2813%29-1920w.webp',
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%283%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(13)-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(3)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2813%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(13)-1920w.webp',
     completionDate: '2025-10-15',
   },
   {
@@ -303,10 +303,10 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Trenching from meter, gas line burial, generator connection, outdoor kitchen stub-out, and full pressure testing.',
     materials: ['CSST gas piping', 'Gas ball valves', 'Generator connection kit', 'Quick-disconnect fittings', 'Tracer wire'],
     images: [
-      '/images/Gas+Pipe+%281%29-1920w.webp',
-      '/images/Gas+Pipe+%281%29-4a731d9d-1920w.webp',
+      '/images/Gas+Pipe+(1)-1920w.webp',
+      '/images/Gas+Pipe+(1)-4a731d9d-1920w.webp',
     ],
-    coverImage: '/images/Gas+Pipe+%281%29-1920w.webp',
+    coverImage: '/images/Gas+Pipe+(1)-1920w.webp',
     completionDate: '2025-08-05',
   },
   {
@@ -424,9 +424,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Trench excavation, gas line burial at proper depth, tracer wire installation, and pressure testing.',
     materials: ['Yellow polyethylene gas pipe', 'Tracer wire', 'Gas meter riser', 'Shut-off valve'],
     images: [
-      '/images/Gas+Pipe+%283%29-1920w.webp',
+      '/images/Gas+Pipe+(3)-1920w.webp',
     ],
-    coverImage: '/images/Gas+Pipe+%283%29-1920w.webp',
+    coverImage: '/images/Gas+Pipe+(3)-1920w.webp',
     completionDate: '2025-08-12',
   },
   {
@@ -454,9 +454,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Utility sink installation, washer outlet box rough-in, drain and supply connections, and final hookup for stacked laundry appliances.',
     materials: ['Stainless utility sink', 'Gooseneck faucet', 'Washer outlet box', 'PEX supply lines', 'P-trap and drain'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2810%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(10)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2810%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(10)-1920w.webp',
     completionDate: '2025-11-05',
   },
   {
@@ -469,9 +469,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Two sink faucet installation, drain assembly, supply line connection, and P-trap installation.',
     materials: ['Gold bathroom faucets', 'Drain assemblies', 'Supply lines', 'P-traps'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2812%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(12)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2812%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(12)-1920w.webp',
     completionDate: '2025-08-20',
   },
   {
@@ -484,9 +484,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Faucet mounting, supply line connection, sprayer hose routing, and leak testing.',
     materials: ['Bronze kitchen faucet', 'Pull-down sprayer', 'Supply lines', 'Deck plate'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2811%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(11)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2811%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(11)-1920w.webp',
     completionDate: '2025-07-05',
   },
   {
@@ -499,9 +499,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Faucet assembly, basin mounting, supply line connection, and drain assembly installation.',
     materials: ['Gold cross-handle faucet', 'Supply lines', 'Drain assembly', 'Pop-up stopper'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%285%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(5)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%285%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(5)-1920w.webp',
     completionDate: '2025-06-25',
   },
   {
@@ -514,9 +514,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Sink mounting, exposed drain assembly installation, supply line connection to shut-off valves, and leak testing.',
     materials: ['Drop-in sink', 'Chrome lever faucet', 'Exposed drain tailpiece', 'P-trap', 'Braided supply lines'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%284%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(4)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%284%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(4)-1920w.webp',
     completionDate: '2025-05-15',
   },
   {
@@ -529,9 +529,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Faucet deck mounting, supply line connection, sprayer hose routing, soap dispenser install, and leak testing.',
     materials: ['Pre-rinse kitchen faucet', 'Pull-down sprayer hose', 'Pot filler spout', 'Soap dispenser', 'Supply lines'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%286%29_00-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(6)_00-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%286%29_00-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(6)_00-1920w.webp',
     completionDate: '2025-10-08',
   },
   {
@@ -544,9 +544,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Shower valve rough-in, shower head installation, body sprayers, drain assembly, and trim installation.',
     materials: ['Rain shower head', 'Body sprayers', 'Shower valve', 'Drain kit', 'Trim kit'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%289%29-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(9)-1920w.webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%289%29-1920w.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(9)-1920w.webp',
     completionDate: '2025-09-28',
   },
   {
@@ -559,9 +559,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Shower valve installation, hand shower bracket mounting, slide bar setup, and hose connection.',
     materials: ['Black shower fixture', 'Hand shower', 'Slide bar', 'Shower hose'],
     images: [
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%288%29.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(8).webp',
     ],
-    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%288%29.webp',
+    coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(8).webp',
     completionDate: '2025-08-30',
   },
   {
@@ -605,9 +605,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'DWV piping within walls, supply line routing, vent pipe installation, and stub-out placement.',
     materials: ['PVC DWV', 'PEX supply lines', 'Vent piping', 'Stub-out elbows'],
     images: [
-      '/images/Rough+In+Plumbing+%284%29-1920w.webp',
+      '/images/Rough+In+Plumbing+(4)-1920w.webp',
     ],
-    coverImage: '/images/Rough+In+Plumbing+%284%29-1920w.webp',
+    coverImage: '/images/Rough+In+Plumbing+(4)-1920w.webp',
     completionDate: '2025-05-05',
   },
   {
@@ -620,9 +620,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Under-floor supply lines, drain pipe routing, pipe insulation, and support hangers.',
     materials: ['PEX supply lines', 'PVC drain pipe', 'Pipe insulation', 'Support hangers'],
     images: [
-      '/images/Rough+In+Plumbing+%283%29-1920w.webp',
+      '/images/Rough+In+Plumbing+(3)-1920w.webp',
     ],
-    coverImage: '/images/Rough+In+Plumbing+%283%29-1920w.webp',
+    coverImage: '/images/Rough+In+Plumbing+(3)-1920w.webp',
     completionDate: '2025-04-15',
   },
   {
@@ -650,9 +650,9 @@ export const galleryProjects: GalleryProject[] = [
     scopeOfWork: 'Underslab pipe layout, concrete pour coordination, stub-up positioning, and pipe protection.',
     materials: ['PVC stub-ups', 'PEX stub-outs', 'Pipe caps', 'Support blocks'],
     images: [
-      '/images/Rough+in+Plumbing+%285%29-1920w.webp',
+      '/images/Rough+in+Plumbing+(5)-1920w.webp',
     ],
-    coverImage: '/images/Rough+in+Plumbing+%285%29-1920w.webp',
+    coverImage: '/images/Rough+in+Plumbing+(5)-1920w.webp',
     completionDate: '2025-05-30',
   },
   {
