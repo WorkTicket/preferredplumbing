@@ -12,6 +12,12 @@ export interface GalleryProject {
   completionDate: string
 }
 
+/** Lightweight shape for grid cards — avoids shipping full project payloads to the client bundle. */
+export type GalleryProjectSummary = Pick<
+  GalleryProject,
+  'id' | 'title' | 'slug' | 'category' | 'description' | 'location' | 'coverImage' | 'completionDate'
+>
+
 export const galleryProjects: GalleryProject[] = [
   {
     id: 'modern-bathroom-fixtures',
@@ -53,9 +59,9 @@ export const galleryProjects: GalleryProject[] = [
     slug: 'water-heater-replacement',
     category: 'Residential',
     location: 'Post Falls, ID',
-    description: 'Replaced an aging tank water heater with a high-efficiency model, including updated supply lines and a expansion tank for code compliance.',
-    scopeOfWork: 'Removal of old 50-gallon tank, installation of new 50-gallon gas water heater, expansion tank installation, seismic strapping, and gas line connection.',
-    materials: ['Bradford White 50-gallon gas water heater', 'Expansion tank', 'Flex supply lines', 'Gas ball valve', 'Seismic straps'],
+    description: 'Replaced an aging electric tank water heater with a new Bradford White unit, expansion tank, and updated supply connections at the laundry utility wall.',
+    scopeOfWork: 'Removal of old electric tank, installation of new Bradford White electric water heater in drain pan, thermal expansion tank, braided supply lines, and T&P discharge routing.',
+    materials: ['Bradford White electric water heater', 'Thermal expansion tank', 'Braided stainless supply lines', 'Drain pan', 'T&P relief valve'],
     images: [
       '/images/Water+Heater+.webp',
       '/images/Water+Heater.webp',
@@ -66,17 +72,16 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'commercial-restroom-renovation',
-    title: 'Commercial Restroom Renovation',
+    title: 'Commercial Urinal & Restroom Fixtures',
     slug: 'commercial-restroom-renovation',
     category: 'Commercial',
     location: 'Coeur d\'Alene, ID',
-    description: 'Full commercial restroom plumbing renovation including ADA-compliant fixtures, urinal installation, and accessible sink stations.',
-    scopeOfWork: 'Rough-in and trim for commercial restroom including 3 toilets, 2 urinals, 4 sinks, and ADA grab bars. Drainage system upgrade and venting reconfiguration.',
-    materials: ['American Standard commercial toilets', 'Zurn urinals', 'Chicago Faucets', 'ADA grab bars', 'PVC DWV piping'],
+    description: 'Commercial restroom fixture installation including a Kohler wall-hung urinal with flushometer and a wall-mounted trough sink with chrome faucet.',
+    scopeOfWork: 'Urinal flushometer rough-in and trim, wall-hung trough sink mounting, supply and drain connections, and leak testing before turnover.',
+    materials: ['Kohler commercial urinal', 'Flushometer valve', 'Wall-hung trough sink', 'Chrome lever faucet', 'PVC DWV piping'],
     images: [
-      '/images/Commercial+Faucet+.webp',
       '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%287%29-1920w.webp',
-      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%284%29-1920w.webp',
+      '/images/Commercial+Faucet+.webp',
     ],
     coverImage: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%287%29-1920w.webp',
     completionDate: '2025-09-05',
@@ -138,12 +143,11 @@ export const galleryProjects: GalleryProject[] = [
     slug: 'tankless-water-heater',
     category: 'Residential',
     location: 'Sandpoint, ID',
-    description: 'Upgraded from a traditional tank to a gas tankless water heater for endless hot water and reduced energy bills.',
-    scopeOfWork: 'Removal of old tank, installation of wall-mounted tankless unit, gas line upgrade, venting installation, and recirculation pump setup.',
-    materials: ['Rinnai tankless water heater', 'Stainless steel venting', 'Gas ball valve', 'Recirculation pump', 'Expansion tank'],
+    description: 'Wall-mounted Noritz tankless water heater with PEX supply lines, gas shut-off, PVC venting, and condensate drain during new construction.',
+    scopeOfWork: 'Removal of old tank, installation of wall-mounted Noritz tankless unit, gas line connection, PVC venting, PEX supply routing, and system commissioning.',
+    materials: ['Noritz tankless water heater', 'PVC venting', 'Gas shut-off valve', 'PEX supply lines', 'Condensate drain'],
     images: [
       '/images/Tankless+Water+Heater+.webp',
-      '/images/IMG_6639-1920w.webp',
     ],
     coverImage: '/images/Tankless+Water+Heater+.webp',
     completionDate: '2025-08-28',
@@ -167,13 +171,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'bathroom-remodel',
-    title: 'Bathroom Rough-In Plumbing',
+    title: 'In-Wall Toilet Carrier Rough-In',
     slug: 'bathroom-remodel',
     category: 'Remodels',
     location: 'Coeur d\'Alene, ID',
-    description: 'Rough-in plumbing installation for a bathroom remodel, including supply lines, drain-waste-vent piping, and fixture stub-outs before wall closure.',
-    scopeOfWork: 'Installation of rough-in supply and drain lines, shower valve stub-out, toilet flange placement, vent pipe routing, and preparation for inspection.',
-    materials: ['PVC DWV piping', 'PEX supply lines', 'Shower valve rough-in', 'Toilet flange', 'Copper stub-outs'],
+    description: 'Geberit in-wall toilet carrier rough-in with PEX supply, PVC waste line, and floor drain connection during a bathroom remodel.',
+    scopeOfWork: 'Geberit carrier setting, in-wall toilet waste routing, PEX supply stub-up, floor drain tie-in, and rough-in inspection prep.',
+    materials: ['Geberit Sigma carrier', 'PEX supply line', 'PVC DWV piping', 'Shut-off valve', 'Floor drain adapter'],
     images: [
       '/images/Rough+in+Plumbing-211d7146.webp',
       '/images/Rough+in+Plumbing+%281%29-1920w.webp',
@@ -247,9 +251,9 @@ export const galleryProjects: GalleryProject[] = [
     slug: 'utility-room-plumbing',
     category: 'Residential',
     location: 'Spirit Lake, ID',
-    description: 'Complete utility room plumbing including water heater, water softener, pressure tank, and washer box installation.',
-    scopeOfWork: 'Installation of water heater, water softener loop, pressure tank, washer outlet box, and all interconnection piping. Drainage and venting included.',
-    materials: ['Water softener', 'Pressure tank', 'Washer outlet box', 'Copper and PEX piping', 'Drain hose'],
+    description: 'Whole-home utility plumbing with dual water heaters, water softener, filtration tanks, and a 550-gallon storage tank tied into a PEX distribution manifold.',
+    scopeOfWork: 'Dual water heater setup with recirculation loop, water softener and filtration installation, storage tank connection, and PEX manifold distribution during new construction.',
+    materials: ['Dual water heaters', 'Recirculation pump', 'Water softener', 'Filtration tanks', '550-gallon storage tank', 'PEX manifold'],
     images: [
       '/images/IMG_8862-1920w.webp',
       '/images/IMG_8861-1920w.webp',
@@ -276,13 +280,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'gas-meter-manifold',
-    title: 'Commercial Gas Meter Manifold',
+    title: 'Water Service Filtration Bypass',
     slug: 'commercial-gas-meter-manifold',
     category: 'Commercial',
     location: 'Coeur d\'Alene, ID',
-    description: 'Multi-meter gas manifold installation for a mixed-use commercial building with separate tenant spaces.',
-    scopeOfWork: 'Manifold fabrication and installation, meter connections, pressure regulation, leak testing, and utility coordination.',
-    materials: ['Copper manifold', 'Gas meters', 'Pressure regulators', 'Ball valves', 'Steel pipe supports'],
+    description: 'Copper and PEX water service bypass manifold with isolation valves, PVC transitions, and HDPE main line connection.',
+    scopeOfWork: 'Bypass manifold fabrication, valve placement, PEX and copper transitions, main service tie-in, and pressure testing.',
+    materials: ['Copper press piping', 'PEX supply lines', 'PVC bypass sections', 'Ball valves', 'HDPE service line'],
     images: [
       '/images/Meter+manifold+-1920w.webp',
     ],
@@ -307,13 +311,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'natural-gas-meter',
-    title: 'Natural Gas Meter Setup',
+    title: 'Exterior Gas Regulator Install',
     slug: 'natural-gas-meter-setup',
     category: 'Residential',
     location: 'Spirit Lake, ID',
-    description: 'Natural gas meter installation with underground service line for a new residential property.',
-    scopeOfWork: 'Coordination with gas utility, meter installation, underground service line, regulator vent piping, and meter support framing.',
-    materials: ['Gas meter', 'Underground gas pipe', 'Pressure regulator', 'Vent piping', 'Meter support bracket'],
+    description: 'Exterior gas service line with Maxitrol pressure regulator, tracer wire, and wall penetration at a new residential build.',
+    scopeOfWork: 'Gas line riser installation, regulator mounting, tracer wire termination, wall penetration sealing, and pressure testing.',
+    materials: ['Maxitrol gas regulator', 'Gas service riser', 'Tracer wire', 'Wall penetration fittings', 'Shut-off valve'],
     images: [
       '/images/IMG_8787-1920w.webp',
     ],
@@ -352,13 +356,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'outdoor-spigot-installation',
-    title: 'Outdoor Spigot Installation',
+    title: 'Dual-Handle Outdoor Hydrant',
     slug: 'outdoor-spigot-installation',
     category: 'Residential',
     location: 'Coeur d\'Alene, ID',
-    description: 'Dual-handle brass water spigot installation with freeze-proof design for year-round outdoor water access.',
-    scopeOfWork: 'Supply line tap, wall penetration, spigot mounting, solder connections, and leak testing.',
-    materials: ['Brass freeze-proof spigot', 'Copper supply pipe', 'Shut-off valve', 'Solder fittings'],
+    description: 'Dual-handle hot and cold outdoor wall hydrant with vacuum breaker, mounted on exterior siding above the foundation.',
+    scopeOfWork: 'Hot and cold supply line routing, wall penetration, hydrant mounting on backing block, and leak testing.',
+    materials: ['Dual-handle wall hydrant', 'Hot and cold supply lines', 'Vacuum breaker', 'Wall backing block', 'Shut-off valves'],
     images: [
       '/images/IMG_9080-1920w.webp',
     ],
@@ -397,13 +401,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'jobsite-mobilization',
-    title: 'Company Contact Photo',
+    title: 'Jobsite Mobilization & Excavation',
     slug: 'jobsite-mobilization',
     category: 'Commercial',
     location: 'Hayden, ID',
-    description: 'Preferred Plumbing Solutions company profile image showcasing our professional plumbing services.',
-    scopeOfWork: 'Company operations, service vehicles, and professional plumbing service coordination.',
-    materials: ['Professional plumbing equipment', 'Service vehicles', 'Safety gear'],
+    description: 'Equipment mobilization with service truck, dump trailer, and mini excavator staged for underground plumbing and trenching work.',
+    scopeOfWork: 'Jobsite staging, equipment transport, excavation prep, and coordination before sewer, water, or septic trench work begins.',
+    materials: ['Service truck with utility topper', 'Dump trailer', 'Wacker Neuson mini excavator', 'Safety chains and rigging'],
     images: [
       '/images/Temporary+Contact+Us+Photo+-78ad61f1-1920w.webp',
     ],
@@ -427,13 +431,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'white-tiled-bathroom',
-    title: 'White Tiled Bathroom Finish',
+    title: 'Alcove Soaking Tub & Gold Trim',
     slug: 'white-tiled-bathroom',
     category: 'Residential',
     location: 'Rathdrum, ID',
-    description: 'Bathroom finish plumbing with white tiled tub surround, new toilet, and modern vanity fixtures.',
-    scopeOfWork: 'Tub trim installation, toilet rough-in and finish, vanity plumbing, and supply line hookup.',
-    materials: ['Tub trim', 'Toilet', 'Vanity faucet', 'Supply lines', 'P-trap'],
+    description: 'Alcove soaking tub with white subway tile surround, gold deck-mounted tub filler, and matching trim at the window ledge.',
+    scopeOfWork: 'Tub set and drain connection, deck-mounted gold tub filler installation, overflow trim, and supply line hookup.',
+    materials: ['Alcove soaking tub', 'Gold tub filler', 'Gold trim pieces', 'Subway tile deck', 'Supply lines'],
     images: [
       '/images/Plumbing+Trim+Faucets_bathtub_Toilet-1920w.webp',
     ],
@@ -442,13 +446,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'laundry-room-plumbing',
-    title: 'Bathroom Faucet Trim Installation',
+    title: 'Laundry Room Plumbing Setup',
     slug: 'laundry-room-plumbing',
     category: 'Residential',
     location: 'Post Falls, ID',
-    description: 'Bathroom faucet and trim installation with modern fixtures for a complete bathroom update.',
-    scopeOfWork: 'Faucet mounting, supply line connection, drain assembly, and leak testing.',
-    materials: ['Bathroom faucet', 'Supply lines', 'Drain assembly', 'P-trap'],
+    description: 'Laundry room plumbing with stainless utility sink, gooseneck faucet, washer outlet box, and stacked washer-dryer connections.',
+    scopeOfWork: 'Utility sink installation, washer outlet box rough-in, drain and supply connections, and final hookup for stacked laundry appliances.',
+    materials: ['Stainless utility sink', 'Gooseneck faucet', 'Washer outlet box', 'PEX supply lines', 'P-trap and drain'],
     images: [
       '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2810%29-1920w.webp',
     ],
@@ -502,13 +506,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'exposed-plumbing-sink',
-    title: 'Exposed Plumbing Vessel Sink',
+    title: 'Exposed Drain Sink Install',
     slug: 'exposed-plumbing-sink',
     category: 'Residential',
     location: 'Spirit Lake, ID',
-    description: 'Vessel sink installation with exposed brass plumbing for a modern industrial bathroom design.',
-    scopeOfWork: 'Vessel sink mounting, exposed drain kit installation, faucet mounting, and water supply connection.',
-    materials: ['Vessel sink', 'Exposed brass drain kit', 'Wall-mount faucet', 'Supply lines'],
+    description: 'Drop-in sink installation with exposed drain tailpiece, P-trap, and braided supply lines routed to wall shut-off valves.',
+    scopeOfWork: 'Sink mounting, exposed drain assembly installation, supply line connection to shut-off valves, and leak testing.',
+    materials: ['Drop-in sink', 'Chrome lever faucet', 'Exposed drain tailpiece', 'P-trap', 'Braided supply lines'],
     images: [
       '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%284%29-1920w.webp',
     ],
@@ -517,13 +521,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'stainless-kitchen-sink',
-    title: 'Stainless Steel Kitchen Sink',
+    title: 'Commercial Pre-Rinse Kitchen Faucet',
     slug: 'stainless-kitchen-sink',
     category: 'Residential',
     location: 'Coeur d\'Alene, ID',
-    description: 'Undermount stainless steel kitchen sink installation with tall commercial-style faucet and disposal.',
-    scopeOfWork: 'Sink mounting, faucet installation, garbage disposal hookup, drain line connection, and supply lines.',
-    materials: ['Stainless steel sink', 'Commercial faucet', 'Garbage disposal', 'Drain kit', 'Supply lines'],
+    description: 'Commercial-style pre-rinse kitchen faucet with spring hose, pot filler spout, and matching soap dispenser over a stainless sink.',
+    scopeOfWork: 'Faucet deck mounting, supply line connection, sprayer hose routing, soap dispenser install, and leak testing.',
+    materials: ['Pre-rinse kitchen faucet', 'Pull-down sprayer hose', 'Pot filler spout', 'Soap dispenser', 'Supply lines'],
     images: [
       '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%286%29_00-1920w.webp',
     ],
@@ -581,9 +585,9 @@ export const galleryProjects: GalleryProject[] = [
     slug: 'accessible-commercial-restroom',
     category: 'Commercial',
     location: 'Coeur d\'Alene, ID',
-    description: 'ADA-compliant commercial restroom with accessible toilet, grab bars, and touchless fixtures.',
-    scopeOfWork: 'ADA toilet installation, grab bar mounting, touchless faucet installation, and accessibility verification.',
-    materials: ['ADA toilet', 'Grab bars', 'Touchless faucet', 'Commercial sink'],
+    description: 'ADA-compliant commercial restroom with wall-hung sink, grab bars, and an accessible toilet with side and rear support bars.',
+    scopeOfWork: 'Wall-hung sink installation, ADA toilet setting, grab bar mounting at code height, and accessibility verification.',
+    materials: ['Wall-hung commercial sink', 'ADA toilet', 'Stainless grab bars', 'Lever faucet', 'Braided supply lines'],
     images: [
       '/images/Plumbing+Trim-+Faucets-bathtubs-showers.webp',
       '/images/IMG_5211-1920w.webp',
@@ -668,13 +672,13 @@ export const galleryProjects: GalleryProject[] = [
   },
   {
     id: 'dual-water-heaters',
-    title: 'Dual Water Heater Setup',
+    title: 'Dual Tankless Water Heater Setup',
     slug: 'dual-water-heaters',
     category: 'Residential',
     location: 'Spirit Lake, ID',
-    description: 'Two wall-mounted water heaters installed side-by-side for high-demand residential property.',
-    scopeOfWork: 'Mounting both units, gas line connection, venting, water line manifolds, and system balancing.',
-    materials: ['Gas water heaters', 'Copper manifolds', 'Gas line', 'Vent piping', 'Expansion tanks'],
+    description: 'Two wall-mounted Navien tankless water heaters installed side-by-side with copper manifolds, gas line, and PVC venting.',
+    scopeOfWork: 'Mounting both Navien units, gas line and vent connections, copper supply and return manifolds, isolation valves, and system commissioning.',
+    materials: ['Navien tankless water heaters', 'Copper ProPress manifolds', 'Black iron gas line', 'PVC vent piping', 'Isolation valve kits'],
     images: [
       '/images/IMG_1948-1920w.webp',
     ],
@@ -687,9 +691,9 @@ export const galleryProjects: GalleryProject[] = [
     slug: 'shower-frame-plumbing',
     category: 'New Construction',
     location: 'Sandpoint, ID',
-    description: 'Rough-in plumbing for a custom shower with transparent pipe for visual inspection during construction.',
-    scopeOfWork: 'Shower valve rough-in, shower head arm, body spray roughs, and drain installation within framing.',
-    materials: ['Shower valve', 'Shower head arm', 'Body spray roughs', 'Drain kit', 'Test caps'],
+    description: 'PEX shower valve rough-in with mixing valve, diverter, shower head arm, and hand shower stub-out during framing.',
+    scopeOfWork: 'Shower mixing and diverter valve rough-in, shower head and hand shower arms, PEX routing with talon clips, and pressure testing.',
+    materials: ['Shower mixing valve', 'Diverter valve', 'PEX tubing', 'Drop-ear elbows', 'Pressure test gauges'],
     images: [
       '/images/IMG_2826-1920w.webp',
     ],
@@ -732,9 +736,9 @@ export const galleryProjects: GalleryProject[] = [
     slug: 'septic-trench-install',
     category: 'New Construction',
     location: 'Spirit Lake, ID',
-    description: 'Septic system trench installation with green PVC pipe connecting house to septic tank.',
-    scopeOfWork: 'Trench excavation, septic pipe installation, proper grade setup, and inspection preparation.',
-    materials: ['Green PVC septic pipe', 'Couplings', 'Bedding material', 'Clean-out fittings'],
+    description: 'Septic leach field trench with bundled aggregate drain lines, green PVC header piping, and vertical cleanout risers.',
+    scopeOfWork: 'Leach field trench excavation, drain bundle placement, green PVC header connections, cleanout installation, and inspection prep.',
+    materials: ['Aggregate drain bundles', 'Green PVC header pipe', 'Cleanout risers', 'Geotextile fabric', 'Bedding material'],
     images: [
       '/images/IMG_0108-1920w.webp',
     ],
@@ -772,3 +776,22 @@ export const galleryProjects: GalleryProject[] = [
     completionDate: '2025-06-15',
   },
 ]
+
+export const galleryProjectSummaries: GalleryProjectSummary[] = galleryProjects.map(
+  ({ id, title, slug, category, description, location, coverImage, completionDate }) => ({
+    id,
+    title,
+    slug,
+    category,
+    description,
+    location,
+    coverImage,
+    completionDate,
+  })
+)
+
+const galleryProjectById = new Map(galleryProjects.map((p) => [p.id, p]))
+
+export function getGalleryProjectById(id: string): GalleryProject | undefined {
+  return galleryProjectById.get(id)
+}

@@ -1,37 +1,37 @@
 'use client'
 
+import { memo } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import { SCROLL_TRIGGER_VIEWPORT } from '@/lib/animation-viewport'
-import type { GalleryProject } from '@/data/gallery'
+import type { GalleryProjectSummary } from '@/data/gallery'
 
 interface ProjectCardProps {
-  project: GalleryProject
+  project: GalleryProjectSummary
   index: number
-  onSelect: (project: GalleryProject) => void
+  onSelect: (id: string) => void
 }
 
-export default function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
+function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
+  const isAboveFold = index < 6
+
   return (
-    <motion.button
-      onClick={() => onSelect(project)}
-      initial={{ y: 12 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={SCROLL_TRIGGER_VIEWPORT}
-      transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.3), ease: [0.25, 0.1, 0.25, 1] }}
-      className="group relative w-full text-left overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-premium transition-all duration-500 hover:-translate-y-1.5 hover:shadow-premium-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2"
+    <button
+      type="button"
+      onClick={() => onSelect(project.id)}
+      className="group relative w-full text-left overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-premium transition-all duration-300 hover:-translate-y-1.5 hover:shadow-premium-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 [content-visibility:auto] [contain-intrinsic-size:320px]"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
         <Image
           src={project.coverImage}
           alt={project.title}
           fill
-          className="object-cover transition-all duration-700 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          loading={index < 6 ? undefined : 'lazy'}
+          priority={isAboveFold}
+          loading={isAboveFold ? undefined : 'lazy'}
+          quality={70}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
 
         <span className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blue shadow-sm">
           {project.category}
@@ -55,6 +55,8 @@ export default function ProjectCard({ project, index, onSelect }: ProjectCardPro
           {project.description}
         </p>
       </div>
-    </motion.button>
+    </button>
   )
 }
+
+export default memo(ProjectCard)

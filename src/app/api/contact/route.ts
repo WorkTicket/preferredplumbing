@@ -1,5 +1,5 @@
 import { Resend } from 'resend'
-import { EMAIL } from '@/lib/utils'
+import { FORM_RECIPIENT_EMAILS } from '@/lib/utils'
 
 export async function POST(req: Request) {
   try {
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       const resend = new Resend(process.env.RESEND_API_KEY)
       await resend.emails.send({
         from: 'website@preferredplumbingsolution.com',
-        to: EMAIL,
+        to: FORM_RECIPIENT_EMAILS,
         subject: `New Quote Request from ${name} - ${service}`,
         html: `
           <h2>New Quote Request</h2>

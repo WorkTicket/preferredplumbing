@@ -906,7 +906,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Upgrade Your Kitchen with Precision Plumbing for Lasting Value',
-    photos: ['/images/service-kitchen-remodel-plumbing.webp', '/images/service-kitchen-remodel-2.webp', '/images/service-kitchen-remodel-3.webp'],
+    photos: ['/images/service-kitchen-remodel-plumbing.webp', '/images/service-plumbing-remodels-upgrades.webp', '/images/uri_ifs___M_e77b4073-008a-4607-b370-85b452cd71ea.webp'],
     summaryParagraphs: [
       'We specialize in the plumbing side of kitchen remodels. Moving sink drains, installing pot fillers and instant hot water dispensers, connecting everything so it works right.',
       'We coordinate with your contractor or designer to make sure the plumbing fits the plan. Gas lines for ranges, water lines for refrigerators, and drain lines for islands are all part of our scope.',
@@ -979,7 +979,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Bathroom Remodels That Add Comfort and Value',
-    photos: ['/images/service-bathtubs-showers-plumbing.webp', '/images/service-bathroom-remodel-2.webp', '/images/service-bathroom-remodel-3.webp'],
+    photos: ['/images/service-bathroom-remodel-plumbing.webp', '/images/service-bathtubs-showers-plumbing.webp', '/images/canva-modern-bathroom-with-white-bathtub-MAEZlZV1eeg+(1).webp'],
     summaryParagraphs: [
       'We upgrade fixtures, relocate plumbing, and install water-saving systems that improve comfort and reduce costs. Spa-like retreat or accessible bathroom, we deliver craftsmanship that adds lasting value.',
       'Walk-in showers, soaking tubs, dual-flush toilets, radiant heated floors. We handle every aspect of bathroom plumbing with precision and care for your home and family.',

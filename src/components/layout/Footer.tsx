@@ -2,8 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, Mail, MapPin, ChevronRight, Shield, Star, Award, HardHat } from 'lucide-react'
-import { PHONE, PHONE_HREF, EMAIL } from '@/lib/utils'
+import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat } from 'lucide-react'
+import { PHONE, PHONE_HREF } from '@/lib/utils'
+import ContactEmailList from '@/components/ui/ContactEmailList'
 import { AnimatedSection } from '@/components/animations'
 
 const serviceLinks = [
@@ -64,9 +65,7 @@ export default function Footer() {
               <a href={PHONE_HREF} className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-300 hover:text-blue-light transition-colors duration-300 font-semibold">
                 <Phone className="h-4 w-4 text-blue-light" /> {PHONE}
               </a>
-              <a href={`mailto:${EMAIL}`} className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-400 hover:text-blue-light transition-colors duration-300">
-                <Mail className="h-4 w-4 text-blue-light" /> {EMAIL}
-              </a>
+              <ContactEmailList variant="footer" />
               <p className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-400">
                 <MapPin className="h-4 w-4 text-blue-light shrink-0" /> Spirit Lake, ID 83869
               </p>

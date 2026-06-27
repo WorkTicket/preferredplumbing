@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Barlow } from 'next/font/google'
+import { Barlow, Barlow_Condensed } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 import { localBusinessSchema, websiteSchema, videoObjectSchema, reviewSchema, organizationSchema } from '@/lib/schema'
@@ -8,12 +8,20 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
 import FloatingActionButton from '@/components/layout/FloatingActionButton'
+import AnalyticsTracker from '@/components/layout/AnalyticsTracker'
 import { PageTransition } from '@/components/animations'
 
 const barlow = Barlow({
   subsets: ['latin'],
-  weight: ['500', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-barlow',
+  display: 'swap',
+})
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ['latin'],
+  weight: ['500', '700', '900'],
+  variable: '--font-barlow-condensed',
   display: 'swap',
 })
 
@@ -86,7 +94,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={barlow.variable}>
+    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -116,12 +124,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-body antialiased">
         <Header />
-        <main className="min-h-screen pb-[calc(3.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+        <main className="min-h-screen pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
         <MobileCtaBar />
         <FloatingActionButton />
+        <AnalyticsTracker />
         {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </body>
     </html>

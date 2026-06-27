@@ -31,6 +31,7 @@ export default function Testimonials() {
             <ReviewCard
               key={review.id}
               name={review.name}
+              location={review.location}
               rating={review.rating}
               text={review.text}
             />

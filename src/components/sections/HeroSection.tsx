@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, ChevronRight, Shield, Clock, HardHat, CheckCircle } from 'lucide-react'
+import { Phone, ChevronRight, Shield, Clock, HardHat, CheckCircle, Star } from 'lucide-react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 const stats = [
-  { icon: Shield, number: 'Licensed', suffix: ' & Insured', label: '' },
   { icon: HardHat, number: '38+', suffix: '', label: 'Years Experience' },
+  { icon: Star, number: '5★', suffix: '', label: 'Google Rating' },
   { icon: Clock, number: '24/7', suffix: '', label: 'Emergency Service' },
   { icon: CheckCircle, number: '500+', suffix: '', label: 'Jobs Completed' },
 ]
@@ -58,6 +58,7 @@ const BottomWave = () => (
 export default function HeroSection() {
   const reduced = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -78,18 +79,18 @@ export default function HeroSection() {
               <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span>Spirit Lake&apos;s Trusted Plumber Since 1987</span>
             </div>
-            <h1 className="font-bold text-[clamp(2.2rem,10vw,4.5rem)] uppercase leading-[0.9] text-white">
-              Burst Pipe?<br />
-              <span className="text-blue-300">We&apos;re There Fast.</span>
+            <h1 className="font-display text-[clamp(2.2rem,10vw,4.5rem)] font-black uppercase leading-[0.9] text-white">
+              North Idaho&apos;s<br />
+              <span className="text-blue-300">Trusted Plumber</span>
             </h1>
             <p className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-lg text-gray-300 leading-relaxed">
-              Family-owned plumbing serving North Idaho since 1987. New construction, emergency repairs, remodels. Call for a free estimate.
+              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel — call for a free estimate.
             </p>
             <div className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a href="tel:12082903889" className="btn-primary-lg">
+              <a href="tel:12082903889" className="btn-primary-lg" data-track="hero_call">
                 <Phone className="h-5 w-5" /> Call (208) 290-3889
               </a>
-              <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
+              <Link href="#contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
                 Get Free Estimate <ChevronRight className="h-5 w-5" />
               </Link>
             </div>
@@ -126,13 +127,13 @@ export default function HeroSection() {
               <span>Spirit Lake&apos;s Trusted Plumber Since 1987</span>
             </motion.div>
             <motion.h1
-              className="font-bold text-[clamp(2.2rem,10vw,4.5rem)] uppercase leading-[0.9] text-white"
+              className="font-display text-[clamp(2.2rem,10vw,4.5rem)] font-black uppercase leading-[0.9] text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              Burst Pipe?<br />
-              <span className="text-blue-300">We&apos;re There Fast.</span>
+              North Idaho&apos;s<br />
+              <span className="text-blue-300">Trusted Plumber</span>
             </motion.h1>
             <motion.p
               className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-lg text-gray-300 leading-relaxed"
@@ -140,7 +141,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              Family-owned plumbing serving North Idaho since 1987. New construction, emergency repairs, remodels. Call for a free estimate.
+              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel — call for a free estimate.
             </motion.p>
             <motion.div
               className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4"
@@ -148,10 +149,10 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <a href="tel:12082903889" className="btn-primary-lg">
+              <a href="tel:12082903889" className="btn-primary-lg" data-track="hero_call">
                 <Phone className="h-5 w-5" /> Call (208) 290-3889
               </a>
-              <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
+              <Link href="#contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
                 Get Free Estimate <ChevronRight className="h-5 w-5" />
               </Link>
             </motion.div>
@@ -195,14 +196,25 @@ export default function HeroSection() {
     <>
       <link rel="preload" as="image" href="/images/preferred-plumbing-truck-interior.webp" fetchPriority="high" />
       <section className="relative flex min-h-[90svh] sm:min-h-[85vh] items-center overflow-hidden">
+        <Image
+          src="/images/preferred-plumbing-truck-interior.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          className="object-cover brightness-[0.85] saturate-[1.05]"
+          sizes="100vw"
+        />
         <video
           autoPlay
           muted
           loop
           playsInline
           poster="/images/preferred-plumbing-truck-interior.webp"
-          preload="auto"
-          className="absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.05]"
+          preload="metadata"
+          onLoadedData={() => setVideoReady(true)}
+          onError={() => setVideoReady(false)}
+          className={`absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.05] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src="/videos/preferred-plumbing-hero.mp4" type="video/mp4" />
         </video>

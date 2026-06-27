@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, CheckCircle, ChevronRight } from 'lucide-react'
 import { services } from '@/lib/data'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { trackFormSubmission } from '@/lib/utils'
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -46,6 +47,7 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       })
       if (res.ok) {
+        trackFormSubmission(data.service)
         setSubmitted(true)
         setTimeout(() => router.push('/thank-you'), 1500)
       } else {
@@ -91,7 +93,7 @@ export default function ContactForm() {
     )
   }
 
-  const inputClass = 'w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300 text-sm'
+  const inputClass = 'w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300'
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">

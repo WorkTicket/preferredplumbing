@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Phone, MapPin, Clock, Mail, Shield, Star, Navigation } from 'lucide-react'
+import { Phone, MapPin, Clock, Shield, Star, Navigation } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
 import ContactForm from '@/components/ui/ContactForm'
 import SectionLabel from '@/components/ui/SectionLabel'
-import { PHONE, PHONE_HREF, EMAIL } from '@/lib/utils'
+import { PHONE, PHONE_HREF } from '@/lib/utils'
+import ContactEmailList from '@/components/ui/ContactEmailList'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Contact Us',
@@ -86,15 +87,7 @@ export default function ContactPage() {
                       <span className="font-semibold">{PHONE}</span>
                     </div>
                   </a>
-                  <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-gray-500 transition hover:text-blue group">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10">
-                      <Mail className="h-5 w-5 text-blue" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400">Email</p>
-                      <span>{EMAIL}</span>
-                    </div>
-                  </a>
+                  <ContactEmailList />
                   <div className="flex items-center gap-3 text-gray-500">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10">
                       <MapPin className="h-5 w-5 text-blue" />

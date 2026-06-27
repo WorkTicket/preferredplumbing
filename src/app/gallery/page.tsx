@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { Phone, ChevronRight, Camera } from 'lucide-react'
+import { Phone, ChevronRight } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
-import { StatisticsBanner, GalleryGrid } from '@/components/gallery'
-import { galleryProjects } from '@/data/gallery'
+import { StatisticsBanner } from '@/components/gallery'
+import GalleryGridSkeleton from '@/components/gallery/GalleryGridSkeleton'
+import { galleryProjects, galleryProjectSummaries } from '@/data/gallery'
+
+const GalleryGrid = dynamic(() => import('@/components/gallery/GalleryGrid'), {
+  loading: () => <GalleryGridSkeleton />,
+})
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Project Gallery | Spirit Lake, ID',
@@ -101,7 +107,7 @@ export default function GalleryPage() {
       {/* Gallery with filters */}
       <section className="section-padding bg-gray-50">
         <div className="container-page">
-          <GalleryGrid />
+          <GalleryGrid projects={galleryProjectSummaries} />
         </div>
       </section>
 

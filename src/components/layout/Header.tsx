@@ -50,8 +50,7 @@ export default function Header() {
           <Link href="/" className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0">
             <Image
               src="/images/preferred logo.webp"
-              alt=""
-              aria-hidden="true"
+              alt="Preferred Plumbing Solutions logo"
               width={36}
               height={36}
               className={cn(
