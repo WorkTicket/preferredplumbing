@@ -92,7 +92,7 @@ export default function PortfolioItemPage({ params }: Props) {
         <section className="section-padding bg-gray-50">
           <div className="container-page">
             <SectionLabel text="Project Photos" />
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-3">
               {item.gallery.map((photo) => (
                 <div key={photo} className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-premium-md">
                   <Image

@@ -82,7 +82,7 @@ export default function AreasPage() {
               <p className="mt-2 text-sm text-gray-500">
                 We serve {idAreas.length} communities across Kootenai County, Bonner County, and the Idaho Panhandle.
               </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {idAreas.map((area) => (
                   <Link
                     key={area.slug}
@@ -123,7 +123,7 @@ export default function AreasPage() {
               <p className="mt-2 text-sm text-gray-500">
                 We serve {waAreas.length} communities across Spokane County and Pend Oreille County.
               </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {waAreas.map((area) => (
                   <Link
                     key={area.slug}

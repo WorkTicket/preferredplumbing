@@ -174,7 +174,7 @@ export default function ServicePage({ params }: Props) {
               <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
                 Our {service.title} Services
               </h2>
-              <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {rich.subServices.map((sub, i) => (
                   <div key={i} className="group rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium transition-all duration-200 hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
                     <span className="font-display text-3xl font-black text-blue/10 leading-none">
@@ -195,7 +195,7 @@ export default function ServicePage({ params }: Props) {
                 <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900 mb-8">
                   {service.title} <span className="text-blue">Project Photos</span>
                 </h2>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {rich.photos.map((photo, i) => (
                     <div key={i} className="group relative overflow-hidden rounded-xl shadow-premium border border-gray-200">
                       <Image
@@ -235,7 +235,7 @@ export default function ServicePage({ params }: Props) {
               <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
                 {rich.benefitsHeading}
               </h2>
-              <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {rich.benefits.map((benefit, i) => (
                   <div key={i} className="group rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium transition-all duration-200 hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue/10">
@@ -257,7 +257,7 @@ export default function ServicePage({ params }: Props) {
                 <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
                   What&apos;s Included
                 </h2>
-                <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <ul className="mt-8 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 rounded-lg bg-white border border-gray-200 p-4 shadow-premium">
                       <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
@@ -361,7 +361,7 @@ export default function ServicePage({ params }: Props) {
                 {service.features && service.features.length > 0 && (
                   <div>
                     <h2 className="font-display text-2xl font-bold uppercase text-gray-900">What&apos;s Included</h2>
-                    <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <ul className="mt-6 grid gap-3 grid-cols-1 sm:grid-cols-2">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3 rounded-lg bg-white border border-gray-200 p-4 shadow-premium">
                           <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
@@ -459,7 +459,7 @@ export default function ServicePage({ params }: Props) {
       {/* ── CTA WITH ADDITIONAL LINKS ── */}
       <section className="section-padding bg-white">
         <div className="container-page">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/gallery" className="group rounded-xl border border-gray-200 bg-white p-6 shadow-premium transition-all hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
               <h3 className="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-blue">View Our Gallery</h3>
               <p className="mt-2 text-sm text-gray-500">See photos of completed {service.title.toLowerCase()} projects in North Idaho.</p>

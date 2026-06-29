@@ -50,7 +50,7 @@ export default function PortfolioPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-page">
           <SectionLabel text="Featured Projects" />
-          <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
+          <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2">
             {portfolioItems.map((item) => (
               <Link
                 key={item.slug}

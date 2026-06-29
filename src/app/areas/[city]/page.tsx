@@ -178,7 +178,7 @@ export default function CityPage({ params }: Props) {
             We offer a full range of plumbing services to homeowners and businesses in {area.fullName}. 
             Here are the most requested services in your area:
           </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {areaServices.map((s) => (
               <Link
                 key={s.slug}
@@ -201,7 +201,7 @@ export default function CityPage({ params }: Props) {
             All Services Available<br />
             <span className="text-blue">in {area.city}</span>
           </h2>
-          <div className="mt-8 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard
                 key={service.slug}
