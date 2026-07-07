@@ -197,13 +197,16 @@ export default function ServicePage({ params }: Props) {
                 </h2>
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {rich.photos.map((photo, i) => (
-                    <div key={i} className="group relative overflow-hidden rounded-xl shadow-premium border border-gray-200">
+                    <div
+                      key={photo}
+                      className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 shadow-premium border border-gray-200"
+                    >
                       <Image
                         src={photo}
                         alt={`${service.title} project completed by Preferred Plumbing Solutions in Spirit Lake, Idaho - Photo ${i + 1}`}
-                        width={600}
-                        height={450}
-                        className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
