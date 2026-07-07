@@ -67,7 +67,7 @@ export default function HeroSection() {
   }, [])
 
   const waveTopPos = scrolled
-    ? 'absolute top-12 sm:top-14 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
+    ? 'absolute top-14 sm:top-14 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
     : 'absolute top-14 sm:top-16 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
 
   const content = (
