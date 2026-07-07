@@ -1,16 +1,20 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Phone, ArrowRight } from 'lucide-react'
+import { X, Phone, ArrowRight, ChevronDown, Wrench } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import {
+  getNavServices,
+  SERVICE_NAV_ICONS,
+  SERVICE_NAV_LABELS,
+} from '@/lib/nav-services'
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
   { href: '/about', label: 'About Us' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/areas-we-serve', label: 'Service Areas' },
@@ -61,8 +65,24 @@ const ctaVariants = {
   exit: { opacity: 0, y: 10, transition: { duration: 0.15 } },
 }
 
+const servicesSubmenuVariants = {
+  hidden: { height: 0, opacity: 0 },
+  visible: {
+    height: 'auto',
+    opacity: 1,
+    transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+  },
+}
+
 export default function NavDrawer({ open, onClose }: NavDrawerProps) {
   const reduced = useReducedMotion()
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const navServices = getNavServices()
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -77,6 +97,158 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
       document.body.style.overflow = ''
     }
   }, [open, onClose])
+
+  useEffect(() => {
+    if (!open) setServicesOpen(false)
+  }, [open])
+
+  const renderNavLink = (href: string, label: string, index: number) =>
+    reduced ? (
+      <Link
+        key={href}
+        href={href}
+        onClick={onClose}
+        className="border-b border-gray-50 py-3.5 text-base font-semibold text-gray-700 transition-all duration-200 hover:text-blue active:text-blue"
+      >
+        {label}
+      </Link>
+    ) : (
+      <motion.div
+        key={href}
+        custom={index}
+        variants={linkVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <Link
+          href={href}
+          onClick={onClose}
+          className="group flex items-center justify-between border-b border-gray-50 py-3.5 text-base font-semibold text-gray-700 transition-all duration-200 hover:text-blue active:text-blue"
+        >
+          {label}
+          <ArrowRight className="h-4 w-4 text-gray-300 transition-all duration-200 group-hover:text-blue group-hover:translate-x-0.5" />
+        </Link>
+      </motion.div>
+    )
+
+  const servicesSection = reduced ? (
+    <div className="border-b border-gray-50">
+      <button
+        type="button"
+        onClick={() => setServicesOpen((prev) => !prev)}
+        aria-expanded={servicesOpen}
+        className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+      >
+        Services
+        <ChevronDown
+          className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', servicesOpen && 'rotate-180')}
+        />
+      </button>
+      {servicesOpen && (
+        <div className="pb-2 pl-1">
+          {navServices.map((service) => {
+            const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+            const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+            const isEmergency = service.slug === 'emergency'
+
+            return (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                onClick={onClose}
+                className={cn(
+                  'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                  isEmergency ? 'text-red-700 hover:bg-red-50' : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                )}
+              >
+                <span
+                  className={cn(
+                    'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                    isEmergency ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-blue'
+                  )}
+                >
+                  <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                </span>
+                {label}
+              </Link>
+            )
+          })}
+          <Link
+            href="/services"
+            onClick={onClose}
+            className="mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold text-blue transition-colors hover:bg-blue-50"
+          >
+            View All <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      )}
+    </div>
+  ) : (
+    <motion.div custom={1} variants={linkVariants} initial="hidden" animate="visible" exit="exit">
+      <div className="border-b border-gray-50">
+        <button
+          type="button"
+          onClick={() => setServicesOpen((prev) => !prev)}
+          aria-expanded={servicesOpen}
+          className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+        >
+          Services
+          <ChevronDown
+            className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', servicesOpen && 'rotate-180')}
+          />
+        </button>
+        <AnimatePresence initial={false}>
+          {servicesOpen && (
+            <motion.div
+              variants={servicesSubmenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="overflow-hidden"
+            >
+              <div className="pb-2 pl-1">
+                {navServices.map((service) => {
+                  const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+                  const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+                  const isEmergency = service.slug === 'emergency'
+
+                  return (
+                    <Link
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                      onClick={onClose}
+                      className={cn(
+                        'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                        isEmergency ? 'text-red-700 hover:bg-red-50' : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                          isEmergency ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-blue'
+                        )}
+                      >
+                        <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                      </span>
+                      {label}
+                    </Link>
+                  )
+                })}
+                <Link
+                  href="/services"
+                  onClick={onClose}
+                  className="mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold text-blue transition-colors hover:bg-blue-50"
+                >
+                  View All <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
+  )
 
   return (
     <AnimatePresence mode="wait">
@@ -135,36 +307,9 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
             </motion.div>
 
             <nav className="flex flex-col px-4 py-2 flex-1 overflow-y-auto">
-              {links.map((link, i) =>
-                reduced ? (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={onClose}
-                    className="border-b border-gray-50 py-3.5 text-base font-semibold text-gray-700 transition-all duration-200 hover:text-blue active:text-blue"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <motion.div
-                    key={link.href}
-                    custom={i}
-                    variants={linkVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={onClose}
-                      className="group flex items-center justify-between border-b border-gray-50 py-3.5 text-base font-semibold text-gray-700 transition-all duration-200 hover:text-blue active:text-blue"
-                    >
-                      {link.label}
-                      <ArrowRight className="h-4 w-4 text-gray-300 transition-all duration-200 group-hover:text-blue group-hover:translate-x-0.5" />
-                    </Link>
-                  </motion.div>
-                )
-              )}
+              {renderNavLink('/', 'Home', 0)}
+              {servicesSection}
+              {links.slice(1).map((link, i) => renderNavLink(link.href, link.label, i + 2))}
             </nav>
           </motion.div>
         </>

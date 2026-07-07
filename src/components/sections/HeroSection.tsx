@@ -84,7 +84,7 @@ export default function HeroSection() {
               <span className="text-blue-300">Trusted Plumber</span>
             </h1>
             <p className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-lg text-gray-300 leading-relaxed">
-              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel — call for a free estimate.
+              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel. Call for a free estimate.
             </p>
             <div className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a href="tel:12082903889" className="btn-primary-lg" data-track="hero_call">
@@ -141,7 +141,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel — call for a free estimate.
+              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel. Call for a free estimate.
             </motion.p>
             <motion.div
               className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4"

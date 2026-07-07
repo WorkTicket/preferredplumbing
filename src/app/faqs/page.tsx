@@ -3,7 +3,7 @@ import { Phone, ChevronRight } from 'lucide-react'
 import { faqItems } from '@/lib/data'
 import { faqSchema } from '@/lib/schema'
 import { generateMetadata, siteUrl } from '@/lib/seo'
-import SectionLabel from '@/components/ui/SectionLabel'
+import PageHero from '@/components/sections/PageHero'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Frequently Asked Questions',
@@ -19,19 +19,14 @@ export default function FAQsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqItems)) }}
       />
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="FAQ" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Frequently Asked<br />
-            <span className="text-blue">Questions</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            Got a question? Check the list below. If you don&apos;t see what you need, call
-            (208) 290-3889.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="FAQ"
+        title={<>Frequently Asked<br /><span className="text-blue-300">Questions</span></>}
+        description="Got a question? Check the list below. If you don't see what you need, call (208) 290-3889."
+        image="/images/hero-services.webp"
+        imageAlt="Frequently asked questions about plumbing services in Spirit Lake Idaho"
+        priority
+      />
 
       <section className="section-padding bg-gray-50">
         <div className="container-page max-w-3xl">

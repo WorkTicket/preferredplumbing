@@ -53,7 +53,7 @@ export default function ServicesGrid() {
             href="/services"
             className="btn-secondary"
           >
-            View All 14 Services <ArrowRight className="h-4 w-4" />
+            View All Services <ArrowRight className="h-4 w-4" />
           </Link>
           <a
             href={PHONE_HREF}

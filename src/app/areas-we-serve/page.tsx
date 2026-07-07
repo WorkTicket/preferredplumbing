@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Phone, ChevronRight, MapPin, Star, Shield, Clock, HardHat } from 'lucide-react'
-import SectionLabel from '@/components/ui/SectionLabel'
 import { areas } from '@/lib/data'
 import { generateMetadata, siteUrl } from '@/lib/seo'
+import PageHero from '@/components/sections/PageHero'
+import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Service Areas | North Idaho & Eastern Washington',
@@ -49,27 +50,21 @@ export default function AreasPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="Service Areas" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Plumbing Services Across<br />
-            <span className="text-blue">North Idaho &amp; Eastern Washington</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            From Spirit Lake to Spokane Valley, we provide expert plumbing services to {areas.length} cities across North Idaho and Eastern Washington.
-            No matter where you are in the region, we&apos;re just a phone call away.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href="tel:12082903889" className="btn-primary">
-              <Phone className="h-5 w-5" /> (208) 290-3889
-            </a>
-            <Link href="/contact" className="btn-secondary">
-              Get a Free Quote <ChevronRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="Service Areas"
+        title={<>Plumbing Services Across<br /><span className="text-blue-300">North Idaho &amp; Eastern Washington</span></>}
+        description={`From Spirit Lake to Spokane Valley, we provide expert plumbing services to ${areas.length} cities across North Idaho and Eastern Washington. No matter where you are in the region, we're just a phone call away.`}
+        image="/images/hero-areas.webp"
+        imageAlt="Preferred Plumbing Solutions service areas across North Idaho and Eastern Washington"
+        priority
+      >
+        <a href="tel:12082903889" className="btn-primary-lg">
+          <Phone className="h-5 w-5" /> (208) 290-3889
+        </a>
+        <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
+          Get a Free Quote <ChevronRight className="h-4 w-4" />
+        </Link>
+      </PageHero>
 
       <section className="section-padding bg-gray-50">
         <div className="container-page">

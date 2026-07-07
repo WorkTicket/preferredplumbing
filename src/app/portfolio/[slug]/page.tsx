@@ -63,7 +63,7 @@ export default function PortfolioItemPage({ params }: Props) {
       <section className="relative min-h-[35vh] flex items-end">
         <Image
           src={item.image}
-          alt={`${item.title} — Preferred Plumbing Solutions`}
+          alt={`${item.title}, Preferred Plumbing Solutions`}
           fill
           className="object-cover"
           priority
@@ -97,7 +97,7 @@ export default function PortfolioItemPage({ params }: Props) {
                 <div key={photo} className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-premium-md">
                   <Image
                     src={photo}
-                    alt={`${item.title} project photo — Preferred Plumbing Solutions`}
+                    alt={`${item.title} project photo, Preferred Plumbing Solutions`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 33vw"

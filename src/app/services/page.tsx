@@ -2,9 +2,9 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Phone, ChevronRight, Star, Shield, Clock, HardHat } from 'lucide-react'
 import ServiceCard from '@/components/ui/ServiceCard'
-import SectionLabel from '@/components/ui/SectionLabel'
 import { services } from '@/lib/data'
 import { generateMetadata, siteUrl } from '@/lib/seo'
+import PageHero from '@/components/sections/PageHero'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Services Spirit Lake Idaho | Full-Service Plumber',
@@ -57,19 +57,14 @@ export default function ServicesPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="Our Services" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Expert Plumbing Services<br />
-            <span className="text-blue">in Spirit Lake, Idaho</span>
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg text-gray-600">
-            From new construction rough-ins to emergency repairs, Preferred Plumbing Solutions delivers
-            professional, code-compliant plumbing across North Idaho. Every job is backed by 38+ years of experience.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Our Services"
+        title={<>Expert Plumbing Services<br /><span className="text-blue-300">in Spirit Lake, Idaho</span></>}
+        description="From new construction rough-ins to emergency repairs, Preferred Plumbing Solutions delivers professional, code-compliant plumbing across North Idaho. Every job is backed by 38+ years of experience."
+        image="/images/hero-services.webp"
+        imageAlt="Professional plumbing services in Spirit Lake and North Idaho"
+        priority
+      />
 
       {/* Trust Signals */}
       <section className="bg-white border-b border-gray-100">

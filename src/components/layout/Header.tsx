@@ -3,18 +3,19 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, Phone, ChevronDown, Wrench } from 'lucide-react'
+import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
 import NavDrawer from './NavDrawer'
-import { services } from '@/lib/data'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
+import ServicesMegaMenu from './ServicesMegaMenu'
+
+const navLinkClass =
+  'text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full'
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const servicesRef = useRef<HTMLDivElement>(null)
-  const reduced = useReducedMotion()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -32,22 +33,36 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setServicesOpen(false)
+    }
+    if (servicesOpen) {
+      document.addEventListener('keydown', handleEscape)
+    }
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [servicesOpen])
+
   return (
     <>
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-500',
-          scrolled
-            ? 'bg-white/95 shadow-premium-md backdrop-blur-md'
-            : 'bg-white/95 backdrop-blur-md',
+          'bg-white/95 backdrop-blur-md',
+          scrolled ? 'shadow-premium-md' : '',
           scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         )}
       >
-        <div className={cn(
-          'mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 sm:px-6 lg:px-8 transition-all duration-500',
-          scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-        )}>
-          <Link href="/" className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0">
+        <div
+          className={cn(
+            'mx-auto flex max-w-[90rem] items-center justify-between gap-3 px-3 sm:px-6 lg:px-8 transition-all duration-500',
+            scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
+          )}
+        >
+          <Link
+            href="/"
+            className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0"
+          >
             <Image
               src="/images/preferred logo.webp"
               alt="Preferred Plumbing Solutions logo"
@@ -72,89 +87,61 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 shrink-0">
-            <Link href="/" className="text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7 shrink-0">
+            <Link href="/" className={navLinkClass}>
               Home
             </Link>
 
-            <div ref={servicesRef} className="relative">
+            <div
+              ref={servicesRef}
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
               <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                onMouseEnter={() => setServicesOpen(true)}
-                className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full"
-              >
-                Services <ChevronDown className={cn('h-3.5 w-3.5 transition-transform duration-300', servicesOpen && 'rotate-180')} />
-              </button>
-
-              <div
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
+                type="button"
+                onClick={() => setServicesOpen((open) => !open)}
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
                 className={cn(
-                  'absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[640px] rounded-2xl bg-white shadow-premium-xl border border-gray-100 transition-all duration-300',
-                  servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+                  navLinkClass,
+                  'flex items-center gap-1 after:hidden',
+                  servicesOpen && 'text-blue'
                 )}
               >
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400">All Services</span>
-                    <Link
-                      href="/services"
-                      onClick={() => setServicesOpen(false)}
-                      className="text-xs font-semibold text-blue hover:text-blue-dark transition-colors"
-                    >
-                      View All 14 Services &rarr;
-                    </Link>
-                  </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {services.filter(s => !['kitchen-remodels', 'bathroom-remodels'].includes(s.slug) || s.slug === 'remodels').map((service) => (
-                      <Link
-                        key={service.slug}
-                        href={`/services/${service.slug}`}
-                        onClick={() => setServicesOpen(false)}
-                        className="group/link flex items-start gap-2.5 rounded-xl p-3 transition-all duration-200 hover:bg-blue-50 hover:shadow-sm"
-                      >
-                        <Wrench className="h-4 w-4 mt-0.5 text-blue shrink-0 transition-transform duration-200 group-hover/link:scale-110" />
-                        <div>
-                          <span className="text-sm font-semibold text-gray-700 transition-colors duration-200 group-hover/link:text-blue">{service.title}</span>
-                          <p className="text-xs text-gray-400 mt-0.5 line-clamp-1">{service.description.slice(0, 60)}...</p>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
-                    <p className="text-xs text-gray-400">
-                      <span className="font-semibold text-gray-600">Need help choosing?</span> Call us for a free consultation
-                    </p>
-                    <a
-                      href={PHONE_HREF}
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-blue px-4 py-2 text-xs font-bold text-white transition-all hover:bg-blue-dark shadow-premium active:scale-[0.97]"
-                    >
-                      <Phone className="h-3 w-3" /> {PHONE}
-                    </a>
-                  </div>
-                </div>
-              </div>
+                Services
+                <ChevronDown
+                  className={cn(
+                    'h-3.5 w-3.5 transition-transform duration-300',
+                    servicesOpen && 'rotate-180'
+                  )}
+                />
+              </button>
+
+              <ServicesMegaMenu open={servicesOpen} onClose={() => setServicesOpen(false)} />
             </div>
 
-            <Link href="/about" className="text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full">
+            <Link href="/about" className={navLinkClass}>
               About
             </Link>
-            <Link href="/gallery" className="text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full">
+            <Link href="/gallery" className={navLinkClass}>
               Gallery
             </Link>
-            <Link href="/contact" className="text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full">
+            <Link href="/contact" className={navLinkClass}>
               Contact
             </Link>
-            <div className="flex items-center gap-2">
+
+            <div className="flex items-center gap-2 lg:gap-2.5 ml-1">
               <a
                 href={PHONE_HREF}
-                className="flex items-center gap-2 rounded-lg border-2 border-blue px-3.5 py-2 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97]"
+                className="flex items-center gap-2 rounded-lg border-2 border-blue px-3 py-2 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97] whitespace-nowrap"
               >
-                <Phone className="h-3.5 w-3.5" /> {PHONE}
+                <Phone className="h-3.5 w-3.5 shrink-0" />
+                {PHONE}
               </a>
               <Link
                 href="/contact"
-                className="rounded-lg bg-blue px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg shadow-premium active:scale-[0.97]"
+                className="rounded-lg bg-blue px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg shadow-premium active:scale-[0.97] whitespace-nowrap"
               >
                 Free Quote
               </Link>

@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Phone, ChevronRight } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
+import PageHero from '@/components/sections/PageHero'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { StatisticsBanner } from '@/components/gallery'
 import GalleryGridSkeleton from '@/components/gallery/GalleryGridSkeleton'
@@ -61,45 +62,23 @@ export default function GalleryPage() {
         />
       ))}
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/30 via-white to-white">
-        <div className="section-padding">
-          <div className="container-page">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="flex justify-center">
-                <SectionLabel text="Gallery" />
-              </div>
-              <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-                Our Project<br />
-                <span className="text-blue">Gallery</span>
-              </h1>
-              <p className="mt-4 text-lg text-gray-600">
-                Every project tells a story. From rough-in to finish trim, we photograph our work because
-                we&apos;re proud of it. Browse through our gallery to see the quality and craftsmanship
-                we bring to every job across North Idaho.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-blue" />
-                  Residential
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-blue" />
-                  Commercial
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-blue" />
-                  New Construction
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-blue" />
-                  Remodels
-                </span>
-              </div>
-            </div>
-          </div>
+      <PageHero
+        label="Gallery"
+        title={<>Our Project<br /><span className="text-blue-300">Gallery</span></>}
+        description="Every project tells a story. From rough-in to finish trim, we photograph our work because we're proud of it. Browse through our gallery to see the quality and craftsmanship we bring to every job across North Idaho."
+        image="/images/hero-gallery.webp"
+        imageAlt="Completed plumbing projects by Preferred Plumbing Solutions in North Idaho"
+        priority
+      >
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-gray-300">
+          {['Residential', 'Commercial', 'New Construction', 'Remodels'].map((tag) => (
+            <span key={tag} className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-blue-300" />
+              {tag}
+            </span>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
       {/* Statistics */}
       <StatisticsBanner />

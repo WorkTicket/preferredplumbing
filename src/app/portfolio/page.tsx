@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
+import PageHero from '@/components/sections/PageHero'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 export const metadata: Metadata = generateMetadata({
@@ -35,18 +36,14 @@ const portfolioItems = [
 export default function PortfolioPage() {
   return (
     <div className="pt-14 sm:pt-16">
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="Portfolio" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Our Project<br />
-            <span className="text-blue">Portfolio</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            See examples of our plumbing and remodeling work across North Idaho.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Portfolio"
+        title={<>Our Project<br /><span className="text-blue-300">Portfolio</span></>}
+        description="See examples of our plumbing and remodeling work across North Idaho."
+        image="/images/hero-gallery.webp"
+        imageAlt="Preferred Plumbing Solutions project portfolio in North Idaho"
+        priority
+      />
       <section className="section-padding bg-gray-50">
         <div className="container-page">
           <SectionLabel text="Featured Projects" />
@@ -60,7 +57,7 @@ export default function PortfolioPage() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={item.image}
-                    alt={`${item.title} — Preferred Plumbing Solutions, ${item.location}`}
+                    alt={`${item.title}, Preferred Plumbing Solutions, ${item.location}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
