@@ -49,7 +49,7 @@ export default function BlogPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-page">
           <SectionLabel text="Latest Posts" />
-          <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
               <Link
                 key={post.slug}

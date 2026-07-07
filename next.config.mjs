@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
+    // Serve pre-optimized /public/images directly. The default `/_next/image` route
+    // returns 400 on Cloudflare Workers even with the IMAGES binding configured.
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 768, 1024, 1280, 1536, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

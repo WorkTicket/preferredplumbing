@@ -24,7 +24,7 @@ export default function FloatingActionButton() {
 
   if (reduced) {
     return (
-      <div className="fixed bottom-24 sm:bottom-8 right-4 z-50 flex flex-col gap-2">
+      <div className="fixed bottom-24 right-4 z-50 hidden md:flex flex-col gap-2">
         {visible && (
           <>
             <button
@@ -48,7 +48,7 @@ export default function FloatingActionButton() {
   }
 
   return (
-    <div className="fixed bottom-24 sm:bottom-8 right-4 z-50 flex flex-col gap-2">
+    <div className="fixed bottom-8 right-4 z-50 hidden md:flex flex-col gap-2">
       <AnimatePresence>
         {visible && (
           <motion.button

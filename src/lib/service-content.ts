@@ -35,7 +35,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Expert Plumbing for High-Demand Commercial Spaces',
-    photos: ['/images/service-commercial-1.webp', '/images/service-commercial-2.webp', '/images/service-commercial-3.webp'],
+    photos: [
+      '/images/service-commercial-plumbing-project.webp',
+      '/images/gallery-grease-trap-commercial.webp',
+      '/images/Overhead+Plumbing-1920w.webp',
+    ],
     summaryParagraphs: [
       'We have nearly four decades of experience building commercial plumbing systems across North Idaho. Office buildings, retail centers, restaurants, and industrial facilities, we handle them all.',
       'We work with contractors, property managers, and developers to meet local codes and efficiency goals. Whether it is new construction or tenant improvements, every job gets our full attention.',
@@ -108,7 +112,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Precision Plumbing Built for Long-Term Performance',
-    photos: ['/images/service-new-construction-1.webp', '/images/service-new-construction-2.webp', '/images/service-new-construction-3.webp'],
+    photos: [
+      '/images/service-new-construction-plumbing.webp',
+      '/images/service-new-construction-project.webp',
+      '/images/Rough+In+Plumbing+-975e1bfd-1920w.webp',
+    ],
     summaryParagraphs: [
       'New construction plumbing is one of our specialties. We design and install complete systems that match your architectural plans and local code requirements for projects across Spirit Lake and North Idaho.',
       'From single-family homes to multi-unit developments and commercial properties, every pipe, valve, and fixture gets installed right. We work with general contractors and project managers to hit deadlines and stay on budget.',
@@ -181,7 +189,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Efficient Water Heater Services for Lasting Comfort',
-    photos: ['/images/service-water-heaters-1.webp', '/images/service-water-heaters-2.webp'],
+    photos: [
+      '/images/service-water-heater-installation.webp',
+      '/images/Water+Heater.webp',
+      '/images/Tankless+Water+Heater+.webp',
+    ],
     summaryParagraphs: [
       'We match the water heater to your household, not the other way around. Tank or tankless, we help you pick what works for your family size and budget.',
       'Our installations hold up. Our repairs are fast and thorough. We get your hot water back on and keep it that way.',
@@ -254,7 +266,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Even, Energy-Efficient Heating with Radiant Heat Systems',
-    photos: ['/images/service-radiant-heat-1.webp', '/images/service-radiant-heat-2.webp', '/images/service-radiant-heat-3.webp'],
+    photos: [
+      '/images/service-radiant-heat-boiler.webp',
+      '/images/service-radiant-heat-infloor.webp',
+      '/images/Boiler_+Radiant+Heat+(1)-1920w.webp',
+    ],
     summaryParagraphs: [
       'Radiant heating is one of the best upgrades you can make to a North Idaho home. Warm floors, no drafts, no noise. We have been doing it long enough to get it right every time.',
       'We install and service both hydronic and electric systems that work with your flooring and home design. New build or retrofit, we tailor the setup to your layout.',
@@ -327,7 +343,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Experience Cleaner Water and Greater Efficiency with Expert Water Softener Solutions',
-    photos: ['/images/service-water-softeners-1.webp', '/images/service-water-softeners-2.webp', '/images/service-water-softeners-3.webp'],
+    photos: [
+      '/images/service-water-softener-installation.webp',
+      '/images/service-water-softener-utility-room.webp',
+      '/images/Utility+Room+Plumbing+-1920w.webp',
+    ],
     summaryParagraphs: [
       'Hard water is one of those things you do not realize is causing problems until it is gone. Scale buildup, shorter appliance life, inefficient plumbing. We have been helping families in Spirit Lake enjoy softer, cleaner water for decades.',
       'We install and service water softeners that remove excess calcium and magnesium. You get cleaner dishes, softer laundry, and water heaters and pipes that last longer.',
@@ -400,7 +420,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Reliable Sewer Line Replacement for Long-Term Protection',
-    photos: ['/images/service-sewer-line-1.webp', '/images/service-sewer-line-2.webp', '/images/service-sewer-line-3.webp'],
+    photos: [
+      '/images/service-sewer-line-replacement.webp',
+      '/images/New+Sewer+-1920w.webp',
+      '/images/Sewer+Line+(1)-1920w.webp',
+    ],
     summaryParagraphs: [
       'Frequent backups, foul odors, or tree roots in your pipes? We use camera inspections and modern trenchless techniques for a fix that lasts.',
       'Replacing a damaged sewer line prevents costly repairs down the road and keeps your home safe and healthy. We minimize disruption and get it done right.',
@@ -473,7 +497,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Protect Your Property with Expert Septic System Services',
-    photos: ['/images/service-septic-systems-1.webp', '/images/service-septic-systems-2.webp', '/images/service-septic-systems-3.webp'],
+    photos: [
+      '/images/service-septic-system-installation.webp',
+      '/images/Septic+Tank.webp',
+      '/images/IMG_0108-1920w.webp',
+    ],
     summaryParagraphs: [
       'New home or system upgrade, we make sure your septic works safely and efficiently. We have been doing it long enough to know what holds up and what does not.',
       'We use modern tools and proven techniques to prevent backups, protect groundwater, and extend system life. From routine pumping to full replacements, we handle it all.',
@@ -546,7 +574,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Expert Toilet & Faucet Services for Long-Lasting Performance',
-    photos: ['/images/service-toilets-faucets-1.webp', '/images/service-toilets-faucets-2.webp', '/images/service-toilets-faucets-3.webp'],
+    photos: [
+      '/images/service-toilets-faucets-plumbing.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(5)-1920w.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(4)-1920w.webp',
+    ],
     summaryParagraphs: [
       'New installs or leak repairs, we do precise, code-compliant work. Leaky toilets and dripping faucets waste thousands of gallons a year. We stop the waste fast.',
       'We bring decades of experience to every fixture replacement or repair. Old, worn-out fixtures get replaced with water-efficient models that look great and perform even better.',
@@ -619,7 +651,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Enhance Comfort and Value with Expert Bathtub & Shower Installations',
-    photos: ['/images/service-bathtubs-showers-1.webp', '/images/service-bathtubs-showers-2.webp', '/images/service-bathtubs-showers-3.webp'],
+    photos: [
+      '/images/service-bathtubs-showers-plumbing.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(9)-1920w.webp',
+      '/images/Plumbing+Trim+Faucets_bathtub_Toilet-1920w.webp',
+    ],
     summaryParagraphs: [
       'Remodel or new build, we deliver watertight fittings, proper drainage, and finishes that look great. We have been doing this long enough to get every detail right.',
       'From classic clawfoot tubs to modern walk-in showers, we install fixtures that match your style and stand up to daily use. Every connection is pressure-tested and leak-free.',
@@ -692,7 +728,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Professional Installation for Long-Term Efficiency',
-    photos: ['/images/service-dishwashers-1.webp', '/images/service-dishwashers-2.webp', '/images/service-dishwashers-3.webp'],
+    photos: [
+      '/images/service-dishwasher-disposal-install.webp',
+      '/images/uri_ifs___M_f949OO_cL-Htdj35dk9B-5ryTNXPWCi5OBKK0GBkzP8.webp',
+      '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+(10)-1920w.webp',
+    ],
     summaryParagraphs: [
       'Upgrade or replace, we make sure every connection is secure and leak-free. Proper drainage, right venting, no shortcuts.',
       'We handle dishwasher hookups, garbage disposal replacements, and appliance connections for all major brands. Every installation includes leak testing and code compliance.',
@@ -906,7 +946,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Upgrade Your Kitchen with Precision Plumbing for Lasting Value',
-    photos: ['/images/service-kitchen-remodel-plumbing.webp', '/images/service-kitchen-remodel-2.webp', '/images/service-kitchen-remodel-3.webp'],
+    photos: [
+      '/images/service-kitchen-remodel-plumbing.webp',
+      '/images/service-plumbing-remodels-upgrades.webp',
+      '/images/uri_ifs___M_e77b4073-008a-4607-b370-85b452cd71ea.webp',
+    ],
     summaryParagraphs: [
       'We specialize in the plumbing side of kitchen remodels. Moving sink drains, installing pot fillers and instant hot water dispensers, connecting everything so it works right.',
       'We coordinate with your contractor or designer to make sure the plumbing fits the plan. Gas lines for ranges, water lines for refrigerators, and drain lines for islands are all part of our scope.',
@@ -979,7 +1023,11 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     summaryHeading: 'Bathroom Remodels That Add Comfort and Value',
-    photos: ['/images/service-bathtubs-showers-plumbing.webp', '/images/service-bathroom-remodel-2.webp', '/images/service-bathroom-remodel-3.webp'],
+    photos: [
+      '/images/service-bathroom-remodel-plumbing.webp',
+      '/images/service-bathtubs-showers-plumbing.webp',
+      '/images/service-bathroom-remodel-accessible.webp',
+    ],
     summaryParagraphs: [
       'We upgrade fixtures, relocate plumbing, and install water-saving systems that improve comfort and reduce costs. Spa-like retreat or accessible bathroom, we deliver craftsmanship that adds lasting value.',
       'Walk-in showers, soaking tubs, dual-flush toilets, radiant heated floors. We handle every aspect of bathroom plumbing with precision and care for your home and family.',

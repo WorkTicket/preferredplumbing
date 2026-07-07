@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import SectionLabel from '@/components/ui/SectionLabel'
+import ContactEmailList from '@/components/ui/ContactEmailList'
 import { siteUrl } from '@/lib/seo'
 
 export const metadata: Metadata = {
@@ -50,9 +51,9 @@ export default function PrivacyPage() {
           </p>
           <h2 className="font-display text-xl font-bold uppercase text-gray-900">Contact</h2>
           <p>
-            For questions about this privacy policy, contact us at ron@preferredplumbingsolution.com
-            or call (208) 290-3889.
+            For questions about this privacy policy, contact us by phone at (208) 290-3889 or email:
           </p>
+          <ContactEmailList className="mt-2" />
         </div>
       </section>
     </div>

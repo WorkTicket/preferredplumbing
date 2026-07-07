@@ -62,16 +62,16 @@ module.exports = {
       'spirit-lake-id', 'coeur-dalene-id', 'post-falls-id', 'sandpoint-id',
       'hayden-id', 'rathdrum-id', 'priest-river-id', 'athol-id',
       'blanchard-id', 'clark-fork-id', 'newport-wa', 'chattaroy-wa',
-      'spokane-valley-wa', 'moscow-id', 'bellevue-id', 'mead-wa', 'oldtown-id',
+      'moscow-id', 'bellevue-id', 'mead-wa', 'oldtown-id',
     ]
     const portfolios = [
       'new-construction-spirit-lake',
       'commercial-remodel-coeur-dalene',
     ]
     const blogs = [
-      'how-to-prepare-your-plumbing-for-winter-in-north-idaho',
-      'benefits-of-tankless-water-heaters-in-spirit-lake',
-      'signs-you-need-to-replace-your-sewer-line',
+      'how-to-choose-plumber-spirit-lake-idaho',
+      'signs-sewer-line-replacement-north-idaho',
+      'radiant-heat-vs-forced-air-idaho',
     ]
 
     const servicePaths = services.map((slug) => ({

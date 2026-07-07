@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { SCROLL_TRIGGER_VIEWPORT } from '@/lib/animation-viewport'
 
 type AnimationVariant = 'fadeUp' | 'fadeIn' | 'slideUp' | 'scaleIn' | 'slideLeft' | 'slideRight'
 
@@ -42,7 +43,6 @@ interface AnimatedSectionProps {
   as?: 'div' | 'section' | 'article' | 'header'
   once?: boolean
   id?: string
-  margin?: string
 }
 
 export default function AnimatedSection({
@@ -54,7 +54,6 @@ export default function AnimatedSection({
   as = 'section',
   once = true,
   id,
-  margin = '-60px',
 }: AnimatedSectionProps) {
   const reduced = useReducedMotion()
   const ref = useRef<HTMLDivElement>(null)
@@ -73,7 +72,7 @@ export default function AnimatedSection({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, margin }}
+      viewport={{ ...SCROLL_TRIGGER_VIEWPORT, once }}
       variants={{
         hidden: variants[variant].hidden,
         visible: {

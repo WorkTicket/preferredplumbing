@@ -1,10 +1,11 @@
 'use client'
 
-import { Phone, MapPin, Clock, Mail, Shield, Zap, MessageSquare } from 'lucide-react'
+import { Phone, MapPin, Clock, Shield, Zap, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactForm from '@/components/ui/ContactForm'
 import { StaggerChildren } from '@/components/animations'
-import { PHONE, PHONE_HREF, EMAIL } from '@/lib/utils'
+import { PHONE, PHONE_HREF } from '@/lib/utils'
+import ContactEmailList from '@/components/ui/ContactEmailList'
 
 const perks = [
   { icon: Shield, text: 'Free estimates, no obligation' },
@@ -63,15 +64,7 @@ export default function ContactSection() {
                     <span className="font-semibold">{PHONE}</span>
                   </div>
                 </a>
-                <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-gray-700 transition-all duration-300 hover:text-blue group">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 transition-all duration-300 group-hover:bg-blue">
-                    <Mail className="h-5 w-5 text-blue transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400">Email</p>
-                    <span>{EMAIL}</span>
-                  </div>
-                </a>
+                <ContactEmailList />
                 <div className="flex items-center gap-3 text-gray-700">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10">
                     <MapPin className="h-5 w-5 text-blue" />

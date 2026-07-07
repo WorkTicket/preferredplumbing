@@ -50,30 +50,30 @@ export default function AboutSection() {
                 We still answer our own phone, show up on time, and build things to last.
               </p>
             </div>
-            <div className="mt-5 flex flex-wrap gap-x-8 gap-y-2">
-              <div>
+            <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-2">
+              <div className="min-w-0">
                 <p className="font-display text-2xl font-bold text-blue">
                   <AnimatedCounter end={38} suffix="+" duration={1400} />
                 </p>
-                <p className="text-xs text-gray-400">Years Experience</p>
+                <p className="mt-0.5 text-xs font-medium text-gray-600">Years Experience</p>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-display text-2xl font-bold text-blue">
                   <AnimatedCounter end={500} suffix="+" duration={1400} />
                 </p>
-                <p className="text-xs text-gray-400">Projects Done</p>
+                <p className="mt-0.5 text-xs font-medium text-gray-600">Projects Done</p>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-display text-2xl font-bold text-blue">
                   <AnimatedCounter end={16} duration={1200} />
                 </p>
-                <p className="text-xs text-gray-400">Cities Served</p>
+                <p className="mt-0.5 text-xs font-medium text-gray-600">Cities Served</p>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-display text-2xl font-bold text-blue">
                   <AnimatedCounter end={100} suffix="%" duration={1200} />
                 </p>
-                <p className="text-xs text-gray-400">Owner-Operated</p>
+                <p className="mt-0.5 text-xs font-medium text-gray-600">Owner-Operated</p>
               </div>
             </div>
             <Link

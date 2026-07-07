@@ -11,7 +11,7 @@ interface CategoryFilterProps {
 
 export default function CategoryFilter({ active, onChange }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-2 sm:gap-3">
+    <div className="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
       {categories.map((cat) => (
         <button
           key={cat}

@@ -33,7 +33,7 @@ export default function SortDropdown({ value, onChange }: SortDropdownProps) {
   const currentLabel = sortOptions.find((o) => o.value === value)?.label ?? 'Newest'
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative w-full sm:w-auto">
       <button
         onClick={() => setOpen(!open)}
         className={cn(

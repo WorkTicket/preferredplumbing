@@ -1,4 +1,15 @@
 import { siteUrl } from './seo'
+import { CONTACT_EMAILS } from './utils'
+
+const contactPoints = CONTACT_EMAILS.map((contact) => ({
+  '@type': 'ContactPoint',
+  telephone: '+12082903889',
+  contactType: 'customer service',
+  email: contact.email,
+  name: contact.name,
+  availableLanguage: ['English'],
+  areaServed: ['US'],
+}))
 
 export function organizationSchema() {
   return {
@@ -19,7 +30,7 @@ export function organizationSchema() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     telephone: '+12082903889',
-    email: 'ron@preferredplumbingsolution.com',
+    email: CONTACT_EMAILS.map((contact) => contact.email).join(', '),
     sameAs: ['https://www.tiktok.com/@preferredhnorris'],
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake' },
@@ -28,14 +39,7 @@ export function organizationSchema() {
       { '@type': 'City', name: 'Sandpoint' },
       { '@type': 'State', name: 'Idaho' },
     ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+12082903889',
-      contactType: 'customer service',
-      email: 'ron@preferredplumbingsolution.com',
-      availableLanguage: ['English'],
-      areaServed: ['US'],
-    },
+    contactPoint: contactPoints,
   }
 }
 
@@ -53,7 +57,7 @@ export function localBusinessSchema() {
     ],
     telephone: '+12082903889',
     priceRange: '$$',
-    email: 'ron@preferredplumbingsolution.com',
+    email: CONTACT_EMAILS.map((contact) => contact.email).join(', '),
     description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
     foundingDate: '1987',
     founder: { '@type': 'Person', name: 'Ron Norris' },
@@ -145,13 +149,10 @@ export function postalAddressSchema() {
 export function contactPointSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ContactPoint',
-    telephone: '+12082903889',
-    contactType: 'customer service',
-    email: 'ron@preferredplumbingsolution.com',
-    availableLanguage: ['English'],
-    areaServed: ['US'],
-    contactOption: 'TollFree',
+    '@graph': contactPoints.map((contact) => ({
+      ...contact,
+      contactOption: 'TollFree',
+    })),
   }
 }
 

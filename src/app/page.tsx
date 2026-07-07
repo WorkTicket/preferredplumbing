@@ -10,7 +10,7 @@ import FAQAccordion from '@/components/sections/FAQAccordion'
 import ServiceAreas from '@/components/sections/ServiceAreas'
 import ContactSection from '@/components/sections/ContactSection'
 import { AnimatedSection } from '@/components/animations'
-import { faqSchema, webpageSchema, reviewSchema } from '@/lib/schema'
+import { faqSchema, webpageSchema } from '@/lib/schema'
 import { faqItems, reviews } from '@/lib/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
 
@@ -56,26 +56,26 @@ export default function HomePage() {
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <EmergencyBand />
       </AnimatedSection>
-      <AnimatedSection variant="slideUp" delay={0.1}>
-        <Testimonials />
-      </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <WhyChooseUs />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServicesGrid />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1}>
-        <RecentProjects />
-      </AnimatedSection>
       <AnimatedSection variant="slideUp" delay={0.1}>
         <AboutSection />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
-        <FAQAccordion />
+        <RecentProjects />
+      </AnimatedSection>
+      <AnimatedSection variant="slideUp" delay={0.1}>
+        <Testimonials />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServiceAreas />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <FAQAccordion />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.15}>
         <ContactSection />

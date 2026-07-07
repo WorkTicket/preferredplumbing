@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Phone, MapPin, Clock, Mail, Shield, Star, Navigation } from 'lucide-react'
+import { Phone, MapPin, Clock, Shield, Star, Navigation } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
 import ContactForm from '@/components/ui/ContactForm'
-import SectionLabel from '@/components/ui/SectionLabel'
-import { PHONE, PHONE_HREF, EMAIL } from '@/lib/utils'
+import { PHONE, PHONE_HREF } from '@/lib/utils'
+import ContactEmailList from '@/components/ui/ContactEmailList'
+import PageHero from '@/components/sections/PageHero'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Contact Us',
@@ -49,26 +50,18 @@ export default function ContactPage() {
           __html: JSON.stringify(postalAddressSchema()),
         }}
       />
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="Contact Us" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Get Your Free<br />
-            <span className="text-blue">Plumbing Quote</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            Call us or fill out the form. We&apos;ll get back to you within 24 hours. Emergency service available 24/7.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <a
-              href={PHONE_HREF}
-              className="btn-primary"
-            >
-              <Phone className="h-5 w-5" /> Call {PHONE}
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="Contact Us"
+        title={<>Get Your Free<br /><span className="text-blue-300">Plumbing Quote</span></>}
+        description="Call us or fill out the form. We'll get back to you within 24 hours. Emergency service available 24/7."
+        image="/images/hero-contact.webp"
+        imageAlt="Contact Preferred Plumbing Solutions for a free plumbing quote"
+        priority
+      >
+        <a href={PHONE_HREF} className="btn-primary-lg">
+          <Phone className="h-5 w-5" /> Call {PHONE}
+        </a>
+      </PageHero>
 
       <section className="section-padding bg-gray-50">
         <div className="container-page">
@@ -86,15 +79,7 @@ export default function ContactPage() {
                       <span className="font-semibold">{PHONE}</span>
                     </div>
                   </a>
-                  <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-gray-500 transition hover:text-blue group">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10">
-                      <Mail className="h-5 w-5 text-blue" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400">Email</p>
-                      <span>{EMAIL}</span>
-                    </div>
-                  </a>
+                  <ContactEmailList />
                   <div className="flex items-center gap-3 text-gray-500">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10">
                       <MapPin className="h-5 w-5 text-blue" />

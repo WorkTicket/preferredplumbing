@@ -99,7 +99,7 @@ export default function ResidentialCommercialPage() {
             <span className="text-blue">Plumbing Services</span>
           </h2>
 
-          <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <ServiceCard
               title="Plumbing Repairs and Emergency Services"
               text="We handle leaks, burst pipes, clogged drains, and water heater failures. Emergency service available 24/7 for homes and businesses."
@@ -149,7 +149,7 @@ export default function ResidentialCommercialPage() {
             Benefits of Professional<br />
             <span className="text-blue">Plumbing Solutions</span>
           </h2>
-          <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <BenefitCard
               title="Expert Diagnosis and Efficient Repairs"
               text="We find the problem fast and fix it right the first time. No guesswork, no repeat visits."

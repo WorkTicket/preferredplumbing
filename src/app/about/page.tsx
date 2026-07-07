@@ -5,6 +5,7 @@ import { Phone, ChevronRight, Star, Shield, Clock, HardHat, CheckCircle, Award }
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
+import PageHero from '@/components/sections/PageHero'
 
 export const metadata: Metadata = generateMetadata({
   title: 'About Us',
@@ -53,26 +54,21 @@ export default function AboutPage() {
           ),
         }}
       />
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="About Us" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Meet Ron &amp; Hunter<br />
-            <span className="text-blue">Your Local Plumbing Team</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            Family-owned and operated since 1987. We&apos;re licensed, insured, and proud to serve 16 cities across North Idaho and Eastern Washington.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <a href="tel:12082903889" className="btn-primary">
-              <Phone className="h-5 w-5" /> Call (208) 290-3889
-            </a>
-            <Link href="/contact" className="btn-secondary">
-              Get Free Quote <ChevronRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="About Us"
+        title={<>Meet Ron &amp; Hunter<br /><span className="text-blue-300">Your Local Plumbing Team</span></>}
+        description="Family-owned and operated since 1987. We're licensed, insured, and proud to serve 16 cities across North Idaho and Eastern Washington."
+        image="/images/hero-about.webp"
+        imageAlt="Preferred Plumbing Solutions service truck serving North Idaho"
+        priority
+      >
+        <a href="tel:12082903889" className="btn-primary-lg">
+          <Phone className="h-5 w-5" /> Call (208) 290-3889
+        </a>
+        <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
+          Get Free Quote <ChevronRight className="h-4 w-4" />
+        </Link>
+      </PageHero>
 
       {/* Stats */}
       <section className="section-padding bg-gray-50">
