@@ -119,10 +119,9 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                     src={project.images[currentImage]}
                     alt={`${project.title} - Image ${currentImage + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, 900px"
                     priority
-                    quality={80}
                   />
                 </motion.div>
               </AnimatePresence>

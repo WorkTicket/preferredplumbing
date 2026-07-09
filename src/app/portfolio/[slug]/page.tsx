@@ -21,9 +21,9 @@ const items: Record<
       'Complete rough-in plumbing for a custom home in Spirit Lake. Included underground water lines, drain and vent systems, gas line rough-in, and fixture installation.',
     image: '/images/service-new-construction-plumbing.webp',
     gallery: [
-      '/images/Rough+In+Plumbing+-975e1bfd-1920w.webp',
-      '/images/Ground+Rough+Plumbing+-1920w.webp',
-      '/images/Meter+manifold+-1920w.webp',
+      '/images/gallery/new-construction-rough-in-1.webp',
+      '/images/gallery/new-construction-rough-in-2.webp',
+      '/images/gallery/new-construction-rough-in-3.webp',
     ],
   },
   'commercial-remodel-coeur-dalene': {
@@ -32,11 +32,11 @@ const items: Record<
     type: 'Commercial',
     description:
       'Full plumbing renovation for a downtown Coeur d\'Alene office space. Included new restroom plumbing, kitchenette installation, and ADA-compliant fixtures.',
-    image: '/images/gallery-grease-trap-commercial.webp',
+    image: '/images/gallery/commercial-grease-trap-1.webp',
     gallery: [
-      '/images/Grease+Trap+Tank.webp',
-      '/images/Commercial+Faucet+.webp',
-      '/images/Backflow+Preventer+-1920w.webp',
+      '/images/gallery/commercial-grease-trap-1.webp',
+      '/images/gallery/commercial-plumbing-project-1.webp',
+      '/images/gallery/commercial-plumbing-project-2.webp',
     ],
   },
 }

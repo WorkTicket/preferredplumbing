@@ -15,7 +15,7 @@ const GalleryGrid = dynamic(() => import('@/components/gallery/GalleryGrid'), {
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Project Gallery | Spirit Lake, ID',
-  description: 'Browse our completed plumbing project gallery in Spirit Lake and North Idaho. See quality craftsmanship in new construction, remodels, commercial plumbing, and more. 35+ projects.',
+  description: 'Browse our completed plumbing project gallery in Spirit Lake and North Idaho. See quality craftsmanship in new construction, remodels, commercial plumbing, and more.',
   slug: 'gallery',
   canonical: `${siteUrl}/gallery`,
 })

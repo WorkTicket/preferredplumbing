@@ -9,19 +9,19 @@ import { PHONE_HREF } from '@/lib/utils'
 
 const projects = [
   {
-    src: '/images/IMG_9155-1920w.webp',
+    src: '/images/gallery/modern-bathroom-fixtures-2.webp',
     alt: 'Plumbing trim and faucet installation - Preferred Plumbing Solutions',
     title: 'Bathroom Fixtures',
     tag: 'Residential',
   },
   {
-    src: '/images/Plumbing+Trim_Faucets_Showers-Tub-Toilets+%2813%29-1920w.webp',
+    src: '/images/gallery/shower-tub-installation-1.webp',
     alt: 'Shower and tub plumbing installation - Preferred Plumbing Solutions',
     title: 'Shower & Tub Install',
     tag: 'Residential',
   },
   {
-    src: '/images/Grease+Trap+Tank.webp',
+    src: '/images/gallery/commercial-grease-trap-1.webp',
     alt: 'Commercial grease trap installation - Preferred Plumbing Solutions',
     title: 'Commercial Grease Trap',
     tag: 'Commercial',

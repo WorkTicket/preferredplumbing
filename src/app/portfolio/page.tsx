@@ -28,7 +28,7 @@ const portfolioItems = [
     location: 'Coeur d\'Alene, ID',
     type: 'Commercial',
     description: 'Full plumbing renovation for a downtown office.',
-    image: '/images/gallery-grease-trap-commercial.webp',
+    image: '/images/gallery/commercial-grease-trap-1.webp',
     featured: true,
   },
 ]
