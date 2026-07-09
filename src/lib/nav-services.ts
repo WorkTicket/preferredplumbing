@@ -2,9 +2,8 @@ import type { LucideIcon } from 'lucide-react'
 import {
   Bath,
   Container,
-  CookingPot,
   Droplet,
-  Filter,
+  Droplets,
   GitBranch,
   Hammer,
   HardHat,
@@ -15,6 +14,7 @@ import {
   ThermometerSun,
   WashingMachine,
 } from 'lucide-react'
+import { KitchenSink } from '@/lib/icons/kitchen-sink'
 import { services } from '@/lib/data'
 import type { Service } from '@/types'
 
@@ -58,9 +58,9 @@ export const SERVICE_NAV_ICONS: Record<string, LucideIcon> = {
   commercial: Landmark,
   'radiant-heat': ThermometerSun,
   'water-heaters': Heater,
-  'water-softeners': Filter,
+  'water-softeners': Droplets,
   remodels: Hammer,
-  'kitchen-remodels': CookingPot,
+  'kitchen-remodels': KitchenSink,
   'bathroom-remodels': Bath,
   'toilets-faucets': Droplet,
   'bathtubs-showers': ShowerHead,

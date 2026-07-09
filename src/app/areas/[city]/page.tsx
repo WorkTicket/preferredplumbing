@@ -206,7 +206,7 @@ export default function CityPage({ params }: Props) {
               <ServiceCard
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                image={service.image}
+                slug={service.slug}
                 title={service.title}
                 description={service.description}
               />

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat } from 'lucide-react'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
+import FooterSignature from '@/components/FooterSignature'
 import { AnimatedSection } from '@/components/animations'
 
 const serviceLinks = [
@@ -141,6 +142,7 @@ export default function Footer() {
           <p className="mt-2 text-xs text-gray-600">
             Spirit Lake, ID 83869 | 24/7 Emergency Service Available
           </p>
+          <FooterSignature />
         </div>
       </div>
     </footer>
