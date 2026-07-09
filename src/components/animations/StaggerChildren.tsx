@@ -71,7 +71,7 @@ export default function StaggerChildren({
     >
       {Array.isArray(children)
         ? children.map((child, i) => (
-            <motion.div key={i} variants={childVariants} className="w-full min-h-0">
+            <motion.div key={i} variants={childVariants} className="h-full w-full min-h-0">
               {child}
             </motion.div>
           ))
