@@ -56,10 +56,10 @@ export default function HomePage() {
           }),
         }}
       />
-      <HeroSection />
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      <div className="hero-fold flex flex-col">
+        <HeroSection />
         <EmergencyBand />
-      </AnimatedSection>
+      </div>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <WhyChooseUs />
       </AnimatedSection>

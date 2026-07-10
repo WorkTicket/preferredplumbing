@@ -1,8 +1,7 @@
 'use client'
 
-import { useCallback, useRef, useState } from 'react'
-import ResponsiveImage from '@/components/ui/ResponsiveImage'
-import { IMAGE_SIZES } from '@/lib/image-sizes'
+import { useCallback, useEffect, useRef } from 'react'
+import { getVariantUrl } from '@/lib/responsive-image'
 import { cn } from '@/lib/utils'
 
 interface CompareSliderProps {
@@ -11,7 +10,6 @@ interface CompareSliderProps {
   beforeAlt: string
   afterAlt: string
   className?: string
-  priority?: boolean
 }
 
 export default function CompareSlider({
@@ -20,84 +18,119 @@ export default function CompareSlider({
   beforeAlt,
   afterAlt,
   className,
-  priority = false,
 }: CompareSliderProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [position, setPosition] = useState(50)
+  const rafRef = useRef<number | null>(null)
+  const pendingX = useRef<number | null>(null)
   const dragging = useRef(false)
 
-  const updatePosition = useCallback((clientX: number) => {
-    const container = containerRef.current
-    if (!container) return
-    const rect = container.getBoundingClientRect()
-    const x = clientX - rect.left
-    const pct = Math.max(0, Math.min(100, (x / rect.width) * 100))
-    setPosition(pct)
+  const applyPosition = useCallback((pct: number) => {
+    containerRef.current?.style.setProperty('--compare-pos', `${pct}%`)
   }, [])
 
-  const handlePointerDown = (e: React.PointerEvent) => {
+  const scheduleUpdate = useCallback(
+    (clientX: number) => {
+      pendingX.current = clientX
+      if (rafRef.current !== null) return
+
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null
+        const x = pendingX.current
+        if (x === null) return
+
+        const container = containerRef.current
+        if (!container) return
+
+        const rect = container.getBoundingClientRect()
+        if (rect.width <= 0) return
+
+        const pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100))
+        applyPosition(pct)
+      })
+    },
+    [applyPosition],
+  )
+
+  useEffect(() => {
+    applyPosition(50)
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
+    }
+  }, [applyPosition, beforeSrc, afterSrc])
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     dragging.current = true
     e.currentTarget.setPointerCapture(e.pointerId)
-    updatePosition(e.clientX)
+    e.currentTarget.classList.add('compare-slider-dragging')
+    scheduleUpdate(e.clientX)
   }
 
-  const handlePointerMove = (e: React.PointerEvent) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging.current) return
-    updatePosition(e.clientX)
+    scheduleUpdate(e.clientX)
   }
 
-  const handlePointerUp = (e: React.PointerEvent) => {
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragging.current) return
     dragging.current = false
-    e.currentTarget.releasePointerCapture(e.pointerId)
+    e.currentTarget.classList.remove('compare-slider-dragging')
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId)
+    }
   }
+
+  const afterUrl = getVariantUrl(afterSrc, 'webp', 1024)
+  const beforeUrl = getVariantUrl(beforeSrc, 'webp', 1024)
 
   return (
     <div
       ref={containerRef}
       className={cn(
-        'relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200 select-none touch-none',
+        'compare-slider relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-200 select-none touch-none',
         className,
       )}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      onPointerCancel={handlePointerUp}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
       role="img"
       aria-label={`Before and after comparison: ${beforeAlt}`}
     >
-      <ResponsiveImage
-        src={afterSrc}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={afterUrl}
         alt={afterAlt}
-        fill
-        priority={priority}
-        sizes={IMAGE_SIZES.galleryGrid}
+        width={1024}
+        height={768}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
       />
 
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-      >
-        <ResponsiveImage
-          src={beforeSrc}
+      <div className="compare-slider-before absolute inset-0 overflow-hidden pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={beforeUrl}
           alt={beforeAlt}
-          fill
-          priority={priority}
-          sizes={IMAGE_SIZES.galleryGrid}
+          width={1024}
+          height={768}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
 
-      <span className="absolute top-3 left-3 rounded-full bg-gray-900/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+      <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-gray-900/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
         Before
       </span>
-      <span className="absolute top-3 right-3 rounded-full bg-blue/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+      <span className="pointer-events-none absolute top-3 right-3 rounded-full bg-blue/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
         After
       </span>
 
-      <div
-        className="absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.4)]"
-        style={{ left: `${position}%` }}
-      >
-        <div className="absolute top-1/2 left-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-blue shadow-premium-lg">
+      <div className="compare-slider-handle pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_12px_rgba(14,165,233,0.35)]">
+        <div className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-light/50 bg-blue shadow-premium-xl ring-4 ring-white/20">
           <svg
             viewBox="0 0 24 24"
             fill="none"

@@ -10,19 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         blue: {
-          DEFAULT: '#0066CC',
-          light: '#0088EE',
-          dark: '#0050A0',
+          DEFAULT: '#0EA5E9',
+          light: '#22D3EE',
+          dark: '#0284C7',
+        },
+        gold: {
+          DEFAULT: '#F59E0B',
+          light: '#FBBF24',
+          dark: '#D97706',
+        },
+        accent: {
+          DEFAULT: '#F59E0B',
+          light: '#FCD34D',
+          dark: '#D97706',
         },
         navy: {
           DEFAULT: '#0D1B2A',
           mid: '#162235',
           light: '#1E3A5F',
-        },
-        gold: {
-          DEFAULT: '#D4A843',
-          light: '#E8C46A',
-          dark: '#B8922E',
         },
         gray: {
           50: '#F8F9FA',
@@ -40,15 +45,21 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-barlow-condensed)', 'Barlow Condensed', 'sans-serif'],
         body: ['var(--font-barlow)', 'Barlow', 'sans-serif'],
+        serif: ['var(--font-dm-serif)', 'DM Serif Display', 'Georgia', 'serif'],
       },
       boxShadow: {
         'premium': '0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)',
         'premium-md': '0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03)',
         'premium-lg': '0 10px 25px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.03)',
-        'premium-xl': '0 20px 40px rgba(0,0,0,0.06)',
-        'premium-2xl': '0 25px 50px rgba(0,0,0,0.08)',
-        'glow': '0 0 20px rgba(0,102,204,0.15)',
-        'glow-lg': '0 0 40px rgba(0,102,204,0.2)',
+        'premium-xl': '0 20px 40px rgba(0,0,0,0.06), 0 8px 16px rgba(0,0,0,0.04)',
+        'premium-2xl': '0 25px 50px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.05)',
+        'glow': '0 0 20px rgba(14,165,233,0.2)',
+        'glow-lg': '0 0 40px rgba(14,165,233,0.25)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'navy-gradient': 'linear-gradient(135deg, #0D1B2A 0%, #162235 50%, #1E3A5F 100%)',
+        'blue-gradient': 'linear-gradient(135deg, #0284C7 0%, #0EA5E9 50%, #22D3EE 100%)',
       },
       keyframes: {
         'fade-up': {

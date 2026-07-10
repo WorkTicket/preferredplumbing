@@ -11,9 +11,6 @@ import LearnDropdown from './LearnDropdown'
 
 const NavDrawer = dynamic(() => import('./NavDrawer'), { ssr: false })
 
-const navLinkClass =
-  'text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full'
-
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -59,11 +56,17 @@ export default function Header() {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-500',
-          'bg-white/95 backdrop-blur-md',
-          scrolled ? 'shadow-premium-md' : '',
+          'bg-white/95 backdrop-blur-lg border-b border-transparent',
+          scrolled ? 'shadow-premium-md border-gray-200/60' : '',
           scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         )}
       >
+        <div
+          className={cn(
+            'absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue transition-opacity duration-500',
+            scrolled ? 'opacity-100' : 'opacity-0'
+          )}
+        />
         <div
           className={cn(
             'mx-auto flex max-w-[90rem] items-center justify-between gap-3 px-3 sm:px-6 lg:px-8 transition-all duration-500',
@@ -72,7 +75,7 @@ export default function Header() {
         >
           <Link
             href="/"
-            className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0"
+            className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2.5 md:pr-0"
           >
             <ResponsiveImage
               src="/images/preferred logo.webp"
@@ -88,7 +91,7 @@ export default function Header() {
             />
             <span
               className={cn(
-                'min-w-0 -ml-1 font-bold uppercase leading-none text-gray-900 transition-all duration-500 md:ml-0',
+                'min-w-0 -ml-1 font-display font-bold uppercase leading-none text-gray-900 transition-all duration-500 md:ml-0',
                 'whitespace-nowrap tracking-[0.02em] md:tracking-wider',
                 scrolled
                   ? 'text-[clamp(0.6875rem,3vw,0.8125rem)] md:text-sm lg:text-xl'
@@ -101,7 +104,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-5 lg:gap-7 shrink-0">
-            <Link href="/" className={navLinkClass}>
+            <Link href="/" className="nav-link-premium">
               Home
             </Link>
 
@@ -117,9 +120,8 @@ export default function Header() {
                 aria-expanded={servicesOpen}
                 aria-haspopup="true"
                 className={cn(
-                  navLinkClass,
-                  'flex items-center gap-1 after:hidden',
-                  servicesOpen && 'text-blue'
+                  'nav-link-premium flex items-center gap-1',
+                  servicesOpen && 'text-blue after:w-full'
                 )}
               >
                 Services
@@ -134,7 +136,7 @@ export default function Header() {
               <ServicesMegaMenu open={servicesOpen} onClose={() => setServicesOpen(false)} />
             </div>
 
-            <Link href="/about" className={navLinkClass}>
+            <Link href="/about" className="nav-link-premium">
               About
             </Link>
 
@@ -150,9 +152,8 @@ export default function Header() {
                 aria-expanded={learnOpen}
                 aria-haspopup="true"
                 className={cn(
-                  navLinkClass,
-                  'flex items-center gap-1 after:hidden',
-                  learnOpen && 'text-blue'
+                  'nav-link-premium flex items-center gap-1',
+                  learnOpen && 'text-blue after:w-full'
                 )}
               >
                 Learn
@@ -167,24 +168,24 @@ export default function Header() {
               <LearnDropdown open={learnOpen} onClose={() => setLearnOpen(false)} />
             </div>
 
-            <Link href="/gallery" className={navLinkClass}>
+            <Link href="/gallery" className="nav-link-premium">
               Gallery
             </Link>
-            <Link href="/contact" className={navLinkClass}>
+            <Link href="/contact" className="nav-link-premium">
               Contact
             </Link>
 
             <div className="flex items-center gap-2 lg:gap-2.5 ml-1">
               <a
                 href={PHONE_HREF}
-                className="flex items-center gap-2 rounded-lg border-2 border-blue px-3 py-2 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97] whitespace-nowrap"
+                className="flex items-center gap-2 rounded-xl border-2 border-blue/80 px-3.5 py-2 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97] whitespace-nowrap"
               >
                 <Phone className="h-3.5 w-3.5 shrink-0" />
                 {PHONE}
               </a>
               <Link
                 href="/contact"
-                className="rounded-lg bg-blue px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg shadow-premium active:scale-[0.97] whitespace-nowrap"
+                className="rounded-xl bg-blue px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg shadow-premium-md active:scale-[0.97] whitespace-nowrap"
               >
                 Free Quote
               </Link>
@@ -194,7 +195,7 @@ export default function Header() {
           <div className="flex shrink-0 md:hidden">
             <button
               onClick={() => setDrawerOpen(true)}
-              className="flex items-center justify-center rounded-lg p-2 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
+              className="flex items-center justify-center rounded-xl p-2 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />

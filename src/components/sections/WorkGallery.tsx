@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Camera, Phone, MapPin } from 'lucide-react'
+import { Camera, Phone } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import CompareSlider from '@/components/ui/CompareSlider'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
@@ -39,25 +39,23 @@ export default function WorkGallery() {
   const [beforeSrc, afterSrc] = project.images
 
   return (
-    <section className="section-padding bg-gray-50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/40 via-transparent to-white pointer-events-none" />
+    <section className="section-padding bg-gray-50 relative overflow-hidden mesh-bg-light">
       <div className="container-page relative z-10">
-        <div className="text-center">
-          <div className="flex justify-center">
-            <SectionLabel text="Our Work" />
-          </div>
-          <h2 className="font-display text-[clamp(2rem,7vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
+        <div className="text-center max-w-3xl mx-auto">
+          <SectionLabel text="Our Work" centered />
+          <h2 className="section-heading">
             Project Gallery<br />
-            <span className="text-blue">&amp; Before / After</span>
+            <span className="text-accent">&amp; Before / After</span>
           </h2>
-          <p className="mt-3 text-gray-500 max-w-xl mx-auto">
+          <p className="section-subtitle-center">
             Real jobs from across North Idaho. Drag the slider to see the difference.
           </p>
         </div>
 
-        <div className="mt-8 sm:mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8 lg:items-start">
-          <div className="rounded-2xl border border-gray-200 bg-white p-3 sm:p-4 shadow-premium-lg">
+        <div className="mt-12 sm:mt-14 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10 lg:items-start">
+          <div className="premium-card p-3 sm:p-4 shadow-premium-xl">
             <CompareSlider
+              key={project.id}
               beforeSrc={beforeSrc}
               afterSrc={afterSrc}
               beforeAlt={`Before: ${project.title}, ${project.location ?? 'North Idaho'}`}
@@ -66,32 +64,31 @@ export default function WorkGallery() {
             />
           </div>
 
-          <div className="flex flex-col rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium">
-            <span className="inline-flex w-fit rounded-full bg-blue/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-blue">
+          <div className="flex flex-col premium-card p-6 sm:p-8">
+            <span className="badge-accent w-fit">
               {project.category}
             </span>
-            <h3 className="mt-3 font-display text-xl sm:text-2xl font-black uppercase text-gray-900 leading-tight">
+            <h3 className="mt-4 font-display text-xl sm:text-2xl font-black uppercase text-gray-900 leading-tight">
               {project.title}
             </h3>
             {project.location && (
-              <p className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-gray-500">
-                <MapPin className="h-3.5 w-3.5 text-blue" />
+              <p className="mt-2 text-sm text-gray-500 font-medium">
                 {project.location}
               </p>
             )}
-            <p className="mt-4 flex-1 text-sm text-gray-600 leading-relaxed">
+            <p className="mt-4 flex-1 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
               {project.description}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
               {featuredProjects.map((p, i) => (
                 <button
                   key={p.id}
                   type="button"
                   onClick={() => setActiveIndex(i)}
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                  className={`rounded-full px-4 py-2 text-xs font-bold transition-all duration-300 ${
                     i === activeIndex
-                      ? 'bg-blue text-white shadow-premium'
+                      ? 'bg-blue text-white shadow-premium-md'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
@@ -103,7 +100,7 @@ export default function WorkGallery() {
         </div>
 
         <StaggerChildren
-          className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-3"
+          className="mt-10 sm:mt-12 grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-3"
           staggerDelay={0.06}
           variant="fadeUp"
         >
@@ -111,34 +108,34 @@ export default function WorkGallery() {
             <Link
               key={item.id}
               href="/gallery"
-              className="group relative block aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 bg-gray-200 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:border-blue/40 hover:shadow-premium-xl hover:ring-1 hover:ring-blue/20"
+              className="group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-200 shadow-premium card-lift"
             >
               <ResponsiveImage
                 src={item.coverImage}
                 alt={`${item.title}, ${item.location ?? 'North Idaho'}`}
                 fill
-                className="transition-all duration-700 group-hover:scale-105"
                 sizes={IMAGE_SIZES.thirdCol}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/75 via-gray-900/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent transition-opacity duration-300 group-hover:from-navy/90" />
               <div className="absolute top-3 left-3">
-                <span className="inline-flex rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm border border-white/20">
+                <span className="inline-flex rounded-full border border-white/20 bg-white/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
                   {item.category}
                 </span>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="font-display text-sm sm:text-base font-bold text-white leading-tight">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                <p className="font-display text-sm sm:text-base font-black uppercase text-white leading-tight">
                   {item.title}
                 </p>
                 {item.location && (
-                  <p className="mt-1 text-[11px] text-blue-200">{item.location}</p>
+                  <p className="mt-1 text-[11px] font-medium text-blue-light">{item.location}</p>
                 )}
               </div>
             </Link>
           ))}
         </StaggerChildren>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link href="/gallery" className="btn-secondary">
             View Full Gallery <Camera className="h-4 w-4" />
           </Link>

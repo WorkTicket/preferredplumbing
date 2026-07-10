@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Barlow, Barlow_Condensed } from 'next/font/google'
+import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
 import DeferredAnalytics from '@/components/layout/DeferredAnalytics'
 import { localBusinessSchema, websiteSchema, videoObjectSchema, reviewSchema, organizationSchema } from '@/lib/schema'
@@ -22,6 +22,14 @@ const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
   weight: ['500', '700', '900'],
   variable: '--font-barlow-condensed',
+  display: 'swap',
+})
+
+const dmSerif = DM_Serif_Display({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['italic'],
+  variable: '--font-dm-serif',
   display: 'swap',
 })
 
@@ -99,7 +107,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} ${dmSerif.variable}`}>
       <head>
         <script
           type="application/ld+json"

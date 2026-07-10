@@ -8,37 +8,44 @@ import { areas } from '@/lib/data'
 
 export default function ServiceAreas() {
   return (
-    <section className="section-padding bg-white">
-      <div className="container-page">
-        <div className="text-center">
-          <div className="flex justify-center">
-            <SectionLabel text="Service Areas" />
-          </div>
-          <h2 className="font-display text-[clamp(2rem,7vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
+    <section className="section-padding bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,102,204,0.03)_0%,_transparent_70%)] pointer-events-none" />
+      <div className="container-page relative z-10">
+        <div className="text-center max-w-3xl mx-auto">
+          <SectionLabel text="Service Areas" centered />
+          <h2 className="section-heading">
             We Serve All of<br />
-            <span className="text-blue">North Idaho &amp; Beyond</span>
+            <span className="text-accent">North Idaho &amp; Beyond</span>
           </h2>
-          <p className="mt-3 text-gray-500 max-w-lg mx-auto">
+          <p className="section-subtitle-center">
             16 cities. One phone call. If you&apos;re in North Idaho or eastern Washington, we can get a truck to you.
           </p>
         </div>
-        <StaggerChildren
-          className="mt-8 sm:mt-10 flex flex-wrap justify-center gap-2 sm:gap-3"
-          staggerDelay={0.03}
-          variant="fadeUp"
-        >
-          {areas.map((area) => (
-            <Link
-              key={area.slug}
-              href={`/areas/${area.slug}`}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-white border border-gray-200 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-700 transition-all duration-300 hover:bg-blue hover:text-white hover:border-blue hover:-translate-y-0.5 hover:shadow-premium-md shadow-premium"
-            >
-              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
-              {area.fullName}
-            </Link>
-          ))}
-        </StaggerChildren>
-        <div className="mt-8 text-center">
+
+        <div className="mt-10 sm:mt-12 rounded-2xl border border-gray-200/80 bg-gray-50/50 p-6 sm:p-8 shadow-premium">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <MapPin className="h-5 w-5 text-blue-light" />
+            <p className="text-sm font-bold uppercase tracking-wider text-gray-500">Coverage Map</p>
+          </div>
+          <StaggerChildren
+            className="flex flex-wrap justify-center gap-2.5 sm:gap-3"
+            staggerDelay={0.03}
+            variant="fadeUp"
+          >
+            {areas.map((area) => (
+              <Link
+                key={area.slug}
+                href={`/areas/${area.slug}`}
+                className="group inline-flex items-center gap-1.5 rounded-xl border border-gray-200/80 bg-white px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-700 shadow-premium transition-all duration-300 hover:border-blue/30 hover:text-blue hover:shadow-premium-md hover:-translate-y-0.5"
+              >
+                <MapPin className="h-3.5 w-3.5 text-blue-light/60 group-hover:text-blue transition-colors" />
+                {area.fullName}
+              </Link>
+            ))}
+          </StaggerChildren>
+        </div>
+
+        <div className="mt-10 text-center">
           <Link
             href="/contact"
             className="btn-primary"

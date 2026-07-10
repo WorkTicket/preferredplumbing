@@ -5,9 +5,10 @@ import { cn } from '@/lib/utils'
 interface ContactEmailListProps {
   variant?: 'stacked' | 'footer' | 'inline'
   className?: string
+  plain?: boolean
 }
 
-export default function ContactEmailList({ variant = 'stacked', className }: ContactEmailListProps) {
+export default function ContactEmailList({ variant = 'stacked', className, plain = false }: ContactEmailListProps) {
   if (variant === 'footer') {
     return (
       <div className={cn('flex flex-col gap-2', className)}>
@@ -33,16 +34,28 @@ export default function ContactEmailList({ variant = 'stacked', className }: Con
         <a
           key={contact.email}
           href={`mailto:${contact.email}`}
-          className="flex items-center gap-3 text-gray-700 transition-all duration-300 hover:text-blue group"
+          className={cn(
+            plain ? 'block text-gray-700' : 'flex items-center gap-3 text-gray-700 transition-all duration-300 hover:text-blue group'
+          )}
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 transition-all duration-300 group-hover:bg-blue shrink-0">
-            <Mail className="h-5 w-5 text-blue transition-colors duration-300 group-hover:text-white" />
-          </div>
-          <div className="min-w-0">
-            <p className="text-xs text-gray-400">Email</p>
-            <span className="font-semibold block">{contact.name}</span>
-            <span className="text-sm break-all">{contact.email}</span>
-          </div>
+          {plain ? (
+            <div className="min-w-0">
+              <p className="text-xs text-gray-400">Email</p>
+              <span className="font-semibold block">{contact.name}</span>
+              <span className="text-sm break-all">{contact.email}</span>
+            </div>
+          ) : (
+            <>
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 transition-all duration-300 group-hover:bg-blue shrink-0">
+                <Mail className="h-5 w-5 text-blue transition-colors duration-300 group-hover:text-white" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs text-gray-400">Email</p>
+                <span className="font-semibold block">{contact.name}</span>
+                <span className="text-sm break-all">{contact.email}</span>
+              </div>
+            </>
+          )}
         </a>
       ))}
     </div>
