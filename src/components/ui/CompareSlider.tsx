@@ -129,7 +129,7 @@ export default function CompareSlider({
         After
       </span>
 
-      <div className="compare-slider-handle pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_12px_rgba(14,165,233,0.35)]">
+      <div className="compare-slider-handle pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_12px_rgba(0,102,255,0.4)]">
         <div className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-light/50 bg-blue shadow-premium-xl ring-4 ring-white/20">
           <svg
             viewBox="0 0 24 24"

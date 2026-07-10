@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react'
 export default function EmergencyBand() {
   return (
     <section className="relative shrink-0 overflow-hidden bg-blue-gradient">
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(14,165,233,0.1),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(0,102,255,0.12),transparent)] pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-light/40 to-transparent" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-3 sm:gap-0 sm:flex-row sm:justify-between px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6">
         <div className="text-center sm:text-left">

@@ -22,7 +22,7 @@ export default function ContactSection() {
             <SectionLabel text="Get In Touch" />
             <h2 className="section-heading">
               Ready to Start?<br />
-              <span className="text-accent">Get Your Free Estimate</span>
+              <span className="text-blue">Get Your Free Estimate</span>
             </h2>
             <p className="section-subtitle mt-4">
               No pressure, no pushy sales. Just honest advice and a fair price from a family that&apos;s been doing this for 38 years.

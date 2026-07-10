@@ -10,13 +10,13 @@ import { Star, ExternalLink } from 'lucide-react'
 export default function Testimonials() {
   return (
     <section className="section-padding bg-white relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[radial-gradient(ellipse_at_bottom,_rgba(14,165,233,0.05)_0%,_transparent_60%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[radial-gradient(ellipse_at_bottom,_rgba(0,102,255,0.06)_0%,_transparent_60%)] pointer-events-none" />
       <div className="container-page relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <SectionLabel text="Real Reviews" centered />
           <h2 className="section-heading">
             What Our Customers<br />
-            <span className="text-accent">Are Saying</span>
+            <span className="text-blue">Are Saying</span>
           </h2>
           <p className="section-subtitle-center">
             What our customers say matters more than what we tell you.

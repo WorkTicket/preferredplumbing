@@ -42,7 +42,7 @@ export default function AboutSection() {
             <SectionLabel text="Our Story" />
             <h2 className="section-heading">
               Family-Owned Since<br />
-              <span className="text-accent">1987</span>
+              <span className="text-blue">1987</span>
             </h2>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed text-[15px] sm:text-base">
               <p>
@@ -94,7 +94,7 @@ export default function AboutSection() {
         </div>
 
         <div className="mt-14 sm:mt-16 relative overflow-hidden rounded-2xl bg-navy-gradient p-8 sm:p-12 text-center shadow-premium-xl">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(14,165,233,0.12)_0%,_transparent_60%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.14)_0%,_transparent_60%)] pointer-events-none" />
           <div className="relative">
             <p className="font-display text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
               Meet the family behind the work.

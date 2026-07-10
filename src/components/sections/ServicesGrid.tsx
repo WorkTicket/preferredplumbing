@@ -21,13 +21,13 @@ const specialtyServices = services.filter((s) => specialtySlugs.includes(s.slug)
 export default function ServicesGrid() {
   return (
     <section className="section-padding bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_top_right,_rgba(14,165,233,0.04)_0%,_transparent_60%)] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,102,255,0.05)_0%,_transparent_60%)] pointer-events-none" />
       <div className="container-page relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <SectionLabel text="Our Services" centered />
           <h2 className="section-heading">
             Plumbing for Homes,<br />
-            <span className="text-accent">Businesses &amp; New Builds</span>
+            <span className="text-blue">Businesses &amp; New Builds</span>
           </h2>
           <p className="section-subtitle-center">
             Emergency repairs, new construction, remodels. One call covers it.
@@ -55,7 +55,7 @@ export default function ServicesGrid() {
             <div>
               <SectionLabel text="Specialty Services" />
               <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
-                What We Do <span className="text-accent">Best</span>
+                What We Do <span className="text-blue">Best</span>
               </h3>
               <p className="section-subtitle mt-3">
                 Commercial work, rural septic, and hard-water fixes. Three areas where 38 years on the job really shows.

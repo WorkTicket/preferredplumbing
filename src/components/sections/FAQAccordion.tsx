@@ -18,7 +18,7 @@ export default function FAQAccordion() {
             <SectionLabel text="FAQ" />
             <h2 className="section-heading">
               Common<br />
-              <span className="text-accent">Questions</span>
+              <span className="text-blue">Questions</span>
             </h2>
             <p className="section-subtitle mt-4">
               Quick answers to the things customers ask us most. Can&apos;t find what you need? Give us a call.

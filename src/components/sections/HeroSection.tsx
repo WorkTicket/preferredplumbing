@@ -22,12 +22,12 @@ const trustBadges = [
 const waveGradient = (
   <defs>
     <linearGradient id="topWaveFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stopColor="#0E7490" />
-      <stop offset="100%" stopColor="#22D3EE" />
+      <stop offset="0%" stopColor="#004ECC" />
+      <stop offset="100%" stopColor="#4D8FFF" />
     </linearGradient>
     <linearGradient id="botWaveFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stopColor="#22D3EE" />
-      <stop offset="100%" stopColor="#0E7490" />
+      <stop offset="0%" stopColor="#4D8FFF" />
+      <stop offset="100%" stopColor="#004ECC" />
     </linearGradient>
   </defs>
 )
@@ -36,9 +36,9 @@ const TopWave = ({ className }: { className: string }) => (
   <div className={className}>
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-full">
       {waveGradient}
-      <rect x="0" y="0" width="1440" height="5" fill="#155E75" />
+      <rect x="0" y="0" width="1440" height="5" fill="#004ECC" />
       <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60 L1440,5 L0,5 Z" fill="url(#topWaveFill)" />
-      <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60" fill="none" stroke="#155E75" strokeWidth="2.5" />
+      <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60" fill="none" stroke="#004ECC" strokeWidth="2.5" />
     </svg>
   </div>
 )
@@ -47,9 +47,9 @@ const BottomWave = () => (
   <div className="absolute bottom-0 left-0 w-full h-12 sm:h-20 lg:h-28 z-[7] pointer-events-none overflow-hidden">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-full">
       {waveGradient}
-      <rect x="0" y="115" width="1440" height="5" fill="#155E75" />
+      <rect x="0" y="115" width="1440" height="5" fill="#004ECC" />
       <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60 L1440,115 L0,115 Z" fill="url(#botWaveFill)" />
-      <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60" fill="none" stroke="#155E75" strokeWidth="2.5" />
+      <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60" fill="none" stroke="#004ECC" strokeWidth="2.5" />
     </svg>
   </div>
 )

@@ -15,7 +15,7 @@ export default function ServiceAreas() {
           <SectionLabel text="Service Areas" centered />
           <h2 className="section-heading">
             We Serve All of<br />
-            <span className="text-accent">North Idaho &amp; Beyond</span>
+            <span className="text-blue">North Idaho &amp; Beyond</span>
           </h2>
           <p className="section-subtitle-center">
             16 cities. One phone call. If you&apos;re in North Idaho or eastern Washington, we can get a truck to you.

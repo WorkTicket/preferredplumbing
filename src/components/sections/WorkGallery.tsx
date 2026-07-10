@@ -45,7 +45,7 @@ export default function WorkGallery() {
           <SectionLabel text="Our Work" centered />
           <h2 className="section-heading">
             Project Gallery<br />
-            <span className="text-accent">&amp; Before / After</span>
+            <span className="text-blue">&amp; Before / After</span>
           </h2>
           <p className="section-subtitle-center">
             Real jobs from across North Idaho. Drag the slider to see the difference.

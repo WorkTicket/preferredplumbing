@@ -15,7 +15,7 @@ export default function LatestArticles() {
             <SectionLabel text="From the Blog" />
             <h2 className="section-heading">
               Plumbing Tips &amp;<br />
-              <span className="text-accent">Local Guides</span>
+              <span className="text-blue">Local Guides</span>
             </h2>
             <p className="section-subtitle mt-3">
               Practical tips for North Idaho homeowners: maintenance, emergencies, and more.

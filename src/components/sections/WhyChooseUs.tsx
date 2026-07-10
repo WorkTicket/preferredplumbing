@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
           <SectionLabel text="Why Choose Us" centered />
           <h2 className="section-heading">
             Why North Idaho<br />
-            <span className="text-accent">Chooses Preferred</span>
+            <span className="text-blue">Chooses Preferred</span>
           </h2>
           <p className="section-subtitle-center">
             We&apos;re not the biggest outfit in North Idaho. We just show up, work hard, and treat people right.
