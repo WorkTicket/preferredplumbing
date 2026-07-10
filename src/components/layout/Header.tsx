@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
 import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
@@ -63,7 +63,7 @@ export default function Header() {
             href="/"
             className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2 md:pr-0"
           >
-            <Image
+            <ResponsiveImage
               src="/images/preferred logo.webp"
               alt="Preferred Plumbing Solutions logo"
               width={36}

@@ -1,6 +1,7 @@
 'use client'
 
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { AnimatedCounter } from '@/components/animations'
@@ -86,12 +87,11 @@ export default function AboutSection() {
 
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-premium-lg">
-              <Image
+              <ResponsiveImage
                 src="/images/preferred-plumbing-service-truck.webp"
                 alt="Preferred Plumbing Solutions service truck - Spirit Lake, ID"
                 fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes={IMAGE_SIZES.halfCol}
               />
             </div>
           </div>

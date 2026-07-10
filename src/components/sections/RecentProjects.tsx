@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import { ArrowUpRight, Camera, Phone } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { StaggerChildren } from '@/components/animations'
@@ -9,21 +10,21 @@ import { PHONE_HREF } from '@/lib/utils'
 
 const projects = [
   {
-    src: '/images/gallery/modern-bathroom-fixtures-2.webp',
+    src: '/images/gallery/modern-bathroom-fixtures-1.webp?v=21',
     alt: 'Plumbing trim and faucet installation - Preferred Plumbing Solutions',
-    title: 'Bathroom Fixtures',
+    title: 'Modern Bathroom Fixtures',
     tag: 'Residential',
   },
   {
-    src: '/images/gallery/shower-tub-installation-1.webp',
+    src: '/images/gallery/shower-tub-installation-1.webp?v=21',
     alt: 'Shower and tub plumbing installation - Preferred Plumbing Solutions',
-    title: 'Shower & Tub Install',
+    title: 'Shower & Tub Installation',
     tag: 'Residential',
   },
   {
-    src: '/images/gallery/commercial-grease-trap-1.webp',
+    src: '/images/gallery/commercial-grease-trap-1.webp?v=21',
     alt: 'Commercial grease trap installation - Preferred Plumbing Solutions',
-    title: 'Commercial Grease Trap',
+    title: 'Commercial Grease Trap Installation',
     tag: 'Commercial',
   },
 ]
@@ -56,12 +57,12 @@ export default function RecentProjects() {
               href="/gallery"
               className="group relative block w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-200 border border-gray-200 shadow-premium card-lift hover:border-blue/40 hover:ring-1 hover:ring-blue/20"
             >
-              <Image
+              <ResponsiveImage
                 src={project.src}
                 alt={project.alt}
                 fill
-                className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                className="transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                sizes={IMAGE_SIZES.thirdCol}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/10 to-transparent transition-all duration-500 group-hover:from-blue-dark/70" />
               <div className="absolute inset-0 bg-blue/0 transition-all duration-500 group-hover:bg-blue/10" />

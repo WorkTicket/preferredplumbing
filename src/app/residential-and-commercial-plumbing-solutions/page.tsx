@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
+import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, CheckCircle, ChevronRight } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
@@ -17,13 +18,10 @@ export default function ResidentialCommercialPage() {
     <div className="pt-14 sm:pt-16">
 
       <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center">
-        <Image
+        <HeroImagePreload src="/images/service-commercial-plumbing-project.webp" />
+        <LcpHeroImage
           src="/images/service-commercial-plumbing-project.webp"
           alt="Residential and Commercial Plumbing Services, Spirit Lake ID"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
         <div className="relative z-10 container-page">

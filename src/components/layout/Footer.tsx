@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat } from 'lucide-react'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="grid gap-x-16 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
           <AnimatedSection as="div" variant="fadeUp" delay={0} className="lg:col-span-1 w-full text-center lg:text-left">
             <Link href="/" className="flex flex-col lg:flex-row items-center lg:items-start gap-2">
-              <Image
+              <ResponsiveImage
                 src="/images/preferred logo.webp"
                 alt="Preferred Plumbing Solutions - Spirit Lake, ID Plumber"
                 width={36}

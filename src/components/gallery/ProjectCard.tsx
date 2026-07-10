@@ -1,7 +1,8 @@
 'use client'
 
 import { memo } from 'react'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import { ArrowUpRight } from 'lucide-react'
 import type { GalleryProjectSummary } from '@/data/gallery'
 
@@ -21,15 +22,13 @@ function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
       className="group relative w-full text-left overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-premium transition-all duration-300 hover:-translate-y-1.5 hover:shadow-premium-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 [content-visibility:auto] [contain-intrinsic-size:320px]"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-        <Image
+        <ResponsiveImage
           src={project.coverImage}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="transition-transform duration-500 group-hover:scale-105"
+          sizes={IMAGE_SIZES.thirdCol}
           priority={isAboveFold}
-          loading={isAboveFold ? undefined : 'lazy'}
-          quality={70}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
 

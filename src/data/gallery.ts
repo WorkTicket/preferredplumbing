@@ -18,7 +18,15 @@ export type GalleryProjectSummary = Pick<
   'id' | 'title' | 'slug' | 'category' | 'description' | 'location' | 'coverImage' | 'completionDate'
 >
 
-const g = (name: string) => `/images/gallery/${name}`
+const g = (name: string) => `/images/gallery/${name}?v=21`
+
+/** Before → after pair. Cover uses the finished shot (-1). */
+const beforeAfter = (slug: string) => [
+  g(`${slug}-2.webp`),
+  g(`${slug}-1.webp`),
+]
+
+const cover = (slug: string) => g(`${slug}-1.webp`)
 
 export const galleryProjects: GalleryProject[] = [
   {
@@ -30,13 +38,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Full bathroom trim-out featuring quality fixtures in a master suite renovation. Designed for both looks and long-term durability.',
     scopeOfWork: 'Installation of vanity, sink faucets, shower valve and trim, bathtub faucet, toilet, and all supply line connections. Pressure testing and fixture calibration included.',
     materials: ['Delta Faucets', 'Kohler Toilets', 'Moen Shower Systems', 'Copper supply lines'],
-    images: [
-      g('modern-bathroom-fixtures-2.webp'),
-      g('modern-bathroom-fixtures-1.webp'),
-      g('modern-bathroom-fixtures-3.webp'),
-      g('modern-bathroom-fixtures-4.webp'),
-    ],
-    coverImage: g('modern-bathroom-fixtures-2.webp'),
+    images: beforeAfter('modern-bathroom-fixtures'),
+    coverImage: cover('modern-bathroom-fixtures'),
     completionDate: '2025-08-15',
   },
   {
@@ -48,12 +51,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Custom shower and tub plumbing with trim-out completed for a North Idaho home remodel.',
     scopeOfWork: 'Shower valve rough-in and trim, tub filler installation, drain connections, and waterproofing coordination with tile crew.',
     materials: ['Moen shower valve', 'Delta tub filler', 'PVC drain assembly', 'PEX supply lines'],
-    images: [
-      g('shower-tub-installation-1.webp'),
-      g('shower-tub-installation-2.webp'),
-      g('shower-tub-installation-3.webp'),
-    ],
-    coverImage: g('shower-tub-installation-1.webp'),
+    images: beforeAfter('shower-tub-installation'),
+    coverImage: cover('shower-tub-installation'),
     completionDate: '2025-07-30',
   },
   {
@@ -65,12 +64,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Complete bathroom remodel plumbing including new fixtures, supply lines, and drain updates for a refreshed master bath.',
     scopeOfWork: 'Fixture relocation, new supply and drain lines, vanity plumbing, shower trim, and final leak testing.',
     materials: ['Kohler fixtures', 'PEX supply', 'PVC DWV', 'Shut-off valves'],
-    images: [
-      g('bathroom-remodel-1.webp'),
-      g('bathroom-remodel-2.webp'),
-      g('bathroom-remodel-3.webp'),
-    ],
-    coverImage: g('bathroom-remodel-1.webp'),
+    images: beforeAfter('bathroom-remodel'),
+    coverImage: cover('bathroom-remodel'),
     completionDate: '2025-06-22',
   },
   {
@@ -82,12 +77,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Kitchen remodel plumbing with new sink, dishwasher, and disposal connections for a modern layout.',
     scopeOfWork: 'Sink and faucet installation, dishwasher and disposal hookups, supply line updates, and gas line coordination for range.',
     materials: ['Kohler sink', 'Moen faucet', 'Braided supply lines', 'Disposal flange kit'],
-    images: [
-      g('kitchen-remodel-plumbing-1.webp'),
-      g('kitchen-remodel-plumbing-2.webp'),
-      g('kitchen-remodel-plumbing-3.webp'),
-    ],
-    coverImage: g('kitchen-remodel-plumbing-1.webp'),
+    images: beforeAfter('kitchen-remodel-plumbing'),
+    coverImage: cover('kitchen-remodel-plumbing'),
     completionDate: '2025-05-14',
   },
   {
@@ -99,12 +90,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Complete rough-in plumbing for a custom home under construction, including supply lines, drain-waste-vent systems, and fixture stub-outs.',
     scopeOfWork: 'Underground plumbing, slab preparation, DWV system installation, water supply lines, gas line stub-outs, and shower base installation. Inspection-ready.',
     materials: ['PVC Schedule 40 DWV', 'PEX water lines', 'Copper supply lines', 'Shower bases', 'Fixture stub-outs'],
-    images: [
-      g('new-construction-rough-in-1.webp'),
-      g('new-construction-rough-in-2.webp'),
-      g('new-construction-rough-in-3.webp'),
-    ],
-    coverImage: g('new-construction-rough-in-1.webp'),
+    images: beforeAfter('new-construction-rough-in'),
+    coverImage: cover('new-construction-rough-in'),
     completionDate: '2025-05-18',
   },
   {
@@ -116,11 +103,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Commercial grease trap and tank installation for a restaurant kitchen, meeting local health department requirements.',
     scopeOfWork: 'Grease trap sizing, tank placement, inlet and outlet connections, venting, and inspection coordination.',
     materials: ['Concrete grease trap tank', 'PVC DWV piping', 'Clean-out adapters', 'Vent risers'],
-    images: [
-      g('commercial-grease-trap-1.webp'),
-      g('commercial-plumbing-project-1.webp'),
-    ],
-    coverImage: g('commercial-grease-trap-1.webp'),
+    images: beforeAfter('commercial-grease-trap'),
+    coverImage: cover('commercial-grease-trap'),
     completionDate: '2025-09-05',
   },
   {
@@ -132,12 +116,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Full commercial plumbing scope for a multi-fixture build-out with overhead supply and drain routing.',
     scopeOfWork: 'Overhead pipe routing, fixture rough-in, commercial-grade supply lines, and pressure testing before turnover.',
     materials: ['Copper supply', 'PVC DWV', 'Commercial fixtures', 'Backflow preventer'],
-    images: [
-      g('commercial-plumbing-project-1.webp'),
-      g('commercial-plumbing-project-2.webp'),
-      g('commercial-grease-trap-1.webp'),
-    ],
-    coverImage: g('commercial-plumbing-project-1.webp'),
+    images: beforeAfter('commercial-plumbing-project'),
+    coverImage: cover('commercial-plumbing-project'),
     completionDate: '2025-04-12',
   },
   {
@@ -149,12 +129,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Replaced an aging electric tank water heater with a new Bradford White unit, expansion tank, and updated supply connections.',
     scopeOfWork: 'Removal of old electric tank, installation of new Bradford White electric water heater in drain pan, thermal expansion tank, braided supply lines, and T&P discharge routing.',
     materials: ['Bradford White electric water heater', 'Thermal expansion tank', 'Braided stainless supply lines', 'Drain pan', 'T&P relief valve'],
-    images: [
-      g('water-heater-replacement-3.webp'),
-      g('water-heater-replacement-1.webp'),
-      g('water-heater-replacement-2.webp'),
-    ],
-    coverImage: g('water-heater-replacement-3.webp'),
+    images: beforeAfter('water-heater-replacement'),
+    coverImage: cover('water-heater-replacement'),
     completionDate: '2025-06-10',
   },
   {
@@ -166,12 +142,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Hydronic radiant heating system installation with a high-efficiency boiler for whole-home comfort through North Idaho winters.',
     scopeOfWork: 'Boiler installation, radiant tubing layout in concrete slab, manifold setup, zone valve installation, thermostat wiring, and system balancing.',
     materials: ['Navien condensing boiler', 'Uponor radiant tubing', 'Zone valves', 'Expansion tank', 'Circulation pump'],
-    images: [
-      g('boiler-radiant-heat-1.webp'),
-      g('boiler-radiant-heat-2.webp'),
-      g('boiler-radiant-heat-3.webp'),
-    ],
-    coverImage: g('boiler-radiant-heat-1.webp'),
+    images: beforeAfter('boiler-radiant-heat'),
+    coverImage: cover('boiler-radiant-heat'),
     completionDate: '2025-03-20',
   },
   {
@@ -183,12 +155,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Whole-home water softener system installed in a utility room with bypass valve and drain line routing.',
     scopeOfWork: 'Softener placement, inlet and outlet plumbing, bypass valve installation, drain line connection, and system programming.',
     materials: ['Water softener unit', 'Bypass valve', 'PEX supply lines', 'Drain tubing'],
-    images: [
-      g('water-softener-installation-1.webp'),
-      g('water-softener-installation-2.webp'),
-      g('water-softener-installation-3.webp'),
-    ],
-    coverImage: g('water-softener-installation-1.webp'),
+    images: beforeAfter('water-softener-installation'),
+    coverImage: cover('water-softener-installation'),
     completionDate: '2025-02-18',
   },
   {
@@ -200,12 +168,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Full sewer line replacement from the home to the city main, including excavation and new PVC piping.',
     scopeOfWork: 'Trench excavation, removal of failed line, new PVC sewer installation, clean-out placement, and backfill with compaction.',
     materials: ['PVC sewer pipe', 'Clean-out assembly', 'Bedding sand', 'Warning tape'],
-    images: [
-      g('sewer-line-replacement-1.webp'),
-      g('sewer-line-replacement-2.webp'),
-      g('sewer-line-replacement-3.webp'),
-    ],
-    coverImage: g('sewer-line-replacement-1.webp'),
+    images: beforeAfter('sewer-line-replacement'),
+    coverImage: cover('sewer-line-replacement'),
     completionDate: '2025-03-05',
   },
   {
@@ -217,12 +181,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'New septic tank and leach field installation for a rural North Idaho property.',
     scopeOfWork: 'Tank placement, leach field trenching, drain line connections, clean-out risers, and health district inspection.',
     materials: ['Concrete septic tank', 'Aggregate drain bundles', 'PVC header pipe', 'Clean-out risers'],
-    images: [
-      g('septic-system-installation-1.webp'),
-      g('septic-system-installation-2.webp'),
-      g('septic-system-installation-3.webp'),
-    ],
-    coverImage: g('septic-system-installation-1.webp'),
+    images: beforeAfter('septic-system-installation'),
+    coverImage: cover('septic-system-installation'),
     completionDate: '2025-07-25',
   },
   {
@@ -234,12 +194,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Fixture trim-out with toilets, faucets, and supply connections for a multi-bathroom residential project.',
     scopeOfWork: 'Toilet setting and sealing, faucet installation, supply line connections, and leak testing on all fixtures.',
     materials: ['Kohler toilets', 'Delta faucets', 'Braided supply lines', 'Wax rings'],
-    images: [
-      g('toilets-faucets-trim-1.webp'),
-      g('toilets-faucets-trim-2.webp'),
-      g('toilets-faucets-trim-3.webp'),
-    ],
-    coverImage: g('toilets-faucets-trim-1.webp'),
+    images: beforeAfter('toilets-faucets-trim'),
+    coverImage: cover('toilets-faucets-trim'),
     completionDate: '2025-08-02',
   },
   {
@@ -251,11 +207,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Kitchen appliance plumbing for a new dishwasher and garbage disposal during a countertop and cabinet upgrade.',
     scopeOfWork: 'Disposal mounting and drain connection, dishwasher supply and drain hookup, air gap installation, and electrical coordination.',
     materials: ['Garbage disposal', 'Dishwasher drain hose', 'Air gap', 'Supply valve'],
-    images: [
-      g('dishwasher-disposal-install-1.webp'),
-      g('dishwasher-disposal-install-2.webp'),
-    ],
-    coverImage: g('dishwasher-disposal-install-1.webp'),
+    images: beforeAfter('dishwasher-disposal-install'),
+    coverImage: cover('dishwasher-disposal-install'),
     completionDate: '2025-04-28',
   },
   {
@@ -267,10 +220,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Emergency repair of a burst supply line under a kitchen sink, completed same-day to prevent water damage.',
     scopeOfWork: 'Shut-off valve replacement, supply line repair, leak testing, and cleanup of affected cabinet area.',
     materials: ['Braided supply lines', 'Angle stop valves', 'Pipe fittings'],
-    images: [
-      g('emergency-plumbing-repair-1.webp'),
-    ],
-    coverImage: g('emergency-plumbing-repair-1.webp'),
+    images: beforeAfter('emergency-plumbing-repair'),
+    coverImage: cover('emergency-plumbing-repair'),
     completionDate: '2025-01-15',
   },
   {
@@ -282,11 +233,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Whole-home plumbing upgrades during a major remodel, including fixture updates and supply line modernization.',
     scopeOfWork: 'Fixture replacement, PEX repiping in remodel zones, drain updates, and coordination with general contractor schedule.',
     materials: ['PEX tubing', 'Modern fixtures', 'Shut-off valves', 'PVC DWV fittings'],
-    images: [
-      g('plumbing-remodel-upgrades-1.webp'),
-      g('plumbing-remodel-upgrades-2.webp'),
-    ],
-    coverImage: g('plumbing-remodel-upgrades-1.webp'),
+    images: beforeAfter('plumbing-remodel-upgrades'),
+    coverImage: cover('plumbing-remodel-upgrades'),
     completionDate: '2025-05-30',
   },
   {
@@ -298,12 +246,8 @@ export const galleryProjects: GalleryProject[] = [
     description: 'Our crew on site with a fully stocked service truck, ready for new construction and remodel plumbing across the region.',
     scopeOfWork: 'Mobile service dispatch with stocked trucks for rough-in, trim-out, and emergency calls throughout North Idaho.',
     materials: ['Service truck inventory', 'PEX and PVC fittings', 'Common fixture parts'],
-    images: [
-      g('field-service-crew-1.webp'),
-      g('field-service-crew-2.webp'),
-      g('field-service-crew-3.webp'),
-    ],
-    coverImage: g('field-service-crew-1.webp'),
+    images: beforeAfter('field-service-crew'),
+    coverImage: cover('field-service-crew'),
     completionDate: '2025-07-01',
   },
 ]

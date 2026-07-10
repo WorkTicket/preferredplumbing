@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
+import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, ChevronRight, Shield, Clock, HardHat, CheckCircle, Star } from 'lucide-react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -194,17 +195,14 @@ export default function HeroSection() {
 
   return (
     <>
-      <link rel="preload" as="image" href="/images/preferred-plumbing-truck-interior.webp" fetchPriority="high" />
+      <HeroImagePreload src="/images/preferred-plumbing-truck-interior.webp" />
       <section className="relative flex min-h-[90svh] sm:min-h-[85vh] items-center overflow-hidden">
-        <Image
-          src="/images/preferred-plumbing-truck-interior.webp"
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          className="object-cover brightness-[0.85] saturate-[1.05]"
-          sizes="100vw"
-        />
+        <div className="absolute inset-0 brightness-[0.85] saturate-[1.05]">
+          <LcpHeroImage
+            src="/images/preferred-plumbing-truck-interior.webp"
+            alt=""
+          />
+        </div>
         <video
           autoPlay
           muted

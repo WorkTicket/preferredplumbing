@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { cn } from '@/lib/utils'
 
 interface AnimatedImageProps {
@@ -14,9 +14,9 @@ interface AnimatedImageProps {
   wrapperClassName?: string
   sizes?: string
   priority?: boolean
-  quality?: number
   hasSkeleton?: boolean
   hoverZoom?: boolean
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
 }
 
 export default function AnimatedImage({
@@ -29,9 +29,9 @@ export default function AnimatedImage({
   wrapperClassName,
   sizes,
   priority = false,
-  quality = 85,
   hasSkeleton = true,
   hoverZoom = false,
+  objectFit = 'cover',
 }: AnimatedImageProps) {
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
@@ -55,7 +55,7 @@ export default function AnimatedImage({
           Failed to load image
         </div>
       ) : (
-        <Image
+        <ResponsiveImage
           src={src}
           alt={alt}
           width={!fill ? width : undefined}
@@ -63,7 +63,7 @@ export default function AnimatedImage({
           fill={fill}
           sizes={sizes}
           priority={priority}
-          quality={quality}
+          objectFit={objectFit}
           onLoad={onLoad}
           onError={onError}
           className={cn(

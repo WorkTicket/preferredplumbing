@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
+import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import type { ReactNode } from 'react'
 
 interface PageHeroProps {
@@ -22,14 +23,8 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center">
-      <Image
-        src={image}
-        alt={imageAlt}
-        fill
-        className="object-cover"
-        priority={priority}
-        sizes="100vw"
-      />
+      {priority && <HeroImagePreload src={image} />}
+      <LcpHeroImage src={image} alt={imageAlt} />
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
       <div className="relative z-10 container-page section-padding !py-16 sm:!py-20">
         <span className="section-label text-blue-300 before:bg-blue-300">{label}</span>

@@ -419,7 +419,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     summaryHeading: 'Reliable Sewer Line Replacement for Long-Term Protection',
     photos: [
       '/images/service-sewer-line-replacement.webp',
-      '/images/gallery/field-service-crew-1.webp',
+      '/images/gallery/sewer-line-replacement-1.webp',
     ],
     summaryParagraphs: [
       'Frequent backups, foul odors, or tree roots in your pipes? We use camera inspections and modern trenchless techniques for a fix that lasts.',
@@ -495,7 +495,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     summaryHeading: 'Protect Your Property with Expert Septic System Services',
     photos: [
       '/images/service-septic-system-installation.webp',
-      '/images/gallery/field-service-crew-1.webp',
+      '/images/gallery/septic-system-installation-1.webp',
     ],
     summaryParagraphs: [
       'New home or system upgrade, we make sure your septic works safely and efficiently. We have been doing it long enough to know what holds up and what does not.',
@@ -571,8 +571,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     summaryHeading: 'Expert Toilet & Faucet Services for Long-Lasting Performance',
     photos: [
       '/images/service-toilets-faucets-plumbing.webp',
-      '/images/gallery/modern-bathroom-fixtures-3.webp',
-      '/images/gallery/modern-bathroom-fixtures-2.webp',
+      '/images/gallery/modern-bathroom-fixtures-1.webp',
     ],
     summaryParagraphs: [
       'New installs or leak repairs, we do precise, code-compliant work. Leaky toilets and dripping faucets waste thousands of gallons a year. We stop the waste fast.',
@@ -649,7 +648,6 @@ export const serviceContent: Record<string, RichServiceContent> = {
     photos: [
       '/images/service-bathtubs-showers-plumbing.webp',
       '/images/gallery/shower-tub-installation-1.webp',
-      '/images/gallery/shower-tub-installation-3.webp',
     ],
     summaryParagraphs: [
       'Remodel or new build, we deliver watertight fittings, proper drainage, and finishes that look great. We have been doing this long enough to get every detail right.',

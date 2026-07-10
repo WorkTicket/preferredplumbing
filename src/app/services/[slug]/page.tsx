@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
+import LcpHeroImage from '@/components/ui/LcpHeroImage'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
 import { CheckCircle, Phone, ArrowRight, Star, Shield, Clock, HardHat, Award } from 'lucide-react'
 import { services } from '@/lib/data'
@@ -92,13 +95,10 @@ export default function ServicePage({ params }: Props) {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center">
-        <Image
+        <HeroImagePreload src={service.image} />
+        <LcpHeroImage
           src={service.image}
           alt={`${service.title} plumbing service by Preferred Plumbing Solutions in Spirit Lake, Idaho and North Idaho`}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
         <div className="relative z-10 container-page">
@@ -201,13 +201,12 @@ export default function ServicePage({ params }: Props) {
                       key={photo}
                       className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 shadow-premium border border-gray-200"
                     >
-                      <Image
+                      <ResponsiveImage
                         src={photo}
                         alt={`${service.title} project completed by Preferred Plumbing Solutions in Spirit Lake, Idaho - Photo ${i + 1}`}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading="lazy"
+                        className="transition-transform duration-500 group-hover:scale-105"
+                        sizes={IMAGE_SIZES.thirdCol}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>

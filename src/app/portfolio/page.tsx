@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import { Phone } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
@@ -55,12 +56,12 @@ export default function PortfolioPage() {
                 className="group overflow-hidden rounded-xl bg-white border border-gray-200 shadow-premium transition-all hover:-translate-y-1 hover:shadow-premium-lg hover:border-blue/20"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
+                  <ResponsiveImage
                     src={item.image}
                     alt={`${item.title}, Preferred Plumbing Solutions, ${item.location}`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="transition-transform duration-500 group-hover:scale-105"
+                    sizes={IMAGE_SIZES.halfCol}
                   />
                   {item.featured && (
                     <span className="absolute left-4 top-4 rounded-full bg-blue px-3 py-1 text-xs font-semibold text-white shadow-premium">

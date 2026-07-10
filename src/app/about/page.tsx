@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star, Shield, Clock, HardHat, CheckCircle, Award } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
@@ -90,12 +91,11 @@ export default function AboutPage() {
         <div className="container-page">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-premium-lg">
-              <Image
+              <ResponsiveImage
                 src="/images/preferred-plumbing-service-truck.webp"
                 alt="Preferred Plumbing Solutions service truck - licensed plumber serving Spirit Lake, Idaho since 1987"
                 fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes={IMAGE_SIZES.halfCol}
               />
             </div>
             <div className="space-y-4 text-gray-600 leading-relaxed">
