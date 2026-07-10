@@ -3,7 +3,7 @@ import { Phone, MapPin, Clock, Shield, Star, Navigation } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
 import ContactForm from '@/components/ui/ContactForm'
-import { PHONE, PHONE_HREF } from '@/lib/utils'
+import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import PageHero from '@/components/sections/PageHero'
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = generateMetadata({
 })
 
 export default function ContactPage() {
-  const directionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=47.9668,-116.8693&destination_place_id=Spirit%20Lake%2C%20ID'
+  const directionsUrl = DIRECTIONS_URL
 
   return (
     <div className="pt-14 sm:pt-16">
@@ -117,7 +117,7 @@ export default function ContactPage() {
 
               <div className="aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 shadow-premium-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d171073.44739193922!2d-116.98501708359373!3d47.966799999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5361195b0b0b0b0b%3A0x0!2sSpirit%20Lake%2C%20ID%2083869!5e0!3m2!1sen!2sus!4v1"
+                  src={MAP_EMBED_URL}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

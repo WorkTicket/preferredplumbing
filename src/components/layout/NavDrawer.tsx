@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Phone, ArrowRight, ChevronDown, Wrench } from 'lucide-react'
+import { X, Phone, ArrowRight, ChevronDown, Wrench, BookOpen, HelpCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -14,12 +14,15 @@ import {
 } from '@/lib/nav-services'
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/areas-we-serve', label: 'Service Areas' },
-  { href: '/faqs', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
+]
+
+const learnLinks = [
+  { href: '/blog', label: 'Blog', icon: BookOpen },
+  { href: '/faqs', label: 'FAQs', icon: HelpCircle },
 ]
 
 interface NavDrawerProps {
@@ -82,6 +85,7 @@ const servicesSubmenuVariants = {
 export default function NavDrawer({ open, onClose }: NavDrawerProps) {
   const reduced = useReducedMotion()
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [learnOpen, setLearnOpen] = useState(false)
   const navServices = getNavServices()
 
   useEffect(() => {
@@ -99,7 +103,10 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
   }, [open, onClose])
 
   useEffect(() => {
-    if (!open) setServicesOpen(false)
+    if (!open) {
+      setServicesOpen(false)
+      setLearnOpen(false)
+    }
   }, [open])
 
   const renderNavLink = (href: string, label: string, index: number) =>
@@ -250,6 +257,82 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
     </motion.div>
   )
 
+  const learnSection = reduced ? (
+    <div className="border-b border-gray-50">
+      <button
+        type="button"
+        onClick={() => setLearnOpen((prev) => !prev)}
+        aria-expanded={learnOpen}
+        className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+      >
+        Learn
+        <ChevronDown
+          className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', learnOpen && 'rotate-180')}
+        />
+      </button>
+      {learnOpen && (
+        <div className="pb-2 pl-1">
+          {learnLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={onClose}
+              className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gray-100 text-blue">
+                <link.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+              </span>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  ) : (
+    <motion.div custom={6} variants={linkVariants} initial="hidden" animate="visible" exit="exit">
+      <div className="border-b border-gray-50">
+        <button
+          type="button"
+          onClick={() => setLearnOpen((prev) => !prev)}
+          aria-expanded={learnOpen}
+          className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+        >
+          Learn
+          <ChevronDown
+            className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', learnOpen && 'rotate-180')}
+          />
+        </button>
+        <AnimatePresence initial={false}>
+          {learnOpen && (
+            <motion.div
+              variants={servicesSubmenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="overflow-hidden"
+            >
+              <div className="pb-2 pl-1">
+                {learnLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={onClose}
+                    className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue"
+                  >
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gray-100 text-blue">
+                      <link.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                    </span>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
+  )
+
   return (
     <AnimatePresence mode="wait">
       {open && (
@@ -309,7 +392,8 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
             <nav className="flex flex-col px-4 py-2 flex-1 overflow-y-auto">
               {renderNavLink('/', 'Home', 0)}
               {servicesSection}
-              {links.slice(1).map((link, i) => renderNavLink(link.href, link.label, i + 2))}
+              {links.map((link, i) => renderNavLink(link.href, link.label, i + 2))}
+              {learnSection}
             </nav>
           </motion.div>
         </>

@@ -5,6 +5,7 @@ import ReviewCard from '@/components/ui/ReviewCard'
 import { StaggerChildren } from '@/components/animations'
 import { reviews } from '@/lib/data'
 import Link from 'next/link'
+import { GBP_URL } from '@/lib/utils'
 
 export default function Testimonials() {
   return (
@@ -40,7 +41,7 @@ export default function Testimonials() {
         <div className="mt-8 text-center">
           <p className="text-gray-600 font-medium">Satisfied with our services? Let us know on Google!</p>
           <a
-            href="https://maps.app.goo.gl/ne3NdeDCnQqC3Zni7"
+            href={GBP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary mt-3 inline-block"

@@ -2,8 +2,8 @@
 
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
-import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat } from 'lucide-react'
-import { PHONE, PHONE_HREF } from '@/lib/utils'
+import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
+import { PHONE, PHONE_HREF, GBP_URL, TIKTOK_URL } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import FooterSignature from '@/components/FooterSignature'
 import { AnimatedSection } from '@/components/animations'
@@ -22,6 +22,13 @@ const serviceLinks = [
   { href: '/services/remodels', label: 'Remodels & Upgrades' },
 ]
 
+const trustStats = [
+  { value: '38+', label: 'Years Experience' },
+  { value: '500+', label: 'Jobs Completed' },
+  { value: '16', label: 'Cities Served' },
+  { value: '5★', label: 'Google Rating' },
+]
+
 const trustBadges = [
   { icon: Shield, text: 'Licensed & Insured' },
   { icon: Award, text: 'Free Estimates' },
@@ -33,6 +40,18 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 pt-12 sm:pt-16 pb-24 sm:pb-12 md:pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Trust Stats Bar */}
+        <div className="mb-8 pb-8 border-b border-gray-800">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            {trustStats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="font-display text-2xl sm:text-3xl font-black text-white">{stat.value}</p>
+                <p className="mt-1 text-xs sm:text-sm text-gray-400 font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Trust Badges */}
         <div className="mb-10 pb-8 border-b border-gray-800">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -70,6 +89,34 @@ export default function Footer() {
               <p className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-400">
                 <MapPin className="h-4 w-4 text-blue-light shrink-0" /> Spirit Lake, ID 83869
               </p>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <a
+                href={GBP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800/60 px-3 py-2 text-xs font-semibold text-gray-300 transition-colors hover:border-blue-light hover:text-white"
+              >
+                <Star className="h-3.5 w-3.5 text-blue-light" /> Google Business
+              </a>
+              <a
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800/60 px-3 py-2 text-xs font-semibold text-gray-300 transition-colors hover:border-blue-light hover:text-white"
+              >
+                TikTok
+                <ExternalLink className="h-3 w-3 text-gray-500" />
+              </a>
+              <a
+                href={GBP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800/60 px-3 py-2 text-xs font-semibold text-gray-300 transition-colors hover:border-blue-light hover:text-white"
+              >
+                Leave a Review
+              </a>
             </div>
 
             <div className="mt-6 pt-6 border-t border-gray-800">

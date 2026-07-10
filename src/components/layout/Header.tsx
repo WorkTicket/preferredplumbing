@@ -7,6 +7,7 @@ import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
 import NavDrawer from './NavDrawer'
 import ServicesMegaMenu from './ServicesMegaMenu'
+import LearnDropdown from './LearnDropdown'
 
 const navLinkClass =
   'text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full'
@@ -15,7 +16,9 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [learnOpen, setLearnOpen] = useState(false)
   const servicesRef = useRef<HTMLDivElement>(null)
+  const learnRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -28,6 +31,9 @@ export default function Header() {
       if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
         setServicesOpen(false)
       }
+      if (learnRef.current && !learnRef.current.contains(e.target as Node)) {
+        setLearnOpen(false)
+      }
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
@@ -35,13 +41,16 @@ export default function Header() {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setServicesOpen(false)
+      if (e.key === 'Escape') {
+        setServicesOpen(false)
+        setLearnOpen(false)
+      }
     }
-    if (servicesOpen) {
+    if (servicesOpen || learnOpen) {
       document.addEventListener('keydown', handleEscape)
     }
     return () => document.removeEventListener('keydown', handleEscape)
-  }, [servicesOpen])
+  }, [servicesOpen, learnOpen])
 
   return (
     <>
@@ -124,6 +133,36 @@ export default function Header() {
             <Link href="/about" className={navLinkClass}>
               About
             </Link>
+
+            <div
+              ref={learnRef}
+              className="relative"
+              onMouseEnter={() => setLearnOpen(true)}
+              onMouseLeave={() => setLearnOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setLearnOpen((open) => !open)}
+                aria-expanded={learnOpen}
+                aria-haspopup="true"
+                className={cn(
+                  navLinkClass,
+                  'flex items-center gap-1 after:hidden',
+                  learnOpen && 'text-blue'
+                )}
+              >
+                Learn
+                <ChevronDown
+                  className={cn(
+                    'h-3.5 w-3.5 transition-transform duration-300',
+                    learnOpen && 'rotate-180'
+                  )}
+                />
+              </button>
+
+              <LearnDropdown open={learnOpen} onClose={() => setLearnOpen(false)} />
+            </div>
+
             <Link href="/gallery" className={navLinkClass}>
               Gallery
             </Link>

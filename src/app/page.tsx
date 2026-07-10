@@ -5,9 +5,13 @@ import Testimonials from '@/components/sections/Testimonials'
 import WhyChooseUs from '@/components/sections/WhyChooseUs'
 import ServicesGrid from '@/components/sections/ServicesGrid'
 import RecentProjects from '@/components/sections/RecentProjects'
+import SeoSpotlight from '@/components/sections/SeoSpotlight'
+import BeforeAfterSlider from '@/components/sections/BeforeAfterSlider'
+import LatestArticles from '@/components/sections/LatestArticles'
 import AboutSection from '@/components/sections/AboutSection'
 import FAQAccordion from '@/components/sections/FAQAccordion'
 import ServiceAreas from '@/components/sections/ServiceAreas'
+import FindUsSection from '@/components/sections/FindUsSection'
 import ContactSection from '@/components/sections/ContactSection'
 import { AnimatedSection } from '@/components/animations'
 import { faqSchema, webpageSchema } from '@/lib/schema'
@@ -62,20 +66,32 @@ export default function HomePage() {
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServicesGrid />
       </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <SeoSpotlight />
+      </AnimatedSection>
       <AnimatedSection variant="slideUp" delay={0.1}>
         <AboutSection />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <RecentProjects />
       </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <BeforeAfterSlider />
+      </AnimatedSection>
       <AnimatedSection variant="slideUp" delay={0.1}>
         <Testimonials />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <LatestArticles />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServiceAreas />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <FAQAccordion />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <FindUsSection />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.15}>
         <ContactSection />

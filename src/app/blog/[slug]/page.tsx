@@ -1,60 +1,21 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Phone, ArrowLeft, ChevronRight } from 'lucide-react'
-import { generateMetadata as genMeta, generateBlogMetadata, siteUrl } from '@/lib/seo'
+import { Phone, ArrowLeft } from 'lucide-react'
+import { generateBlogMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { blogPosts, getBlogPost } from '@/data/blog'
 
 interface Props {
   params: { slug: string }
 }
 
-const posts: Record<string, { title: string; content: string[]; date: string }> = {
-  'how-to-choose-plumber-spirit-lake-idaho': {
-    title: 'How to Choose a Plumber in Spirit Lake, Idaho',
-    date: '2026-06-15',
-    content: [
-      'Finding the right plumber in Spirit Lake doesn\'t have to be hard. Whether you\'re building a new home or dealing with an emergency repair, a qualified local plumber makes all the difference.',
-      'Start by looking for a licensed and insured plumbing contractor. Idaho requires proper licensing, and insurance protects both you and the plumber in case of accidents. Preferred Plumbing Solutions is fully licensed in both Idaho and Washington.',
-      'Experience matters. A plumber with decades of local experience knows the specific challenges of North Idaho homes. Freezing winters that burst pipes. Hard water that wears down fixtures.',
-      'Ask about their service area. Some plumbers only work in certain cities. We serve 16 cities across Idaho and Washington, from Spirit Lake to Spokane Valley.',
-      'Read reviews. Check Google reviews and ask for references. A 5-star rating from local customers speaks volumes about reliability and work quality.',
-      'Finally, get a detailed quote before work begins. Transparent pricing is a hallmark of a trustworthy plumbing contractor.',
-    ],
-  },
-  'signs-sewer-line-replacement-north-idaho': {
-    title: 'Signs You Need a Sewer Line Replacement in North Idaho',
-    date: '2026-06-10',
-    content: [
-      'Your sewer line is one of the most critical parts of your home\'s plumbing system. When it fails, the problems can be messy and expensive. Here are the key signs that you may need a sewer line replacement in North Idaho.',
-      'Frequent backups. If you\'re dealing with repeated toilet or drain backups, your sewer line may be compromised. Tree roots, shifting soil, and aging pipes are common causes in our region.',
-      'Slow drains throughout the house. When multiple drains are slow simultaneously, it\'s a strong indicator of a main sewer line issue, not just a single clogged pipe.',
-      'Foul odors. Sewer gas smells in your yard or basement suggest a crack or leak in your sewer line. This is a health hazard and needs immediate attention.',
-      'Soggy patches in your yard. Unexplained wet or sunken areas in your lawn, especially near the sewer line path, indicate a leak.',
-      'If you notice any of these signs, call a professional plumber immediately. We offer sewer line inspection and replacement throughout North Idaho.',
-    ],
-  },
-  'radiant-heat-vs-forced-air-idaho': {
-    title: 'Radiant Heat vs. Forced Air: What North Idaho Homeowners Should Know',
-    date: '2026-06-05',
-    content: [
-      'Radiant in-floor heating and forced air systems each have their strengths. Here\'s what you need to know to pick the right one for your North Idaho home.',
-      'Radiant heat works by circulating warm water through tubing installed in your floors. It provides even, draft-free warmth that feels natural and comfortable. Idaho homeowners love it for bathrooms, basements, and entire homes.',
-      'Forced air systems use ductwork to blow heated air throughout your home. They\'re generally less expensive to install initially and can also handle air conditioning through the same ducts.',
-      'Efficiency: Radiant heat is typically 20-30% more efficient than forced air because it doesn\'t lose heat through ductwork. Water is an excellent conductor of heat, making hydronic systems highly efficient.',
-      'Comfort: Radiant heat eliminates cold spots and drafts. The warmth rises from the floor, creating an even temperature from floor to ceiling. Forced air can create temperature stratification and blow dust around.',
-      'Cost: While radiant heat has a higher upfront installation cost, the long-term energy savings often offset the difference within a few years, especially in cold climates like North Idaho.',
-      'At Preferred Plumbing Solutions, we specialize in radiant heat installation throughout Spirit Lake and North Idaho. We can help you determine if it\'s the right choice for your home.',
-    ],
-  },
-}
-
 export function generateStaticParams() {
-  return Object.keys(posts).map((slug) => ({ slug }))
+  return blogPosts.map((post) => ({ slug: post.slug }))
 }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const post = posts[params.slug]
+  const post = getBlogPost(params.slug)
   if (!post) return {}
   return generateBlogMetadata({
     title: post.title,
@@ -65,7 +26,7 @@ export function generateMetadata({ params }: Props): Metadata {
 }
 
 export default function BlogPostPage({ params }: Props) {
-  const post = posts[params.slug]
+  const post = getBlogPost(params.slug)
   if (!post) notFound()
 
   const articleSchema = {
@@ -104,7 +65,13 @@ export default function BlogPostPage({ params }: Props) {
           <div className="mt-4">
             <SectionLabel text="Blog" />
           </div>
-          <p className="mt-4 text-sm text-gray-400">{post.date}</p>
+          <p className="mt-4 text-sm text-gray-400">
+            {new Date(post.date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </p>
           <h1 className="mt-2 font-display text-[clamp(2rem,6vw,3.5rem)] font-black uppercase leading-[0.95] text-gray-900">
             {post.title}
           </h1>
