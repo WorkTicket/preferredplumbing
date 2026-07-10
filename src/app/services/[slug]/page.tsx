@@ -12,6 +12,7 @@ import { serviceContent, pageMeta } from '@/lib/service-content'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
+import FaqAccordionList from '@/components/ui/FaqAccordionList'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -284,18 +285,11 @@ export default function ServicePage({ params }: Props) {
                 <p className="mt-3 text-gray-600 max-w-3xl">
                   Common questions about {service.title.toLowerCase()} in Spirit Lake and North Idaho.
                 </p>
-                <div className="mt-8 max-w-4xl rounded-xl border border-gray-200 bg-white shadow-premium overflow-hidden divide-y divide-gray-100">
-                  {service.faqs.map((faq, i) => (
-                    <details key={i} className="group">
-                      <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 sm:px-6 py-4 font-semibold text-gray-900 list-none transition-colors hover:text-blue hover:bg-gray-50 text-sm sm:text-base">
-                        {faq.question}
-                        <span className="text-2xl text-blue transition-transform duration-200 group-open:rotate-45 shrink-0">+</span>
-                      </summary>
-                      <p className="pb-5 px-5 sm:px-6 text-gray-600 leading-relaxed text-sm sm:text-base -mt-1">
-                        {faq.answer}
-                      </p>
-                    </details>
-                  ))}
+                <div className="mt-8 max-w-4xl">
+                  <FaqAccordionList
+                    items={service.faqs}
+                    idPrefix={service.slug}
+                  />
                 </div>
               </div>
             </section>
@@ -381,16 +375,11 @@ export default function ServicePage({ params }: Props) {
                     <p className="mt-2 text-gray-500 text-sm">
                       Common questions about {service.title.toLowerCase()} in Spirit Lake and North Idaho.
                     </p>
-                    <div className="mt-6 space-y-4">
-                      {service.faqs.map((faq, i) => (
-                        <details key={i} className="group rounded-xl border border-gray-200 bg-white p-5 shadow-premium">
-                          <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 list-none">
-                            {faq.question}
-                            <span className="text-xl text-blue transition-transform duration-200 group-open:rotate-45">+</span>
-                          </summary>
-                          <p className="mt-3 text-gray-600 leading-relaxed">{faq.answer}</p>
-                        </details>
-                      ))}
+                    <div className="mt-6">
+                      <FaqAccordionList
+                        items={service.faqs}
+                        idPrefix={`${service.slug}-fallback`}
+                      />
                     </div>
                   </div>
                 )}

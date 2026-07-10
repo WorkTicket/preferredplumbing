@@ -103,7 +103,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-5 lg:gap-7 shrink-0">
+          <nav className="hidden lg:flex items-center gap-5 lg:gap-7 shrink-0">
             <Link href="/" className="nav-link-premium">
               Home
             </Link>
@@ -192,7 +192,7 @@ export default function Header() {
             </div>
           </nav>
 
-          <div className="flex shrink-0 md:hidden">
+          <div className="flex shrink-0 lg:hidden">
             <button
               onClick={() => setDrawerOpen(true)}
               className="flex items-center justify-center rounded-xl p-2 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"

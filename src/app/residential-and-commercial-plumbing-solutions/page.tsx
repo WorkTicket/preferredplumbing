@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Phone, CheckCircle, ChevronRight } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
+import FaqAccordionList from '@/components/ui/FaqAccordionList'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -14,6 +15,33 @@ export const metadata: Metadata = generateMetadata({
   description: 'Expert residential and commercial plumbing services in Spirit Lake, Idaho. 38+ years of experience serving North Idaho with repairs, installations, and maintenance.',
   slug: 'residential-and-commercial-plumbing-solutions',
 })
+
+const residentialFaqs = [
+  {
+    question: 'What areas do you serve for plumbing services?',
+    answer: 'Spirit Lake, Kootenai County, and communities across the Idaho Panhandle. We know the local water conditions and climate, so we can tailor solutions for your area.',
+  },
+  {
+    question: 'How quickly can you respond to plumbing emergencies?',
+    answer: 'We aim to be at your door within hours. Our trucks are stocked and ready for most emergencies on the first visit.',
+  },
+  {
+    question: 'Do you provide services for both residential and commercial properties?',
+    answer: 'Yes. Small household repair or large commercial install, we handle both. Our team has experience across all property types.',
+  },
+  {
+    question: 'What types of water heaters do you install and repair?',
+    answer: 'Tank and tankless. We install, repair, and maintain both types. We will help you pick the most efficient option for your home or business.',
+  },
+  {
+    question: 'Are your plumbers licensed and insured?',
+    answer: 'Yes. Every technician is fully licensed and insured. That means professional work and protection for your property.',
+  },
+  {
+    question: 'What measures do you take to protect plumbing systems during winter?',
+    answer: 'We recommend insulation, freeze protection, and timely maintenance to prevent burst pipes. Early preparation saves you from costly repairs later.',
+  },
+]
 
 export default function ResidentialCommercialPage() {
   return (
@@ -185,13 +213,8 @@ export default function ResidentialCommercialPage() {
             Frequently Asked<br />
             <span className="text-blue">Questions</span>
           </h2>
-          <div className="mt-8 max-w-4xl space-y-3 sm:space-y-4">
-            <FAQItem question="What areas do you serve for plumbing services?" answer="Spirit Lake, Kootenai County, and communities across the Idaho Panhandle. We know the local water conditions and climate, so we can tailor solutions for your area." />
-            <FAQItem question="How quickly can you respond to plumbing emergencies?" answer="We aim to be at your door within hours. Our trucks are stocked and ready for most emergencies on the first visit." />
-            <FAQItem question="Do you provide services for both residential and commercial properties?" answer="Yes. Small household repair or large commercial install, we handle both. Our team has experience across all property types." />
-            <FAQItem question="What types of water heaters do you install and repair?" answer="Tank and tankless. We install, repair, and maintain both types. We will help you pick the most efficient option for your home or business." />
-            <FAQItem question="Are your plumbers licensed and insured?" answer="Yes. Every technician is fully licensed and insured. That means professional work and protection for your property." />
-            <FAQItem question="What measures do you take to protect plumbing systems during winter?" answer="We recommend insulation, freeze protection, and timely maintenance to prevent burst pipes. Early preparation saves you from costly repairs later." />
+          <div className="mt-8 max-w-4xl">
+            <FaqAccordionList items={residentialFaqs} idPrefix="residential" />
           </div>
         </div>
       </section>
@@ -251,15 +274,6 @@ function BenefitCard({ title, text }: { title: string; text: string }) {
       <CheckCircle className="h-6 w-6 text-blue" />
       <h3 className="mt-3 font-display text-lg font-bold uppercase text-gray-900">{title}</h3>
       <p className="mt-2 text-gray-600 leading-relaxed text-sm sm:text-base">{text}</p>
-    </div>
-  )
-}
-
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  return (
-    <div className="rounded-xl bg-white border border-gray-200 p-5 shadow-premium">
-      <p className="font-semibold text-gray-900 text-sm sm:text-base">{question}</p>
-      <p className="mt-2 text-gray-600 text-sm sm:text-base">{answer}</p>
     </div>
   )
 }

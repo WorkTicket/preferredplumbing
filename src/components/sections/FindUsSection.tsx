@@ -19,11 +19,11 @@ export default function FindUsSection() {
         <div className="text-center max-w-3xl mx-auto">
           <SectionLabel text="Find Us" centered />
           <h2 className="section-heading">
-            Visit Our<br />
-            <span className="text-blue">Spirit Lake Location</span>
+            Our Service<br />
+            <span className="text-blue">Location</span>
           </h2>
           <p className="section-subtitle-center">
-            Serving North Idaho and Eastern Washington from Spirit Lake since 1987.
+            Based in Spirit Lake, Idaho — serving North Idaho and Eastern Washington since 1987.
           </p>
         </div>
 

@@ -51,19 +51,14 @@ export default function ServicesGrid() {
         </StaggerChildren>
 
         <div className="mt-16 sm:mt-20">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div>
-              <SectionLabel text="Specialty Services" />
-              <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
-                What We Do <span className="text-blue">Best</span>
-              </h3>
-              <p className="section-subtitle mt-3">
-                Commercial work, rural septic, and hard-water fixes. Three areas where 38 years on the job really shows.
-              </p>
-            </div>
-            <Link href="/services" className="btn-secondary shrink-0 self-start lg:self-auto">
-              All Services <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div>
+            <SectionLabel text="Specialty Services" />
+            <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
+              What We Do <span className="text-blue">Best</span>
+            </h3>
+            <p className="section-subtitle mt-3">
+              Commercial work, rural septic, and hard-water fixes. Three areas where 38 years on the job really shows.
+            </p>
           </div>
 
           <StaggerChildren
