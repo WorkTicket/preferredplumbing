@@ -18,7 +18,7 @@ export type GalleryProjectSummary = Pick<
   'id' | 'title' | 'slug' | 'category' | 'description' | 'location' | 'coverImage' | 'completionDate'
 >
 
-const g = (name: string) => `/images/gallery/${name}?v=21`
+const g = (name: string) => `/images/gallery/${name}?v=22`
 
 /** Before → after pair. Cover uses the finished shot (-1). */
 const beforeAfter = (slug: string) => [
