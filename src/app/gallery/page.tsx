@@ -65,7 +65,7 @@ export default function GalleryPage() {
       <PageHero
         label="Gallery"
         title={<>Our Project<br /><span className="text-blue-300">Gallery</span></>}
-        description="Every project tells a story. From rough-in to finish trim, we photograph our work because we're proud of it. Browse through our gallery to see the quality and craftsmanship we bring to every job across North Idaho."
+        description="We photograph our work from rough-in to finish trim. Browse real jobs across North Idaho and see what we bring to every project."
         image="/images/hero-gallery.webp"
         imageAlt="Completed plumbing projects by Preferred Plumbing Solutions in North Idaho"
         priority
@@ -102,8 +102,8 @@ export default function GalleryPage() {
               <span className="text-blue">Next Project?</span>
             </h2>
             <p className="mt-4 text-gray-600">
-              Whether you&apos;re building new, remodeling, or need commercial plumbing,
-              we&apos;d love to hear from you. Give us a call.
+              New build, remodel, or commercial job?
+              Give us a call. We&apos;d like to hear about it.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a

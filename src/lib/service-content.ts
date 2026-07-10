@@ -124,7 +124,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     benefits: [
       {
         title: 'Custom System Design for Optimal Performance',
-        description: 'We collaborate with architects and builders to create plumbing systems tailored to the blueprint and water usage needs. This prevents pressure drops, drainage issues, and inefficient layouts.',
+        description: 'We work with architects and builders to design plumbing that fits the blueprint and how the building will actually be used. That prevents pressure drops, drainage issues, and bad layouts.',
       },
       {
         title: 'Code Compliance and Inspection Readiness',
@@ -219,7 +219,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
         description: 'Water heaters involve high-voltage or gas connections that must meet safety codes. Our certified team handles these safely and in full compliance.',
       },
       {
-        title: 'Access to Expert Advice',
+        title: 'Straight Answers When You Need Them',
         description: 'We don\'t just fix things. We help you understand your system, recommend maintenance routines, and advise on upgrades like tankless conversion.',
       },
     ],
@@ -300,7 +300,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     benefitsHeading: 'Benefits of Radiant Heating Systems',
-    closingHeading: 'The Trusted Choice for Efficient Radiant Heat Installation',
+    closingHeading: 'Radiant Heat Done Right for North Idaho Homes',
     closingParagraphs: [
       'Radiant heating is an investment in how your home feels through Idaho winters. Our goal is simple: keep you warm, comfortable, and save you money on heating bills.',
       'We design systems that stand up to snow and subzero temperatures. Every detail matters, from flooring type to room layout. We make sure each system performs for decades.',
@@ -376,7 +376,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
     ],
     benefitsHeading: 'Benefits of Water Softeners',
-    closingHeading: 'Consistent Water Quality Starts with Trusted System Design',
+    closingHeading: 'Water Quality That Holds Up in North Idaho',
     closingParagraphs: [
       'Hard water is not just about spots on dishes. It affects your utility bills and how long your plumbing lasts. We have spent decades helping homeowners around Spirit Lake and across the region deal with mineral-rich water.',
       'Water softeners extend the life of your appliances and improve how your water feels and tastes. We make sure you understand how to maintain it, check salt levels, and keep it performing.',
@@ -454,7 +454,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     benefitsHeading: 'Benefits of Professional Sewer Line Replacement',
     closingHeading: 'Sewer Solutions That Protect Your Property',
     closingParagraphs: [
-      'Replacing a sewer line is a big job, but it brings long-term peace of mind. We handle everything from diagnosis to installation, and we do it right.',
+      'Replacing a sewer line is a big job, but a new line lasts decades. We handle everything from diagnosis to installation, and we do it right.',
       'Seasonal shifts and tree roots take a toll on buried pipes around here. Replacing a failing line protects your property and saves you from repeated emergency calls.',
     ],
   },
@@ -606,7 +606,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     benefitsHeading: 'Benefits of Professional Toilet & Faucet Services',
     closingHeading: 'Toilet and Faucet Repairs You Can Rely On',
     closingParagraphs: [
-      'Toilets and faucets get used every single day. Having a good plumber who knows the local systems and codes makes all the difference.',
+      'Toilets and faucets get used every single day. A plumber who knows local systems and codes keeps small problems from turning into big ones.',
       'From older homes to new developments, we keep your fixtures working right year-round. Give us a call when something needs attention.',
     ],
   },
@@ -847,7 +847,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
       {
         title: 'Water Damage Mitigation',
-        description: 'When water is flooding your property, every second counts. We shut off water, extract standing water, and begin drying. We coordinate with restoration pros for comprehensive damage control.',
+        description: 'When water is flooding your property, every second counts. We shut off water, extract standing water, and begin drying. We coordinate with restoration pros to limit the damage.',
       },
       {
         title: 'Sewer Backup Cleanup',
@@ -889,7 +889,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
         description: 'We\'re here day or night, including holidays. You never have to face a plumbing crisis alone.',
       },
       {
-        title: 'Comprehensive Service',
+        title: 'Full-Service Repairs',
         description: 'Burst pipes to sewer backups, we handle all types of emergencies. We have the tools and expertise to resolve virtually any urgent plumbing issue.',
       },
       {
@@ -991,7 +991,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
     subServices: [
       {
         title: 'Complete Bathroom Renovation',
-        description: 'We gut outdated interiors and rebuild from the ground up. Our work includes structural updates, waterproofing, plumbing, and aesthetic redesign tailored to your home.',
+        description: 'We gut outdated interiors and rebuild from the ground up. Structural updates, waterproofing, plumbing, and a layout that fits how you actually use the space.',
       },
       {
         title: 'Shower and Bathtub Conversions',
@@ -1035,7 +1035,7 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
       {
         title: 'Custom Vanity and Cabinet Installation',
-        description: 'Storage tailored to your exact dimensions and style. Plumbing is integrated behind every vanity for a clean finish.',
+        description: 'Custom storage built to your dimensions and style. Plumbing runs behind every vanity for a clean finish.',
       },
       {
         title: 'Fixture Upgrades',

@@ -16,7 +16,7 @@ export default function Testimonials() {
             <SectionLabel text="Real Reviews" />
           </div>
           <h2 className="font-display text-[clamp(2rem,7vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
-            Trusted by<br />
+            What Our Customers<br />
             <span className="text-blue">North Idaho Homeowners</span>
           </h2>
           <p className="mt-3 text-gray-500 max-w-lg mx-auto">

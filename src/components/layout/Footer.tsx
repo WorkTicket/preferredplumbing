@@ -1,12 +1,9 @@
-'use client'
-
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
 import { PHONE, PHONE_HREF, GBP_URL, TIKTOK_URL } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import FooterSignature from '@/components/FooterSignature'
-import { AnimatedSection } from '@/components/animations'
 
 const serviceLinks = [
   { href: '/services/emergency', label: 'Emergency Plumbing' },
@@ -40,7 +37,6 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 pt-12 sm:pt-16 pb-24 sm:pb-12 md:pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Trust Stats Bar */}
         <div className="mb-8 pb-8 border-b border-gray-800">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {trustStats.map((stat) => (
@@ -52,7 +48,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Trust Badges */}
         <div className="mb-10 pb-8 border-b border-gray-800">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {trustBadges.map((badge) => (
@@ -65,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="grid gap-x-16 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
-          <AnimatedSection as="div" variant="fadeUp" delay={0} className="lg:col-span-1 w-full text-center lg:text-left">
+          <div className="lg:col-span-1 w-full text-center lg:text-left">
             <Link href="/" className="flex flex-col lg:flex-row items-center lg:items-start gap-2">
               <ResponsiveImage
                 src="/images/preferred logo.webp"
@@ -73,6 +68,7 @@ export default function Footer() {
                 width={36}
                 height={36}
                 className="h-9 w-auto shrink-0"
+                sizes="72px"
               />
               <div className="font-display text-sm font-bold uppercase tracking-wider text-white leading-tight text-center lg:text-left">
                 Preferred<br />Plumbing<br />Solutions
@@ -135,9 +131,9 @@ export default function Footer() {
                 Get Free Quote
               </Link>
             </div>
-          </AnimatedSection>
+          </div>
 
-            <AnimatedSection as="div" variant="fadeUp" delay={0.1} className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-left">
             <h4 className="font-bold text-xs uppercase tracking-wider text-blue-light mb-4">Services</h4>
             <ul className="space-y-2.5">
               {serviceLinks.map((link) => (
@@ -151,9 +147,9 @@ export default function Footer() {
             <Link href="/services" className="mt-3 inline-flex text-xs font-semibold text-blue-light hover:text-blue transition-colors duration-300">
               View All Services &rarr;
             </Link>
-          </AnimatedSection>
+          </div>
 
-          <AnimatedSection as="div" variant="fadeUp" delay={0.2} className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-left">
             <h4 className="font-bold text-xs uppercase tracking-wider text-blue-light mb-4">Service Areas</h4>
             <ul className="space-y-2.5">
               <li><Link href="/areas/spirit-lake-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-blue-light"><span className="link-underline">Spirit Lake, ID</span></Link></li>
@@ -165,9 +161,9 @@ export default function Footer() {
               <li><Link href="/areas/newport-wa" className="group text-sm text-gray-400 transition-all duration-300 hover:text-blue-light"><span className="link-underline">Newport, WA</span></Link></li>
               <li><Link href="/areas-we-serve" className="text-xs font-semibold text-blue-light hover:text-blue mt-1 inline-block">View All Areas &rarr;</Link></li>
             </ul>
-          </AnimatedSection>
+          </div>
 
-          <AnimatedSection as="div" variant="fadeUp" delay={0.3} className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-left">
             <h4 className="font-bold text-xs uppercase tracking-wider text-blue-light mb-4">Quick Links</h4>
             <ul className="space-y-2.5">
               <li><Link href="/about" className="group text-sm text-gray-400 transition-all duration-300 hover:text-blue-light"><span className="link-underline">About Us</span></Link></li>
@@ -179,7 +175,7 @@ export default function Footer() {
               <li><Link href="/contact" className="group text-sm text-gray-400 transition-all duration-300 hover:text-blue-light"><span className="link-underline">Contact Us</span></Link></li>
               <li><Link href="/privacy-policy" className="group text-sm text-gray-400 transition-all duration-300 hover:text-blue-light"><span className="link-underline">Privacy Policy</span></Link></li>
             </ul>
-          </AnimatedSection>
+          </div>
         </div>
 
         <div className="mt-10 sm:mt-12 border-t border-gray-800 pt-6 sm:pt-8 text-center">

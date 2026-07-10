@@ -37,7 +37,7 @@ export default function BlogPage() {
             <span className="text-blue">for North Idaho Homeowners</span>
           </h1>
           <p className="mt-4 max-w-2xl text-gray-600">
-            Expert advice on plumbing maintenance, water heaters, emergencies, and more.
+            Practical tips on plumbing maintenance, water heaters, emergencies, and more.
           </p>
         </div>
       </section>

@@ -1,12 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, ChevronRight, Shield, Clock, HardHat, CheckCircle, Star } from 'lucide-react'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 const stats = [
   { icon: HardHat, number: '38+', suffix: '', label: 'Years Experience' },
@@ -56,10 +54,21 @@ const BottomWave = () => (
   </div>
 )
 
+function shouldLoadHeroVideo(): boolean {
+  if (typeof window === 'undefined') return false
+  if (!window.matchMedia('(min-width: 768px)').matches) return false
+
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection
+  if (connection?.saveData) return false
+  if (connection?.effectiveType && ['slow-2g', '2g', '3g'].includes(connection.effectiveType)) return false
+
+  return true
+}
+
 export default function HeroSection() {
-  const reduced = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
+  const [showVideo, setShowVideo] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -67,22 +76,67 @@ export default function HeroSection() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!shouldLoadHeroVideo()) return
+
+    const enableVideo = () => setShowVideo(true)
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(enableVideo, { timeout: 4000 })
+      return () => window.cancelIdleCallback(id)
+    }
+
+    const timer = setTimeout(enableVideo, 3000)
+    return () => clearTimeout(timer)
+  }, [])
+
   const waveTopPos = scrolled
     ? 'absolute top-14 sm:top-14 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
     : 'absolute top-14 sm:top-16 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
 
-  const content = (
-    <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-24 sm:pb-16">
-      <div className="max-w-3xl">
-        {reduced ? (
-          <>
+  return (
+    <>
+      <HeroImagePreload src="/images/preferred-plumbing-truck-interior.webp" />
+      <section className="relative flex min-h-[90svh] sm:min-h-[85vh] items-center overflow-hidden">
+        <div className="absolute inset-0 brightness-[0.85] saturate-[1.05]">
+          <LcpHeroImage
+            src="/images/preferred-plumbing-truck-interior.webp"
+            alt="Preferred Plumbing service truck interior in Spirit Lake, Idaho"
+          />
+        </div>
+        {showVideo && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/generated/preferred-plumbing-truck-interior-1280.webp"
+            preload="none"
+            onLoadedData={() => setVideoReady(true)}
+            onError={() => setVideoReady(false)}
+            className={`absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.05] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <source src="/videos/preferred-plumbing-hero.mp4" type="video/mp4" />
+          </video>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent" />
+        <div className="absolute inset-0 hero-split-tone" />
+        <div className="absolute inset-0 hero-vignette" />
+        <div className="absolute inset-0 bg-blue/[0.12] mix-blend-soft-light pointer-events-none" />
+        <div className="absolute inset-0 hero-texture" />
+        <div className="absolute inset-0 hero-pattern" />
+        <div className="absolute inset-0 hero-light-sweep hidden md:block" />
+        <TopWave className={waveTopPos} />
+        <BottomWave />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-24 sm:pb-16">
+          <div className="max-w-3xl">
             <div className="mb-4 sm:mb-5 inline-flex flex-wrap items-center gap-2 rounded-full bg-blue/20 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-blue-200 backdrop-blur-sm border border-blue/20">
               <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-              <span>Spirit Lake&apos;s Trusted Plumber Since 1987</span>
+              <span>Family-Owned Plumber in Spirit Lake Since 1987</span>
             </div>
             <h1 className="font-display text-[clamp(2.2rem,10vw,4.5rem)] font-black uppercase leading-[0.9] text-white">
               North Idaho&apos;s<br />
-              <span className="text-blue-300">Trusted Plumber</span>
+              <span className="text-blue-300">Local Plumber</span>
             </h1>
             <p className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-lg text-gray-300 leading-relaxed">
               38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel. Call for a free estimate.
@@ -115,118 +169,8 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
-          </>
-        ) : (
-          <>
-            <motion.div
-              className="mb-4 sm:mb-5 inline-flex flex-wrap items-center gap-2 rounded-full bg-blue/20 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-blue-200 backdrop-blur-sm border border-blue/20"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-              <span>Spirit Lake&apos;s Trusted Plumber Since 1987</span>
-            </motion.div>
-            <motion.h1
-              className="font-display text-[clamp(2.2rem,10vw,4.5rem)] font-black uppercase leading-[0.9] text-white"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              North Idaho&apos;s<br />
-              <span className="text-blue-300">Trusted Plumber</span>
-            </motion.h1>
-            <motion.p
-              className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-lg text-gray-300 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel. Call for a free estimate.
-            </motion.p>
-            <motion.div
-              className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <a href="tel:12082903889" className="btn-primary-lg" data-track="hero_call">
-                <Phone className="h-5 w-5" /> Call (208) 290-3889
-              </a>
-              <Link href="#contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
-                Get Free Estimate <ChevronRight className="h-5 w-5" />
-              </Link>
-            </motion.div>
-            <motion.div
-              className="mt-5 sm:mt-6 flex flex-wrap gap-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              {trustBadges.map((badge) => (
-                <span key={badge} className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-gray-300 backdrop-blur-sm border border-white/10">
-                  <CheckCircle className="h-3 w-3 text-blue-300" /> {badge}
-                </span>
-              ))}
-            </motion.div>
-            <motion.div
-              className="mt-6 sm:mt-10 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              {stats.map((stat) => (
-                <div key={stat.label || stat.number} className="rounded-xl bg-white/10 p-3 sm:p-4 backdrop-blur-sm border border-white/10">
-                  <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-300" />
-                  <p className="mt-1 font-bold text-xl sm:text-2xl text-white">
-                    {stat.number}<span className="text-blue-300">{stat.suffix}</span>
-                  </p>
-                  {stat.label && (
-                    <p className="text-[10px] sm:text-xs font-medium text-white/75">{stat.label}</p>
-                  )}
-                </div>
-              ))}
-            </motion.div>
-          </>
-        )}
-      </div>
-    </div>
-  )
-
-  return (
-    <>
-      <HeroImagePreload src="/images/preferred-plumbing-truck-interior.webp" />
-      <section className="relative flex min-h-[90svh] sm:min-h-[85vh] items-center overflow-hidden">
-        <div className="absolute inset-0 brightness-[0.85] saturate-[1.05]">
-          <LcpHeroImage
-            src="/images/preferred-plumbing-truck-interior.webp"
-            alt=""
-          />
+          </div>
         </div>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/preferred-plumbing-truck-interior.webp"
-          preload="metadata"
-          onLoadedData={() => setVideoReady(true)}
-          onError={() => setVideoReady(false)}
-          className={`absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.05] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <source src="/videos/preferred-plumbing-hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent" />
-        <div className="absolute inset-0 hero-split-tone" />
-        <div className="absolute inset-0 hero-vignette" />
-        <div className="absolute inset-0 bg-blue/[0.12] mix-blend-soft-light pointer-events-none" />
-        <div className="absolute inset-0 hero-texture" />
-        <div className="absolute inset-0 hero-pattern" />
-        <div className="absolute inset-0 hero-light-sweep" />
-        <TopWave className={waveTopPos} />
-        <BottomWave />
-        {content}
       </section>
     </>
   )

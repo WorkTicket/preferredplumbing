@@ -1,13 +1,15 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
 import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
-import NavDrawer from './NavDrawer'
 import ServicesMegaMenu from './ServicesMegaMenu'
 import LearnDropdown from './LearnDropdown'
+
+const NavDrawer = dynamic(() => import('./NavDrawer'), { ssr: false })
 
 const navLinkClass =
   'text-sm font-semibold text-gray-700 hover:text-blue transition-all duration-300 relative whitespace-nowrap after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full'
@@ -77,6 +79,8 @@ export default function Header() {
               alt="Preferred Plumbing Solutions logo"
               width={36}
               height={36}
+              priority
+              sizes="72px"
               className={cn(
                 'w-auto shrink-0 transition-all duration-500',
                 scrolled ? 'h-7 md:h-7' : 'h-8 md:h-9'
@@ -199,7 +203,7 @@ export default function Header() {
         </div>
       </header>
 
-      <NavDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      {drawerOpen && <NavDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
     </>
   )
 }

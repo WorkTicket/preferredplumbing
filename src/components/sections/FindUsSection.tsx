@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Phone, MapPin, Clock, Navigation } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactEmailList from '@/components/ui/ContactEmailList'
+import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
 import {
   PHONE,
   PHONE_HREF,
@@ -24,7 +25,7 @@ export default function FindUsSection() {
             <span className="text-blue">Spirit Lake Location</span>
           </h2>
           <p className="mt-3 text-gray-500 max-w-lg mx-auto">
-            Proudly serving North Idaho and Eastern Washington from Spirit Lake since 1987.
+            Serving North Idaho and Eastern Washington from Spirit Lake since 1987.
           </p>
         </div>
 
@@ -86,16 +87,9 @@ export default function FindUsSection() {
           </div>
 
           <div className="aspect-[4/3] lg:aspect-auto lg:min-h-[360px] overflow-hidden rounded-xl border border-gray-200 shadow-premium-md">
-            <iframe
+            <LazyMapEmbed
               src={MAP_EMBED_URL}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Preferred Plumbing Solutions — Spirit Lake, Idaho Map"
-              className="h-full w-full min-h-[280px]"
+              title="Preferred Plumbing Solutions, Spirit Lake Idaho Map"
             />
           </div>
         </div>

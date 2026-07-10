@@ -7,7 +7,7 @@ import { StaggerChildren } from '@/components/animations'
 const reasons = [
   {
     icon: Users,
-    title: '38+ Years of Trust',
+    title: '38+ Years in the Trade',
     description: 'Ron and Hunter have been plumbing North Idaho since 1987. They work on-site alongside the crew every day.',
   },
   {

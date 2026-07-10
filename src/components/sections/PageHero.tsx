@@ -18,7 +18,7 @@ export default function PageHero({
   description,
   image,
   imageAlt,
-  priority = false,
+  priority = true,
   children,
 }: PageHeroProps) {
   return (

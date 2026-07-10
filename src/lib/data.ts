@@ -1,4 +1,4 @@
-import type { Service, AreaPage, Review } from '@/types'
+import type { Service, AreaPage, Review, FAQ } from '@/types'
 
 export const services: Service[] = [
   {
@@ -292,3 +292,50 @@ export const faqItems = [
   { question: 'Do you work with general contractors on construction projects?', answer: 'Yes, we work alongside builders, architects, and general contractors all the time.' },
   { question: 'What areas besides Spirit Lake do you serve?', answer: 'We cover Spirit Lake and 15 other communities across northern Idaho and eastern Washington.' },
 ]
+
+export interface FaqSection {
+  id: string
+  title: string
+  href?: string
+  items: FAQ[]
+}
+
+const serviceOrder = [
+  'emergency',
+  'new-construction',
+  'commercial',
+  'radiant-heat',
+  'water-heaters',
+  'water-softeners',
+  'remodels',
+  'kitchen-remodels',
+  'bathroom-remodels',
+  'toilets-faucets',
+  'bathtubs-showers',
+  'dishwashers',
+  'sewer-line',
+  'septic-systems',
+] as const
+
+export function getFaqSections(): FaqSection[] {
+  const bySlug = new Map(services.map((service) => [service.slug, service]))
+
+  const serviceSections: FaqSection[] = serviceOrder
+    .map((slug) => bySlug.get(slug))
+    .filter((service): service is Service => Boolean(service?.faqs?.length))
+    .map((service) => ({
+      id: service.slug,
+      title: service.title,
+      href: `/services/${service.slug}`,
+      items: service.faqs!,
+    }))
+
+  return [
+    { id: 'general', title: 'General Questions', items: faqItems },
+    ...serviceSections,
+  ]
+}
+
+export function getAllFaqItems(): FAQ[] {
+  return getFaqSections().flatMap((section) => section.items)
+}

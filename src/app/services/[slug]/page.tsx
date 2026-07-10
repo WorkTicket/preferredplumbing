@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
@@ -10,8 +11,9 @@ import { services } from '@/lib/data'
 import { serviceContent, pageMeta } from '@/lib/service-content'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
-import ContactForm from '@/components/ui/ContactForm'
 import SectionLabel from '@/components/ui/SectionLabel'
+
+const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 interface Props {
   params: { slug: string }

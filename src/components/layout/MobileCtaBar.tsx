@@ -1,27 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { Phone, MessageSquare } from 'lucide-react'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { PHONE_HREF } from '@/lib/utils'
 
-const ctaVariants = {
-  hidden: { y: 60 },
-  visible: {
-    y: 0,
-    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
-  },
-}
-
 export default function MobileCtaBar() {
-  const reduced = useReducedMotion()
-
-  const barClass =
-    'fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 md:hidden shadow-premium-2xl'
-
-  const content = (
-    <>
+  return (
+    <div
+      className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 md:hidden shadow-premium-2xl"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+    >
       <a
         href={PHONE_HREF}
         data-track="mobile_cta_call"
@@ -40,29 +28,6 @@ export default function MobileCtaBar() {
         <MessageSquare className="h-4 w-4 shrink-0" />
         <span>Free Quote</span>
       </Link>
-    </>
-  )
-
-  if (reduced) {
-    return (
-      <div
-        className={barClass}
-        style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
-      >
-        {content}
-      </div>
-    )
-  }
-
-  return (
-    <motion.div
-      className={barClass}
-      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
-      variants={ctaVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {content}
-    </motion.div>
+    </div>
   )
 }

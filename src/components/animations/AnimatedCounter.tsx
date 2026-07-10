@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { useInView } from 'framer-motion'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 interface AnimatedCounterProps {
@@ -20,9 +19,27 @@ export default function AnimatedCounter({
   className,
 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0)
+  const [inView, setInView] = useState(false)
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.2 })
   const reduced = useReducedMotion()
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     if (!inView) return
@@ -51,7 +68,9 @@ export default function AnimatedCounter({
 
   return (
     <span ref={ref} className={className}>
-      {prefix}{inView ? count : end}{suffix}
+      {prefix}
+      {inView ? count : end}
+      {suffix}
     </span>
   )
 }

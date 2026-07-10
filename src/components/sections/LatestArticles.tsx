@@ -18,7 +18,7 @@ export default function LatestArticles() {
               <span className="text-blue">Local Guides</span>
             </h2>
             <p className="mt-3 text-gray-500 max-w-lg">
-              Expert advice for North Idaho homeowners — maintenance, emergencies, and more.
+              Practical tips for North Idaho homeowners: maintenance, emergencies, and more.
             </p>
           </div>
           <Link

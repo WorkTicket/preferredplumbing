@@ -225,3 +225,55 @@
   pointer-events: none;
   mix-blend-mode: overlay;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-light-sweep {
+    animation: none;
+  }
+}
+
+/* ===== SECTION REVEAL (CSS-only, no framer-motion) ===== */
+.section-reveal {
+  opacity: 0;
+  transition:
+    opacity var(--reveal-duration, 0.5s) cubic-bezier(0.25, 0.1, 0.25, 1) var(--reveal-delay, 0s),
+    transform var(--reveal-duration, 0.5s) cubic-bezier(0.25, 0.1, 0.25, 1) var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.section-reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.section-reveal-fade-up {
+  transform: translateY(24px);
+}
+
+.section-reveal-fade-in {
+  transform: none;
+}
+
+.section-reveal-slide-up {
+  transform: translateY(30px);
+}
+
+.section-reveal-scale-in {
+  transform: scale(0.95);
+}
+
+.section-reveal-slide-left {
+  transform: translateX(24px);
+}
+
+.section-reveal-slide-right {
+  transform: translateX(-24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

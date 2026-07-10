@@ -1,37 +1,17 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import { SCROLL_TRIGGER_VIEWPORT } from '@/lib/animation-viewport'
 
 type AnimationVariant = 'fadeUp' | 'fadeIn' | 'slideUp' | 'scaleIn' | 'slideLeft' | 'slideRight'
 
-const variants: Record<AnimationVariant, Variants> = {
-  fadeUp: {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0 },
-  },
-  fadeIn: {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-  slideUp: {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  },
-  scaleIn: {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1 },
-  },
-  slideLeft: {
-    hidden: { opacity: 0, x: 24 },
-    visible: { opacity: 1, x: 0 },
-  },
-  slideRight: {
-    hidden: { opacity: 0, x: -24 },
-    visible: { opacity: 1, x: 0 },
-  },
+const variantClass: Record<AnimationVariant, string> = {
+  fadeUp: 'section-reveal-fade-up',
+  fadeIn: 'section-reveal-fade-in',
+  slideUp: 'section-reveal-slide-up',
+  scaleIn: 'section-reveal-scale-in',
+  slideLeft: 'section-reveal-slide-left',
+  slideRight: 'section-reveal-slide-right',
 }
 
 interface AnimatedSectionProps {
@@ -47,7 +27,7 @@ interface AnimatedSectionProps {
 
 export default function AnimatedSection({
   children,
-  className,
+  className = '',
   variant = 'fadeUp',
   delay = 0,
   duration = 0.5,
@@ -56,36 +36,52 @@ export default function AnimatedSection({
   id,
 }: AnimatedSectionProps) {
   const reduced = useReducedMotion()
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(reduced)
+
+  useEffect(() => {
+    if (reduced) return
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          if (once) observer.disconnect()
+        } else if (!once) {
+          setVisible(false)
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [reduced, once])
+
+  const Tag = as
+  const style = {
+    '--reveal-delay': `${delay}s`,
+    '--reveal-duration': `${duration}s`,
+  } as React.CSSProperties
 
   if (reduced) {
-    const Tag = as
-    return <Tag className={className}>{children}</Tag>
+    return (
+      <Tag id={id} className={className}>
+        {children}
+      </Tag>
+    )
   }
 
-  const MotionTag = as === 'section' ? motion.section : as === 'article' ? motion.article : motion.div
-
   return (
-    <MotionTag
-      ref={ref}
+    <Tag
+      ref={ref as React.RefObject<HTMLDivElement>}
       id={id}
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ ...SCROLL_TRIGGER_VIEWPORT, once }}
-      variants={{
-        hidden: variants[variant].hidden,
-        visible: {
-          ...variants[variant].visible,
-          transition: {
-            duration,
-            delay,
-            ease: [0.25, 0.1, 0.25, 1],
-          },
-        },
-      }}
+      className={`section-reveal ${variantClass[variant]} ${visible ? 'section-reveal-visible' : ''} ${className}`}
+      style={style}
     >
       {children}
-    </MotionTag>
+    </Tag>
   )
 }

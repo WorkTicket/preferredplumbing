@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const config = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
   images: {
     // Serve pre-optimized /public/images directly. The default `/_next/image` route
     // returns 400 on Cloudflare Workers even with the IMAGES binding configured.

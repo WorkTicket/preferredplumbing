@@ -1,15 +1,18 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Phone, MapPin, Clock, Shield, Star, Navigation } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
-import ContactForm from '@/components/ui/ContactForm'
+import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
 import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import PageHero from '@/components/sections/PageHero'
 
+const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
+
 export const metadata: Metadata = generateMetadata({
   title: 'Contact Us',
-  description: 'Get a free plumbing quote from Preferred Plumbing Solutions. Call 208-290-3889 or fill out our online form. 38+ years of trusted service in Spirit Lake and North Idaho.',
+  description: 'Get a free plumbing quote from Preferred Plumbing Solutions. Call 208-290-3889 or fill out our online form. 38+ years serving Spirit Lake and North Idaho.',
   slug: 'contact',
   canonical: `${siteUrl}/contact`,
 })
@@ -116,15 +119,9 @@ export default function ContactPage() {
               </div>
 
               <div className="aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 shadow-premium-md">
-                <iframe
+                <LazyMapEmbed
                   src={MAP_EMBED_URL}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
                   title="Preferred Plumbing Solutions - Spirit Lake, Idaho Service Area Map"
-                  className="h-full w-full"
                 />
               </div>
               <a

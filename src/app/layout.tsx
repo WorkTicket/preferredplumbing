@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed } from 'next/font/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
+import DeferredAnalytics from '@/components/layout/DeferredAnalytics'
 import { localBusinessSchema, websiteSchema, videoObjectSchema, reviewSchema, organizationSchema } from '@/lib/schema'
 import { reviews } from '@/lib/data'
 import Header from '@/components/layout/Header'
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
   },
   description:
-    "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+    "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
   keywords: [
     'plumber Spirit Lake Idaho', 'plumbing contractor North Idaho',
     'emergency plumber Coeur d\'Alene', 'radiant heat installer Idaho',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     url: 'https://www.preferredplumbingsolution.com',
     siteName: 'Preferred Plumbing Solutions',
     title: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
-    description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
     images: [
       { url: '/images/og-preferred-plumbing-solutions.webp', width: 1200, height: 630, alt: 'Preferred Plumbing Solutions - Spirit Lake Plumber' },
     ],
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@preferredplumbing',
     title: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
-    description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service.",
+    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
     images: ['/images/og-preferred-plumbing-solutions.webp'],
   },
   icons: {
@@ -85,22 +85,22 @@ export const metadata: Metadata = {
     google: 'XT0FWUcWxSnGoN04Hg-n1T4eVmj7sc8cLUWuXSjpBWk',
   },
   other: {
-    'theme-color': '#0D1B2A',
     'geo.region': 'US-ID',
     'geo.placename': 'Spirit Lake',
     'format-detection': 'telephone=yes',
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#0D1B2A',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
       <head>
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
@@ -131,7 +131,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MobileCtaBar />
         <FloatingActionButton />
         <AnalyticsTracker />
-        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <DeferredAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   )

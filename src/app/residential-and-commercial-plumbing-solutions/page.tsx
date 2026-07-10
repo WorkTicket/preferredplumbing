@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, CheckCircle, ChevronRight } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
-import ContactForm from '@/components/ui/ContactForm'
 import SectionLabel from '@/components/ui/SectionLabel'
+
+const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 export const metadata: Metadata = generateMetadata({
   title: 'Residential & Commercial Plumbing Solutions',
@@ -169,7 +171,7 @@ export default function ResidentialCommercialPage() {
               text="Upgraded fixtures and water-saving systems lower your bills. Good for your wallet and good for the community."
             />
             <BenefitCard
-              title="Comprehensive Service Offering"
+              title="Full-Service Plumbing"
               text="One call handles it all. Repairs, installations, maintenance, and emergency service. No juggling multiple contractors."
             />
           </div>
@@ -197,10 +199,10 @@ export default function ResidentialCommercialPage() {
       <section className="section-padding bg-white">
         <div className="container-page">
           <div className="max-w-4xl">
-            <span className="section-label">Trusted Service</span>
+            <span className="section-label">Our Work</span>
             <h2 className="font-display text-[clamp(1.8rem,5vw,2.5rem)] font-black uppercase leading-[0.95] text-gray-900">
-              Trusted Plumbing Solutions<br />
-              <span className="text-blue">for Homes and Businesses</span>
+              Plumbing for Homes<br />
+              <span className="text-blue">and Businesses</span>
             </h2>
             <p className="mt-6 text-gray-600 leading-relaxed">
               Preferred Plumbing Solutions serves Spirit Lake, Hauser, Twin Lakes, Blanchard, Oldtown, Coeur d&apos;Alene, and more. We know Kootenai County because we live here too.

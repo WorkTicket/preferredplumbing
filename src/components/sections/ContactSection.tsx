@@ -1,10 +1,11 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { Phone, Shield, Zap, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
-import ContactForm from '@/components/ui/ContactForm'
-import { StaggerChildren } from '@/components/animations'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
+
+const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 const perks = [
   { icon: Shield, text: 'Free estimates, no obligation' },
@@ -40,13 +41,11 @@ export default function ContactSection() {
             </span>
           </div>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <StaggerChildren className="flex flex-wrap items-center justify-center gap-4 sm:gap-6" staggerDelay={0.1} variant="fadeIn">
-              {perks.map((perk) => (
-                <span key={perk.text} className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gray-500">
-                  <perk.icon className="h-3.5 w-3.5 text-blue" /> {perk.text}
-                </span>
-              ))}
-            </StaggerChildren>
+            {perks.map((perk) => (
+              <span key={perk.text} className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gray-500">
+                <perk.icon className="h-3.5 w-3.5 text-blue" /> {perk.text}
+              </span>
+            ))}
           </div>
         </div>
 

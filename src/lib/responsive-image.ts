@@ -1,16 +1,14 @@
-import imageManifest from '../../public/images/image-manifest.json'
+const BREAKPOINTS = [480, 640, 768, 1024, 1280, 1536, 1920, 2560] as const
 
-const FORMATS = ['avif', 'webp', 'jpeg'] as const
+export const FORMATS = ['avif', 'webp', 'jpeg'] as const
 
 export type ImageFormat = (typeof FORMATS)[number]
 
-type ManifestEntry = {
-  width: number
-  height: number
-  variants: Record<ImageFormat, Record<string, string>>
+/** Common hero / OG dimensions — avoids bundling the full image manifest. */
+const KNOWN_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  '/images/preferred-plumbing-truck-interior.webp': { width: 2560, height: 1440 },
+  '/images/preferred logo.webp': { width: 512, height: 512 },
 }
-
-const manifest = imageManifest as Record<string, ManifestEntry>
 
 export function normalizeImageSrc(src: string): string {
   return src.split('?')[0]
@@ -22,34 +20,24 @@ export function imagePathBase(src: string): string {
   return idx >= 0 ? withoutExt.slice(idx + 1) : withoutExt
 }
 
-export function buildSrcset(src: string, format: ImageFormat): string {
-  const entry = manifest[normalizeImageSrc(src)]
-  const variants = entry?.variants?.[format]
-  if (variants) {
-    return Object.entries(variants)
-      .map(([width, url]) => `${url} ${width}w`)
-      .join(', ')
-  }
+function variantUrl(src: string, format: ImageFormat, width: number): string {
+  const base = imagePathBase(src)
+  return `/images/generated/${base}-${width}.${format}`
+}
 
-  const normalized = normalizeImageSrc(src)
-  return `${normalized} ${entry?.width ?? 1920}w`
+export function buildSrcset(src: string, format: ImageFormat): string {
+  const base = imagePathBase(src)
+  return BREAKPOINTS.map((width) => `${variantUrl(src, format, width)} ${width}w`).join(', ')
 }
 
 export function getImageDimensions(src: string): { width: number; height: number } | undefined {
-  const entry = manifest[normalizeImageSrc(src)]
-  if (!entry) return undefined
-  return { width: entry.width, height: entry.height }
+  const normalized = normalizeImageSrc(src)
+  return KNOWN_DIMENSIONS[normalized]
 }
 
 export function getVariantUrl(src: string, format: ImageFormat, preferredWidth = 720): string {
-  const entry = manifest[normalizeImageSrc(src)]
-  const variants = entry?.variants?.[format]
-  if (variants) {
-    const widths = Object.keys(variants).map(Number).sort((a, b) => a - b)
-    const pick = widths.find((w) => w >= preferredWidth) ?? widths[widths.length - 1]
-    return variants[String(pick)]
-  }
-  return normalizeImageSrc(src)
+  const pick = BREAKPOINTS.find((w) => w >= preferredWidth) ?? BREAKPOINTS[BREAKPOINTS.length - 1]
+  return variantUrl(src, format, pick)
 }
 
 export function getLcpPreloadHref(src: string, preferredWidth = 768): string {
@@ -57,12 +45,5 @@ export function getLcpPreloadHref(src: string, preferredWidth = 768): string {
 }
 
 export function getLcpPreloadSrcset(src: string): string {
-  const avifSrcset = buildSrcset(src, 'avif')
-  const entry = manifest[normalizeImageSrc(src)]
-  if (entry) {
-    return `${avifSrcset}, ${normalizeImageSrc(src)} ${entry.width}w`
-  }
-  return avifSrcset
+  return buildSrcset(src, 'avif')
 }
-
-export { FORMATS }
