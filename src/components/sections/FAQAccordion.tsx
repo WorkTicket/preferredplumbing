@@ -1,84 +1,44 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Phone } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import { faqItems } from '@/lib/data'
 import SectionLabel from '@/components/ui/SectionLabel'
+import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import Link from 'next/link'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 export default function FAQAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const reduced = useReducedMotion()
-
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-gray-50 relative overflow-hidden mesh-bg-warm">
       <div className="container-page">
-        <div className="text-center">
-          <div className="flex justify-center">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:items-start">
+          <div>
             <SectionLabel text="FAQ" />
-          </div>
-          <h2 className="font-display text-[clamp(2rem,7vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
-            Common<br />
-            <span className="text-blue">Questions</span>
-          </h2>
-          <p className="mt-3 text-gray-500 max-w-lg mx-auto">
-            Quick answers to the things customers ask us most.
-          </p>
-        </div>
-        <div className="mt-8 sm:mt-10 mx-auto max-w-3xl rounded-xl border border-gray-200 bg-white shadow-premium overflow-hidden">
-          {faqItems.slice(0, 5).map((faq, index) => (
-            <div key={index} className="border-b border-gray-100 last:border-b-0">
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="flex w-full items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left transition hover:bg-gray-50 touch-target"
-              >
-                <span className="font-semibold text-gray-900 text-sm sm:text-base">{faq.question}</span>
-                <ChevronDown
-                  className={cn(
-                    'h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-gray-400 transition-transform duration-300',
-                    openIndex === index && 'rotate-180'
-                  )}
-                />
-              </button>
-              {reduced ? (
-                openIndex === index && (
-                  <div className="overflow-hidden">
-                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base px-5 sm:px-6 pb-4 sm:pb-5">{faq.answer}</p>
-                  </div>
-                )
-              ) : (
-                <AnimatePresence initial={false}>
-                  {openIndex === index && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-gray-600 leading-relaxed text-sm sm:text-base px-5 sm:px-6 pb-4 sm:pb-5">{faq.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              )}
+            <h2 className="section-heading">
+              Common<br />
+              <span className="text-blue">Questions</span>
+            </h2>
+            <p className="section-subtitle mt-4">
+              Quick answers to the things customers ask us most. Can&apos;t find what you need? Give us a call.
+            </p>
+            <div className="mt-8 hidden lg:block premium-card-dark p-6">
+              <p className="font-display text-lg font-black uppercase text-white">Still have questions?</p>
+              <p className="mt-2 text-sm text-gray-300">We&apos;re happy to talk through your project.</p>
+              <a href="tel:12082903889" className="mt-4 inline-flex items-center gap-2 font-bold text-blue-light hover:text-white transition-colors">
+                Call (208) 290-3889 &rarr;
+              </a>
             </div>
-          ))}
+          </div>
+
+          <FaqAccordionList items={faqItems.slice(0, 5)} idPrefix="home" />
         </div>
 
-        <div className="mt-6 text-center">
-          <Link href="/faqs" className="font-semibold text-blue transition hover:text-blue-dark">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="/faqs" className="font-bold text-blue hover:text-blue-dark transition-colors">
             View All FAQs &rarr;
           </Link>
-        </div>
-
-        <div className="mt-6 text-center">
-          <p className="text-gray-500 text-sm">
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <p className="text-gray-500 text-sm lg:hidden">
             Still have questions?{' '}
-            <a href="tel:12082903889" className="text-blue font-bold hover:text-blue-dark transition">
+            <a href="tel:12082903889" className="text-blue font-bold">
               Call (208) 290-3889
             </a>
           </p>

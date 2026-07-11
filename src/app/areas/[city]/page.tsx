@@ -1,13 +1,15 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle } from 'lucide-react'
 import { areas, services } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl, siteName } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
-import ContactForm from '@/components/ui/ContactForm'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
+
+const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 interface Props {
   params: { city: string }
@@ -68,7 +70,7 @@ export default function CityPage({ params }: Props) {
     '@type': 'Plumber',
     name: `Preferred Plumbing Solutions - ${area.fullName}`,
     url: `${siteUrl}/areas/${area.slug}`,
-    description: `Trusted plumber serving ${area.fullName}. 38+ years experience, licensed, 24/7 emergency service.`,
+    description: `Local plumber serving ${area.fullName}. 38+ years experience, licensed, 24/7 emergency service.`,
     telephone: '+12082903889',
     areaServed: {
       '@type': 'City',
@@ -123,7 +125,7 @@ export default function CityPage({ params }: Props) {
         <div className="container-page">
           <SectionLabel text={area.city} />
           <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            {area.city === 'Spirit Lake' ? 'Trusted' : 'Top-Rated'} Plumber in {area.fullName}
+            {area.city === 'Spirit Lake' ? 'Local' : 'Experienced'} Plumber in {area.fullName}
           </h1>
           <div className="mt-4 flex flex-wrap gap-4 text-sm">
             <span className="inline-flex items-center gap-1.5 text-green-600 font-semibold">
@@ -137,15 +139,15 @@ export default function CityPage({ params }: Props) {
             </span>
           </div>
           <p className="mt-4 max-w-3xl text-gray-600 leading-relaxed text-base sm:text-lg">
-            Preferred Plumbing Solutions is your trusted local plumber serving {area.fullName} and all surrounding areas throughout {area.state === 'ID' ? 'Kootenai and Bonner Counties' : 'Spokane and Pend Oreille Counties'}.
-            With over 38 years of experience, we provide expert plumbing services including new construction plumbing,
+            Preferred Plumbing Solutions serves {area.fullName} and surrounding areas throughout {area.state === 'ID' ? 'Kootenai and Bonner Counties' : 'Spokane and Pend Oreille Counties'}.
+            With over 38 years of experience, we handle new construction plumbing,
             water heater installation and repair, radiant floor heating, sewer line replacement, septic systems,
             and 24/7 emergency plumbing repairs.
           </p>
           <p className="mt-3 max-w-3xl text-gray-500 text-sm sm:text-base">
             Located in Spirit Lake, we serve {area.city} and nearby communities with fast response times,
-            upfront pricing, and workmanship backed by decades of North Idaho plumbing expertise.
-            Whether you need a simple faucet repair or a full bathroom remodel, our licensed plumbers deliver results that last.
+            upfront pricing, and work backed by decades of North Idaho plumbing experience.
+            Faucet repair or full bathroom remodel, our licensed plumbers get it done right.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
             <a href="tel:12082903889" className="btn-primary">
@@ -206,7 +208,7 @@ export default function CityPage({ params }: Props) {
               <ServiceCard
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                image={service.image}
+                slug={service.slug}
                 title={service.title}
                 description={service.description}
               />
@@ -220,12 +222,12 @@ export default function CityPage({ params }: Props) {
         <div className="container-page">
           <SectionLabel text={`About ${area.city}`} />
           <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
-            Proudly Serving<br />
+            Serving<br />
             <span className="text-blue">the {area.city} Community</span>
           </h2>
           <p className="mt-4 max-w-2xl text-gray-600 leading-relaxed">
-            {area.city} is a wonderful community, and we&apos;re proud to be the go-to plumbing contractor for 
-            homes and businesses in the area. Our team knows the local plumbing codes, water conditions, and 
+            {area.city} is a great community, and we&apos;ve been doing plumbing here for
+            homes and businesses for decades. Our team knows the local plumbing codes, water conditions, and
             building requirements specific to {area.fullName} and the surrounding region.
           </p>
           <p className="mt-3 max-w-2xl text-gray-600 leading-relaxed">
@@ -257,7 +259,7 @@ export default function CityPage({ params }: Props) {
             and All Surrounding Areas
           </h2>
           <p className="mt-4 max-w-2xl text-gray-600">
-            We proudly serve {area.fullName} and all nearby communities throughout {area.state === 'ID' ? 'Kootenai County, Bonner County, and the Idaho Panhandle' : 'Spokane County and Pend Oreille County'}.
+            We serve {area.fullName} and nearby communities throughout {area.state === 'ID' ? 'Kootenai County, Bonner County, and the Idaho Panhandle' : 'Spokane County and Pend Oreille County'}.
             Our team knows the local plumbing codes, soil conditions, climate challenges, and building requirements specific to this region.
           </p>
           <p className="mt-3 max-w-2xl text-gray-500 text-sm">

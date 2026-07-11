@@ -1,22 +1,26 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import HeroSection from '@/components/sections/HeroSection'
 import EmergencyBand from '@/components/sections/EmergencyBand'
-import Testimonials from '@/components/sections/Testimonials'
-import WhyChooseUs from '@/components/sections/WhyChooseUs'
-import ServicesGrid from '@/components/sections/ServicesGrid'
-import RecentProjects from '@/components/sections/RecentProjects'
-import AboutSection from '@/components/sections/AboutSection'
-import FAQAccordion from '@/components/sections/FAQAccordion'
-import ServiceAreas from '@/components/sections/ServiceAreas'
-import ContactSection from '@/components/sections/ContactSection'
 import { AnimatedSection } from '@/components/animations'
 import { faqSchema, webpageSchema } from '@/lib/schema'
-import { faqItems, reviews } from '@/lib/data'
+import { faqItems } from '@/lib/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
+
+const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'))
+const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'))
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection'))
+const WorkGallery = dynamic(() => import('@/components/sections/WorkGallery'))
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials'))
+const LatestArticles = dynamic(() => import('@/components/sections/LatestArticles'))
+const ServiceAreas = dynamic(() => import('@/components/sections/ServiceAreas'))
+const FAQAccordion = dynamic(() => import('@/components/sections/FAQAccordion'))
+const FindUsSection = dynamic(() => import('@/components/sections/FindUsSection'))
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection'))
 
 export const metadata: Metadata = genMeta({
   title: 'Plumber Spirit Lake Idaho | Preferred Plumbing Solutions',
-  description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+  description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
   slug: '',
 })
 
@@ -32,7 +36,7 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', "Spirit Lake's trusted plumber for 38+ years", '')),
+          __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', 'Family-owned plumber in Spirit Lake since 1987', '')),
         }}
       />
       <script
@@ -52,10 +56,10 @@ export default function HomePage() {
           }),
         }}
       />
-      <HeroSection />
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      <div className="hero-fold flex flex-col">
+        <HeroSection />
         <EmergencyBand />
-      </AnimatedSection>
+      </div>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <WhyChooseUs />
       </AnimatedSection>
@@ -66,16 +70,22 @@ export default function HomePage() {
         <AboutSection />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
-        <RecentProjects />
+        <WorkGallery />
       </AnimatedSection>
       <AnimatedSection variant="slideUp" delay={0.1}>
         <Testimonials />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <LatestArticles />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServiceAreas />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <FAQAccordion />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" delay={0.1}>
+        <FindUsSection />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.15}>
         <ContactSection />

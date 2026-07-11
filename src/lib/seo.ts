@@ -4,7 +4,7 @@ const siteUrl = 'https://www.preferredplumbingsolution.com'
 export const siteName = 'Preferred Plumbing Solutions'
 export const defaultTitle = 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889'
 export const defaultDescription =
-  "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889."
+  "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889."
 
 interface SEOParams {
   title?: string

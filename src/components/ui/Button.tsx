@@ -31,7 +31,7 @@ const sizes: Record<ButtonSize, string> = {
 const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', href, className, children, ...props }, ref) => {
     const classes = cn(
-      'inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 active:scale-[0.96]',
+      'inline-flex items-center justify-center gap-2 rounded-xl font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 active:scale-[0.97]',
       variants[variant],
       sizes[size],
       className

@@ -1,8 +1,7 @@
 'use client'
 
-import { motion, type Variants } from 'framer-motion'
+import { useEffect, useRef, useState, Children, isValidElement } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import { SCROLL_TRIGGER_VIEWPORT } from '@/lib/animation-viewport'
 
 interface StaggerChildrenProps {
   children: React.ReactNode
@@ -12,70 +11,68 @@ interface StaggerChildrenProps {
   variant?: 'fadeUp' | 'fadeIn' | 'slideUp'
 }
 
-const itemVariants: Record<string, Variants> = {
-  fadeUp: {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0 },
-  },
-  fadeIn: {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-  slideUp: {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  },
-}
+const variantClass = {
+  fadeUp: 'section-reveal-fade-up',
+  fadeIn: 'section-reveal-fade-in',
+  slideUp: 'section-reveal-slide-up',
+} as const
 
 export default function StaggerChildren({
   children,
-  className,
+  className = '',
   staggerDelay = 0.05,
   duration = 0.4,
   variant = 'fadeUp',
 }: StaggerChildrenProps) {
   const reduced = useReducedMotion()
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(reduced)
+
+  useEffect(() => {
+    if (reduced) return
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [reduced])
 
   if (reduced) {
     return <div className={className}>{children}</div>
   }
 
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: staggerDelay,
-        delayChildren: 0,
-      },
-    },
-  }
-
-  const childVariants: Variants = {
-    hidden: itemVariants[variant].hidden,
-    visible: {
-      ...itemVariants[variant].visible,
-      transition: {
-        duration,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  }
+  const items = Children.toArray(children)
 
   return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={SCROLL_TRIGGER_VIEWPORT}
-      variants={containerVariants}
-    >
-      {Array.isArray(children)
-        ? children.map((child, i) => (
-            <motion.div key={i} variants={childVariants} className="w-full min-h-0">
-              {child}
-            </motion.div>
-          ))
-        : <motion.div variants={childVariants}>{children}</motion.div>}
-    </motion.div>
+    <div ref={ref} className={className}>
+      {items.map((child, index) => {
+        if (!isValidElement(child)) return child
+
+        const style = {
+          '--reveal-delay': `${index * staggerDelay}s`,
+          '--reveal-duration': `${duration}s`,
+        } as React.CSSProperties
+
+        return (
+          <div
+            key={child.key ?? index}
+            className={`section-reveal ${variantClass[variant]} h-full w-full min-h-0 ${visible ? 'section-reveal-visible' : ''}`}
+            style={style}
+          >
+            {child}
+          </div>
+        )
+      })}
+    </div>
   )
 }

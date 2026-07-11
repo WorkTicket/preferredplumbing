@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const config = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
   images: {
     // Serve pre-optimized /public/images directly. The default `/_next/image` route
     // returns 400 on Cloudflare Workers even with the IMAGES binding configured.
@@ -13,7 +16,9 @@ const config = {
       { protocol: 'https', hostname: 'cdn.sanity.io' },
     ],
   },
-  headers: async () => [
+  headers: async () => {
+    const isDev = process.env.NODE_ENV === 'development'
+    return [
     {
       source: '/(.*)',
       headers: [
@@ -27,6 +32,13 @@ const config = {
     },
     {
       source: '/images/(.*)',
+      headers: [{
+        key: 'Cache-Control',
+        value: isDev ? 'no-cache, must-revalidate' : 'public, max-age=31536000, immutable',
+      }],
+    },
+    {
+      source: '/images/generated/(.*)',
       headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
     },
     {
@@ -37,7 +49,8 @@ const config = {
       source: '/favicon.ico',
       headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
     },
-  ],
+    ]
+  },
   redirects: async () => [
     {
       source: '/commercial-projects',

@@ -27,6 +27,17 @@ export const EMAIL = CONTACT_EMAILS[0].email
 export const FORM_RECIPIENT_EMAILS = CONTACT_EMAILS.map((contact) => contact.email)
 export const CITY = 'Spirit Lake'
 export const STATE = 'Idaho'
+export const ZIP = '83869'
+export const FULL_ADDRESS = `${CITY}, ${STATE} ${ZIP}`
+
+export const MAP_EMBED_URL =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d171073.44739193922!2d-116.98501708359373!3d47.966799999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5361195b0b0b0b0b%3A0x0!2sSpirit%20Lake%2C%20ID%2083869!5e0!3m2!1sen!2sus!4v1'
+
+export const DIRECTIONS_URL =
+  'https://www.google.com/maps/dir/?api=1&destination=47.9668,-116.8693&destination_place_id=Spirit%20Lake%2C%20ID'
+
+export const GBP_URL = 'https://maps.app.goo.gl/ne3NdeDCnQqC3Zni7'
+export const TIKTOK_URL = 'https://www.tiktok.com/@preferredhnorris'
 
 export function trackPhoneCall(source: string) {
   if (typeof window !== 'undefined' && typeof (window as any).gtag !== 'undefined') {

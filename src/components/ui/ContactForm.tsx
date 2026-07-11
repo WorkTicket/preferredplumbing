@@ -5,10 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, CheckCircle, ChevronRight } from 'lucide-react'
 import { services } from '@/lib/data'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { trackFormSubmission } from '@/lib/utils'
 
 const schema = z.object({
@@ -23,10 +21,14 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null
+  return <p className="mt-1 text-xs text-red-500">{message}</p>
+}
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const router = useRouter()
-  const reduced = useReducedMotion()
 
   const {
     register,
@@ -60,40 +62,18 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <motion.div
-        initial={reduced ? undefined : { opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-        className="flex flex-col items-center justify-center rounded-xl bg-green-50 p-8 sm:p-12 text-center"
-      >
-        <motion.div
-          initial={reduced ? undefined : { scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.4, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-green-500" />
-        </motion.div>
-        <motion.p
-          initial={reduced ? undefined : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="mt-4 text-xl sm:text-2xl font-bold text-gray-900"
-        >
-          Request Sent!
-        </motion.p>
-        <motion.p
-          initial={reduced ? undefined : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-2 text-sm sm:text-base text-gray-500"
-        >
+      <div className="flex flex-col items-center justify-center rounded-xl bg-green-50 p-8 sm:p-12 text-center scale-in">
+        <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-green-500" />
+        <p className="mt-4 text-xl sm:text-2xl font-bold text-gray-900">Request Sent!</p>
+        <p className="mt-2 text-sm sm:text-base text-gray-500">
           We&apos;ll get back to you within 24 hours.
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
     )
   }
 
-  const inputClass = 'w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300'
+  const inputClass =
+    'w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300'
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
@@ -101,36 +81,12 @@ export default function ContactForm() {
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">Full Name *</label>
           <input {...register('name')} className={inputClass} placeholder="John Doe" />
-          <AnimatePresence>
-            {errors.name && (
-              <motion.p
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="mt-1 text-xs text-red-500"
-              >
-                {errors.name.message}
-              </motion.p>
-            )}
-          </AnimatePresence>
+          <FieldError message={errors.name?.message} />
         </div>
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">Phone *</label>
           <input {...register('phone')} type="tel" className={inputClass} placeholder="208-555-0123" />
-          <AnimatePresence>
-            {errors.phone && (
-              <motion.p
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="mt-1 text-xs text-red-500"
-              >
-                {errors.phone.message}
-              </motion.p>
-            )}
-          </AnimatePresence>
+          <FieldError message={errors.phone?.message} />
         </div>
       </div>
 
@@ -142,19 +98,7 @@ export default function ContactForm() {
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">City / Zip *</label>
           <input {...register('city')} className={inputClass} placeholder="Spirit Lake, ID" />
-          <AnimatePresence>
-            {errors.city && (
-              <motion.p
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -4 }}
-                transition={{ duration: 0.2 }}
-                className="mt-1 text-xs text-red-500"
-              >
-                {errors.city.message}
-              </motion.p>
-            )}
-          </AnimatePresence>
+          <FieldError message={errors.city?.message} />
         </div>
       </div>
 
@@ -163,41 +107,24 @@ export default function ContactForm() {
         <select {...register('service')} className={inputClass}>
           <option value="">Select a service...</option>
           {services.map((s) => (
-            <option key={s.slug} value={s.title}>{s.title}</option>
+            <option key={s.slug} value={s.title}>
+              {s.title}
+            </option>
           ))}
           <option value="Other">Other / Not Sure</option>
         </select>
-        <AnimatePresence>
-          {errors.service && (
-            <motion.p
-              initial={{ opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="mt-1 text-xs text-red-500"
-            >
-              {errors.service.message}
-            </motion.p>
-          )}
-        </AnimatePresence>
+        <FieldError message={errors.service?.message} />
       </div>
 
       <div>
         <label className="mb-1 block text-sm font-medium text-gray-700">Describe the Job *</label>
-        <textarea {...register('message')} rows={3} className={inputClass} placeholder="What's going on with your plumbing?" />
-        <AnimatePresence>
-          {errors.message && (
-            <motion.p
-              initial={{ opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="mt-1 text-xs text-red-500"
-            >
-              {errors.message.message}
-            </motion.p>
-          )}
-        </AnimatePresence>
+        <textarea
+          {...register('message')}
+          rows={3}
+          className={inputClass}
+          placeholder="What's going on with your plumbing?"
+        />
+        <FieldError message={errors.message?.message} />
       </div>
 
       <div>
@@ -213,13 +140,9 @@ export default function ContactForm() {
       </div>
 
       {submitError && (
-        <motion.p
-          initial={{ opacity: 0, y: -4 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-3 text-center"
-        >
+        <p className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-3 text-center">
           Something went wrong. Please try again or call us at (208) 290-3889.
-        </motion.p>
+        </p>
       )}
 
       <button
@@ -228,13 +151,9 @@ export default function ContactForm() {
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3.5 sm:py-4 font-bold text-white transition-all duration-300 hover:bg-blue-dark disabled:cursor-not-allowed disabled:opacity-60 shadow-premium-md active:scale-[0.97]"
       >
         {isSubmitting ? (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center gap-2"
-          >
+          <span className="flex items-center gap-2">
             <Loader2 className="h-5 w-5 animate-spin" /> Sending...
-          </motion.span>
+          </span>
         ) : (
           <span className="flex items-center gap-2">
             <ChevronRight className="h-5 w-5" /> Get My Free Estimate

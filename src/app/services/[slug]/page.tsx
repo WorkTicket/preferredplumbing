@@ -1,14 +1,20 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
+import LcpHeroImage from '@/components/ui/LcpHeroImage'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
 import { CheckCircle, Phone, ArrowRight, Star, Shield, Clock, HardHat, Award } from 'lucide-react'
 import { services } from '@/lib/data'
 import { serviceContent, pageMeta } from '@/lib/service-content'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
-import ContactForm from '@/components/ui/ContactForm'
 import SectionLabel from '@/components/ui/SectionLabel'
+import FaqAccordionList from '@/components/ui/FaqAccordionList'
+
+const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 interface Props {
   params: { slug: string }
@@ -92,13 +98,10 @@ export default function ServicePage({ params }: Props) {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center">
-        <Image
+        <HeroImagePreload src={service.image} />
+        <LcpHeroImage
           src={service.image}
           alt={`${service.title} plumbing service by Preferred Plumbing Solutions in Spirit Lake, Idaho and North Idaho`}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
         <div className="relative z-10 container-page">
@@ -201,13 +204,12 @@ export default function ServicePage({ params }: Props) {
                       key={photo}
                       className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 shadow-premium border border-gray-200"
                     >
-                      <Image
+                      <ResponsiveImage
                         src={photo}
                         alt={`${service.title} project completed by Preferred Plumbing Solutions in Spirit Lake, Idaho - Photo ${i + 1}`}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading="lazy"
+                        className="transition-transform duration-500 group-hover:scale-105"
+                        sizes={IMAGE_SIZES.thirdCol}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
@@ -283,18 +285,11 @@ export default function ServicePage({ params }: Props) {
                 <p className="mt-3 text-gray-600 max-w-3xl">
                   Common questions about {service.title.toLowerCase()} in Spirit Lake and North Idaho.
                 </p>
-                <div className="mt-8 max-w-4xl rounded-xl border border-gray-200 bg-white shadow-premium overflow-hidden divide-y divide-gray-100">
-                  {service.faqs.map((faq, i) => (
-                    <details key={i} className="group">
-                      <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 sm:px-6 py-4 font-semibold text-gray-900 list-none transition-colors hover:text-blue hover:bg-gray-50 text-sm sm:text-base">
-                        {faq.question}
-                        <span className="text-2xl text-blue transition-transform duration-200 group-open:rotate-45 shrink-0">+</span>
-                      </summary>
-                      <p className="pb-5 px-5 sm:px-6 text-gray-600 leading-relaxed text-sm sm:text-base -mt-1">
-                        {faq.answer}
-                      </p>
-                    </details>
-                  ))}
+                <div className="mt-8 max-w-4xl">
+                  <FaqAccordionList
+                    items={service.faqs}
+                    idPrefix={service.slug}
+                  />
                 </div>
               </div>
             </section>
@@ -380,16 +375,11 @@ export default function ServicePage({ params }: Props) {
                     <p className="mt-2 text-gray-500 text-sm">
                       Common questions about {service.title.toLowerCase()} in Spirit Lake and North Idaho.
                     </p>
-                    <div className="mt-6 space-y-4">
-                      {service.faqs.map((faq, i) => (
-                        <details key={i} className="group rounded-xl border border-gray-200 bg-white p-5 shadow-premium">
-                          <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-gray-900 list-none">
-                            {faq.question}
-                            <span className="text-xl text-blue transition-transform duration-200 group-open:rotate-45">+</span>
-                          </summary>
-                          <p className="mt-3 text-gray-600 leading-relaxed">{faq.answer}</p>
-                        </details>
-                      ))}
+                    <div className="mt-6">
+                      <FaqAccordionList
+                        items={service.faqs}
+                        idPrefix={`${service.slug}-fallback`}
+                      />
                     </div>
                   </div>
                 )}

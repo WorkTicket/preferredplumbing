@@ -59,8 +59,8 @@ export default function ServicesPage() {
       ))}
       <PageHero
         label="Our Services"
-        title={<>Expert Plumbing Services<br /><span className="text-blue-300">in Spirit Lake, Idaho</span></>}
-        description="From new construction rough-ins to emergency repairs, Preferred Plumbing Solutions delivers professional, code-compliant plumbing across North Idaho. Every job is backed by 38+ years of experience."
+        title={<>Plumbing Services<br /><span className="text-blue-300">in Spirit Lake, Idaho</span></>}
+        description="New construction rough-ins, remodels, water heaters, radiant heat, and emergency repairs. Family-owned, code-compliant, and backed by 38+ years on the job."
         image="/images/hero-services.webp"
         imageAlt="Professional plumbing services in Spirit Lake and North Idaho"
         priority
@@ -87,7 +87,7 @@ export default function ServicesPage() {
               <ServiceCard
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                image={service.image}
+                slug={service.slug}
                 title={service.title}
                 description={service.description}
               />

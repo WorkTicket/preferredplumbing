@@ -18,7 +18,7 @@ export function organizationSchema() {
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
     logo: `${siteUrl}/images/preferred%20logo.webp`,
-    description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service.",
+    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
     foundingDate: '1987',
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
@@ -58,7 +58,7 @@ export function localBusinessSchema() {
     telephone: '+12082903889',
     priceRange: '$$',
     email: CONTACT_EMAILS.map((contact) => contact.email).join(', '),
-    description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
     foundingDate: '1987',
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
@@ -253,7 +253,7 @@ export function websiteSchema() {
     '@type': 'WebSite',
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    description: "Spirit Lake's trusted plumber for 38+ years. New construction, radiant heat, water heaters, emergency service.",
+    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
     potentialAction: {
       '@type': 'SearchAction',
       target: {

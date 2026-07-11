@@ -1,7 +1,10 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
+import LcpHeroImage from '@/components/ui/LcpHeroImage'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
 import { Phone, ArrowLeft } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 
@@ -21,9 +24,7 @@ const items: Record<
       'Complete rough-in plumbing for a custom home in Spirit Lake. Included underground water lines, drain and vent systems, gas line rough-in, and fixture installation.',
     image: '/images/service-new-construction-plumbing.webp',
     gallery: [
-      '/images/Rough+In+Plumbing+-975e1bfd-1920w.webp',
-      '/images/Ground+Rough+Plumbing+-1920w.webp',
-      '/images/Meter+manifold+-1920w.webp',
+      '/images/gallery/new-construction-rough-in-1.webp',
     ],
   },
   'commercial-remodel-coeur-dalene': {
@@ -32,11 +33,10 @@ const items: Record<
     type: 'Commercial',
     description:
       'Full plumbing renovation for a downtown Coeur d\'Alene office space. Included new restroom plumbing, kitchenette installation, and ADA-compliant fixtures.',
-    image: '/images/gallery-grease-trap-commercial.webp',
+    image: '/images/gallery/commercial-grease-trap-1.webp',
     gallery: [
-      '/images/Grease+Trap+Tank.webp',
-      '/images/Commercial+Faucet+.webp',
-      '/images/Backflow+Preventer+-1920w.webp',
+      '/images/gallery/commercial-grease-trap-1.webp',
+      '/images/gallery/commercial-plumbing-project-1.webp',
     ],
   },
 }
@@ -61,14 +61,8 @@ export default function PortfolioItemPage({ params }: Props) {
   return (
     <div className="pt-14 sm:pt-16">
       <section className="relative min-h-[35vh] flex items-end">
-        <Image
-          src={item.image}
-          alt={`${item.title}, Preferred Plumbing Solutions`}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        <HeroImagePreload src={item.image} />
+        <LcpHeroImage src={item.image} alt={`${item.title}, Preferred Plumbing Solutions`} />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-gray-900/30" />
         <div className="relative z-10 container-page pb-10 pt-8">
           <Link href="/portfolio" className="inline-flex items-center gap-1 text-sm text-blue-200 transition hover:text-white">
@@ -95,12 +89,11 @@ export default function PortfolioItemPage({ params }: Props) {
             <div className="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-3">
               {item.gallery.map((photo) => (
                 <div key={photo} className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-premium-md">
-                  <Image
+                  <ResponsiveImage
                     src={photo}
                     alt={`${item.title} project photo, Preferred Plumbing Solutions`}
                     fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    sizes={IMAGE_SIZES.thirdCol}
                   />
                 </div>
               ))}

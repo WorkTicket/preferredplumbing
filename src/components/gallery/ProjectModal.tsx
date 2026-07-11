@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, Phone, MapPin, Calendar } from 'lucide-react'
 import { getGalleryProjectById } from '@/data/gallery'
@@ -18,7 +18,8 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
   const touchEndX = useRef(0)
 
   useEffect(() => {
-    setCurrentImage(0)
+    const p = getGalleryProjectById(projectId)
+    setCurrentImage(p ? Math.max(0, p.images.length - 1) : 0)
   }, [projectId])
 
   useEffect(() => {
@@ -71,6 +72,12 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
   if (!project) return null
 
   const hasMultipleImages = project.images.length > 1
+  const imageLabel =
+    project.images.length === 2
+      ? currentImage === 0
+        ? 'Before'
+        : 'After'
+      : null
 
   return (
     <AnimatePresence>
@@ -115,14 +122,13 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                   transition={{ duration: 0.2 }}
                   className="absolute inset-0"
                 >
-                  <Image
+                  <ResponsiveImage
                     src={project.images[currentImage]}
                     alt={`${project.title} - Image ${currentImage + 1}`}
                     fill
-                    className="object-cover"
+                    objectFit="contain"
                     sizes="(max-width: 768px) 100vw, 900px"
                     priority
-                    quality={80}
                   />
                 </motion.div>
               </AnimatePresence>
@@ -169,7 +175,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
             {hasMultipleImages && (
               <span className="absolute top-4 left-4 z-10 rounded-full bg-black/40 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white">
-                {currentImage + 1} / {project.images.length}
+                {imageLabel ?? `${currentImage + 1} / ${project.images.length}`}
               </span>
             )}
           </div>
@@ -249,14 +255,11 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                             : 'border-transparent opacity-60 hover:opacity-100'
                         }`}
                       >
-                        <Image
+                        <ResponsiveImage
                           src={img}
                           alt={`${project.title} thumbnail ${i + 1}`}
                           fill
-                          className="object-cover"
                           sizes="80px"
-                          loading="lazy"
-                          quality={60}
                         />
                       </button>
                     ))}
