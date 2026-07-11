@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Phone, ArrowRight, ChevronDown, Wrench, BookOpen, HelpCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -28,6 +29,19 @@ const learnLinks = [
 interface NavDrawerProps {
   open: boolean
   onClose: () => void
+}
+
+function isNavActive(pathname: string, href: string) {
+  if (href === '/') return pathname === '/'
+  if (href === '/gallery') {
+    return (
+      pathname === '/gallery' ||
+      pathname.startsWith('/gallery/') ||
+      pathname === '/portfolio' ||
+      pathname.startsWith('/portfolio/')
+    )
+  }
+  return pathname === href || pathname.startsWith(`${href}/`)
 }
 
 const backdropVariants = {
@@ -83,10 +97,14 @@ const servicesSubmenuVariants = {
 }
 
 export default function NavDrawer({ open, onClose }: NavDrawerProps) {
+  const pathname = usePathname()
   const reduced = useReducedMotion()
   const [servicesOpen, setServicesOpen] = useState(false)
   const [learnOpen, setLearnOpen] = useState(false)
   const navServices = getNavServices()
+  const servicesActive = isNavActive(pathname, '/services')
+  const learnActive =
+    isNavActive(pathname, '/blog') || isNavActive(pathname, '/faqs')
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -109,13 +127,28 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
     }
   }, [open])
 
-  const renderNavLink = (href: string, label: string, index: number) =>
-    reduced ? (
+  useEffect(() => {
+    if (open && servicesActive) setServicesOpen(true)
+    if (open && learnActive) setLearnOpen(true)
+  }, [open, servicesActive, learnActive])
+
+  const linkClass = (active: boolean) =>
+    cn(
+      'border-b border-gray-50 py-3.5 text-base font-semibold transition-all duration-200',
+      active
+        ? 'text-blue border-blue/20'
+        : 'text-gray-700 hover:text-blue active:text-blue'
+    )
+
+  const renderNavLink = (href: string, label: string, index: number) => {
+    const active = isNavActive(pathname, href)
+    return reduced ? (
       <Link
         key={href}
         href={href}
         onClick={onClose}
-        className="border-b border-gray-50 py-3.5 text-base font-semibold text-gray-700 transition-all duration-200 hover:text-blue active:text-blue"
+        className={linkClass(active)}
+        aria-current={active ? 'page' : undefined}
       >
         {label}
       </Link>
@@ -131,13 +164,27 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
         <Link
           href={href}
           onClick={onClose}
-          className="group flex items-center justify-between border-b border-gray-50 py-3.5 text-base font-semibold text-gray-700 transition-all duration-200 hover:text-blue active:text-blue"
+          className={cn(
+            'group flex items-center justify-between border-b border-gray-50 py-3.5 text-base font-semibold transition-all duration-200',
+            active
+              ? 'text-blue border-blue/20'
+              : 'text-gray-700 hover:text-blue active:text-blue'
+          )}
+          aria-current={active ? 'page' : undefined}
         >
           {label}
-          <ArrowRight className="h-4 w-4 text-gray-300 transition-all duration-200 group-hover:text-blue group-hover:translate-x-0.5" />
+          <ArrowRight
+            className={cn(
+              'h-4 w-4 transition-all duration-200',
+              active
+                ? 'text-blue'
+                : 'text-gray-300 group-hover:text-blue group-hover:translate-x-0.5'
+            )}
+          />
         </Link>
       </motion.div>
     )
+  }
 
   const servicesSection = reduced ? (
     <div className="border-b border-gray-50">
@@ -145,11 +192,14 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
         type="button"
         onClick={() => setServicesOpen((prev) => !prev)}
         aria-expanded={servicesOpen}
-        className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+        className={cn(
+          'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
+          servicesActive || servicesOpen ? 'text-blue' : 'text-gray-700'
+        )}
       >
         Services
         <ChevronDown
-          className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', servicesOpen && 'rotate-180')}
+          className={cn('h-4 w-4 transition-transform duration-200', servicesOpen && 'rotate-180', servicesActive || servicesOpen ? 'text-blue' : 'text-gray-400')}
         />
       </button>
       {servicesOpen && (
@@ -158,21 +208,35 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
             const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
             const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
             const isEmergency = service.slug === 'emergency'
+            const active = isNavActive(pathname, `/services/${service.slug}`)
 
             return (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 onClick={onClose}
+                aria-current={active ? 'page' : undefined}
                 className={cn(
                   'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
-                  isEmergency ? 'text-red-700 hover:bg-red-50' : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                  isEmergency
+                    ? active
+                      ? 'bg-red-50 text-red-700'
+                      : 'text-red-700 hover:bg-red-50'
+                    : active
+                      ? 'bg-blue-50 text-blue'
+                      : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
                 )}
               >
                 <span
                   className={cn(
                     'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                    isEmergency ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-blue'
+                    isEmergency
+                      ? active
+                        ? 'bg-red-600 text-white'
+                        : 'bg-red-100 text-red-600'
+                      : active
+                        ? 'bg-blue text-white'
+                        : 'bg-gray-100 text-blue'
                   )}
                 >
                   <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
@@ -184,7 +248,11 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
           <Link
             href="/services"
             onClick={onClose}
-            className="mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold text-blue transition-colors hover:bg-blue-50"
+            aria-current={pathname === '/services' ? 'page' : undefined}
+            className={cn(
+              'mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold transition-colors hover:bg-blue-50',
+              pathname === '/services' ? 'bg-blue-50 text-blue' : 'text-blue'
+            )}
           >
             View All <ArrowRight className="h-4 w-4" />
           </Link>
@@ -198,11 +266,14 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
           type="button"
           onClick={() => setServicesOpen((prev) => !prev)}
           aria-expanded={servicesOpen}
-          className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+          className={cn(
+            'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
+            servicesActive || servicesOpen ? 'text-blue' : 'text-gray-700'
+          )}
         >
           Services
           <ChevronDown
-            className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', servicesOpen && 'rotate-180')}
+            className={cn('h-4 w-4 transition-transform duration-200', servicesOpen && 'rotate-180', servicesActive || servicesOpen ? 'text-blue' : 'text-gray-400')}
           />
         </button>
         <AnimatePresence initial={false}>
@@ -219,21 +290,35 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
                   const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
                   const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
                   const isEmergency = service.slug === 'emergency'
+                  const active = isNavActive(pathname, `/services/${service.slug}`)
 
                   return (
                     <Link
                       key={service.slug}
                       href={`/services/${service.slug}`}
                       onClick={onClose}
+                      aria-current={active ? 'page' : undefined}
                       className={cn(
                         'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
-                        isEmergency ? 'text-red-700 hover:bg-red-50' : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                        isEmergency
+                          ? active
+                            ? 'bg-red-50 text-red-700'
+                            : 'text-red-700 hover:bg-red-50'
+                          : active
+                            ? 'bg-blue-50 text-blue'
+                            : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
                       )}
                     >
                       <span
                         className={cn(
                           'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                          isEmergency ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-blue'
+                          isEmergency
+                            ? active
+                              ? 'bg-red-600 text-white'
+                              : 'bg-red-100 text-red-600'
+                            : active
+                              ? 'bg-blue text-white'
+                              : 'bg-gray-100 text-blue'
                         )}
                       >
                         <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
@@ -245,7 +330,11 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
                 <Link
                   href="/services"
                   onClick={onClose}
-                  className="mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold text-blue transition-colors hover:bg-blue-50"
+                  aria-current={pathname === '/services' ? 'page' : undefined}
+                  className={cn(
+                    'mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold transition-colors hover:bg-blue-50',
+                    pathname === '/services' ? 'bg-blue-50 text-blue' : 'text-blue'
+                  )}
                 >
                   View All <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -263,28 +352,45 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
         type="button"
         onClick={() => setLearnOpen((prev) => !prev)}
         aria-expanded={learnOpen}
-        className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+        className={cn(
+          'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
+          learnActive || learnOpen ? 'text-blue' : 'text-gray-700'
+        )}
       >
         Learn
         <ChevronDown
-          className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', learnOpen && 'rotate-180')}
+          className={cn('h-4 w-4 transition-transform duration-200', learnOpen && 'rotate-180', learnActive || learnOpen ? 'text-blue' : 'text-gray-400')}
         />
       </button>
       {learnOpen && (
         <div className="pb-2 pl-1">
-          {learnLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={onClose}
-              className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue"
-            >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gray-100 text-blue">
-                <link.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-              </span>
-              {link.label}
-            </Link>
-          ))}
+          {learnLinks.map((link) => {
+            const active = isNavActive(pathname, link.href)
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                aria-current={active ? 'page' : undefined}
+                className={cn(
+                  'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                  active
+                    ? 'bg-blue-50 text-blue'
+                    : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                )}
+              >
+                <span
+                  className={cn(
+                    'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                    active ? 'bg-blue text-white' : 'bg-gray-100 text-blue'
+                  )}
+                >
+                  <link.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                </span>
+                {link.label}
+              </Link>
+            )
+          })}
         </div>
       )}
     </div>
@@ -295,11 +401,14 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
           type="button"
           onClick={() => setLearnOpen((prev) => !prev)}
           aria-expanded={learnOpen}
-          className="flex w-full items-center justify-between py-3.5 text-base font-semibold text-gray-700 transition-colors hover:text-blue"
+          className={cn(
+            'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
+            learnActive || learnOpen ? 'text-blue' : 'text-gray-700'
+          )}
         >
           Learn
           <ChevronDown
-            className={cn('h-4 w-4 text-gray-400 transition-transform duration-200', learnOpen && 'rotate-180')}
+            className={cn('h-4 w-4 transition-transform duration-200', learnOpen && 'rotate-180', learnActive || learnOpen ? 'text-blue' : 'text-gray-400')}
           />
         </button>
         <AnimatePresence initial={false}>
@@ -312,19 +421,33 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
               className="overflow-hidden"
             >
               <div className="pb-2 pl-1">
-                {learnLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={onClose}
-                    className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue"
-                  >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gray-100 text-blue">
-                      <link.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-                    </span>
-                    {link.label}
-                  </Link>
-                ))}
+                {learnLinks.map((link) => {
+                  const active = isNavActive(pathname, link.href)
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={onClose}
+                      aria-current={active ? 'page' : undefined}
+                      className={cn(
+                        'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                        active
+                          ? 'bg-blue-50 text-blue'
+                          : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                          active ? 'bg-blue text-white' : 'bg-gray-100 text-blue'
+                        )}
+                      >
+                        <link.icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                      </span>
+                      {link.label}
+                    </Link>
+                  )
+                })}
               </div>
             </motion.div>
           )}

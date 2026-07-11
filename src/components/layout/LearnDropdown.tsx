@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ArrowRight, BookOpen, HelpCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -25,6 +26,8 @@ const learnLinks = [
 ]
 
 export default function LearnDropdown({ open, onClose }: LearnDropdownProps) {
+  const pathname = usePathname()
+
   return (
     <div
       className={cn(
@@ -41,25 +44,52 @@ export default function LearnDropdown({ open, onClose }: LearnDropdownProps) {
           className="pointer-events-none absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-gray-200/80 bg-white"
         />
         <div className="p-2">
-          {learnLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={onClose}
-              className="group flex items-center gap-3 rounded-lg px-3 py-3 transition-all duration-200 hover:bg-blue-50/80"
-            >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue/10 text-blue transition-all duration-200 group-hover:bg-blue group-hover:text-white">
-                <link.icon className="h-4 w-4" strokeWidth={2.25} />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-sm font-semibold text-gray-900 group-hover:text-blue">
-                  {link.label}
+          {learnLinks.map((link) => {
+            const active =
+              pathname === link.href || pathname.startsWith(`${link.href}/`)
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                aria-current={active ? 'page' : undefined}
+                className={cn(
+                  'group flex items-center gap-3 rounded-lg px-3 py-3 transition-all duration-200',
+                  active ? 'bg-blue-50/80' : 'hover:bg-blue-50/80'
+                )}
+              >
+                <span
+                  className={cn(
+                    'flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-all duration-200',
+                    active
+                      ? 'bg-blue text-white'
+                      : 'bg-blue/10 text-blue group-hover:bg-blue group-hover:text-white'
+                  )}
+                >
+                  <link.icon className="h-4 w-4" strokeWidth={2.25} />
                 </span>
-                <span className="block text-xs text-gray-500">{link.description}</span>
-              </span>
-              <ArrowRight className="h-3.5 w-3.5 shrink-0 text-gray-300 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-blue" />
-            </Link>
-          ))}
+                <span className="min-w-0 flex-1">
+                  <span
+                    className={cn(
+                      'block text-sm font-semibold',
+                      active ? 'text-blue' : 'text-gray-900 group-hover:text-blue'
+                    )}
+                  >
+                    {link.label}
+                  </span>
+                  <span className="block text-xs text-gray-500">{link.description}</span>
+                </span>
+                <ArrowRight
+                  className={cn(
+                    'h-3.5 w-3.5 shrink-0 transition-all duration-200',
+                    active
+                      ? 'text-blue'
+                      : 'text-gray-300 group-hover:translate-x-0.5 group-hover:text-blue'
+                  )}
+                />
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>

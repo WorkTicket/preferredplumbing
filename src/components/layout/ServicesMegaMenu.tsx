@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ArrowRight, Phone, Wrench } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
 import {
@@ -15,7 +16,9 @@ interface ServicesMegaMenuProps {
 }
 
 export default function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProps) {
+  const pathname = usePathname()
   const navServices = getNavServices()
+  const allServicesActive = pathname === '/services'
 
   return (
     <div
@@ -46,7 +49,13 @@ export default function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProp
             <Link
               href="/services"
               onClick={onClose}
-              className="group inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-blue px-3.5 py-2 text-sm font-bold text-white shadow-premium transition-all duration-200 hover:bg-blue-dark hover:shadow-premium-lg active:scale-[0.98]"
+              aria-current={allServicesActive ? 'page' : undefined}
+              className={cn(
+                'group inline-flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-bold shadow-premium transition-all duration-200 active:scale-[0.98]',
+                allServicesActive
+                  ? 'bg-white text-blue ring-2 ring-blue-light/40'
+                  : 'bg-blue text-white hover:bg-blue-dark hover:shadow-premium-lg'
+              )}
             >
               View All
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -59,25 +68,37 @@ export default function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProp
             const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
             const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
             const isEmergency = service.slug === 'emergency'
+            const active =
+              pathname === `/services/${service.slug}` ||
+              pathname.startsWith(`/services/${service.slug}/`)
 
             return (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 onClick={onClose}
+                aria-current={active ? 'page' : undefined}
                 className={cn(
                   'group/item flex min-w-0 items-center gap-2 rounded-lg px-2 py-2.5 transition-all duration-200',
                   isEmergency
-                    ? 'bg-red-50 hover:bg-red-100/80'
-                    : 'hover:bg-blue-50/80'
+                    ? active
+                      ? 'bg-red-100/80 ring-1 ring-red-200'
+                      : 'bg-red-50 hover:bg-red-100/80'
+                    : active
+                      ? 'bg-blue-50/80 ring-1 ring-blue/20'
+                      : 'hover:bg-blue-50/80'
                 )}
               >
                 <span
                   className={cn(
                     'flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-all duration-200',
                     isEmergency
-                      ? 'bg-red-100 text-red-600 group-hover/item:bg-red-600 group-hover/item:text-white'
-                      : 'bg-gray-100 text-blue group-hover/item:bg-blue group-hover/item:text-white'
+                      ? active
+                        ? 'bg-red-600 text-white'
+                        : 'bg-red-100 text-red-600 group-hover/item:bg-red-600 group-hover/item:text-white'
+                      : active
+                        ? 'bg-blue text-white'
+                        : 'bg-gray-100 text-blue group-hover/item:bg-blue group-hover/item:text-white'
                   )}
                 >
                   <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
@@ -86,8 +107,12 @@ export default function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProp
                   className={cn(
                     'min-w-0 text-[12px] font-semibold leading-tight transition-colors duration-200',
                     isEmergency
-                      ? 'text-red-700 group-hover/item:text-red-800'
-                      : 'text-gray-700 group-hover/item:text-blue-dark'
+                      ? active
+                        ? 'text-red-800'
+                        : 'text-red-700 group-hover/item:text-red-800'
+                      : active
+                        ? 'text-blue-dark'
+                        : 'text-gray-700 group-hover/item:text-blue-dark'
                   )}
                 >
                   {label}

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, Phone, ChevronDown } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
 import ServicesMegaMenu from './ServicesMegaMenu'
@@ -11,7 +12,13 @@ import LearnDropdown from './LearnDropdown'
 
 const NavDrawer = dynamic(() => import('./NavDrawer'), { ssr: false })
 
+function isNavActive(pathname: string, href: string) {
+  if (href === '/') return pathname === '/'
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
+
 export default function Header() {
+  const pathname = usePathname()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -19,11 +26,26 @@ export default function Header() {
   const servicesRef = useRef<HTMLDivElement>(null)
   const learnRef = useRef<HTMLDivElement>(null)
 
+  const homeActive = isNavActive(pathname, '/')
+  const servicesActive = isNavActive(pathname, '/services')
+  const aboutActive = isNavActive(pathname, '/about')
+  const learnActive =
+    isNavActive(pathname, '/blog') || isNavActive(pathname, '/faqs')
+  const galleryActive =
+    isNavActive(pathname, '/gallery') || isNavActive(pathname, '/portfolio')
+  const contactActive = isNavActive(pathname, '/contact')
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    setDrawerOpen(false)
+    setServicesOpen(false)
+    setLearnOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -103,8 +125,12 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-5 lg:gap-7 shrink-0">
-            <Link href="/" className="nav-link-premium">
+          <nav className="hidden lg:flex items-center gap-5 lg:gap-7 shrink-0" aria-label="Primary">
+            <Link
+              href="/"
+              className={cn('nav-link-premium', homeActive && 'is-active')}
+              aria-current={homeActive ? 'page' : undefined}
+            >
               Home
             </Link>
 
@@ -121,7 +147,7 @@ export default function Header() {
                 aria-haspopup="true"
                 className={cn(
                   'nav-link-premium flex items-center gap-1',
-                  servicesOpen && 'text-blue after:w-full'
+                  (servicesOpen || servicesActive) && 'is-active'
                 )}
               >
                 Services
@@ -136,7 +162,11 @@ export default function Header() {
               <ServicesMegaMenu open={servicesOpen} onClose={() => setServicesOpen(false)} />
             </div>
 
-            <Link href="/about" className="nav-link-premium">
+            <Link
+              href="/about"
+              className={cn('nav-link-premium', aboutActive && 'is-active')}
+              aria-current={aboutActive ? 'page' : undefined}
+            >
               About
             </Link>
 
@@ -153,7 +183,7 @@ export default function Header() {
                 aria-haspopup="true"
                 className={cn(
                   'nav-link-premium flex items-center gap-1',
-                  learnOpen && 'text-blue after:w-full'
+                  (learnOpen || learnActive) && 'is-active'
                 )}
               >
                 Learn
@@ -168,10 +198,18 @@ export default function Header() {
               <LearnDropdown open={learnOpen} onClose={() => setLearnOpen(false)} />
             </div>
 
-            <Link href="/gallery" className="nav-link-premium">
+            <Link
+              href="/gallery"
+              className={cn('nav-link-premium', galleryActive && 'is-active')}
+              aria-current={galleryActive ? 'page' : undefined}
+            >
               Gallery
             </Link>
-            <Link href="/contact" className="nav-link-premium">
+            <Link
+              href="/contact"
+              className={cn('nav-link-premium', contactActive && 'is-active')}
+              aria-current={contactActive ? 'page' : undefined}
+            >
               Contact
             </Link>
 

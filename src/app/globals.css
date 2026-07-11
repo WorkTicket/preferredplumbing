@@ -222,10 +222,14 @@
     content: '';
     @apply absolute bottom-[-4px] left-0 h-0.5 w-0 bg-blue transition-all duration-300;
   }
-  .nav-link-premium:hover {
+  .nav-link-premium:hover,
+  .nav-link-premium.is-active,
+  .nav-link-premium[aria-current='page'] {
     @apply text-blue;
   }
-  .nav-link-premium:hover::after {
+  .nav-link-premium:hover::after,
+  .nav-link-premium.is-active::after,
+  .nav-link-premium[aria-current='page']::after {
     @apply w-full;
   }
 }
