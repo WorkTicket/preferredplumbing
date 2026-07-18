@@ -1,59 +1,59 @@
-/** Cover images for blog posts — Unsplash stock, stored locally as WebP. */
+/** Cover images for blog posts — AI-generated photoreal North Idaho / Spirit Lake scenes, stored locally as WebP. */
 export const blogCovers: Record<string, { coverImage: string; coverImageAlt: string }> = {
   'heated-driveway-worth-it-north-idaho': {
     coverImage: '/images/blog/heated-driveway-worth-it-north-idaho.webp',
     coverImageAlt:
-      'Snow-covered log cabin glowing at twilight beside a calm mountain lake, surrounded by pine trees in a North Idaho winter setting',
+      'Heated North Idaho driveway melting snow into wet dark asphalt with steam rising, snow banks along the edges, timber home and pines behind',
   },
   'tankless-vs-tank-water-heaters-north-idaho': {
     coverImage: '/images/blog/tankless-vs-tank-water-heaters-north-idaho.webp',
     coverImageAlt:
-      'Wall-mounted tankless water heater above a utility sink in a workshop, showing a real-world hot water setup',
+      'Wall-mounted tankless water heater with copper and PEX piping in a clean North Idaho basement utility room',
   },
   'commercial-plumbing-contractor-north-idaho': {
     coverImage: '/images/blog/commercial-plumbing-contractor-north-idaho.webp',
     coverImageAlt:
-      'Commercial kitchen with stainless steel prep tables and plumbing fixtures, typical of restaurant and retail builds in North Idaho',
+      'Commercial kitchen with stainless prep tables and sink plumbing, typical of North Idaho restaurant and retail builds',
   },
   'gas-line-installation-repair-north-idaho': {
     coverImage: '/images/blog/gas-line-installation-repair-north-idaho.webp',
     coverImageAlt:
-      'Natural gas piping, meters, and shutoffs mounted on a brick wall in a mechanical room',
+      'Natural gas meter and black iron piping on the exterior wall of a wood-sided North Idaho cabin among pines',
   },
   'water-line-replacement-signs-north-idaho': {
     coverImage: '/images/blog/water-line-replacement-signs-north-idaho.webp',
     coverImageAlt:
-      'Excavator digging a trench for underground utility line work on a residential street',
+      'Trench dug through a residential lawn exposing a blue water service line toward a cedar-sided North Idaho home',
   },
   'emergency-plumbing-when-to-call-spirit-lake': {
     coverImage: '/images/blog/emergency-plumbing-when-to-call-spirit-lake.webp',
     coverImageAlt:
-      'Red cabin buried in deep snow among evergreen trees, a Spirit Lake–style winter scene where frozen pipes become emergencies',
+      'Burst copper pipe spraying water onto a basement floor, the kind of plumbing emergency that needs a same-day call in Spirit Lake',
   },
   'bathroom-remodel-plumbing-north-idaho': {
     coverImage: '/images/blog/bathroom-remodel-plumbing-north-idaho.webp',
     coverImageAlt:
-      'Modern bathroom with walk-in shower, freestanding tub, and updated plumbing fixtures',
+      'Modern North Idaho bathroom remodel with walk-in shower, freestanding tub, and evergreen views through the window',
   },
   'how-to-choose-plumber-spirit-lake-idaho': {
     coverImage: '/images/blog/how-to-choose-plumber-spirit-lake-idaho.webp',
     coverImageAlt:
-      'Pine trees along a calm North Idaho lake shoreline, the kind of setting around Spirit Lake where homeowners hire local plumbers',
+      'Calm Spirit Lake shoreline with pine trees and clear North Idaho water on a bright summer morning',
   },
   'signs-sewer-line-replacement-north-idaho': {
     coverImage: '/images/blog/signs-sewer-line-replacement-north-idaho.webp',
     coverImageAlt:
-      'White sewer or drain pipe emerging from the ground beside a foundation wall after outdoor plumbing work',
+      'White sewer pipe exposed in a trench beside a cedar-sided North Idaho home foundation',
   },
   'radiant-heat-vs-forced-air-idaho': {
     coverImage: '/images/blog/radiant-heat-vs-forced-air-idaho.webp',
     coverImageAlt:
-      'Modern two-story home lit from within at dusk, the kind of North Idaho house often heated with radiant or forced-air systems',
+      'Modern timber-and-stone North Idaho home glowing at dusk with light snow on the pines',
   },
   'water-heater-installation-cost-idaho': {
     coverImage: '/images/blog/water-heater-installation-cost-idaho.webp',
     coverImageAlt:
-      'Wall-mounted residential water heater in a utility area, used to illustrate water heater installation cost in Idaho',
+      'Residential tank water heater with copper piping installed in a clean unfinished Idaho basement utility corner',
   },
   'water-softeners-idaho-panhandle': {
     coverImage: '/images/blog/water-softeners-idaho-panhandle.webp',
@@ -63,36 +63,36 @@ export const blogCovers: Record<string, { coverImage: string; coverImageAlt: str
   'burst-pipe-winter-idaho-what-to-do': {
     coverImage: '/images/blog/burst-pipe-winter-idaho-what-to-do.webp',
     coverImageAlt:
-      'Snow-laden cabin tucked in a winter forest, illustrating the freeze risk that leads to burst pipes in Idaho',
+      'Log cabin half buried in deep North Idaho powder after a winter storm, illustrating freeze risk for pipes',
   },
   'new-construction-plumbing-guide-idaho': {
     coverImage: '/images/blog/new-construction-plumbing-guide-idaho.webp',
     coverImageAlt:
-      'Wood-framed house under construction with open walls ready for plumbing rough-in',
+      'Wood-framed North Idaho house under construction with plumbing rough-in pipes visible in open walls among pines',
   },
   'septic-system-bonner-county-idaho': {
     coverImage: '/images/blog/septic-system-bonner-county-idaho.webp',
     coverImageAlt:
-      'Open rural acreage under a wide sky, typical of Bonner County properties that rely on septic systems',
+      'Rural Bonner County acreage with meadow, pines, and a distant cabin under a wide North Idaho sky',
   },
   'water-heater-winter-checklist-north-idaho': {
     coverImage: '/images/blog/water-heater-winter-checklist-north-idaho.webp',
     coverImageAlt:
-      'Rustic cabin in a snowy North Idaho forest, a reminder to winterize water heaters before deep cold arrives',
+      'Rustic cabin in a snowy North Idaho forest with warm porch light, a reminder to winterize before deep cold',
   },
   'how-radiant-heat-works-idaho': {
     coverImage: '/images/blog/how-radiant-heat-works-idaho.webp',
     coverImageAlt:
-      'Open living room with hardwood floors and large windows, the kind of space radiant in-floor heat is designed to warm evenly',
+      'Warm North Idaho living room with hardwood floors and large windows looking out to snow-dusted pines, the kind of space radiant heat warms evenly',
   },
   'plumbing-permits-spirit-lake-idaho': {
     coverImage: '/images/blog/plumbing-permits-spirit-lake-idaho.webp',
     coverImageAlt:
-      'American-style house exterior with a front porch and lawn, representing home plumbing projects that need permits in Spirit Lake',
+      'Craftsman-style home with front porch and pine trees on a quiet Spirit Lake residential street',
   },
   'kitchen-remodel-plumbing-north-idaho': {
     coverImage: '/images/blog/kitchen-remodel-plumbing-north-idaho.webp',
     coverImageAlt:
-      'Bright remodeled kitchen with island sink area, marble counters, and updated plumbing fixtures',
+      'Bright remodeled North Idaho kitchen with island sink, updated fixtures, and evergreen trees outside the window',
   },
 }
