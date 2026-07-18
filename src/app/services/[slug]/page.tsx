@@ -22,9 +22,9 @@ interface Props {
 
 const trustSignals = [
   { icon: Shield, label: 'Licensed & Insured', desc: 'Fully licensed plumbing contractor in Idaho' },
-  { icon: Clock, label: '24/7 Emergency Service', desc: 'Available around the clock for urgent repairs' },
-  { icon: HardHat, label: '38+ Years Experience', desc: 'Serving North Idaho since 1987' },
-  { icon: Award, label: 'Free Estimates', desc: 'No-obligation quotes for all plumbing services' },
+  { icon: Clock, label: 'Emergency Service', desc: 'Available Sun–Fri 7am–5pm for urgent repairs' },
+  { icon: HardHat, label: '38+ Years Experience', desc: 'In the trade' },
+  { icon: Award, label: 'Free Estimates', desc: 'Straight quotes with no pressure to book' },
 ]
 
 const cityLinks = [
@@ -43,9 +43,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const service = services.find((s) => s.slug === params.slug)
   if (!service) return {}
+  const meta = pageMeta[params.slug]
   return genMeta({
-    title: pageMeta[params.slug]?.title || service.title,
-    description: `${service.description} Serving Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and all of North Idaho. Call 208-290-3889 for a free estimate.`,
+    title: meta?.title || service.title,
+    description:
+      meta?.description ||
+      `${service.description} Serving Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and all of North Idaho. Call 208-290-3889 for a free estimate.`,
     slug: `services/${params.slug}`,
     canonical: `${siteUrl}/services/${params.slug}`,
   })

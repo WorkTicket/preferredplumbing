@@ -7,8 +7,8 @@ const stats = [
     icon: Award,
   },
   {
-    display: '24/7',
-    label: 'Emergency Service',
+    display: '7–5',
+    label: 'Sun–Fri Hours',
     icon: Clock,
   },
   {

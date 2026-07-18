@@ -11,35 +11,35 @@ import FaqAccordionList from '@/components/ui/FaqAccordionList'
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Residential & Commercial Plumbing Solutions',
-  description: 'Expert residential and commercial plumbing services in Spirit Lake, Idaho. 38+ years of experience serving North Idaho with repairs, installations, and maintenance.',
+  title: 'Residential & Commercial Plumbing',
+  description: 'Residential and commercial plumbing in Spirit Lake, Idaho. Repairs, installs, and maintenance across North Idaho. Call 208-290-3889.',
   slug: 'residential-and-commercial-plumbing-solutions',
 })
 
 const residentialFaqs = [
   {
     question: 'What areas do you serve for plumbing services?',
-    answer: 'Spirit Lake, Kootenai County, and communities across the Idaho Panhandle. We know the local water conditions and climate, so we can tailor solutions for your area.',
+    answer: 'Spirit Lake, Kootenai County, and communities across the Idaho Panhandle. We know the local water conditions and winter weather, so we plan the job for how things work here.',
   },
   {
     question: 'How quickly can you respond to plumbing emergencies?',
-    answer: 'We aim to be at your door within hours. Our trucks are stocked and ready for most emergencies on the first visit.',
+    answer: 'We aim to be at your door within hours during business hours. Our trucks are stocked so we can handle most emergencies on the first visit.',
   },
   {
     question: 'Do you provide services for both residential and commercial properties?',
-    answer: 'Yes. Small household repair or large commercial install, we handle both. Our team has experience across all property types.',
+    answer: 'Yes. Small household repair or large commercial install, we handle both.',
   },
   {
     question: 'What types of water heaters do you install and repair?',
-    answer: 'Tank and tankless. We install, repair, and maintain both types. We will help you pick the most efficient option for your home or business.',
+    answer: 'Tank and tankless. We install, repair, and maintain both. We will help you pick what fits your home or business and your budget.',
   },
   {
     question: 'Are your plumbers licensed and insured?',
-    answer: 'Yes. Every technician is fully licensed and insured. That means professional work and protection for your property.',
+    answer: 'Yes. We are fully licensed and insured in Idaho and Washington.',
   },
   {
     question: 'What measures do you take to protect plumbing systems during winter?',
-    answer: 'We recommend insulation, freeze protection, and timely maintenance to prevent burst pipes. Early preparation saves you from costly repairs later.',
+    answer: 'Insulation, freeze protection, and regular maintenance go a long way. Getting ahead of winter is cheaper than fixing a burst pipe later.',
   },
 ]
 
@@ -61,7 +61,7 @@ export default function ResidentialCommercialPage() {
             <span className="text-blue-300">Plumbing Solutions</span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm sm:text-lg text-gray-300">
-            Expert plumbing services in Spirit Lake, Idaho and across North Idaho.
+            Homes and businesses in Spirit Lake and across North Idaho.
           </p>
           <a
             href="tel:12082903889"
@@ -78,15 +78,15 @@ export default function ResidentialCommercialPage() {
             <div className="lg:col-span-2">
               <span className="section-label">{'About'}</span>
               <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-                Committed to Excellence<br />
-                <span className="text-blue">in Residential and Commercial Plumbing</span>
+                Plumbing for Homes<br />
+                <span className="text-blue">and Businesses</span>
               </h2>
               <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  For over 38 years, we have been the plumbers that homes and businesses call in Spirit Lake, Rathdrum, Hayden, Post Falls, Athol, and Bayview. Simple repair or full install, our team handles it.
+                  Homes and businesses in Spirit Lake, Rathdrum, Hayden, Post Falls, Athol, and Bayview call us for simple repairs and full installs.
                 </p>
                 <p>
-                  North Idaho winters and local water conditions are hard on plumbing. We know the area and we know what it takes to keep systems running through it all.
+                  North Idaho winters and hard water are rough on plumbing. We live here, so we know how to keep systems running through it.
                 </p>
               </div>
             </div>
@@ -110,10 +110,10 @@ export default function ResidentialCommercialPage() {
           <div className="max-w-4xl">
             <span className="section-label">What We Do</span>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                We work on homes and businesses every day. Decades of experience plus modern tools means we get things done fast. Our team knows local codes, permit rules, and what passes inspection around here.
+                We work on homes and businesses every day. We know the local codes, permit rules, and what passes inspection around here.
               </p>
               <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
-                Water heater upgrade or full commercial build. We deliver work that lasts. Nearly four decades in North Idaho.
+                Water heater upgrade or full commercial build. We do the job so it lasts.
               </p>
           </div>
         </div>
@@ -130,27 +130,27 @@ export default function ResidentialCommercialPage() {
           <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <ServiceCard
               title="Plumbing Repairs and Emergency Services"
-              text="We handle leaks, burst pipes, clogged drains, and water heater failures. Emergency service available 24/7 for homes and businesses."
+              text="Leaks, burst pipes, clogged drains, and water heater failures. Emergency service available Sunday through Friday, 7am to 5pm."
             />
             <ServiceCard
               title="New Plumbing Installations"
-              text="Building new or outfitting a commercial space? We design and install efficient plumbing systems that meet local codes and work right the first time."
+              text="Building new or outfitting a commercial space? We design and install systems that meet local codes and work the first time."
             />
             <ServiceCard
               title="Water Heater Installation and Repair"
-              text="Tank or tankless, we install, maintain, and repair all types. We help you pick the right size and model for your property and budget."
+              text="Tank or tankless. We install, maintain, and repair both. We help you pick the right size for your property and budget."
             />
             <ServiceCard
               title="Drain Cleaning and Sewer Services"
-              text="We clear blocked drains and sewer lines using hydro-jetting and video inspections. Fast, thorough, and built to prevent future backups."
+              text="We clear blocked drains and sewer lines with hydro-jetting and video inspections so you know what is going on underground."
             />
             <ServiceCard
               title="Fixture Upgrades and Replacements"
-              text="New sinks, faucets, toilets, and more. Upgrade for better water efficiency, updated style, and lower utility bills."
+              text="New sinks, faucets, toilets, and more. Better water use, a fresher look, and often lower bills."
             />
             <ServiceCard
               title="Preventive Plumbing Maintenance"
-              text="Regular inspections catch small problems before they turn into expensive repairs. Extend the life of your plumbing with routine service."
+              text="Regular inspections catch small problems before they turn into expensive repairs."
             />
           </div>
         </div>
@@ -160,11 +160,11 @@ export default function ResidentialCommercialPage() {
         <div className="container-page">
           <div className="max-w-4xl">
             <h2 className="font-display text-[clamp(1.8rem,5vw,2.5rem)] font-black uppercase leading-[0.95] text-gray-900">
-              Expert Plumbing Services<br />
-              <span className="text-blue">for Homes and Businesses</span>
+              One Shop for Homes<br />
+              <span className="text-blue">and Businesses</span>
             </h2>
             <p className="mt-6 text-gray-600 leading-relaxed">
-              Nearly four decades in Spirit Lake means we have seen it all. Residential, commercial, maintenance, repairs, or full installs. We get it done right and stand behind our work.
+              Maintenance, repairs, or full installs. We get it done right and stand behind the work.
             </p>
           </div>
         </div>
@@ -174,33 +174,33 @@ export default function ResidentialCommercialPage() {
         <div className="container-page">
           <span className="section-label">{'Benefits'}</span>
           <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-            Benefits of Professional<br />
-            <span className="text-blue">Plumbing Solutions</span>
+            Why Homeowners and<br />
+            <span className="text-blue">Businesses Call Us</span>
           </h2>
           <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <BenefitCard
-              title="Expert Diagnosis and Efficient Repairs"
+              title="We Find It and Fix It"
               text="We find the problem fast and fix it right the first time. No guesswork, no repeat visits."
             />
             <BenefitCard
-              title="Compliance with Local Codes"
-              text="Our work meets Spirit Lake and Idaho Panhandle plumbing codes. Permits and inspections handled. No fines, no hassle."
+              title="Code and Permit Ready"
+              text="Our work meets Spirit Lake and Idaho Panhandle plumbing codes. We handle permits and inspections."
             />
             <BenefitCard
-              title="Advanced Tools and Technology"
-              text="Video pipe inspections, hydro-jetting, and leak detection equipment. We find problems without tearing things apart."
+              title="The Right Tools for the Job"
+              text="Video pipe inspections, hydro-jetting, and leak detection. We find problems without tearing everything apart."
             />
             <BenefitCard
-              title="Long-Term Cost Savings"
-              text="Fix it right and maintain it regularly. You will avoid expensive emergency calls and extend the life of your system."
+              title="Fewer Emergency Calls Later"
+              text="Fix it right and keep up with maintenance. That usually means fewer big surprises down the road."
             />
             <BenefitCard
-              title="Enhanced Water Efficiency"
-              text="Upgraded fixtures and water-saving systems lower your bills. Good for your wallet and good for the community."
+              title="Lower Water Bills"
+              text="Better fixtures and smarter setups can cut water use. That shows up on your bill."
             />
             <BenefitCard
-              title="Full-Service Plumbing"
-              text="One call handles it all. Repairs, installations, maintenance, and emergency service. No juggling multiple contractors."
+              title="One Call Covers It"
+              text="Repairs, installs, maintenance, and emergency service. No juggling a stack of contractors."
             />
           </div>
         </div>

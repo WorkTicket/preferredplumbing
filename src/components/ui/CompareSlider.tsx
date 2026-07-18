@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef } from 'react'
-import { getVariantUrl } from '@/lib/responsive-image'
+import { getOriginalImageUrl, getVariantUrl } from '@/lib/responsive-image'
 import { cn } from '@/lib/utils'
 
 interface CompareSliderProps {
@@ -81,6 +81,15 @@ export default function CompareSlider({
 
   const afterUrl = getVariantUrl(afterSrc, 'webp', 1024)
   const beforeUrl = getVariantUrl(beforeSrc, 'webp', 1024)
+  const afterFallback = getOriginalImageUrl(afterSrc)
+  const beforeFallback = getOriginalImageUrl(beforeSrc)
+
+  const handleImgError = (fallback: string) => (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    if (img.dataset.fallbackApplied === '1') return
+    img.dataset.fallbackApplied = '1'
+    img.src = fallback
+  }
 
   return (
     <div
@@ -106,6 +115,7 @@ export default function CompareSlider({
         decoding="async"
         draggable={false}
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        onError={handleImgError(afterFallback)}
       />
 
       <div className="compare-slider-before absolute inset-0 overflow-hidden pointer-events-none">
@@ -119,6 +129,7 @@ export default function CompareSlider({
           decoding="async"
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
+          onError={handleImgError(beforeFallback)}
         />
       </div>
 

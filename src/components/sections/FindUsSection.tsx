@@ -23,7 +23,7 @@ export default function FindUsSection() {
             <span className="text-blue">Location</span>
           </h2>
           <p className="section-subtitle-center">
-            Based in Spirit Lake, Idaho — serving North Idaho and Eastern Washington since 1987.
+            Based in Spirit Lake, Idaho. Serving North Idaho and Eastern Washington.
           </p>
         </div>
 
@@ -57,10 +57,9 @@ export default function FindUsSection() {
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Hours</p>
                     <span className="text-sm leading-relaxed">
-                      Mon–Fri 7am–5pm<br />
+                      Sun–Fri 7am–5pm<br />
                       Sat Closed<br />
-                      Sun 7am–5pm (Emergency Only)<br />
-                      <span className="font-semibold text-blue">24/7 Emergency Line</span>
+                      <span className="font-semibold text-blue">Emergency service during business hours</span>
                     </span>
                   </div>
                 </div>

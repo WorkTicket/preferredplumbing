@@ -36,6 +36,8 @@ export interface RichServiceContent {
 export interface FAQ {
   question: string
   answer: string
+  href?: string
+  linkLabel?: string
 }
 
 export interface Review {

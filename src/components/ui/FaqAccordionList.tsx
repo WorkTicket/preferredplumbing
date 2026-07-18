@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { FAQ } from '@/types'
@@ -74,6 +75,14 @@ export default function FaqAccordionList({
               <div className="overflow-hidden">
                 <p className="text-gray-600 leading-relaxed text-sm sm:text-[15px] px-5 sm:px-7 pb-5 sm:pb-6">
                   {faq.answer}
+                  {faq.href && faq.linkLabel && (
+                    <>
+                      {' '}
+                      <Link href={faq.href} className="font-semibold text-blue hover:text-blue-dark">
+                        {faq.linkLabel}
+                      </Link>
+                    </>
+                  )}
                 </p>
               </div>
             </div>

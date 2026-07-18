@@ -13,6 +13,16 @@ export function formatPhone(phone: string) {
   return phone
 }
 
+/** Format YYYY-MM-DD as a local calendar date (avoids UTC off-by-one). */
+export function formatDisplayDate(
+  dateStr: string,
+  options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' },
+) {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  if (!y || !m || !d) return dateStr
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', options)
+}
+
 export const PHONE = '208-290-3889'
 export const PHONE_HREF = 'tel:12082903889'
 
@@ -38,6 +48,15 @@ export const DIRECTIONS_URL =
 
 export const GBP_URL = 'https://maps.app.goo.gl/ne3NdeDCnQqC3Zni7'
 export const TIKTOK_URL = 'https://www.tiktok.com/@preferredhnorris'
+
+/** Open Sun–Fri 7am–5pm; closed Saturday. No 24/7 service. */
+export const BUSINESS_HOURS = {
+  openDays: 'Sunday–Friday',
+  openRange: '7am–5pm',
+  saturday: 'Saturday Closed',
+  short: 'Sun–Fri 7am–5pm · Sat Closed',
+  lines: ['Sun–Fri 7am–5pm', 'Sat Closed'] as const,
+}
 
 export function trackPhoneCall(source: string) {
   if (typeof window !== 'undefined' && typeof (window as any).gtag !== 'undefined') {

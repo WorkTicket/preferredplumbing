@@ -5,6 +5,7 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, Phone, MapPin, Calendar } from 'lucide-react'
 import { getGalleryProjectById } from '@/data/gallery'
+import { formatDisplayDate } from '@/lib/utils'
 
 interface ProjectModalProps {
   projectId: string
@@ -19,7 +20,8 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
   useEffect(() => {
     const p = getGalleryProjectById(projectId)
-    setCurrentImage(p ? Math.max(0, p.images.length - 1) : 0)
+    // projectImages() orders as [before, after/cover, ...rest] — open on the finished shot
+    setCurrentImage(p && p.images.length >= 2 ? 1 : 0)
   }, [projectId])
 
   useEffect(() => {
@@ -194,7 +196,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                 )}
                 <span className="flex items-center gap-1 text-xs font-medium text-gray-400">
                   <Calendar className="h-3 w-3" />
-                  {new Date(project.completionDate).toLocaleDateString('en-US', {
+                  {formatDisplayDate(project.completionDate, {
                     year: 'numeric',
                     month: 'long',
                   })}

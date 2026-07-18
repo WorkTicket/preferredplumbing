@@ -12,19 +12,22 @@ import { IMAGE_SIZES } from '@/lib/image-sizes'
 import { PHONE_HREF } from '@/lib/utils'
 
 const featuredSlugs = [
-  'bathroom-remodel',
-  'kitchen-remodel-plumbing',
-  'water-heater-replacement',
   'boiler-radiant-heat',
+  'gas-line-installation',
+  'water-heater-replacement',
+  'septic-system-installation',
 ]
 
 const gridSlugs = [
   'modern-bathroom-fixtures',
-  'shower-tub-installation',
-  'commercial-grease-trap',
   'new-construction-rough-in',
-  'sewer-line-replacement',
-  'septic-system-installation',
+  'under-slab-plumbing',
+  'well-pump-system',
+  'septic-drain-field',
+  'new-construction-gas-rough-in',
+  'commercial-plumbing-project',
+  'shower-tub-installation',
+  'boiler-mechanical-room',
 ]
 
 const featuredProjects = galleryProjects.filter((p) => featuredSlugs.includes(p.slug))
@@ -45,10 +48,10 @@ export default function WorkGallery() {
           <SectionLabel text="Our Work" centered />
           <h2 className="section-heading">
             Project Gallery<br />
-            <span className="text-blue">&amp; Before / After</span>
+            <span className="text-blue">Real Job Photos</span>
           </h2>
           <p className="section-subtitle-center">
-            Real jobs from across North Idaho. Drag the slider to see the difference.
+            Recent work from across North Idaho. Drag the slider to compare job stages.
           </p>
         </div>
 

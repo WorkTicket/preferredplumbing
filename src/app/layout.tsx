@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
 import DeferredAnalytics from '@/components/layout/DeferredAnalytics'
-import { localBusinessSchema, websiteSchema, videoObjectSchema, reviewSchema, organizationSchema } from '@/lib/schema'
-import { reviews } from '@/lib/data'
+import { localBusinessSchema, websiteSchema, videoObjectSchema, organizationSchema } from '@/lib/schema'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
@@ -40,12 +39,13 @@ export const metadata: Metadata = {
     default: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
   },
   description:
-    "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+    "Family-owned plumber in Spirit Lake with 38+ years of combined experience. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
   keywords: [
     'plumber Spirit Lake Idaho', 'plumbing contractor North Idaho',
     'emergency plumber Coeur d\'Alene', 'radiant heat installer Idaho',
-    'new construction plumber Idaho Panhandle', '24 hour plumber',
+    'new construction plumber Idaho Panhandle', 'emergency plumber Spirit Lake',
     'plumbing services near me', 'Preferred Plumbing Solutions',
+    'heated driveway installation North Idaho', 'tankless water heater Spirit Lake',
     'Spirit Lake plumbing', 'Kootenai County plumber', 'North Idaho plumbing',
     'water heater repair Spirit Lake', 'septic system Idaho',
   ],
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     url: 'https://www.preferredplumbingsolution.com',
     siteName: 'Preferred Plumbing Solutions',
     title: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+    description: "Family-owned plumber in Spirit Lake with 38+ years of combined experience. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
     images: [
       { url: '/images/og-preferred-plumbing-solutions.webp', width: 1200, height: 630, alt: 'Preferred Plumbing Solutions - Spirit Lake Plumber' },
     ],
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@preferredplumbing',
     title: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
+    description: "Family-owned plumber in Spirit Lake with 38+ years of combined experience. New construction, radiant heat, water heaters, emergency service.",
     images: ['/images/og-preferred-plumbing-solutions.webp'],
   },
   icons: {
@@ -124,10 +124,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema(reviews)) }}
         />
       </head>
       <body className="font-body antialiased">

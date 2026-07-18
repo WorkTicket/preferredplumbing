@@ -1,23 +1,10 @@
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
-import { PHONE, PHONE_HREF, GBP_URL, TIKTOK_URL } from '@/lib/utils'
+import { PHONE, PHONE_HREF, GBP_URL, TIKTOK_URL, BUSINESS_HOURS } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import FooterSignature from '@/components/FooterSignature'
-
-const serviceLinks = [
-  { href: '/services/emergency', label: 'Emergency Plumbing' },
-  { href: '/services/new-construction', label: 'New Construction' },
-  { href: '/services/commercial', label: 'Commercial Plumbing' },
-  { href: '/services/radiant-heat', label: 'Radiant Heat' },
-  { href: '/services/water-heaters', label: 'Water Heaters' },
-  { href: '/services/water-softeners', label: 'Water Softeners' },
-  { href: '/services/toilets-faucets', label: 'Toilets & Faucets' },
-  { href: '/services/bathtubs-showers', label: 'Bathtubs & Showers' },
-  { href: '/services/sewer-line', label: 'Sewer Line' },
-  { href: '/services/septic-systems', label: 'Septic Systems' },
-  { href: '/services/remodels', label: 'Remodels & Upgrades' },
-]
+import { getNavServiceGroups, SERVICE_NAV_LABELS } from '@/lib/nav-services'
 
 const trustStats = [
   { value: '38+', label: 'Years Experience' },
@@ -30,10 +17,12 @@ const trustBadges = [
   { icon: Shield, text: 'Licensed & Insured' },
   { icon: Award, text: 'Free Estimates' },
   { icon: HardHat, text: '38+ Years Experience' },
-  { icon: Star, text: 'Family-Owned Since 1987' },
+  { icon: Star, text: 'Family-Owned & Operated' },
 ]
 
 export default function Footer() {
+  const serviceGroups = getNavServiceGroups()
+
   return (
     <footer className="relative bg-navy-gradient pt-14 sm:pt-20 pb-24 sm:pb-12 md:pb-16 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,102,255,0.12)_0%,_transparent_50%)] pointer-events-none" />
@@ -80,7 +69,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="mt-4 text-sm text-gray-400 leading-relaxed">
-              Serving North Idaho since 1987. Family-owned. Licensed &amp; insured. We cover 16 cities across Idaho and Washington.
+              Family-owned. Licensed &amp; insured. We cover 16 cities across Idaho and Washington.
             </p>
             <div className="mt-5 flex flex-col gap-2.5">
               <a href={PHONE_HREF} className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-300 hover:text-blue-light transition-colors duration-300 font-semibold">
@@ -122,7 +111,7 @@ export default function Footer() {
 
             <div className="mt-8 pt-6 border-t border-white/10">
               <h4 className="font-display text-xs font-bold uppercase tracking-wider text-blue-light mb-3 text-center lg:text-left">Get Help Now</h4>
-              <p className="text-sm text-gray-400 mb-4 text-center lg:text-left">Emergency? We&apos;re available 24/7.</p>
+              <p className="text-sm text-gray-400 mb-4 text-center lg:text-left">Emergency? Call during business hours ({BUSINESS_HOURS.short}).</p>
               <a
                 href={PHONE_HREF}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-5 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark active:scale-[0.97] shadow-premium-lg"
@@ -140,15 +129,31 @@ export default function Footer() {
 
           <div className="w-full text-center lg:text-left">
             <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5">Services</h4>
-            <ul className="space-y-2.5">
-              {serviceLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="group text-sm text-gray-400 transition-all duration-300 hover:text-white inline-flex items-center gap-1">
-                    <ChevronRight className="h-3 w-3 text-blue-light/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-blue-light" /> <span className="link-underline">{link.label}</span>
-                  </Link>
-                </li>
+            <div className="space-y-5">
+              {serviceGroups.map((group) => (
+                <div key={group.id}>
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
+                    {group.label}
+                  </p>
+                  <ul className="space-y-2">
+                    {group.services.map((service) => {
+                      const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+                      return (
+                        <li key={service.slug}>
+                          <Link
+                            href={`/services/${service.slug}`}
+                            className="group text-sm text-gray-400 transition-all duration-300 hover:text-white inline-flex items-center gap-1"
+                          >
+                            <ChevronRight className="h-3 w-3 text-blue-light/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-blue-light" />
+                            <span className="link-underline">{label}</span>
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
             <Link href="/services" className="mt-4 inline-flex text-xs font-semibold text-blue-light hover:text-blue-light transition-colors duration-300">
               View All Services &rarr;
             </Link>
@@ -185,10 +190,10 @@ export default function Footer() {
 
         <div className="mt-12 sm:mt-16 border-t border-white/10 pt-8 text-center">
           <p className="text-xs sm:text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved. | Licensed & Insured in Idaho &amp; Washington | Family-Owned Since 1987
+            &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved. | Licensed & Insured in Idaho &amp; Washington | Family-Owned &amp; Operated
           </p>
           <p className="mt-2 text-xs text-gray-600">
-            Spirit Lake, ID 83869 | 24/7 Emergency Service Available
+            Spirit Lake, ID 83869 | Emergency Service · {BUSINESS_HOURS.short}
           </p>
           <FooterSignature />
         </div>

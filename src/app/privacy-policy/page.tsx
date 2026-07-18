@@ -4,7 +4,7 @@ import ContactEmailList from '@/components/ui/ContactEmailList'
 import { siteUrl } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Preferred Plumbing Solutions',
+  title: { absolute: 'Privacy Policy | Preferred Plumbing Solutions' },
   description: 'Privacy policy for Preferred Plumbing Solutions. Learn how we collect, use, and protect your personal information.',
   robots: { index: true, follow: true },
   alternates: { canonical: `${siteUrl}/privacy-policy` },

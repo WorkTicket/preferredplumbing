@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic'
 import HeroSection from '@/components/sections/HeroSection'
 import EmergencyBand from '@/components/sections/EmergencyBand'
 import { AnimatedSection } from '@/components/animations'
-import { faqSchema, webpageSchema } from '@/lib/schema'
-import { faqItems } from '@/lib/data'
+import { faqSchema, webpageSchema, reviewSchema } from '@/lib/schema'
+import { faqItems, reviews } from '@/lib/data'
 import { generateMetadata as genMeta } from '@/lib/seo'
 
 const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'))
@@ -19,8 +19,7 @@ const FindUsSection = dynamic(() => import('@/components/sections/FindUsSection'
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'))
 
 export const metadata: Metadata = genMeta({
-  title: 'Plumber Spirit Lake Idaho | Preferred Plumbing Solutions',
-  description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+  description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Licensed & insured. Call 208-290-3889.',
   slug: '',
 })
 
@@ -30,13 +29,19 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(faqItems.slice(0, 5))),
+          __html: JSON.stringify(faqSchema(faqItems.slice(0, 7))),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', 'Family-owned plumber in Spirit Lake since 1987', '')),
+          __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', 'Family-owned plumber in Spirit Lake with 38+ years of combined experience', '')),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(reviewSchema(reviews.slice(0, 3))),
         }}
       />
       <script
@@ -47,11 +52,11 @@ export default function HomePage() {
             '@type': 'ItemList',
             itemListElement: [
               { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Emergency Plumbing', url: 'https://www.preferredplumbingsolution.com/services/emergency' } },
-              { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'New Construction Plumbing', url: 'https://www.preferredplumbingsolution.com/services/new-construction' } },
-              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'Water Heater Installation', url: 'https://www.preferredplumbingsolution.com/services/water-heaters' } },
-              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'Radiant Floor Heating', url: 'https://www.preferredplumbingsolution.com/services/radiant-heat' } },
-              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Sewer Line Replacement', url: 'https://www.preferredplumbingsolution.com/services/sewer-line' } },
-              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Septic Systems', url: 'https://www.preferredplumbingsolution.com/services/septic-systems' } },
+              { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Radiant Floor Heating', url: 'https://www.preferredplumbingsolution.com/services/radiant-heat' } },
+              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'New Construction Plumbing', url: 'https://www.preferredplumbingsolution.com/services/new-construction' } },
+              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'Heated Driveway Installation', url: 'https://www.preferredplumbingsolution.com/services/heated-driveways' } },
+              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Tankless Water Heater Installation', url: 'https://www.preferredplumbingsolution.com/services/tankless-water-heaters' } },
+              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Sewer Line Replacement', url: 'https://www.preferredplumbingsolution.com/services/sewer-line' } },
             ],
           }),
         }}

@@ -33,10 +33,10 @@ const items: Record<
     type: 'Commercial',
     description:
       'Full plumbing renovation for a downtown Coeur d\'Alene office space. Included new restroom plumbing, kitchenette installation, and ADA-compliant fixtures.',
-    image: '/images/gallery/commercial-grease-trap-1.webp',
+    image: '/images/gallery/commercial-plumbing-project-1.webp',
     gallery: [
-      '/images/gallery/commercial-grease-trap-1.webp',
       '/images/gallery/commercial-plumbing-project-1.webp',
+      '/images/gallery/commercial-plumbing-project-2.webp',
     ],
   },
 }
@@ -49,7 +49,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const item = items[params.slug]
   if (!item) return {}
   return {
-    title: `${item.title} | Portfolio | Preferred Plumbing Solutions`,
+    title: { absolute: `${item.title} | Portfolio | Preferred Plumbing Solutions` },
     description: item.description.slice(0, 160),
   }
 }

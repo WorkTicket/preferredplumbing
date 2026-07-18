@@ -1,6 +1,15 @@
+'use client'
+
+import type { CSSProperties, SyntheticEvent } from 'react'
 import { cn } from '@/lib/utils'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
-import { FORMATS, buildSrcset, getImageDimensions, getVariantUrl } from '@/lib/responsive-image'
+import {
+  FORMATS,
+  buildSrcset,
+  getImageDimensions,
+  getOriginalImageUrl,
+  getVariantUrl,
+} from '@/lib/responsive-image'
 
 type ResponsiveImageProps = {
   src: string
@@ -13,9 +22,9 @@ type ResponsiveImageProps = {
   fill?: boolean
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
   objectPosition?: string
-  style?: React.CSSProperties
+  style?: CSSProperties
   onLoad?: () => void
-  onError?: () => void
+  onError?: (e: SyntheticEvent<HTMLImageElement>) => void
 }
 
 export default function ResponsiveImage({
@@ -34,7 +43,8 @@ export default function ResponsiveImage({
   onError,
 }: ResponsiveImageProps) {
   const dimensions = getImageDimensions(src)
-  const imgStyle: React.CSSProperties = {
+  const originalUrl = getOriginalImageUrl(src)
+  const imgStyle: CSSProperties = {
     objectFit,
     ...(objectPosition ? { objectPosition } : {}),
     ...style,
@@ -46,6 +56,17 @@ export default function ResponsiveImage({
     objectFit === 'contain' && 'object-contain',
     className,
   )
+
+  const handleError = (e: SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    if (img.dataset.fallbackApplied === '1') {
+      onError?.(e)
+      return
+    }
+    img.dataset.fallbackApplied = '1'
+    img.src = originalUrl
+    onError?.(e)
+  }
 
   return (
     <picture className={fill ? 'absolute inset-0 block h-full w-full' : undefined}>
@@ -65,7 +86,7 @@ export default function ResponsiveImage({
         className={imgClass}
         style={imgStyle}
         onLoad={onLoad}
-        onError={onError}
+        onError={handleError}
       />
     </picture>
   )

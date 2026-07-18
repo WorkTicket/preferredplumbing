@@ -53,7 +53,7 @@ export default function AreasPage() {
       <PageHero
         label="Service Areas"
         title={<>Plumbing Services Across<br /><span className="text-blue-300">North Idaho &amp; Eastern Washington</span></>}
-        description={`From Spirit Lake to Spokane Valley, we provide expert plumbing services to ${areas.length} cities across North Idaho and Eastern Washington. No matter where you are in the region, we're just a phone call away.`}
+        description={`From Spirit Lake to Spokane Valley, we serve ${areas.length} cities across North Idaho and Eastern Washington. If you are in the region, give us a call.`}
         image="/images/hero-areas.webp"
         imageAlt="Preferred Plumbing Solutions service areas across North Idaho and Eastern Washington"
         priority
@@ -103,7 +103,7 @@ export default function AreasPage() {
                        area.city === 'Newport' ? 'Plumbing contractor for Newport and Pend Oreille County.' :
                        area.city === 'Mead' ? 'Plumbing services in Mead and Spokane County.' :
                        area.city === 'Chattaroy' ? 'Plumbing in Chattaroy and Spokane County.' :
-                       'Plumbing solutions for Oldtown and the surrounding area.'}
+                       'Plumbing for Oldtown and the surrounding area.'}
                     </p>
                   </Link>
                 ))}
@@ -164,7 +164,7 @@ export default function AreasPage() {
                 <Shield className="h-3.5 w-3.5" /> Licensed &amp; Insured (ID &amp; WA)
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-blue/10 px-3 py-1.5 text-xs font-semibold text-blue">
-                <Clock className="h-3.5 w-3.5" /> 24/7 Emergency Service
+                <Clock className="h-3.5 w-3.5" /> Emergency Service
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-blue/10 px-3 py-1.5 text-xs font-semibold text-blue">
                 <Star className="h-3.5 w-3.5" /> Free Estimates

@@ -12,7 +12,7 @@ import { trackFormSubmission } from '@/lib/utils'
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
   phone: z.string().min(10, 'Valid phone number required'),
-  email: z.string().email('Valid email optional').optional().or(z.literal('')),
+  email: z.string().email('Enter a valid email').optional().or(z.literal('')),
   city: z.string().min(2, 'City is required'),
   service: z.string().min(1, 'Select a service'),
   message: z.string().min(10, 'Please describe your project briefly'),
@@ -94,6 +94,7 @@ export default function ContactForm() {
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">Email</label>
           <input {...register('email')} type="email" className={inputClass} placeholder="john@example.com" />
+          <FieldError message={errors.email?.message} />
         </div>
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">City / Zip *</label>

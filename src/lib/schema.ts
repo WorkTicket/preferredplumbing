@@ -1,5 +1,6 @@
 import { siteUrl } from './seo'
 import { CONTACT_EMAILS } from './utils'
+import { reviews } from './data'
 
 const contactPoints = CONTACT_EMAILS.map((contact) => ({
   '@type': 'ContactPoint',
@@ -18,8 +19,7 @@ export function organizationSchema() {
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
     logo: `${siteUrl}/images/preferred%20logo.webp`,
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
-    foundingDate: '1987',
+    description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service.',
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
       '@type': 'PostalAddress',
@@ -30,7 +30,7 @@ export function organizationSchema() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     telephone: '+12082903889',
-    email: CONTACT_EMAILS.map((contact) => contact.email).join(', '),
+    email: CONTACT_EMAILS.map((contact) => contact.email),
     sameAs: ['https://www.tiktok.com/@preferredhnorris'],
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake' },
@@ -57,9 +57,8 @@ export function localBusinessSchema() {
     ],
     telephone: '+12082903889',
     priceRange: '$$',
-    email: CONTACT_EMAILS.map((contact) => contact.email).join(', '),
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
-    foundingDate: '1987',
+    email: CONTACT_EMAILS.map((contact) => contact.email),
+    description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Call 208-290-3889.',
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
       '@type': 'PostalAddress',
@@ -76,22 +75,9 @@ export function localBusinessSchema() {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '07:00',
         closes: '17:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday'],
-        opens: '07:00',
-        closes: '17:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Sunday'],
-        opens: '07:00',
-        closes: '17:00',
-        description: 'Emergency services only',
       },
     ],
     areaServed: [
@@ -112,7 +98,13 @@ export function localBusinessSchema() {
     sameAs: [
       'https://www.tiktok.com/@preferredhnorris',
     ],
-    award: '38+ Years Serving North Idaho',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      bestRating: '5',
+      reviewCount: String(reviews.length),
+    },
+    award: '38+ Years Experience',
     numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 10 },
     knowsAbout: [
       'Plumbing installation and repair',
@@ -122,8 +114,12 @@ export function localBusinessSchema() {
       'Water heater installation',
       'Water softener installation',
       'Sewer line replacement',
+      'Water line replacement',
+      'Gas line installation and repair',
       'Septic system installation',
       'Emergency plumbing',
+      'Heated driveway installation',
+      'Tankless water heater installation',
       'Kitchen and bathroom remodeling',
     ],
     parentOrganization: {
@@ -149,10 +145,7 @@ export function postalAddressSchema() {
 export function contactPointSchema() {
   return {
     '@context': 'https://schema.org',
-    '@graph': contactPoints.map((contact) => ({
-      ...contact,
-      contactOption: 'TollFree',
-    })),
+    '@graph': contactPoints,
   }
 }
 
@@ -185,11 +178,13 @@ export function personSchema(name: string, jobTitle: string, description: string
   }
 }
 
-export function reviewSchema(reviews: { id: string; name: string; rating: number; text: string; date?: string }[]) {
+export function reviewSchema(
+  reviewItems: { id: string; name: string; location?: string; rating: number; text: string; date?: string }[]
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: reviews.map((review, i) => ({
+    itemListElement: reviewItems.map((review, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {
@@ -199,10 +194,19 @@ export function reviewSchema(reviews: { id: string; name: string; rating: number
           ratingValue: review.rating,
           bestRating: '5',
         },
-        author: { '@type': 'Person', name: review.name },
+        author: {
+          '@type': 'Person',
+          name: review.name,
+          ...(review.location ? { address: review.location } : {}),
+        },
         reviewBody: review.text,
         datePublished: review.date || '2025-01-01',
         publisher: { '@type': 'Organization', name: 'Preferred Plumbing Solutions' },
+        itemReviewed: {
+          '@type': 'Plumber',
+          name: 'Preferred Plumbing Solutions',
+          url: siteUrl,
+        },
       },
     })),
   }
@@ -213,7 +217,7 @@ export function videoObjectSchema() {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: 'Preferred Plumbing Solutions - Spirit Lake Plumber',
-    description: 'Preferred Plumbing Solutions provides expert plumbing services in Spirit Lake, Idaho. 38+ years of experience, 24/7 emergency service.',
+    description: 'Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. 38+ years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.',
     thumbnailUrl: [
       `${siteUrl}/images/og-preferred-plumbing-solutions.webp`,
     ],
@@ -253,19 +257,11 @@ export function websiteSchema() {
     '@type': 'WebSite',
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
+    description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service.',
   }
 }
 
-export function faqSchema(questions: { question: string; answer: string }[]) {
+export function faqSchema(questions: { question: string; answer: string; href?: string; linkLabel?: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -274,7 +270,7 @@ export function faqSchema(questions: { question: string; answer: string }[]) {
       name: q.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: q.answer,
+        text: q.href && q.linkLabel ? `${q.answer} ${q.linkLabel}` : q.answer,
       },
     })),
   }

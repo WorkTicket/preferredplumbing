@@ -1115,96 +1115,14 @@
       }
     }
   },
-  "/images/gallery/bathroom-remodel-1.webp": {
-    "originalPath": "/images/gallery/bathroom-remodel-1.webp",
-    "altBase": "bathroom-remodel-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAA0APzmGuVOvKSWisAgB4CcJZQAAWFxP/JHDSAAA/pbTDo0Wy6QmfLv4Sw97UKD+agQ621/nzBbvQAKRMn7rJl7cOoQQ2AAAAA==",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/bathroom-remodel-1-480.avif",
-        "640": "/images/generated/bathroom-remodel-1-640.avif",
-        "768": "/images/generated/bathroom-remodel-1-768.avif",
-        "1024": "/images/generated/bathroom-remodel-1-1024.avif",
-        "1280": "/images/generated/bathroom-remodel-1-1280.avif",
-        "1536": "/images/generated/bathroom-remodel-1-1536.avif",
-        "1920": "/images/generated/bathroom-remodel-1-1920.avif",
-        "2560": "/images/generated/bathroom-remodel-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/bathroom-remodel-1-480.webp",
-        "640": "/images/generated/bathroom-remodel-1-640.webp",
-        "768": "/images/generated/bathroom-remodel-1-768.webp",
-        "1024": "/images/generated/bathroom-remodel-1-1024.webp",
-        "1280": "/images/generated/bathroom-remodel-1-1280.webp",
-        "1536": "/images/generated/bathroom-remodel-1-1536.webp",
-        "1920": "/images/generated/bathroom-remodel-1-1920.webp",
-        "2560": "/images/generated/bathroom-remodel-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/bathroom-remodel-1-480.jpeg",
-        "640": "/images/generated/bathroom-remodel-1-640.jpeg",
-        "768": "/images/generated/bathroom-remodel-1-768.jpeg",
-        "1024": "/images/generated/bathroom-remodel-1-1024.jpeg",
-        "1280": "/images/generated/bathroom-remodel-1-1280.jpeg",
-        "1536": "/images/generated/bathroom-remodel-1-1536.jpeg",
-        "1920": "/images/generated/bathroom-remodel-1-1920.jpeg",
-        "2560": "/images/generated/bathroom-remodel-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/bathroom-remodel-2.webp": {
-    "originalPath": "/images/gallery/bathroom-remodel-2.webp",
-    "altBase": "bathroom-remodel-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoUAA0APzmGu1QvKSYjMAgB4CcJZQDA3fwAkIf+RwFfgAD+r4vhkTBihtawrQVVRubCrDJt80GVjwQuk32wup8Q+qygAA==",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/bathroom-remodel-2-480.avif",
-        "640": "/images/generated/bathroom-remodel-2-640.avif",
-        "768": "/images/generated/bathroom-remodel-2-768.avif",
-        "1024": "/images/generated/bathroom-remodel-2-1024.avif",
-        "1280": "/images/generated/bathroom-remodel-2-1280.avif",
-        "1536": "/images/generated/bathroom-remodel-2-1536.avif",
-        "1920": "/images/generated/bathroom-remodel-2-1920.avif",
-        "2560": "/images/generated/bathroom-remodel-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/bathroom-remodel-2-480.webp",
-        "640": "/images/generated/bathroom-remodel-2-640.webp",
-        "768": "/images/generated/bathroom-remodel-2-768.webp",
-        "1024": "/images/generated/bathroom-remodel-2-1024.webp",
-        "1280": "/images/generated/bathroom-remodel-2-1280.webp",
-        "1536": "/images/generated/bathroom-remodel-2-1536.webp",
-        "1920": "/images/generated/bathroom-remodel-2-1920.webp",
-        "2560": "/images/generated/bathroom-remodel-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/bathroom-remodel-2-480.jpeg",
-        "640": "/images/generated/bathroom-remodel-2-640.jpeg",
-        "768": "/images/generated/bathroom-remodel-2-768.jpeg",
-        "1024": "/images/generated/bathroom-remodel-2-1024.jpeg",
-        "1280": "/images/generated/bathroom-remodel-2-1280.jpeg",
-        "1536": "/images/generated/bathroom-remodel-2-1536.jpeg",
-        "1920": "/images/generated/bathroom-remodel-2-1920.jpeg",
-        "2560": "/images/generated/bathroom-remodel-2-2560.jpeg"
-      }
-    }
-  },
   "/images/gallery/boiler-radiant-heat-1.webp": {
     "originalPath": "/images/gallery/boiler-radiant-heat-1.webp",
     "altBase": "boiler-radiant-heat-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAgCdASoUAA0APzleyV8vI6qmGAHgJwljALToQ5IAAP7d2o5YW3YVylbpKbK7NgxrIR+eA+VwgfK7RfUUCahO7e3XDC2T/RdfvJ/8v8i4//69WMT7ytNz6t/Y5G+ZiR7uR0gmqs2V3yAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4IOoAAADQBACdASoUABsAPyl8tVOuJ6Uit/qoAcAlCWpMHKC9A+wDplhxM6ajvM/FY6mUYAD7PySbbd94/f/Z+Sce5vBwCGnSvhePXmqzyxrYj8Gza3FrVK+lBjTTGm2ZKrR0Ox3Fm2nlwZcHF8oM8rWN8hXcoigZMogyXfNJsb/8mT4vf/eq1FtX5etaTvZtwTTKEgBjY/6tJaFiLjZonLufA0WdpKRKyfefZMlYffWI9llbnBRRIAY/SzMxvRtapnId58pqP2u4E5lDNqAsUNt/gEmeNRYznW2ixv/ZaQ049hSbSwRfJFObgJCKAAA=",
     "variants": {
       "avif": {
         "480": "/images/generated/boiler-radiant-heat-1-480.avif",
@@ -1242,10 +1160,10 @@
     "originalPath": "/images/gallery/boiler-radiant-heat-2.webp",
     "altBase": "boiler-radiant-heat-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAQCdASoUAA0ABUB8JYwABc7QAP7ms1ts/++u+MDOJIxXfqEmL+u8218vlfBX5xA5IjpvJM81VVVP/7TsMENmQKAphyiVwAA=",
+    "blurPlaceholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBQCdASoUAA8APzmEuVOvKKWisAgB4CcJaFe6Y5Qb//WEcu7lHJ1gsP5QBNAAwPYAAP0vo/68R/poAlVRxR7RnqCoAYdc0SKZmdRTMl35pM55r2dFHsxAF206Y1U0L9xybP58OON44TjoBAvPIfGnhzPUMqpiDk0jjZJQoexd2An9Ibsps9+QHSCgiIAA",
     "variants": {
       "avif": {
         "480": "/images/generated/boiler-radiant-heat-2-480.avif",
@@ -1279,96 +1197,14 @@
       }
     }
   },
-  "/images/gallery/commercial-grease-trap-1.webp": {
-    "originalPath": "/images/gallery/commercial-grease-trap-1.webp",
-    "altBase": "commercial-grease-trap-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoUAA0APzleyV8vI6qmGAHgJwlnYQdrJN+gBcZucCibMxugAP66Xl/3kwbXncr+0c4oNlCF3UC6uDluNZjUdH9kN6//VEf+Bq+jtTn/+OWEr/faeeuje5OFIMnCkGThXv9bSS4l8ARjE12I2GpvyQqQ+6+uz7S36z/VH4HgAAA=",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/commercial-grease-trap-1-480.avif",
-        "640": "/images/generated/commercial-grease-trap-1-640.avif",
-        "768": "/images/generated/commercial-grease-trap-1-768.avif",
-        "1024": "/images/generated/commercial-grease-trap-1-1024.avif",
-        "1280": "/images/generated/commercial-grease-trap-1-1280.avif",
-        "1536": "/images/generated/commercial-grease-trap-1-1536.avif",
-        "1920": "/images/generated/commercial-grease-trap-1-1920.avif",
-        "2560": "/images/generated/commercial-grease-trap-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/commercial-grease-trap-1-480.webp",
-        "640": "/images/generated/commercial-grease-trap-1-640.webp",
-        "768": "/images/generated/commercial-grease-trap-1-768.webp",
-        "1024": "/images/generated/commercial-grease-trap-1-1024.webp",
-        "1280": "/images/generated/commercial-grease-trap-1-1280.webp",
-        "1536": "/images/generated/commercial-grease-trap-1-1536.webp",
-        "1920": "/images/generated/commercial-grease-trap-1-1920.webp",
-        "2560": "/images/generated/commercial-grease-trap-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/commercial-grease-trap-1-480.jpeg",
-        "640": "/images/generated/commercial-grease-trap-1-640.jpeg",
-        "768": "/images/generated/commercial-grease-trap-1-768.jpeg",
-        "1024": "/images/generated/commercial-grease-trap-1-1024.jpeg",
-        "1280": "/images/generated/commercial-grease-trap-1-1280.jpeg",
-        "1536": "/images/generated/commercial-grease-trap-1-1536.jpeg",
-        "1920": "/images/generated/commercial-grease-trap-1-1920.jpeg",
-        "2560": "/images/generated/commercial-grease-trap-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/commercial-grease-trap-2.webp": {
-    "originalPath": "/images/gallery/commercial-grease-trap-2.webp",
-    "altBase": "commercial-grease-trap-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQAwCdASoUAA0ALvmczmclLy8vDwD4S0q9mjT45qgtPoz+WKsAAP7XD//iY8aus1k+r6fcHoUfaSr4ZknRqzfHJ7mb6NgiDArrhFUeYX8//D7/uvo0NgrznNXnOadsmzkBdjl17+HP7el0MAA=",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/commercial-grease-trap-2-480.avif",
-        "640": "/images/generated/commercial-grease-trap-2-640.avif",
-        "768": "/images/generated/commercial-grease-trap-2-768.avif",
-        "1024": "/images/generated/commercial-grease-trap-2-1024.avif",
-        "1280": "/images/generated/commercial-grease-trap-2-1280.avif",
-        "1536": "/images/generated/commercial-grease-trap-2-1536.avif",
-        "1920": "/images/generated/commercial-grease-trap-2-1920.avif",
-        "2560": "/images/generated/commercial-grease-trap-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/commercial-grease-trap-2-480.webp",
-        "640": "/images/generated/commercial-grease-trap-2-640.webp",
-        "768": "/images/generated/commercial-grease-trap-2-768.webp",
-        "1024": "/images/generated/commercial-grease-trap-2-1024.webp",
-        "1280": "/images/generated/commercial-grease-trap-2-1280.webp",
-        "1536": "/images/generated/commercial-grease-trap-2-1536.webp",
-        "1920": "/images/generated/commercial-grease-trap-2-1920.webp",
-        "2560": "/images/generated/commercial-grease-trap-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/commercial-grease-trap-2-480.jpeg",
-        "640": "/images/generated/commercial-grease-trap-2-640.jpeg",
-        "768": "/images/generated/commercial-grease-trap-2-768.jpeg",
-        "1024": "/images/generated/commercial-grease-trap-2-1024.jpeg",
-        "1280": "/images/generated/commercial-grease-trap-2-1280.jpeg",
-        "1536": "/images/generated/commercial-grease-trap-2-1536.jpeg",
-        "1920": "/images/generated/commercial-grease-trap-2-1920.jpeg",
-        "2560": "/images/generated/commercial-grease-trap-2-2560.jpeg"
-      }
-    }
-  },
   "/images/gallery/commercial-plumbing-project-1.webp": {
     "originalPath": "/images/gallery/commercial-plumbing-project-1.webp",
     "altBase": "commercial-plumbing-project-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQAgCdASoUAA0ALvmczmclLy8vDwD4SzgF/2Q2kAD+ul8o4ptqG27r32ZbJnatwilLFmnrQsriRWmpgMUTSzvMz4zOGdigQMkS5iZE7+3KXDOkmfLdcTk9SUyXqzoA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQAwCdASoUABsALvmczmclLy8vDwD4S0lpSCTFAFwVKgAA/uPcW+4fPoLHu/zDh7f9g2L++4lE43tmnJr948/ol0RoM3c0rSfVE3cB6GKHZ1teq/Rtf+YJbZF8h029JzWPAh7LdI3YkpKHchaCqn21oMgegT3Oxv7ouLT5cbjgguLMgxabQODrNyBOAAAA",
     "variants": {
       "avif": {
         "480": "/images/generated/commercial-plumbing-project-1-480.avif",
@@ -1406,10 +1242,10 @@
     "originalPath": "/images/gallery/commercial-plumbing-project-2.webp",
     "altBase": "commercial-plumbing-project-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAwCdASoUAA0APzleyV8vI6qmGAHgJwlnTBxoDdfk0aAA/pLKctLdhmSRWNziM1Xtz76q1iSbeh4A/E2J/5XF/5m/6+q3/4xoUL2DGbE3QZiyI6d5Vi+6qlXEImY3+NgAAAAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACQAwCdASoUABsAPzl8zmcvJSoqFAHgJwlnaM9XuByEliDCmZEAAP7XNhGtz/bp+q1g8CyRqg4j7Ev4fF/nByBMgu6vjmPbIgaT/eLXOf7WV+QOx6IgNHSejWp7Zb/zRXn3fGv//Z5mq7qGicIt9lZk5yg0tw+Cj7JUe3YR5pVe7NM6+8rDupftOBH04AAA",
     "variants": {
       "avif": {
         "480": "/images/generated/commercial-plumbing-project-2-480.avif",
@@ -1443,342 +1279,14 @@
       }
     }
   },
-  "/images/gallery/dishwasher-disposal-install-1.webp": {
-    "originalPath": "/images/gallery/dishwasher-disposal-install-1.webp",
-    "altBase": "dishwasher-disposal-install-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwAwCdASoUAA0APzmGulQvKSWjMAgB4CcJaj45OCeADAOwAHSkAAD8eb2JfRH4YHIaU8bWsNv4T8pv33B/zhdZPkcnIN6bIaB5hP0O3UrlaaK1iRwwmNr+lJq8HF//Kvzvw99zzu7LXNgzsP+FTan9lv7tUzDYT3ONg2yGTKDGak//qB6SfM/SxbRggAAA",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/dishwasher-disposal-install-1-480.avif",
-        "640": "/images/generated/dishwasher-disposal-install-1-640.avif",
-        "768": "/images/generated/dishwasher-disposal-install-1-768.avif",
-        "1024": "/images/generated/dishwasher-disposal-install-1-1024.avif",
-        "1280": "/images/generated/dishwasher-disposal-install-1-1280.avif",
-        "1536": "/images/generated/dishwasher-disposal-install-1-1536.avif",
-        "1920": "/images/generated/dishwasher-disposal-install-1-1920.avif",
-        "2560": "/images/generated/dishwasher-disposal-install-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/dishwasher-disposal-install-1-480.webp",
-        "640": "/images/generated/dishwasher-disposal-install-1-640.webp",
-        "768": "/images/generated/dishwasher-disposal-install-1-768.webp",
-        "1024": "/images/generated/dishwasher-disposal-install-1-1024.webp",
-        "1280": "/images/generated/dishwasher-disposal-install-1-1280.webp",
-        "1536": "/images/generated/dishwasher-disposal-install-1-1536.webp",
-        "1920": "/images/generated/dishwasher-disposal-install-1-1920.webp",
-        "2560": "/images/generated/dishwasher-disposal-install-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/dishwasher-disposal-install-1-480.jpeg",
-        "640": "/images/generated/dishwasher-disposal-install-1-640.jpeg",
-        "768": "/images/generated/dishwasher-disposal-install-1-768.jpeg",
-        "1024": "/images/generated/dishwasher-disposal-install-1-1024.jpeg",
-        "1280": "/images/generated/dishwasher-disposal-install-1-1280.jpeg",
-        "1536": "/images/generated/dishwasher-disposal-install-1-1536.jpeg",
-        "1920": "/images/generated/dishwasher-disposal-install-1-1920.jpeg",
-        "2560": "/images/generated/dishwasher-disposal-install-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/dishwasher-disposal-install-2.webp": {
-    "originalPath": "/images/gallery/dishwasher-disposal-install-2.webp",
-    "altBase": "dishwasher-disposal-install-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABwAwCdASoUAA0APzmGvFQvKSYjMAgB4CcJYi0XBWgLYAT9cgAA/tNa//63MSJetNg+JFks9G5roJ4S/zm6cxmMazwyqnTqu8bHvwt/8Lcz/CQ9v9G+uvoeqwXjaXyezLw08WSiVtTzaGRARzXLU1/MeAA=",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/dishwasher-disposal-install-2-480.avif",
-        "640": "/images/generated/dishwasher-disposal-install-2-640.avif",
-        "768": "/images/generated/dishwasher-disposal-install-2-768.avif",
-        "1024": "/images/generated/dishwasher-disposal-install-2-1024.avif",
-        "1280": "/images/generated/dishwasher-disposal-install-2-1280.avif",
-        "1536": "/images/generated/dishwasher-disposal-install-2-1536.avif",
-        "1920": "/images/generated/dishwasher-disposal-install-2-1920.avif",
-        "2560": "/images/generated/dishwasher-disposal-install-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/dishwasher-disposal-install-2-480.webp",
-        "640": "/images/generated/dishwasher-disposal-install-2-640.webp",
-        "768": "/images/generated/dishwasher-disposal-install-2-768.webp",
-        "1024": "/images/generated/dishwasher-disposal-install-2-1024.webp",
-        "1280": "/images/generated/dishwasher-disposal-install-2-1280.webp",
-        "1536": "/images/generated/dishwasher-disposal-install-2-1536.webp",
-        "1920": "/images/generated/dishwasher-disposal-install-2-1920.webp",
-        "2560": "/images/generated/dishwasher-disposal-install-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/dishwasher-disposal-install-2-480.jpeg",
-        "640": "/images/generated/dishwasher-disposal-install-2-640.jpeg",
-        "768": "/images/generated/dishwasher-disposal-install-2-768.jpeg",
-        "1024": "/images/generated/dishwasher-disposal-install-2-1024.jpeg",
-        "1280": "/images/generated/dishwasher-disposal-install-2-1280.jpeg",
-        "1536": "/images/generated/dishwasher-disposal-install-2-1536.jpeg",
-        "1920": "/images/generated/dishwasher-disposal-install-2-1920.jpeg",
-        "2560": "/images/generated/dishwasher-disposal-install-2-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/emergency-plumbing-repair-1.webp": {
-    "originalPath": "/images/gallery/emergency-plumbing-repair-1.webp",
-    "altBase": "emergency-plumbing-repair-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwAwCdASoUAA0APzmYvlYvLCajsAgB4CcJTOEMlvzQd14wTAAA/sm3GTwl/TB/zg8aWDTEtwy/NQT0ZLiyrl/QPf7957P/lX/8qRKL+f/PtRe/Ud/CxQf6nsX4IBWEQAA=",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/emergency-plumbing-repair-1-480.avif",
-        "640": "/images/generated/emergency-plumbing-repair-1-640.avif",
-        "768": "/images/generated/emergency-plumbing-repair-1-768.avif",
-        "1024": "/images/generated/emergency-plumbing-repair-1-1024.avif",
-        "1280": "/images/generated/emergency-plumbing-repair-1-1280.avif",
-        "1536": "/images/generated/emergency-plumbing-repair-1-1536.avif",
-        "1920": "/images/generated/emergency-plumbing-repair-1-1920.avif",
-        "2560": "/images/generated/emergency-plumbing-repair-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/emergency-plumbing-repair-1-480.webp",
-        "640": "/images/generated/emergency-plumbing-repair-1-640.webp",
-        "768": "/images/generated/emergency-plumbing-repair-1-768.webp",
-        "1024": "/images/generated/emergency-plumbing-repair-1-1024.webp",
-        "1280": "/images/generated/emergency-plumbing-repair-1-1280.webp",
-        "1536": "/images/generated/emergency-plumbing-repair-1-1536.webp",
-        "1920": "/images/generated/emergency-plumbing-repair-1-1920.webp",
-        "2560": "/images/generated/emergency-plumbing-repair-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/emergency-plumbing-repair-1-480.jpeg",
-        "640": "/images/generated/emergency-plumbing-repair-1-640.jpeg",
-        "768": "/images/generated/emergency-plumbing-repair-1-768.jpeg",
-        "1024": "/images/generated/emergency-plumbing-repair-1-1024.jpeg",
-        "1280": "/images/generated/emergency-plumbing-repair-1-1280.jpeg",
-        "1536": "/images/generated/emergency-plumbing-repair-1-1536.jpeg",
-        "1920": "/images/generated/emergency-plumbing-repair-1-1920.jpeg",
-        "2560": "/images/generated/emergency-plumbing-repair-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/emergency-plumbing-repair-2.webp": {
-    "originalPath": "/images/gallery/emergency-plumbing-repair-2.webp",
-    "altBase": "emergency-plumbing-repair-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoUAA0APzmOvlOvKqcisAgB4CcJTMsqX/AN/ADeAE64AADM9KHhY59IzDH84rrfi08hzXxzDSz2wYOUds1XQW2CAq6WhH/YMP+c9v/zv//O5A0hQ1n+JxTGsr2yv/ZKvld6cMVStN+AAA==",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/emergency-plumbing-repair-2-480.avif",
-        "640": "/images/generated/emergency-plumbing-repair-2-640.avif",
-        "768": "/images/generated/emergency-plumbing-repair-2-768.avif",
-        "1024": "/images/generated/emergency-plumbing-repair-2-1024.avif",
-        "1280": "/images/generated/emergency-plumbing-repair-2-1280.avif",
-        "1536": "/images/generated/emergency-plumbing-repair-2-1536.avif",
-        "1920": "/images/generated/emergency-plumbing-repair-2-1920.avif",
-        "2560": "/images/generated/emergency-plumbing-repair-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/emergency-plumbing-repair-2-480.webp",
-        "640": "/images/generated/emergency-plumbing-repair-2-640.webp",
-        "768": "/images/generated/emergency-plumbing-repair-2-768.webp",
-        "1024": "/images/generated/emergency-plumbing-repair-2-1024.webp",
-        "1280": "/images/generated/emergency-plumbing-repair-2-1280.webp",
-        "1536": "/images/generated/emergency-plumbing-repair-2-1536.webp",
-        "1920": "/images/generated/emergency-plumbing-repair-2-1920.webp",
-        "2560": "/images/generated/emergency-plumbing-repair-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/emergency-plumbing-repair-2-480.jpeg",
-        "640": "/images/generated/emergency-plumbing-repair-2-640.jpeg",
-        "768": "/images/generated/emergency-plumbing-repair-2-768.jpeg",
-        "1024": "/images/generated/emergency-plumbing-repair-2-1024.jpeg",
-        "1280": "/images/generated/emergency-plumbing-repair-2-1280.jpeg",
-        "1536": "/images/generated/emergency-plumbing-repair-2-1536.jpeg",
-        "1920": "/images/generated/emergency-plumbing-repair-2-1920.jpeg",
-        "2560": "/images/generated/emergency-plumbing-repair-2-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/field-service-crew-1.webp": {
-    "originalPath": "/images/gallery/field-service-crew-1.webp",
-    "altBase": "field-service-crew-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAADwAwCdASoUAA0APzmKulOvKaWisAgB4CcJYyz8uwCZQAdwuP8DHFYAAP4z3+9u8e+18O1w4F0fzjMnDk9DJ0g5rqkH3gL9EI7ri37VT3oqbNHdCEcRcxsYgaF/jf/vPnP/+kwU5V0nqy8fw8bP5aXKQVlpcpBWWlyjSUorqXJkS5MiXJTPDTdS0hqRtF86T7ExiaVApUdxgAAA",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/field-service-crew-1-480.avif",
-        "640": "/images/generated/field-service-crew-1-640.avif",
-        "768": "/images/generated/field-service-crew-1-768.avif",
-        "1024": "/images/generated/field-service-crew-1-1024.avif",
-        "1280": "/images/generated/field-service-crew-1-1280.avif",
-        "1536": "/images/generated/field-service-crew-1-1536.avif",
-        "1920": "/images/generated/field-service-crew-1-1920.avif",
-        "2560": "/images/generated/field-service-crew-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/field-service-crew-1-480.webp",
-        "640": "/images/generated/field-service-crew-1-640.webp",
-        "768": "/images/generated/field-service-crew-1-768.webp",
-        "1024": "/images/generated/field-service-crew-1-1024.webp",
-        "1280": "/images/generated/field-service-crew-1-1280.webp",
-        "1536": "/images/generated/field-service-crew-1-1536.webp",
-        "1920": "/images/generated/field-service-crew-1-1920.webp",
-        "2560": "/images/generated/field-service-crew-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/field-service-crew-1-480.jpeg",
-        "640": "/images/generated/field-service-crew-1-640.jpeg",
-        "768": "/images/generated/field-service-crew-1-768.jpeg",
-        "1024": "/images/generated/field-service-crew-1-1024.jpeg",
-        "1280": "/images/generated/field-service-crew-1-1280.jpeg",
-        "1536": "/images/generated/field-service-crew-1-1536.jpeg",
-        "1920": "/images/generated/field-service-crew-1-1920.jpeg",
-        "2560": "/images/generated/field-service-crew-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/field-service-crew-2.webp": {
-    "originalPath": "/images/gallery/field-service-crew-2.webp",
-    "altBase": "field-service-crew-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADQAwCdASoUAA0APzmGu1OvKSYisAgB4CcJRaJe0PY6DuFx/geauAAAzP5cvxyt/+z/LmXd4PzeuIW2AtCQ5JAzmEH9I1PNVaBEBb8ajteNswxukOZP1L6/mdz//gsNOCKC/no7/h455t5dv6wry7f1hXl2/peA4K+m4jTbhtUil74PFcvyrV1HGkvrL0wrLxrwAA==",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/field-service-crew-2-480.avif",
-        "640": "/images/generated/field-service-crew-2-640.avif",
-        "768": "/images/generated/field-service-crew-2-768.avif",
-        "1024": "/images/generated/field-service-crew-2-1024.avif",
-        "1280": "/images/generated/field-service-crew-2-1280.avif",
-        "1536": "/images/generated/field-service-crew-2-1536.avif",
-        "1920": "/images/generated/field-service-crew-2-1920.avif",
-        "2560": "/images/generated/field-service-crew-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/field-service-crew-2-480.webp",
-        "640": "/images/generated/field-service-crew-2-640.webp",
-        "768": "/images/generated/field-service-crew-2-768.webp",
-        "1024": "/images/generated/field-service-crew-2-1024.webp",
-        "1280": "/images/generated/field-service-crew-2-1280.webp",
-        "1536": "/images/generated/field-service-crew-2-1536.webp",
-        "1920": "/images/generated/field-service-crew-2-1920.webp",
-        "2560": "/images/generated/field-service-crew-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/field-service-crew-2-480.jpeg",
-        "640": "/images/generated/field-service-crew-2-640.jpeg",
-        "768": "/images/generated/field-service-crew-2-768.jpeg",
-        "1024": "/images/generated/field-service-crew-2-1024.jpeg",
-        "1280": "/images/generated/field-service-crew-2-1280.jpeg",
-        "1536": "/images/generated/field-service-crew-2-1536.jpeg",
-        "1920": "/images/generated/field-service-crew-2-1920.jpeg",
-        "2560": "/images/generated/field-service-crew-2-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/kitchen-remodel-plumbing-1.webp": {
-    "originalPath": "/images/gallery/kitchen-remodel-plumbing-1.webp",
-    "altBase": "kitchen-remodel-plumbing-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAgCdASoUAA0APzmIvlOvKScisAgB4CcJYwCsAENjgAD+4ZlpZcYtAPaMwR1xQafY61erOdlqT6K36y9vaEnuPQPsTxymTcZ/jcNl5js81AZ9s18gedHTlBZAoAAA",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/kitchen-remodel-plumbing-1-480.avif",
-        "640": "/images/generated/kitchen-remodel-plumbing-1-640.avif",
-        "768": "/images/generated/kitchen-remodel-plumbing-1-768.avif",
-        "1024": "/images/generated/kitchen-remodel-plumbing-1-1024.avif",
-        "1280": "/images/generated/kitchen-remodel-plumbing-1-1280.avif",
-        "1536": "/images/generated/kitchen-remodel-plumbing-1-1536.avif",
-        "1920": "/images/generated/kitchen-remodel-plumbing-1-1920.avif",
-        "2560": "/images/generated/kitchen-remodel-plumbing-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/kitchen-remodel-plumbing-1-480.webp",
-        "640": "/images/generated/kitchen-remodel-plumbing-1-640.webp",
-        "768": "/images/generated/kitchen-remodel-plumbing-1-768.webp",
-        "1024": "/images/generated/kitchen-remodel-plumbing-1-1024.webp",
-        "1280": "/images/generated/kitchen-remodel-plumbing-1-1280.webp",
-        "1536": "/images/generated/kitchen-remodel-plumbing-1-1536.webp",
-        "1920": "/images/generated/kitchen-remodel-plumbing-1-1920.webp",
-        "2560": "/images/generated/kitchen-remodel-plumbing-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/kitchen-remodel-plumbing-1-480.jpeg",
-        "640": "/images/generated/kitchen-remodel-plumbing-1-640.jpeg",
-        "768": "/images/generated/kitchen-remodel-plumbing-1-768.jpeg",
-        "1024": "/images/generated/kitchen-remodel-plumbing-1-1024.jpeg",
-        "1280": "/images/generated/kitchen-remodel-plumbing-1-1280.jpeg",
-        "1536": "/images/generated/kitchen-remodel-plumbing-1-1536.jpeg",
-        "1920": "/images/generated/kitchen-remodel-plumbing-1-1920.jpeg",
-        "2560": "/images/generated/kitchen-remodel-plumbing-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/kitchen-remodel-plumbing-2.webp": {
-    "originalPath": "/images/gallery/kitchen-remodel-plumbing-2.webp",
-    "altBase": "kitchen-remodel-plumbing-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAwCdASoUAA0APzmGuVOvKSWisAgB4CcJZFTARhSAAbSvwAD+5LN+ij3ve4nzkXlEm8qzrI+OPVJ+4PjU55sUwjPtWovG25akHcssM2wlV0QA",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/kitchen-remodel-plumbing-2-480.avif",
-        "640": "/images/generated/kitchen-remodel-plumbing-2-640.avif",
-        "768": "/images/generated/kitchen-remodel-plumbing-2-768.avif",
-        "1024": "/images/generated/kitchen-remodel-plumbing-2-1024.avif",
-        "1280": "/images/generated/kitchen-remodel-plumbing-2-1280.avif",
-        "1536": "/images/generated/kitchen-remodel-plumbing-2-1536.avif",
-        "1920": "/images/generated/kitchen-remodel-plumbing-2-1920.avif",
-        "2560": "/images/generated/kitchen-remodel-plumbing-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/kitchen-remodel-plumbing-2-480.webp",
-        "640": "/images/generated/kitchen-remodel-plumbing-2-640.webp",
-        "768": "/images/generated/kitchen-remodel-plumbing-2-768.webp",
-        "1024": "/images/generated/kitchen-remodel-plumbing-2-1024.webp",
-        "1280": "/images/generated/kitchen-remodel-plumbing-2-1280.webp",
-        "1536": "/images/generated/kitchen-remodel-plumbing-2-1536.webp",
-        "1920": "/images/generated/kitchen-remodel-plumbing-2-1920.webp",
-        "2560": "/images/generated/kitchen-remodel-plumbing-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/kitchen-remodel-plumbing-2-480.jpeg",
-        "640": "/images/generated/kitchen-remodel-plumbing-2-640.jpeg",
-        "768": "/images/generated/kitchen-remodel-plumbing-2-768.jpeg",
-        "1024": "/images/generated/kitchen-remodel-plumbing-2-1024.jpeg",
-        "1280": "/images/generated/kitchen-remodel-plumbing-2-1280.jpeg",
-        "1536": "/images/generated/kitchen-remodel-plumbing-2-1536.jpeg",
-        "1920": "/images/generated/kitchen-remodel-plumbing-2-1920.jpeg",
-        "2560": "/images/generated/kitchen-remodel-plumbing-2-2560.jpeg"
-      }
-    }
-  },
   "/images/gallery/modern-bathroom-fixtures-1.webp": {
     "originalPath": "/images/gallery/modern-bathroom-fixtures-1.webp",
     "altBase": "modern-bathroom-fixtures-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACwAwCdASoUAA0APzmOvlOvKqcisAgB4CcJZz11ty+gTNAW0Ed3wAD+yvTpx//Lc67npruv0g3Fun6d0aFxyx9SRUalhuv7oSxGfOo4UnpFX41CeNmiKqXaINaQD9By6U/2lR4IGiiF6KEW+codA+LWeBmPJtAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQAwCdASoUABsAPzmcxFuvKyckKAgB4CcJZz4pvBx9jeiibbzgAOQ51zgfvfl4IVfVALSxBRSZ5UTtbEfyKjRsLY4pDcbDJbhdvKR3sETKXag440+ZOT/ynR77+6MJWp8KxPepGi+gVUdSNIvvH9a+WjthbsKc5bm9I6m8N8X358heJBx5HnAh9W2LS0tMz+gL9WlhWRDXNft7B7AhAT5mIJtM1GizEkEZs8yyTXgAAA==",
     "variants": {
       "avif": {
         "480": "/images/generated/modern-bathroom-fixtures-1-480.avif",
@@ -1816,10 +1324,10 @@
     "originalPath": "/images/gallery/modern-bathroom-fixtures-2.webp",
     "altBase": "modern-bathroom-fixtures-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQAgCdASoUAA0ALvmczmclLy8vDwD4SzgGJsQ17AD+1CvPG7V/+zELud1byrzf/m6MW+/ON2nOjbelN+3eG4gOn3nG1mp2t2bZ+WxM//NQR4B02mMoElC6gCR+WFSMu577wtO+vug0TZO1JnWUKEd7sNUNwAAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAgCdASoUABsAPzmYw1kvKyejqAgB4CcJZwAAXNItEAD+1tvXzwREW0uFXMl+spwGL873HMMGR2xIs1vlYbm08vhcLw756QbHRvrdoRmGv/8wS2N9IonTli4ub55aEf7GXdE8IEYoAAAA",
     "variants": {
       "avif": {
         "480": "/images/generated/modern-bathroom-fixtures-2-480.avif",
@@ -1857,10 +1365,10 @@
     "originalPath": "/images/gallery/new-construction-rough-in-1.webp",
     "altBase": "new-construction-rough-in-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAwCdASoUAA0APzmKulQvKaWjMAgB4CcJYj3/HWALDFAA/l8U8beJ8NX9mlQWtO0b0InCNrhyx6Fstij9r1H+b3/XkcX/9oHEQ/G/f0X+S5RGsayXqz2hki4mUQ6+T5aoJWFsGcaQ8AAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQAwCdASoUABsAPzmUv1mvKiajqAgB4CcJRnIDwqAnoAN4AJ347QgA+z/hvGw/VGDL0p/9/xZaXAeT0l4ONxRaoYqzQILiPkXWoFZwpI2J3a85k/S67ChZ4089//qv0DWwH8jBGprG87i5WDLhYpbjBBiP8W9L8N6jFLYZSR5T7DQXUrSMRAilYFtkoZTF82o4gSE732qK4z13EeYgtzh2PS/a6ZYepAAAAA==",
     "variants": {
       "avif": {
         "480": "/images/generated/new-construction-rough-in-1-480.avif",
@@ -1898,10 +1406,10 @@
     "originalPath": "/images/gallery/new-construction-rough-in-2.webp",
     "altBase": "new-construction-rough-in-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAwCdASoUAA0APzmIuVQvKSWjMAgB4CcJZlnyRgAX6QAA/aqpUy8+9/p50qSD7PuPp0inq7Fdy8MKcb0wOwwOzxn0W/+mjMbjf/soRHGVfDoXDOtjecrJ0n/p+ytwHtsQquUAAAA=",
+    "blurPlaceholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACQAwCdASoUABsAPzmMu1UvKaYjKA1R4CcJZWlrkABw+I+4pSwAAP2ztLaj/j86t//z7VO4g9EKguEOt9MrZp0fPQhzMosKcDQGWTNn9w9ev+z2tUvC/VQvAk6sfSexnrxe69iq+grXi+AyWZfGLy2fUEaVu/CmkcpSdilzREQBmSYCde069p0EroAAAA==",
     "variants": {
       "avif": {
         "480": "/images/generated/new-construction-rough-in-2-480.avif",
@@ -1935,96 +1443,14 @@
       }
     }
   },
-  "/images/gallery/plumbing-remodel-upgrades-1.webp": {
-    "originalPath": "/images/gallery/plumbing-remodel-upgrades-1.webp",
-    "altBase": "plumbing-remodel-upgrades-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABwAwCdASoUAA0APzmGulQvKSWjMAgB4CcJbF/2RhYh2lINBHAA/oMFsDy2oOFHyZAr4hw1n0tCnxG03qQto9GHp5+/zwWqrH9n7ul0yvIGVXlme9e8xWnn9KC3Hs6ava2BbX9JvqXTVIUN6AA=",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/plumbing-remodel-upgrades-1-480.avif",
-        "640": "/images/generated/plumbing-remodel-upgrades-1-640.avif",
-        "768": "/images/generated/plumbing-remodel-upgrades-1-768.avif",
-        "1024": "/images/generated/plumbing-remodel-upgrades-1-1024.avif",
-        "1280": "/images/generated/plumbing-remodel-upgrades-1-1280.avif",
-        "1536": "/images/generated/plumbing-remodel-upgrades-1-1536.avif",
-        "1920": "/images/generated/plumbing-remodel-upgrades-1-1920.avif",
-        "2560": "/images/generated/plumbing-remodel-upgrades-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/plumbing-remodel-upgrades-1-480.webp",
-        "640": "/images/generated/plumbing-remodel-upgrades-1-640.webp",
-        "768": "/images/generated/plumbing-remodel-upgrades-1-768.webp",
-        "1024": "/images/generated/plumbing-remodel-upgrades-1-1024.webp",
-        "1280": "/images/generated/plumbing-remodel-upgrades-1-1280.webp",
-        "1536": "/images/generated/plumbing-remodel-upgrades-1-1536.webp",
-        "1920": "/images/generated/plumbing-remodel-upgrades-1-1920.webp",
-        "2560": "/images/generated/plumbing-remodel-upgrades-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/plumbing-remodel-upgrades-1-480.jpeg",
-        "640": "/images/generated/plumbing-remodel-upgrades-1-640.jpeg",
-        "768": "/images/generated/plumbing-remodel-upgrades-1-768.jpeg",
-        "1024": "/images/generated/plumbing-remodel-upgrades-1-1024.jpeg",
-        "1280": "/images/generated/plumbing-remodel-upgrades-1-1280.jpeg",
-        "1536": "/images/generated/plumbing-remodel-upgrades-1-1536.jpeg",
-        "1920": "/images/generated/plumbing-remodel-upgrades-1-1920.jpeg",
-        "2560": "/images/generated/plumbing-remodel-upgrades-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/plumbing-remodel-upgrades-2.webp": {
-    "originalPath": "/images/gallery/plumbing-remodel-upgrades-2.webp",
-    "altBase": "plumbing-remodel-upgrades-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQAwCdASoUAA0APzmIuVOvKSWisAgB4CcJZC0ywqQBI0gA/mfPdzpiaMX7rcf9gzi9kN9OyUCdGfgOtfiR4dhoIlPfg36Rh/oR/Ib9MV79//+94V/1c84jfBTRNwa2126O/v1bDYG/P5WffeXvn7WJav0bMLdO6AA=",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/plumbing-remodel-upgrades-2-480.avif",
-        "640": "/images/generated/plumbing-remodel-upgrades-2-640.avif",
-        "768": "/images/generated/plumbing-remodel-upgrades-2-768.avif",
-        "1024": "/images/generated/plumbing-remodel-upgrades-2-1024.avif",
-        "1280": "/images/generated/plumbing-remodel-upgrades-2-1280.avif",
-        "1536": "/images/generated/plumbing-remodel-upgrades-2-1536.avif",
-        "1920": "/images/generated/plumbing-remodel-upgrades-2-1920.avif",
-        "2560": "/images/generated/plumbing-remodel-upgrades-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/plumbing-remodel-upgrades-2-480.webp",
-        "640": "/images/generated/plumbing-remodel-upgrades-2-640.webp",
-        "768": "/images/generated/plumbing-remodel-upgrades-2-768.webp",
-        "1024": "/images/generated/plumbing-remodel-upgrades-2-1024.webp",
-        "1280": "/images/generated/plumbing-remodel-upgrades-2-1280.webp",
-        "1536": "/images/generated/plumbing-remodel-upgrades-2-1536.webp",
-        "1920": "/images/generated/plumbing-remodel-upgrades-2-1920.webp",
-        "2560": "/images/generated/plumbing-remodel-upgrades-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/plumbing-remodel-upgrades-2-480.jpeg",
-        "640": "/images/generated/plumbing-remodel-upgrades-2-640.jpeg",
-        "768": "/images/generated/plumbing-remodel-upgrades-2-768.jpeg",
-        "1024": "/images/generated/plumbing-remodel-upgrades-2-1024.jpeg",
-        "1280": "/images/generated/plumbing-remodel-upgrades-2-1280.jpeg",
-        "1536": "/images/generated/plumbing-remodel-upgrades-2-1536.jpeg",
-        "1920": "/images/generated/plumbing-remodel-upgrades-2-1920.jpeg",
-        "2560": "/images/generated/plumbing-remodel-upgrades-2-2560.jpeg"
-      }
-    }
-  },
   "/images/gallery/septic-system-installation-1.webp": {
     "originalPath": "/images/gallery/septic-system-installation-1.webp",
     "altBase": "septic-system-installation-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAQAwCdASoUAA0ALvmczmclLy8vDwD4S0FnmCtmmwBBUgAA/uEntE9dt/mjThvn7lLqxfT94d74wksXTrcEW6+B/WyH20ov52I4wJKG2I1D5imCT/j/Gl1FNfZC0fisf22LT6kj+FoU7Ike1VVOK0NJRvI9MOoQBs0rRPMugAA=",
+    "blurPlaceholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQBACdASoUABsAPyV+s1OuKKSit/qoAcAkiWxkSogm9/jlpgBl9QHPhEMbuEAA/jd/Xsn/6YYHN+ZjpKnIrIF1a9aFxIF8zO/ghJOXFKSKlCpNJeD8sFfhTsZT8/8t/+dgy//+EbPbzGmzTt8tIf5yD4eGHhkThhtWqGrVDVo7F0NRPxZB8sm0s/VpJ0+sT5yXcJYNO95sEn5aGoWTGHVbRxk4U+fV+BU4TeWDE9QAAA==",
     "variants": {
       "avif": {
         "480": "/images/generated/septic-system-installation-1-480.avif",
@@ -2062,10 +1488,10 @@
     "originalPath": "/images/gallery/septic-system-installation-2.webp",
     "altBase": "septic-system-installation-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAwCdASoUAA0APzmIu1QvKSYjMAgB4CcJR6nnvj/eE64AAP7RiZ/sh+/EvAfUQGU5MrOOskbAyfZ/zqyip0lO/9zkyTQXtyqvVZDdP31Xta/9krdf36i37dAAZ6AMe2T6gCUFgbfme+LFkfJz2deQ7jvjMy+sA7IG+wAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwAwCdASoUAA8APzmIvlSvKSajMAgB4CcJR5TYW4QBYgB9gAAA/Zn36ZP3LhUn+h7Bjb3ptlHD9Ujnt9/wfdXJTowfl7NNV+gf/LfQJi/3W7X+vVbC5HrNw/jMo92QxnLyk5tUiyWLfgxct95rH1+GO8swAAAA",
     "variants": {
       "avif": {
         "480": "/images/generated/septic-system-installation-2-480.avif",
@@ -2099,96 +1525,14 @@
       }
     }
   },
-  "/images/gallery/sewer-line-replacement-1.webp": {
-    "originalPath": "/images/gallery/sewer-line-replacement-1.webp",
-    "altBase": "sewer-line-replacement-1",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAgCdASoUAA0APzmGu1OvKSYisAgB4CcJS2FACIGQAAD+2rv+xxJVxj4/enUZ5hPbFQokdpeEt5RnUalH4XBB8kSjfyf/AlJ/IHf/DH6V3WvDD+s7MjeVm6Lemcgj4EAAAA==",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/sewer-line-replacement-1-480.avif",
-        "640": "/images/generated/sewer-line-replacement-1-640.avif",
-        "768": "/images/generated/sewer-line-replacement-1-768.avif",
-        "1024": "/images/generated/sewer-line-replacement-1-1024.avif",
-        "1280": "/images/generated/sewer-line-replacement-1-1280.avif",
-        "1536": "/images/generated/sewer-line-replacement-1-1536.avif",
-        "1920": "/images/generated/sewer-line-replacement-1-1920.avif",
-        "2560": "/images/generated/sewer-line-replacement-1-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/sewer-line-replacement-1-480.webp",
-        "640": "/images/generated/sewer-line-replacement-1-640.webp",
-        "768": "/images/generated/sewer-line-replacement-1-768.webp",
-        "1024": "/images/generated/sewer-line-replacement-1-1024.webp",
-        "1280": "/images/generated/sewer-line-replacement-1-1280.webp",
-        "1536": "/images/generated/sewer-line-replacement-1-1536.webp",
-        "1920": "/images/generated/sewer-line-replacement-1-1920.webp",
-        "2560": "/images/generated/sewer-line-replacement-1-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/sewer-line-replacement-1-480.jpeg",
-        "640": "/images/generated/sewer-line-replacement-1-640.jpeg",
-        "768": "/images/generated/sewer-line-replacement-1-768.jpeg",
-        "1024": "/images/generated/sewer-line-replacement-1-1024.jpeg",
-        "1280": "/images/generated/sewer-line-replacement-1-1280.jpeg",
-        "1536": "/images/generated/sewer-line-replacement-1-1536.jpeg",
-        "1920": "/images/generated/sewer-line-replacement-1-1920.jpeg",
-        "2560": "/images/generated/sewer-line-replacement-1-2560.jpeg"
-      }
-    }
-  },
-  "/images/gallery/sewer-line-replacement-2.webp": {
-    "originalPath": "/images/gallery/sewer-line-replacement-2.webp",
-    "altBase": "sewer-line-replacement-2",
-    "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
-    "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAgCdASoUAA0ALvmczmclLy8vDwD4Sl2USCGnAShJgADM//9gFOf/+DXV327v470rEskKZeO5s4riDB2l+3z+ej79V2069q1TUS8Xh20Tb5I0KYLXbVkvheb9j8gsCYHHaNrPSSJlhmWGY4RdCkgaVHUfPdPN68nm2KVA/gAAAA==",
-    "variants": {
-      "avif": {
-        "480": "/images/generated/sewer-line-replacement-2-480.avif",
-        "640": "/images/generated/sewer-line-replacement-2-640.avif",
-        "768": "/images/generated/sewer-line-replacement-2-768.avif",
-        "1024": "/images/generated/sewer-line-replacement-2-1024.avif",
-        "1280": "/images/generated/sewer-line-replacement-2-1280.avif",
-        "1536": "/images/generated/sewer-line-replacement-2-1536.avif",
-        "1920": "/images/generated/sewer-line-replacement-2-1920.avif",
-        "2560": "/images/generated/sewer-line-replacement-2-2560.avif"
-      },
-      "webp": {
-        "480": "/images/generated/sewer-line-replacement-2-480.webp",
-        "640": "/images/generated/sewer-line-replacement-2-640.webp",
-        "768": "/images/generated/sewer-line-replacement-2-768.webp",
-        "1024": "/images/generated/sewer-line-replacement-2-1024.webp",
-        "1280": "/images/generated/sewer-line-replacement-2-1280.webp",
-        "1536": "/images/generated/sewer-line-replacement-2-1536.webp",
-        "1920": "/images/generated/sewer-line-replacement-2-1920.webp",
-        "2560": "/images/generated/sewer-line-replacement-2-2560.webp"
-      },
-      "jpeg": {
-        "480": "/images/generated/sewer-line-replacement-2-480.jpeg",
-        "640": "/images/generated/sewer-line-replacement-2-640.jpeg",
-        "768": "/images/generated/sewer-line-replacement-2-768.jpeg",
-        "1024": "/images/generated/sewer-line-replacement-2-1024.jpeg",
-        "1280": "/images/generated/sewer-line-replacement-2-1280.jpeg",
-        "1536": "/images/generated/sewer-line-replacement-2-1536.jpeg",
-        "1920": "/images/generated/sewer-line-replacement-2-1920.jpeg",
-        "2560": "/images/generated/sewer-line-replacement-2-2560.jpeg"
-      }
-    }
-  },
   "/images/gallery/shower-tub-installation-1.webp": {
     "originalPath": "/images/gallery/shower-tub-installation-1.webp",
     "altBase": "shower-tub-installation-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAgCdASoUAA0ALvmczmclLy8vDwD4SzgGWWQ2kAD+4aA63yo+fSd66LiBH2PvrR/0T2BkfqzNUoYLVfvdN18F20NS0zyoYkjJRAAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAADQAwCdASoUABsAPzmSvlevKqYjqAqp4CcJZT5e7b9YlvHAC2E3pQAA/tQZvCqRoDTg1bxXkADWGLyedR9ycwdXMyHorIvMvVejhv1qtuYGIqaP/7oGd4yR7+Gi04AbfxD+jjcsQ4ZsDKH8aUwEN0MDxWv81DV/6Hfl+Spw/9IokGX4Lx/wPj+hwhnX73zST//xsLfQpy2Vd8r0/x4IWd8JT5SazAA+AeK7iTDuJ8tmk/dYUkR19wAA",
     "variants": {
       "avif": {
         "480": "/images/generated/shower-tub-installation-1-480.avif",
@@ -2226,10 +1570,10 @@
     "originalPath": "/images/gallery/shower-tub-installation-2.webp",
     "altBase": "shower-tub-installation-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAgCdASoUAA0APzmEuVOvKKWisAgB4CcJZQC4MEMiAAD+31UDz+a6cWawS/9FZVy2DBRmL7mHXD+hL/W9P/83gHesG7/YdYicpAAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAABwAwCdASoUABsAPzmQu1UvKqYjMBgIAeAnCWo+4BjABDh8OwAA/a7PsX01NvXxe/wfuqOJeOPPAku7oF8d+FShsf2vuqtK6Pt/9XfnaCYoli7JNymGkKu5nIpGP8vsXpiaN1XhEPc+rQOkYRv7rwFuZ/noyk+veI/05sws//9aHNav/7djfav/woVKmbrzkUXDOR2/Tr+mJXBN6/8T5bs//1La89VBfMcJT9yc08j2iGPI+nehvwAA",
     "variants": {
       "avif": {
         "480": "/images/generated/shower-tub-installation-2-480.avif",
@@ -2267,10 +1611,10 @@
     "originalPath": "/images/gallery/toilets-faucets-trim-1.webp",
     "altBase": "toilets-faucets-trim-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAwCdASoUAA0APzmYvlYvLCajsAgB4CcJZ1/2TsydKQAAyZ/1riFJj5zERpUzPWciZnLMCS9V0vRE4kQFWroRHjHXF9nc3l8VWOSBVAFcTp/uVGfm2C1etkFV82wdODCcckAA",
+    "blurPlaceholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACQBACdASoUABsAPzmcx1mvLCkjqAgB4CcJaT6oo+igPsA6UAAOqEgckVfX5QAA/t9OWTQ8eH/9ucn2Zgbefl8yBHjHgdHPLH46n3UxaLDU38KNdw2bFRdDyFREdeStrgfb8/q8h24wTehXRtYTSCgrqWU68oW8N/VswLPxD3vwTn1cOMiGA5e//nCkDjX/iMmaP8kf0ctJp8we3ufmD29z8we3soI+tawFTclU3JVN8YahCvAAAA==",
     "variants": {
       "avif": {
         "480": "/images/generated/toilets-faucets-trim-1-480.avif",
@@ -2308,10 +1652,10 @@
     "originalPath": "/images/gallery/toilets-faucets-trim-2.webp",
     "altBase": "toilets-faucets-trim-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAgCdASoUAA0APzmQvlWvKqajMAgB4CcJZwAAuFyAAP7ij+2BUmDfQe/r85v5/Yzv9HljrKxwXNMoz40Im9MZturVi4TlL+FgAA==",
+    "blurPlaceholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAwCdASoUABsAPzmSvlevKqYjqAqp4CcJZwDDcCITVwAA/uCNmBv/q9wT7RE/7VKT7gsfAY3T6Z0x1yNkVuVzYCMlayU3pTum4Xa1WbPxGJBJ/fdbBLcr8SBK2R7/kv5xkcTpkQFsKZ7eAAA=",
     "variants": {
       "avif": {
         "480": "/images/generated/toilets-faucets-trim-2-480.avif",
@@ -2349,10 +1693,10 @@
     "originalPath": "/images/gallery/water-heater-replacement-1.webp",
     "altBase": "water-heater-replacement-1",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAgCdASoUAA0ALvmczmclLy8vDwD4S0gF7oRErAAA/uXcYXLKDOqX2s3NXvI71j//kpxqwpW6tLaU+Sm4FeTE4RzIGZWJ3JjzyQNx8r5x9kDSgAA=",
+    "blurPlaceholder": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAADQAwCdASoUABsAPzmIvFSvKKYjKA1R4CcJRucqqsScmggE363zjAAA+xkW+mf+MNG9yTyJpf/0Z1Nu7oo+i3t3qIj5vypeTQX1b8CJbigD9xWbsmvQfO0qH9i+mPgmzXRXmjjgyct0zRR3t7qYs6sCTZOK3c3pFmH/xlkFdZwuc0m1PhatSP+5VZNwQ6Oa5lfC5CYc3iiZxBcP4l4NMvC18NfDWtb/fDKjUTcJpD4pWAAA",
     "variants": {
       "avif": {
         "480": "/images/generated/water-heater-replacement-1-480.avif",
@@ -2390,10 +1734,10 @@
     "originalPath": "/images/gallery/water-heater-replacement-2.webp",
     "altBase": "water-heater-replacement-2",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAgCdASoUAA0APzmMvlUvKaajMAgB4CcJZQCdAEPVgAD+4ZmPvZSOeRJhNJreLVJT09/XB4vMwygW++sPhs0GQQAAAA==",
+    "blurPlaceholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBACdASoUABsAPzleyV8vI6qmGAHgJwlnPqijtsBWbHMr49JQU5fGAAD+ZstDz9Eydf4l1O8ZcyoxHw8tK9VERoLSAiWmCWnq7u7o2q39HGr++4+DoSz/1Uf+V0Gb5vnTShgraoq4CkGW76B6PRQx8G3CwQL+zAn3dIOrRwFKaX7t/Eh//3IJ80SMXG2hHJXJZkvZls5lf0QAAAA=",
     "variants": {
       "avif": {
         "480": "/images/generated/water-heater-replacement-2-480.avif",
@@ -2427,85 +1771,1930 @@
       }
     }
   },
-  "/images/gallery/water-softener-installation-1.webp": {
-    "originalPath": "/images/gallery/water-softener-installation-1.webp",
-    "altBase": "water-softener-installation-1",
+  "/images/gallery/septic-system-installation-4.webp": {
+    "originalPath": "/images/gallery/septic-system-installation-4.webp",
+    "altBase": "septic-system-installation-4",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAwCdASoUAA0APzmKulOvKaWisAgB4CcJZV2cEWxz9NRwAP7KKPdfp0b+wKwJ39/Wl2sP72daBBx3HytF9693uQsKvbXuFZIv7/DN3fHAq6Pl8Xrmxv/0bncWW5TGayrEfIEEzO5C0IBPyYAAAA==",
+    "blurPlaceholder": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAACQBACdASoUABsAPzmMvFYvKSYjqA1R4CcJSYOO8Q390+4CbATUkL2AJxJzigAA/Hr0a15d5tGKXLaGDqQchg90cJRUYEGxlgUHSnc8rSwgOD99+LFoIKRoZCL7e7K/9r/4/dL7cPg38MeW8qVoxEPjGfp9ACb/rRBPKkxcTNxqBU3NY5nR/sY03+L6z23xfWe2+KT3tSYts/2Y//vBvLzEy+VAx27s65DfkTZuUG+Qq28wDaQMmKMP20BmvfaM5EL38t/+JhBvaD/x2RyT0e7za/24UHJvBN4KPSrtEZLQocSZ2QAAAA==",
     "variants": {
       "avif": {
-        "480": "/images/generated/water-softener-installation-1-480.avif",
-        "640": "/images/generated/water-softener-installation-1-640.avif",
-        "768": "/images/generated/water-softener-installation-1-768.avif",
-        "1024": "/images/generated/water-softener-installation-1-1024.avif",
-        "1280": "/images/generated/water-softener-installation-1-1280.avif",
-        "1536": "/images/generated/water-softener-installation-1-1536.avif",
-        "1920": "/images/generated/water-softener-installation-1-1920.avif",
-        "2560": "/images/generated/water-softener-installation-1-2560.avif"
+        "480": "/images/generated/septic-system-installation-4-480.avif",
+        "640": "/images/generated/septic-system-installation-4-640.avif",
+        "768": "/images/generated/septic-system-installation-4-768.avif",
+        "1024": "/images/generated/septic-system-installation-4-1024.avif",
+        "1280": "/images/generated/septic-system-installation-4-1280.avif",
+        "1536": "/images/generated/septic-system-installation-4-1536.avif",
+        "1920": "/images/generated/septic-system-installation-4-1920.avif",
+        "2560": "/images/generated/septic-system-installation-4-2560.avif"
       },
       "webp": {
-        "480": "/images/generated/water-softener-installation-1-480.webp",
-        "640": "/images/generated/water-softener-installation-1-640.webp",
-        "768": "/images/generated/water-softener-installation-1-768.webp",
-        "1024": "/images/generated/water-softener-installation-1-1024.webp",
-        "1280": "/images/generated/water-softener-installation-1-1280.webp",
-        "1536": "/images/generated/water-softener-installation-1-1536.webp",
-        "1920": "/images/generated/water-softener-installation-1-1920.webp",
-        "2560": "/images/generated/water-softener-installation-1-2560.webp"
+        "480": "/images/generated/septic-system-installation-4-480.webp",
+        "640": "/images/generated/septic-system-installation-4-640.webp",
+        "768": "/images/generated/septic-system-installation-4-768.webp",
+        "1024": "/images/generated/septic-system-installation-4-1024.webp",
+        "1280": "/images/generated/septic-system-installation-4-1280.webp",
+        "1536": "/images/generated/septic-system-installation-4-1536.webp",
+        "1920": "/images/generated/septic-system-installation-4-1920.webp",
+        "2560": "/images/generated/septic-system-installation-4-2560.webp"
       },
       "jpeg": {
-        "480": "/images/generated/water-softener-installation-1-480.jpeg",
-        "640": "/images/generated/water-softener-installation-1-640.jpeg",
-        "768": "/images/generated/water-softener-installation-1-768.jpeg",
-        "1024": "/images/generated/water-softener-installation-1-1024.jpeg",
-        "1280": "/images/generated/water-softener-installation-1-1280.jpeg",
-        "1536": "/images/generated/water-softener-installation-1-1536.jpeg",
-        "1920": "/images/generated/water-softener-installation-1-1920.jpeg",
-        "2560": "/images/generated/water-softener-installation-1-2560.jpeg"
+        "480": "/images/generated/septic-system-installation-4-480.jpeg",
+        "640": "/images/generated/septic-system-installation-4-640.jpeg",
+        "768": "/images/generated/septic-system-installation-4-768.jpeg",
+        "1024": "/images/generated/septic-system-installation-4-1024.jpeg",
+        "1280": "/images/generated/septic-system-installation-4-1280.jpeg",
+        "1536": "/images/generated/septic-system-installation-4-1536.jpeg",
+        "1920": "/images/generated/septic-system-installation-4-1920.jpeg",
+        "2560": "/images/generated/septic-system-installation-4-2560.jpeg"
       }
     }
   },
-  "/images/gallery/water-softener-installation-2.webp": {
-    "originalPath": "/images/gallery/water-softener-installation-2.webp",
-    "altBase": "water-softener-installation-2",
+  "/images/gallery/water-heater-replacement-3.webp": {
+    "originalPath": "/images/gallery/water-heater-replacement-3.webp",
+    "altBase": "water-heater-replacement-3",
     "width": 2560,
-    "height": 1707,
-    "aspectRatio": 1.5,
+    "height": 3413,
+    "aspectRatio": 0.75,
     "isHero": false,
-    "blurPlaceholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAwCdASoUAA0APzmQvlWvKqajMAgB4CcJZ2UFUc0daIAA/unCvaf7mVhZHHw6zMFxMZQJaKxOemL0llLAHfkjTCWYAA==",
+    "blurPlaceholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADwAwCdASoUABsAPzmOuVavKaUjqA1R4CcJZ2cDWWK0CxXb9CWWDOIAAP7gk92bP/4Z3f5bKCf/sfIYgG1dC8bVQ3fF+cdNttM3h4c2Se+j1Svx02nfGT/3ewVjG9Swp6maF619xO3fpKzM0tK5eY+0c3+l/+WkXYIi92ucD7KpUqbc9WxILKbjweNHHi/tLf+fG/2evcojKASaLH6MPiVwddsiESQA",
     "variants": {
       "avif": {
-        "480": "/images/generated/water-softener-installation-2-480.avif",
-        "640": "/images/generated/water-softener-installation-2-640.avif",
-        "768": "/images/generated/water-softener-installation-2-768.avif",
-        "1024": "/images/generated/water-softener-installation-2-1024.avif",
-        "1280": "/images/generated/water-softener-installation-2-1280.avif",
-        "1536": "/images/generated/water-softener-installation-2-1536.avif",
-        "1920": "/images/generated/water-softener-installation-2-1920.avif",
-        "2560": "/images/generated/water-softener-installation-2-2560.avif"
+        "480": "/images/generated/water-heater-replacement-3-480.avif",
+        "640": "/images/generated/water-heater-replacement-3-640.avif",
+        "768": "/images/generated/water-heater-replacement-3-768.avif",
+        "1024": "/images/generated/water-heater-replacement-3-1024.avif",
+        "1280": "/images/generated/water-heater-replacement-3-1280.avif",
+        "1536": "/images/generated/water-heater-replacement-3-1536.avif",
+        "1920": "/images/generated/water-heater-replacement-3-1920.avif",
+        "2560": "/images/generated/water-heater-replacement-3-2560.avif"
       },
       "webp": {
-        "480": "/images/generated/water-softener-installation-2-480.webp",
-        "640": "/images/generated/water-softener-installation-2-640.webp",
-        "768": "/images/generated/water-softener-installation-2-768.webp",
-        "1024": "/images/generated/water-softener-installation-2-1024.webp",
-        "1280": "/images/generated/water-softener-installation-2-1280.webp",
-        "1536": "/images/generated/water-softener-installation-2-1536.webp",
-        "1920": "/images/generated/water-softener-installation-2-1920.webp",
-        "2560": "/images/generated/water-softener-installation-2-2560.webp"
+        "480": "/images/generated/water-heater-replacement-3-480.webp",
+        "640": "/images/generated/water-heater-replacement-3-640.webp",
+        "768": "/images/generated/water-heater-replacement-3-768.webp",
+        "1024": "/images/generated/water-heater-replacement-3-1024.webp",
+        "1280": "/images/generated/water-heater-replacement-3-1280.webp",
+        "1536": "/images/generated/water-heater-replacement-3-1536.webp",
+        "1920": "/images/generated/water-heater-replacement-3-1920.webp",
+        "2560": "/images/generated/water-heater-replacement-3-2560.webp"
       },
       "jpeg": {
-        "480": "/images/generated/water-softener-installation-2-480.jpeg",
-        "640": "/images/generated/water-softener-installation-2-640.jpeg",
-        "768": "/images/generated/water-softener-installation-2-768.jpeg",
-        "1024": "/images/generated/water-softener-installation-2-1024.jpeg",
-        "1280": "/images/generated/water-softener-installation-2-1280.jpeg",
-        "1536": "/images/generated/water-softener-installation-2-1536.jpeg",
-        "1920": "/images/generated/water-softener-installation-2-1920.jpeg",
-        "2560": "/images/generated/water-softener-installation-2-2560.jpeg"
+        "480": "/images/generated/water-heater-replacement-3-480.jpeg",
+        "640": "/images/generated/water-heater-replacement-3-640.jpeg",
+        "768": "/images/generated/water-heater-replacement-3-768.jpeg",
+        "1024": "/images/generated/water-heater-replacement-3-1024.jpeg",
+        "1280": "/images/generated/water-heater-replacement-3-1280.jpeg",
+        "1536": "/images/generated/water-heater-replacement-3-1536.jpeg",
+        "1920": "/images/generated/water-heater-replacement-3-1920.jpeg",
+        "2560": "/images/generated/water-heater-replacement-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/well-pump-system-1.webp": {
+    "originalPath": "/images/gallery/well-pump-system-1.webp",
+    "altBase": "well-pump-system-1",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAAAwBQCdASoUABsAPy2AuVOuqCYisAwB0CWJaD8RRbAwZLlzdzLWad5gGxefP/+Bfj3QsAD+5VxebeMXkhgJE06oirmU1nOLU093MQpKPXspQNRyA2AYN0YZPEewkpqfT5QNtTECAGu42xeF6WO1IjVdRIAdrGv1FLqHekcv/6nG//2AfWvOP//lwQ+LF//vzL/+DX5Nf5eumIjXCGG7dGsPgY3/YlflBKp69XEmrummNmaov9W/Ci10Gaq4+d82378+Y7aArxJ74z9/89mNjwY5z6xIAWirwv/b9xOtj/7wX/5HS43/xGaNmibm01Em2ZFONC9ivtTKV8Mn4KdfcuucymAGS2EaafAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/well-pump-system-1-480.avif",
+        "640": "/images/generated/well-pump-system-1-640.avif",
+        "768": "/images/generated/well-pump-system-1-768.avif",
+        "1024": "/images/generated/well-pump-system-1-1024.avif",
+        "1280": "/images/generated/well-pump-system-1-1280.avif",
+        "1536": "/images/generated/well-pump-system-1-1536.avif",
+        "1920": "/images/generated/well-pump-system-1-1920.avif",
+        "2560": "/images/generated/well-pump-system-1-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/well-pump-system-1-480.webp",
+        "640": "/images/generated/well-pump-system-1-640.webp",
+        "768": "/images/generated/well-pump-system-1-768.webp",
+        "1024": "/images/generated/well-pump-system-1-1024.webp",
+        "1280": "/images/generated/well-pump-system-1-1280.webp",
+        "1536": "/images/generated/well-pump-system-1-1536.webp",
+        "1920": "/images/generated/well-pump-system-1-1920.webp",
+        "2560": "/images/generated/well-pump-system-1-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/well-pump-system-1-480.jpeg",
+        "640": "/images/generated/well-pump-system-1-640.jpeg",
+        "768": "/images/generated/well-pump-system-1-768.jpeg",
+        "1024": "/images/generated/well-pump-system-1-1024.jpeg",
+        "1280": "/images/generated/well-pump-system-1-1280.jpeg",
+        "1536": "/images/generated/well-pump-system-1-1536.jpeg",
+        "1920": "/images/generated/well-pump-system-1-1920.jpeg",
+        "2560": "/images/generated/well-pump-system-1-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/well-pump-system-2.webp": {
+    "originalPath": "/images/gallery/well-pump-system-2.webp",
+    "altBase": "well-pump-system-2",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwAwCdASoUABsAPzmQwFevKaajqAqp4CcJR9dqxBTI5vihUEAA+z/+DA3/+futtc296RX//EcVoUooimDRmaveVZzUP99czK4zPml/7+nDX7Znp/vuD3wD+foHfwcseNyFtQ19TxIWXZaZOZt+37c3g0G//Xn/Ta3vCd8U6SHcXIAmooQij6Mj7ucraWOFpCSnadAN3rM3f/Z4FX/Z6yX6i7/QAAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/well-pump-system-2-480.avif",
+        "640": "/images/generated/well-pump-system-2-640.avif",
+        "768": "/images/generated/well-pump-system-2-768.avif",
+        "1024": "/images/generated/well-pump-system-2-1024.avif",
+        "1280": "/images/generated/well-pump-system-2-1280.avif",
+        "1536": "/images/generated/well-pump-system-2-1536.avif",
+        "1920": "/images/generated/well-pump-system-2-1920.avif",
+        "2560": "/images/generated/well-pump-system-2-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/well-pump-system-2-480.webp",
+        "640": "/images/generated/well-pump-system-2-640.webp",
+        "768": "/images/generated/well-pump-system-2-768.webp",
+        "1024": "/images/generated/well-pump-system-2-1024.webp",
+        "1280": "/images/generated/well-pump-system-2-1280.webp",
+        "1536": "/images/generated/well-pump-system-2-1536.webp",
+        "1920": "/images/generated/well-pump-system-2-1920.webp",
+        "2560": "/images/generated/well-pump-system-2-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/well-pump-system-2-480.jpeg",
+        "640": "/images/generated/well-pump-system-2-640.jpeg",
+        "768": "/images/generated/well-pump-system-2-768.jpeg",
+        "1024": "/images/generated/well-pump-system-2-1024.jpeg",
+        "1280": "/images/generated/well-pump-system-2-1280.jpeg",
+        "1536": "/images/generated/well-pump-system-2-1536.jpeg",
+        "1920": "/images/generated/well-pump-system-2-1920.jpeg",
+        "2560": "/images/generated/well-pump-system-2-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-mechanical-room-1.webp": {
+    "originalPath": "/images/gallery/boiler-mechanical-room-1.webp",
+    "altBase": "boiler-mechanical-room-1",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRh4BAABXRUJQVlA4IBIBAADwBACdASoUABsAPzmIulOvKSWisAgB4CcJR7+0byK/6Cpz7geA7OWvJeS/e89wXOAA/Hvv/JH/oA76bQXhuwSqpZZ/+U9W/zguv8buI2J0kTqZ19Y4F3nUQaL3KeyDXUOo1j997bnjfjRe+pHyD2Wuf9glzYnzl++mP4ZWeG/gd/89Atsdmq5dXwBnvZoNcT9j8Z17l/9jYZ6B/5xkNOp/9JVsCAbNFmdYEUT/z3Ce9GKdNdw4NruHBuzgStd4+5cojnjighQVESsAvt4Na3uDWt7g19NUsPCI3JIEWicdy9Lb8XVcTWnme0rni0WrBm06NGFumK8dhn2oe/LTe6XNrd0wTIJTqwbOGToxCc0b5sAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-mechanical-room-1-480.avif",
+        "640": "/images/generated/boiler-mechanical-room-1-640.avif",
+        "768": "/images/generated/boiler-mechanical-room-1-768.avif",
+        "1024": "/images/generated/boiler-mechanical-room-1-1024.avif",
+        "1280": "/images/generated/boiler-mechanical-room-1-1280.avif",
+        "1536": "/images/generated/boiler-mechanical-room-1-1536.avif",
+        "1920": "/images/generated/boiler-mechanical-room-1-1920.avif",
+        "2560": "/images/generated/boiler-mechanical-room-1-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-mechanical-room-1-480.webp",
+        "640": "/images/generated/boiler-mechanical-room-1-640.webp",
+        "768": "/images/generated/boiler-mechanical-room-1-768.webp",
+        "1024": "/images/generated/boiler-mechanical-room-1-1024.webp",
+        "1280": "/images/generated/boiler-mechanical-room-1-1280.webp",
+        "1536": "/images/generated/boiler-mechanical-room-1-1536.webp",
+        "1920": "/images/generated/boiler-mechanical-room-1-1920.webp",
+        "2560": "/images/generated/boiler-mechanical-room-1-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-mechanical-room-1-480.jpeg",
+        "640": "/images/generated/boiler-mechanical-room-1-640.jpeg",
+        "768": "/images/generated/boiler-mechanical-room-1-768.jpeg",
+        "1024": "/images/generated/boiler-mechanical-room-1-1024.jpeg",
+        "1280": "/images/generated/boiler-mechanical-room-1-1280.jpeg",
+        "1536": "/images/generated/boiler-mechanical-room-1-1536.jpeg",
+        "1920": "/images/generated/boiler-mechanical-room-1-1920.jpeg",
+        "2560": "/images/generated/boiler-mechanical-room-1-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-mechanical-room-2.webp": {
+    "originalPath": "/images/gallery/boiler-mechanical-room-2.webp",
+    "altBase": "boiler-mechanical-room-2",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAAAwBACdASoUABsAPzmOwFavKacjqAqp4CcJYz2SUBZ4qaDXAGcWJAfpkAAAyzf8Z7k+TSHPhcjOHJZa9y97zGcRxQKt2vHEfRc8ZRh3R+kYeDFm5D7aj89/eWy//qNAASfQkij3YbUEfDMtP6r/3QXps78jy99MsN99hAbMffA7G9FpzaYybyelsizEa7jtzzIBHNVw6jTClJn2Gw9D/7wNGNbb3p1q71p7QFxdxeSGRquJIO0utcNBCRgR50Y6LQAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-mechanical-room-2-480.avif",
+        "640": "/images/generated/boiler-mechanical-room-2-640.avif",
+        "768": "/images/generated/boiler-mechanical-room-2-768.avif",
+        "1024": "/images/generated/boiler-mechanical-room-2-1024.avif",
+        "1280": "/images/generated/boiler-mechanical-room-2-1280.avif",
+        "1536": "/images/generated/boiler-mechanical-room-2-1536.avif",
+        "1920": "/images/generated/boiler-mechanical-room-2-1920.avif",
+        "2560": "/images/generated/boiler-mechanical-room-2-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-mechanical-room-2-480.webp",
+        "640": "/images/generated/boiler-mechanical-room-2-640.webp",
+        "768": "/images/generated/boiler-mechanical-room-2-768.webp",
+        "1024": "/images/generated/boiler-mechanical-room-2-1024.webp",
+        "1280": "/images/generated/boiler-mechanical-room-2-1280.webp",
+        "1536": "/images/generated/boiler-mechanical-room-2-1536.webp",
+        "1920": "/images/generated/boiler-mechanical-room-2-1920.webp",
+        "2560": "/images/generated/boiler-mechanical-room-2-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-mechanical-room-2-480.jpeg",
+        "640": "/images/generated/boiler-mechanical-room-2-640.jpeg",
+        "768": "/images/generated/boiler-mechanical-room-2-768.jpeg",
+        "1024": "/images/generated/boiler-mechanical-room-2-1024.jpeg",
+        "1280": "/images/generated/boiler-mechanical-room-2-1280.jpeg",
+        "1536": "/images/generated/boiler-mechanical-room-2-1536.jpeg",
+        "1920": "/images/generated/boiler-mechanical-room-2-1920.jpeg",
+        "2560": "/images/generated/boiler-mechanical-room-2-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-mechanical-room-3.webp": {
+    "originalPath": "/images/gallery/boiler-mechanical-room-3.webp",
+    "altBase": "boiler-mechanical-room-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4IOoAAADQBACdASoUABsAPyl8tVOuJ6Uit/qoAcAlCWpMHKC9A+wDplhxM6ajvM/FY6mUYAD7PySbbd94/f/Z+Sce5vBwCGnSvhePXmqzyxrYj8Gza3FrVK+lBjTTGm2ZKrR0Ox3Fm2nlwZcHF8oM8rWN8hXcoigZMogyXfNJsb/8mT4vf/eq1FtX5etaTvZtwTTKEgBjY/6tJaFiLjZonLufA0WdpKRKyfefZMlYffWI9llbnBRRIAY/SzMxvRtapnId58pqP2u4E5lDNqAsUNt/gEmeNRYznW2ixv/ZaQ049hSbSwRfJFObgJCKAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-mechanical-room-3-480.avif",
+        "640": "/images/generated/boiler-mechanical-room-3-640.avif",
+        "768": "/images/generated/boiler-mechanical-room-3-768.avif",
+        "1024": "/images/generated/boiler-mechanical-room-3-1024.avif",
+        "1280": "/images/generated/boiler-mechanical-room-3-1280.avif",
+        "1536": "/images/generated/boiler-mechanical-room-3-1536.avif",
+        "1920": "/images/generated/boiler-mechanical-room-3-1920.avif",
+        "2560": "/images/generated/boiler-mechanical-room-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-mechanical-room-3-480.webp",
+        "640": "/images/generated/boiler-mechanical-room-3-640.webp",
+        "768": "/images/generated/boiler-mechanical-room-3-768.webp",
+        "1024": "/images/generated/boiler-mechanical-room-3-1024.webp",
+        "1280": "/images/generated/boiler-mechanical-room-3-1280.webp",
+        "1536": "/images/generated/boiler-mechanical-room-3-1536.webp",
+        "1920": "/images/generated/boiler-mechanical-room-3-1920.webp",
+        "2560": "/images/generated/boiler-mechanical-room-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-mechanical-room-3-480.jpeg",
+        "640": "/images/generated/boiler-mechanical-room-3-640.jpeg",
+        "768": "/images/generated/boiler-mechanical-room-3-768.jpeg",
+        "1024": "/images/generated/boiler-mechanical-room-3-1024.jpeg",
+        "1280": "/images/generated/boiler-mechanical-room-3-1280.jpeg",
+        "1536": "/images/generated/boiler-mechanical-room-3-1536.jpeg",
+        "1920": "/images/generated/boiler-mechanical-room-3-1920.jpeg",
+        "2560": "/images/generated/boiler-mechanical-room-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-radiant-heat-3.webp": {
+    "originalPath": "/images/gallery/boiler-radiant-heat-3.webp",
+    "altBase": "boiler-radiant-heat-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAACQAwCdASoUABsAPzmYw1ovKqekKAgB4CcJRaSFFAZADC6h+hNoAMz+qv/2reifz04fa5L6aj8vAF8C0M1OgH9kNnxfqE4bDxzUlWv/gT1//xsdfDeZzQuXs/W1SvZJY3rZ7hRfOUoLnwCrpdrVP1qX3f8LWxv91O7jP/0nsRrDEakcL5YCU/HB5wln9mArcfcmqcDPUsdAI83a4V0d5z/4/aoPP2sIuaOQAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-radiant-heat-3-480.avif",
+        "640": "/images/generated/boiler-radiant-heat-3-640.avif",
+        "768": "/images/generated/boiler-radiant-heat-3-768.avif",
+        "1024": "/images/generated/boiler-radiant-heat-3-1024.avif",
+        "1280": "/images/generated/boiler-radiant-heat-3-1280.avif",
+        "1536": "/images/generated/boiler-radiant-heat-3-1536.avif",
+        "1920": "/images/generated/boiler-radiant-heat-3-1920.avif",
+        "2560": "/images/generated/boiler-radiant-heat-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-radiant-heat-3-480.webp",
+        "640": "/images/generated/boiler-radiant-heat-3-640.webp",
+        "768": "/images/generated/boiler-radiant-heat-3-768.webp",
+        "1024": "/images/generated/boiler-radiant-heat-3-1024.webp",
+        "1280": "/images/generated/boiler-radiant-heat-3-1280.webp",
+        "1536": "/images/generated/boiler-radiant-heat-3-1536.webp",
+        "1920": "/images/generated/boiler-radiant-heat-3-1920.webp",
+        "2560": "/images/generated/boiler-radiant-heat-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-radiant-heat-3-480.jpeg",
+        "640": "/images/generated/boiler-radiant-heat-3-640.jpeg",
+        "768": "/images/generated/boiler-radiant-heat-3-768.jpeg",
+        "1024": "/images/generated/boiler-radiant-heat-3-1024.jpeg",
+        "1280": "/images/generated/boiler-radiant-heat-3-1280.jpeg",
+        "1536": "/images/generated/boiler-radiant-heat-3-1536.jpeg",
+        "1920": "/images/generated/boiler-radiant-heat-3-1920.jpeg",
+        "2560": "/images/generated/boiler-radiant-heat-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-radiant-heat-4.webp": {
+    "originalPath": "/images/gallery/boiler-radiant-heat-4.webp",
+    "altBase": "boiler-radiant-heat-4",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAQBACdASoUABsAPzmQvFgvKaWjqAqp4CcJZle7n5Y/QANTDy4OfPuhAAD+Z+ab+65beeW+3yGbiSk8AcgSGsUuAqg8E60pqsRli/I0aS0xVANNmofFymocFX9IaKR2OJIxxHPurZ8fuj/fddBJ8yBxHAiKskIHER0Mc1nzof100gIHxnDkmE+F1UcnAZ13CJ1+6IPcNseJo39SvGxSd0wle18kD1AgAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-radiant-heat-4-480.avif",
+        "640": "/images/generated/boiler-radiant-heat-4-640.avif",
+        "768": "/images/generated/boiler-radiant-heat-4-768.avif",
+        "1024": "/images/generated/boiler-radiant-heat-4-1024.avif",
+        "1280": "/images/generated/boiler-radiant-heat-4-1280.avif",
+        "1536": "/images/generated/boiler-radiant-heat-4-1536.avif",
+        "1920": "/images/generated/boiler-radiant-heat-4-1920.avif",
+        "2560": "/images/generated/boiler-radiant-heat-4-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-radiant-heat-4-480.webp",
+        "640": "/images/generated/boiler-radiant-heat-4-640.webp",
+        "768": "/images/generated/boiler-radiant-heat-4-768.webp",
+        "1024": "/images/generated/boiler-radiant-heat-4-1024.webp",
+        "1280": "/images/generated/boiler-radiant-heat-4-1280.webp",
+        "1536": "/images/generated/boiler-radiant-heat-4-1536.webp",
+        "1920": "/images/generated/boiler-radiant-heat-4-1920.webp",
+        "2560": "/images/generated/boiler-radiant-heat-4-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-radiant-heat-4-480.jpeg",
+        "640": "/images/generated/boiler-radiant-heat-4-640.jpeg",
+        "768": "/images/generated/boiler-radiant-heat-4-768.jpeg",
+        "1024": "/images/generated/boiler-radiant-heat-4-1024.jpeg",
+        "1280": "/images/generated/boiler-radiant-heat-4-1280.jpeg",
+        "1536": "/images/generated/boiler-radiant-heat-4-1536.jpeg",
+        "1920": "/images/generated/boiler-radiant-heat-4-1920.jpeg",
+        "2560": "/images/generated/boiler-radiant-heat-4-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-radiant-heat-5.webp": {
+    "originalPath": "/images/gallery/boiler-radiant-heat-5.webp",
+    "altBase": "boiler-radiant-heat-5",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBACdASoUAA8APzmGulOvKSWisAgB4CcJbGEHJXP6fmBgHYHFtD+BA7KAAP6z2/7//lVEn/YLX6tK6e/tc+VlSxyVKLjl18do5Nr97P89ZPk7bi+2/4wxcl/bVbhiHQh395k++iwbN/KUysTxhWDwZQ2M+XNPf9DZvf+ggLspQf8iC/AAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-radiant-heat-5-480.avif",
+        "640": "/images/generated/boiler-radiant-heat-5-640.avif",
+        "768": "/images/generated/boiler-radiant-heat-5-768.avif",
+        "1024": "/images/generated/boiler-radiant-heat-5-1024.avif",
+        "1280": "/images/generated/boiler-radiant-heat-5-1280.avif",
+        "1536": "/images/generated/boiler-radiant-heat-5-1536.avif",
+        "1920": "/images/generated/boiler-radiant-heat-5-1920.avif",
+        "2560": "/images/generated/boiler-radiant-heat-5-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-radiant-heat-5-480.webp",
+        "640": "/images/generated/boiler-radiant-heat-5-640.webp",
+        "768": "/images/generated/boiler-radiant-heat-5-768.webp",
+        "1024": "/images/generated/boiler-radiant-heat-5-1024.webp",
+        "1280": "/images/generated/boiler-radiant-heat-5-1280.webp",
+        "1536": "/images/generated/boiler-radiant-heat-5-1536.webp",
+        "1920": "/images/generated/boiler-radiant-heat-5-1920.webp",
+        "2560": "/images/generated/boiler-radiant-heat-5-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-radiant-heat-5-480.jpeg",
+        "640": "/images/generated/boiler-radiant-heat-5-640.jpeg",
+        "768": "/images/generated/boiler-radiant-heat-5-768.jpeg",
+        "1024": "/images/generated/boiler-radiant-heat-5-1024.jpeg",
+        "1280": "/images/generated/boiler-radiant-heat-5-1280.jpeg",
+        "1536": "/images/generated/boiler-radiant-heat-5-1536.jpeg",
+        "1920": "/images/generated/boiler-radiant-heat-5-1920.jpeg",
+        "2560": "/images/generated/boiler-radiant-heat-5-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/boiler-radiant-heat-6.webp": {
+    "originalPath": "/images/gallery/boiler-radiant-heat-6.webp",
+    "altBase": "boiler-radiant-heat-6",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAABQBACdASoUABsAPzmKulQvKaWjMAgB4CcJbF2crdQOscVADoSa0KDiNVcAAMz50Qu/zOiJuAG43/mZ81QIqpthQiv3/qXbwdd+ROxMfOC8hIB0ty7qLOvIaO+I+/9Z+17X/f/390HKv++X/uhD957DpN44eJf1R/vZ1RC6QoWYmDsRinvsYrI95X7xp+/0w/jocpNFvfR/FmdFmN3lWY4SAm1rrIgtQZtU1zlWoRNgQ+FIoobUh1EewSLjt/RZ2K81Qy1ys89PT6LsJDltzuovpYbPhAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/boiler-radiant-heat-6-480.avif",
+        "640": "/images/generated/boiler-radiant-heat-6-640.avif",
+        "768": "/images/generated/boiler-radiant-heat-6-768.avif",
+        "1024": "/images/generated/boiler-radiant-heat-6-1024.avif",
+        "1280": "/images/generated/boiler-radiant-heat-6-1280.avif",
+        "1536": "/images/generated/boiler-radiant-heat-6-1536.avif",
+        "1920": "/images/generated/boiler-radiant-heat-6-1920.avif",
+        "2560": "/images/generated/boiler-radiant-heat-6-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/boiler-radiant-heat-6-480.webp",
+        "640": "/images/generated/boiler-radiant-heat-6-640.webp",
+        "768": "/images/generated/boiler-radiant-heat-6-768.webp",
+        "1024": "/images/generated/boiler-radiant-heat-6-1024.webp",
+        "1280": "/images/generated/boiler-radiant-heat-6-1280.webp",
+        "1536": "/images/generated/boiler-radiant-heat-6-1536.webp",
+        "1920": "/images/generated/boiler-radiant-heat-6-1920.webp",
+        "2560": "/images/generated/boiler-radiant-heat-6-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/boiler-radiant-heat-6-480.jpeg",
+        "640": "/images/generated/boiler-radiant-heat-6-640.jpeg",
+        "768": "/images/generated/boiler-radiant-heat-6-768.jpeg",
+        "1024": "/images/generated/boiler-radiant-heat-6-1024.jpeg",
+        "1280": "/images/generated/boiler-radiant-heat-6-1280.jpeg",
+        "1536": "/images/generated/boiler-radiant-heat-6-1536.jpeg",
+        "1920": "/images/generated/boiler-radiant-heat-6-1920.jpeg",
+        "2560": "/images/generated/boiler-radiant-heat-6-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-1.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-1.webp",
+    "altBase": "gas-line-installation-1",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4INgAAACQBACdASoUABsAPzmcxVqvK6gkKAgB4CcJSpuO/syTKq3j14JqBATts634FwgA/t3U/MX/fE92B+9rNsljbB+a1/3BV8tb/8GyM2SD27mm+9kmz2eT9XSsT7V9K9Th6TnaZvHFkQcdbVA23MFZpST/tlECeQs8d9G8R8R8SyCZHmvxcVFgRRYEUXIMI/dFneivBRh83d+jPrbYaMFvppk9MXeawmuEsKimL0nzQm+U7tNwfAV12q1bAXPOIBiS4/I1eFbUJ0UMAquYig+6K1SbS8E38ulpgAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-1-480.avif",
+        "640": "/images/generated/gas-line-installation-1-640.avif",
+        "768": "/images/generated/gas-line-installation-1-768.avif",
+        "1024": "/images/generated/gas-line-installation-1-1024.avif",
+        "1280": "/images/generated/gas-line-installation-1-1280.avif",
+        "1536": "/images/generated/gas-line-installation-1-1536.avif",
+        "1920": "/images/generated/gas-line-installation-1-1920.avif",
+        "2560": "/images/generated/gas-line-installation-1-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-1-480.webp",
+        "640": "/images/generated/gas-line-installation-1-640.webp",
+        "768": "/images/generated/gas-line-installation-1-768.webp",
+        "1024": "/images/generated/gas-line-installation-1-1024.webp",
+        "1280": "/images/generated/gas-line-installation-1-1280.webp",
+        "1536": "/images/generated/gas-line-installation-1-1536.webp",
+        "1920": "/images/generated/gas-line-installation-1-1920.webp",
+        "2560": "/images/generated/gas-line-installation-1-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-1-480.jpeg",
+        "640": "/images/generated/gas-line-installation-1-640.jpeg",
+        "768": "/images/generated/gas-line-installation-1-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-1-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-1-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-1-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-1-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-1-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-2.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-2.webp",
+    "altBase": "gas-line-installation-2",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwAwCdASoUABsAPzmKu1SvKaYjKA1R4CcJY2Br/PvGDv0CRYm3WAD+0k2+fngMniAwzxgSatfmGQ0B+8u98wZv+9TbYqY4yJzMhWK17+XbCM4w5Kro/w/K8WCe9OslzGz1OnfW7I26EBS5fkSINf9vP7NQc+wl2hcZ93baM7sVFbnrRq1wLa+nLhwLbxOTVf4DY9zjkv2CLtPQnQXCZoH+2+Ub3N0QAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-2-480.avif",
+        "640": "/images/generated/gas-line-installation-2-640.avif",
+        "768": "/images/generated/gas-line-installation-2-768.avif",
+        "1024": "/images/generated/gas-line-installation-2-1024.avif",
+        "1280": "/images/generated/gas-line-installation-2-1280.avif",
+        "1536": "/images/generated/gas-line-installation-2-1536.avif",
+        "1920": "/images/generated/gas-line-installation-2-1920.avif",
+        "2560": "/images/generated/gas-line-installation-2-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-2-480.webp",
+        "640": "/images/generated/gas-line-installation-2-640.webp",
+        "768": "/images/generated/gas-line-installation-2-768.webp",
+        "1024": "/images/generated/gas-line-installation-2-1024.webp",
+        "1280": "/images/generated/gas-line-installation-2-1280.webp",
+        "1536": "/images/generated/gas-line-installation-2-1536.webp",
+        "1920": "/images/generated/gas-line-installation-2-1920.webp",
+        "2560": "/images/generated/gas-line-installation-2-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-2-480.jpeg",
+        "640": "/images/generated/gas-line-installation-2-640.jpeg",
+        "768": "/images/generated/gas-line-installation-2-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-2-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-2-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-2-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-2-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-2-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-3.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-3.webp",
+    "altBase": "gas-line-installation-3",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQAwCdASoUAA8APzleyV8vI6qmGAHgJwljHAFK7p4SkFmpMAD+6Z38auCXHl+15e7/Xp77x5XfrGTb/fwko/wOjAj+DB0ynBcKuSRWBC4Q4Uyx5ZtuBcW9DNok9buWZarxF86v39+KXmGLFvqvx46+GIcyU98azDg0gGcEeRJ5CJwrjcAuoAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-3-480.avif",
+        "640": "/images/generated/gas-line-installation-3-640.avif",
+        "768": "/images/generated/gas-line-installation-3-768.avif",
+        "1024": "/images/generated/gas-line-installation-3-1024.avif",
+        "1280": "/images/generated/gas-line-installation-3-1280.avif",
+        "1536": "/images/generated/gas-line-installation-3-1536.avif",
+        "1920": "/images/generated/gas-line-installation-3-1920.avif",
+        "2560": "/images/generated/gas-line-installation-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-3-480.webp",
+        "640": "/images/generated/gas-line-installation-3-640.webp",
+        "768": "/images/generated/gas-line-installation-3-768.webp",
+        "1024": "/images/generated/gas-line-installation-3-1024.webp",
+        "1280": "/images/generated/gas-line-installation-3-1280.webp",
+        "1536": "/images/generated/gas-line-installation-3-1536.webp",
+        "1920": "/images/generated/gas-line-installation-3-1920.webp",
+        "2560": "/images/generated/gas-line-installation-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-3-480.jpeg",
+        "640": "/images/generated/gas-line-installation-3-640.jpeg",
+        "768": "/images/generated/gas-line-installation-3-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-3-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-3-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-3-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-3-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-4.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-4.webp",
+    "altBase": "gas-line-installation-4",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAwCdASoUAA8APzmMu1SvKaYjMAgB4CcJYz41G9JKpJwAAP7cDjyT/CmHd7Bm2HUPx2xjXxW/ojoUdqKIiZTRdTY0qELDSJb5EqS3NQtNSTLOPFBFAAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-4-480.avif",
+        "640": "/images/generated/gas-line-installation-4-640.avif",
+        "768": "/images/generated/gas-line-installation-4-768.avif",
+        "1024": "/images/generated/gas-line-installation-4-1024.avif",
+        "1280": "/images/generated/gas-line-installation-4-1280.avif",
+        "1536": "/images/generated/gas-line-installation-4-1536.avif",
+        "1920": "/images/generated/gas-line-installation-4-1920.avif",
+        "2560": "/images/generated/gas-line-installation-4-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-4-480.webp",
+        "640": "/images/generated/gas-line-installation-4-640.webp",
+        "768": "/images/generated/gas-line-installation-4-768.webp",
+        "1024": "/images/generated/gas-line-installation-4-1024.webp",
+        "1280": "/images/generated/gas-line-installation-4-1280.webp",
+        "1536": "/images/generated/gas-line-installation-4-1536.webp",
+        "1920": "/images/generated/gas-line-installation-4-1920.webp",
+        "2560": "/images/generated/gas-line-installation-4-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-4-480.jpeg",
+        "640": "/images/generated/gas-line-installation-4-640.jpeg",
+        "768": "/images/generated/gas-line-installation-4-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-4-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-4-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-4-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-4-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-4-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-5.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-5.webp",
+    "altBase": "gas-line-installation-5",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAwCdASoUAA8APzleyV8vI6qmGAHgJwlnXzhZYAGIUUAA/FRYn2QiOFDwQEhToU0S70L/kt/+bj/+YRde0XjLtnMIxu6wqy0MZfyNZbZ2vfaEKkIVITE8GZr3Wf6VSfdkMbdKt+oGAAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-5-480.avif",
+        "640": "/images/generated/gas-line-installation-5-640.avif",
+        "768": "/images/generated/gas-line-installation-5-768.avif",
+        "1024": "/images/generated/gas-line-installation-5-1024.avif",
+        "1280": "/images/generated/gas-line-installation-5-1280.avif",
+        "1536": "/images/generated/gas-line-installation-5-1536.avif",
+        "1920": "/images/generated/gas-line-installation-5-1920.avif",
+        "2560": "/images/generated/gas-line-installation-5-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-5-480.webp",
+        "640": "/images/generated/gas-line-installation-5-640.webp",
+        "768": "/images/generated/gas-line-installation-5-768.webp",
+        "1024": "/images/generated/gas-line-installation-5-1024.webp",
+        "1280": "/images/generated/gas-line-installation-5-1280.webp",
+        "1536": "/images/generated/gas-line-installation-5-1536.webp",
+        "1920": "/images/generated/gas-line-installation-5-1920.webp",
+        "2560": "/images/generated/gas-line-installation-5-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-5-480.jpeg",
+        "640": "/images/generated/gas-line-installation-5-640.jpeg",
+        "768": "/images/generated/gas-line-installation-5-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-5-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-5-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-5-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-5-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-5-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-6.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-6.webp",
+    "altBase": "gas-line-installation-6",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRvgAAABXRUJQVlA4IOwAAADwBACdASoUABsAPzmWwlovKqckKAgB4CcJS7OJ3kvgbnbd76ixy+4AZMDBlyBifMAAzP//Rsv//Z+LnlX7hUsU3v7LkRIZnZUdWMPubWeHWyebQFzcpOpK8Hf2VQcPIhn+peOzcWWQ3HQ1xSifU4KRjwcZYp70ztV7Z/GL0r1bCwEOsfd427Fp9/0UWVoPoNgadMAavn9En+X+43Yg6GfAC/X4sDkZFd/Gn9kPJyMRlITw4MiNT/6Hn/i4JFzj/25WYleOSM8KwajRFXjf4PQ2VmFfBnPkN7C42nY2PViMFcZl4/YTCmPn4kIAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-6-480.avif",
+        "640": "/images/generated/gas-line-installation-6-640.avif",
+        "768": "/images/generated/gas-line-installation-6-768.avif",
+        "1024": "/images/generated/gas-line-installation-6-1024.avif",
+        "1280": "/images/generated/gas-line-installation-6-1280.avif",
+        "1536": "/images/generated/gas-line-installation-6-1536.avif",
+        "1920": "/images/generated/gas-line-installation-6-1920.avif",
+        "2560": "/images/generated/gas-line-installation-6-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-6-480.webp",
+        "640": "/images/generated/gas-line-installation-6-640.webp",
+        "768": "/images/generated/gas-line-installation-6-768.webp",
+        "1024": "/images/generated/gas-line-installation-6-1024.webp",
+        "1280": "/images/generated/gas-line-installation-6-1280.webp",
+        "1536": "/images/generated/gas-line-installation-6-1536.webp",
+        "1920": "/images/generated/gas-line-installation-6-1920.webp",
+        "2560": "/images/generated/gas-line-installation-6-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-6-480.jpeg",
+        "640": "/images/generated/gas-line-installation-6-640.jpeg",
+        "768": "/images/generated/gas-line-installation-6-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-6-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-6-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-6-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-6-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-6-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/gas-line-installation-7.webp": {
+    "originalPath": "/images/gallery/gas-line-installation-7.webp",
+    "altBase": "gas-line-installation-7",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAABwBACdASoUABsAPzmSu1gvKiWjqAqp4CcJZWRP3qkOP4sD4KtSJRpTsQHw0AD+7p835vYteEB//R8ufM45PsT58w4Xxbp3o21r/y97AX5PtFc0nkXBieEqJp55R21/9tpc04Zhylb6tTX+O34DVDNu4Dyt/oCdmB/p3DsjB85suIVtx6qkeN/+aLtv+/5j8fT/R3/OBj+DIdlh0fK6Wu6OVqOq5VNNZnn7Kcej3UbxBSE/xQFYitscu8U8BTlJ+53VWotTnKv7lpeWf7ZR+AGsehv3ukw5TvbAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/gas-line-installation-7-480.avif",
+        "640": "/images/generated/gas-line-installation-7-640.avif",
+        "768": "/images/generated/gas-line-installation-7-768.avif",
+        "1024": "/images/generated/gas-line-installation-7-1024.avif",
+        "1280": "/images/generated/gas-line-installation-7-1280.avif",
+        "1536": "/images/generated/gas-line-installation-7-1536.avif",
+        "1920": "/images/generated/gas-line-installation-7-1920.avif",
+        "2560": "/images/generated/gas-line-installation-7-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/gas-line-installation-7-480.webp",
+        "640": "/images/generated/gas-line-installation-7-640.webp",
+        "768": "/images/generated/gas-line-installation-7-768.webp",
+        "1024": "/images/generated/gas-line-installation-7-1024.webp",
+        "1280": "/images/generated/gas-line-installation-7-1280.webp",
+        "1536": "/images/generated/gas-line-installation-7-1536.webp",
+        "1920": "/images/generated/gas-line-installation-7-1920.webp",
+        "2560": "/images/generated/gas-line-installation-7-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/gas-line-installation-7-480.jpeg",
+        "640": "/images/generated/gas-line-installation-7-640.jpeg",
+        "768": "/images/generated/gas-line-installation-7-768.jpeg",
+        "1024": "/images/generated/gas-line-installation-7-1024.jpeg",
+        "1280": "/images/generated/gas-line-installation-7-1280.jpeg",
+        "1536": "/images/generated/gas-line-installation-7-1536.jpeg",
+        "1920": "/images/generated/gas-line-installation-7-1920.jpeg",
+        "2560": "/images/generated/gas-line-installation-7-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/modern-bathroom-fixtures-3.webp": {
+    "originalPath": "/images/gallery/modern-bathroom-fixtures-3.webp",
+    "altBase": "modern-bathroom-fixtures-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQAwCdASoUABsAPzleyV8vI6qmFAHgJwlpPqiiYS/i9eAAAMQs7wAA/uGUv/Jt1LsfwxpZDi135yTfj+DZ2RicrjvNs8jFX8v9JTsv43eEbBg/HwHXJFE9FE0OBkAnYv1gIyp+Zg8X7NXPwsBv6z62qtJCAxbwKa3/0O7fCX9UNM3sIPbOobX9q5Dfvv+My/j6xUK6cFr79fjOPKzga4ASaCAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/modern-bathroom-fixtures-3-480.avif",
+        "640": "/images/generated/modern-bathroom-fixtures-3-640.avif",
+        "768": "/images/generated/modern-bathroom-fixtures-3-768.avif",
+        "1024": "/images/generated/modern-bathroom-fixtures-3-1024.avif",
+        "1280": "/images/generated/modern-bathroom-fixtures-3-1280.avif",
+        "1536": "/images/generated/modern-bathroom-fixtures-3-1536.avif",
+        "1920": "/images/generated/modern-bathroom-fixtures-3-1920.avif",
+        "2560": "/images/generated/modern-bathroom-fixtures-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/modern-bathroom-fixtures-3-480.webp",
+        "640": "/images/generated/modern-bathroom-fixtures-3-640.webp",
+        "768": "/images/generated/modern-bathroom-fixtures-3-768.webp",
+        "1024": "/images/generated/modern-bathroom-fixtures-3-1024.webp",
+        "1280": "/images/generated/modern-bathroom-fixtures-3-1280.webp",
+        "1536": "/images/generated/modern-bathroom-fixtures-3-1536.webp",
+        "1920": "/images/generated/modern-bathroom-fixtures-3-1920.webp",
+        "2560": "/images/generated/modern-bathroom-fixtures-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/modern-bathroom-fixtures-3-480.jpeg",
+        "640": "/images/generated/modern-bathroom-fixtures-3-640.jpeg",
+        "768": "/images/generated/modern-bathroom-fixtures-3-768.jpeg",
+        "1024": "/images/generated/modern-bathroom-fixtures-3-1024.jpeg",
+        "1280": "/images/generated/modern-bathroom-fixtures-3-1280.jpeg",
+        "1536": "/images/generated/modern-bathroom-fixtures-3-1536.jpeg",
+        "1920": "/images/generated/modern-bathroom-fixtures-3-1920.jpeg",
+        "2560": "/images/generated/modern-bathroom-fixtures-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/modern-bathroom-fixtures-4.webp": {
+    "originalPath": "/images/gallery/modern-bathroom-fixtures-4.webp",
+    "altBase": "modern-bathroom-fixtures-4",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAAAQBACdASoUABsAPzmKulOvKaWisAgB4CcJY2EChpBsZJP/lrmAMzpgQAD+onUmnp0HdSH1k92B79SxmYOWR6luBfwwRnLff+t+4F5+dIqB2kT95w65wKfOLZ/LbLDyJVaqpGZqBdu8B8DvRB5kf8teeX766u3j57P9pJyiEB//4PN0/+6uvQPes/4g//0DfpG+YIy2ZSo3eevJ0CrGv+RkWP3Tn3/go30NLRrX2/wq5fvUAbBzQIYGpqB/5M/5zgC6yp2r01wsr9C3h3rmcbYAAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/modern-bathroom-fixtures-4-480.avif",
+        "640": "/images/generated/modern-bathroom-fixtures-4-640.avif",
+        "768": "/images/generated/modern-bathroom-fixtures-4-768.avif",
+        "1024": "/images/generated/modern-bathroom-fixtures-4-1024.avif",
+        "1280": "/images/generated/modern-bathroom-fixtures-4-1280.avif",
+        "1536": "/images/generated/modern-bathroom-fixtures-4-1536.avif",
+        "1920": "/images/generated/modern-bathroom-fixtures-4-1920.avif",
+        "2560": "/images/generated/modern-bathroom-fixtures-4-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/modern-bathroom-fixtures-4-480.webp",
+        "640": "/images/generated/modern-bathroom-fixtures-4-640.webp",
+        "768": "/images/generated/modern-bathroom-fixtures-4-768.webp",
+        "1024": "/images/generated/modern-bathroom-fixtures-4-1024.webp",
+        "1280": "/images/generated/modern-bathroom-fixtures-4-1280.webp",
+        "1536": "/images/generated/modern-bathroom-fixtures-4-1536.webp",
+        "1920": "/images/generated/modern-bathroom-fixtures-4-1920.webp",
+        "2560": "/images/generated/modern-bathroom-fixtures-4-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/modern-bathroom-fixtures-4-480.jpeg",
+        "640": "/images/generated/modern-bathroom-fixtures-4-640.jpeg",
+        "768": "/images/generated/modern-bathroom-fixtures-4-768.jpeg",
+        "1024": "/images/generated/modern-bathroom-fixtures-4-1024.jpeg",
+        "1280": "/images/generated/modern-bathroom-fixtures-4-1280.jpeg",
+        "1536": "/images/generated/modern-bathroom-fixtures-4-1536.jpeg",
+        "1920": "/images/generated/modern-bathroom-fixtures-4-1920.jpeg",
+        "2560": "/images/generated/modern-bathroom-fixtures-4-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-gas-rough-in-1.webp": {
+    "originalPath": "/images/gallery/new-construction-gas-rough-in-1.webp",
+    "altBase": "new-construction-gas-rough-in-1",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAACQBACdASoUABsAPzWAtlOvKCUit/VYAeAmiWNdnLVmbhD9c4E/QAXNwO1Nm3AA/sPTHflLG8Eb9fgDUj8YVMZ7+kesgawHMdU6Q4ghao3d3w//F9XL3/ASllEsEbHs1PXRhEoqd1PFR9ujVjgYNY4GDSSYFsoM+d7f+ZOFffuy+M2F3IZATS9xfEohgvP8lX4laB6w1xdaP0PqZ1B0BEt+vIRz+FkzftZIO/frlhDedl7L16t5yCIWdggAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-gas-rough-in-1-480.avif",
+        "640": "/images/generated/new-construction-gas-rough-in-1-640.avif",
+        "768": "/images/generated/new-construction-gas-rough-in-1-768.avif",
+        "1024": "/images/generated/new-construction-gas-rough-in-1-1024.avif",
+        "1280": "/images/generated/new-construction-gas-rough-in-1-1280.avif",
+        "1536": "/images/generated/new-construction-gas-rough-in-1-1536.avif",
+        "1920": "/images/generated/new-construction-gas-rough-in-1-1920.avif",
+        "2560": "/images/generated/new-construction-gas-rough-in-1-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-gas-rough-in-1-480.webp",
+        "640": "/images/generated/new-construction-gas-rough-in-1-640.webp",
+        "768": "/images/generated/new-construction-gas-rough-in-1-768.webp",
+        "1024": "/images/generated/new-construction-gas-rough-in-1-1024.webp",
+        "1280": "/images/generated/new-construction-gas-rough-in-1-1280.webp",
+        "1536": "/images/generated/new-construction-gas-rough-in-1-1536.webp",
+        "1920": "/images/generated/new-construction-gas-rough-in-1-1920.webp",
+        "2560": "/images/generated/new-construction-gas-rough-in-1-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-gas-rough-in-1-480.jpeg",
+        "640": "/images/generated/new-construction-gas-rough-in-1-640.jpeg",
+        "768": "/images/generated/new-construction-gas-rough-in-1-768.jpeg",
+        "1024": "/images/generated/new-construction-gas-rough-in-1-1024.jpeg",
+        "1280": "/images/generated/new-construction-gas-rough-in-1-1280.jpeg",
+        "1536": "/images/generated/new-construction-gas-rough-in-1-1536.jpeg",
+        "1920": "/images/generated/new-construction-gas-rough-in-1-1920.jpeg",
+        "2560": "/images/generated/new-construction-gas-rough-in-1-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-gas-rough-in-2.webp": {
+    "originalPath": "/images/gallery/new-construction-gas-rough-in-2.webp",
+    "altBase": "new-construction-gas-rough-in-2",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACQBACdASoUABsAPzmGu1YvKCWjsBgIAeAnCWJMHIB2bwn27kb+sAbwATV/fWgA+T3h5GPpZjXjCMhQvi1v4PkVxzIq4seGGmtsE2eaRQkYnk/BgtVsZtt/yTviGlgkcvDxE/Mwp04kisPs07UBag6N4C5gmcT5kN/g8+rtoGT1euRRtek05ZJYZZl2V0Yyf77I/KXVWwjJhd76VcUmPnEeJjkuSZIS64TFun8wzpQ98R5F8N2iFifBtJcHVwYUJgT9gAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-gas-rough-in-2-480.avif",
+        "640": "/images/generated/new-construction-gas-rough-in-2-640.avif",
+        "768": "/images/generated/new-construction-gas-rough-in-2-768.avif",
+        "1024": "/images/generated/new-construction-gas-rough-in-2-1024.avif",
+        "1280": "/images/generated/new-construction-gas-rough-in-2-1280.avif",
+        "1536": "/images/generated/new-construction-gas-rough-in-2-1536.avif",
+        "1920": "/images/generated/new-construction-gas-rough-in-2-1920.avif",
+        "2560": "/images/generated/new-construction-gas-rough-in-2-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-gas-rough-in-2-480.webp",
+        "640": "/images/generated/new-construction-gas-rough-in-2-640.webp",
+        "768": "/images/generated/new-construction-gas-rough-in-2-768.webp",
+        "1024": "/images/generated/new-construction-gas-rough-in-2-1024.webp",
+        "1280": "/images/generated/new-construction-gas-rough-in-2-1280.webp",
+        "1536": "/images/generated/new-construction-gas-rough-in-2-1536.webp",
+        "1920": "/images/generated/new-construction-gas-rough-in-2-1920.webp",
+        "2560": "/images/generated/new-construction-gas-rough-in-2-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-gas-rough-in-2-480.jpeg",
+        "640": "/images/generated/new-construction-gas-rough-in-2-640.jpeg",
+        "768": "/images/generated/new-construction-gas-rough-in-2-768.jpeg",
+        "1024": "/images/generated/new-construction-gas-rough-in-2-1024.jpeg",
+        "1280": "/images/generated/new-construction-gas-rough-in-2-1280.jpeg",
+        "1536": "/images/generated/new-construction-gas-rough-in-2-1536.jpeg",
+        "1920": "/images/generated/new-construction-gas-rough-in-2-1920.jpeg",
+        "2560": "/images/generated/new-construction-gas-rough-in-2-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-gas-rough-in-3.webp": {
+    "originalPath": "/images/gallery/new-construction-gas-rough-in-3.webp",
+    "altBase": "new-construction-gas-rough-in-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABwBACdASoUABsAPzmYvlYvLCajqAqp4CcJR85qmXgXyMqEQ0yZYsQCNU2jAAD+2w+FP2H3vyWtfp/qgP+0uxpoXwWYCvz6C5LbF0s1rC90JroIir+f8tel48jwT3jBvYCx/666OlVwRyS1cwCiS/f6Sy+J7gNDWIqxERLGM3kd7/Upl8JyClAJiHEZsXt6wck/K/+u/4tJ//b3L4ArQrGuFYaaFIAtbhx1ONdbTNljadvzIQHLTTMuZHTA59DNaTin97Kbg7oai43UTrRA0MAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-gas-rough-in-3-480.avif",
+        "640": "/images/generated/new-construction-gas-rough-in-3-640.avif",
+        "768": "/images/generated/new-construction-gas-rough-in-3-768.avif",
+        "1024": "/images/generated/new-construction-gas-rough-in-3-1024.avif",
+        "1280": "/images/generated/new-construction-gas-rough-in-3-1280.avif",
+        "1536": "/images/generated/new-construction-gas-rough-in-3-1536.avif",
+        "1920": "/images/generated/new-construction-gas-rough-in-3-1920.avif",
+        "2560": "/images/generated/new-construction-gas-rough-in-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-gas-rough-in-3-480.webp",
+        "640": "/images/generated/new-construction-gas-rough-in-3-640.webp",
+        "768": "/images/generated/new-construction-gas-rough-in-3-768.webp",
+        "1024": "/images/generated/new-construction-gas-rough-in-3-1024.webp",
+        "1280": "/images/generated/new-construction-gas-rough-in-3-1280.webp",
+        "1536": "/images/generated/new-construction-gas-rough-in-3-1536.webp",
+        "1920": "/images/generated/new-construction-gas-rough-in-3-1920.webp",
+        "2560": "/images/generated/new-construction-gas-rough-in-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-gas-rough-in-3-480.jpeg",
+        "640": "/images/generated/new-construction-gas-rough-in-3-640.jpeg",
+        "768": "/images/generated/new-construction-gas-rough-in-3-768.jpeg",
+        "1024": "/images/generated/new-construction-gas-rough-in-3-1024.jpeg",
+        "1280": "/images/generated/new-construction-gas-rough-in-3-1280.jpeg",
+        "1536": "/images/generated/new-construction-gas-rough-in-3-1536.jpeg",
+        "1920": "/images/generated/new-construction-gas-rough-in-3-1920.jpeg",
+        "2560": "/images/generated/new-construction-gas-rough-in-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-rough-in-3.webp": {
+    "originalPath": "/images/gallery/new-construction-rough-in-3.webp",
+    "altBase": "new-construction-rough-in-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBACdASoUABsALvmczmclLy8vDwD4Sxny/gzdAWgCaQCnA/hwCloMAAD+q780X/1Hd9N6EvjfiYf6gV/JNSIbOYazLiNsb6yqh/PJ86cOJF4uIxt9dOiMsBjfpbS9cudBerr8Dy1BE/X0YqPPXy+XsBrGMziEmwiF/PkDzOfDBQRQMjaJGaHqD+sP6YsB/+d3RnxiymPdjOyHQ+rqKHzU8FrzBMtYg2AjqbHDml4AAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-rough-in-3-480.avif",
+        "640": "/images/generated/new-construction-rough-in-3-640.avif",
+        "768": "/images/generated/new-construction-rough-in-3-768.avif",
+        "1024": "/images/generated/new-construction-rough-in-3-1024.avif",
+        "1280": "/images/generated/new-construction-rough-in-3-1280.avif",
+        "1536": "/images/generated/new-construction-rough-in-3-1536.avif",
+        "1920": "/images/generated/new-construction-rough-in-3-1920.avif",
+        "2560": "/images/generated/new-construction-rough-in-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-rough-in-3-480.webp",
+        "640": "/images/generated/new-construction-rough-in-3-640.webp",
+        "768": "/images/generated/new-construction-rough-in-3-768.webp",
+        "1024": "/images/generated/new-construction-rough-in-3-1024.webp",
+        "1280": "/images/generated/new-construction-rough-in-3-1280.webp",
+        "1536": "/images/generated/new-construction-rough-in-3-1536.webp",
+        "1920": "/images/generated/new-construction-rough-in-3-1920.webp",
+        "2560": "/images/generated/new-construction-rough-in-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-rough-in-3-480.jpeg",
+        "640": "/images/generated/new-construction-rough-in-3-640.jpeg",
+        "768": "/images/generated/new-construction-rough-in-3-768.jpeg",
+        "1024": "/images/generated/new-construction-rough-in-3-1024.jpeg",
+        "1280": "/images/generated/new-construction-rough-in-3-1280.jpeg",
+        "1536": "/images/generated/new-construction-rough-in-3-1536.jpeg",
+        "1920": "/images/generated/new-construction-rough-in-3-1920.jpeg",
+        "2560": "/images/generated/new-construction-rough-in-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-rough-in-4.webp": {
+    "originalPath": "/images/gallery/new-construction-rough-in-4.webp",
+    "altBase": "new-construction-rough-in-4",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAAAwBACdASoUABsAPzmIvFQvKSYjKA1R4CcJaD0coYD2/XkHRNWIBqvbCAAA/r+/zpxPHn7VMbss6P+9KT+gmfQzevXE6XojgW9zWfnwWBUifSed7XTCEif5mnQGf3to2GESj6ooo/8pP7j74LrlaJiornVp9RW/T8UHUXVb72PC0LryLxBMDbJLCjnI6unHr+KP//cbf9XKV//33lHJwfux1U/HEPhsOKOROCTT8hBKr/BsVI+H9uYUN8DjY2q2fUi8HleEmFUcPNzAtt2uAAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-rough-in-4-480.avif",
+        "640": "/images/generated/new-construction-rough-in-4-640.avif",
+        "768": "/images/generated/new-construction-rough-in-4-768.avif",
+        "1024": "/images/generated/new-construction-rough-in-4-1024.avif",
+        "1280": "/images/generated/new-construction-rough-in-4-1280.avif",
+        "1536": "/images/generated/new-construction-rough-in-4-1536.avif",
+        "1920": "/images/generated/new-construction-rough-in-4-1920.avif",
+        "2560": "/images/generated/new-construction-rough-in-4-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-rough-in-4-480.webp",
+        "640": "/images/generated/new-construction-rough-in-4-640.webp",
+        "768": "/images/generated/new-construction-rough-in-4-768.webp",
+        "1024": "/images/generated/new-construction-rough-in-4-1024.webp",
+        "1280": "/images/generated/new-construction-rough-in-4-1280.webp",
+        "1536": "/images/generated/new-construction-rough-in-4-1536.webp",
+        "1920": "/images/generated/new-construction-rough-in-4-1920.webp",
+        "2560": "/images/generated/new-construction-rough-in-4-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-rough-in-4-480.jpeg",
+        "640": "/images/generated/new-construction-rough-in-4-640.jpeg",
+        "768": "/images/generated/new-construction-rough-in-4-768.jpeg",
+        "1024": "/images/generated/new-construction-rough-in-4-1024.jpeg",
+        "1280": "/images/generated/new-construction-rough-in-4-1280.jpeg",
+        "1536": "/images/generated/new-construction-rough-in-4-1536.jpeg",
+        "1920": "/images/generated/new-construction-rough-in-4-1920.jpeg",
+        "2560": "/images/generated/new-construction-rough-in-4-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-rough-in-5.webp": {
+    "originalPath": "/images/gallery/new-construction-rough-in-5.webp",
+    "altBase": "new-construction-rough-in-5",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAACQBACdASoUABsAPzmYw1qvKqekKAgB4CcJYzcz8G5oUY3yA96pdEMO/IJenAAA/sf6mjSRcNspSEHUULLS8UysTXNy0V2iCwMKEiIZt11sUq7AnBxU/sdMdT760Wtu/+GurfKH/6r4rnn525inQ4iybCEUsIB4bzD851t6J9XbGdmnjP/9LbyxkFo0ZiBDCLyJZ+/GlpSi4af+kLj0S9O5AcOtRgoYR8xXet58hyPQZx2uYDjHrVVta6O/y7XyzxsFDfKzrNOVQAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-rough-in-5-480.avif",
+        "640": "/images/generated/new-construction-rough-in-5-640.avif",
+        "768": "/images/generated/new-construction-rough-in-5-768.avif",
+        "1024": "/images/generated/new-construction-rough-in-5-1024.avif",
+        "1280": "/images/generated/new-construction-rough-in-5-1280.avif",
+        "1536": "/images/generated/new-construction-rough-in-5-1536.avif",
+        "1920": "/images/generated/new-construction-rough-in-5-1920.avif",
+        "2560": "/images/generated/new-construction-rough-in-5-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-rough-in-5-480.webp",
+        "640": "/images/generated/new-construction-rough-in-5-640.webp",
+        "768": "/images/generated/new-construction-rough-in-5-768.webp",
+        "1024": "/images/generated/new-construction-rough-in-5-1024.webp",
+        "1280": "/images/generated/new-construction-rough-in-5-1280.webp",
+        "1536": "/images/generated/new-construction-rough-in-5-1536.webp",
+        "1920": "/images/generated/new-construction-rough-in-5-1920.webp",
+        "2560": "/images/generated/new-construction-rough-in-5-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-rough-in-5-480.jpeg",
+        "640": "/images/generated/new-construction-rough-in-5-640.jpeg",
+        "768": "/images/generated/new-construction-rough-in-5-768.jpeg",
+        "1024": "/images/generated/new-construction-rough-in-5-1024.jpeg",
+        "1280": "/images/generated/new-construction-rough-in-5-1280.jpeg",
+        "1536": "/images/generated/new-construction-rough-in-5-1536.jpeg",
+        "1920": "/images/generated/new-construction-rough-in-5-1920.jpeg",
+        "2560": "/images/generated/new-construction-rough-in-5-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-rough-in-6.webp": {
+    "originalPath": "/images/gallery/new-construction-rough-in-6.webp",
+    "altBase": "new-construction-rough-in-6",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAwCdASoUAA8APzleyV8vI6qmGAHgJwllJwFm+HAj1AjRAAD9Lf+//j5l68zP9+wgfxiH+zgvoa4DMPTsreY2l8H42f+dKqIBodoB1WImx6mA2P3tBLJ9QmLt9o8mn7nlAF3ohYMjTveUUeQoxwEREAAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-rough-in-6-480.avif",
+        "640": "/images/generated/new-construction-rough-in-6-640.avif",
+        "768": "/images/generated/new-construction-rough-in-6-768.avif",
+        "1024": "/images/generated/new-construction-rough-in-6-1024.avif",
+        "1280": "/images/generated/new-construction-rough-in-6-1280.avif",
+        "1536": "/images/generated/new-construction-rough-in-6-1536.avif",
+        "1920": "/images/generated/new-construction-rough-in-6-1920.avif",
+        "2560": "/images/generated/new-construction-rough-in-6-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-rough-in-6-480.webp",
+        "640": "/images/generated/new-construction-rough-in-6-640.webp",
+        "768": "/images/generated/new-construction-rough-in-6-768.webp",
+        "1024": "/images/generated/new-construction-rough-in-6-1024.webp",
+        "1280": "/images/generated/new-construction-rough-in-6-1280.webp",
+        "1536": "/images/generated/new-construction-rough-in-6-1536.webp",
+        "1920": "/images/generated/new-construction-rough-in-6-1920.webp",
+        "2560": "/images/generated/new-construction-rough-in-6-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-rough-in-6-480.jpeg",
+        "640": "/images/generated/new-construction-rough-in-6-640.jpeg",
+        "768": "/images/generated/new-construction-rough-in-6-768.jpeg",
+        "1024": "/images/generated/new-construction-rough-in-6-1024.jpeg",
+        "1280": "/images/generated/new-construction-rough-in-6-1280.jpeg",
+        "1536": "/images/generated/new-construction-rough-in-6-1536.jpeg",
+        "1920": "/images/generated/new-construction-rough-in-6-1920.jpeg",
+        "2560": "/images/generated/new-construction-rough-in-6-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/new-construction-rough-in-7.webp": {
+    "originalPath": "/images/gallery/new-construction-rough-in-7.webp",
+    "altBase": "new-construction-rough-in-7",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAwCdASoUAA8APzmEuVOvKKWisAgB4CcJZS0FvjkAAzhUAAD5q+jgdLeEH1ee/HYldZ54tPqcM2giASpHJZjZrdm+BnN442Rp+4i7zm/Xgats2Jsq6neu1q27pqtu6atfc6qUrXMLOVLyjwydSAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/new-construction-rough-in-7-480.avif",
+        "640": "/images/generated/new-construction-rough-in-7-640.avif",
+        "768": "/images/generated/new-construction-rough-in-7-768.avif",
+        "1024": "/images/generated/new-construction-rough-in-7-1024.avif",
+        "1280": "/images/generated/new-construction-rough-in-7-1280.avif",
+        "1536": "/images/generated/new-construction-rough-in-7-1536.avif",
+        "1920": "/images/generated/new-construction-rough-in-7-1920.avif",
+        "2560": "/images/generated/new-construction-rough-in-7-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/new-construction-rough-in-7-480.webp",
+        "640": "/images/generated/new-construction-rough-in-7-640.webp",
+        "768": "/images/generated/new-construction-rough-in-7-768.webp",
+        "1024": "/images/generated/new-construction-rough-in-7-1024.webp",
+        "1280": "/images/generated/new-construction-rough-in-7-1280.webp",
+        "1536": "/images/generated/new-construction-rough-in-7-1536.webp",
+        "1920": "/images/generated/new-construction-rough-in-7-1920.webp",
+        "2560": "/images/generated/new-construction-rough-in-7-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/new-construction-rough-in-7-480.jpeg",
+        "640": "/images/generated/new-construction-rough-in-7-640.jpeg",
+        "768": "/images/generated/new-construction-rough-in-7-768.jpeg",
+        "1024": "/images/generated/new-construction-rough-in-7-1024.jpeg",
+        "1280": "/images/generated/new-construction-rough-in-7-1280.jpeg",
+        "1536": "/images/generated/new-construction-rough-in-7-1536.jpeg",
+        "1920": "/images/generated/new-construction-rough-in-7-1920.jpeg",
+        "2560": "/images/generated/new-construction-rough-in-7-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-drain-field-1.webp": {
+    "originalPath": "/images/gallery/septic-drain-field-1.webp",
+    "altBase": "septic-drain-field-1",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACQAwCdASoUABsAPzmMulUvKaWjKA1R4CcJR9Oca0YTGgCTK32AAP7TuPb/Umufv3hOUVoPP/VMtU7M3m9c4mb2nH9u8upjVhZbr6YMeT3CnbCg1KyWGAi//yAv2v+fx78wP4nflLkGzAmePyydSK0NyXl/pI/rDltyJ3fzDxZ9gmVIS6fQEipD53P+eFSzInKAzHORmLTUFqC1BWHjXpvC/hZdvkAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-drain-field-1-480.avif",
+        "640": "/images/generated/septic-drain-field-1-640.avif",
+        "768": "/images/generated/septic-drain-field-1-768.avif",
+        "1024": "/images/generated/septic-drain-field-1-1024.avif",
+        "1280": "/images/generated/septic-drain-field-1-1280.avif",
+        "1536": "/images/generated/septic-drain-field-1-1536.avif",
+        "1920": "/images/generated/septic-drain-field-1-1920.avif",
+        "2560": "/images/generated/septic-drain-field-1-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-drain-field-1-480.webp",
+        "640": "/images/generated/septic-drain-field-1-640.webp",
+        "768": "/images/generated/septic-drain-field-1-768.webp",
+        "1024": "/images/generated/septic-drain-field-1-1024.webp",
+        "1280": "/images/generated/septic-drain-field-1-1280.webp",
+        "1536": "/images/generated/septic-drain-field-1-1536.webp",
+        "1920": "/images/generated/septic-drain-field-1-1920.webp",
+        "2560": "/images/generated/septic-drain-field-1-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-drain-field-1-480.jpeg",
+        "640": "/images/generated/septic-drain-field-1-640.jpeg",
+        "768": "/images/generated/septic-drain-field-1-768.jpeg",
+        "1024": "/images/generated/septic-drain-field-1-1024.jpeg",
+        "1280": "/images/generated/septic-drain-field-1-1280.jpeg",
+        "1536": "/images/generated/septic-drain-field-1-1536.jpeg",
+        "1920": "/images/generated/septic-drain-field-1-1920.jpeg",
+        "2560": "/images/generated/septic-drain-field-1-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-drain-field-2.webp": {
+    "originalPath": "/images/gallery/septic-drain-field-2.webp",
+    "altBase": "septic-drain-field-2",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAACQBACdASoUABsAPzmSvlWvKyajMBgIAeAnCUxrVrq7Fg/wHEH7qKqQCXXvewAA/Y29P5sU57s7IRD2dvWA+hqJZ1Lta5jwdDTaT/wncs1t2hf+qgvDy+C73hd4sx9SskV2FagTcKycV6c5pFn9p0nOI8x191pTP9pTvBUHfTPwktEdurpoDsskl2EOf5qTZiAbOzy8NMlAqJO2KXyKQVnsrf1T0D8YkCL1UWpNYyYZt4uaMNZGwQActMuhS+G504XPEX8AAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-drain-field-2-480.avif",
+        "640": "/images/generated/septic-drain-field-2-640.avif",
+        "768": "/images/generated/septic-drain-field-2-768.avif",
+        "1024": "/images/generated/septic-drain-field-2-1024.avif",
+        "1280": "/images/generated/septic-drain-field-2-1280.avif",
+        "1536": "/images/generated/septic-drain-field-2-1536.avif",
+        "1920": "/images/generated/septic-drain-field-2-1920.avif",
+        "2560": "/images/generated/septic-drain-field-2-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-drain-field-2-480.webp",
+        "640": "/images/generated/septic-drain-field-2-640.webp",
+        "768": "/images/generated/septic-drain-field-2-768.webp",
+        "1024": "/images/generated/septic-drain-field-2-1024.webp",
+        "1280": "/images/generated/septic-drain-field-2-1280.webp",
+        "1536": "/images/generated/septic-drain-field-2-1536.webp",
+        "1920": "/images/generated/septic-drain-field-2-1920.webp",
+        "2560": "/images/generated/septic-drain-field-2-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-drain-field-2-480.jpeg",
+        "640": "/images/generated/septic-drain-field-2-640.jpeg",
+        "768": "/images/generated/septic-drain-field-2-768.jpeg",
+        "1024": "/images/generated/septic-drain-field-2-1024.jpeg",
+        "1280": "/images/generated/septic-drain-field-2-1280.jpeg",
+        "1536": "/images/generated/septic-drain-field-2-1536.jpeg",
+        "1920": "/images/generated/septic-drain-field-2-1920.jpeg",
+        "2560": "/images/generated/septic-drain-field-2-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-drain-field-3.webp": {
+    "originalPath": "/images/gallery/septic-drain-field-3.webp",
+    "altBase": "septic-drain-field-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAwBACdASoUABsAPzmEvlavJ6ajsBgIAeAnCWNaDjUvlUAGRBSa0goK8gAA/bMjA9zu/mjSbDt/PuAe9Qg5OVwJMoPiE1Ln39/+o0ZtPmv+9et/K4vSrkmsy/qJCzoQ2RjLi3gQYeVQ7MI4f39hcp+yXDrtFiu1JcJ+UtzXaKP6w2QMQ2UKKmPYLQY0mVe2b8FdX22V9VnTG2+3sxpsEfP57Wi0m2V6/xjQnvcmXTtrFNy0b/u4Zr8oQDBE8IAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-drain-field-3-480.avif",
+        "640": "/images/generated/septic-drain-field-3-640.avif",
+        "768": "/images/generated/septic-drain-field-3-768.avif",
+        "1024": "/images/generated/septic-drain-field-3-1024.avif",
+        "1280": "/images/generated/septic-drain-field-3-1280.avif",
+        "1536": "/images/generated/septic-drain-field-3-1536.avif",
+        "1920": "/images/generated/septic-drain-field-3-1920.avif",
+        "2560": "/images/generated/septic-drain-field-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-drain-field-3-480.webp",
+        "640": "/images/generated/septic-drain-field-3-640.webp",
+        "768": "/images/generated/septic-drain-field-3-768.webp",
+        "1024": "/images/generated/septic-drain-field-3-1024.webp",
+        "1280": "/images/generated/septic-drain-field-3-1280.webp",
+        "1536": "/images/generated/septic-drain-field-3-1536.webp",
+        "1920": "/images/generated/septic-drain-field-3-1920.webp",
+        "2560": "/images/generated/septic-drain-field-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-drain-field-3-480.jpeg",
+        "640": "/images/generated/septic-drain-field-3-640.jpeg",
+        "768": "/images/generated/septic-drain-field-3-768.jpeg",
+        "1024": "/images/generated/septic-drain-field-3-1024.jpeg",
+        "1280": "/images/generated/septic-drain-field-3-1280.jpeg",
+        "1536": "/images/generated/septic-drain-field-3-1536.jpeg",
+        "1920": "/images/generated/septic-drain-field-3-1920.jpeg",
+        "2560": "/images/generated/septic-drain-field-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-drain-field-4.webp": {
+    "originalPath": "/images/gallery/septic-drain-field-4.webp",
+    "altBase": "septic-drain-field-4",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADQAwCdASoUABsAPxl2sFOsp6Sit+gBkCMJTInuwccGgfgwDcXjdAAA/srzRK6ofvL3YzzwCBmxznHQ4eY35VRFID1DO67+KV/9Of/5+se2//n6Ddq8BF+6cT8g1kd+Oz+AD+I32QOaF+ST8U30rJNNRNOjqtOFd7Rvv9y5tDXwDmZe7S/sWt39f/9P5RywUhxzEXM5voZZxHpg1LQK5ssI0QG7kAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-drain-field-4-480.avif",
+        "640": "/images/generated/septic-drain-field-4-640.avif",
+        "768": "/images/generated/septic-drain-field-4-768.avif",
+        "1024": "/images/generated/septic-drain-field-4-1024.avif",
+        "1280": "/images/generated/septic-drain-field-4-1280.avif",
+        "1536": "/images/generated/septic-drain-field-4-1536.avif",
+        "1920": "/images/generated/septic-drain-field-4-1920.avif",
+        "2560": "/images/generated/septic-drain-field-4-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-drain-field-4-480.webp",
+        "640": "/images/generated/septic-drain-field-4-640.webp",
+        "768": "/images/generated/septic-drain-field-4-768.webp",
+        "1024": "/images/generated/septic-drain-field-4-1024.webp",
+        "1280": "/images/generated/septic-drain-field-4-1280.webp",
+        "1536": "/images/generated/septic-drain-field-4-1536.webp",
+        "1920": "/images/generated/septic-drain-field-4-1920.webp",
+        "2560": "/images/generated/septic-drain-field-4-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-drain-field-4-480.jpeg",
+        "640": "/images/generated/septic-drain-field-4-640.jpeg",
+        "768": "/images/generated/septic-drain-field-4-768.jpeg",
+        "1024": "/images/generated/septic-drain-field-4-1024.jpeg",
+        "1280": "/images/generated/septic-drain-field-4-1280.jpeg",
+        "1536": "/images/generated/septic-drain-field-4-1536.jpeg",
+        "1920": "/images/generated/septic-drain-field-4-1920.jpeg",
+        "2560": "/images/generated/septic-drain-field-4-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-drain-field-5.webp": {
+    "originalPath": "/images/gallery/septic-drain-field-5.webp",
+    "altBase": "septic-drain-field-5",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADQAwCdASoUABsAPzmItlUvKKSjMBgMAeAnCWNR8qdIzB2gBDMFZoAA/qCf/lVGb/0D6WbwTUbWVtVQ+B3PveCY/c3Ip8I1pQfKvTq/95//PH///3pJDL8iGpzyqXc9TGYPUxmD1MTmyOykYlq863hy1qb5XCtiuwZff8eesd3qTGYwBmBMC1SaPyx/fAh9rZyU2yxFkYfrNmfl5wJ9/e2U5EZ4PBE7qtk5kVRvwmAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-drain-field-5-480.avif",
+        "640": "/images/generated/septic-drain-field-5-640.avif",
+        "768": "/images/generated/septic-drain-field-5-768.avif",
+        "1024": "/images/generated/septic-drain-field-5-1024.avif",
+        "1280": "/images/generated/septic-drain-field-5-1280.avif",
+        "1536": "/images/generated/septic-drain-field-5-1536.avif",
+        "1920": "/images/generated/septic-drain-field-5-1920.avif",
+        "2560": "/images/generated/septic-drain-field-5-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-drain-field-5-480.webp",
+        "640": "/images/generated/septic-drain-field-5-640.webp",
+        "768": "/images/generated/septic-drain-field-5-768.webp",
+        "1024": "/images/generated/septic-drain-field-5-1024.webp",
+        "1280": "/images/generated/septic-drain-field-5-1280.webp",
+        "1536": "/images/generated/septic-drain-field-5-1536.webp",
+        "1920": "/images/generated/septic-drain-field-5-1920.webp",
+        "2560": "/images/generated/septic-drain-field-5-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-drain-field-5-480.jpeg",
+        "640": "/images/generated/septic-drain-field-5-640.jpeg",
+        "768": "/images/generated/septic-drain-field-5-768.jpeg",
+        "1024": "/images/generated/septic-drain-field-5-1024.jpeg",
+        "1280": "/images/generated/septic-drain-field-5-1280.jpeg",
+        "1536": "/images/generated/septic-drain-field-5-1536.jpeg",
+        "1920": "/images/generated/septic-drain-field-5-1920.jpeg",
+        "2560": "/images/generated/septic-drain-field-5-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-drain-field-6.webp": {
+    "originalPath": "/images/gallery/septic-drain-field-6.webp",
+    "altBase": "septic-drain-field-6",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRhIBAABXRUJQVlA4IAYBAABQBgCdASoUABsAPzmOvlOvKqcit/VYAeAnCWU+BqG+1ixe+AP4B+gHPY4IARt6+Ns8APZwVNUsOgQUAAD+w9+d+/+Yz9Wav9cP/7R0w+7/P/92SH7jNPabBjmSpreVo0FqwJtyVrsb2thdNU7wvjINEYcG050NHV9TH/741ckbiE/+f9yWYvc0ElCxz0kpfyQO4pFGhRzDu2Yd2zER/pksNZV+i57vvc933ue8Fb8eKvg/h5cCVPc/tl2+SzNKh9SDsgfeBQ+84bMLu84HTKgsL5j05qNy9VlRmITCyr1nk5MQf/9jDUlKXVLWVMcNRbD4D4MW8ERkiMCLzn2Cyt3oAaraEyAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-drain-field-6-480.avif",
+        "640": "/images/generated/septic-drain-field-6-640.avif",
+        "768": "/images/generated/septic-drain-field-6-768.avif",
+        "1024": "/images/generated/septic-drain-field-6-1024.avif",
+        "1280": "/images/generated/septic-drain-field-6-1280.avif",
+        "1536": "/images/generated/septic-drain-field-6-1536.avif",
+        "1920": "/images/generated/septic-drain-field-6-1920.avif",
+        "2560": "/images/generated/septic-drain-field-6-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-drain-field-6-480.webp",
+        "640": "/images/generated/septic-drain-field-6-640.webp",
+        "768": "/images/generated/septic-drain-field-6-768.webp",
+        "1024": "/images/generated/septic-drain-field-6-1024.webp",
+        "1280": "/images/generated/septic-drain-field-6-1280.webp",
+        "1536": "/images/generated/septic-drain-field-6-1536.webp",
+        "1920": "/images/generated/septic-drain-field-6-1920.webp",
+        "2560": "/images/generated/septic-drain-field-6-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-drain-field-6-480.jpeg",
+        "640": "/images/generated/septic-drain-field-6-640.jpeg",
+        "768": "/images/generated/septic-drain-field-6-768.jpeg",
+        "1024": "/images/generated/septic-drain-field-6-1024.jpeg",
+        "1280": "/images/generated/septic-drain-field-6-1280.jpeg",
+        "1536": "/images/generated/septic-drain-field-6-1536.jpeg",
+        "1920": "/images/generated/septic-drain-field-6-1920.jpeg",
+        "2560": "/images/generated/septic-drain-field-6-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-system-installation-3.webp": {
+    "originalPath": "/images/gallery/septic-system-installation-3.webp",
+    "altBase": "septic-system-installation-3",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACQBACdASoUABsAPzV8ulOvJyYit/VYAeAmiWM9QKRZPPoAawAnha6zh9CNrAAAzMn6fZc8G4OnrpDohFV6gFG3C/lkwW+83WyinqnVmsObsyOKgxRdYXrEQYzq+3r/+OuvFeLmbUbn5U4gYPVa6k4kYT8F6vNUr/L/XP7rmSYnXMkxOuZJxksj+8XGk/c3KT3Nyk9sfvlJLrZ76IdsoQZXtmIFhG21ateALB881RMScMZDW3Ze6Jvr84uYu60haxTUrEXucxckgsYAAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-system-installation-3-480.avif",
+        "640": "/images/generated/septic-system-installation-3-640.avif",
+        "768": "/images/generated/septic-system-installation-3-768.avif",
+        "1024": "/images/generated/septic-system-installation-3-1024.avif",
+        "1280": "/images/generated/septic-system-installation-3-1280.avif",
+        "1536": "/images/generated/septic-system-installation-3-1536.avif",
+        "1920": "/images/generated/septic-system-installation-3-1920.avif",
+        "2560": "/images/generated/septic-system-installation-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-system-installation-3-480.webp",
+        "640": "/images/generated/septic-system-installation-3-640.webp",
+        "768": "/images/generated/septic-system-installation-3-768.webp",
+        "1024": "/images/generated/septic-system-installation-3-1024.webp",
+        "1280": "/images/generated/septic-system-installation-3-1280.webp",
+        "1536": "/images/generated/septic-system-installation-3-1536.webp",
+        "1920": "/images/generated/septic-system-installation-3-1920.webp",
+        "2560": "/images/generated/septic-system-installation-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-system-installation-3-480.jpeg",
+        "640": "/images/generated/septic-system-installation-3-640.jpeg",
+        "768": "/images/generated/septic-system-installation-3-768.jpeg",
+        "1024": "/images/generated/septic-system-installation-3-1024.jpeg",
+        "1280": "/images/generated/septic-system-installation-3-1280.jpeg",
+        "1536": "/images/generated/septic-system-installation-3-1536.jpeg",
+        "1920": "/images/generated/septic-system-installation-3-1920.jpeg",
+        "2560": "/images/generated/septic-system-installation-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-system-installation-5.webp": {
+    "originalPath": "/images/gallery/septic-system-installation-5.webp",
+    "altBase": "septic-system-installation-5",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAADwAwCdASoUAA8APzmEuVOvKKWisAgB4CcJR3D0BiK8Ift+vwfPIwfwAP7KBH2ffHHQjkD8H5QAhXzUIPj7P1nYihV+bLUC7GaZRfo13tYb4RnWel7CU2o1W/Yhl+IP/vp+zGI/8Eu7N7D+bldb9aAtfzMrbmIDJ9+tnCE/dZ5ZWAg/F8t62miuv+SFPr/hnT6/4Zzy3PJxgAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-system-installation-5-480.avif",
+        "640": "/images/generated/septic-system-installation-5-640.avif",
+        "768": "/images/generated/septic-system-installation-5-768.avif",
+        "1024": "/images/generated/septic-system-installation-5-1024.avif",
+        "1280": "/images/generated/septic-system-installation-5-1280.avif",
+        "1536": "/images/generated/septic-system-installation-5-1536.avif",
+        "1920": "/images/generated/septic-system-installation-5-1920.avif",
+        "2560": "/images/generated/septic-system-installation-5-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-system-installation-5-480.webp",
+        "640": "/images/generated/septic-system-installation-5-640.webp",
+        "768": "/images/generated/septic-system-installation-5-768.webp",
+        "1024": "/images/generated/septic-system-installation-5-1024.webp",
+        "1280": "/images/generated/septic-system-installation-5-1280.webp",
+        "1536": "/images/generated/septic-system-installation-5-1536.webp",
+        "1920": "/images/generated/septic-system-installation-5-1920.webp",
+        "2560": "/images/generated/septic-system-installation-5-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-system-installation-5-480.jpeg",
+        "640": "/images/generated/septic-system-installation-5-640.jpeg",
+        "768": "/images/generated/septic-system-installation-5-768.jpeg",
+        "1024": "/images/generated/septic-system-installation-5-1024.jpeg",
+        "1280": "/images/generated/septic-system-installation-5-1280.jpeg",
+        "1536": "/images/generated/septic-system-installation-5-1536.jpeg",
+        "1920": "/images/generated/septic-system-installation-5-1920.jpeg",
+        "2560": "/images/generated/septic-system-installation-5-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-system-installation-6.webp": {
+    "originalPath": "/images/gallery/septic-system-installation-6.webp",
+    "altBase": "septic-system-installation-6",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4IPoAAACwBQCdASoUABsAPzmUwVmvKicjqAgB4CcJYz2SQC/QPGg1bdoHaBEAKcB6lDjHoFMBoJFwKAAA+zoj6XNcPpNxiB1BiX27cCnib21EniZ8K/jTmz6Z12y+rzl3Hp+q73+TsZv7owmtxc1jpZ8j5R9au+rV31fwbkUqGiizBlEIZzdHt73dz9p/z///DX6S3fxoHyO/65IX4smUQvYIHPb2sUD9I04UQ/YlCGMAsj+5m/XHweXrP5hpYoVVfY3c6zEu/v1THUuWoJzptz94KpnHNfaH/ztM3yCwe3ZZPAEuHARmzA/heZAJx0fQUvSm1DJbWmkG5NUAE/AA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-system-installation-6-480.avif",
+        "640": "/images/generated/septic-system-installation-6-640.avif",
+        "768": "/images/generated/septic-system-installation-6-768.avif",
+        "1024": "/images/generated/septic-system-installation-6-1024.avif",
+        "1280": "/images/generated/septic-system-installation-6-1280.avif",
+        "1536": "/images/generated/septic-system-installation-6-1536.avif",
+        "1920": "/images/generated/septic-system-installation-6-1920.avif",
+        "2560": "/images/generated/septic-system-installation-6-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-system-installation-6-480.webp",
+        "640": "/images/generated/septic-system-installation-6-640.webp",
+        "768": "/images/generated/septic-system-installation-6-768.webp",
+        "1024": "/images/generated/septic-system-installation-6-1024.webp",
+        "1280": "/images/generated/septic-system-installation-6-1280.webp",
+        "1536": "/images/generated/septic-system-installation-6-1536.webp",
+        "1920": "/images/generated/septic-system-installation-6-1920.webp",
+        "2560": "/images/generated/septic-system-installation-6-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-system-installation-6-480.jpeg",
+        "640": "/images/generated/septic-system-installation-6-640.jpeg",
+        "768": "/images/generated/septic-system-installation-6-768.jpeg",
+        "1024": "/images/generated/septic-system-installation-6-1024.jpeg",
+        "1280": "/images/generated/septic-system-installation-6-1280.jpeg",
+        "1536": "/images/generated/septic-system-installation-6-1536.jpeg",
+        "1920": "/images/generated/septic-system-installation-6-1920.jpeg",
+        "2560": "/images/generated/septic-system-installation-6-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/septic-system-installation-7.webp": {
+    "originalPath": "/images/gallery/septic-system-installation-7.webp",
+    "altBase": "septic-system-installation-7",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAABQBQCdASoUABsAPzmEuVOvKKWisBgMAeAnCUe49GgrPJg9m6gXQHG658DEJbYyOuVo8AAA/tJ2Ws7C9/PCUs/n/dl1VweDFi3fmao+M+bvrVczj50n+1BVN0+OI2kP3k1z9PnZgHd3zrGqfr4Bdc9+G2ItLpH8D+V/+cLqT/9RzXPic6mSkAyJoaCvVEvPPQmqyfazeIFg4UhM/Opf3c0TxHKnt0t3h+S3HPnWoRz3Wf/9cqHuzJf/256i+6p+j2XEcaMBhjeDovew/lh0B3BG6mf/+BzXMvyNMtcP/8T98mSskbH/+EYrT/ED8Zd/cwhX7LdHDgXeTOaALwAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/septic-system-installation-7-480.avif",
+        "640": "/images/generated/septic-system-installation-7-640.avif",
+        "768": "/images/generated/septic-system-installation-7-768.avif",
+        "1024": "/images/generated/septic-system-installation-7-1024.avif",
+        "1280": "/images/generated/septic-system-installation-7-1280.avif",
+        "1536": "/images/generated/septic-system-installation-7-1536.avif",
+        "1920": "/images/generated/septic-system-installation-7-1920.avif",
+        "2560": "/images/generated/septic-system-installation-7-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/septic-system-installation-7-480.webp",
+        "640": "/images/generated/septic-system-installation-7-640.webp",
+        "768": "/images/generated/septic-system-installation-7-768.webp",
+        "1024": "/images/generated/septic-system-installation-7-1024.webp",
+        "1280": "/images/generated/septic-system-installation-7-1280.webp",
+        "1536": "/images/generated/septic-system-installation-7-1536.webp",
+        "1920": "/images/generated/septic-system-installation-7-1920.webp",
+        "2560": "/images/generated/septic-system-installation-7-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/septic-system-installation-7-480.jpeg",
+        "640": "/images/generated/septic-system-installation-7-640.jpeg",
+        "768": "/images/generated/septic-system-installation-7-768.jpeg",
+        "1024": "/images/generated/septic-system-installation-7-1024.jpeg",
+        "1280": "/images/generated/septic-system-installation-7-1280.jpeg",
+        "1536": "/images/generated/septic-system-installation-7-1536.jpeg",
+        "1920": "/images/generated/septic-system-installation-7-1920.jpeg",
+        "2560": "/images/generated/septic-system-installation-7-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-1.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-1.webp",
+    "altBase": "under-slab-plumbing-1",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAwCdASoUAA8APzmGu1OvKSYisAgB4CcJZVTAU0AdRVgA/dY6JDKyMs7bMXCXRbywZv0wHdH4yhgApf60sl7Pc/IgYD+OFLyfely8n3pcbXqpzU2IduUrJm7Vr2wlV9BQAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-1-480.avif",
+        "640": "/images/generated/under-slab-plumbing-1-640.avif",
+        "768": "/images/generated/under-slab-plumbing-1-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-1-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-1-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-1-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-1-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-1-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-1-480.webp",
+        "640": "/images/generated/under-slab-plumbing-1-640.webp",
+        "768": "/images/generated/under-slab-plumbing-1-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-1-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-1-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-1-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-1-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-1-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-1-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-1-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-1-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-1-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-1-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-1-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-1-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-1-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-2.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-2.webp",
+    "altBase": "under-slab-plumbing-2",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAQBACdASoUABsAPzmGuFOvKSUisBgMAeAnCWVXu4wqIPMAT0yLCvhxAAD+fG/MV/d5gZWJ/ictf2XdzC1EVAcSi+VXjYCHW2aY/Lk/+W6/Zr/MAvbYp016TlCxu/e+/t+g/HD6O5YzC73ZbX6Mvd96UARIU66GSIGyPW0Z+1o3/eDpjYHjBWYoZ/ALBknnKahjJnulx8l58FOeekkm21pIp+Hl8T+JfkHXIJ5pPAAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-2-480.avif",
+        "640": "/images/generated/under-slab-plumbing-2-640.avif",
+        "768": "/images/generated/under-slab-plumbing-2-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-2-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-2-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-2-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-2-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-2-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-2-480.webp",
+        "640": "/images/generated/under-slab-plumbing-2-640.webp",
+        "768": "/images/generated/under-slab-plumbing-2-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-2-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-2-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-2-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-2-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-2-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-2-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-2-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-2-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-2-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-2-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-2-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-2-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-2-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-3.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-3.webp",
+    "altBase": "under-slab-plumbing-3",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwAwCdASoUAA8APzmKu1SvKaYjMAgB4CcJY0wXf9uyDsAFrAgA/fZ1p9nYfE5eKiPYO5+tnsmhwmc+zzbV8sc1ntml/8q//4WOpN+p7EI+NXKCjmkYNf9UGDX/VBg1/0YvjE/oNj/Gft94t3hnZp6PtdKgAAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-3-480.avif",
+        "640": "/images/generated/under-slab-plumbing-3-640.avif",
+        "768": "/images/generated/under-slab-plumbing-3-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-3-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-3-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-3-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-3-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-3-480.webp",
+        "640": "/images/generated/under-slab-plumbing-3-640.webp",
+        "768": "/images/generated/under-slab-plumbing-3-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-3-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-3-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-3-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-3-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-3-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-3-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-3-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-3-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-3-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-3-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-3-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-3-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-4.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-4.webp",
+    "altBase": "under-slab-plumbing-4",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAADwAwCdASoUABsAPzWKuFOvKiWisBgMAeAmiWM9aLQBCkFR1HftF+iAAP7K98G/Zo/7r/K6bXWjuSt2H/l7MRJSKqcOSfghLkHedAv489Vb0tPaLH4qgpcB7nmmVgVzHZ4LbepEwj7kjyjXVQwpmN+cgoDQ//2+vNYZkUJ7OCiPXlpZEUuBZVMNucFXqD8VqQVg2FGDfsaGU0MpoIaw8vUkKtlg0xMBAAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-4-480.avif",
+        "640": "/images/generated/under-slab-plumbing-4-640.avif",
+        "768": "/images/generated/under-slab-plumbing-4-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-4-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-4-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-4-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-4-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-4-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-4-480.webp",
+        "640": "/images/generated/under-slab-plumbing-4-640.webp",
+        "768": "/images/generated/under-slab-plumbing-4-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-4-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-4-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-4-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-4-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-4-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-4-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-4-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-4-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-4-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-4-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-4-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-4-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-4-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-5.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-5.webp",
+    "altBase": "under-slab-plumbing-5",
+    "width": 2560,
+    "height": 3413,
+    "aspectRatio": 0.75,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAAAQBQCdASoUABsAPzmSwFkvKiajqAgB4CcJYz1TUBD5KmfIE722f/GAHCgU9AL/oSQAAP1fagbzWmwl/WVLx2ay7I9dQnL17J+6vFg2tS6Fi8TcnEvnwER/jwvCBtv8HwrkV8QPdqJpyupSzN6YB5gQrjyo/RtPWX3vadgwVM/ex8Xu5n9OMJ9hJutWr870O7cdtJ16QN99739QSCTqW2+yRbr+vvrQ6qCXmZfqxkowzgb34WtYFMO3QkQ3pip3ABSGt5tiZyqo+qtAU4AAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-5-480.avif",
+        "640": "/images/generated/under-slab-plumbing-5-640.avif",
+        "768": "/images/generated/under-slab-plumbing-5-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-5-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-5-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-5-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-5-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-5-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-5-480.webp",
+        "640": "/images/generated/under-slab-plumbing-5-640.webp",
+        "768": "/images/generated/under-slab-plumbing-5-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-5-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-5-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-5-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-5-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-5-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-5-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-5-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-5-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-5-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-5-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-5-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-5-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-5-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-6.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-6.webp",
+    "altBase": "under-slab-plumbing-6",
+    "width": 2560,
+    "height": 4551,
+    "aspectRatio": 0.5625,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRjQBAABXRUJQVlA4ICgBAADwBQCdASoUACQAPymAsFOuKCSitVgMAcAlCUfWSpmTWbisnH/9SeQHudvq8mU4pXL8ChgQdVjawADhRg/7XoHQ62WXVE/zNc1nw7yYqhHPaiQzV6/xbR7Ra8F50GoTtH0JnkMU0KtpryXfAAmn1epPbJqGKl4tC+hul2+Jtd1e8eb3nMR8r2QJa//3r4BCNusVg57OzOyREiq9Pw+mBi/E1XcNCJ7oWTkAxwjlrr2nL3kNojJW4d4D4UJ52nKj/eAxaNeRLOJMb49ubWkn+l20EyELNBNEmPwTL/RzvZ858Tr6MTH96oVdw7ZbX82DMxsMlYFdsVlBSz/47XaGxy8nG10uFZqlU7dhH63VjBpL+EkvqxIIv+B4cAjk+zYHgBIgIjOFAAAAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-6-480.avif",
+        "640": "/images/generated/under-slab-plumbing-6-640.avif",
+        "768": "/images/generated/under-slab-plumbing-6-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-6-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-6-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-6-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-6-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-6-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-6-480.webp",
+        "640": "/images/generated/under-slab-plumbing-6-640.webp",
+        "768": "/images/generated/under-slab-plumbing-6-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-6-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-6-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-6-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-6-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-6-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-6-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-6-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-6-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-6-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-6-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-6-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-6-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-6-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-7.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-7.webp",
+    "altBase": "under-slab-plumbing-7",
+    "width": 2560,
+    "height": 4551,
+    "aspectRatio": 0.5625,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAACQBACdASoUACQAPzmSwFgvKiajpWsx4CcJZWZdCFbzbhZm2cCrqBMGCv/zgAAA/pMnw/SHZYl63QgRzm/2w++tyMNr8huNEfcHno7Xzqd/vypD7VwlBxpxa5vP4ib7Or8xYX117+8+CEIPIR8siGeduHegfR9bllrQZfRRJDSaXCBLXLp01C2rUT9ngWA8CvJYjtNxcQH2YE+tn9iavS6aMYmuKpOXXiDj3ym5lCuPfhzdpJnn3lYekRbLVN9zkY0yt6FqJvIuSV3n5Z/ucOifEWAzYiWyKJRucAAA",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-7-480.avif",
+        "640": "/images/generated/under-slab-plumbing-7-640.avif",
+        "768": "/images/generated/under-slab-plumbing-7-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-7-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-7-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-7-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-7-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-7-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-7-480.webp",
+        "640": "/images/generated/under-slab-plumbing-7-640.webp",
+        "768": "/images/generated/under-slab-plumbing-7-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-7-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-7-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-7-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-7-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-7-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-7-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-7-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-7-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-7-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-7-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-7-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-7-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-7-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/under-slab-plumbing-8.webp": {
+    "originalPath": "/images/gallery/under-slab-plumbing-8.webp",
+    "altBase": "under-slab-plumbing-8",
+    "width": 2560,
+    "height": 1440,
+    "aspectRatio": 1.7777777777777777,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAwCdASoUAAsAPzmMu1SvKaYjMAgB4CcJZT11u6CKADMlAADkGFC//0Uu7DR+QVY/JBswZidY+Tkdl0+ELDx3kgPbKJoFWBphIqxHn/+JK0G/CIYUap8PUoJ2TtWJsBF7ILjXpeUY9BnbPOyAAA==",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/under-slab-plumbing-8-480.avif",
+        "640": "/images/generated/under-slab-plumbing-8-640.avif",
+        "768": "/images/generated/under-slab-plumbing-8-768.avif",
+        "1024": "/images/generated/under-slab-plumbing-8-1024.avif",
+        "1280": "/images/generated/under-slab-plumbing-8-1280.avif",
+        "1536": "/images/generated/under-slab-plumbing-8-1536.avif",
+        "1920": "/images/generated/under-slab-plumbing-8-1920.avif",
+        "2560": "/images/generated/under-slab-plumbing-8-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/under-slab-plumbing-8-480.webp",
+        "640": "/images/generated/under-slab-plumbing-8-640.webp",
+        "768": "/images/generated/under-slab-plumbing-8-768.webp",
+        "1024": "/images/generated/under-slab-plumbing-8-1024.webp",
+        "1280": "/images/generated/under-slab-plumbing-8-1280.webp",
+        "1536": "/images/generated/under-slab-plumbing-8-1536.webp",
+        "1920": "/images/generated/under-slab-plumbing-8-1920.webp",
+        "2560": "/images/generated/under-slab-plumbing-8-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/under-slab-plumbing-8-480.jpeg",
+        "640": "/images/generated/under-slab-plumbing-8-640.jpeg",
+        "768": "/images/generated/under-slab-plumbing-8-768.jpeg",
+        "1024": "/images/generated/under-slab-plumbing-8-1024.jpeg",
+        "1280": "/images/generated/under-slab-plumbing-8-1280.jpeg",
+        "1536": "/images/generated/under-slab-plumbing-8-1536.jpeg",
+        "1920": "/images/generated/under-slab-plumbing-8-1920.jpeg",
+        "2560": "/images/generated/under-slab-plumbing-8-2560.jpeg"
+      }
+    }
+  },
+  "/images/gallery/well-pump-system-3.webp": {
+    "originalPath": "/images/gallery/well-pump-system-3.webp",
+    "altBase": "well-pump-system-3",
+    "width": 2560,
+    "height": 1920,
+    "aspectRatio": 1.3333333333333333,
+    "isHero": false,
+    "blurPlaceholder": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAADQBACdASoUAA8APzmGu1QvKSYjMAgB4CcJR62XJ/s33Acwfs34CZQPPCSJSXy5gAD+4SfdnTX2cYf1u2Uzc/0vIRMmWyXV0McbkxtQj6FHCB32305KoH49DvJu5IqBe6oOG36M9DtFvu94X/721/9LDX733uRv/7Lj/n9X93xlw38IbuVM4dTXxV8wKZxDP/GepXP8QXMCbAHtLA6QWdBL9bk8fvG/UIk4mHkHwAA=",
+    "variants": {
+      "avif": {
+        "480": "/images/generated/well-pump-system-3-480.avif",
+        "640": "/images/generated/well-pump-system-3-640.avif",
+        "768": "/images/generated/well-pump-system-3-768.avif",
+        "1024": "/images/generated/well-pump-system-3-1024.avif",
+        "1280": "/images/generated/well-pump-system-3-1280.avif",
+        "1536": "/images/generated/well-pump-system-3-1536.avif",
+        "1920": "/images/generated/well-pump-system-3-1920.avif",
+        "2560": "/images/generated/well-pump-system-3-2560.avif"
+      },
+      "webp": {
+        "480": "/images/generated/well-pump-system-3-480.webp",
+        "640": "/images/generated/well-pump-system-3-640.webp",
+        "768": "/images/generated/well-pump-system-3-768.webp",
+        "1024": "/images/generated/well-pump-system-3-1024.webp",
+        "1280": "/images/generated/well-pump-system-3-1280.webp",
+        "1536": "/images/generated/well-pump-system-3-1536.webp",
+        "1920": "/images/generated/well-pump-system-3-1920.webp",
+        "2560": "/images/generated/well-pump-system-3-2560.webp"
+      },
+      "jpeg": {
+        "480": "/images/generated/well-pump-system-3-480.jpeg",
+        "640": "/images/generated/well-pump-system-3-640.jpeg",
+        "768": "/images/generated/well-pump-system-3-768.jpeg",
+        "1024": "/images/generated/well-pump-system-3-1024.jpeg",
+        "1280": "/images/generated/well-pump-system-3-1280.jpeg",
+        "1536": "/images/generated/well-pump-system-3-1536.jpeg",
+        "1920": "/images/generated/well-pump-system-3-1920.jpeg",
+        "2560": "/images/generated/well-pump-system-3-2560.jpeg"
       }
     }
   }

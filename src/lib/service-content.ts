@@ -2,486 +2,638 @@ import type { RichServiceContent } from '@/types'
 
 export const serviceContent: Record<string, RichServiceContent> = {
   commercial: {
-    introHeading: 'Commercial Plumbing Built for Performance and Reliability',
+    introHeading: 'Commercial Plumbing That Keeps Your Building Running',
     introParagraphs: [
-      'Commercial plumbing is more than pipes and fixtures. It requires planning, solid execution, and systems that hold up under daily use. Preferred Plumbing Solutions has been building commercial systems for businesses in Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and Spokane for nearly four decades.',
-      'We work with retail centers, warehouses, office buildings, restaurants, and more. Every project gets a system built for how your operation actually runs. Our team knows the challenges of North Idaho commercial properties, from freeze-ups in winter to water quality issues in rural areas.',
-      'We keep things code-compliant and energy-efficient, and we coordinate with general contractors, property managers, and business owners to stay on schedule. From design through final inspection, we handle every step.',
+      'Commercial plumbing has to keep up with daily use, inspections, and tight schedules. Preferred Plumbing Solutions builds and services systems for businesses in Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and Spokane.',
+      'We work on retail centers, warehouses, office buildings, restaurants, and more. Every job gets planned around how your place actually operates. We know North Idaho winters, freeze-ups, and the water quality quirks that hit rural properties.',
+      'We stay code-compliant, keep energy waste down, and coordinate with general contractors, property managers, and owners so the job stays on track. From design through final inspection, we handle the plumbing side.',
     ],
     subServices: [
       {
         title: 'Plumbing System Design & Planning',
-        description: 'We work with architects and project leads to design plumbing systems that are compliant, efficient, and match your building\'s needs. Our process covers fixture count, usage demands, pipe sizing, and future scalability.',
+        description: 'We work with architects and project leads to design systems that pass code, run efficiently, and match how the building will be used. Fixture counts, pipe sizing, demand, and room to grow later all get worked out up front.',
       },
       {
         title: 'Commercial Water Heater Installation',
-        description: 'We install high-capacity water heaters and tankless systems for hotels, medical facilities, and more. We assess your demand and recommend systems that balance cost with performance.',
+        description: 'We install high-capacity tanks and tankless units for hotels, medical offices, and other high-demand sites. We look at your real usage and recommend equipment that balances cost with performance.',
       },
       {
         title: 'Backflow Prevention & Testing',
-        description: 'Many commercial settings require certified backflow prevention. We install and test backflow assemblies to keep potable water safe. We also handle annual testing, certifications, and repairs.',
+        description: 'Many commercial sites need certified backflow protection. We install and test assemblies to keep potable water safe, and we handle annual testing, certifications, and repairs.',
       },
       {
         title: 'Sewer & Drain Infrastructure',
-        description: 'We handle complex drain systems, stormwater management, and sewer line installations. Our team uses advanced diagnostics to find issues and design routing that reduces clogs and backups.',
+        description: 'We build and repair drain systems, stormwater lines, and sewer runs. Camera work and solid routing help cut down on clogs and backups later.',
       },
       {
         title: 'Grease Trap Installation & Maintenance',
-        description: 'Essential for restaurants and food businesses. We install new systems and provide scheduled maintenance to prevent clogs, avoid fines, and keep your plumbing running clean.',
+        description: 'A must for restaurants and food service. We install new traps and keep them on a schedule so you avoid clogs, fines, and messy shutdowns.',
       },
       {
         title: 'Commercial Fixture & Appliance Installations',
-        description: 'We install commercial-grade toilets, faucets, urinals, kitchen sinks, dishwashers, and disposals built for high-volume use. Every installation includes pressure testing, leak checks, and proper sealing.',
+        description: 'We install commercial toilets, faucets, urinals, kitchen sinks, dishwashers, and disposals built for heavy use. Every install gets pressure testing, leak checks, and proper sealing.',
       },
     ],
-    summaryHeading: 'Expert Plumbing for High-Demand Commercial Spaces',
+    summaryHeading: 'Plumbing Built for Busy Commercial Spaces',
     photos: [
       '/images/service-commercial-plumbing-project.webp',
-      '/images/gallery/commercial-grease-trap-1.webp',
+      '/images/gallery/commercial-plumbing-project-1.webp',
       '/images/service-residential-commercial-plumbing.webp',
     ],
     summaryParagraphs: [
-      'We have nearly four decades of experience building commercial plumbing systems across North Idaho. Office buildings, retail centers, restaurants, and industrial facilities, we handle them all.',
-      'We work with contractors, property managers, and developers to meet local codes and efficiency goals. Whether it is new construction or tenant improvements, every job gets our full attention.',
+      'We build and service commercial plumbing across North Idaho. Offices, retail, restaurants, and industrial buildings are all in our wheelhouse.',
+      'We work with contractors, property managers, and developers to hit local codes and keep jobs moving. New construction or tenant improvements, every job gets our full attention.',
     ],
     benefits: [
       {
-        title: 'Expertise in Large-Scale Systems',
-        description: 'Commercial systems are more complex than residential ones. Our team handles multi-floor piping, high-capacity lines, and industrial fixtures. We make sure everything meets code and handles the load.',
+        title: 'Experience With Larger Systems',
+        description: 'Commercial work is a different animal than residential. Multi-floor piping, high-capacity lines, and industrial fixtures are part of what we do every week, and we keep it all up to code.',
       },
       {
-        title: 'Minimized Downtime and Business Interruptions',
-        description: 'Plumbing problems can halt operations fast. We offer fast, reliable repairs and emergency services that work around your business hours so you don\'t lose productivity.',
+        title: 'Less Downtime for Your Business',
+        description: 'A plumbing failure can shut you down fast. We offer quick repairs and emergency help during business hours so you can get back to work.',
       },
       {
-        title: 'Preventive Maintenance Programs',
-        description: 'Routine maintenance catches wear, leaks, and clogs early. Scheduled inspections help extend your system\'s life and save money on major repairs down the road.',
+        title: 'Preventive Maintenance Plans',
+        description: 'Routine checks catch wear, leaks, and clogs early. Scheduled visits help your system last longer and spare you big repair bills later.',
       },
       {
-        title: 'Compliance with Health and Safety Regulations',
-        description: 'We keep your systems in line with local and federal codes, safety standards, and health regulations. This cuts the risk of fines, shutdowns, or liability issues.',
+        title: 'Health and Safety Code Compliance',
+        description: 'We keep your plumbing in line with local and federal codes. That lowers the risk of fines, shutdowns, or liability problems.',
       },
       {
-        title: 'Advanced Tools and Technology',
-        description: 'We use hydro-jetting, video pipe inspections, and leak detection systems. These tools give us accurate diagnostics so repairs and installations last longer.',
+        title: 'Solid Diagnostics Before We Dig In',
+        description: 'Hydro-jetting, video pipe inspections, and leak detection help us find the real problem first so the fix lasts.',
       },
       {
-        title: 'Customized Solutions for Specific Industries',
-        description: 'Restaurants need grease traps. Hospitals need sterilized water systems. We tailor every service to your industry for reliable performance.',
+        title: 'Industry-Specific Setups',
+        description: 'Restaurants need grease traps. Medical sites need clean water systems. We build the job around your industry, not a generic checklist.',
       },
     ],
-    benefitsHeading: 'Benefits of Commercial Plumbing Services',
-    closingHeading: 'Commercial Plumbing Built for Efficiency and Reliability',
+    benefitsHeading: 'Why Businesses Call Us',
+    closingHeading: 'Commercial Plumbing Without the Runaround',
     closingParagraphs: [
-      'Commercial properties in Spirit Lake need plumbing that handles constant use and strict codes. Preferred Plumbing Solutions delivers that. No shortcuts, no surprises.',
-      'We have built our reputation in Spirit Lake and surrounding communities by showing up, charging fair prices, and staying local. No corporate runaround, just good work.',
-      'We take the time to understand your operations and goals before building a system that fits. Let us help with your next commercial project.',
+      'Commercial properties in Spirit Lake need plumbing that handles constant use and strict codes. That is what we deliver. No shortcuts, no surprises.',
+      'We built our name in Spirit Lake and nearby towns by showing up, charging fair prices, and staying local. No corporate phone tree, just good work.',
+      'We take time to understand how your building runs before we build or fix the system. Call us about your next commercial job.',
     ],
   },
 
   'new-construction': {
-    introHeading: 'Engineered Plumbing Solutions for Modern Construction Projects',
+    introHeading: 'New Construction Plumbing Done Right From the Start',
     introParagraphs: [
-      'A well-designed plumbing system is critical for any new build. Single-family homes, multi-unit developments, and commercial facilities all depend on getting it right from day one. We have been doing new construction plumbing across Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and Spokane for nearly four decades.',
-      'Our licensed team works directly with general contractors, developers, architects, and homeowners. We make sure every part of the plumbing plan matches the architectural layout, utility needs, and long-term use of the building. From rough-ins to final fixtures, we deliver complete packages built to last. We know Kootenai County soil conditions, climate patterns, and permitting inside and out.',
+      'Getting plumbing right on a new build saves everyone headaches later. Homes, multi-unit projects, and commercial buildings all need solid rough-in and finish work. We handle new construction plumbing across Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and Spokane.',
+      'Our licensed crew works with general contractors, developers, architects, and homeowners. We match the plumbing plan to the layout, the utilities, and how the building will be used. From underground to trim-out, we deliver complete packages. We know Kootenai County soils, winter weather, and permitting.',
     ],
     subServices: [
       {
         title: 'Underground & Rough-In Plumbing',
-        description: 'We install under-slab and in-wall piping during early construction. We coordinate with builders to match blueprints and avoid costly rework. Every connection is made with longevity in mind.',
+        description: 'We install under-slab and in-wall piping early in the build. We coordinate with builders to match blueprints and avoid rework. Connections are made to last.',
       },
       {
         title: 'Fixture Planning & Final Installation',
-        description: 'We install toilets, sinks, showers, and water heaters per the design plans. All fixtures are code-compliant, water-efficient, and tested for operational readiness at closeout.',
+        description: 'We install toilets, sinks, showers, and water heaters per the plans. Fixtures are code-compliant, water-efficient, and tested before closeout.',
       },
       {
         title: 'Water Line Installation & Pressure Testing',
-        description: 'We lay main water lines and calibrate pressure regulation systems for residential or commercial demand. Only top-quality piping and fittings go into the job.',
+        description: 'We run main water lines and set pressure regulation for residential or commercial demand. Quality pipe and fittings go in the ground and in the walls.',
       },
       {
         title: 'Drain, Waste & Vent (DWV) Systems',
-        description: 'Proper venting and drainage prevent sewer gases and blockages. We design and install complete DWV systems with strict slope and sizing guidelines to avoid future issues.',
+        description: 'Good venting and drainage keep sewer gas out and blockages down. We install complete DWV systems with the right slope and sizing.',
       },
       {
         title: 'Gas Line Installation for Appliances',
-        description: 'We install gas lines with certified shut-off valves and pressure regulators for furnaces, stoves, water heaters, and more. All work is done to safety code with thorough leak testing.',
+        description: 'We run gas lines with certified shut-offs and regulators for furnaces, stoves, water heaters, and more. Everything gets leak tested to code.',
       },
       {
         title: 'Utility Coordination & Final System Testing',
-        description: 'We coordinate with utility providers for hookups and inspections. Then we run full-system tests to confirm flow, pressure, and leak-free operation throughout the structure.',
+        description: 'We coordinate utility hookups and inspections, then run full-system tests for flow, pressure, and leaks before we call it done.',
       },
     ],
-    summaryHeading: 'Precision Plumbing Built for Long-Term Performance',
+    summaryHeading: 'Plumbing That Passes Inspection and Holds Up',
     photos: [
       '/images/service-new-construction-plumbing.webp',
       '/images/service-new-construction-project.webp',
       '/images/service-residential-commercial-plumbing.webp',
     ],
     summaryParagraphs: [
-      'New construction plumbing is one of our specialties. We design and install complete systems that match your architectural plans and local code requirements for projects across Spirit Lake and North Idaho.',
-      'From single-family homes to multi-unit developments and commercial properties, every pipe, valve, and fixture gets installed right. We work with general contractors and project managers to hit deadlines and stay on budget.',
+      'New construction plumbing is one of our main lines of work. We design and install complete systems that match the plans and local code for projects across Spirit Lake and North Idaho.',
+      'From single-family homes to multi-unit and commercial jobs, every pipe, valve, and fixture gets installed right. We work with GCs and project managers to hit deadlines and stay on budget.',
     ],
     benefits: [
       {
-        title: 'Custom System Design for Optimal Performance',
-        description: 'We work with architects and builders to design plumbing that fits the blueprint and how the building will actually be used. That prevents pressure drops, drainage issues, and bad layouts.',
+        title: 'Systems Designed for How You Build',
+        description: 'We work with architects and builders so the plumbing fits the blueprint and real use. That cuts pressure drops, drainage problems, and awkward layouts.',
       },
       {
-        title: 'Code Compliance and Inspection Readiness',
-        description: 'We stay current on plumbing codes and regulations. Our installations pass inspections the first time, avoiding delays and rework.',
+        title: 'Ready for Inspection the First Time',
+        description: 'We stay current on plumbing codes. Our installs are built to pass, which keeps your schedule from sliding.',
       },
       {
-        title: 'High-Quality Materials and Installation Techniques',
-        description: 'We choose the right materials for each application, whether copper for durability or PEX for flexibility. Proper installation minimizes weak points and potential failures.',
+        title: 'Good Materials, Careful Install',
+        description: 'We pick the right pipe for the job, copper where it makes sense, PEX where it fits. Clean installs mean fewer weak spots later.',
       },
       {
-        title: 'Energy and Water Efficiency Built In',
-        description: 'We integrate efficient technologies like tankless water heaters, pressure-balancing valves, and low-flow fixtures. These choices cut water and energy use without sacrificing performance.',
+        title: 'Efficiency Built Into the Plan',
+        description: 'Tankless heaters, pressure-balancing valves, and low-flow fixtures can go in from day one. You get lower water and energy use without giving up performance.',
       },
       {
-        title: 'Future-Proofing and Expansion Readiness',
-        description: 'We include strategic shut-offs, capped lines, and access points so adding appliances or expanding the system later is easier and cheaper.',
+        title: 'Room to Expand Later',
+        description: 'Shut-offs, capped lines, and access points make future appliances or additions easier and cheaper.',
       },
       {
-        title: 'Warranty Protection You Can Count On',
-        description: 'We provide warranties on both products and workmanship. If anything comes up, we handle it quickly.',
+        title: 'Warranty Backing You Can Use',
+        description: 'We stand behind products and workmanship. If something comes up, we take care of it.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Plumbing for New Builds',
-    closingHeading: 'Plumbing Designed Around Your Project, Not the Other Way',
+    benefitsHeading: 'Why Builders Keep Calling Us Back',
+    closingHeading: 'Plumbing Planned Around Your Build Schedule',
     closingParagraphs: [
-      'A strong plumbing system is the foundation of a safe, functional building. We have been doing this in Spirit Lake and across North Idaho since 1987, and we get it done right the first time.',
-      'New construction needs more than technical skill. It takes reliable coordination, sticking to timelines, and clear communication. We focus on being a dependable partner from planning through completion.',
+      'Solid plumbing is what keeps a new building safe and usable. We get it right the first time across Spirit Lake and North Idaho.',
+      'New construction takes more than good pipe work. It takes showing up on time, talking straight, and staying coordinated. That is how we work from planning through final trim.',
     ],
   },
 
   'water-heaters': {
-    introHeading: 'Dependable Hot Water Solutions for Every Home',
+    introHeading: 'Hot Water You Can Count On',
     introParagraphs: [
-      'Hot water is something you do not think about until it is gone. Whether it is a cold morning shower or a dishwasher that needs hot water to work right, you need a system you can count on. We have been installing and servicing water heaters in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint for nearly 40 years.',
-      'North Idaho winters are hard on water heaters. Ours? We focus on performance, safety, and value. We work with both traditional tanks and tankless units to find what fits your space, usage, and budget.',
-      'Energy efficiency and longevity matter here. Every water heater we touch gets a thorough inspection to make sure it meets state and local code. We know the local climate and what it demands from your system.',
+      'You do not think about hot water until it is gone. Cold showers and a dishwasher that will not clean right are no fun. We have been installing and servicing water heaters in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint for nearly 40 years.',
+      'North Idaho winters are hard on heaters. We focus on performance, safety, and value. Traditional tanks and tankless units both have a place, and we help you pick what fits your space, usage, and budget.',
+      'Efficiency and longevity matter here. Every unit we install or service gets checked against state and local code. We know what this climate asks of a water heater.',
     ],
     subServices: [
       {
         title: 'Water Heater Installation',
-        description: 'We install standard tanks and advanced tankless systems sized to your property and hot water needs. Every installation meets Idaho building codes and energy standards. We handle permits and final inspections.',
+        description: 'We install standard tanks and tankless systems sized to your property and hot water needs. Installs meet Idaho building codes and energy standards. We handle permits and final inspections.',
       },
       {
         title: 'Water Heater Repair',
-        description: 'We diagnose and fix thermostat failures, pilot light problems, sediment buildup, and more. Each repair is done with long-term performance and safety in mind.',
+        description: 'We diagnose and fix thermostat failures, pilot light problems, sediment buildup, and more. Repairs are done with long-term performance and safety in mind.',
       },
       {
-        title: 'Tankless Water Heater Services',
-        description: 'We install and maintain tankless systems for homes that want to save space and energy. We assess flow rates and usage to recommend the right model and configuration.',
+        title: 'Tankless Water Heater Options',
+        description: 'Looking at on-demand hot water? We install and service tankless systems. See our tankless water heater page for sizing, install, and conversion details.',
       },
       {
         title: 'Annual Maintenance Plans',
-        description: 'Regular flushing, inspections, and component testing catch issues early. Our scheduled maintenance protects your investment and prevents costly breakdowns.',
+        description: 'Flushing, inspections, and component checks catch problems early. Scheduled maintenance protects your investment and helps avoid breakdowns.',
       },
       {
         title: 'Water Heater Replacement',
-        description: 'If your unit is beyond repair, we handle the full replacement. We help you pick the right model for your family size and usage, then remove and dispose of the old unit safely.',
+        description: 'When a unit is past saving, we handle the full swap. We help you pick the right model for family size and use, then remove and dispose of the old one safely.',
       },
       {
         title: 'Emergency Water Heater Services',
-        description: 'Leaks, no hot water, or pressure problems can\'t wait. We offer rapid emergency service day or night to restore safe, reliable hot water fast.',
+        description: 'Leaks, no hot water, or pressure problems cannot wait. We offer fast emergency service during business hours to get safe hot water back online.',
       },
     ],
-    summaryHeading: 'Efficient Water Heater Services for Lasting Comfort',
+    summaryHeading: 'Water Heater Work That Holds Up',
     photos: [
       '/images/service-water-heater-installation.webp',
       '/images/service-water-softener-utility-room.webp',
     ],
     summaryParagraphs: [
-      'We match the water heater to your household, not the other way around. Tank or tankless, we help you pick what works for your family size and budget.',
-      'Our installations hold up. Our repairs are fast and thorough. We get your hot water back on and keep it that way.',
+      'We match the heater to your household, not a one-size sales pitch. Family size and budget both matter when we help you choose.',
+      'Our installs hold up. Our repairs are thorough. We get your hot water back and help keep it that way.',
     ],
     benefits: [
       {
-        title: 'Reliable Installation and Repairs',
-        description: 'Proper installation and repair mean safe operation and peak performance. We check all connections, venting, and controls to reduce the chance of leaks or future problems.',
+        title: 'Installs and Repairs Done Correctly',
+        description: 'Proper install and repair mean safer operation. We check connections, venting, and controls so you are less likely to deal with leaks later.',
       },
       {
-        title: 'Improved Energy Efficiency',
-        description: 'We optimize your water heater to use less energy. Flushing sediment, calibrating temperatures, and recommending upgrades all add up to noticeable savings.',
+        title: 'Better Energy Use',
+        description: 'Flushing sediment, setting temperatures right, and talking through upgrades can all cut energy waste. You notice it on the bill.',
       },
       {
-        title: 'Extended Equipment Lifespan',
-        description: 'Regular maintenance catches corrosion, mineral buildup, and faulty parts early. This reduces wear and helps your water heater last years longer.',
+        title: 'Longer Equipment Life',
+        description: 'Regular maintenance catches corrosion, mineral buildup, and bad parts early. That reduces wear and helps the unit last years longer.',
       },
       {
-        title: 'Accurate Problem Diagnosis',
-        description: 'We spot problems that untrained eyes miss. Faulty thermostats, broken heating elements, internal rust, we pinpoint the issue fast and fix it right.',
+        title: 'Clear Diagnosis',
+        description: 'Faulty thermostats, burned-out elements, internal rust: we find the real issue and fix it instead of guessing.',
       },
       {
-        title: 'Compliance with Safety Regulations',
-        description: 'Water heaters involve high-voltage or gas connections that must meet safety codes. Our certified team handles these safely and in full compliance.',
+        title: 'Safety Code Compliance',
+        description: 'Water heaters involve gas or high-voltage power. Our licensed team handles the work safely and to code.',
       },
       {
-        title: 'Straight Answers When You Need Them',
-        description: 'We don\'t just fix things. We help you understand your system, recommend maintenance routines, and advise on upgrades like tankless conversion.',
+        title: 'Straight Answers',
+        description: 'We explain what we find, what maintenance looks like, and when a tankless upgrade makes sense (or does not).',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Water Heater Services',
-    closingHeading: 'Hot Water Installations That Meet Code and Save Energy',
+    benefitsHeading: 'Why Homeowners Call Us for Hot Water',
+    closingHeading: 'Installs That Meet Code and Cut Energy Waste',
     closingParagraphs: [
-      'Northern Idaho means freezing temperatures, hard water, and a real need for hot water every single day. In this climate, your water heater is essential equipment. Professional service tuned to local conditions makes a real difference.',
-      'We have been working with the plumbing systems, building codes, and seasonal demands in Spirit Lake and surrounding communities for decades. Let us keep your hot water flowing.',
+      'Northern Idaho means freezing temps, hard water, and a daily need for hot water. In this climate, your heater is essential. Local know-how makes a real difference.',
+      'We know the systems, codes, and seasonal demands around Spirit Lake. Thinking tankless? Ask us about our tankless water heater options.',
     ],
   },
 
   'radiant-heat': {
-    introHeading: 'Warmth That Stands Up to North Idaho Winters',
+    introHeading: 'Warm Floors for North Idaho Winters',
     introParagraphs: [
-      'Winter in North Idaho is no joke. Radiant heating changes how your home feels when the temperature drops. Instead of blowing hot air around, it warms the floor itself, radiating heat upward for even comfort without noisy vents or dust.',
-      'We have been installing and servicing radiant heat systems in Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and Spokane for decades. We know the insulation needs, home construction styles, and energy codes around here.',
-      'We design hydronic and electric radiant systems that are quiet, invisible, and built right into your structure. From slab foundations to multi-level homes, radiant heat adds comfort year-round.',
+      'Winter around here is no joke. Radiant heat warms the floor itself so the whole room feels even, without noisy vents pushing dust around.',
+      'We install and service radiant systems in Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and Spokane. We know the insulation needs, home styles, and energy codes in this area.',
+      'We design hydronic and electric radiant systems that sit quietly in the structure. Slab foundations or multi-level homes, radiant heat makes winter living a lot more comfortable.',
     ],
     subServices: [
       {
         title: 'Hydronic Radiant Heat Installation',
-        description: 'Water-based systems circulate heated water through tubing beneath the floor. This method offers excellent efficiency for larger properties with multiple zones.',
+        description: 'Water-based systems circulate heated water through tubing under the floor. Strong efficiency for larger homes with multiple zones.',
       },
       {
         title: 'Electric Radiant Floor Heating',
-        description: 'Electric mats are perfect for spot heating in individual rooms, especially under tile or stone. They\'re compact, responsive, and great for bathrooms, kitchens, and remodels.',
+        description: 'Electric mats work well for spot heating in single rooms, especially under tile or stone. Compact and responsive for bathrooms, kitchens, and remodels.',
       },
       {
         title: 'Radiant Heat in New Construction',
-        description: 'Integrating radiant heat during the design phase maximizes efficiency. We work with contractors and architects to align the layout with the structure, avoiding costly retrofits.',
+        description: 'Putting radiant in during the design phase gets the best efficiency. We work with contractors and architects so the layout matches the structure.',
       },
       {
         title: 'Retrofit Radiant Heat Installation',
-        description: 'We install radiant systems in existing homes without major structural changes. We assess your flooring and identify the cleanest, least invasive approach.',
+        description: 'We add radiant systems to existing homes without tearing the place apart. We look at your flooring and find the cleanest path forward.',
       },
       {
         title: 'Boiler System Integration',
-        description: 'For hydronic systems, we size and install high-efficiency gas or electric boilers that match your heating demands. Proper integration ensures reliable heat across all zones.',
+        description: 'For hydronic systems, we size and install gas or electric boilers that match your heating load. Proper integration keeps every zone reliable.',
       },
       {
         title: 'Thermostat & Zone Control Setup',
-        description: 'Zoned radiant systems offer flexibility and savings. We install user-friendly thermostats that let you control temperature room by room.',
+        description: 'Zoned radiant systems give you control and savings. We set up thermostats that let you manage temperature room by room.',
       },
     ],
-    summaryHeading: 'Even, Energy-Efficient Heating with Radiant Heat Systems',
+    summaryHeading: 'Quiet, Even Heat From the Floor Up',
     photos: [
       '/images/service-radiant-heat-boiler.webp',
       '/images/service-water-softener-utility-room.webp',
     ],
     summaryParagraphs: [
-      'Radiant heating is one of the best upgrades you can make to a North Idaho home. Warm floors, no drafts, no noise. We have been doing it long enough to get it right every time.',
-      'We install and service both hydronic and electric systems that work with your flooring and home design. New build or retrofit, we tailor the setup to your layout.',
+      'Radiant heating is one of the smartest upgrades for a North Idaho home. Warm floors, no drafts, no blower noise. We have been doing this long enough to get it right.',
+      'We install and service hydronic and electric systems that work with your flooring and layout. New build or retrofit, we build the setup around your house.',
     ],
     benefits: [
       {
-        title: 'Even Heat Distribution',
-        description: 'Radiant heat warms surfaces evenly throughout the room. Floors, walls, and furniture absorb and radiate warmth. No cold spots, no uneven heating between rooms.',
+        title: 'Even Heat Across the Room',
+        description: 'Radiant heat warms the surfaces in the space. Floors, walls, and furniture hold and give back warmth. Fewer cold spots between rooms.',
       },
       {
-        title: 'Energy Efficiency',
-        description: 'These systems operate at lower temperatures while still delivering comfort. Heat goes where it\'s needed, reducing waste and lowering your heating bills.',
+        title: 'Lower Heating Bills',
+        description: 'These systems often run at lower temps while still feeling comfortable. Heat goes where you need it, which cuts waste.',
       },
       {
-        title: 'Improved Indoor Air Quality',
-        description: 'No fans or ducts means less airborne dust, pollen, and allergens. You also avoid the dryness of forced-air systems. The result is cleaner air throughout your home.',
+        title: 'Cleaner Indoor Air',
+        description: 'No fans or ducts means less dust and pollen blowing around. You also skip the dry blast of forced air.',
       },
       {
         title: 'Silent Operation',
-        description: 'Radiant heat is completely silent. No clicking baseboards, blowing vents, or cycling blowers. Just quiet, steady warmth.',
+        description: 'No clicking baseboards, blowing vents, or cycling blowers. Just steady warmth.',
       },
       {
-        title: 'Minimal Maintenance',
-        description: 'Hydronic and electric systems have no belts, motors, or filters to replace. Properly installed, they often run for decades without needing repairs.',
+        title: 'Little Maintenance',
+        description: 'Hydronic and electric radiant systems have no belts, motors, or filters to swap. Installed right, they often run for decades.',
       },
       {
-        title: 'Increases Property Value',
-        description: 'Radiant floor heating is a sought-after feature. It improves comfort, lowers utility costs, and boosts your home\'s resale appeal.',
+        title: 'Adds Value to the Home',
+        description: 'Buyers notice warm floors. Comfort, lower utility costs, and resale appeal all go up.',
       },
     ],
-    benefitsHeading: 'Benefits of Radiant Heating Systems',
-    closingHeading: 'Radiant Heat Done Right for North Idaho Homes',
+    benefitsHeading: 'What You Get With Radiant Heat',
+    closingHeading: 'Radiant Heat Done Right for This Climate',
     closingParagraphs: [
-      'Radiant heating is an investment in how your home feels through Idaho winters. Our goal is simple: keep you warm, comfortable, and save you money on heating bills.',
-      'We design systems that stand up to snow and subzero temperatures. Every detail matters, from flooring type to room layout. We make sure each system performs for decades.',
+      'Radiant heating is an investment in how your home feels through Idaho winters. Our goal is simple: keep you warm and help you spend less on heat.',
+      'We design systems that stand up to snow and subzero temps. Want the same hydronic tech outdoors? Ask about our heated driveway and snow-melt systems.',
     ],
   },
 
   'water-softeners': {
-    introHeading: 'Protect Your Plumbing from Hard Water Damage',
+    introHeading: 'Stop Hard Water From Eating Your Plumbing',
     introParagraphs: [
-      'Hard water is a real problem around here. It damages pipes, makes appliances work harder, and leaves mineral buildup everywhere. We install and maintain water softeners for homes and businesses across Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint.',
-      'The water in Bonner County and Kootenai County often has high calcium and magnesium levels. These minerals shorten the life of your fixtures, cause scale in water heaters, and leave dishes and laundry looking dull. We know this because we deal with it every day.',
-      'We match the system to your household size, water usage, and hardness level. New build or existing home, we set it up for long-term performance.',
+      'Hard water is a real problem around here. It roughs up pipes, wears out appliances, and leaves mineral scale everywhere. We install and maintain water softeners for homes and businesses across Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint.',
+      'Water in Bonner County and Kootenai County often runs high in calcium and magnesium. Those minerals shorten fixture life, scale up water heaters, and leave dishes and laundry looking dull. We see it every day.',
+      'We match the system to household size, water use, and hardness level. New build or existing home, we set it up to keep working for the long haul.',
     ],
     subServices: [
       {
         title: 'Water Softener Installation',
-        description: 'We install salt-based and salt-free softeners based on your water test results. Our work ensures correct sizing, proper connections, and full code compliance.',
+        description: 'We install salt-based and salt-free softeners based on your water test. Correct sizing, proper connections, and code compliance are part of every job.',
       },
       {
         title: 'System Upgrades and Replacements',
-        description: 'Older softeners lose efficiency. We evaluate your setup and recommend modern systems that match your current usage and meet today\'s water quality standards.',
+        description: 'Older softeners lose efficiency. We evaluate your setup and recommend a modern unit that matches current usage and water quality.',
       },
       {
         title: 'Water Hardness Testing',
-        description: 'We test your water on-site to determine exact hardness levels. Accurate results let us calibrate your system for optimal performance and minimal salt or water waste.',
+        description: 'We test on-site for exact hardness levels. Accurate numbers let us calibrate the system for good performance with less salt and water waste.',
       },
       {
         title: 'Salt Delivery and Maintenance',
-        description: 'We provide ongoing salt delivery and routine checks for traditional softeners. Regular maintenance extends equipment life and keeps water quality consistent.',
+        description: 'We offer ongoing salt delivery and routine checks for traditional softeners. Regular care extends equipment life and keeps water quality steady.',
       },
       {
         title: 'System Troubleshooting and Repairs',
-        description: 'If your softener isn\'t performing, we diagnose and fix the issue fast. Motor failures, salt bridging, resin tank problems, we handle it all.',
+        description: 'Softener not working right? We diagnose and fix it. Motor failures, salt bridging, resin tank problems: we handle those regularly.',
       },
       {
         title: 'Consultation for New Builds',
-        description: 'We help integrate water softeners into the plumbing layout early in construction. This prevents retrofitting costs and ensures your home is protected from day one.',
+        description: 'We help plan softener placement into the plumbing layout early so you avoid retrofit costs and protect the home from day one.',
       },
     ],
-    summaryHeading: 'Experience Cleaner Water and Greater Efficiency with Expert Water Softener Solutions',
+    summaryHeading: 'Softer Water, Longer-Lasting Plumbing',
     photos: [
       '/images/service-water-softener-installation.webp',
       '/images/service-water-softener-utility-room.webp',
     ],
     summaryParagraphs: [
-      'Hard water is one of those things you do not realize is causing problems until it is gone. Scale buildup, shorter appliance life, inefficient plumbing. We have been helping families in Spirit Lake enjoy softer, cleaner water for decades.',
-      'We install and service water softeners that remove excess calcium and magnesium. You get cleaner dishes, softer laundry, and water heaters and pipes that last longer.',
+      'Hard water causes problems you may not notice until they get expensive: scale, shorter appliance life, and plumbing that works harder than it should. We help Spirit Lake families get softer, cleaner water with solid softener installs and service.',
+      'Our softeners remove excess calcium and magnesium. You get cleaner dishes, softer laundry, and water heaters and pipes that last longer.',
     ],
     benefits: [
       {
-        title: 'Prolongs Plumbing Life',
-        description: 'Water softeners prevent scale buildup in pipes and fixtures. Reduced deposits mean fewer clogs, lower repair costs, and smoother water flow.',
+        title: 'Longer Plumbing Life',
+        description: 'Softeners cut scale in pipes and fixtures. Fewer deposits mean fewer clogs, lower repair costs, and better flow.',
       },
       {
-        title: 'Enhances Appliance Efficiency',
-        description: 'Hard water damages water heaters, dishwashers, and washing machines. A softener helps them work more efficiently, use less energy, and last longer.',
+        title: 'Appliances Work Better',
+        description: 'Hard water wears out water heaters, dishwashers, and washers. Soft water helps them run cleaner, use less energy, and last longer.',
       },
       {
         title: 'Cleaner, Softer Laundry',
-        description: 'Soft water helps detergent dissolve completely. Clothes come out softer, brighter, and without soap residue. Towels and fabrics stay fresh longer.',
+        description: 'Soft water helps detergent dissolve fully. Clothes come out softer and brighter, without that chalky feel.',
       },
       {
-        title: 'Spot-Free Dishes and Surfaces',
-        description: 'Soft water means dishes come out cleaner and glassware stays clear. Soap scum and mineral stains on sinks and fixtures are dramatically reduced.',
+        title: 'Spot-Free Dishes and Sinks',
+        description: 'Dishes rinse cleaner and glassware stays clearer. Soap scum and mineral stains on fixtures drop off a lot.',
       },
       {
-        title: 'Healthier Skin and Hair',
-        description: 'Soft water is gentler on skin and scalp. You\'ll notice less dryness and irritation, especially if you have sensitive skin or eczema.',
+        title: 'Gentler on Skin and Hair',
+        description: 'Soft water is easier on skin and scalp. Less dryness and irritation, especially if you already deal with sensitive skin.',
       },
       {
-        title: 'Saves Money Long-Term',
-        description: 'Water softeners protect plumbing, lower energy bills, and reduce detergent and soap usage. It pays for itself over time.',
+        title: 'Saves Money Over Time',
+        description: 'You protect plumbing, lower energy use, and use less soap and detergent. The softener usually pays for itself.',
       },
     ],
-    benefitsHeading: 'Benefits of Water Softeners',
-    closingHeading: 'Water Quality That Holds Up in North Idaho',
+    benefitsHeading: 'Why Soft Water Matters Around Here',
+    closingHeading: 'Water Quality Built for North Idaho Wells and City Lines',
     closingParagraphs: [
-      'Hard water is not just about spots on dishes. It affects your utility bills and how long your plumbing lasts. We have spent decades helping homeowners around Spirit Lake and across the region deal with mineral-rich water.',
-      'Water softeners extend the life of your appliances and improve how your water feels and tastes. We make sure you understand how to maintain it, check salt levels, and keep it performing.',
+      'Hard water is more than spots on glasses. It hits your utility bills and how long your plumbing lasts. We have spent decades helping homeowners around Spirit Lake deal with mineral-rich water.',
+      'Softeners extend appliance life and change how your water feels day to day. We make sure you know how to check salt and keep the system performing.',
     ],
   },
 
   'sewer-line': {
-    introHeading: 'Professional Sewer Line Replacement When You Need It Most',
+    introHeading: 'Sewer Line Replacement When the Old Line Gives Out',
     introParagraphs: [
-      'A failed sewer line is not something you can ignore. Older infrastructure and seasonal soil movement in North Idaho make these issues urgent. We have been handling sewer line replacements in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint for decades.',
-      'We start every job with a camera inspection to see exactly what is going on. Then we recommend the best approach, including trenchless methods when possible. Residential or commercial, we get it done with minimal disruption to your property.',
-      'Our estimates are honest, our work is guaranteed, and we leave your property clean and safe when we are done.',
+      'A failed sewer line is not something you can put off. Older pipes and seasonal soil movement in North Idaho make these jobs urgent. We replace sewer lines in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint, and we do the job carefully.',
+      'Every job starts with a camera inspection so we can see what is going on. Then we recommend the best approach, including trenchless methods when they fit. Residential or commercial, we work to limit disruption to your property.',
+      'Estimates are honest, work is guaranteed, and we leave the site clean and safe when we are done.',
     ],
     subServices: [
       {
         title: 'Full Sewer Line Replacement',
-        description: 'We replace entire sewer lines using trench or trenchless methods. We assess site conditions, choose the best approach, and install using high-quality materials for a system built to last.',
+        description: 'We replace entire sewer lines with trench or trenchless methods. We assess the site, pick the right approach, and install durable materials built to last.',
       },
       {
         title: 'Sewer Line Camera Inspections',
-        description: 'We conduct video inspections to assess the internal condition of the pipe. This non-invasive process pinpoints breaks, corrosion, and blockages with precision.',
+        description: 'Video inspections show the inside of the pipe. We find breaks, corrosion, and blockages without guessing.',
       },
       {
         title: 'Trenchless Sewer Replacement',
-        description: 'Pipe bursting and lining techniques reduce landscape disruption. These methods let us replace damaged lines quickly with minimal digging.',
+        description: 'Pipe bursting and lining cut down on landscape damage. We can often replace a bad line with far less digging.',
       },
       {
         title: 'Emergency Sewer Replacement',
-        description: 'When a sewer line fails unexpectedly, we respond fast. We address severe backups, collapses, and hazardous leaks to stabilize the situation and restore function.',
+        description: 'When a line fails suddenly, we respond fast. Severe backups, collapses, and hazardous leaks get stabilized and repaired.',
       },
       {
         title: 'Sewer Line Permitting and Code Compliance',
-        description: 'We handle all local permits and schedule required inspections. We know state and municipal plumbing codes inside out.',
+        description: 'We handle local permits and schedule inspections. State and municipal plumbing codes are part of how we plan every job.',
       },
       {
         title: 'Post-Replacement Testing & Clean-Up',
-        description: 'After installation, we run pressure and flow tests to confirm performance. We clean the work area thoroughly and restore affected surfaces.',
+        description: 'After install, we run pressure and flow tests. Then we clean up and restore affected surfaces as much as the site allows.',
       },
     ],
-    summaryHeading: 'Reliable Sewer Line Replacement for Long-Term Protection',
+    summaryHeading: 'A New Sewer Line That Protects Your Home',
     photos: [
       '/images/service-sewer-line-replacement.webp',
-      '/images/gallery/sewer-line-replacement-1.webp',
+      '/images/gallery/gas-line-installation-2.webp',
     ],
     summaryParagraphs: [
-      'Frequent backups, foul odors, or tree roots in your pipes? We use camera inspections and modern trenchless techniques for a fix that lasts.',
-      'Replacing a damaged sewer line prevents costly repairs down the road and keeps your home safe and healthy. We minimize disruption and get it done right.',
+      'Frequent backups, foul smells, or roots in the line? Camera inspections and trenchless options help us put in a fix that lasts.',
+      'Replacing a damaged sewer line prevents bigger repairs later and keeps the home safer. We keep disruption down and get the work done right.',
     ],
     benefits: [
       {
-        title: 'Long-Term Cost Savings',
-        description: 'Professional replacement costs less than constant repairs. Old sewer lines lead to recurring blockages and leaks. One proper fix saves money long-term.',
+        title: 'Saves Money Over Constant Patch Fixes',
+        description: 'One proper replacement usually costs less than years of recurring backups and repairs on an old line.',
       },
       {
-        title: 'Advanced Equipment and Expertise',
-        description: 'We use inspection cameras, hydro-jetting, and trenchless methods. This means faster diagnoses, cleaner installations, and results that last.',
+        title: 'Better Tools, Cleaner Results',
+        description: 'Inspection cameras, hydro-jetting, and trenchless methods mean faster diagnoses and installs that hold up.',
       },
       {
-        title: 'Improved Drainage and Water Flow',
-        description: 'Corroded or root-infiltrated lines cause slow drains and backups. A new line restores proper flow and a healthier living environment.',
+        title: 'Proper Drainage Again',
+        description: 'Corroded or root-filled lines slow drains and cause backups. A new line restores flow and a healthier home.',
       },
       {
-        title: 'Boosted Property Value',
-        description: 'A new sewer line is a green flag for buyers and appraisers. Outdated sewer systems are a major red flag during inspections.',
+        title: 'Helps With Resale',
+        description: 'A new sewer line looks good to buyers and inspectors. Outdated sewer systems are a common red flag.',
       },
       {
-        title: 'Reduced Risk of Health Hazards',
-        description: 'Broken sewer lines leak raw sewage into the ground or your home. Replacement ensures a safer, cleaner environment for your family.',
+        title: 'Lower Health Risk',
+        description: 'Broken sewer lines can put sewage into the ground or the home. Replacement keeps your family safer.',
       },
       {
-        title: 'Full Compliance with Local Codes',
-        description: 'Plumbing codes change over time. We keep up with regulations to ensure your new system is fully compliant for future property transactions.',
+        title: 'Meets Current Local Codes',
+        description: 'Codes change. We install to current rules so you are covered for future sales and inspections.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Sewer Line Replacement',
-    closingHeading: 'Sewer Solutions That Protect Your Property',
+    benefitsHeading: 'Why Replace Instead of Keep Patching',
+    closingHeading: 'Sewer Work That Protects Your Property',
     closingParagraphs: [
-      'Replacing a sewer line is a big job, but a new line lasts decades. We handle everything from diagnosis to installation, and we do it right.',
-      'Seasonal shifts and tree roots take a toll on buried pipes around here. Replacing a failing line protects your property and saves you from repeated emergency calls.',
+      'Replacing a sewer line is a big job, but a new line can last decades. We handle diagnosis through install, and we do it carefully.',
+      'Having water service issues too? We also repair and replace underground water lines. Ask us to look at both while we are on site.',
+    ],
+  },
+
+  'water-line': {
+    introHeading: 'Water Line Repair and Replacement You Can Trust',
+    introParagraphs: [
+      'Your water service line runs from the meter to the house. When it leaks, corrodes, or fails, you lose pressure, waste water, and risk damage to the yard and foundation.',
+      'We repair and replace underground water lines across Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and nearby North Idaho communities. From leak detection to full service replacement, we get clean water flowing again.',
+      'Soil movement, freeze-thaw cycles, and aging galvanized or poly lines are common failure points here. We size the replacement correctly, meet code, and restore the site when we are done.',
+    ],
+    subServices: [
+      {
+        title: 'Water Main & Service Repair',
+        description: 'We locate leaks and damaged sections, make targeted repairs when they make sense, and verify pressure and flow before we leave.',
+      },
+      {
+        title: 'Full Water Line Replacement',
+        description: 'When spot repairs will not hold, we replace the service from the meter or curb stop to the home with durable, code-approved materials.',
+      },
+      {
+        title: 'Leak Detection',
+        description: 'High bills or wet spots in the yard? We help find underground leaks so you are not digging blind.',
+      },
+      {
+        title: 'Meter-to-Home Installs',
+        description: 'New water service for homes and outbuildings, including shutoffs, proper burial depth, and connections ready for inspection.',
+      },
+      {
+        title: 'New Construction Water Service',
+        description: 'We install underground water lines for new builds and coordinate timing, depth, and inspections with the builder.',
+      },
+      {
+        title: 'Pressure Testing & Cleanup',
+        description: 'After repair or replacement, we pressure-test the line, confirm performance, and restore trenches as cleanly as the site allows.',
+      },
+    ],
+    summaryHeading: 'Underground Water Lines Built for This Climate',
+    photos: [
+      '/images/service-sewer-line-replacement.webp',
+      '/images/service-new-construction-plumbing.webp',
+    ],
+    summaryParagraphs: [
+      'A failing water line rarely gets better on its own. Early replacement stops wasted water, protects your foundation, and restores solid pressure at every fixture.',
+      'We pair water line work with sewer inspections when it makes sense, so you know the full condition of the underground plumbing on your property.',
+    ],
+    benefits: [
+      {
+        title: 'Stop Hidden Water Loss',
+        description: 'Underground leaks can run for months before you notice. Replacing a bad line protects your bill and your property.',
+      },
+      {
+        title: 'Better Pressure and Flow',
+        description: 'Corroded or undersized lines choke flow. A new service restores consistent pressure through the home.',
+      },
+      {
+        title: 'Code-Approved Materials',
+        description: 'We install modern water service materials that meet current codes and hold up to local soil and freeze conditions.',
+      },
+      {
+        title: 'Less Guesswork Digging',
+        description: 'Proper leak detection and site assessment mean we dig where it matters instead of tearing up the whole yard.',
+      },
+      {
+        title: 'Pairs With Sewer Work',
+        description: 'If you already need sewer line service, checking the water line at the same time can spare a second excavation later.',
+      },
+      {
+        title: 'Straight Pricing',
+        description: 'You get a clear estimate before work starts. No surprises once we are in the ground.',
+      },
+    ],
+    benefitsHeading: 'Why Replace a Failing Water Line',
+    closingHeading: 'Get a Free Water Line Estimate',
+    closingParagraphs: [
+      'Low pressure, wet yard spots, or a water bill that does not make sense? Call us. We will diagnose the line and give you a straight recommendation.',
+      'Serving Spirit Lake and communities across North Idaho and eastern Washington. Ask about coordinating with sewer line replacement if both utilities need attention.',
+    ],
+  },
+
+  'gas-line': {
+    introHeading: 'Gas Line Work Done Safe and to Code',
+    introParagraphs: [
+      'Natural gas work is not a DIY job. New appliance hookups, upgrades for a tankless heater, or leak repairs all need licensed install and proper testing.',
+      'We install, repair, and upgrade gas lines for homes and commercial properties across North Idaho. Rough-in on new construction, retrofit runs for ranges, dryers, fireplaces, boilers, and outdoor gear: we handle the full job.',
+      'If you smell gas, leave the area and call us from somewhere safe. We respond during business hours to shut down, locate, and repair leaks the right way.',
+    ],
+    subServices: [
+      {
+        title: 'Gas Appliance Hookups',
+        description: 'Ranges, dryers, fireplaces, water heaters, and outdoor appliances: we size the line, make the connection, and pressure-test before service is restored.',
+      },
+      {
+        title: 'New Gas Line Installation',
+        description: 'New runs for remodels, additions, and equipment upgrades. We plan routing for safety, access, and code clearance.',
+      },
+      {
+        title: 'Gas Leak Detection & Repair',
+        description: 'Suspected leaks get priority. We locate the issue, isolate the section, complete the repair, and verify with proper testing.',
+      },
+      {
+        title: 'Gas System Upgrades',
+        description: 'Older or undersized lines often cannot support tankless heaters or high-BTU appliances. We upgrade capacity so your equipment can run as designed.',
+      },
+      {
+        title: 'New Construction Gas Rough-In',
+        description: 'Full gas rough-in for new homes and commercial builds, coordinated with your builder and ready for inspection.',
+      },
+      {
+        title: 'Boiler & Radiant Support',
+        description: 'Hydronic boilers and radiant systems need a solid gas supply. We size and install lines that match your heating load.',
+      },
+    ],
+    summaryHeading: 'Gas Work You Can Trust',
+    photos: [
+      '/images/gallery/gas-line-installation-2.webp',
+      '/images/service-radiant-heat-boiler.webp',
+    ],
+    summaryParagraphs: [
+      'Every gas install we complete is pressure-tested and built to current fuel-gas code. Safety is not a shortcut we take.',
+      'Planning a tankless conversion or radiant boiler install? We handle the gas supply as part of the same project so you are not juggling multiple contractors.',
+    ],
+    benefits: [
+      {
+        title: 'Licensed and Experienced',
+        description: 'Gas line work is done by licensed technicians who know North Idaho codes and inspection requirements.',
+      },
+      {
+        title: 'Right-Sized Supply',
+        description: 'Undersized lines starve high-demand equipment. We calculate BTU load and pipe size so appliances run correctly.',
+      },
+      {
+        title: 'Leak Response',
+        description: 'If you smell gas, we prioritize locating and repairing the leak safely during business hours.',
+      },
+      {
+        title: 'One Call for Plumbing and Gas',
+        description: 'Need gas for a tankless heater or boiler? We do the plumbing and the gas work together.',
+      },
+      {
+        title: 'New Build Ready',
+        description: 'Builders trust us for clean gas rough-ins that pass inspection the first time.',
+      },
+      {
+        title: 'Clear Communication',
+        description: 'You get upfront pricing and a plain explanation of what the job needs before we start.',
+      },
+    ],
+    benefitsHeading: 'Why Hire Preferred Plumbing for Gas Lines',
+    closingHeading: 'Need a Gas Line Installed or Repaired?',
+    closingParagraphs: [
+      'Call for appliance hookups, system upgrades, leak repairs, or new construction gas rough-in. We will walk the job and give you a straight estimate.',
+      'Open Sunday through Friday, 7am to 5pm. Closed Saturday. If you smell gas, leave the area first, then call us from somewhere safe.',
     ],
   },
 
   'septic-systems': {
-    introHeading: 'Expert Septic System Services for Rural Properties',
+    introHeading: 'Septic Work for Rural North Idaho Properties',
     introParagraphs: [
-      'If you live outside city limits in North Idaho, a good septic system is essential. The climate, soil types, and rural development around here put specific demands on septic systems. It pays to work with someone who knows the territory.',
+      'If you live outside city limits in North Idaho, a good septic system is essential. Climate, soil types, and rural development put real demands on these systems. It pays to work with someone who knows the territory.',
       'We have decades of hands-on experience with septic systems of all sizes. Rural property near Spirit Lake or a lakeside cabin, we help you meet county code, avoid costly repairs, and protect groundwater.',
-      'A neglected system can contaminate drinking water, create soggy yard spots, or land you in environmental violation territory. Our installations hold up through changing seasons and heavy use.',
+      'A neglected system can contaminate drinking water, leave soggy spots in the yard, or put you on the wrong side of environmental rules. Our installs are built to hold up through the seasons.',
     ],
     subServices: [
       {
         title: 'Septic System Installation',
-        description: 'We design and install systems for new homes or failed system replacements. We evaluate slope, soil type, and layout for optimal placement. We handle permitting, excavation, and full installation.',
+        description: 'We design and install systems for new homes or failed system replacements. We evaluate slope, soil type, and layout for good placement. Permitting, excavation, and full install included.',
       },
       {
         title: 'Septic Tank Pumping',
-        description: 'Routine pumping removes sludge and waste buildup that clogs drain fields and causes backups. We offer scheduled and on-demand service using advanced equipment.',
+        description: 'Routine pumping removes sludge that clogs drain fields and causes backups. Scheduled and on-demand service available.',
       },
       {
         title: 'System Inspections and Evaluations',
-        description: 'Our certified inspections provide detailed reports for real estate deals, county permits, or general system checks. We look at tank levels, leaks, components, and drain field performance.',
+        description: 'Certified inspections with clear reports for real estate deals, county permits, or general checks. We look at tank levels, leaks, components, and drain field performance.',
       },
       {
         title: 'Septic System Repairs',
-        description: 'We fix pipe blockages, broken baffles, drain field issues, and more. Our repairs restore proper flow and extend system life with minimal disruption.',
+        description: 'We fix pipe blockages, broken baffles, drain field issues, and more. Repairs restore flow and extend system life with as little disruption as possible.',
       },
       {
         title: 'Drain Field Replacement',
@@ -489,529 +641,682 @@ export const serviceContent: Record<string, RichServiceContent> = {
       },
       {
         title: 'Grease Trap & Effluent Filter Services',
-        description: 'We install and maintain grease traps and effluent filters to protect your tank and drain field. These are critical for restaurants and commercial operations.',
+        description: 'We install and maintain grease traps and effluent filters to protect your tank and drain field. Important for restaurants and other commercial sites.',
       },
     ],
-    summaryHeading: 'Protect Your Property with Expert Septic System Services',
+    summaryHeading: 'Keep Your Septic Working and Your Ground Clean',
     photos: [
       '/images/service-septic-system-installation.webp',
       '/images/gallery/septic-system-installation-1.webp',
     ],
     summaryParagraphs: [
-      'New home or system upgrade, we make sure your septic works safely and efficiently. We have been doing it long enough to know what holds up and what does not.',
-      'We use modern tools and proven techniques to prevent backups, protect groundwater, and extend system life. From routine pumping to full replacements, we handle it all.',
+      'New home or system upgrade, we make sure your septic works safely and efficiently. We have been doing this long enough to know what holds up out here.',
+      'From routine pumping to full replacements, we handle the work that prevents backups, protects groundwater, and extends system life.',
     ],
     benefits: [
       {
-        title: 'Ensures Proper Functioning and Longevity',
-        description: 'Regular pumping, inspections, and maintenance catch issues early. This keeps your system running smoothly and extends its life significantly.',
+        title: 'Keeps the System Running Longer',
+        description: 'Regular pumping, inspections, and maintenance catch issues early. That keeps things flowing and stretches the life of the system.',
       },
       {
-        title: 'Prevents Environmental Contamination',
-        description: 'A failing septic system can leak bacteria into soil and water. We ensure everything is properly sealed and functioning to avoid contamination.',
+        title: 'Protects Local Groundwater',
+        description: 'A failing septic can leak bacteria into soil and water. We make sure everything is sealed and working so contamination stays off the table.',
       },
       {
-        title: 'Complies with Local Regulations',
-        description: 'Septic systems must meet local codes and environmental standards. We stay current on requirements and handle permits and paperwork for you.',
+        title: 'Meets Local Rules and Permits',
+        description: 'Septic systems have to meet county codes and environmental standards. We stay current and handle permits and paperwork for you.',
       },
       {
         title: 'Protects Property Value',
-        description: 'A well-maintained septic system reassures potential buyers. Neglect can easily kill a sale.',
+        description: 'A well-kept septic system reassures buyers. Neglect can kill a sale fast.',
       },
       {
-        title: 'Reduces the Risk of Backup and Odors',
-        description: 'Regular servicing prevents sewage backups, slow drains, and foul smells. We clean tanks and lines thoroughly to keep your home healthy.',
+        title: 'Fewer Backups and Odors',
+        description: 'Regular service prevents sewage backups, slow drains, and foul smells. Clean tanks and lines keep the home healthier.',
       },
       {
-        title: 'Provides Expert Diagnostics and Advice',
-        description: 'We use cameras and pressure tests to diagnose issues accurately. Our recommendations are based on your system\'s size, usage, and age.',
+        title: 'Clear Diagnostics and Advice',
+        description: 'Cameras and pressure tests help us diagnose accurately. Recommendations are based on system size, usage, and age.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Septic System Services',
-    closingHeading: 'Septic System Service from Start to Finish',
+    benefitsHeading: 'Why Rural Homeowners Work With Us',
+    closingHeading: 'Septic Service From Install Through Maintenance',
     closingParagraphs: [
-      'In North Idaho, a reliable septic system is not optional. Dense forests, temperature swings, and varied soil types create challenges that demand local knowledge.',
-      'We do not just service systems. We educate our customers, design smarter layouts, and extend the life of your investment. That is what nearly four decades in this region looks like.',
+      'In North Idaho, a reliable septic system is not optional. Dense forest, temperature swings, and mixed soil types create challenges that need local knowledge.',
+      'We service systems, explain what we find, and design layouts that last. Call us when you need pumping, repairs, or a full replacement.',
     ],
   },
 
   'toilets-faucets': {
-    introHeading: 'Reliable Toilet and Faucet Services for Every Home',
+    introHeading: 'Toilet and Faucet Fixes That Stop the Waste',
     introParagraphs: [
-      'A dripping faucet or running toilet is more than annoying. It wastes water and drives up your bill. We have been fixing and installing toilets and faucets in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint for decades.',
-      'From vintage cabins around Twin Lakes to modern homes in Kootenai County, we know the plumbing around here. Our guys are familiar with local water quality, older pipe infrastructure, and seasonal issues.',
-      'We do not do one-size-fits-all fixes. We look at each job and do it right. Upgrading bathroom fixtures or repairing a kitchen faucet, we focus on work that holds up.',
+      'A dripping faucet or running toilet is more than annoying. It wastes water and drives up the bill. We fix and install toilets and faucets in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint.',
+      'From older cabins around Twin Lakes to newer homes in Kootenai County, we know the plumbing around here. Local water quality, older pipe, and seasonal issues are familiar ground for our crew.',
+      'We look at each job and do it right. Upgrading bathroom fixtures or repairing a kitchen faucet, we focus on work that holds up.',
     ],
     subServices: [
       {
         title: 'Toilet Installation & Replacement',
-        description: 'Upgrading to a dual-flush toilet or replacing a dated fixture, we provide expert installation and code compliance. We verify drainage, secure flange connections, and test for leak-free use.',
+        description: 'Dual-flush upgrades or straight replacements, we install to code. We check drainage, secure the flange, and test for a leak-free flush.',
       },
       {
         title: 'Faucet Repair & Installation',
-        description: 'We repair and install faucets for kitchens, bathrooms, and utility sinks. We use durable parts and modern upgrades that enhance water efficiency and appearance.',
+        description: 'We repair and install faucets for kitchens, bathrooms, and utility sinks. Durable parts and modern upgrades that improve water efficiency and day-to-day use.',
       },
       {
         title: 'Toilet Leak Detection & Repair',
-        description: 'Running toilets can waste hundreds of gallons a month. We locate internal or hidden leaks fast and restore flush integrity to prevent water damage.',
+        description: 'Running toilets can waste hundreds of gallons a month. We find internal or hidden leaks fast and restore a solid flush.',
       },
       {
         title: 'Faucet Cartridge & Valve Replacement',
-        description: 'Worn cartridges and corroded valves cause drips and temperature issues. We service all major brands, restoring smooth control and eliminating leaks.',
+        description: 'Worn cartridges and corroded valves cause drips and temperature swings. We service major brands and get smooth control back.',
       },
       {
         title: 'Water-Saving Fixture Upgrades',
-        description: 'We install toilets and faucets that cut daily water use. These upgrades help qualify for rebates and show up as savings on your water bill.',
+        description: 'We install toilets and faucets that cut daily water use. These upgrades can qualify for rebates and show up as savings on the bill.',
       },
       {
         title: 'Emergency Toilet & Faucet Repairs',
-        description: 'Toilet overflow or faucet that won\'t shut off, we handle urgent issues day or night. Quick action prevents water damage.',
+        description: 'Overflowing toilet or a faucet that will not shut off: we handle urgent issues during business hours so water damage does not spread.',
       },
     ],
-    summaryHeading: 'Expert Toilet & Faucet Services for Long-Lasting Performance',
+    summaryHeading: 'Fixture Work That Lasts',
     photos: [
       '/images/service-toilets-faucets-plumbing.webp',
       '/images/gallery/modern-bathroom-fixtures-1.webp',
     ],
     summaryParagraphs: [
-      'New installs or leak repairs, we do precise, code-compliant work. Leaky toilets and dripping faucets waste thousands of gallons a year. We stop the waste fast.',
-      'We bring decades of experience to every fixture replacement or repair. Old, worn-out fixtures get replaced with water-efficient models that look great and perform even better.',
+      'New installs or leak repairs, we do careful, code-compliant work. Leaky toilets and dripping faucets waste a lot of water. We stop that fast.',
+      'We bring decades of experience to every fixture swap or repair. Worn-out fixtures get replaced with water-efficient models that look good and work better.',
     ],
     benefits: [
       {
-        title: 'Accurate Installation for Long-Term Reliability',
-        description: 'We ensure every connection is secure and properly aligned. This prevents leaks, wobbling fixtures, and early wear.',
+        title: 'Installs Built to Last',
+        description: 'Connections get secured and aligned correctly. That prevents leaks, wobbling fixtures, and early wear.',
       },
       {
-        title: 'Leak Prevention and Water Conservation',
-        description: 'Even a slow drip wastes gallons daily. We find hidden leaks that DIY attempts miss, protecting your home and keeping water bills in check.',
+        title: 'Leak Prevention That Saves Water',
+        description: 'Even a slow drip wastes gallons daily. We find leaks that DIY attempts miss, protecting the home and the water bill.',
       },
       {
-        title: 'Enhanced Functionality and Comfort',
-        description: 'We install low-flow fixtures, hands-free operation, and ADA-compliant options. These upgrades improve convenience and daily comfort.',
+        title: 'Better Day-to-Day Function',
+        description: 'Low-flow fixtures, hands-free options, and ADA-friendly setups are available when you want them. Convenience without the drama.',
       },
       {
         title: 'Code Compliance and Safety',
-        description: 'We stay current on plumbing codes and safety protocols. Your installations meet industry standards and avoid legal or insurance issues.',
+        description: 'We stay current on plumbing codes. Your installs meet standards and avoid insurance headaches later.',
       },
       {
-        title: 'Quick Diagnosis and Expert Repairs',
-        description: 'We have the tools and experience to identify issues at the source. Our solutions minimize downtime and prevent recurring problems.',
+        title: 'Quick Diagnosis, Solid Repairs',
+        description: 'We find issues at the source and fix them so you are not dealing with the same drip next month.',
       },
       {
-        title: 'Saves Time and Reduces Stress',
-        description: 'DIY plumbing can be frustrating and time-consuming. Hiring a pro eliminates the guesswork and risk of costly mistakes.',
+        title: 'Less Stress Than DIY',
+        description: 'Home plumbing projects eat weekends and often end in a second mess. Hiring a pro cuts the guesswork.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Toilet & Faucet Services',
+    benefitsHeading: 'Why It Matters',
     closingHeading: 'Toilet and Faucet Repairs You Can Rely On',
     closingParagraphs: [
-      'Toilets and faucets get used every single day. A plumber who knows local systems and codes keeps small problems from turning into big ones.',
-      'From older homes to new developments, we keep your fixtures working right year-round. Give us a call when something needs attention.',
+      'Toilets and faucets get used every day. A plumber who knows local systems and codes keeps small problems from turning into big ones.',
+      'From older homes to newer builds, we keep fixtures working year-round. Give us a call when something needs attention.',
     ],
   },
 
   'bathtubs-showers': {
-    introHeading: 'Beautiful Bathtubs and Showers Designed for Your Home',
+    introHeading: 'Bathtubs and Showers Built for Daily Use',
     introParagraphs: [
-      'A new bathtub or shower can change how you feel about your bathroom. We have been installing them in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint for decades. Replacement or full renovation, we do work that fits North Idaho homes.',
-      'We know the needs of older homes around here, and we know what goes into new builds. Every tub and shower gets matched to your home\'s design, water pressure, and existing plumbing.',
-      'Cold winters and hard water demand materials that hold up. Our installations are built to last, resist wear, and keep performing.',
+      'A new tub or shower can change how you use the bathroom. We install them in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint. Replacement or full renovation, we do work that fits North Idaho homes.',
+      'We know older homes around here, and we know new builds. Every tub and shower gets matched to your layout, water pressure, and existing plumbing.',
+      'Cold winters and hard water demand materials that hold up. Our installs are built to last and keep performing.',
     ],
     subServices: [
       {
         title: 'Full Bathtub Installations',
-        description: 'New tub or replacement, we handle all aspects of installation. We assess your plumbing and layout to recommend the best style. Every install is properly leveled, sealed, and finished.',
+        description: 'New tub or replacement, we handle the full install. We assess plumbing and layout, then level, seal, and finish the job correctly.',
       },
       {
         title: 'Custom Shower Builds',
-        description:       'We design and build custom showers with glass enclosures, tile walls, bench seating, and more. Every detail works with your existing plumbing.',
+        description: 'We design and build custom showers with glass enclosures, tile walls, bench seating, and more. Details work with your existing plumbing.',
       },
       {
         title: 'Tub-to-Shower Conversions',
-        description: 'We convert bathtubs to walk-in showers with proper drainage, water containment, and visual appeal. From demolition to tiling, we manage every stage.',
+        description: 'We convert bathtubs to walk-in showers with proper drainage and water containment. From demo to tile, we manage each stage.',
       },
       {
         title: 'Shower Fixture Upgrades',
-        description: 'Rainfall heads, handheld sprayers, and water-efficient models. We upgrade your shower fixtures for a better experience while maintaining compatibility with local water pressure.',
+        description: 'Rainfall heads, handheld sprayers, and water-efficient models. We upgrade fixtures for better daily use while matching local water pressure.',
       },
       {
         title: 'Leak Repair & Waterproofing',
-        description: 'We detect and repair leaks at their source, reinforce waterproof barriers, and make sure your installation stands up to humid conditions.',
+        description: 'We find and fix leaks at the source, reinforce waterproof barriers, and make sure the install stands up to humidity.',
       },
       {
         title: 'Clawfoot & Freestanding Tub Installations',
-        description: 'We install vintage-style and freestanding tubs with accurate leveling and robust plumbing connections. Visual appeal and function, both handled.',
+        description: 'We install freestanding and vintage-style tubs with accurate leveling and solid plumbing connections. Looks and function both matter.',
       },
     ],
-    summaryHeading: 'Enhance Comfort and Value with Expert Bathtub & Shower Installations',
+    summaryHeading: 'Watertight Tub and Shower Installs',
     photos: [
       '/images/service-bathtubs-showers-plumbing.webp',
       '/images/gallery/shower-tub-installation-1.webp',
     ],
     summaryParagraphs: [
-      'Remodel or new build, we deliver watertight fittings, proper drainage, and finishes that look great. We have been doing this long enough to get every detail right.',
-      'From classic clawfoot tubs to modern walk-in showers, we install fixtures that match your style and stand up to daily use. Every connection is pressure-tested and leak-free.',
+      'Remodel or new build, we deliver watertight fittings, proper drainage, and finishes that look good. Details matter, and we take time with them.',
+      'From clawfoot tubs to walk-in showers, we install fixtures that match your style and hold up to daily use. Connections get pressure-tested before we leave.',
     ],
     benefits: [
       {
-        title: 'Enhanced Aesthetic Appeal',
-        description: 'New fixtures breathe life into an outdated bathroom. A refreshed look elevates the whole space and creates a more relaxing environment.',
+        title: 'A Bathroom That Looks Fresh Again',
+        description: 'New fixtures bring an outdated bathroom back to life. The whole room feels cleaner and more comfortable.',
       },
       {
-        title: 'Long-Lasting Durability',
-        description: 'We use quality materials and follow best practices. Proper installation prevents cracks, loose tiles, and premature wear.',
+        title: 'Built to Last',
+        description: 'Quality materials and careful install prevent cracks, loose tile, and early wear.',
       },
       {
-        title: 'Improved Water Efficiency',
-        description: 'Efficient fixtures reduce water use without sacrificing pressure. The savings on utility bills add up over time.',
+        title: 'Better Water Efficiency',
+        description: 'Efficient fixtures cut water use without killing pressure. Utility savings add up over time.',
       },
       {
-        title: 'Customized Comfort and Functionality',
-        description: 'Walk-in showers, soaking tubs, grab bars, handheld sprayers. We tailor every detail to your household\'s needs.',
+        title: 'Comfort Set Up for Your Household',
+        description: 'Walk-in showers, soaking tubs, grab bars, handheld sprayers: we build around how your family actually uses the space.',
       },
       {
-        title: 'Proper Waterproofing and Leak Prevention',
-        description: 'Thorough waterproofing behind walls and under tiles prevents moisture damage and mold. A dry, healthy bathroom for the long term.',
+        title: 'Waterproofing That Prevents Hidden Damage',
+        description: 'Proper waterproofing behind walls and under tile keeps moisture and mold out. A dry bathroom lasts longer.',
       },
       {
-        title: 'Code Compliance and Safety Assurance',
-        description: 'We keep up with plumbing codes and safety guidelines. Anti-scald valves, proper drainage, everything installed correctly.',
+        title: 'Installed to Code',
+        description: 'Anti-scald valves, proper drainage, and current plumbing codes are part of every job.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Bathtub & Shower Services',
-    closingHeading: 'Elegant, Efficient, and Expertly Installed Bathing Solutions',
+    benefitsHeading: 'What a Pro Install Gets You',
+    closingHeading: 'Tub and Shower Work Done Carefully',
     closingParagraphs: [
-      'A well-designed bathroom changes how you feel about your home. We have seen how a professionally installed tub or shower transforms a room.',
-      'Custom walk-in shower or a soaking tub for a traditional home, we bring care to every detail. From planning to final finishes, we make your bathroom one of the most reliable rooms in the house.',
+      'A well-planned bathroom changes how you start and end the day. We have seen plenty of poorly sealed installs, and we take care not to leave you with one.',
+      'Walk-in shower or soaking tub, we bring care to every detail. From planning to final finishes, we make the bathroom one of the most reliable rooms in the house.',
     ],
   },
 
   dishwashers: {
-    introHeading: 'Professional Dishwasher and Disposal Installation',
+    introHeading: 'Dishwasher and Disposal Installs Without the Leaks',
     introParagraphs: [
-      'A dishwasher or disposal that is not installed right can cause leaks, drainage problems, and headaches. We handle these jobs every week in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint.',
-      'Hard water and seasonal temperature changes take a toll on kitchen plumbing around here. We know the local codes and water conditions, and we install everything to hold up.',
-      'From fixing drainage issues to installing new high-efficiency units, we handle it all. No guesswork, just solid connections.',
+      'A dishwasher or disposal installed wrong leads to leaks, drainage problems, and wasted weekends. We handle these jobs every week in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint.',
+      'Hard water and seasonal temperature swings take a toll on kitchen plumbing around here. We know the local codes and water conditions, and we install for the long haul.',
+      'From drainage fixes to new high-efficiency units, we handle it. Solid connections, no guesswork.',
     ],
     subServices: [
       {
         title: 'Dishwasher Installation',
-        description: 'New or replacement, we handle plumbing, drainage, and electrical coordination. We ensure a watertight connection and test everything after installation.',
+        description: 'New or replacement, we handle plumbing, drainage, and electrical coordination. Watertight connections get tested after install.',
       },
       {
         title: 'Garbage Disposal Installation',
-        description: 'Adding a disposal or replacing an old one, we provide proper electrical hookups, drain alignment, and leak-proof sealing. We install safety switches when needed.',
+        description: 'Adding a disposal or replacing an old one, we handle electrical hookups, drain alignment, and leak-proof sealing. Safety switches installed when needed.',
       },
       {
         title: 'Appliance Replacements',
-        description: 'If your unit is leaking or failing, we remove the old appliance, update plumbing as needed, and install the new one. We pressure-test all connections and dispose of the old unit responsibly.',
+        description: 'If a unit is leaking or failing, we remove it, update plumbing as needed, and install the new one. Connections get pressure-tested, and the old unit gets disposed of properly.',
       },
       {
         title: 'Leak Detection & Repair',
-        description: 'Small leaks cause big problems. We find and fix leaks in water lines, drainpipes, and appliance fittings to keep your kitchen dry.',
+        description: 'Small leaks cause big problems. We find and fix issues in water lines, drainpipes, and appliance fittings to keep the kitchen dry.',
       },
       {
         title: 'Clog & Jam Removal',
-        description: 'Disposals jam from food debris and foreign objects. We clear obstructions safely and check for deeper drainage issues.',
+        description: 'Disposals jam from food debris and foreign objects. We clear obstructions safely and check for deeper drainage problems.',
       },
       {
         title: 'Dishwasher Drainage Solutions',
-        description: 'If your dishwasher won\'t drain, we troubleshoot the full line from air gaps to sink traps. We clear blockages and replace faulty check valves.',
+        description: 'Dishwasher will not drain? We troubleshoot from air gaps to sink traps, clear blockages, and replace faulty check valves.',
       },
     ],
-    summaryHeading: 'Professional Installation for Long-Term Efficiency',
+    summaryHeading: 'Kitchen Appliance Hookups Done Right',
     photos: [
       '/images/service-dishwasher-disposal-install.webp',
       '/images/service-kitchen-remodel-plumbing.webp',
     ],
     summaryParagraphs: [
-      'Upgrade or replace, we make sure every connection is secure and leak-free. Proper drainage, right venting, no shortcuts.',
-      'We handle dishwasher hookups, garbage disposal replacements, and appliance connections for all major brands. Every installation includes leak testing and code compliance.',
+      'Upgrade or replace, we make sure every connection is secure and leak-free. Proper drainage, correct venting, no shortcuts.',
+      'We handle dishwasher hookups, disposal replacements, and appliance connections for major brands. Leak testing and code compliance come with every install.',
     ],
     benefits: [
       {
-        title: 'Prolonged Appliance Lifespan',
-        description: 'Regular service catches small issues early. This prevents wear and tear that shortens an appliance\'s life and delays the need for replacement.',
+        title: 'Appliances Last Longer',
+        description: 'Service catches small issues early, before wear turns into a full replacement.',
       },
       {
-        title: 'Accurate Problem Diagnosis',
-        description: 'We use specialized tools to pinpoint the root of problems quickly. No unnecessary part replacements or wasted time.',
+        title: 'Accurate Problem Finding',
+        description: 'We pinpoint the real issue quickly. No unnecessary part swaps or wasted time.',
       },
       {
-        title: 'Enhanced Performance & Efficiency',
-        description: 'We clean and tune components to restore optimal water flow, drainage, and power. Cleaner dishes, quieter operation, better energy savings.',
+        title: 'Better Performance',
+        description: 'Clean components and solid connections restore good water flow and drainage. Cleaner dishes, quieter running, less energy waste.',
       },
       {
-        title: 'Prevents Water Damage & Leaks',
-        description: 'We inspect hoses, seals, and connections to ensure everything is watertight. Early intervention prevents mold, rot, and structural issues.',
+        title: 'Stops Water Damage Early',
+        description: 'We inspect hoses, seals, and connections. Catching a drip early prevents mold, rot, and cabinet damage.',
       },
       {
-        title: 'Safe and Code-Compliant Repairs',
-        description: 'Dishwashers and disposals involve both water and electricity. We follow current codes to keep repairs safe and up to standard.',
+        title: 'Safe, Code-Compliant Work',
+        description: 'Dishwashers and disposals involve water and electricity. We follow current codes so the repair stays safe.',
       },
       {
-        title: 'Saves Time and Reduces Stress',
-        description: 'DIY repairs involve frustration and multiple trips to the store. We handle it right the first time, giving you more time for your day.',
+        title: 'Saves Your Weekend',
+        description: 'DIY repairs often mean frustration and store runs. We handle it right the first time.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Dishwasher & Disposal Services',
-    closingHeading: 'Kitchen Fixtures Built to Last and Up to Code',
+    benefitsHeading: 'Why Call Us for Kitchen Plumbing',
+    closingHeading: 'Kitchen Hookups Built to Last and Pass Code',
     closingParagraphs: [
-      'A functional kitchen depends on appliances that work right. Our recommendations are based on your plumbing system, what works with your appliances, and what will last.',
-      'Upgrade or troubleshoot, we deliver dependable solutions. Call us when your dishwasher or disposal needs attention.',
+      'A kitchen only works as well as the appliances under the sink. Our recommendations are based on your plumbing, what fits your appliances, and what will last.',
+      'Upgrade or troubleshoot, we get it done. Call us when your dishwasher or disposal needs attention.',
     ],
   },
 
   remodels: {
-    introHeading: 'Plumbing Remodels That Change How Your Home Feels',
+    introHeading: 'Plumbing Remodels That Make the House Work Better',
     introParagraphs: [
-      'A plumbing remodel can change how your home feels and functions. We have been doing kitchen and bathroom remodels in Spirit Lake and across North Idaho for decades.',
-      'From updating old piping to installing modern fixtures, we work with homeowners, builders, and designers to create systems that fit your vision and budget. Older homes and new builds each have their own challenges, and we have handled both.',
+      'A plumbing remodel changes how you use the kitchen or bathroom every day. We handle kitchen and bathroom remodel plumbing in Spirit Lake and across North Idaho.',
+      'From updating old piping to installing modern fixtures, we work with homeowners, builders, and designers to create systems that fit your plan and budget. Older homes and new builds each have their own quirks, and we have handled both.',
     ],
     subServices: [
       {
         title: 'Kitchen Plumbing Remodels',
-        description: 'We handle sink relocation, dishwasher hookup, garbage disposal installation, and water line upgrades. We work around your cabinetry and countertop schedule.',
+        description: 'Sink relocation, dishwasher hookup, disposal install, and water line upgrades. We work around cabinetry and countertop schedules.',
       },
       {
         title: 'Bathroom Plumbing Remodels',
-        description: 'Full gut renovations or simple fixture swaps, we manage every detail. Shower and tub installation, toilet placement, vanity plumbing, heated floor systems.',
+        description: 'Full gut jobs or simple fixture swaps, we manage the plumbing details: shower and tub installs, toilet placement, vanity connections, and heated floor systems.',
       },
       {
         title: 'Fixture Upgrades',
-        description: 'Touchless faucets, smart toilets, rainfall showerheads. We install modern, water-efficient fixtures that look great and cut water consumption.',
+        description: 'Touchless faucets, efficient toilets, rainfall showerheads. We install water-smart fixtures that look good and cut consumption.',
       },
       {
         title: 'Piping Relocation & Rerouting',
-        description: 'When walls move and layouts change, we relocate water supply lines, drain pipes, and vent stacks to match your new floor plan. All work meets current code.',
+        description: 'When walls move and layouts change, we relocate supply lines, drains, and vents to match the new floor plan. All work meets current code.',
       },
       {
         title: 'Code Compliance Updates',
-        description: 'Older homes often have plumbing that doesn\'t meet modern codes. We fix improper venting, outdated materials, and inadequate water pressure during your remodel.',
+        description: 'Older homes often have plumbing that no longer meets code. We fix bad venting, outdated materials, and weak pressure during the remodel.',
       },
       {
         title: 'Energy-Efficient Upgrades',
-        description: 'We recommend and install tankless water heaters, low-flow fixtures, and insulated hot water lines. These upgrades cut utility bills and increase comfort.',
+        description: 'We recommend and install tankless water heaters, low-flow fixtures, and insulated hot water lines. Lower bills and better comfort.',
       },
     ],
-    summaryHeading: 'Professional Plumbing Remodels That Last',
+    summaryHeading: 'Remodel Plumbing That Lasts Past the Punch List',
     summaryParagraphs: [
-      'We bring precision and code knowledge to every kitchen and bathroom remodel. Single room or whole home, we deliver results that add lasting value.',
-      'From moving supply lines to reconfiguring drain systems, we handle every plumbing aspect of your remodel. Our work meets code and supports your new layout perfectly.',
+      'We bring careful work and code knowledge to every kitchen and bathroom remodel. One room or whole home, the goal is lasting value.',
+      'From moving supply lines to reworking drains, we handle the plumbing side of your remodel so the new layout works the way you planned.',
     ],
     benefits: [
       {
-        title: 'Increased Home Value',
-        description: 'A professionally remodeled kitchen or bathroom boosts resale value. Updated plumbing and modern fixtures attract buyers and justify higher prices.',
+        title: 'Adds Home Value',
+        description: 'A well-done kitchen or bathroom remodel helps resale. Updated plumbing and modern fixtures matter to buyers.',
       },
       {
-        title: 'Improved Functionality',
-        description: 'A well-designed plumbing layout improves daily living. More efficient kitchen workflow or a spa-like bathroom, professional remodeling makes a real difference.',
+        title: 'Better Daily Function',
+        description: 'A smart plumbing layout makes cooking and bathing easier. That is the point of remodeling in the first place.',
       },
       {
-        title: 'Energy and Water Savings',
-        description: 'Low-flow toilets, aerated faucets, and tankless heaters cut water usage 30-50% compared to older models. The savings add up.',
+        title: 'Water and Energy Savings',
+        description: 'Low-flow toilets, aerated faucets, and tankless heaters can cut water use 30 to 50 percent compared with older models.',
       },
       {
-        title: 'Code Compliance and Safety',
-        description: 'Older systems may not meet current codes. Professional remodels ensure your plumbing is up to standard, reducing risks of leaks and contamination.',
+        title: 'Up to Current Code',
+        description: 'Older systems may not meet today\'s rules. Remodel work brings the plumbing up to standard and lowers leak and contamination risk.',
       },
       {
-        title: 'Customized Design Options',
-        description: 'We work with your design vision to select fixtures, layouts, and materials that match your style. Farmhouse sinks to modern shower systems, we help bring your vision to life.',
+        title: 'Fixtures That Match Your Plan',
+        description: 'We help pick fixtures, layouts, and materials that fit your style, from farmhouse sinks to modern shower systems.',
       },
       {
-        title: 'Stress-Free Project Management',
-        description: 'We coordinate with contractors, electricians, and designers. We handle permits, inspections, and scheduling so you can enjoy your new space.',
+        title: 'Fewer Moving Parts for You',
+        description: 'We coordinate with contractors, electricians, and designers. Permits, inspections, and scheduling stay on our plate.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Plumbing Remodels',
-    closingHeading: 'Remodeling That Makes Your Home Work Better',
+    benefitsHeading: 'Why Homeowners Remodel With Us',
+    closingHeading: 'Remodeling That Makes Everyday Life Easier',
     closingParagraphs: [
-      'A remodel is an investment in your home. We bring decades of experience and a commitment to quality work on every project.',
-      'From concept to completion, we deliver results that improve your daily life and protect your investment. Let us help you create the kitchen or bathroom you want.',
+      'A remodel is an investment in your home. We bring decades of experience and careful work to every project.',
+      'From the first walkthrough to final inspection, we aim for results that improve daily life and protect what you put into the house. Call us about your kitchen or bathroom plan.',
     ],
   },
 
   emergency: {
-    introHeading: '24/7 Emergency Plumbing Services Across North Idaho',
+    introHeading: 'Emergency Plumbing Across North Idaho',
     introParagraphs: [
-      'Plumbing problems do not wait for regular hours, and neither do we. Burst pipe, sewage backup, sudden water heater failure. We respond fast to stop the damage.',
-      'Our trucks are stocked and our guys know what to do. We have been handling urgent plumbing situations across North Idaho for decades. We show up ready and get it handled.',
+      'Burst pipe, sewage backup, or a water heater that just died: we respond fast during business hours to stop the damage and get things back online.',
+      'Our trucks are stocked and our guys know what to do. We handle urgent plumbing across North Idaho and show up ready to work.',
+      'Emergency service is available Sunday through Friday, 7am to 5pm. We are closed on Saturday.',
     ],
     subServices: [
       {
         title: 'Burst Pipe Repair',
-        description: 'Burst pipes cause significant damage in minutes. We stop the leak, assess the damage, and restore your system using advanced tools to locate and repair the affected area.',
+        description: 'Burst pipes cause damage in minutes. We stop the leak, assess the damage, and restore the system. Locating tools help us find and fix the bad section fast.',
       },
       {
         title: 'Water Damage Mitigation',
-        description: 'When water is flooding your property, every second counts. We shut off water, extract standing water, and begin drying. We coordinate with restoration pros to limit the damage.',
+        description: 'When water is flooding the property, every second counts. We shut off water, extract standing water, and start drying. We coordinate with restoration pros when needed.',
       },
       {
         title: 'Sewer Backup Cleanup',
-        description: 'Sewer backups are hazardous. We clear blockages, sanitize affected areas, and restore proper function following strict safety protocols.',
+        description: 'Sewer backups are hazardous. We clear blockages, sanitize affected areas, and restore proper function with strict safety steps.',
       },
       {
         title: 'Gas Leak Detection',
-        description: 'Gas leaks are serious. If you smell gas, we respond immediately to locate and repair the leak. Our licensed technicians handle emergency gas line shutdown and repair.',
+        description: 'Gas leaks are serious. If you smell gas, we respond to locate and repair. Licensed technicians handle emergency shutdown and repair.',
       },
       {
         title: 'No-Hot-Water Emergencies',
-        description: 'Losing hot water disrupts your whole household or business. We provide emergency diagnosis and repair to restore your hot water supply fast.',
+        description: 'Losing hot water disrupts the whole household or business. We diagnose and repair fast to get hot water back.',
       },
       {
         title: 'Toilet & Drain Emergencies',
-        description: 'Overflowing toilets and completely blocked drains need urgent attention. We clear obstructions and restore drainage quickly.',
+        description: 'Overflowing toilets and fully blocked drains need quick attention. We clear obstructions and restore drainage.',
       },
     ],
-    summaryHeading: '24/7 Emergency Plumbing When You Need It Most',
+    summaryHeading: 'Help When Plumbing Goes Sideways',
     summaryParagraphs: [
-      'Plumbing emergencies are stressful and always happen at the worst time. We get there fast and get it fixed.',
-      'Burst pipes, gas leaks, sewer backups, no hot water. We handle urgent calls 24/7 across North Idaho. Our trucks are stocked and ready to respond when you need us most.',
+      'Plumbing emergencies are stressful and always hit at a bad time. We get there and get it fixed.',
+      'Burst pipes, gas leaks, sewer backups, no hot water. We take urgent calls Sunday through Friday, 7am to 5pm across North Idaho. Trucks are stocked and ready.',
     ],
     benefits: [
       {
-        title: 'Immediate Response',
-        description: 'When an emergency strikes, every minute matters. We prioritize emergency calls and arrive fast to assess the situation and minimize damage.',
+        title: 'Fast Response',
+        description: 'When something breaks, minutes matter. We prioritize emergency calls and arrive ready to assess and limit damage.',
       },
       {
         title: 'Experienced Technicians',
-        description: 'Our technicians have decades of combined experience with urgent plumbing situations. They arrive prepared with the knowledge and equipment to resolve issues efficiently.',
+        description: 'Our crew shows up with the knowledge and tools to resolve urgent plumbing problems efficiently.',
       },
       {
         title: 'Damage Prevention',
-        description: 'Quick intervention stops minor issues from becoming major disasters. Rapid response protects your belongings and your property\'s structure.',
+        description: 'Quick action stops a small mess from becoming a big rebuild. Rapid response protects belongings and structure.',
       },
       {
-        title: '24/7 Availability',
-        description: 'We\'re here day or night, including holidays. You never have to face a plumbing crisis alone.',
+        title: 'Clear Business Hours',
+        description: 'Emergency plumbing is available Sunday through Friday, 7am to 5pm. Closed Saturday, so you always know when we can help.',
       },
       {
         title: 'Full-Service Repairs',
-        description: 'Burst pipes to sewer backups, we handle all types of emergencies. We have the tools and expertise to resolve virtually any urgent plumbing issue.',
+        description: 'From burst pipes to sewer backups, we handle the urgent calls. Tools and experience cover most plumbing emergencies.',
       },
       {
         title: 'Transparent Pricing',
-        description: 'No hidden fees on emergency calls. We provide clear, upfront pricing before any work begins.',
+        description: 'No hidden fees on emergency calls. Clear, upfront pricing before work begins.',
       },
     ],
-    benefitsHeading: 'Benefits of 24/7 Emergency Plumbing Services',
-    closingHeading: 'Emergency Plumbing Help When You Need It',
+    benefitsHeading: 'What You Can Expect When You Call',
+    closingHeading: 'Emergency Help During Business Hours',
     closingParagraphs: [
-      'Emergencies happen. When they do, you need someone who answers the phone and shows up fast. That is what we do.',
-      'Call us anytime. We will be there.',
+      'Emergencies happen. When they do, you need someone who answers and shows up. That is what we do.',
+      'Call us Sunday through Friday, 7am to 5pm, and we will get it handled.',
+    ],
+  },
+
+  'heated-driveways': {
+    introHeading: 'Never Shovel Snow Again',
+    introParagraphs: [
+      'The same hydronic radiant systems we put under floors, we put under driveways. Stay ice-free all winter without the salt, the shoveling, or the slip risk.',
+      'If you already know us for in-floor heat, heated driveways use the same idea outdoors. Hydronic tubing under the driveway, walkway, or entry pad connects to a boiler or dedicated heat source so snow and ice melt on contact.',
+      'North Idaho winters are long. A heated driveway means no more 6am shoveling before work, no ice by the garage, and no rock salt chewing up concrete or landscaping.',
+    ],
+    subServices: [
+      {
+        title: 'Residential Heated Driveways',
+        description: 'Hydronic tubing under driveways and walkways keeps the entrance clear all winter. Layouts for full slabs or high-traffic paths.',
+      },
+      {
+        title: 'Commercial Snow-Melt Systems',
+        description: 'Snow-melt for parking lots, entryways, and loading docks. Built for heavy use and commercial code requirements.',
+      },
+      {
+        title: 'Ice-Prevention Systems',
+        description: 'Steep or shaded driveways that ice first get targeted heating where it matters most, often at a lower cost than heating the full slab.',
+      },
+      {
+        title: 'Boiler-Connected Heated Slabs',
+        description: 'Tie into an existing hydronic boiler when capacity allows, or install a dedicated heat source sized for outdoor snow melt.',
+      },
+      {
+        title: 'New Construction Integration',
+        description: 'Cleanest when tubing goes in with the slab. We coordinate with builders so the system is ready before pour.',
+      },
+      {
+        title: 'Retrofit Installations',
+        description: 'Existing driveways can be upgraded in phases. We plan the work to limit disruption while putting in a reliable melt system.',
+      },
+    ],
+    summaryHeading: 'Why Hydronic Heated Driveways',
+    photos: [
+      '/images/service-radiant-heat-boiler.webp',
+      '/images/service-new-construction-plumbing.webp',
+    ],
+    summaryParagraphs: [
+      'Hydronic snow melt runs on hot water, not electricity. For larger areas, operating cost is usually lower than electric mats. No salt or chemical de-icers means better protection for concrete and nearby plants.',
+      'Systems can run automated with snow and ice sensors. We build them to the same code standard as our in-floor radiant heat work.',
+    ],
+    benefits: [
+      {
+        title: 'Same Crew That Does Radiant Heat',
+        description: 'We design and install hydronic systems for North Idaho winters. Heated driveways use the same boiler, zone-control, and tubing know-how.',
+      },
+      {
+        title: 'Lower Operating Cost at Scale',
+        description: 'For larger driveways and commercial pads, hydronic systems typically cost less to run than electric mat systems.',
+      },
+      {
+        title: 'Protects Concrete and Landscaping',
+        description: 'Skip rock salt and chemical de-icers that damage concrete, metal, and plants around the entry.',
+      },
+      {
+        title: 'Automated Winter Protection',
+        description: 'Snow and ice sensors can turn the system on so you are not watching the forecast all night.',
+      },
+      {
+        title: 'Residential and Commercial',
+        description: 'From home driveways to parking lots and loading docks, we size systems for real North Idaho winters.',
+      },
+      {
+        title: 'Straight Pricing Up Front',
+        description: 'Every property is different: soil, slab size, boiler capacity. We walk the site and give a straight price before work starts.',
+      },
+    ],
+    benefitsHeading: 'Why Preferred Plumbing for Heated Driveways',
+    closingHeading: 'Get a Free Heated Driveway Estimate',
+    closingParagraphs: [
+      'Want the same radiant heat specialists who warm your floors to keep your driveway clear? We will evaluate your site, boiler capacity, and layout options.',
+      'Call for a free estimate. We serve Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and communities across North Idaho.',
+    ],
+  },
+
+  'tankless-water-heaters': {
+    introHeading: 'Endless Hot Water, Smaller Footprint',
+    introParagraphs: [
+      'Tankless water heaters heat water on demand instead of storing it. You stop running out mid-shower, and you free up the space a bulky tank used to take.',
+      'A tankless (on-demand) unit only fires when you open a hot tap, rather than keeping 40 to 50 gallons hot all day. That means lower energy bills, a longer lifespan than most tanks, and hot water that keeps coming.',
+      'We install, repair, and replace tankless systems across North Idaho, and we help size the right unit for your household or business.',
+    ],
+    subServices: [
+      {
+        title: 'New Tankless Installation',
+        description: 'We size and install gas or electric tankless units with proper venting, gas line or electrical capacity, and code-compliant connections.',
+      },
+      {
+        title: 'Tankless Repair & Troubleshooting',
+        description: 'Error codes, weak flow, cold water sandwiches, and ignition issues: we diagnose and repair on-demand systems from major brands.',
+      },
+      {
+        title: 'Tank-to-Tankless Conversion',
+        description: 'Replacing an old tank with tankless often means venting and gas line upgrades. We handle the full conversion so it is one call, not three contractors.',
+      },
+      {
+        title: 'Gas Tankless Systems',
+        description: 'High-flow gas units for whole-home hot water. We confirm gas supply, combustion air, and venting before install.',
+      },
+      {
+        title: 'Electric Tankless Units',
+        description: 'Point-of-use or smaller-home electric tankless when gas is not available. We verify panel capacity and circuit requirements.',
+      },
+      {
+        title: 'Descaling & Maintenance',
+        description: 'Hard water in North Idaho means tankless units need periodic flushing. We offer descaling to keep efficiency and lifespan high.',
+      },
+    ],
+    summaryHeading: 'Tankless vs Tank: Quick Comparison',
+    photos: [
+      '/images/service-water-heater-installation.webp',
+      '/images/service-water-softener-utility-room.webp',
+    ],
+    summaryParagraphs: [
+      'Tank systems cost less upfront but can run out of hot water and typically last about 10 to 15 years. Tankless costs more upfront, delivers ongoing hot water, often lasts around 20 years, and uses less energy over time.',
+      'We size tank and tankless systems based on your actual usage, not a sales quota.',
+    ],
+    benefits: [
+      {
+        title: 'Endless Hot Water',
+        description: 'Heat on demand means no waiting for a tank to recover. Sized correctly, multiple fixtures can run without the cold shower surprise.',
+      },
+      {
+        title: 'Lower Energy Use Over Time',
+        description: 'You are not paying to keep 40 to 50 gallons hot 24 hours a day. That adds up on North Idaho utility bills.',
+      },
+      {
+        title: 'Longer Lifespan',
+        description: 'Well-maintained tankless units often outlast traditional tanks by several years.',
+      },
+      {
+        title: 'Space Savings',
+        description: 'Wall-mounted units free up closet or garage space a bulky tank used to occupy.',
+      },
+      {
+        title: 'One-Call Install',
+        description: 'We handle the plumbing plus the gas line or electrical work tankless units often need.',
+      },
+      {
+        title: 'Honest Sizing Advice',
+        description: 'We look at household size, water usage, and existing setup, then give a straight answer on whether tankless fits.',
+      },
+    ],
+    benefitsHeading: 'Why Choose Preferred Plumbing for Tankless',
+    closingHeading: 'Not Sure If Tankless Is Right for You?',
+    closingParagraphs: [
+      'We will look at household size, water usage, and existing setup, then give you a straight answer and a fair price.',
+      'Prefer a traditional tank? See our water heater services. Need a gas supply upgrade for tankless? We handle gas line installation as part of the same project.',
     ],
   },
 
   'kitchen-remodels': {
     introHeading: 'A Kitchen That Works as Hard as You Do',
     introParagraphs: [
-      'A kitchen remodel is one of the best investments you can make in your home. We have been doing them in Spirit Lake, Rathdrum, Hayden, Post Falls, and across the region for decades.',
-      'Kitchen remodeling is more than new cabinets and countertops. It means getting the plumbing right, laying out the space well, and installing appliances so they work. Our team handles all of it.',
+      'A kitchen remodel is one of the best investments you can make in a home. We handle the plumbing side in Spirit Lake, Rathdrum, Hayden, Post Falls, and across the region.',
+      'New cabinets and counters only work if the plumbing is right. Layout, appliance hookups, and drain lines all have to fit. That is the part we own.',
     ],
     subServices: [
       {
         title: 'Full Kitchen Renovation',
-        description: 'We transform your existing kitchen into a modern, functional space. We manage every phase from demolition to plumbing, electrical, and final finishes.',
+        description: 'We rebuild the plumbing for a full kitchen redo. Demolition through final connections, coordinated with the rest of the remodel crew.',
       },
       {
         title: 'Custom Cabinet Installation',
-        description: 'We install handcrafted cabinetry that\'s both functional and stylish. Natural wood or contemporary finishes, we customize storage to your kitchen\'s layout.',
+        description: 'We work around handcrafted or stock cabinetry so sinks, disposals, and supply lines land where they should. Storage layout and plumbing have to agree.',
       },
       {
         title: 'Countertop Replacement',
-        description: 'Quartz, granite, butcher block. We help you choose and install durable materials that suit your style and integrate with your plumbing.',
+        description: 'Quartz, granite, butcher block: we help time sink cutouts and faucet installs so the plumbing lines up with the new tops.',
       },
       {
         title: 'Plumbing Fixture Upgrades',
-        description: 'We replace outdated sinks, faucets, and disposals with efficient, code-compliant fixtures. We also handle water line relocation for islands and appliance hookups.',
+        description: 'We replace outdated sinks, faucets, and disposals with efficient, code-compliant fixtures. Water line moves for islands and appliance hookups included.',
       },
       {
         title: 'Backsplash and Tile Work',
-        description: 'Subway tile, natural stone, or custom mosaic. We provide proper waterproofing and durable installation behind sinks and countertops.',
+        description: 'We coordinate waterproofing and fixture placement behind sinks and counters so tile work and plumbing finish clean.',
       },
       {
         title: 'Appliance Integration',
-        description: 'We coordinate installation of energy-efficient appliances with proper plumbing, gas, and electrical connections for a clean layout.',
+        description: 'We connect dishwashers, refrigerators, and gas ranges with proper plumbing, gas, and drain lines for a clean layout.',
       },
     ],
-    summaryHeading: 'Upgrade Your Kitchen with Precision Plumbing for Lasting Value',
+    summaryHeading: 'Kitchen Remodel Plumbing That Fits the Plan',
     photos: [
       '/images/service-kitchen-remodel-plumbing.webp',
       '/images/service-plumbing-remodels-upgrades.webp',
       '/images/service-dishwasher-disposal-install.webp',
     ],
     summaryParagraphs: [
-      'We specialize in the plumbing side of kitchen remodels. Moving sink drains, installing pot fillers and instant hot water dispensers, connecting everything so it works right.',
-      'We coordinate with your contractor or designer to make sure the plumbing fits the plan. Gas lines for ranges, water lines for refrigerators, and drain lines for islands are all part of our scope.',
+      'We specialize in the plumbing side of kitchen remodels. Moving sink drains, installing pot fillers and instant hot water dispensers, connecting everything so it works.',
+      'We coordinate with your contractor or designer so the plumbing fits the plan. Gas for ranges, water for fridges, and drains for islands are all in scope.',
     ],
     benefits: [
       {
-        title: 'Increased Home Value',
-        description: 'A professionally remodeled kitchen boosts resale value. Modern upgrades, efficient layouts, and updated finishes appeal to buyers.',
+        title: 'Adds Home Value',
+        description: 'A well-remodeled kitchen helps resale. Updated plumbing and modern fixtures are part of what buyers notice.',
       },
       {
-        title: 'Improved Energy Efficiency',
-        description: 'We install energy-efficient appliances, fixtures, and lighting. Modern fixtures can cut water usage by 30-50% compared to older models.',
+        title: 'Lower Water and Energy Use',
+        description: 'Efficient fixtures and appliances can cut water usage by 30 to 50 percent compared with older models.',
       },
       {
-        title: 'Optimized Layout and Function',
-        description: 'We redesign kitchens for better flow, accessibility, and storage. Opening walls, relocating appliances, creating functional work zones.',
+        title: 'Layout That Actually Works',
+        description: 'We help relocate sinks, appliances, and lines so the kitchen flows better for cooking and cleanup.',
       },
       {
-        title: 'Higher Quality Materials and Workmanship',
-        description: 'We use quality materials and skilled craftsmanship. Every connection is secure, every fixture installed to manufacturer specs.',
+        title: 'Solid Materials and Workmanship',
+        description: 'Secure connections and installs to manufacturer specs. Shortcuts under the sink show up later as leaks.',
       },
       {
-        title: 'Enhanced Safety and Code Compliance',
-        description: 'We know building codes, electrical safety, and plumbing regulations. We handle all permits and inspections to keep your project compliant.',
+        title: 'Permits and Code Coverage',
+        description: 'We know building and plumbing rules. Permits and inspections stay on track so the project stays compliant.',
       },
       {
-        title: 'Customization to Fit Your Lifestyle',
-        description: 'Pot fillers over the stove, instant hot water at the sink. We tailor every detail to your cooking and entertaining needs.',
+        title: 'Details That Fit How You Cook',
+        description: 'Pot fillers, instant hot at the sink, island sinks: we set those up based on how you actually use the kitchen.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Kitchen Remodel Services',
-    closingHeading: 'Kitchen Remodeling Services Backed by 38 Years of Experience',
+    benefitsHeading: 'Why Contractors Work With Us',
+    closingHeading: 'Kitchen Remodel Plumbing Backed by 38 Years',
     closingParagraphs: [
-      'A kitchen remodel changes how you use your home every day. We tailor each project to your tastes and how you actually cook and live.',
-      'From design consultation to final walkthrough, we deliver a kitchen you will enjoy using. Let us talk about your project.',
+      'A kitchen remodel changes how you use the house every day. We build each plumbing plan around how you cook and live, not a catalog page.',
+      'From the first consult to final walkthrough, we aim for a kitchen you enjoy using. Let\'s talk about your project.',
     ],
   },
 
   'bathroom-remodels': {
-    introHeading: 'Professional Bathroom Remodeling Tailored to Your Needs',
+    introHeading: 'Bathroom Remodels Built Around How You Live',
     introParagraphs: [
-      'A bathroom remodel can make your morning routine a lot better. We specialize in complete bathroom remodels throughout Spirit Lake, Rathdrum, Hayden, Post Falls, and across North Idaho.',
-      'We understand what works in North Idaho homes. The climate, aging infrastructure in older houses, and modern design preferences all come into play. Powder room update or full master suite, we handle it all.',
-      'We work with homeowners, designers, and contractors to make your new bathroom look good and function well. Permits and inspections included.',
+      'A bathroom remodel can make the morning routine a lot easier. We handle complete bathroom remodel plumbing throughout Spirit Lake, Rathdrum, Hayden, Post Falls, and across North Idaho.',
+      'We understand what works in North Idaho homes: the climate, aging infrastructure in older houses, and what people want in a modern bath. Powder room update or full master suite, we handle it.',
+      'We work with homeowners, designers, and contractors so the new bathroom looks good and functions well. Permits and inspections included.',
     ],
     subServices: [
       {
         title: 'Complete Bathroom Renovation',
-        description: 'We gut outdated interiors and rebuild from the ground up. Structural updates, waterproofing, plumbing, and a layout that fits how you actually use the space.',
+        description: 'We gut outdated baths and rebuild from the ground up. Structural updates, waterproofing, plumbing, and a layout that fits how you use the space.',
       },
       {
         title: 'Shower and Bathtub Conversions',
-        description: 'Old tub to walk-in shower or freestanding soaking tub. We specialize in functional upgrades that improve style and accessibility.',
+        description: 'Old tub to walk-in shower, or a freestanding soaking tub. Functional upgrades that improve style and accessibility.',
       },
       {
         title: 'Custom Vanity and Cabinet Installation',
-        description: 'Rustic wood vanities to sleek contemporary cabinets. We design and install storage that reflects your taste with proper plumbing integration.',
+        description: 'From rustic wood vanities to clean modern cabinets, we install storage with proper plumbing behind it.',
       },
       {
         title: 'Fixture Upgrades',
-        description: 'Energy-efficient faucets, showerheads, toilets, and lighting. We help you select fixtures that match your style and performance needs.',
+        description: 'Efficient faucets, showerheads, toilets, and lighting. We help pick fixtures that match style and performance.',
       },
       {
         title: 'Plumbing and Drain Reconfiguration',
-        description: 'Older homes often have inefficient plumbing. We reconfigure water lines and drains to match modern usage and improve reliability.',
+        description: 'Older homes often have inefficient plumbing. We rework water lines and drains to match modern use and improve reliability.',
       },
       {
         title: 'Tile and Flooring Installation',
-        description: 'Slip-resistant tile, natural stone, heated floors. We ensure proper waterproofing and substrate preparation for long-lasting results.',
+        description: 'Slip-resistant tile, natural stone, heated floors. Proper waterproofing and substrate prep for results that last.',
       },
     ],
     summaryHeading: 'Bathroom Remodels That Add Comfort and Value',
@@ -1021,72 +1326,97 @@ export const serviceContent: Record<string, RichServiceContent> = {
       '/images/service-bathroom-remodel-accessible.webp',
     ],
     summaryParagraphs: [
-      'We upgrade fixtures, relocate plumbing, and install water-saving systems that improve comfort and reduce costs. Spa-like retreat or accessible bathroom, we deliver craftsmanship that adds lasting value.',
-      'Walk-in showers, soaking tubs, dual-flush toilets, radiant heated floors. We handle every aspect of bathroom plumbing with precision and care for your home and family.',
+      'We upgrade fixtures, relocate plumbing, and install water-saving systems that improve comfort and cut costs. Spa-style retreat or accessible bath, careful work adds lasting value.',
+      'Walk-in showers, soaking tubs, dual-flush toilets, radiant heated floors: we handle bathroom plumbing with care for your home and family.',
     ],
     benefits: [
       {
-        title: 'Complete Bathroom Renovation',
-        description: 'Full-service approach that manages demolition, structural updates, plumbing, electrical, and finishing. A cohesive space that functions perfectly.',
+        title: 'Full Bathroom Rebuild Support',
+        description: 'Demolition through finish plumbing, coordinated so the space functions as one complete room.',
       },
       {
-        title: 'Shower and Bathtub Conversions',
-        description: 'Custom shower and tub solutions designed for comfort and accessibility. Each conversion maximizes your bathroom\'s potential while maintaining code compliance.',
+        title: 'Shower and Tub Conversions Done Right',
+        description: 'Custom shower and tub solutions for comfort and access. Conversions stay code-compliant and practical.',
       },
       {
-        title: 'Custom Vanity and Cabinet Installation',
-        description: 'Custom storage built to your dimensions and style. Plumbing runs behind every vanity for a clean finish.',
+        title: 'Vanities With Clean Plumbing Behind Them',
+        description: 'Custom or stock storage built to fit, with supply and drain lines finished cleanly.',
       },
       {
-        title: 'Fixture Upgrades',
-        description: 'Energy-efficient faucets, showerheads, toilets that reduce water use. Our team helps you pick fixtures that match your style and needs.',
+        title: 'Smarter Fixtures',
+        description: 'Efficient faucets, showerheads, and toilets that cut water use. We help pick what fits your style and needs.',
       },
       {
-        title: 'Plumbing and Drain Reconfiguration',
-        description: 'Relocated supply lines, drain pipes, and vents for new layouts. All changes meet current code and function flawlessly.',
+        title: 'Plumbing Relocated for New Layouts',
+        description: 'Supply lines, drains, and vents moved for the new plan. Changes meet current code and work the way they should.',
       },
       {
-        title: 'Tile and Flooring Installation',
-        description: 'Durable, stylish flooring with proper waterproofing. Radiant heated floors add comfort during Idaho\'s cold winters.',
+        title: 'Floors That Stay Dry (and Warm)',
+        description: 'Durable flooring with proper waterproofing. Radiant heated floors add comfort during Idaho winters.',
       },
     ],
-    benefitsHeading: 'Benefits of Professional Bathroom Remodeling Services',
-    closingHeading: 'Bathroom Renovations Done Right, Down to Every Detail',
+    benefitsHeading: 'Why Homeowners Remodel Bathrooms With Us',
+    closingHeading: 'Bathroom Renovations Done Right, Detail by Detail',
     closingParagraphs: [
-      'A bathroom remodel is an investment in your home and your daily routine. We deliver results you can trust, backed by decades of experience.',
-      'Small upgrade or complete overhaul, we make the process smooth and the results lasting. Give us a call to talk about your bathroom project.',
+      'A bathroom remodel is an investment in the house and the daily routine. We deliver results you can trust, backed by decades of experience.',
+      'Small upgrade or complete overhaul, we keep the process clear and the results lasting. Give us a call to talk about your bathroom project.',
     ],
   },
 }
 
-export const pageMeta: Record<string, { title: string; h1: string }> = {
+export const pageMeta: Record<string, { title: string; h1: string; description?: string }> = {
   'new-construction': {
-    title: 'New Construction Plumber Spirit Lake ID',
-    h1: 'New Construction Projects in Spirit Lake, Idaho',
+    title: 'New Construction Plumbing Contractor Spirit Lake, ID',
+    h1: 'New Construction Plumbing in Spirit Lake, Idaho',
+    description: 'Code-compliant plumbing for new home and commercial builds in North Idaho. Trusted by builders. Call 208-290-3889.',
   },
   commercial: {
-    title: 'Commercial Plumber Spirit Lake ID',
+    title: 'Commercial Plumbing Contractor North Idaho',
     h1: 'Commercial Plumbing Projects in Spirit Lake, Idaho',
+    description: 'Commercial plumbing for restaurants, retail, and medical facilities across North Idaho. Licensed and insured. Call 208-290-3889.',
   },
   'radiant-heat': {
-    title: 'Radiant Heat Installation Spirit Lake ID',
+    title: 'Radiant Floor Heating Installation Spirit Lake, ID',
     h1: 'Radiant Heat Installation in Spirit Lake, Idaho',
+    description: 'In-floor radiant heat design and installation across North Idaho. Free estimate: 208-290-3889.',
+  },
+  'heated-driveways': {
+    title: 'Heated Driveway Installation Spirit Lake, ID',
+    h1: 'Heated Driveway & Snow-Melt Systems in North Idaho',
+    description: 'Hydronic heated driveways and snow-melt systems installed by North Idaho radiant heat specialists. Family-owned. Free estimate: 208-290-3889.',
   },
   'water-heaters': {
     title: 'Water Heater Installation Spirit Lake ID',
     h1: 'Water Heater Services in Spirit Lake, Idaho',
+  },
+  'tankless-water-heaters': {
+    title: 'Tankless Water Heater Installation Spirit Lake, ID',
+    h1: 'Tankless Water Heater Installation & Repair',
+    description: 'Tankless water heater installation, repair, and replacement in North Idaho. Endless hot water, lower energy bills. Family-owned. Call 208-290-3889.',
   },
   'water-softeners': {
     title: 'Water Softener Installation Spirit Lake ID',
     h1: 'Water Softener Services in Spirit Lake, Idaho',
   },
   emergency: {
-    title: 'Emergency Plumber Spirit Lake ID 24/7 Available',
-    h1: '24/7 Emergency Plumber in Spirit Lake, Idaho',
+    title: 'Emergency Plumber Spirit Lake, ID',
+    h1: 'Emergency Plumber in Spirit Lake, Idaho',
+    description: 'Emergency plumbing for burst pipes, leaks, sewer backups, and no hot water in North Idaho. Open Sun-Fri 7am-5pm. Call 208-290-3889.',
   },
   'sewer-line': {
-    title: 'Sewer Line Replacement Spirit Lake ID',
+    title: 'Sewer Line Replacement Spirit Lake, ID',
     h1: 'Sewer Line Replacement in Spirit Lake, Idaho',
+    description: 'Trenchless and traditional sewer line replacement in North Idaho. Camera inspections included. Free estimate: 208-290-3889.',
+  },
+  'water-line': {
+    title: 'Water Line Replacement Spirit Lake, ID',
+    h1: 'Water Line Repair & Replacement in North Idaho',
+    description: 'Underground water line repair and water service replacement in North Idaho. Leak detection, meter-to-home installs. Free estimate: 208-290-3889.',
+  },
+  'gas-line': {
+    title: 'Gas Line Installation & Repair Spirit Lake, ID',
+    h1: 'Gas Line Services in Spirit Lake, Idaho',
+    description: 'Licensed gas line installation, repair, and appliance hookups in North Idaho. Code-compliant natural gas work. Call 208-290-3889.',
   },
   'septic-systems': {
     title: 'Septic System Installation Spirit Lake ID',

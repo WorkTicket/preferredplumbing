@@ -8,7 +8,7 @@ const reasons = [
   {
     icon: Award,
     title: '38+ Years in the Trade',
-    description: 'Ron and Hunter have been plumbing North Idaho since 1987. They work on-site alongside the crew every day.',
+    description: 'We work on-site alongside the crew every day, not behind a desk.',
   },
   {
     icon: Shield,

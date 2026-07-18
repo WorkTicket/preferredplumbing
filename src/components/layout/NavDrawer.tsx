@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import {
-  getNavServices,
+  getNavServiceGroups,
   SERVICE_NAV_ICONS,
   SERVICE_NAV_LABELS,
 } from '@/lib/nav-services'
@@ -101,7 +101,7 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
   const reduced = useReducedMotion()
   const [servicesOpen, setServicesOpen] = useState(false)
   const [learnOpen, setLearnOpen] = useState(false)
-  const navServices = getNavServices()
+  const navGroups = getNavServiceGroups()
   const servicesActive = isNavActive(pathname, '/services')
   const learnActive =
     isNavActive(pathname, '/blog') || isNavActive(pathname, '/faqs')
@@ -204,47 +204,54 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
       </button>
       {servicesOpen && (
         <div className="pb-2 pl-1">
-          {navServices.map((service) => {
-            const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
-            const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
-            const isEmergency = service.slug === 'emergency'
-            const active = isNavActive(pathname, `/services/${service.slug}`)
+          {navGroups.map((group) => (
+            <div key={group.id} className="mb-2">
+              <p className="px-2 pb-1 pt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
+                {group.label}
+              </p>
+              {group.services.map((service) => {
+                const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+                const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+                const isEmergency = service.slug === 'emergency'
+                const active = isNavActive(pathname, `/services/${service.slug}`)
 
-            return (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                onClick={onClose}
-                aria-current={active ? 'page' : undefined}
-                className={cn(
-                  'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
-                  isEmergency
-                    ? active
-                      ? 'bg-red-50 text-red-700'
-                      : 'text-red-700 hover:bg-red-50'
-                    : active
-                      ? 'bg-blue-50 text-blue'
-                      : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
-                )}
-              >
-                <span
-                  className={cn(
-                    'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                    isEmergency
-                      ? active
-                        ? 'bg-red-600 text-white'
-                        : 'bg-red-100 text-red-600'
-                      : active
-                        ? 'bg-blue text-white'
-                        : 'bg-gray-100 text-blue'
-                  )}
-                >
-                  <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-                </span>
-                {label}
-              </Link>
-            )
-          })}
+                return (
+                  <Link
+                    key={service.slug}
+                    href={`/services/${service.slug}`}
+                    onClick={onClose}
+                    aria-current={active ? 'page' : undefined}
+                    className={cn(
+                      'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                      isEmergency
+                        ? active
+                          ? 'bg-red-50 text-red-700'
+                          : 'text-red-700 hover:bg-red-50'
+                        : active
+                          ? 'bg-blue-50 text-blue'
+                          : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                        isEmergency
+                          ? active
+                            ? 'bg-red-600 text-white'
+                            : 'bg-red-100 text-red-600'
+                          : active
+                            ? 'bg-blue text-white'
+                            : 'bg-gray-100 text-blue'
+                      )}
+                    >
+                      <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                    </span>
+                    {label}
+                  </Link>
+                )
+              })}
+            </div>
+          ))}
           <Link
             href="/services"
             onClick={onClose}
@@ -286,47 +293,54 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
               className="overflow-hidden"
             >
               <div className="pb-2 pl-1">
-                {navServices.map((service) => {
-                  const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
-                  const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
-                  const isEmergency = service.slug === 'emergency'
-                  const active = isNavActive(pathname, `/services/${service.slug}`)
+                {navGroups.map((group) => (
+                  <div key={group.id} className="mb-2">
+                    <p className="px-2 pb-1 pt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
+                      {group.label}
+                    </p>
+                    {group.services.map((service) => {
+                      const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+                      const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+                      const isEmergency = service.slug === 'emergency'
+                      const active = isNavActive(pathname, `/services/${service.slug}`)
 
-                  return (
-                    <Link
-                      key={service.slug}
-                      href={`/services/${service.slug}`}
-                      onClick={onClose}
-                      aria-current={active ? 'page' : undefined}
-                      className={cn(
-                        'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
-                        isEmergency
-                          ? active
-                            ? 'bg-red-50 text-red-700'
-                            : 'text-red-700 hover:bg-red-50'
-                          : active
-                            ? 'bg-blue-50 text-blue'
-                            : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
-                      )}
-                    >
-                      <span
-                        className={cn(
-                          'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                          isEmergency
-                            ? active
-                              ? 'bg-red-600 text-white'
-                              : 'bg-red-100 text-red-600'
-                            : active
-                              ? 'bg-blue text-white'
-                              : 'bg-gray-100 text-blue'
-                        )}
-                      >
-                        <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-                      </span>
-                      {label}
-                    </Link>
-                  )
-                })}
+                      return (
+                        <Link
+                          key={service.slug}
+                          href={`/services/${service.slug}`}
+                          onClick={onClose}
+                          aria-current={active ? 'page' : undefined}
+                          className={cn(
+                            'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                            isEmergency
+                              ? active
+                                ? 'bg-red-50 text-red-700'
+                                : 'text-red-700 hover:bg-red-50'
+                              : active
+                                ? 'bg-blue-50 text-blue'
+                                : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                          )}
+                        >
+                          <span
+                            className={cn(
+                              'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                              isEmergency
+                                ? active
+                                  ? 'bg-red-600 text-white'
+                                  : 'bg-red-100 text-red-600'
+                                : active
+                                  ? 'bg-blue text-white'
+                                  : 'bg-gray-100 text-blue'
+                            )}
+                          >
+                            <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                          </span>
+                          {label}
+                        </Link>
+                      )
+                    })}
+                  </div>
+                ))}
                 <Link
                   href="/services"
                   onClick={onClose}

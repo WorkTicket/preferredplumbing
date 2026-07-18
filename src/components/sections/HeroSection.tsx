@@ -9,7 +9,7 @@ import { Phone, ChevronRight, Star } from 'lucide-react'
 const stats = [
   { number: '38+', suffix: '', label: 'Years Experience' },
   { number: '5★', suffix: '', label: 'Google Rating' },
-  { number: '24/7', suffix: '', label: 'Emergency Service' },
+  { number: '7–5', suffix: '', label: 'Sun–Fri Hours' },
   { number: '500+', suffix: '', label: 'Jobs Completed' },
 ]
 
@@ -132,7 +132,7 @@ export default function HeroSection() {
           <div className="max-w-3xl w-full">
             <div className="mb-3 sm:mb-5 flex flex-wrap items-center gap-2.5">
               <p className="inline-flex flex-wrap items-center rounded-full border border-blue-light/25 bg-blue-light/10 px-3.5 py-1.5 text-[11px] sm:text-sm font-semibold text-blue-light backdrop-blur-sm">
-                Family-Owned Plumber in Spirit Lake Since 1987
+                Family-Owned Plumber in Spirit Lake, Idaho
               </p>
               <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 backdrop-blur-sm">
                 <Star className="h-3.5 w-3.5 fill-gold text-gold" /> 5.0 Google Rating
@@ -143,8 +143,8 @@ export default function HeroSection() {
               <span className="text-blue-light">Local Plumber</span>
             </h1>
             <p className="mt-3 sm:mt-4 max-w-xl text-[13px] sm:text-base lg:text-lg text-gray-300 leading-snug sm:leading-relaxed">
-              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel —{' '}
-              <span className="font-serif italic text-blue-light">call for a free estimate.</span>
+              Family-owned in Spirit Lake, Idaho. Radiant heat, new construction, and emergency service.{' '}
+              <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
             </p>
             <div className="mt-4 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">
               <a href="tel:12082903889" className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">

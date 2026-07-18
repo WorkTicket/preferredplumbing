@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import type { BlogPostSummary } from '@/data/blog'
-import { cn } from '@/lib/utils'
+import { cn, formatDisplayDate } from '@/lib/utils'
 
 interface BlogPostCardProps {
   post: BlogPostSummary
@@ -39,11 +39,7 @@ export default function BlogPostCard({ post, plain = false }: BlogPostCardProps)
       <p className="mt-3 text-sm text-gray-500 line-clamp-2 leading-relaxed">{post.excerpt}</p>
 
       <p className="mt-5 pt-4 border-t border-gray-100 text-xs font-medium text-gray-400 uppercase tracking-wider">
-        {new Date(post.date).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        })}
+        {formatDisplayDate(post.date)}
       </p>
     </Link>
   )

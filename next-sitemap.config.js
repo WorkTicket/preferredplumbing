@@ -53,10 +53,11 @@ module.exports = {
   },
   additionalPaths: async (config) => {
     const services = [
-      'new-construction', 'commercial', 'radiant-heat', 'water-heaters',
+      'emergency', 'radiant-heat', 'heated-driveways', 'new-construction',
+      'commercial', 'tankless-water-heaters', 'water-heaters',
       'water-softeners', 'toilets-faucets', 'bathtubs-showers',
-      'dishwashers', 'sewer-line', 'septic-systems', 'remodels',
-      'kitchen-remodels', 'bathroom-remodels', 'emergency',
+      'dishwashers', 'sewer-line', 'water-line', 'gas-line',
+      'septic-systems', 'remodels', 'kitchen-remodels', 'bathroom-remodels',
     ]
     const areas = [
       'spirit-lake-id', 'coeur-dalene-id', 'post-falls-id', 'sandpoint-id',
@@ -69,9 +70,25 @@ module.exports = {
       'commercial-remodel-coeur-dalene',
     ]
     const blogs = [
+      'heated-driveway-worth-it-north-idaho',
+      'tankless-vs-tank-water-heaters-north-idaho',
+      'commercial-plumbing-contractor-north-idaho',
+      'gas-line-installation-repair-north-idaho',
+      'water-line-replacement-signs-north-idaho',
+      'emergency-plumbing-when-to-call-spirit-lake',
+      'bathroom-remodel-plumbing-north-idaho',
       'how-to-choose-plumber-spirit-lake-idaho',
       'signs-sewer-line-replacement-north-idaho',
       'radiant-heat-vs-forced-air-idaho',
+      'water-heater-installation-cost-idaho',
+      'water-softeners-idaho-panhandle',
+      'burst-pipe-winter-idaho-what-to-do',
+      'new-construction-plumbing-guide-idaho',
+      'septic-system-bonner-county-idaho',
+      'water-heater-winter-checklist-north-idaho',
+      'how-radiant-heat-works-idaho',
+      'plumbing-permits-spirit-lake-idaho',
+      'kitchen-remodel-plumbing-north-idaho',
     ]
 
     const servicePaths = services.map((slug) => ({

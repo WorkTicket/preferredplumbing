@@ -5,6 +5,7 @@ import { Phone, ArrowLeft } from 'lucide-react'
 import { generateBlogMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { blogPosts, getBlogPost } from '@/data/blog'
+import { formatDisplayDate } from '@/lib/utils'
 
 interface Props {
   params: { slug: string }
@@ -19,7 +20,7 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!post) return {}
   return generateBlogMetadata({
     title: post.title,
-    excerpt: post.content[0]?.slice(0, 160) || '',
+    excerpt: post.excerpt || post.content[0]?.slice(0, 160) || '',
     slug: params.slug,
     publishedAt: post.date,
   })
@@ -33,7 +34,7 @@ export default function BlogPostPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
-    description: post.content[0]?.slice(0, 160) || '',
+    description: post.excerpt || post.content[0]?.slice(0, 160) || '',
     datePublished: post.date,
     dateModified: post.date,
     author: {
@@ -66,11 +67,7 @@ export default function BlogPostPage({ params }: Props) {
             <SectionLabel text="Blog" />
           </div>
           <p className="mt-4 text-sm text-gray-400">
-            {new Date(post.date).toLocaleDateString('en-US', {
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
-            })}
+            {formatDisplayDate(post.date)}
           </p>
           <h1 className="mt-2 font-display text-[clamp(2rem,6vw,3.5rem)] font-black uppercase leading-[0.95] text-gray-900">
             {post.title}
@@ -82,6 +79,23 @@ export default function BlogPostPage({ params }: Props) {
           {post.content.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
           ))}
+          {post.relatedService && (
+            <div className="mt-8 rounded-2xl border border-blue/15 bg-white p-6 shadow-premium">
+              <p className="text-xs font-bold uppercase tracking-wider text-blue">Related Service</p>
+              <p className="mt-2 font-display text-xl font-bold uppercase text-gray-900">
+                {post.relatedService.label}
+              </p>
+              <p className="mt-2 text-sm text-gray-600">
+                Learn more about this service, see what&apos;s included, and request a free estimate.
+              </p>
+              <Link
+                href={post.relatedService.href}
+                className="btn-primary mt-4 inline-flex"
+              >
+                View {post.relatedService.label}
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

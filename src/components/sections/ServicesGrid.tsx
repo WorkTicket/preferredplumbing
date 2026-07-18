@@ -9,14 +9,23 @@ import { Phone, ArrowRight, Clock } from 'lucide-react'
 import { PHONE_HREF } from '@/lib/utils'
 
 const featuredSlugs = [
-  'emergency', 'new-construction', 'radiant-heat',
-  'water-heaters', 'remodels', 'sewer-line',
+  'emergency',
+  'radiant-heat',
+  'new-construction',
+  'commercial',
+  'sewer-line',
+  'tankless-water-heaters',
 ]
 
-const specialtySlugs = ['commercial', 'septic-systems', 'water-softeners']
+const specialtySlugs = ['heated-driveways', 'water-heaters', 'water-softeners']
 
-const featuredServices = services.filter((s) => featuredSlugs.includes(s.slug))
-const specialtyServices = services.filter((s) => specialtySlugs.includes(s.slug))
+const featuredServices = featuredSlugs
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is (typeof services)[number] => Boolean(s))
+
+const specialtyServices = specialtySlugs
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is (typeof services)[number] => Boolean(s))
 
 export default function ServicesGrid() {
   return (
@@ -30,7 +39,7 @@ export default function ServicesGrid() {
             <span className="text-blue">Businesses &amp; New Builds</span>
           </h2>
           <p className="section-subtitle-center">
-            Emergency repairs, new construction, remodels. One call covers it.
+            Emergency repairs, radiant heat, new construction, and high-value specialty work. One call covers it.
           </p>
         </div>
 
@@ -52,12 +61,12 @@ export default function ServicesGrid() {
 
         <div className="mt-16 sm:mt-20">
           <div>
-            <SectionLabel text="Specialty Services" />
+            <SectionLabel text="Specialty & High-Value Services" />
             <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
-              What We Do <span className="text-blue">Best</span>
+              Specialty &amp; <span className="text-blue">High-Value</span>
             </h3>
             <p className="section-subtitle mt-3">
-              Commercial work, rural septic, and hard-water fixes. Three areas where 38 years on the job really shows.
+              Heated driveways, tank water heaters, and hard-water solutions. Solid work backed by 38 years on the job.
             </p>
           </div>
 

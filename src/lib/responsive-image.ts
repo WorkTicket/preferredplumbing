@@ -40,6 +40,11 @@ export function getVariantUrl(src: string, format: ImageFormat, preferredWidth =
   return variantUrl(src, format, pick)
 }
 
+/** Original public path (strips cache-bust query). Use as img fallback if generated variants 404. */
+export function getOriginalImageUrl(src: string): string {
+  return normalizeImageSrc(src)
+}
+
 export function getLcpPreloadHref(src: string, preferredWidth = 768): string {
   return getVariantUrl(src, 'avif', preferredWidth)
 }

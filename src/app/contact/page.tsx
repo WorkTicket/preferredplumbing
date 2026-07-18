@@ -12,7 +12,7 @@ const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 export const metadata: Metadata = generateMetadata({
   title: 'Contact Us',
-  description: 'Get a free plumbing quote from Preferred Plumbing Solutions. Call 208-290-3889 or fill out our online form. 38+ years serving Spirit Lake and North Idaho.',
+  description: 'Get a free plumbing quote from Preferred Plumbing Solutions. Call 208-290-3889 or fill out our online form. Serving Spirit Lake and North Idaho.',
   slug: 'contact',
   canonical: `${siteUrl}/contact`,
 })
@@ -56,7 +56,7 @@ export default function ContactPage() {
       <PageHero
         label="Contact Us"
         title={<>Get Your Free<br /><span className="text-blue-300">Plumbing Quote</span></>}
-        description="Call us or fill out the form. We'll get back to you within 24 hours. Emergency service available 24/7."
+        description="Call us or fill out the form. We'll get back to you within 24 hours. Emergency service available Sun–Fri 7am–5pm (closed Saturday)."
         image="/images/hero-contact.webp"
         imageAlt="Contact Preferred Plumbing Solutions for a free plumbing quote"
         priority
@@ -98,7 +98,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-400">Hours</p>
-                      <span>Mon–Fri 7am–5pm<br />24/7 Emergency Line</span>
+                      <span>Sun–Fri 7am–5pm<br />Sat Closed</span>
                     </div>
                   </div>
                 </div>

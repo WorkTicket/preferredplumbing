@@ -15,7 +15,7 @@ const GalleryGrid = dynamic(() => import('@/components/gallery/GalleryGrid'), {
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Project Gallery | Spirit Lake, ID',
-  description: 'Browse our completed plumbing project gallery in Spirit Lake and North Idaho. See quality craftsmanship in new construction, remodels, commercial plumbing, and more.',
+  description: 'Browse completed plumbing jobs in Spirit Lake and North Idaho. New construction, remodels, commercial work, and more from Preferred Plumbing Solutions.',
   slug: 'gallery',
   canonical: `${siteUrl}/gallery`,
 })
@@ -65,7 +65,7 @@ export default function GalleryPage() {
       <PageHero
         label="Gallery"
         title={<>Our Project<br /><span className="text-blue-300">Gallery</span></>}
-        description="We photograph our work from rough-in to finish trim. Browse real jobs across North Idaho and see what we bring to every project."
+        description="We photograph our work from rough-in to finish trim. Real jobs across North Idaho."
         image="/images/hero-gallery.webp"
         imageAlt="Completed plumbing projects by Preferred Plumbing Solutions in North Idaho"
         priority
@@ -95,11 +95,11 @@ export default function GalleryPage() {
         <div className="container-page">
           <div className="mx-auto max-w-2xl text-center py-14 sm:py-20 lg:py-24">
             <div className="flex justify-center">
-              <SectionLabel text="Let&apos;s Work Together" />
+              <SectionLabel text="Get in Touch" />
             </div>
             <h2 className="font-display text-[clamp(2rem,7vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
-              Ready to Start Your<br />
-              <span className="text-blue">Next Project?</span>
+              Got a Project<br />
+              <span className="text-blue">in Mind?</span>
             </h2>
             <p className="mt-4 text-gray-600">
               New build, remodel, or commercial job?

@@ -28,7 +28,7 @@ export default function FAQAccordion() {
             </div>
           </div>
 
-          <FaqAccordionList items={faqItems.slice(0, 5)} idPrefix="home" />
+          <FaqAccordionList items={faqItems.slice(0, 7)} idPrefix="home" />
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

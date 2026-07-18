@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { ArrowRight, Phone, Wrench } from 'lucide-react'
 import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
 import {
-  getNavServices,
+  getNavServiceGroups,
   SERVICE_NAV_ICONS,
   SERVICE_NAV_LABELS,
 } from '@/lib/nav-services'
@@ -17,13 +17,15 @@ interface ServicesMegaMenuProps {
 
 export default function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProps) {
   const pathname = usePathname()
-  const navServices = getNavServices()
+  const groups = getNavServiceGroups()
   const allServicesActive = pathname === '/services'
+  const emergencyGroup = groups.find((group) => group.id === 'emergency')
+  const otherGroups = groups.filter((group) => group.id !== 'emergency')
 
   return (
     <div
       className={cn(
-        'absolute left-1/2 top-full z-50 w-[38rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3',
+        'absolute left-1/2 top-full z-50 w-[52rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3',
         'transition-all duration-300 ease-out',
         open
           ? 'pointer-events-auto visible translate-y-0 opacity-100'
@@ -63,63 +65,104 @@ export default function ServicesMegaMenu({ open, onClose }: ServicesMegaMenuProp
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-1 p-3">
-          {navServices.map((service) => {
-            const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
-            const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
-            const isEmergency = service.slug === 'emergency'
-            const active =
-              pathname === `/services/${service.slug}` ||
-              pathname.startsWith(`/services/${service.slug}/`)
+        {emergencyGroup?.services[0] && (() => {
+          const service = emergencyGroup.services[0]
+          const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+          const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+          const active =
+            pathname === `/services/${service.slug}` ||
+            pathname.startsWith(`/services/${service.slug}/`)
 
-            return (
+          return (
+            <div className="border-b border-red-100 bg-red-50/70 px-3 py-2">
+              <p className="mb-1.5 px-2 text-[10px] font-bold uppercase tracking-[0.16em] text-red-700/80">
+                {emergencyGroup.label}
+              </p>
               <Link
-                key={service.slug}
                 href={`/services/${service.slug}`}
                 onClick={onClose}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'group/item flex min-w-0 items-center gap-2 rounded-lg px-2 py-2.5 transition-all duration-200',
-                  isEmergency
-                    ? active
-                      ? 'bg-red-100/80 ring-1 ring-red-200'
-                      : 'bg-red-50 hover:bg-red-100/80'
-                    : active
-                      ? 'bg-blue-50/80 ring-1 ring-blue/20'
-                      : 'hover:bg-blue-50/80'
+                  'group/item flex items-center gap-2.5 rounded-lg px-2 py-2.5 transition-all duration-200',
+                  active ? 'bg-red-100/90 ring-1 ring-red-200' : 'hover:bg-red-100/80'
                 )}
               >
                 <span
                   className={cn(
                     'flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-all duration-200',
-                    isEmergency
-                      ? active
-                        ? 'bg-red-600 text-white'
-                        : 'bg-red-100 text-red-600 group-hover/item:bg-red-600 group-hover/item:text-white'
-                      : active
-                        ? 'bg-blue text-white'
-                        : 'bg-gray-100 text-blue group-hover/item:bg-blue group-hover/item:text-white'
+                    active
+                      ? 'bg-red-600 text-white'
+                      : 'bg-red-100 text-red-600 group-hover/item:bg-red-600 group-hover/item:text-white'
                   )}
                 >
                   <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
                 </span>
                 <span
                   className={cn(
-                    'min-w-0 text-[12px] font-semibold leading-tight transition-colors duration-200',
-                    isEmergency
-                      ? active
-                        ? 'text-red-800'
-                        : 'text-red-700 group-hover/item:text-red-800'
-                      : active
-                        ? 'text-blue-dark'
-                        : 'text-gray-700 group-hover/item:text-blue-dark'
+                    'min-w-0 text-[13px] font-semibold leading-tight',
+                    active ? 'text-red-800' : 'text-red-700 group-hover/item:text-red-800'
                   )}
                 >
                   {label}
                 </span>
               </Link>
-            )
-          })}
+            </div>
+          )
+        })()}
+
+        <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-3">
+          {otherGroups.map((group) => (
+            <div key={group.id}>
+              <p className="mb-2 px-1 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
+                {group.label}
+              </p>
+              <div className="space-y-0.5">
+                {group.services.map((service) => {
+                  const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+                  const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+                  const active =
+                    pathname === `/services/${service.slug}` ||
+                    pathname.startsWith(`/services/${service.slug}/`)
+
+                  return (
+                    <Link
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                      onClick={onClose}
+                      aria-current={active ? 'page' : undefined}
+                      className={cn(
+                        'group/item flex min-w-0 items-center gap-2 rounded-lg px-2 py-2 transition-all duration-200',
+                        active
+                          ? 'bg-blue-50/80 ring-1 ring-blue/20'
+                          : 'hover:bg-blue-50/80'
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          'flex h-7 w-7 shrink-0 items-center justify-center rounded-md transition-all duration-200',
+                          active
+                            ? 'bg-blue text-white'
+                            : 'bg-gray-100 text-blue group-hover/item:bg-blue group-hover/item:text-white'
+                        )}
+                      >
+                        <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                      </span>
+                      <span
+                        className={cn(
+                          'min-w-0 text-[12px] font-semibold leading-tight transition-colors duration-200',
+                          active
+                            ? 'text-blue-dark'
+                            : 'text-gray-700 group-hover/item:text-blue-dark'
+                        )}
+                      >
+                        {label}
+                      </span>
+                    </Link>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className="flex items-center justify-between gap-3 border-t border-gray-100 bg-gradient-to-r from-gray-50 to-blue-50/40 px-5 py-3">
