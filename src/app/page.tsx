@@ -53,10 +53,10 @@ export default function HomePage() {
             itemListElement: [
               { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Emergency Plumbing', url: 'https://www.preferredplumbingsolution.com/services/emergency' } },
               { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Radiant Floor Heating', url: 'https://www.preferredplumbingsolution.com/services/radiant-heat' } },
-              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'New Construction Plumbing', url: 'https://www.preferredplumbingsolution.com/services/new-construction' } },
-              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'Heated Driveway Installation', url: 'https://www.preferredplumbingsolution.com/services/heated-driveways' } },
-              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Tankless Water Heater Installation', url: 'https://www.preferredplumbingsolution.com/services/tankless-water-heaters' } },
-              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Sewer Line Replacement', url: 'https://www.preferredplumbingsolution.com/services/sewer-line' } },
+              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'Heated Driveway Installation', url: 'https://www.preferredplumbingsolution.com/services/heated-driveways' } },
+              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'New Construction Plumbing', url: 'https://www.preferredplumbingsolution.com/services/new-construction' } },
+              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Commercial Plumbing', url: 'https://www.preferredplumbingsolution.com/services/commercial' } },
+              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Tankless Water Heater Installation', url: 'https://www.preferredplumbingsolution.com/services/tankless-water-heaters' } },
             ],
           }),
         }}

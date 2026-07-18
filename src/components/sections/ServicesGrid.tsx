@@ -10,11 +10,11 @@ import {
 import { Phone, ArrowRight, Clock } from 'lucide-react'
 import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
 
-const featuredServices = FEATURED_HOME_SERVICE_SLUGS.map((slug) =>
+const specialtyServices = SPECIALTY_SERVICE_SLUGS.map((slug) =>
   services.find((s) => s.slug === slug)
 ).filter((s): s is (typeof services)[number] => Boolean(s))
 
-const specialtyServices = SPECIALTY_SERVICE_SLUGS.map((slug) =>
+const allServicesPreview = FEATURED_HOME_SERVICE_SLUGS.map((slug) =>
   services.find((s) => s.slug === slug)
 ).filter((s): s is (typeof services)[number] => Boolean(s))
 
@@ -30,40 +30,24 @@ export default function ServicesGrid() {
             <span className="text-blue">Businesses &amp; New Builds</span>
           </h2>
           <p className="section-subtitle-center">
-            Emergency repairs, radiant heat, new construction, and signature specialty work. One call covers it.
+            Emergency repairs, radiant heat, new construction, and everyday plumbing. One call covers it.
           </p>
         </div>
 
-        <StaggerChildren
-          className="mt-12 sm:mt-14 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          staggerDelay={0.06}
-          variant="fadeUp"
-        >
-          {featuredServices.map((service) => (
-            <ServiceCard
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              slug={service.slug}
-              title={service.title}
-              description={service.description}
-            />
-          ))}
-        </StaggerChildren>
-
-        <div className="mt-16 sm:mt-20">
-          <div>
+        <div className="mt-12 sm:mt-14">
+          <div className="text-center max-w-3xl mx-auto sm:text-left sm:mx-0">
             <SectionLabel text="Signature Services" />
             <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
               Signature <span className="text-blue">Services</span>
             </h3>
             <p className="section-subtitle mt-3">
-              Radiant heat, heated driveways, new construction, commercial, and tankless systems. The work we specialize in.
+              Emergency response, radiant heat, heated driveways, new construction, commercial, and tankless systems. The work we specialize in.
             </p>
           </div>
 
           <StaggerChildren
             className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            staggerDelay={0.07}
+            staggerDelay={0.06}
             variant="fadeUp"
           >
             {specialtyServices.map((service) => (
@@ -78,13 +62,41 @@ export default function ServicesGrid() {
           </StaggerChildren>
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <Link href="/services" className="btn-secondary">
-            View All Services <ArrowRight className="h-4 w-4" />
-          </Link>
-          <a href={PHONE_HREF} className="btn-primary">
-            <Phone className="h-4 w-4" /> Call {PHONE_DISPLAY}
-          </a>
+        <div className="mt-16 sm:mt-20">
+          <div className="text-center max-w-3xl mx-auto sm:text-left sm:mx-0">
+            <SectionLabel text="All Services" />
+            <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
+              All <span className="text-blue">Services</span>
+            </h3>
+            <p className="section-subtitle mt-3">
+              Water heaters, sewer lines, remodels, and more. Browse a few popular services or see the full list.
+            </p>
+          </div>
+
+          <StaggerChildren
+            className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            staggerDelay={0.07}
+            variant="fadeUp"
+          >
+            {allServicesPreview.map((service) => (
+              <ServiceCard
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                slug={service.slug}
+                title={service.title}
+                description={service.description}
+              />
+            ))}
+          </StaggerChildren>
+
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <Link href="/services" className="btn-secondary">
+              View All Services <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a href={PHONE_HREF} className="btn-primary">
+              <Phone className="h-4 w-4" /> Call {PHONE_DISPLAY}
+            </a>
+          </div>
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-400">

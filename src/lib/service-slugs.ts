@@ -47,17 +47,14 @@ export const SERVICE_NAV_GROUPS: ServiceNavGroupSlugs[] = [
 
 export const SERVICE_NAV_ORDER = SERVICE_NAV_GROUPS.flatMap((group) => group.slugs)
 
-/** Home page primary service cards */
+/** Homepage Signature Services cards (includes emergency) */
+export const SPECIALTY_SERVICE_SLUGS = (
+  SERVICE_NAV_GROUPS.find((group) => group.id === 'specialty')?.slugs ?? []
+) as readonly string[]
+
+/** Homepage All Services preview cards */
 export const FEATURED_HOME_SERVICE_SLUGS = [
-  'emergency',
   'water-heaters',
   'sewer-line',
   'remodels',
-  'gas-line',
-  'septic-systems',
 ] as const
-
-/** Homepage Signature Services cards (emergency stays in featured row) */
-export const SPECIALTY_SERVICE_SLUGS = (
-  SERVICE_NAV_GROUPS.find((group) => group.id === 'specialty')?.slugs ?? []
-).filter((slug) => slug !== 'emergency')

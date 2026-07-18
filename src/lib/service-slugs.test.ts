@@ -23,12 +23,14 @@ describe('content modules', () => {
 
   it('uses featured/specialty slug sets that exist', () => {
     const serviceSlugs = new Set(services.map((s) => s.slug))
+    expect(FEATURED_HOME_SERVICE_SLUGS).toHaveLength(3)
+    expect(SPECIALTY_SERVICE_SLUGS).toHaveLength(6)
+    expect(SPECIALTY_SERVICE_SLUGS).toContain('emergency')
     for (const slug of FEATURED_HOME_SERVICE_SLUGS) {
       expect(serviceSlugs.has(slug)).toBe(true)
     }
     for (const slug of SPECIALTY_SERVICE_SLUGS) {
       expect(serviceSlugs.has(slug)).toBe(true)
-      expect(slug).not.toBe('emergency')
     }
   })
 

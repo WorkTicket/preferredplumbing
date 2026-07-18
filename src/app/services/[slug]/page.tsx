@@ -6,12 +6,21 @@ import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
-import { CheckCircle, Phone, ArrowRight, Star, Shield, Clock, HardHat, Award } from 'lucide-react'
+import {
+  CheckCircle,
+  Phone,
+  ArrowRight,
+  Shield,
+  Clock,
+  HardHat,
+  Zap,
+  Wrench,
+  BadgeCheck,
+} from 'lucide-react'
 import { services } from '@/lib/data'
 import { serviceContent, pageMeta } from '@/lib/service-content'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
-import SectionLabel from '@/components/ui/SectionLabel'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
@@ -21,12 +30,7 @@ interface Props {
   params: { slug: string }
 }
 
-const trustSignals = [
-  { icon: Shield, label: 'Licensed & Insured', desc: 'Fully licensed plumbing contractor in Idaho' },
-  { icon: Clock, label: 'Emergency Service', desc: 'Available Sun–Fri 7am–5pm for urgent repairs' },
-  { icon: HardHat, label: '38+ Years Experience', desc: 'In the trade' },
-  { icon: Award, label: 'Free Estimates', desc: 'Straight quotes with no pressure to book' },
-]
+const benefitIcons = [Zap, Wrench, Shield, Clock, HardHat, BadgeCheck]
 
 const cityLinks = [
   { name: 'Spirit Lake, ID', slug: 'spirit-lake-id' },
@@ -116,6 +120,9 @@ export default function ServicePage({ params }: Props) {
           <p className="mt-4 max-w-3xl text-sm sm:text-lg text-gray-300">
             {service.description}
           </p>
+          <p className="mt-3 text-xs sm:text-sm font-medium tracking-wide text-blue-200/90">
+            Licensed &amp; insured · 38+ years experience · Free estimates
+          </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
             <a href={PHONE_HREF} className="btn-primary-lg">
               <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
@@ -123,23 +130,6 @@ export default function ServicePage({ params }: Props) {
             <a href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
               Get A Quote <ArrowRight className="h-5 w-5" />
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TRUST SIGNALS ── */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container-page">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6">
-            {trustSignals.map((signal) => (
-              <div key={signal.label} className="flex items-center gap-3">
-                <signal.icon className="h-6 w-6 text-blue shrink-0" />
-                <div>
-                  <p className="text-sm font-bold text-gray-900">{signal.label}</p>
-                  <p className="text-xs text-gray-500">{signal.desc}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -159,7 +149,7 @@ export default function ServicePage({ params }: Props) {
                     <p key={i} className="text-gray-600 leading-relaxed text-base sm:text-lg">{p}</p>
                   ))}
                 </div>
-                <div className="space-y-6">
+                <div>
                   <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium-md">
                     <h3 className="font-display text-lg font-bold uppercase text-gray-900">Get a Free Quote</h3>
                     <p className="mt-2 text-sm text-gray-500">
@@ -181,14 +171,11 @@ export default function ServicePage({ params }: Props) {
               <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
                 Our {service.title} Services
               </h2>
-              <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 sm:mt-10 grid gap-x-12 gap-y-0 grid-cols-1 md:grid-cols-2">
                 {rich.subServices.map((sub, i) => (
-                  <div key={i} className="group rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium transition-all duration-200 hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
-                    <span className="font-display text-3xl font-black text-blue/10 leading-none">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className="mt-2 font-display text-lg font-bold uppercase tracking-wide text-blue">{sub.title}</h3>
-                    <p className="mt-3 text-gray-600 leading-relaxed text-sm">{sub.description}</p>
+                  <div key={i} className="border-t border-gray-200 py-6">
+                    <h3 className="font-display text-lg font-bold uppercase tracking-wide text-blue">{sub.title}</h3>
+                    <p className="mt-2 text-gray-600 leading-relaxed text-sm sm:text-base">{sub.description}</p>
                   </div>
                 ))}
               </div>
@@ -206,7 +193,7 @@ export default function ServicePage({ params }: Props) {
                   {rich.photos.map((photo, i) => (
                     <div
                       key={photo}
-                      className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 shadow-premium border border-gray-200"
+                      className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100"
                     >
                       <ResponsiveImage
                         src={photo}
@@ -215,7 +202,6 @@ export default function ServicePage({ params }: Props) {
                         className="transition-transform duration-500 group-hover:scale-105"
                         sizes={IMAGE_SIZES.thirdCol}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
                   ))}
                 </div>
@@ -223,60 +209,45 @@ export default function ServicePage({ params }: Props) {
             </section>
           )}
 
-          {/* ── SUMMARY ── */}
+          {/* ── BENEFITS + WHAT'S INCLUDED ── */}
           <section className="section-padding bg-gray-50">
-            <div className="container-page">
-              <div className="max-w-4xl border-l-4 border-blue pl-5 sm:pl-6">
-                <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-                  {rich.summaryHeading}
-                </h2>
-                {rich.summaryParagraphs.map((p, i) => (
-                  <p key={i} className="mt-4 text-gray-600 leading-relaxed text-base sm:text-lg">{p}</p>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ── BENEFITS ── */}
-          <section className="section-padding bg-white">
             <div className="container-page">
               <span className="section-label">{'Why Choose Us'}</span>
               <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
                 {rich.benefitsHeading}
               </h2>
-              <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {rich.benefits.map((benefit, i) => (
-                  <div key={i} className="group rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium transition-all duration-200 hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue/10">
-                      <Star className="h-5 w-5 text-blue" />
+              <div className="mt-8 sm:mt-10 grid gap-x-10 gap-y-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                {rich.benefits.map((benefit, i) => {
+                  const Icon = benefitIcons[i % benefitIcons.length]
+                  return (
+                    <div key={i}>
+                      <Icon className="h-5 w-5 text-blue" aria-hidden="true" />
+                      <h3 className="mt-3 font-display text-lg font-bold uppercase tracking-wide text-gray-900">
+                        {benefit.title}
+                      </h3>
+                      <p className="mt-2 text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
                     </div>
-                    <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-wide text-gray-900">{benefit.title}</h3>
-                    <p className="mt-2 text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
+
+              {service.features && service.features.length > 0 && (
+                <div className="mt-14 sm:mt-16 pt-10 border-t border-gray-200">
+                  <h3 className="font-display text-2xl sm:text-3xl font-black uppercase leading-[0.95] text-gray-900">
+                    What&apos;s Included
+                  </h3>
+                  <ul className="mt-6 grid gap-x-8 gap-y-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue" aria-hidden="true" />
+                        <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </section>
-
-          {/* ── FEATURES ── */}
-          {service.features && service.features.length > 0 && (
-            <section className="section-padding bg-gray-50">
-              <div className="container-page">
-                <span className="section-label">{'Service Details'}</span>
-                <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-                  What&apos;s Included
-                </h2>
-                <ul className="mt-8 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 rounded-lg bg-white border border-gray-200 p-4 shadow-premium">
-                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
-                      <span className="text-gray-700 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          )}
 
           {/* ── FAQ ── */}
           {service.faqs && service.faqs.length > 0 && (
@@ -315,14 +286,14 @@ export default function ServicePage({ params }: Props) {
                   <Link
                     key={city.slug}
                     href={`/areas/${city.slug}`}
-                    className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-premium transition-all hover:border-blue/30 hover:text-blue hover:bg-blue/5"
+                    className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
                   >
                     <ArrowRight className="h-3 w-3" /> {city.name}
                   </Link>
                 ))}
                 <Link
                   href="/areas-we-serve"
-                  className="inline-flex items-center gap-1 rounded-lg border border-blue/30 bg-blue/5 px-4 py-2 text-sm font-semibold text-blue transition-all hover:bg-blue/10"
+                  className="inline-flex items-center gap-1 rounded-lg border border-blue/30 bg-blue/5 px-4 py-2 text-sm font-semibold text-blue transition-colors hover:bg-blue/10"
                 >
                   View All Areas <ArrowRight className="h-3 w-3" />
                 </Link>
@@ -330,14 +301,19 @@ export default function ServicePage({ params }: Props) {
             </div>
           </section>
 
-          {/* ── CLOSING ── */}
-          <section className="relative overflow-hidden bg-gray-50 py-14 sm:py-24">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="container-page relative z-10">
-              <div className="max-w-4xl border-l-4 border-blue pl-5 sm:pl-10">
+          {/* ── SUMMARY + CLOSING ── */}
+          <section className="section-padding bg-white">
+            <div className="container-page">
+              <div className="max-w-4xl border-l-4 border-blue pl-5 sm:pl-8">
                 <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-                  {rich.closingHeading}
+                  {rich.summaryHeading}
                 </h2>
+                {rich.summaryParagraphs.map((p, i) => (
+                  <p key={i} className="mt-4 text-gray-600 leading-relaxed text-base sm:text-lg">{p}</p>
+                ))}
+                <h3 className="mt-10 font-display text-[clamp(1.4rem,4vw,2rem)] font-black uppercase leading-[0.95] text-gray-900">
+                  {rich.closingHeading}
+                </h3>
                 {rich.closingParagraphs.map((p, i) => (
                   <p key={i} className="mt-4 text-gray-600 leading-relaxed text-base sm:text-lg">{p}</p>
                 ))}
@@ -363,10 +339,10 @@ export default function ServicePage({ params }: Props) {
                 {service.features && service.features.length > 0 && (
                   <div>
                     <h2 className="font-display text-2xl font-bold uppercase text-gray-900">What&apos;s Included</h2>
-                    <ul className="mt-6 grid gap-3 grid-cols-1 sm:grid-cols-2">
+                    <ul className="mt-6 grid gap-x-8 gap-y-3 grid-cols-1 sm:grid-cols-2">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3 rounded-lg bg-white border border-gray-200 p-4 shadow-premium">
-                          <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
+                        <li key={feature} className="flex items-start gap-3">
+                          <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-blue" aria-hidden="true" />
                           <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
@@ -388,7 +364,7 @@ export default function ServicePage({ params }: Props) {
                   </div>
                 )}
               </div>
-              <div className="space-y-6">
+              <div>
                 <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium-md">
                   <h3 className="font-display text-lg font-bold uppercase text-gray-900">Get a Free Quote</h3>
                   <p className="mt-2 text-sm text-gray-500">Tell us about your project and we&apos;ll get back to you within 24 hours.</p>
@@ -416,7 +392,7 @@ export default function ServicePage({ params }: Props) {
                 <Link
                   key={city.slug}
                   href={`/areas/${city.slug}`}
-                  className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-premium transition-all hover:border-blue/30 hover:text-blue"
+                  className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
                 >
                   <ArrowRight className="h-3 w-3" /> {city.name}
                 </Link>
@@ -442,7 +418,7 @@ export default function ServicePage({ params }: Props) {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-gray-700 shadow-premium transition-all duration-200 hover:border-blue/30 hover:text-blue hover:bg-blue/5"
+                  className="group inline-flex items-center gap-2 border-b border-transparent pb-0.5 font-display text-sm font-bold uppercase tracking-wide text-gray-700 transition-colors hover:border-blue hover:text-blue"
                 >
                   {s.title}
                   <ArrowRight className="h-4 w-4 text-blue transition-transform duration-200 group-hover:translate-x-1" />
@@ -452,29 +428,6 @@ export default function ServicePage({ params }: Props) {
           </div>
         </section>
       )}
-
-      {/* ── CTA WITH ADDITIONAL LINKS ── */}
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/gallery" className="group rounded-xl border border-gray-200 bg-white p-6 shadow-premium transition-all hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
-              <h3 className="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-blue">View Our Gallery</h3>
-              <p className="mt-2 text-sm text-gray-500">See photos of completed {service.title.toLowerCase()} projects in North Idaho.</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue">Browse Projects <ArrowRight className="h-3 w-3" /></span>
-            </Link>
-            <Link href="/faqs" className="group rounded-xl border border-gray-200 bg-white p-6 shadow-premium transition-all hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
-              <h3 className="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-blue">Frequently Asked Questions</h3>
-              <p className="mt-2 text-sm text-gray-500">Find answers to common questions about our plumbing services.</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue">Read FAQs <ArrowRight className="h-3 w-3" /></span>
-            </Link>
-            <Link href="/contact" className="group rounded-xl border border-gray-200 bg-white p-6 shadow-premium transition-all hover:border-blue/30 hover:-translate-y-0.5 hover:shadow-premium-md">
-              <h3 className="font-display text-lg font-bold uppercase text-gray-900 group-hover:text-blue">Request Service</h3>
-              <p className="mt-2 text-sm text-gray-500">Get a free estimate for your {service.title.toLowerCase()} project.</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue">Get a Quote <ArrowRight className="h-3 w-3" /></span>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA BAND ── */}
       <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
