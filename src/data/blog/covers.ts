@@ -63,7 +63,7 @@ export const blogCovers: Record<string, { coverImage: string; coverImageAlt: str
   'burst-pipe-winter-idaho-what-to-do': {
     coverImage: '/images/blog/burst-pipe-winter-idaho-what-to-do.webp',
     coverImageAlt:
-      'Frost-covered copper pipes with a ruptured line spraying water onto a cold basement floor after a North Idaho freeze',
+      'Burst copper pipe spraying water onto a basement floor, the kind of rupture homeowners face after a hard freeze',
   },
   'new-construction-plumbing-guide-idaho': {
     coverImage: '/images/blog/new-construction-plumbing-guide-idaho.webp',
