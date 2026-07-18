@@ -7,6 +7,7 @@ import { generateMetadata, siteUrl } from '@/lib/seo'
 import { personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import PageHero from '@/components/sections/PageHero'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'About Us',
@@ -17,7 +18,7 @@ export const metadata: Metadata = generateMetadata({
 
 const trustStats = [
   { icon: HardHat, number: '38+', label: 'Years Experience', sub: 'Ron & Hunter combined' },
-  { icon: CheckCircle, number: '500+', label: 'Projects Completed', sub: 'Across 16 cities' },
+  { icon: CheckCircle, number: '500+', label: 'Projects Completed', sub: 'Across North Idaho' },
   { icon: Star, number: 'Free', label: 'Estimates', sub: 'No obligation' },
   { icon: Shield, number: 'Licensed', label: '& Insured', sub: 'ID & WA' },
 ]
@@ -57,13 +58,13 @@ export default function AboutPage() {
       <PageHero
         label="About Us"
         title={<>Meet Ron &amp; Hunter<br /><span className="text-blue-300">Your Local Plumbing Team</span></>}
-        description="Family-owned and operated. We're licensed, insured, and proud to serve 16 cities across North Idaho and Eastern Washington."
+        description="Family-owned and operated. We're licensed, insured, and proud to serve communities across North Idaho and Eastern Washington."
         image="/images/hero-about.webp"
         imageAlt="Preferred Plumbing Solutions service truck serving North Idaho"
         priority
       >
-        <a href="tel:12082903889" className="btn-primary-lg">
-          <Phone className="h-5 w-5" /> Call (208) 290-3889
+        <a href={PHONE_HREF} className="btn-primary-lg">
+          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
         <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
           Get Free Quote <ChevronRight className="h-4 w-4" />
@@ -101,7 +102,7 @@ export default function AboutPage() {
               <p>
                 Ron and Hunter bring over 38 years of combined plumbing experience to every job.
                 What started as one guy doing quality work has grown into a father-son business
-                that covers 16 cities across two states.
+                that covers communities across two states.
               </p>
               <p>
                 Ron Norris started the company with a simple rule: do the job right, charge a fair price,
@@ -169,10 +170,10 @@ export default function AboutPage() {
             Ready to work with us? Give us a call.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

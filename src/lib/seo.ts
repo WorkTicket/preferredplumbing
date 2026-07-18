@@ -20,6 +20,17 @@ interface SEOParams {
   keywords?: string[]
 }
 
+function buildDocumentTitle(title: string): string {
+  if (/Preferred Plumbing Solutions/i.test(title)) return title
+  if (/Spirit Lake/i.test(title)) return `${title} | Preferred Plumbing Solutions`
+  return `${title} | Preferred Plumbing Solutions | Spirit Lake, ID`
+}
+
+function buildOgTitle(title: string): string {
+  if (/Preferred Plumbing Solutions/i.test(title)) return title
+  return `${title} | Preferred Plumbing Solutions`
+}
+
 export function generateMetadata({
   title,
   description,
@@ -33,11 +44,10 @@ export function generateMetadata({
   locale = 'en_US',
   keywords,
 }: SEOParams): Metadata {
-  // Use absolute titles so the root layout template does not double-append the brand
-  const metaTitle = title
-    ? `${title} | Preferred Plumbing Solutions | Spirit Lake, ID`
-    : defaultTitle
-  const ogTitle = title ? `${title} | Preferred Plumbing Solutions` : defaultTitle
+  // Absolute titles avoid the root layout template double-appending the brand.
+  // Skip repeating Spirit Lake / brand when the page title already includes them.
+  const metaTitle = title ? buildDocumentTitle(title) : defaultTitle
+  const ogTitle = title ? buildOgTitle(title) : defaultTitle
   const metaDescription = description || defaultDescription
   const url = slug ? `${siteUrl}/${slug}` : siteUrl
   const canonicalUrl = canonical || url

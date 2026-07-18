@@ -1,18 +1,4 @@
-export interface BlogPostSummary {
-  slug: string
-  title: string
-  excerpt: string
-  date: string
-  category: string
-}
-
-export interface BlogPost extends BlogPostSummary {
-  content: string[]
-  relatedService?: {
-    href: string
-    label: string
-  }
-}
+import type { BlogPost } from './types'
 
 export const blogPosts: BlogPost[] = [
   {
@@ -188,7 +174,7 @@ export const blogPosts: BlogPost[] = [
       'Finding the right plumber in Spirit Lake does not have to be hard. New build or burst pipe, a local plumber who knows the area saves you time and headaches.',
       'Start by looking for a licensed and insured plumbing contractor. Idaho requires proper licensing, and insurance protects both you and the plumber if something goes wrong. Preferred Plumbing Solutions is fully licensed in both Idaho and Washington.',
       'Experience matters. A plumber with decades of local experience knows the specific challenges of North Idaho homes: freezing winters that burst pipes, hard water that wears down fixtures, and radiant heat and hydronic systems that not every contractor handles well.',
-      'Ask about their service area. Some plumbers only work in certain cities. We serve 16 cities across Idaho and Washington, from Spirit Lake to Spokane Valley.',
+      'Ask about their service area. Some plumbers only work in certain cities. We serve communities across North Idaho and Eastern Washington, from Spirit Lake to Spokane Valley.',
       'Read reviews. Check Google reviews and ask for references. A strong local rating from people nearby says a lot about reliability and work quality.',
       'Finally, get a detailed quote before work begins. Clear pricing is a sign of a contractor you can trust. Call Preferred Plumbing Solutions at 208-290-3889 for a free estimate.',
     ],
@@ -415,24 +401,3 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ]
-
-export function getBlogPost(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug)
-}
-
-export function getLatestPosts(count = 3): BlogPostSummary[] {
-  return [...blogPosts]
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, count)
-    .map(({ slug, title, excerpt, date, category }) => ({
-      slug,
-      title,
-      excerpt,
-      date,
-      category,
-    }))
-}
-
-export function getAllBlogSlugs(): string[] {
-  return blogPosts.map((post) => post.slug)
-}

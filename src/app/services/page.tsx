@@ -6,6 +6,7 @@ import { services } from '@/lib/data'
 import { getNavServices } from '@/lib/nav-services'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Services Spirit Lake Idaho | Full-Service Plumber',
@@ -138,10 +139,10 @@ export default function ServicesPage() {
             Not sure what you need? Call us. We&apos;ll figure it out.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

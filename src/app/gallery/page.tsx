@@ -8,6 +8,8 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import { StatisticsBanner } from '@/components/gallery'
 import GalleryGridSkeleton from '@/components/gallery/GalleryGridSkeleton'
 import { galleryProjects, galleryProjectSummaries } from '@/data/gallery'
+import { normalizeImageSrc } from '@/lib/responsive-image'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const GalleryGrid = dynamic(() => import('@/components/gallery/GalleryGrid'), {
   loading: () => <GalleryGridSkeleton />,
@@ -24,7 +26,7 @@ export default function GalleryPage() {
   const imageObjectSchemas = galleryProjects.slice(0, 10).map((project) => ({
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
-    contentUrl: `${siteUrl}${project.coverImage}`,
+    contentUrl: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
     name: `${project.title} - ${project.location}`,
     caption: project.description,
     description: project.description,
@@ -48,7 +50,7 @@ export default function GalleryPage() {
                 description: project.description,
                 contentLocation: project.location,
                 dateCreated: project.completionDate,
-                image: `${siteUrl}${project.coverImage}`,
+                image: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
               },
             })),
           }),
@@ -107,10 +109,10 @@ export default function GalleryPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="tel:12082903889"
+                href={PHONE_HREF}
                 className="btn-primary inline-flex"
               >
-                <Phone className="h-5 w-5" /> (208) 290-3889
+                <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
               </a>
               <Link
                 href="/services"

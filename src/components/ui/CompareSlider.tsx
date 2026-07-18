@@ -103,7 +103,7 @@ export default function CompareSlider({
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
       role="img"
-      aria-label={`Before and after comparison: ${beforeAlt}`}
+      aria-label={`Job photo comparison: ${beforeAlt}`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -132,13 +132,6 @@ export default function CompareSlider({
           onError={handleImgError(beforeFallback)}
         />
       </div>
-
-      <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-gray-900/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-        Before
-      </span>
-      <span className="pointer-events-none absolute top-3 right-3 rounded-full bg-blue/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-        After
-      </span>
 
       <div className="compare-slider-handle pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_12px_rgba(0,102,255,0.4)]">
         <div className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-light/50 bg-blue shadow-premium-xl ring-4 ring-white/20">

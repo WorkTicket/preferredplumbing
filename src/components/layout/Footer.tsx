@@ -69,7 +69,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="mt-4 text-sm text-gray-400 leading-relaxed">
-              Family-owned. Licensed &amp; insured. We cover 16 cities across Idaho and Washington.
+              Family-owned. Licensed &amp; insured. We cover North Idaho and Eastern Washington.
             </p>
             <div className="mt-5 flex flex-col gap-2.5">
               <a href={PHONE_HREF} className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-300 hover:text-blue-light transition-colors duration-300 font-semibold">
@@ -178,7 +178,6 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><Link href="/about" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">About Us</span></Link></li>
               <li><Link href="/gallery" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Project Gallery</span></Link></li>
-              <li><Link href="/portfolio" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Portfolio</span></Link></li>
               <li><Link href="/faqs" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">FAQs</span></Link></li>
               <li><Link href="/blog" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Blog</span></Link></li>
               <li><Link href="/areas-we-serve" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Service Areas</span></Link></li>

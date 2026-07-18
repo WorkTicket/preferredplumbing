@@ -1,22 +1,4 @@
-export interface GalleryProject {
-  id: string
-  title: string
-  slug: string
-  category: 'Residential' | 'Commercial' | 'New Construction' | 'Remodels'
-  description: string
-  location?: string
-  scopeOfWork?: string
-  materials?: string[]
-  images: string[]
-  coverImage: string
-  completionDate: string
-}
-
-/** Lightweight shape for grid cards — avoids shipping full project payloads to the client bundle. */
-export type GalleryProjectSummary = Pick<
-  GalleryProject,
-  'id' | 'title' | 'slug' | 'category' | 'description' | 'location' | 'coverImage' | 'completionDate'
->
+import type { GalleryProject } from './types'
 
 const g = (name: string) => `/images/gallery/${name}?v=25`
 
@@ -244,22 +226,3 @@ export const galleryProjects: GalleryProject[] = [
     completionDate: '2025-08-02',
   },
 ]
-
-export const galleryProjectSummaries: GalleryProjectSummary[] = galleryProjects.map(
-  ({ id, title, slug, category, description, location, coverImage, completionDate }) => ({
-    id,
-    title,
-    slug,
-    category,
-    description,
-    location,
-    coverImage,
-    completionDate,
-  })
-)
-
-const galleryProjectById = new Map(galleryProjects.map((p) => [p.id, p]))
-
-export function getGalleryProjectById(id: string): GalleryProject | undefined {
-  return galleryProjectById.get(id)
-}

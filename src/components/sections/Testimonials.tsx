@@ -1,5 +1,3 @@
-'use client'
-
 import SectionLabel from '@/components/ui/SectionLabel'
 import ReviewCard from '@/components/ui/ReviewCard'
 import { StaggerChildren } from '@/components/animations'

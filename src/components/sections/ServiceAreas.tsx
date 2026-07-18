@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { StaggerChildren } from '@/components/animations'
@@ -18,7 +16,7 @@ export default function ServiceAreas() {
             <span className="text-blue">North Idaho &amp; Beyond</span>
           </h2>
           <p className="section-subtitle-center">
-            16 cities. One phone call. If you&apos;re in North Idaho or eastern Washington, we can get a truck to you.
+            One phone call. If you&apos;re in North Idaho or eastern Washington, we can get a truck to you.
           </p>
         </div>
 

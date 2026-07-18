@@ -1,0 +1,19 @@
+import type { AreaPage } from '@/types'
+
+export const areas: AreaPage[] = [
+  { city: 'Spirit Lake', state: 'ID', slug: 'spirit-lake-id', fullName: 'Spirit Lake, Idaho', description: 'We are based here. Spirit Lake homes and businesses know us for showing up and doing the job right.', latitude: 47.9668, longitude: -116.8693 },
+  { city: "Coeur d'Alene", state: 'ID', slug: 'coeur-dalene-id', fullName: "Coeur d'Alene, Idaho", description: 'Plumbing for Coeur d\'Alene homes and businesses. From new construction to emergency repairs, we cover the whole area.', latitude: 47.6777, longitude: -116.7805 },
+  { city: 'Post Falls', state: 'ID', slug: 'post-falls-id', fullName: 'Post Falls, Idaho', description: 'Full plumbing services for Post Falls. New builds, remodels, water heaters, and emergency calls.', latitude: 47.7180, longitude: -116.9516 },
+  { city: 'Sandpoint', state: 'ID', slug: 'sandpoint-id', fullName: 'Sandpoint, Idaho', description: 'Serving Sandpoint and Bonner County with reliable plumbing. We handle everything from radiant heat to sewer lines.', latitude: 48.2766, longitude: -116.5535 },
+  { city: 'Hayden', state: 'ID', slug: 'hayden-id', fullName: 'Hayden, Idaho', description: 'Hayden homeowners and businesses count on us for quality plumbing work. Repairs, remodels, new construction.', latitude: 47.7660, longitude: -116.7866 },
+  { city: 'Rathdrum', state: 'ID', slug: 'rathdrum-id', fullName: 'Rathdrum, Idaho', description: 'Plumbing contractor for Rathdrum and the surrounding area. Residential and commercial, big or small.', latitude: 47.8105, longitude: -116.8966 },
+  { city: 'Moscow', state: 'ID', slug: 'moscow-id', fullName: 'Moscow, Idaho', description: 'Plumbing services in Moscow. We travel to serve the Palouse region with the same quality work we do at home.', latitude: 46.7324, longitude: -117.0002 },
+  { city: 'Priest River', state: 'ID', slug: 'priest-river-id', fullName: 'Priest River, Idaho', description: 'Plumbing contractor for Priest River and Bonner County. We keep homes and businesses running year-round.', latitude: 48.1810, longitude: -116.9100 },
+  { city: 'Athol', state: 'ID', slug: 'athol-id', fullName: 'Athol, Idaho', description: 'Plumbing services in Athol and Kootenai County. Right down the road from Spirit Lake, we get there fast.', latitude: 47.9477, longitude: -116.7080 },
+  { city: 'Blanchard', state: 'ID', slug: 'blanchard-id', fullName: 'Blanchard, Idaho', description: 'Plumbing for Blanchard and North Idaho. New construction, well systems, and everything in between.', latitude: 48.0169, longitude: -116.9833 },
+  { city: 'Clark Fork', state: 'ID', slug: 'clark-fork-id', fullName: 'Clark Fork, Idaho', description: 'Plumbing serving Clark Fork and Bonner County. We handle repairs, new builds, and emergencies.', latitude: 48.1470, longitude: -116.6390 },
+  { city: 'Newport', state: 'WA', slug: 'newport-wa', fullName: 'Newport, Washington', description: 'Plumbing contractor for Newport and Pend Oreille County. We cross the border for the same quality work.', latitude: 48.1794, longitude: -117.0430 },
+  { city: 'Mead', state: 'WA', slug: 'mead-wa', fullName: 'Mead, Washington', description: 'Plumbing services in Mead and Spokane County. Residential, commercial, and emergency service available.', latitude: 47.7674, longitude: -117.3544 },
+  { city: 'Chattaroy', state: 'WA', slug: 'chattaroy-wa', fullName: 'Chattaroy, Washington', description: 'Plumbing in Chattaroy and Spokane County. We serve rural and residential properties with the same standards.', latitude: 47.8935, longitude: -117.3538 },
+  { city: 'Oldtown', state: 'ID', slug: 'oldtown-id', fullName: 'Oldtown, Idaho', description: 'Plumbing for Oldtown and the surrounding area. Right on the border, close to Spirit Lake.', latitude: 48.1857, longitude: -117.0296 },
+]

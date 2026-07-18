@@ -5,10 +5,11 @@ import { areas } from '@/lib/data'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Service Areas | North Idaho & Eastern Washington',
-  description: 'Preferred Plumbing Solutions serves 16 cities across North Idaho and Eastern Washington including Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, Hayden, and more. Call 208-290-3889.',
+  description: 'Preferred Plumbing Solutions serves communities across North Idaho and Eastern Washington including Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, Hayden, and more. Call 208-290-3889.',
   slug: 'areas-we-serve',
   canonical: `${siteUrl}/areas-we-serve`,
 })
@@ -58,8 +59,8 @@ export default function AreasPage() {
         imageAlt="Preferred Plumbing Solutions service areas across North Idaho and Eastern Washington"
         priority
       >
-        <a href="tel:12082903889" className="btn-primary-lg">
-          <Phone className="h-5 w-5" /> (208) 290-3889
+        <a href={PHONE_HREF} className="btn-primary-lg">
+          <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
         </a>
         <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
           Get a Free Quote <ChevronRight className="h-4 w-4" />
@@ -88,22 +89,7 @@ export default function AreasPage() {
                       {area.fullName}
                     </h2>
                     <p className="mt-2 text-sm text-gray-500 group-hover:text-white/80 line-clamp-2">
-                      {area.city === 'Spirit Lake' ? 'Our hometown. Where it all started and where we are based.' :
-                       area.city === "Coeur d'Alene" ? 'Serving Coeur d\'Alene homes and businesses with full plumbing services.' :
-                       area.city === 'Post Falls' ? 'Plumbing services for Post Falls, from new construction to emergency repairs.' :
-                       area.city === 'Sandpoint' ? 'Reliable plumbing in Sandpoint, including radiant heat and new construction.' :
-                       area.city === 'Hayden' ? 'Plumbing for Hayden homeowners, remodels, and local businesses.' :
-                       area.city === 'Rathdrum' ? 'Full-service plumbing in Rathdrum and the surrounding area.' :
-                       area.city === 'Moscow' ? 'Plumbing services in Moscow and the Palouse region.' :
-                       area.city === 'Bellevue' ? 'Plumbing work in Bellevue and the Wood River Valley.' :
-                       area.city === 'Priest River' ? 'Plumbing contractor for Priest River and Bonner County.' :
-                       area.city === 'Athol' ? 'Plumbing services in Athol, right down the road from Spirit Lake.' :
-                       area.city === 'Blanchard' ? 'Plumbing for Blanchard and North Idaho properties.' :
-                       area.city === 'Clark Fork' ? 'Plumbing serving Clark Fork and Bonner County.' :
-                       area.city === 'Newport' ? 'Plumbing contractor for Newport and Pend Oreille County.' :
-                       area.city === 'Mead' ? 'Plumbing services in Mead and Spokane County.' :
-                       area.city === 'Chattaroy' ? 'Plumbing in Chattaroy and Spokane County.' :
-                       'Plumbing for Oldtown and the surrounding area.'}
+                      {area.description}
                     </p>
                   </Link>
                 ))}
@@ -151,7 +137,7 @@ export default function AreasPage() {
             </h2>
             <p className="mt-4 text-gray-600 leading-relaxed">
               You shouldn&apos;t have to hunt for a good plumber just because you live outside city limits.
-              We cover 16 cities across the Idaho Panhandle and Eastern Washington, from Spirit Lake to
+              We cover {areas.length} cities across North Idaho and Eastern Washington, from Spirit Lake to
               Spokane Valley and everywhere in between.
             </p>
             <p className="mt-3 text-gray-600 leading-relaxed">
@@ -188,10 +174,10 @@ export default function AreasPage() {
             Need a plumber in your area? Call us.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

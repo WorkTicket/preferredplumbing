@@ -1,10 +1,9 @@
 import { siteUrl } from './seo'
-import { CONTACT_EMAILS } from './utils'
-import { reviews } from './data'
+import { CONTACT_EMAILS, PHONE, PHONE_E164 } from './utils'
 
 const contactPoints = CONTACT_EMAILS.map((contact) => ({
   '@type': 'ContactPoint',
-  telephone: '+12082903889',
+  telephone: PHONE_E164,
   contactType: 'customer service',
   email: contact.email,
   name: contact.name,
@@ -29,7 +28,7 @@ export function organizationSchema() {
       addressCountry: 'US',
     },
     geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
-    telephone: '+12082903889',
+    telephone: PHONE_E164,
     email: CONTACT_EMAILS.map((contact) => contact.email),
     sameAs: ['https://www.tiktok.com/@preferredhnorris'],
     areaServed: [
@@ -55,10 +54,10 @@ export function localBusinessSchema() {
       `${siteUrl}/images/preferred-plumbing-service-truck.webp`,
       `${siteUrl}/images/service-new-construction-plumbing.webp`,
     ],
-    telephone: '+12082903889',
+    telephone: PHONE_E164,
     priceRange: '$$',
     email: CONTACT_EMAILS.map((contact) => contact.email),
-    description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Call 208-290-3889.',
+    description: `Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Call ${PHONE}.`,
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
       '@type': 'PostalAddress',
@@ -98,12 +97,6 @@ export function localBusinessSchema() {
     sameAs: [
       'https://www.tiktok.com/@preferredhnorris',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      bestRating: '5',
-      reviewCount: String(reviews.length),
-    },
     award: '38+ Years Experience',
     numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 10 },
     knowsAbout: [
@@ -138,7 +131,6 @@ export function postalAddressSchema() {
     addressRegion: 'ID',
     postalCode: '83869',
     addressCountry: 'US',
-    streetAddress: 'Spirit Lake, ID 83869',
   }
 }
 

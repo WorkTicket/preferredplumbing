@@ -1,5 +1,5 @@
 import { Phone } from 'lucide-react'
-import { BUSINESS_HOURS } from '@/lib/utils'
+import { BUSINESS_HOURS, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export default function EmergencyBand() {
   return (
@@ -19,10 +19,10 @@ export default function EmergencyBand() {
           </p>
         </div>
         <a
-          href="tel:12082903889"
+          href={PHONE_HREF}
           className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-white px-5 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-bold text-navy transition-all duration-300 hover:bg-navy hover:text-white hover:ring-1 hover:ring-white/40 active:scale-[0.97] shadow-premium-xl"
         >
-          <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call (208) 290-3889
+          <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
         </a>
       </div>
     </section>

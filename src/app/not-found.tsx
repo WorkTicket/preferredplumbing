@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Home, Phone } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: '404 - Page Not Found',
@@ -29,10 +30,10 @@ export default function NotFound() {
           <Home className="h-5 w-5" /> Back to Home
         </Link>
         <a
-          href="tel:12082903889"
+          href={PHONE_HREF}
           className="btn-secondary"
         >
-          <Phone className="h-5 w-5" /> Call (208) 290-3889
+          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
       </div>
     </div>

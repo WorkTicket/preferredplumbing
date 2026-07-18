@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import { siteUrl } from '@/lib/seo'
+import { PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: { absolute: 'Privacy Policy | Preferred Plumbing Solutions' },
@@ -51,7 +52,7 @@ export default function PrivacyPage() {
           </p>
           <h2 className="font-display text-xl font-bold uppercase text-gray-900">Contact</h2>
           <p>
-            For questions about this privacy policy, contact us by phone at (208) 290-3889 or email:
+            For questions about this privacy policy, contact us by phone at {PHONE_DISPLAY} or email:
           </p>
           <ContactEmailList className="mt-2" />
         </div>

@@ -11,62 +11,35 @@ import {
   Hammer,
   HardHat,
   Heater,
+  Home,
   Landmark,
   ShowerHead,
   Siren,
+  Sparkles,
   ThermometerSun,
   WashingMachine,
   Waves,
 } from 'lucide-react'
 import { KitchenSink } from '@/lib/icons/kitchen-sink'
 import { services } from '@/lib/data'
+import { SERVICE_NAV_GROUPS, SERVICE_NAV_ORDER } from '@/lib/service-slugs'
 import type { Service } from '@/types'
 
 export type ServiceNavGroup = {
   id: string
   label: string
+  description: string
+  icon: LucideIcon
   slugs: readonly string[]
 }
 
-export const SERVICE_NAV_GROUPS: ServiceNavGroup[] = [
-  {
-    id: 'emergency',
-    label: 'Emergency',
-    slugs: ['emergency'],
-  },
-  {
-    id: 'specialty',
-    label: 'Specialty & High-Value',
-    slugs: [
-      'radiant-heat',
-      'heated-driveways',
-      'new-construction',
-      'commercial',
-      'tankless-water-heaters',
-    ],
-  },
-  {
-    id: 'residential',
-    label: 'Residential',
-    slugs: [
-      'water-heaters',
-      'water-softeners',
-      'remodels',
-      'kitchen-remodels',
-      'bathroom-remodels',
-      'toilets-faucets',
-      'bathtubs-showers',
-      'dishwashers',
-    ],
-  },
-  {
-    id: 'underground',
-    label: 'Underground & Utility',
-    slugs: ['sewer-line', 'water-line', 'gas-line', 'septic-systems'],
-  },
-]
+const GROUP_ICONS: Record<string, LucideIcon> = {
+  specialty: Sparkles,
+  residential: Home,
+  underground: Waves,
+}
 
-export const SERVICE_NAV_ORDER = SERVICE_NAV_GROUPS.flatMap((group) => group.slugs)
+export { SERVICE_NAV_ORDER }
 
 export const SERVICE_NAV_LABELS: Record<string, string> = {
   emergency: 'Emergency Plumbing',
@@ -110,6 +83,14 @@ export const SERVICE_NAV_ICONS: Record<string, LucideIcon> = {
   'septic-systems': Container,
 }
 
+export type NavServiceGroup = {
+  id: string
+  label: string
+  description: string
+  icon: LucideIcon
+  services: Service[]
+}
+
 export function getNavServices(): Service[] {
   const bySlug = new Map(services.map((service) => [service.slug, service]))
   return SERVICE_NAV_ORDER.map((slug) => bySlug.get(slug)).filter(
@@ -117,13 +98,19 @@ export function getNavServices(): Service[] {
   )
 }
 
-export function getNavServiceGroups(): { id: string; label: string; services: Service[] }[] {
+export function getNavServiceGroups(): NavServiceGroup[] {
   const bySlug = new Map(services.map((service) => [service.slug, service]))
   return SERVICE_NAV_GROUPS.map((group) => ({
     id: group.id,
     label: group.label,
+    description: group.description,
+    icon: GROUP_ICONS[group.id] ?? Sparkles,
     services: group.slugs
       .map((slug) => bySlug.get(slug))
       .filter((service): service is Service => Boolean(service)),
   })).filter((group) => group.services.length > 0)
+}
+
+export function getNavGroupIdForSlug(slug: string): string | undefined {
+  return SERVICE_NAV_GROUPS.find((group) => group.slugs.includes(slug))?.id
 }

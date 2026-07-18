@@ -5,6 +5,7 @@ import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star } from 'lucide-react'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const stats = [
   { number: '38+', suffix: '', label: 'Years Experience' },
@@ -16,7 +17,7 @@ const stats = [
 const trustBadges = [
   'Family-Owned',
   'Free Estimates',
-  'Same-Day Service',
+  'Sun–Fri Same-Day',
 ]
 
 const waveGradient = (
@@ -147,8 +148,8 @@ export default function HeroSection() {
               <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
             </p>
             <div className="mt-4 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">
-              <a href="tel:12082903889" className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call (208) 290-3889
+              <a href={PHONE_HREF} className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
               </a>
               <Link href="#contact" className="btn-secondary border-white/25 bg-white/8 text-white hover:bg-white/15 hover:border-white/40 !py-3.5 sm:!py-4 text-sm sm:text-base backdrop-blur-sm">
                 Get Free Estimate <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />

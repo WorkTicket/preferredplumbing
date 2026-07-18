@@ -4,10 +4,23 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle } from 'lucide-react'
 import { areas, services } from '@/lib/data'
-import { generateMetadata as genMeta, siteUrl, siteName } from '@/lib/seo'
+import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
+import { PHONE_DISPLAY, PHONE_HREF, PHONE_E164 } from '@/lib/utils'
+
+function regionLabel(slug: string, state: string): string {
+  if (state === 'WA') {
+    if (slug === 'newport-wa') return 'Pend Oreille County'
+    return 'Spokane and Pend Oreille Counties'
+  }
+  if (slug === 'moscow-id') return 'Latah County and the Palouse'
+  if (['sandpoint-id', 'priest-river-id', 'clark-fork-id', 'oldtown-id'].includes(slug)) {
+    return 'Bonner County'
+  }
+  return 'Kootenai and Bonner Counties'
+}
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -23,7 +36,6 @@ const cityLandmarks: Record<string, string[]> = {
   'hayden-id': ['Hayden Lake', 'Honeysuckle Beach', 'Avondale Golf Course'],
   'rathdrum-id': ['Rathdrum Mountain', 'Mountain View Park', 'Spokane River'],
   'moscow-id': ['University of Idaho', 'Moscow Mountain', 'Paradise Path'],
-  'bellevue-id': ['Wood River Valley', 'Silver Creek Preserve', 'Big Wood River'],
   'priest-river-id': ['Priest Lake', 'Kaniksu National Forest', 'Pend Oreille River'],
   'athol-id': ['Silverwood Theme Park', 'Farragut State Park', 'Athol Bay'],
   'blanchard-id': ['Blanchard Lake', 'Cocolalla Lake', 'Pend Oreille River'],
@@ -71,7 +83,7 @@ export default function CityPage({ params }: Props) {
     name: `Preferred Plumbing Solutions - ${area.fullName}`,
     url: `${siteUrl}/areas/${area.slug}`,
     description: `Local plumber serving ${area.fullName}. 38+ years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
-    telephone: '+12082903889',
+    telephone: PHONE_E164,
     areaServed: {
       '@type': 'City',
       name: area.city,
@@ -137,7 +149,7 @@ export default function CityPage({ params }: Props) {
             </span>
           </div>
           <p className="mt-4 max-w-3xl text-gray-600 leading-relaxed text-base sm:text-lg">
-            Preferred Plumbing Solutions serves {area.fullName} and surrounding areas throughout {area.state === 'ID' ? 'Kootenai and Bonner Counties' : 'Spokane and Pend Oreille Counties'}.
+            Preferred Plumbing Solutions serves {area.fullName} and surrounding areas throughout {regionLabel(area.slug, area.state)}.
             We handle new construction plumbing,
             water heater installation and repair, radiant floor heating, sewer line replacement, septic systems,
             and emergency plumbing repairs.
@@ -148,8 +160,8 @@ export default function CityPage({ params }: Props) {
             Faucet repair or full bathroom remodel, our licensed plumbers get it done right.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
-            <a href="tel:12082903889" className="btn-primary">
-              <Phone className="h-5 w-5" /> Call (208) 290-3889
+            <a href={PHONE_HREF} className="btn-primary">
+              <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
             </a>
             <Link href="/contact" className="btn-secondary">
               Get Free Quote <ChevronRight className="h-4 w-4" />
@@ -307,10 +319,10 @@ export default function CityPage({ params }: Props) {
             </p>
           </div>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-blue-dark transition-all duration-300 hover:bg-blue-50 active:scale-[0.97] shadow-premium-lg"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

@@ -1,31 +1,22 @@
-'use client'
-
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { StaggerChildren } from '@/components/animations'
 import { services } from '@/lib/data'
+import {
+  FEATURED_HOME_SERVICE_SLUGS,
+  SPECIALTY_SERVICE_SLUGS,
+} from '@/lib/service-slugs'
 import { Phone, ArrowRight, Clock } from 'lucide-react'
-import { PHONE_HREF } from '@/lib/utils'
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
 
-const featuredSlugs = [
-  'emergency',
-  'radiant-heat',
-  'new-construction',
-  'commercial',
-  'sewer-line',
-  'tankless-water-heaters',
-]
+const featuredServices = FEATURED_HOME_SERVICE_SLUGS.map((slug) =>
+  services.find((s) => s.slug === slug)
+).filter((s): s is (typeof services)[number] => Boolean(s))
 
-const specialtySlugs = ['heated-driveways', 'water-heaters', 'water-softeners']
-
-const featuredServices = featuredSlugs
-  .map((slug) => services.find((s) => s.slug === slug))
-  .filter((s): s is (typeof services)[number] => Boolean(s))
-
-const specialtyServices = specialtySlugs
-  .map((slug) => services.find((s) => s.slug === slug))
-  .filter((s): s is (typeof services)[number] => Boolean(s))
+const specialtyServices = SPECIALTY_SERVICE_SLUGS.map((slug) =>
+  services.find((s) => s.slug === slug)
+).filter((s): s is (typeof services)[number] => Boolean(s))
 
 export default function ServicesGrid() {
   return (
@@ -39,7 +30,7 @@ export default function ServicesGrid() {
             <span className="text-blue">Businesses &amp; New Builds</span>
           </h2>
           <p className="section-subtitle-center">
-            Emergency repairs, radiant heat, new construction, and high-value specialty work. One call covers it.
+            Emergency repairs, radiant heat, new construction, and signature specialty work. One call covers it.
           </p>
         </div>
 
@@ -61,17 +52,17 @@ export default function ServicesGrid() {
 
         <div className="mt-16 sm:mt-20">
           <div>
-            <SectionLabel text="Specialty & High-Value Services" />
+            <SectionLabel text="Signature Services" />
             <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
-              Specialty &amp; <span className="text-blue">High-Value</span>
+              Signature <span className="text-blue">Services</span>
             </h3>
             <p className="section-subtitle mt-3">
-              Heated driveways, tank water heaters, and hard-water solutions. Solid work backed by 38 years on the job.
+              Radiant heat, heated driveways, new construction, commercial, and tankless systems. The work we specialize in.
             </p>
           </div>
 
           <StaggerChildren
-            className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3"
+            className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             staggerDelay={0.07}
             variant="fadeUp"
           >
@@ -92,7 +83,7 @@ export default function ServicesGrid() {
             View All Services <ArrowRight className="h-4 w-4" />
           </Link>
           <a href={PHONE_HREF} className="btn-primary">
-            <Phone className="h-4 w-4" /> Call (208) 290-3889
+            <Phone className="h-4 w-4" /> Call {PHONE_DISPLAY}
           </a>
         </div>
 

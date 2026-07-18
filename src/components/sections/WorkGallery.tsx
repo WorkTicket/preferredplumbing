@@ -9,7 +9,7 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { StaggerChildren } from '@/components/animations'
 import { galleryProjects } from '@/data/gallery'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
-import { PHONE_HREF } from '@/lib/utils'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const featuredSlugs = [
   'boiler-radiant-heat',
@@ -51,7 +51,7 @@ export default function WorkGallery() {
             <span className="text-blue">Real Job Photos</span>
           </h2>
           <p className="section-subtitle-center">
-            Recent work from across North Idaho. Drag the slider to compare job stages.
+            Recent work from across North Idaho. Drag to explore the shots.
           </p>
         </div>
 
@@ -61,8 +61,8 @@ export default function WorkGallery() {
               key={project.id}
               beforeSrc={beforeSrc}
               afterSrc={afterSrc}
-              beforeAlt={`Before: ${project.title}, ${project.location ?? 'North Idaho'}`}
-              afterAlt={`After: ${project.title}, ${project.location ?? 'North Idaho'}`}
+              beforeAlt={`${project.title}, ${project.location ?? 'North Idaho'}`}
+              afterAlt={`${project.title}, ${project.location ?? 'North Idaho'}`}
               className="rounded-xl"
             />
           </div>
@@ -143,7 +143,7 @@ export default function WorkGallery() {
             View Full Gallery <Camera className="h-4 w-4" />
           </Link>
           <a href={PHONE_HREF} className="btn-primary">
-            <Phone className="h-4 w-4" /> Call (208) 290-3889
+            <Phone className="h-4 w-4" /> Call {PHONE_DISPLAY}
           </a>
         </div>
       </div>

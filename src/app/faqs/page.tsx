@@ -6,8 +6,9 @@ import { SERVICE_NAV_LABELS } from '@/lib/nav-services'
 import { faqSchema } from '@/lib/schema'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
-import FaqDetailsList from '@/components/ui/FaqDetailsList'
+import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Frequently Asked Questions',
@@ -30,7 +31,7 @@ export default function FAQsPage() {
       <PageHero
         label="FAQ"
         title={<>Frequently Asked<br /><span className="text-blue-300">Questions</span></>}
-        description="General plumbing questions plus FAQs for every service we offer. Can't find your answer? Call (208) 290-3889."
+        description={`General plumbing questions plus FAQs for every service we offer. Can't find your answer? Call ${PHONE_DISPLAY}.`}
         image="/images/hero-services.webp"
         imageAlt="Frequently asked questions about plumbing services in Spirit Lake Idaho"
         priority
@@ -93,7 +94,7 @@ export default function FAQsPage() {
               </div>
 
               <div className="mt-6 sm:mt-8">
-                <FaqDetailsList items={section.items} idPrefix={section.id} />
+                <FaqAccordionList items={section.items} idPrefix={section.id} defaultOpenIndex={0} />
               </div>
             </div>
           </section>
@@ -110,8 +111,8 @@ export default function FAQsPage() {
             Call us or request a free quote online.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:12082903889" className="btn-primary">
-              <Phone className="h-5 w-5" /> Call (208) 290-3889
+            <a href={PHONE_HREF} className="btn-primary">
+              <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
             </a>
             <a href="/contact" className="btn-secondary">
               Get Free Quote <ChevronRight className="h-4 w-4" />

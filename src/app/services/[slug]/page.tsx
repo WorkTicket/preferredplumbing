@@ -13,6 +13,7 @@ import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -116,8 +117,8 @@ export default function ServicePage({ params }: Props) {
             {service.description}
           </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
-            <a href="tel:12082903889" className="btn-primary-lg">
-              <Phone className="h-5 w-5" /> (208) 290-3889
+            <a href={PHONE_HREF} className="btn-primary-lg">
+              <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
             </a>
             <a href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
               Get A Quote <ArrowRight className="h-5 w-5" />
@@ -481,8 +482,8 @@ export default function ServicePage({ params }: Props) {
           <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
             Ready to get started? Give us a call. We&apos;ll figure it out.
           </p>
-          <a href="tel:12082903889" className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex">
-            <Phone className="h-5 w-5" /> (208) 290-3889
+          <a href={PHONE_HREF} className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex">
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

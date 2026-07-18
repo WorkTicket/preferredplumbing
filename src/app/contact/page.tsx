@@ -4,7 +4,7 @@ import { Phone, MapPin, Clock, Shield, Star, Navigation } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
-import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL } from '@/lib/utils'
+import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL, PHONE_E164 } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import PageHero from '@/components/sections/PageHero'
 
@@ -12,7 +12,7 @@ const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 export const metadata: Metadata = generateMetadata({
   title: 'Contact Us',
-  description: 'Get a free plumbing quote from Preferred Plumbing Solutions. Call 208-290-3889 or fill out our online form. Serving Spirit Lake and North Idaho.',
+  description: `Get a free plumbing quote from Preferred Plumbing Solutions. Call ${PHONE} or fill out our online form. Serving Spirit Lake and North Idaho.`,
   slug: 'contact',
   canonical: `${siteUrl}/contact`,
 })
@@ -29,12 +29,12 @@ export default function ContactPage() {
             '@context': 'https://schema.org',
             '@type': 'ContactPage',
             name: 'Contact Preferred Plumbing Solutions',
-            description: 'Get a free plumbing quote from Preferred Plumbing Solutions. Call 208-290-3889.',
+            description: `Get a free plumbing quote from Preferred Plumbing Solutions. Call ${PHONE}.`,
             url: `${siteUrl}/contact`,
             mainEntity: {
               '@type': 'Plumber',
               name: 'Preferred Plumbing Solutions',
-              telephone: '+12082903889',
+              telephone: PHONE_E164,
               url: siteUrl,
               areaServed: ['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum'],
             },
@@ -107,7 +107,7 @@ export default function ContactPage() {
               <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
                 <h3 className="font-display text-base font-bold uppercase text-gray-900">Service Areas</h3>
                 <p className="mt-2 text-sm text-gray-500">
-                  Serving 16 cities across North Idaho and Eastern Washington.
+                  Serving communities across North Idaho and Eastern Washington.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum', 'Athol', 'Priest River', 'Blanchard', 'Newport', 'Chattaroy', 'Mead'].map((city) => (

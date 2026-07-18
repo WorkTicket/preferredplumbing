@@ -5,10 +5,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Phone, ArrowRight, ChevronDown, Wrench, BookOpen, HelpCircle } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { PHONE, PHONE_HREF } from '@/lib/utils'
+import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
+import { isNavActive } from '@/lib/nav-active'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import {
+  getNavGroupIdForSlug,
   getNavServiceGroups,
   SERVICE_NAV_ICONS,
   SERVICE_NAV_LABELS,
@@ -29,19 +30,6 @@ const learnLinks = [
 interface NavDrawerProps {
   open: boolean
   onClose: () => void
-}
-
-function isNavActive(pathname: string, href: string) {
-  if (href === '/') return pathname === '/'
-  if (href === '/gallery') {
-    return (
-      pathname === '/gallery' ||
-      pathname.startsWith('/gallery/') ||
-      pathname === '/portfolio' ||
-      pathname.startsWith('/portfolio/')
-    )
-  }
-  return pathname === href || pathname.startsWith(`${href}/`)
 }
 
 const backdropVariants = {
@@ -101,6 +89,7 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
   const reduced = useReducedMotion()
   const [servicesOpen, setServicesOpen] = useState(false)
   const [learnOpen, setLearnOpen] = useState(false)
+  const [activeGroupId, setActiveGroupId] = useState<string | null>(null)
   const navGroups = getNavServiceGroups()
   const servicesActive = isNavActive(pathname, '/services')
   const learnActive =
@@ -124,13 +113,21 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
     if (!open) {
       setServicesOpen(false)
       setLearnOpen(false)
+      setActiveGroupId(null)
     }
   }, [open])
 
   useEffect(() => {
-    if (open && servicesActive) setServicesOpen(true)
-    if (open && learnActive) setLearnOpen(true)
-  }, [open, servicesActive, learnActive])
+    if (!open) return
+    if (servicesActive) {
+      setServicesOpen(true)
+      const match = pathname.match(/^\/services\/([^/]+)/)
+      setActiveGroupId(
+        (match ? getNavGroupIdForSlug(match[1]) : null) ?? 'specialty'
+      )
+    }
+    if (learnActive) setLearnOpen(true)
+  }, [open, servicesActive, learnActive, pathname])
 
   const linkClass = (active: boolean) =>
     cn(
@@ -190,7 +187,13 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
     <div className="border-b border-gray-50">
       <button
         type="button"
-        onClick={() => setServicesOpen((prev) => !prev)}
+        onClick={() => {
+          setServicesOpen((prev) => {
+            const next = !prev
+            if (next && !activeGroupId) setActiveGroupId('specialty')
+            return next
+          })
+        }}
         aria-expanded={servicesOpen}
         className={cn(
           'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
@@ -204,100 +207,43 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
       </button>
       {servicesOpen && (
         <div className="pb-2 pl-1">
-          {navGroups.map((group) => (
-            <div key={group.id} className="mb-2">
-              <p className="px-2 pb-1 pt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
-                {group.label}
-              </p>
-              {group.services.map((service) => {
-                const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
-                const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
-                const isEmergency = service.slug === 'emergency'
-                const active = isNavActive(pathname, `/services/${service.slug}`)
-
-                return (
-                  <Link
-                    key={service.slug}
-                    href={`/services/${service.slug}`}
-                    onClick={onClose}
-                    aria-current={active ? 'page' : undefined}
+          {navGroups.map((group) => {
+            const GroupIcon = group.icon
+            const isGroupOpen = activeGroupId === group.id
+            return (
+              <div key={group.id} className="mb-1">
+                <button
+                  type="button"
+                  onClick={() => setActiveGroupId(isGroupOpen ? null : group.id)}
+                  aria-expanded={isGroupOpen}
+                  className={cn(
+                    'flex w-full items-center gap-2.5 rounded-lg px-2 py-2.5 text-left transition-colors',
+                    isGroupOpen ? 'bg-blue-50 text-blue' : 'text-gray-700 hover:bg-gray-50'
+                  )}
+                >
+                  <span
                     className={cn(
-                      'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
-                      isEmergency
-                        ? active
-                          ? 'bg-red-50 text-red-700'
-                          : 'text-red-700 hover:bg-red-50'
-                        : active
-                          ? 'bg-blue-50 text-blue'
-                          : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                      'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                      isGroupOpen ? 'bg-blue text-white' : 'bg-gray-100 text-blue'
                     )}
                   >
-                    <span
-                      className={cn(
-                        'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                        isEmergency
-                          ? active
-                            ? 'bg-red-600 text-white'
-                            : 'bg-red-100 text-red-600'
-                          : active
-                            ? 'bg-blue text-white'
-                            : 'bg-gray-100 text-blue'
-                      )}
-                    >
-                      <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                    <GroupIcon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold">{group.label}</span>
+                    <span className="block text-[11px] text-gray-400">
+                      {group.services.length} services
                     </span>
-                    {label}
-                  </Link>
-                )
-              })}
-            </div>
-          ))}
-          <Link
-            href="/services"
-            onClick={onClose}
-            aria-current={pathname === '/services' ? 'page' : undefined}
-            className={cn(
-              'mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold transition-colors hover:bg-blue-50',
-              pathname === '/services' ? 'bg-blue-50 text-blue' : 'text-blue'
-            )}
-          >
-            View All <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      )}
-    </div>
-  ) : (
-    <motion.div custom={1} variants={linkVariants} initial="hidden" animate="visible" exit="exit">
-      <div className="border-b border-gray-50">
-        <button
-          type="button"
-          onClick={() => setServicesOpen((prev) => !prev)}
-          aria-expanded={servicesOpen}
-          className={cn(
-            'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
-            servicesActive || servicesOpen ? 'text-blue' : 'text-gray-700'
-          )}
-        >
-          Services
-          <ChevronDown
-            className={cn('h-4 w-4 transition-transform duration-200', servicesOpen && 'rotate-180', servicesActive || servicesOpen ? 'text-blue' : 'text-gray-400')}
-          />
-        </button>
-        <AnimatePresence initial={false}>
-          {servicesOpen && (
-            <motion.div
-              variants={servicesSubmenuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="overflow-hidden"
-            >
-              <div className="pb-2 pl-1">
-                {navGroups.map((group) => (
-                  <div key={group.id} className="mb-2">
-                    <p className="px-2 pb-1 pt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">
-                      {group.label}
-                    </p>
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      'h-4 w-4 shrink-0 text-gray-400 transition-transform',
+                      isGroupOpen && 'rotate-180 text-blue'
+                    )}
+                  />
+                </button>
+                {isGroupOpen && (
+                  <div className="mt-0.5 space-y-0.5 border-l-2 border-blue/20 pl-3 ml-4">
                     {group.services.map((service) => {
                       const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
                       const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
@@ -323,7 +269,7 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
                         >
                           <span
                             className={cn(
-                              'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                              'flex h-7 w-7 shrink-0 items-center justify-center rounded-md',
                               isEmergency
                                 ? active
                                   ? 'bg-red-600 text-white'
@@ -340,7 +286,140 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
                       )
                     })}
                   </div>
-                ))}
+                )}
+              </div>
+            )
+          })}
+          <Link
+            href="/services"
+            onClick={onClose}
+            aria-current={pathname === '/services' ? 'page' : undefined}
+            className={cn(
+              'mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-bold transition-colors hover:bg-blue-50',
+              pathname === '/services' ? 'bg-blue-50 text-blue' : 'text-blue'
+            )}
+          >
+            View All <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      )}
+    </div>
+  ) : (
+    <motion.div custom={1} variants={linkVariants} initial="hidden" animate="visible" exit="exit">
+      <div className="border-b border-gray-50">
+        <button
+          type="button"
+          onClick={() => {
+            setServicesOpen((prev) => {
+              const next = !prev
+              if (next && !activeGroupId) setActiveGroupId('specialty')
+              return next
+            })
+          }}
+          aria-expanded={servicesOpen}
+          className={cn(
+            'flex w-full items-center justify-between py-3.5 text-base font-semibold transition-colors hover:text-blue',
+            servicesActive || servicesOpen ? 'text-blue' : 'text-gray-700'
+          )}
+        >
+          Services
+          <ChevronDown
+            className={cn('h-4 w-4 transition-transform duration-200', servicesOpen && 'rotate-180', servicesActive || servicesOpen ? 'text-blue' : 'text-gray-400')}
+          />
+        </button>
+        <AnimatePresence initial={false}>
+          {servicesOpen && (
+            <motion.div
+              variants={servicesSubmenuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="overflow-hidden"
+            >
+              <div className="pb-2 pl-1">
+                {navGroups.map((group) => {
+                  const GroupIcon = group.icon
+                  const isGroupOpen = activeGroupId === group.id
+                  return (
+                    <div key={group.id} className="mb-1">
+                      <button
+                        type="button"
+                        onClick={() => setActiveGroupId(isGroupOpen ? null : group.id)}
+                        aria-expanded={isGroupOpen}
+                        className={cn(
+                          'flex w-full items-center gap-2.5 rounded-lg px-2 py-2.5 text-left transition-colors',
+                          isGroupOpen ? 'bg-blue-50 text-blue' : 'text-gray-700 hover:bg-gray-50'
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            'flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                            isGroupOpen ? 'bg-blue text-white' : 'bg-gray-100 text-blue'
+                          )}
+                        >
+                          <GroupIcon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-sm font-semibold">{group.label}</span>
+                          <span className="block text-[11px] text-gray-400">
+                            {group.services.length} services
+                          </span>
+                        </span>
+                        <ChevronDown
+                          className={cn(
+                            'h-4 w-4 shrink-0 text-gray-400 transition-transform',
+                            isGroupOpen && 'rotate-180 text-blue'
+                          )}
+                        />
+                      </button>
+                      {isGroupOpen && (
+                        <div className="mt-0.5 space-y-0.5 border-l-2 border-blue/20 pl-3 ml-4">
+                          {group.services.map((service) => {
+                            const Icon = SERVICE_NAV_ICONS[service.slug] ?? Wrench
+                            const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
+                            const isEmergency = service.slug === 'emergency'
+                            const active = isNavActive(pathname, `/services/${service.slug}`)
+
+                            return (
+                              <Link
+                                key={service.slug}
+                                href={`/services/${service.slug}`}
+                                onClick={onClose}
+                                aria-current={active ? 'page' : undefined}
+                                className={cn(
+                                  'flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium transition-colors',
+                                  isEmergency
+                                    ? active
+                                      ? 'bg-red-50 text-red-700'
+                                      : 'text-red-700 hover:bg-red-50'
+                                    : active
+                                      ? 'bg-blue-50 text-blue'
+                                      : 'text-gray-600 hover:bg-blue-50 hover:text-blue'
+                                )}
+                              >
+                                <span
+                                  className={cn(
+                                    'flex h-7 w-7 shrink-0 items-center justify-center rounded-md',
+                                    isEmergency
+                                      ? active
+                                        ? 'bg-red-600 text-white'
+                                        : 'bg-red-100 text-red-600'
+                                      : active
+                                        ? 'bg-blue text-white'
+                                        : 'bg-gray-100 text-blue'
+                                  )}
+                                >
+                                  <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                                </span>
+                                {label}
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
                 <Link
                   href="/services"
                   onClick={onClose}

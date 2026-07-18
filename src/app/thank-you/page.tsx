@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CheckCircle, Phone, ChevronRight, Clock } from 'lucide-react'
 import { siteUrl } from '@/lib/seo'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: { absolute: 'Thank You | Preferred Plumbing Solutions' },
@@ -27,10 +28,10 @@ export default function ThankYouPage() {
       </div>
       <div className="mt-6 flex flex-col sm:flex-row gap-3">
         <a
-          href="tel:12082903889"
+          href={PHONE_HREF}
           className="btn-primary"
         >
-          <Phone className="h-5 w-5" /> Call (208) 290-3889
+          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
         <Link
           href="/"

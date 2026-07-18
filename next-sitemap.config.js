@@ -5,7 +5,8 @@ module.exports = {
   changefreq: 'weekly',
   priority: 0.8,
   sitemapSize: 7000,
-  exclude: ['/thank-you', '/api/*', '/studio/*', '/residential-and-commercial-plumbing-solutions'],
+  // Dynamic routes come from Next generateStaticParams after build — no duplicated slug lists.
+  exclude: ['/thank-you', '/api/*', '/residential-and-commercial-plumbing-solutions'],
   alternateRefs: [],
   transform: async (config, path) => {
     const defaultPriority = 0.8
@@ -35,12 +36,6 @@ module.exports = {
     } else if (path === '/gallery' || path === '/faqs') {
       priority = 0.7
       changefreq = 'monthly'
-    } else if (path.startsWith('/portfolio/')) {
-      priority = 0.7
-      changefreq = 'monthly'
-    } else if (path === '/portfolio') {
-      priority = 0.7
-      changefreq = 'monthly'
     }
 
     return {
@@ -51,82 +46,11 @@ module.exports = {
       images: [],
     }
   },
-  additionalPaths: async (config) => {
-    const services = [
-      'emergency', 'radiant-heat', 'heated-driveways', 'new-construction',
-      'commercial', 'tankless-water-heaters', 'water-heaters',
-      'water-softeners', 'toilets-faucets', 'bathtubs-showers',
-      'dishwashers', 'sewer-line', 'water-line', 'gas-line',
-      'septic-systems', 'remodels', 'kitchen-remodels', 'bathroom-remodels',
-    ]
-    const areas = [
-      'spirit-lake-id', 'coeur-dalene-id', 'post-falls-id', 'sandpoint-id',
-      'hayden-id', 'rathdrum-id', 'priest-river-id', 'athol-id',
-      'blanchard-id', 'clark-fork-id', 'newport-wa', 'chattaroy-wa',
-      'moscow-id', 'bellevue-id', 'mead-wa', 'oldtown-id',
-    ]
-    const portfolios = [
-      'new-construction-spirit-lake',
-      'commercial-remodel-coeur-dalene',
-    ]
-    const blogs = [
-      'heated-driveway-worth-it-north-idaho',
-      'tankless-vs-tank-water-heaters-north-idaho',
-      'commercial-plumbing-contractor-north-idaho',
-      'gas-line-installation-repair-north-idaho',
-      'water-line-replacement-signs-north-idaho',
-      'emergency-plumbing-when-to-call-spirit-lake',
-      'bathroom-remodel-plumbing-north-idaho',
-      'how-to-choose-plumber-spirit-lake-idaho',
-      'signs-sewer-line-replacement-north-idaho',
-      'radiant-heat-vs-forced-air-idaho',
-      'water-heater-installation-cost-idaho',
-      'water-softeners-idaho-panhandle',
-      'burst-pipe-winter-idaho-what-to-do',
-      'new-construction-plumbing-guide-idaho',
-      'septic-system-bonner-county-idaho',
-      'water-heater-winter-checklist-north-idaho',
-      'how-radiant-heat-works-idaho',
-      'plumbing-permits-spirit-lake-idaho',
-      'kitchen-remodel-plumbing-north-idaho',
-    ]
-
-    const servicePaths = services.map((slug) => ({
-      loc: `/services/${slug}`,
-      changefreq: 'monthly',
-      priority: 0.9,
-      lastmod: new Date().toISOString(),
-    }))
-
-    const areaPaths = areas.map((slug) => ({
-      loc: `/areas/${slug}`,
-      changefreq: 'monthly',
-      priority: 0.85,
-      lastmod: new Date().toISOString(),
-    }))
-
-    const portfolioPaths = portfolios.map((slug) => ({
-      loc: `/portfolio/${slug}`,
-      changefreq: 'monthly',
-      priority: 0.7,
-      lastmod: new Date().toISOString(),
-    }))
-
-    const blogPaths = blogs.map((slug) => ({
-      loc: `/blog/${slug}`,
-      changefreq: 'monthly',
-      priority: 0.7,
-      lastmod: new Date().toISOString(),
-    }))
-
-    return [...servicePaths, ...areaPaths, ...portfolioPaths, ...blogPaths]
-  },
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: '/api/' },
       { userAgent: '*', disallow: '/thank-you' },
-      { userAgent: '*', disallow: '/studio/' },
       { userAgent: '*', disallow: '/residential-and-commercial-plumbing-solutions' },
       { userAgent: '*', disallow: '/search' },
     ],

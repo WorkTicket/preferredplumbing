@@ -5,7 +5,7 @@ import { Phone, ArrowLeft } from 'lucide-react'
 import { generateBlogMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { blogPosts, getBlogPost } from '@/data/blog'
-import { formatDisplayDate } from '@/lib/utils'
+import { formatDisplayDate, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 interface Props {
   params: { slug: string }
@@ -105,10 +105,10 @@ export default function BlogPostPage({ params }: Props) {
             Need plumbing help? Call us.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

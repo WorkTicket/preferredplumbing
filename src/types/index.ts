@@ -71,18 +71,6 @@ export interface BlogPost {
   seoDescription?: string
 }
 
-export interface PortfolioItem {
-  title: string
-  slug: string
-  location: string
-  serviceType: string
-  description: string
-  beforeImages?: string[]
-  afterImages?: string[]
-  completionDate?: string
-  featured?: boolean
-}
-
 export interface ContactFormData {
   name: string
   phone: string
