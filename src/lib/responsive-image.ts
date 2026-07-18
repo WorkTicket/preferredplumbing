@@ -7,6 +7,7 @@ export type ImageFormat = (typeof FORMATS)[number]
 /** Common hero / OG dimensions — avoids bundling the full image manifest. */
 const KNOWN_DIMENSIONS: Record<string, { width: number; height: number }> = {
   '/images/preferred-plumbing-truck-interior.webp': { width: 2560, height: 1440 },
+  '/images/preferred-plumbing-hero-poster.webp': { width: 2560, height: 1440 },
   '/images/preferred logo.webp': { width: 512, height: 512 },
 }
 

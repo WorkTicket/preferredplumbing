@@ -211,11 +211,11 @@ export function videoObjectSchema() {
     name: 'Preferred Plumbing Solutions - Spirit Lake Plumber',
     description: 'Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. 38+ years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.',
     thumbnailUrl: [
-      `${siteUrl}/images/og-preferred-plumbing-solutions.webp`,
+      `${siteUrl}/images/preferred-plumbing-hero-poster.webp`,
     ],
     contentUrl: `${siteUrl}/videos/preferred-plumbing-hero.mp4`,
     uploadDate: '2024-01-01',
-    duration: 'PT30S',
+    duration: 'PT13S',
     publisher: {
       '@type': 'Organization',
       name: 'Preferred Plumbing Solutions',

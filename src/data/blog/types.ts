@@ -4,6 +4,8 @@ export interface BlogPostSummary {
   excerpt: string
   date: string
   category: string
+  coverImage: string
+  coverImageAlt: string
 }
 
 export interface BlogPost extends BlogPostSummary {

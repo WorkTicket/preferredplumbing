@@ -11,12 +11,14 @@ export function getLatestPosts(count = 3): BlogPostSummary[] {
   return [...blogPosts]
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, count)
-    .map(({ slug, title, excerpt, date, category }) => ({
+    .map(({ slug, title, excerpt, date, category, coverImage, coverImageAlt }) => ({
       slug,
       title,
       excerpt,
       date,
       category,
+      coverImage,
+      coverImageAlt,
     }))
 }
 

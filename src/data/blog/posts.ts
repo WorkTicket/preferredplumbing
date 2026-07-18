@@ -1,8 +1,10 @@
 import type { BlogPost } from './types'
+import { blogCovers } from './covers'
 
 export const blogPosts: BlogPost[] = [
   {
     slug: 'heated-driveway-worth-it-north-idaho',
+    ...blogCovers['heated-driveway-worth-it-north-idaho'],
     title: 'Is a Heated Driveway Worth It in North Idaho Winters?',
     excerpt:
       'Hydronic snow-melt costs more upfront. In Spirit Lake and Coeur d\'Alene winters, you get safer walks, less salt damage, and no more shoveling.',
@@ -26,6 +28,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'tankless-vs-tank-water-heaters-north-idaho',
+    ...blogCovers['tankless-vs-tank-water-heaters-north-idaho'],
     title: 'Tankless vs. Tank Water Heaters: What North Idaho Homeowners Should Know',
     excerpt:
       'Endless hot water and a longer lifespan cost more upfront. Here is when tankless makes sense in Spirit Lake, and when a traditional tank is still the smarter buy.',
@@ -49,6 +52,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'commercial-plumbing-contractor-north-idaho',
+    ...blogCovers['commercial-plumbing-contractor-north-idaho'],
     title: 'What to Look for in a Commercial Plumbing Contractor in North Idaho',
     excerpt:
       'Restaurants, retail, and medical facilities need code-compliant systems that keep downtime down. Here is how to pick a commercial plumber who can deliver.',
@@ -72,6 +76,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'gas-line-installation-repair-north-idaho',
+    ...blogCovers['gas-line-installation-repair-north-idaho'],
     title: 'Gas Line Installation & Repair: A North Idaho Homeowner Guide',
     excerpt:
       'New appliance hookups, tankless gas upgrades, and what to do if you smell gas. Licensed gas line work explained for Spirit Lake and Coeur d\'Alene homes.',
@@ -95,6 +100,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'water-line-replacement-signs-north-idaho',
+    ...blogCovers['water-line-replacement-signs-north-idaho'],
     title: 'Signs You Need Water Line Replacement in North Idaho',
     excerpt:
       'Low pressure, wet spots in the yard, and unexplained high water bills often point to a failing underground water service, not a faucet problem.',
@@ -118,6 +124,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'emergency-plumbing-when-to-call-spirit-lake',
+    ...blogCovers['emergency-plumbing-when-to-call-spirit-lake'],
     title: 'When Is It a Plumbing Emergency? A Spirit Lake Homeowner Checklist',
     excerpt:
       'Burst pipes, sewer backups, gas smells, and no hot water. Know what needs a same-day call and what can wait for a regular appointment.',
@@ -142,6 +149,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'bathroom-remodel-plumbing-north-idaho',
+    ...blogCovers['bathroom-remodel-plumbing-north-idaho'],
     title: 'Bathroom Remodel Plumbing: What North Idaho Homeowners Should Budget For',
     excerpt:
       'Moving a toilet, adding a walk-in shower, or upgrading fixtures. The plumbing decisions that make or break a bathroom remodel.',
@@ -165,6 +173,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-to-choose-plumber-spirit-lake-idaho',
+    ...blogCovers['how-to-choose-plumber-spirit-lake-idaho'],
     title: 'How to Choose a Plumber in Spirit Lake, Idaho',
     excerpt:
       'Looking for a reliable plumber in Spirit Lake? Here is what to look for and why local experience matters.',
@@ -181,6 +190,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'signs-sewer-line-replacement-north-idaho',
+    ...blogCovers['signs-sewer-line-replacement-north-idaho'],
     title: 'Signs You Need a Sewer Line Replacement in North Idaho',
     excerpt:
       'Frequent backups, slow drains, and foul odors could mean sewer line trouble. Here are the warning signs to watch for.',
@@ -202,6 +212,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'radiant-heat-vs-forced-air-idaho',
+    ...blogCovers['radiant-heat-vs-forced-air-idaho'],
     title: 'Radiant Heat vs. Forced Air: What North Idaho Homeowners Should Know',
     excerpt:
       'Comfort, efficiency, and cost: how radiant heat stacks up against forced air in cold Idaho winters.',
@@ -224,6 +235,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'water-heater-installation-cost-idaho',
+    ...blogCovers['water-heater-installation-cost-idaho'],
     title: 'How Much Does a Water Heater Cost to Install in Idaho?',
     excerpt:
       'Tank vs. tankless, labor costs, and what North Idaho homeowners should budget for a new water heater.',
@@ -244,6 +256,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'water-softeners-idaho-panhandle',
+    ...blogCovers['water-softeners-idaho-panhandle'],
     title: 'Best Water Softeners for Hard Water in the Idaho Panhandle',
     excerpt:
       'Hard water is common in North Idaho. Here is how softeners protect your pipes, fixtures, and appliances.',
@@ -264,6 +277,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'burst-pipe-winter-idaho-what-to-do',
+    ...blogCovers['burst-pipe-winter-idaho-what-to-do'],
     title: 'What to Do When a Pipe Bursts in Winter in Idaho',
     excerpt:
       'Frozen pipes are a North Idaho emergency. Here is what to do right away and how to lower the odds of a burst.',
@@ -284,6 +298,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'new-construction-plumbing-guide-idaho',
+    ...blogCovers['new-construction-plumbing-guide-idaho'],
     title: 'New Construction Plumbing: A Guide for Idaho Homebuilders',
     excerpt:
       'Rough-in timing, code requirements, and what builders need from a plumbing contractor in North Idaho.',
@@ -305,6 +320,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'septic-system-bonner-county-idaho',
+    ...blogCovers['septic-system-bonner-county-idaho'],
     title: 'Septic System Installation Requirements in Bonner County, Idaho',
     excerpt:
       'Permits, soil testing, and what Bonner County homeowners need to know about septic installation.',
@@ -325,6 +341,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'water-heater-winter-checklist-north-idaho',
+    ...blogCovers['water-heater-winter-checklist-north-idaho'],
     title: 'Is Your Water Heater Ready for Winter? North Idaho Homeowner Checklist',
     excerpt:
       'A pre-winter checklist to keep hot water flowing and avoid cold-weather water heater failures.',
@@ -345,6 +362,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-radiant-heat-works-idaho',
+    ...blogCovers['how-radiant-heat-works-idaho'],
     title: 'How Radiant In-Floor Heat Works and Why Idaho Homes Love It',
     excerpt:
       'How hydronic radiant heat works, and why it fits cold North Idaho winters so well.',
@@ -366,6 +384,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'plumbing-permits-spirit-lake-idaho',
+    ...blogCovers['plumbing-permits-spirit-lake-idaho'],
     title: 'Plumbing Permits in Spirit Lake, Idaho: What You Need to Know',
     excerpt:
       'When permits are required, how to get them, and why professional installation matters in Kootenai County.',
@@ -382,6 +401,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'kitchen-remodel-plumbing-north-idaho',
+    ...blogCovers['kitchen-remodel-plumbing-north-idaho'],
     title: 'Kitchen Remodel Plumbing: What to Expect in North Idaho',
     excerpt:
       'Sink relocation, appliance hookups, and plumbing timelines for your kitchen remodel.',

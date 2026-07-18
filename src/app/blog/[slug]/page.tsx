@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, ArrowLeft } from 'lucide-react'
 import { generateBlogMetadata, siteUrl } from '@/lib/seo'
@@ -23,6 +24,7 @@ export function generateMetadata({ params }: Props): Metadata {
     excerpt: post.excerpt || post.content[0]?.slice(0, 160) || '',
     slug: params.slug,
     publishedAt: post.date,
+    coverImage: post.coverImage,
   })
 }
 
@@ -35,6 +37,7 @@ export default function BlogPostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt || post.content[0]?.slice(0, 160) || '',
+    image: [`${siteUrl}${post.coverImage}`],
     datePublished: post.date,
     dateModified: post.date,
     author: {
@@ -72,6 +75,16 @@ export default function BlogPostPage({ params }: Props) {
           <h1 className="mt-2 font-display text-[clamp(2rem,6vw,3.5rem)] font-black uppercase leading-[0.95] text-gray-900">
             {post.title}
           </h1>
+          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-gray-100">
+            <Image
+              src={post.coverImage}
+              alt={post.coverImageAlt}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
         </div>
       </section>
       <section className="section-padding bg-gray-50">

@@ -96,12 +96,12 @@ export default function HeroSection() {
 
   return (
     <>
-      <HeroImagePreload src="/images/preferred-plumbing-truck-interior.webp" />
+      <HeroImagePreload src="/images/preferred-plumbing-hero-poster.webp" />
       <section className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
         <div className="absolute inset-0 brightness-[0.85] saturate-[1.08]">
           <LcpHeroImage
-            src="/images/preferred-plumbing-truck-interior.webp"
-            alt="Preferred Plumbing service truck interior in Spirit Lake, Idaho"
+            src="/images/preferred-plumbing-hero-poster.webp"
+            alt="Aerial view of Spirit Lake in North Idaho from the Preferred Plumbing Solutions hero video"
           />
         </div>
         {showVideo && (
@@ -110,8 +110,8 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            poster="/images/generated/preferred-plumbing-truck-interior-1280.webp"
-            preload="none"
+            poster="/images/generated/preferred-plumbing-hero-poster-1280.webp"
+            preload="metadata"
             onLoadedData={() => setVideoReady(true)}
             onError={() => setVideoReady(false)}
             className={`absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.08] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
