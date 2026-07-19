@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
-const siteUrl = 'https://www.preferredplumbingsolution.com'
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
+  'https://www.callpreferredplumbing.com'
 export const siteName = 'Preferred Plumbing Solutions'
 export const defaultTitle = 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889'
 export const defaultDescription =

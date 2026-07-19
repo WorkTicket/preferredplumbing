@@ -131,45 +131,45 @@ export default function HeroSection() {
         <BottomWave />
         <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-center px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-10 sm:pb-12 lg:pb-14">
           <div className="max-w-3xl w-full">
-            <div className="mb-3 sm:mb-5 flex flex-wrap items-center gap-2.5">
-              <p className="inline-flex flex-wrap items-center rounded-full border border-blue-light/25 bg-blue-light/10 px-3.5 py-1.5 text-[11px] sm:text-sm font-semibold text-blue-light backdrop-blur-sm">
+            <div className="mb-2.5 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <p className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
                 Family-Owned Plumber in Spirit Lake, Idaho
               </p>
-              <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 backdrop-blur-sm">
-                <Star className="h-3.5 w-3.5 fill-gold text-gold" /> 5.0 Google Rating
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
+                <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-gold text-gold" /> 5.0 Google
               </span>
             </div>
             <h1 className="font-display text-[clamp(1.85rem,8.5vw,4.75rem)] font-black uppercase leading-[0.9] text-white tracking-tight">
               North Idaho&apos;s<br />
               <span className="text-blue-light">Local Plumber</span>
             </h1>
-            <p className="mt-3 sm:mt-4 max-w-xl text-[13px] sm:text-base lg:text-lg text-gray-300 leading-snug sm:leading-relaxed">
+            <p className="mt-2.5 sm:mt-4 max-w-xl text-[13px] sm:text-base lg:text-lg text-gray-300 leading-snug sm:leading-relaxed">
               Family-owned in Spirit Lake, Idaho. Radiant heat, new construction, and emergency service.{' '}
               <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
             </p>
-            <div className="mt-4 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">
+            <div className="mt-3.5 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">
               <a href={PHONE_HREF} className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
               </a>
-              <Link href="#contact" className="btn-secondary border-white/25 bg-white/8 text-white hover:bg-white/15 hover:border-white/40 !py-3.5 sm:!py-4 text-sm sm:text-base backdrop-blur-sm">
+              <Link href="#contact" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15 hover:border-white/40 !py-3.5 sm:!py-4 text-sm sm:text-base backdrop-blur-sm">
                 Get Free Estimate <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
             </div>
-            <div className="mt-3.5 sm:mt-6 flex flex-wrap gap-2">
+            <div className="mt-3 sm:mt-6 flex flex-wrap gap-2">
               {trustBadges.map((badge) => (
                 <span key={badge} className="badge-premium text-[11px] sm:text-xs">
                   {badge}
                 </span>
               ))}
             </div>
-            <div className="mt-5 sm:mt-10 grid grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+            <div className="mt-4 sm:mt-10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
               {stats.map((stat) => (
-                <div key={stat.label || stat.number} className="rounded-xl sm:rounded-2xl border border-white/10 bg-white/8 p-2.5 sm:p-4 backdrop-blur-md text-center sm:text-left shadow-inner">
-                  <p className="font-display font-black text-sm sm:text-xl lg:text-2xl text-white tabular-nums">
+                <div key={stat.label || stat.number} className="rounded-xl sm:rounded-2xl border border-white/10 bg-white/8 px-3 py-2.5 sm:p-4 backdrop-blur-md text-left shadow-inner">
+                  <p className="font-display font-black text-base sm:text-xl lg:text-2xl text-white tabular-nums">
                     {stat.number}<span className="text-blue-light">{stat.suffix}</span>
                   </p>
                   {stat.label && (
-                    <p className="text-[9px] sm:text-[10px] lg:text-xs font-medium text-white/70 leading-tight mt-0.5">{stat.label}</p>
+                    <p className="text-[11px] sm:text-[10px] lg:text-xs font-medium text-white/70 leading-tight mt-0.5">{stat.label}</p>
                   )}
                 </div>
               ))}

@@ -19,7 +19,7 @@ export default function AboutSection() {
     <section className="section-padding bg-white relative overflow-hidden mesh-bg-warm">
       <div className="container-page">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative order-2 lg:order-1">
+          <div className="relative order-2 lg:order-1 mx-1 sm:mx-0">
             <div className="image-frame">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-premium-xl">
                 <ResponsiveImage
@@ -32,7 +32,7 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
               </div>
             </div>
-            <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl border border-blue-light/20 bg-white p-4 sm:p-5 shadow-premium-xl">
+            <div className="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 rounded-2xl border border-blue-light/20 bg-white p-3.5 sm:p-5 shadow-premium-xl">
               <p className="font-display text-3xl sm:text-4xl font-black text-blue-light">38+</p>
               <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mt-0.5">Years Exp.</p>
             </div>

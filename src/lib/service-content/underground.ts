@@ -111,7 +111,7 @@ export const undergroundServiceContent: Record<string, RichServiceContent> = {
     ],
     summaryHeading: 'Underground Water Lines Built for This Climate',
     photos: [
-      '/images/service-sewer-line-replacement.webp',
+      '/images/blog/water-line-replacement-signs-north-idaho.webp',
       '/images/service-new-construction-plumbing.webp',
     ],
     summaryParagraphs: [

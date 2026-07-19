@@ -70,7 +70,7 @@ export default function FAQsPage() {
           <section
             key={section.id}
             id={section.id}
-            className={`section-padding scroll-mt-24 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
+            className={`section-padding scroll-mt-28 sm:scroll-mt-32 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
           >
             <div className="container-page max-w-3xl">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">

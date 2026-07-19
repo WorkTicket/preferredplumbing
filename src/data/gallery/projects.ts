@@ -225,4 +225,19 @@ export const galleryProjects: GalleryProject[] = [
     coverImage: cover('toilets-faucets-trim'),
     completionDate: '2025-08-02',
   },
+  {
+    id: 'site-excavation',
+    title: 'Site Excavation',
+    slug: 'site-excavation',
+    category: 'New Construction',
+    location: 'North Idaho',
+    description:
+      'On-site excavation for septic, water lines, gas trenching, and underground plumbing — compact excavator ready for North Idaho digs.',
+    scopeOfWork:
+      'Site dig-outs for tanks and utilities, trench prep for underground lines, and equipment staging for septic and water work.',
+    materials: ['Compact excavator', 'Dump trailer', 'Utility trenching'],
+    images: projectImages('site-excavation', 1),
+    coverImage: cover('site-excavation'),
+    completionDate: '2025-10-01',
+  },
 ]

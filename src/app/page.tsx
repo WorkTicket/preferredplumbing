@@ -5,7 +5,7 @@ import EmergencyBand from '@/components/sections/EmergencyBand'
 import { AnimatedSection } from '@/components/animations'
 import { faqSchema, webpageSchema, reviewSchema } from '@/lib/schema'
 import { faqItems, reviews } from '@/lib/data'
-import { generateMetadata as genMeta } from '@/lib/seo'
+import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 
 const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'))
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'))
@@ -51,12 +51,12 @@ export default function HomePage() {
             '@context': 'https://schema.org',
             '@type': 'ItemList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Emergency Plumbing', url: 'https://www.preferredplumbingsolution.com/services/emergency' } },
-              { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Radiant Floor Heating', url: 'https://www.preferredplumbingsolution.com/services/radiant-heat' } },
-              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'Heated Driveway Installation', url: 'https://www.preferredplumbingsolution.com/services/heated-driveways' } },
-              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'New Construction Plumbing', url: 'https://www.preferredplumbingsolution.com/services/new-construction' } },
-              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Commercial Plumbing', url: 'https://www.preferredplumbingsolution.com/services/commercial' } },
-              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Tankless Water Heater Installation', url: 'https://www.preferredplumbingsolution.com/services/tankless-water-heaters' } },
+              { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Emergency Plumbing', url: `${siteUrl}/services/emergency` } },
+              { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Radiant Floor Heating', url: `${siteUrl}/services/radiant-heat` } },
+              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'Heated Driveway Installation', url: `${siteUrl}/services/heated-driveways` } },
+              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'New Construction Plumbing', url: `${siteUrl}/services/new-construction` } },
+              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` } },
+              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Tankless Water Heater Installation', url: `${siteUrl}/services/tankless-water-heaters` } },
             ],
           }),
         }}

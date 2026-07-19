@@ -237,7 +237,6 @@ export function webpageSchema(title: string, description: string, slug: string) 
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    dateModified: new Date().toISOString().split('T')[0],
     inLanguage: 'en-US',
     isAccessibleForFree: true,
   }
@@ -277,7 +276,7 @@ export function serviceSchema(serviceName: string, description: string) {
     provider: {
       '@type': 'Plumber',
       name: 'Preferred Plumbing Solutions',
-      url: 'https://www.preferredplumbingsolution.com',
+      url: siteUrl,
     },
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },

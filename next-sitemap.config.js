@@ -1,12 +1,16 @@
 /** @type {import('next-sitemap').IConfig} */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
+  'https://www.callpreferredplumbing.com'
+
 module.exports = {
-  siteUrl: 'https://www.preferredplumbingsolution.com',
+  siteUrl,
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.8,
   sitemapSize: 7000,
   // Dynamic routes come from Next generateStaticParams after build — no duplicated slug lists.
-  exclude: ['/thank-you', '/api/*', '/residential-and-commercial-plumbing-solutions'],
+  exclude: ['/thank-you', '/api/*'],
   alternateRefs: [],
   transform: async (config, path) => {
     const defaultPriority = 0.8
@@ -51,12 +55,10 @@ module.exports = {
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: '/api/' },
       { userAgent: '*', disallow: '/thank-you' },
-      { userAgent: '*', disallow: '/residential-and-commercial-plumbing-solutions' },
       { userAgent: '*', disallow: '/search' },
-    ],
-    additionalSitemaps: [
-      'https://www.preferredplumbingsolution.com/sitemap.xml',
-      'https://www.preferredplumbingsolution.com/sitemap-0.xml',
+      { userAgent: '*', disallow: '/images/blog/_raw/' },
+      { userAgent: '*', disallow: '/images/blog/_cands/' },
+      { userAgent: '*', disallow: '/images/blog/_preview/' },
     ],
   },
 }

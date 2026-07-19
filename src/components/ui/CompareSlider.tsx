@@ -134,7 +134,7 @@ export default function CompareSlider({
       </div>
 
       <div className="compare-slider-handle pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_12px_rgba(0,102,255,0.4)]">
-        <div className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-light/50 bg-blue shadow-premium-xl ring-4 ring-white/20">
+        <div className="absolute top-1/2 left-1/2 flex h-12 w-12 sm:h-11 sm:w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-light/50 bg-blue shadow-premium-xl ring-4 ring-white/20">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -147,6 +147,10 @@ export default function CompareSlider({
           </svg>
         </div>
       </div>
+
+      <p className="pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-white/20 bg-navy/70 px-3 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-sm sm:hidden">
+        Drag to compare
+      </p>
     </div>
   )
 }

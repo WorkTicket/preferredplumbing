@@ -7,7 +7,7 @@ import { PHONE_HREF } from '@/lib/utils'
 export default function MobileCtaBar() {
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 md:hidden shadow-premium-2xl border-t border-white/10"
+      className="mobile-cta-bar fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 md:hidden shadow-premium-2xl border-t border-white/10 transition-[transform,opacity] duration-200"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       <a

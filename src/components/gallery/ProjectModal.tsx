@@ -26,8 +26,10 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
+    document.body.dataset.mobileOverlay = 'true'
     return () => {
       document.body.style.overflow = ''
+      delete document.body.dataset.mobileOverlay
     }
   }, [])
 
@@ -267,10 +269,13 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
             <div className="h-4" />
           </div>
 
-          <div className="sticky bottom-0 bg-white border-t border-gray-100 p-4 sm:p-5 shadow-premium-lg z-10">
+          <div
+            className="sticky bottom-0 bg-white border-t border-gray-100 p-4 sm:p-5 shadow-premium-lg z-10"
+            style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))' }}
+          >
             <a
               href={PHONE_HREF}
-              className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-blue px-6 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-blue px-6 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg active:scale-[0.98] touch-target"
             >
               <Phone className="h-5 w-5" />
               Request Service: {PHONE_DISPLAY}

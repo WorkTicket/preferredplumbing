@@ -6,16 +6,17 @@ export default function EmergencyBand() {
     <section className="relative shrink-0 overflow-hidden bg-navy">
       <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(26,53,80,0.5),transparent)] pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-3 sm:gap-0 sm:flex-row sm:justify-between px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-2.5 sm:gap-0 sm:flex-row sm:justify-between px-4 sm:px-6 lg:px-8 py-3.5 sm:py-5 lg:py-6">
         <div className="text-center sm:text-left">
           <p className="text-sm sm:text-lg font-bold text-white flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <span className="inline-block rounded-md border border-navy-light bg-navy-mid px-2.5 py-0.5 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white">
               Emergency
             </span>
-            Plumbing Emergency? Call Us During Business Hours
+            <span className="sm:hidden">Need help? Call during business hours</span>
+            <span className="hidden sm:inline">Plumbing Emergency? Call Us During Business Hours</span>
           </p>
           <p className="mt-1 text-xs sm:text-sm text-white/70">
-            {BUSINESS_HOURS.short} · Average response under 1 hour across North Idaho
+            {BUSINESS_HOURS.short} · Avg. response under 1 hour
           </p>
         </div>
         <a

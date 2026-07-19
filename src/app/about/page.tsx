@@ -133,8 +133,8 @@ export default function AboutPage() {
           <div className="mt-6 max-w-3xl space-y-4 text-gray-600 leading-relaxed">
             <p>
               We&apos;re locals. Spirit Lake is home, and we bring decades of plumbing
-              experience to every job here. New house, bathroom remodel, or a pipe that
-              burst at 2 AM, we show up.
+              experience to every job here. New house, bathroom remodel, or an emergency
+              during business hours — we show up fast.
             </p>
             <p>
               We handle residential and commercial jobs across North Idaho and into Washington.

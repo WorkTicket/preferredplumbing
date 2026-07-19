@@ -213,7 +213,7 @@ export const services: Service[] = [
     slug: 'water-line',
     title: 'Water Line Replacement',
     description: 'Underground water main repair and water service replacement across North Idaho. We locate, repair, and replace failing water lines with minimal disruption.',
-    image: '/images/service-sewer-line-replacement.webp',
+    image: '/images/blog/water-line-replacement-signs-north-idaho.webp',
     features: [
       'Water main repair',
       'Water service installation',
