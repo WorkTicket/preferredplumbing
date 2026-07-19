@@ -36,6 +36,7 @@ const GALLERY_MAX_WIDTH = 2560
 
 const HERO_NAMES = new Set([
   'preferred-plumbing-truck-interior',
+  'preferred-plumbing-hero-poster',
   'preferred-plumbing-service-truck',
   'hero-gallery',
   'hero-services',

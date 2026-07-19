@@ -2,9 +2,10 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CheckCircle, Phone, ChevronRight, Clock } from 'lucide-react'
 import { siteUrl } from '@/lib/seo'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Thank You | Preferred Plumbing Solutions',
+  title: { absolute: 'Thank You | Preferred Plumbing Solutions' },
   description: 'Your quote request has been submitted successfully. We will get back to you within 24 hours.',
   robots: { index: false, follow: false },
 }
@@ -23,14 +24,14 @@ export default function ThankYouPage() {
       </p>
       <div className="mt-4 flex items-center gap-2 text-amber-600 bg-amber-50 rounded-lg px-4 py-2 text-sm font-semibold">
         <Clock className="h-4 w-4" />
-        Need help now? Call our 24/7 emergency line.
+        Need help now? Call our emergency line during business hours (Sun–Fri 7am–5pm).
       </div>
       <div className="mt-6 flex flex-col sm:flex-row gap-3">
         <a
-          href="tel:12082903889"
+          href={PHONE_HREF}
           className="btn-primary"
         >
-          <Phone className="h-5 w-5" /> Call (208) 290-3889
+          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
         <Link
           href="/"

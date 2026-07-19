@@ -1,9 +1,8 @@
-'use client'
-
 import { faqItems } from '@/lib/data'
 import SectionLabel from '@/components/ui/SectionLabel'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import Link from 'next/link'
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
 
 export default function FAQAccordion() {
   return (
@@ -22,13 +21,13 @@ export default function FAQAccordion() {
             <div className="mt-8 hidden lg:block premium-card-dark p-6">
               <p className="font-display text-lg font-black uppercase text-white">Still have questions?</p>
               <p className="mt-2 text-sm text-gray-300">We&apos;re happy to talk through your project.</p>
-              <a href="tel:12082903889" className="mt-4 inline-flex items-center gap-2 font-bold text-blue-light hover:text-white transition-colors">
-                Call (208) 290-3889 &rarr;
+              <a href={PHONE_HREF} className="mt-4 inline-flex items-center gap-2 font-bold text-blue-light hover:text-white transition-colors">
+                Call {PHONE_DISPLAY} &rarr;
               </a>
             </div>
           </div>
 
-          <FaqAccordionList items={faqItems.slice(0, 5)} idPrefix="home" />
+          <FaqAccordionList items={faqItems.slice(0, 7)} idPrefix="home" />
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -38,8 +37,8 @@ export default function FAQAccordion() {
           <span className="hidden sm:inline text-gray-300">|</span>
           <p className="text-gray-500 text-sm lg:hidden">
             Still have questions?{' '}
-            <a href="tel:12082903889" className="text-blue font-bold">
-              Call (208) 290-3889
+            <a href={PHONE_HREF} className="text-blue font-bold">
+              Call {PHONE_DISPLAY}
             </a>
           </p>
         </div>

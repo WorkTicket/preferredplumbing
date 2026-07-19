@@ -5,6 +5,7 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, Phone, MapPin, Calendar } from 'lucide-react'
 import { getGalleryProjectById } from '@/data/gallery'
+import { formatDisplayDate, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 interface ProjectModalProps {
   projectId: string
@@ -19,7 +20,8 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
   useEffect(() => {
     const p = getGalleryProjectById(projectId)
-    setCurrentImage(p ? Math.max(0, p.images.length - 1) : 0)
+    // projectImages() orders as [before, after/cover, ...rest] — open on the finished shot
+    setCurrentImage(p && p.images.length >= 2 ? 1 : 0)
   }, [projectId])
 
   useEffect(() => {
@@ -72,12 +74,6 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
   if (!project) return null
 
   const hasMultipleImages = project.images.length > 1
-  const imageLabel =
-    project.images.length === 2
-      ? currentImage === 0
-        ? 'Before'
-        : 'After'
-      : null
 
   return (
     <AnimatePresence>
@@ -175,7 +171,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
             {hasMultipleImages && (
               <span className="absolute top-4 left-4 z-10 rounded-full bg-black/40 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white">
-                {imageLabel ?? `${currentImage + 1} / ${project.images.length}`}
+                {currentImage + 1} / {project.images.length}
               </span>
             )}
           </div>
@@ -194,7 +190,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                 )}
                 <span className="flex items-center gap-1 text-xs font-medium text-gray-400">
                   <Calendar className="h-3 w-3" />
-                  {new Date(project.completionDate).toLocaleDateString('en-US', {
+                  {formatDisplayDate(project.completionDate, {
                     year: 'numeric',
                     month: 'long',
                   })}
@@ -273,11 +269,11 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
           <div className="sticky bottom-0 bg-white border-t border-gray-100 p-4 sm:p-5 shadow-premium-lg z-10">
             <a
-              href="tel:12082903889"
+              href={PHONE_HREF}
               className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-blue px-6 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg active:scale-[0.98]"
             >
               <Phone className="h-5 w-5" />
-              Request Service: (208) 290-3889
+              Request Service: {PHONE_DISPLAY}
             </a>
           </div>
         </motion.div>

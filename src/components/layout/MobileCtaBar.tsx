@@ -15,9 +15,6 @@ export default function MobileCtaBar() {
         data-track="mobile_cta_call"
         className="flex items-center justify-center gap-2 bg-blue py-3.5 text-sm font-bold text-white transition-all duration-200 active:bg-blue-dark min-h-[52px]"
       >
-        <span className="border border-blue-light/30 bg-blue-light/15 text-blue-light text-[9px] px-1.5 py-0.5 rounded font-bold uppercase leading-tight tracking-wider">
-          24/7
-        </span>
         <Phone className="h-4 w-4 shrink-0" />
         <span>Call Now</span>
       </a>

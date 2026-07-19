@@ -3,12 +3,14 @@ import type { Metadata } from 'next'
 import { Phone, ChevronRight, Star, Shield, Clock, HardHat } from 'lucide-react'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { services } from '@/lib/data'
+import { getNavServices } from '@/lib/nav-services'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Services Spirit Lake Idaho | Full-Service Plumber',
-  description: 'Full-service plumbing contractor in Spirit Lake, Idaho. New construction, remodels, water heaters, radiant heat, sewer lines, septic systems, and 24/7 emergency service. Call 208-290-3889.',
+  description: 'Full-service plumbing contractor in Spirit Lake, Idaho. New construction, radiant heat, heated driveways, tankless water heaters, sewer lines, septic systems, and emergency service. Call 208-290-3889.',
   slug: 'services',
   canonical: `${siteUrl}/services`,
 })
@@ -16,16 +18,18 @@ export const metadata: Metadata = generateMetadata({
 const trustSignals = [
   { icon: Shield, label: 'Licensed & Insured' },
   { icon: Star, label: 'Free Estimates' },
-  { icon: Clock, label: '24/7 Emergency Service' },
+  { icon: Clock, label: 'Emergency Service' },
   { icon: HardHat, label: '38+ Years Experience' },
 ]
 
 export default function ServicesPage() {
+  const orderedServices = getNavServices()
+  const listServices = orderedServices.length ? orderedServices : services
   const schemas = [
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      itemListElement: services.map((s, i) => ({
+      itemListElement: listServices.map((s, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         item: {
@@ -60,9 +64,9 @@ export default function ServicesPage() {
       <PageHero
         label="Our Services"
         title={<>Plumbing Services<br /><span className="text-blue-300">in Spirit Lake, Idaho</span></>}
-        description="New construction rough-ins, remodels, water heaters, radiant heat, and emergency repairs. Family-owned, code-compliant, and backed by 38+ years on the job."
+        description="Emergency repairs, radiant heat, heated driveways, new construction, tankless water heaters, and more. Family-owned and code-compliant."
         image="/images/hero-services.webp"
-        imageAlt="Professional plumbing services in Spirit Lake and North Idaho"
+        imageAlt="Plumbing services in Spirit Lake and North Idaho"
         priority
       />
 
@@ -83,7 +87,7 @@ export default function ServicesPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-page">
           <div className="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {listServices.map((service) => (
               <ServiceCard
                 key={service.slug}
                 href={`/services/${service.slug}`}
@@ -104,8 +108,8 @@ export default function ServicesPage() {
               <span className="text-blue">Count On in North Idaho</span>
             </h2>
             <p className="mt-6 text-gray-600 leading-relaxed">
-              We have been at this for nearly four decades. Folks around Spirit Lake know us for
-              showing up on time and doing the job right. That is the reputation we have earned.
+              Folks around Spirit Lake know us for showing up on time and doing the job right.
+              That is the reputation we have earned.
             </p>
             <p className="mt-4 text-gray-600 leading-relaxed">
               We handle residential and commercial jobs of all sizes. Leaky faucet, full new-construction
@@ -135,10 +139,10 @@ export default function ServicesPage() {
             Not sure what you need? Call us. We&apos;ll figure it out.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

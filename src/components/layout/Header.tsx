@@ -1,248 +1,48 @@
-'use client'
-
-import { useState, useEffect, useRef } from 'react'
-import dynamic from 'next/dynamic'
-import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Menu, Phone, ChevronDown } from 'lucide-react'
-import { cn, PHONE, PHONE_HREF } from '@/lib/utils'
-import ServicesMegaMenu from './ServicesMegaMenu'
-import LearnDropdown from './LearnDropdown'
+import { Phone } from 'lucide-react'
+import { PHONE, PHONE_HREF } from '@/lib/utils'
+import HeaderShell from './HeaderShell'
 
-const NavDrawer = dynamic(() => import('./NavDrawer'), { ssr: false })
-
-function isNavActive(pathname: string, href: string) {
-  if (href === '/') return pathname === '/'
-  return pathname === href || pathname.startsWith(`${href}/`)
-}
-
+/** Server entry — brand + CTAs render on the server; menus/scroll live in HeaderShell. */
 export default function Header() {
-  const pathname = usePathname()
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
-  const [learnOpen, setLearnOpen] = useState(false)
-  const servicesRef = useRef<HTMLDivElement>(null)
-  const learnRef = useRef<HTMLDivElement>(null)
-
-  const homeActive = isNavActive(pathname, '/')
-  const servicesActive = isNavActive(pathname, '/services')
-  const aboutActive = isNavActive(pathname, '/about')
-  const learnActive =
-    isNavActive(pathname, '/blog') || isNavActive(pathname, '/faqs')
-  const galleryActive =
-    isNavActive(pathname, '/gallery') || isNavActive(pathname, '/portfolio')
-  const contactActive = isNavActive(pathname, '/contact')
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    setDrawerOpen(false)
-    setServicesOpen(false)
-    setLearnOpen(false)
-  }, [pathname])
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
-        setServicesOpen(false)
-      }
-      if (learnRef.current && !learnRef.current.contains(e.target as Node)) {
-        setLearnOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setServicesOpen(false)
-        setLearnOpen(false)
-      }
-    }
-    if (servicesOpen || learnOpen) {
-      document.addEventListener('keydown', handleEscape)
-    }
-    return () => document.removeEventListener('keydown', handleEscape)
-  }, [servicesOpen, learnOpen])
-
   return (
-    <>
-      <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-40 transition-all duration-500',
-          'bg-white/95 backdrop-blur-lg border-b border-transparent',
-          scrolled ? 'shadow-premium-md border-gray-200/60' : '',
-          scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-        )}
-      >
-        <div
-          className={cn(
-            'absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue transition-opacity duration-500',
-            scrolled ? 'opacity-100' : 'opacity-0'
-          )}
-        />
-        <div
-          className={cn(
-            'mx-auto flex max-w-[90rem] items-center justify-between gap-3 px-3 sm:px-6 lg:px-8 transition-all duration-500',
-            scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-          )}
+    <HeaderShell
+      brand={
+        <Link
+          href="/"
+          className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2.5 md:pr-0"
         >
-          <Link
-            href="/"
-            className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2.5 md:pr-0"
+          <Image
+            src="/images/preferred logo.webp"
+            alt="Preferred Plumbing Solutions logo"
+            width={36}
+            height={36}
+            priority
+            className="header-brand-logo h-8 w-auto shrink-0 transition-all duration-500 md:h-9 group-data-[scrolled=true]/hdr:h-7"
+          />
+          <span className="min-w-0 -ml-1 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.02em] text-gray-900 transition-all duration-500 md:ml-0 md:tracking-wider text-[clamp(0.75rem,3.15vw,0.875rem)] md:text-xl group-data-[scrolled=true]/hdr:text-[clamp(0.6875rem,3vw,0.8125rem)] group-data-[scrolled=true]/hdr:md:text-sm group-data-[scrolled=true]/hdr:lg:text-xl">
+            Preferred Plumbing <span className="text-blue">Solutions</span>
+          </span>
+        </Link>
+      }
+      actions={
+        <div className="ml-1 flex items-center gap-2 lg:gap-2.5">
+          <a
+            href={PHONE_HREF}
+            className="flex items-center gap-2 whitespace-nowrap rounded-xl border-2 border-blue/80 px-3.5 py-2 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97]"
           >
-            <ResponsiveImage
-              src="/images/preferred logo.webp"
-              alt="Preferred Plumbing Solutions logo"
-              width={36}
-              height={36}
-              priority
-              sizes="72px"
-              className={cn(
-                'w-auto shrink-0 transition-all duration-500',
-                scrolled ? 'h-7 md:h-7' : 'h-8 md:h-9'
-              )}
-            />
-            <span
-              className={cn(
-                'min-w-0 -ml-1 font-display font-bold uppercase leading-none text-gray-900 transition-all duration-500 md:ml-0',
-                'whitespace-nowrap tracking-[0.02em] md:tracking-wider',
-                scrolled
-                  ? 'text-[clamp(0.6875rem,3vw,0.8125rem)] md:text-sm lg:text-xl'
-                  : 'text-[clamp(0.75rem,3.15vw,0.875rem)] md:text-xl'
-              )}
-            >
-              Preferred Plumbing{' '}
-              <span className="text-blue">Solutions</span>
-            </span>
+            <Phone className="h-3.5 w-3.5 shrink-0" />
+            {PHONE}
+          </a>
+          <Link
+            href="/contact"
+            className="whitespace-nowrap rounded-xl bg-blue px-4 py-2 text-sm font-bold text-white shadow-premium-md transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg active:scale-[0.97]"
+          >
+            Free Quote
           </Link>
-
-          <nav className="hidden lg:flex items-center gap-5 lg:gap-7 shrink-0" aria-label="Primary">
-            <Link
-              href="/"
-              className={cn('nav-link-premium', homeActive && 'is-active')}
-              aria-current={homeActive ? 'page' : undefined}
-            >
-              Home
-            </Link>
-
-            <div
-              ref={servicesRef}
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                type="button"
-                onClick={() => setServicesOpen((open) => !open)}
-                aria-expanded={servicesOpen}
-                aria-haspopup="true"
-                className={cn(
-                  'nav-link-premium flex items-center gap-1',
-                  (servicesOpen || servicesActive) && 'is-active'
-                )}
-              >
-                Services
-                <ChevronDown
-                  className={cn(
-                    'h-3.5 w-3.5 transition-transform duration-300',
-                    servicesOpen && 'rotate-180'
-                  )}
-                />
-              </button>
-
-              <ServicesMegaMenu open={servicesOpen} onClose={() => setServicesOpen(false)} />
-            </div>
-
-            <Link
-              href="/about"
-              className={cn('nav-link-premium', aboutActive && 'is-active')}
-              aria-current={aboutActive ? 'page' : undefined}
-            >
-              About
-            </Link>
-
-            <div
-              ref={learnRef}
-              className="relative"
-              onMouseEnter={() => setLearnOpen(true)}
-              onMouseLeave={() => setLearnOpen(false)}
-            >
-              <button
-                type="button"
-                onClick={() => setLearnOpen((open) => !open)}
-                aria-expanded={learnOpen}
-                aria-haspopup="true"
-                className={cn(
-                  'nav-link-premium flex items-center gap-1',
-                  (learnOpen || learnActive) && 'is-active'
-                )}
-              >
-                Learn
-                <ChevronDown
-                  className={cn(
-                    'h-3.5 w-3.5 transition-transform duration-300',
-                    learnOpen && 'rotate-180'
-                  )}
-                />
-              </button>
-
-              <LearnDropdown open={learnOpen} onClose={() => setLearnOpen(false)} />
-            </div>
-
-            <Link
-              href="/gallery"
-              className={cn('nav-link-premium', galleryActive && 'is-active')}
-              aria-current={galleryActive ? 'page' : undefined}
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/contact"
-              className={cn('nav-link-premium', contactActive && 'is-active')}
-              aria-current={contactActive ? 'page' : undefined}
-            >
-              Contact
-            </Link>
-
-            <div className="flex items-center gap-2 lg:gap-2.5 ml-1">
-              <a
-                href={PHONE_HREF}
-                className="flex items-center gap-2 rounded-xl border-2 border-blue/80 px-3.5 py-2 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97] whitespace-nowrap"
-              >
-                <Phone className="h-3.5 w-3.5 shrink-0" />
-                {PHONE}
-              </a>
-              <Link
-                href="/contact"
-                className="rounded-xl bg-blue px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg shadow-premium-md active:scale-[0.97] whitespace-nowrap"
-              >
-                Free Quote
-              </Link>
-            </div>
-          </nav>
-
-          <div className="flex shrink-0 lg:hidden">
-            <button
-              onClick={() => setDrawerOpen(true)}
-              className="flex items-center justify-center rounded-xl p-2 text-gray-700 transition-all duration-200 hover:bg-gray-100 touch-target"
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-          </div>
         </div>
-      </header>
-
-      {drawerOpen && <NavDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />}
-    </>
+      }
+    />
   )
 }

@@ -7,17 +7,18 @@ import { generateMetadata, siteUrl } from '@/lib/seo'
 import { personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import PageHero from '@/components/sections/PageHero'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'About Us',
-  description: 'Meet Ron & Hunter of Preferred Plumbing Solutions. Family-owned plumbers serving Spirit Lake and North Idaho since 1987. Licensed, insured, free estimates.',
+  description: 'Meet Ron & Hunter of Preferred Plumbing Solutions. Family-owned plumbers with 38+ years of combined experience serving Spirit Lake and North Idaho. Licensed, insured, free estimates.',
   slug: 'about',
   canonical: `${siteUrl}/about`,
 })
 
 const trustStats = [
-  { icon: HardHat, number: '38+', label: 'Years Experience', sub: 'Since 1987' },
-  { icon: CheckCircle, number: '500+', label: 'Projects Completed', sub: 'Across 16 cities' },
+  { icon: HardHat, number: '38+', label: 'Years Experience', sub: 'Ron & Hunter combined' },
+  { icon: CheckCircle, number: '500+', label: 'Projects Completed', sub: 'Across North Idaho' },
   { icon: Star, number: 'Free', label: 'Estimates', sub: 'No obligation' },
   { icon: Shield, number: 'Licensed', label: '& Insured', sub: 'ID & WA' },
 ]
@@ -32,10 +33,9 @@ export default function AboutPage() {
             '@context': 'https://schema.org',
             '@type': 'AboutPage',
             name: 'About Preferred Plumbing Solutions',
-            description: 'Family-owned plumbing company serving Spirit Lake and North Idaho since 1987.',
+            description: 'Family-owned plumbing company with 38+ years of combined experience serving Spirit Lake and North Idaho.',
             url: `${siteUrl}/about`,
             founder: { '@type': 'Person', name: 'Ron Norris' },
-            foundingDate: '1987',
           }),
         }}
       />
@@ -43,7 +43,7 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            personSchema('Ron Norris', 'Founder & Master Plumber', 'Founder of Preferred Plumbing Solutions with 38+ years of plumbing experience in Spirit Lake, Idaho. Licensed and insured plumbing contractor serving North Idaho since 1987.')
+            personSchema('Ron Norris', 'Founder & Master Plumber', 'Founder of Preferred Plumbing Solutions with decades of plumbing experience in Spirit Lake, Idaho. Licensed and insured plumbing contractor serving North Idaho.')
           ),
         }}
       />
@@ -58,13 +58,13 @@ export default function AboutPage() {
       <PageHero
         label="About Us"
         title={<>Meet Ron &amp; Hunter<br /><span className="text-blue-300">Your Local Plumbing Team</span></>}
-        description="Family-owned and operated since 1987. We're licensed, insured, and proud to serve 16 cities across North Idaho and Eastern Washington."
+        description="Family-owned and operated. We're licensed, insured, and proud to serve communities across North Idaho and Eastern Washington."
         image="/images/hero-about.webp"
         imageAlt="Preferred Plumbing Solutions service truck serving North Idaho"
         priority
       >
-        <a href="tel:12082903889" className="btn-primary-lg">
-          <Phone className="h-5 w-5" /> Call (208) 290-3889
+        <a href={PHONE_HREF} className="btn-primary-lg">
+          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
         <Link href="/contact" className="btn-secondary border-white/30 bg-white/10 text-white hover:bg-white/20">
           Get Free Quote <ChevronRight className="h-4 w-4" />
@@ -93,16 +93,16 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-premium-lg">
               <ResponsiveImage
                 src="/images/preferred-plumbing-service-truck.webp"
-                alt="Preferred Plumbing Solutions service truck - licensed plumber serving Spirit Lake, Idaho since 1987"
+                alt="Preferred Plumbing Solutions service truck - licensed plumber serving Spirit Lake, Idaho"
                 fill
                 sizes={IMAGE_SIZES.halfCol}
               />
             </div>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                We&apos;ve been serving Spirit Lake and all of North Idaho for over 38 years.
+                Ron and Hunter bring over 38 years of combined plumbing experience to every job.
                 What started as one guy doing quality work has grown into a father-son business
-                that covers 16 cities across two states.
+                that covers communities across two states.
               </p>
               <p>
                 Ron Norris started the company with a simple rule: do the job right, charge a fair price,
@@ -111,7 +111,7 @@ export default function AboutPage() {
               </p>
               <p>
                 We do new construction plumbing, radiant heat systems, water heaters,
-                commercial work, kitchen and bath remodels, and 24/7 emergency calls. Every one
+                commercial work, kitchen and bath remodels, and emergency calls. Every one
                 of our guys is licensed, insured, and takes real pride in their work.
               </p>
               <p>
@@ -132,8 +132,8 @@ export default function AboutPage() {
           </h2>
           <div className="mt-6 max-w-3xl space-y-4 text-gray-600 leading-relaxed">
             <p>
-              We&apos;re locals. Spirit Lake is home, and we&apos;ve been doing plumbing here
-              since 1987. New house, bathroom remodel, or a pipe that
+              We&apos;re locals. Spirit Lake is home, and we bring decades of plumbing
+              experience to every job here. New house, bathroom remodel, or a pipe that
               burst at 2 AM, we show up.
             </p>
             <p>
@@ -155,10 +155,10 @@ export default function AboutPage() {
               <Star className="h-3.5 w-3.5" /> Free Estimates
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-3 py-1.5 text-xs font-semibold text-blue-700">
-              <Award className="h-3.5 w-3.5" /> Family-Owned Since 1987
+              <Award className="h-3.5 w-3.5" /> Family-Owned &amp; Operated
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-3 py-1.5 text-xs font-semibold text-blue-700">
-              <Clock className="h-3.5 w-3.5" /> 24/7 Emergency Service
+              <Clock className="h-3.5 w-3.5" /> Emergency Service
             </span>
           </div>
         </div>
@@ -170,10 +170,10 @@ export default function AboutPage() {
             Ready to work with us? Give us a call.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

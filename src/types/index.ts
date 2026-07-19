@@ -36,6 +36,8 @@ export interface RichServiceContent {
 export interface FAQ {
   question: string
   answer: string
+  href?: string
+  linkLabel?: string
 }
 
 export interface Review {
@@ -67,18 +69,6 @@ export interface BlogPost {
   category?: string
   seoTitle?: string
   seoDescription?: string
-}
-
-export interface PortfolioItem {
-  title: string
-  slug: string
-  location: string
-  serviceType: string
-  description: string
-  beforeImages?: string[]
-  afterImages?: string[]
-  completionDate?: string
-  featured?: boolean
 }
 
 export interface ContactFormData {

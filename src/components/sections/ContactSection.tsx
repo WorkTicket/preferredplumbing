@@ -25,7 +25,7 @@ export default function ContactSection() {
               <span className="text-blue">Get Your Free Estimate</span>
             </h2>
             <p className="section-subtitle mt-4">
-              No pressure, no pushy sales. Just honest advice and a fair price from a family that&apos;s been doing this for 38 years.
+              No pressure, no pushy sales. Just honest advice and a fair price.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -50,12 +50,12 @@ export default function ContactSection() {
               </div>
             </a>
             <p className="mt-3 text-xs sm:text-sm text-gray-400">
-              Available 24/7 for emergencies
+              Emergency service Sun–Fri 7am–5pm
             </p>
 
             <div className="mt-8 premium-card-dark p-6 sm:p-7">
               <p className="font-display text-lg font-black uppercase text-white">Need Help Now?</p>
-              <p className="mt-2 text-sm text-gray-300">We&apos;re standing by for emergencies across North Idaho.</p>
+              <p className="mt-2 text-sm text-gray-300">Plumbing emergency across North Idaho? Call us during business hours.</p>
               <a
                 href={PHONE_HREF}
                 className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-6 py-3.5 font-bold text-white transition-all duration-300 hover:bg-blue-dark active:scale-[0.97]"

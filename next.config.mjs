@@ -13,7 +13,6 @@ const config = {
     minimumCacheTTL: 31536000,
     remotePatterns: [
       { protocol: 'https', hostname: 'lirp.cdn-website.com' },
-      { protocol: 'https', hostname: 'cdn.sanity.io' },
     ],
   },
   headers: async () => {
@@ -115,6 +114,16 @@ const config = {
     {
       source: '/areas-we-serve/:city',
       destination: '/areas/:city',
+      permanent: true,
+    },
+    {
+      source: '/portfolio',
+      destination: '/gallery',
+      permanent: true,
+    },
+    {
+      source: '/portfolio/:slug',
+      destination: '/gallery',
       permanent: true,
     },
   ],

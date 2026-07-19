@@ -2,14 +2,13 @@ import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
 import DeferredAnalytics from '@/components/layout/DeferredAnalytics'
-import { localBusinessSchema, websiteSchema, videoObjectSchema, reviewSchema, organizationSchema } from '@/lib/schema'
-import { reviews } from '@/lib/data'
+import { localBusinessSchema, websiteSchema, videoObjectSchema, organizationSchema } from '@/lib/schema'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
 import FloatingActionButton from '@/components/layout/FloatingActionButton'
 import AnalyticsTracker from '@/components/layout/AnalyticsTracker'
-import { PageTransition } from '@/components/animations'
+import { defaultDescription, defaultTitle, siteName, siteUrl } from '@/lib/seo'
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -34,34 +33,34 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.preferredplumbingsolution.com'),
+  metadataBase: new URL(siteUrl),
   title: {
-    template: '%s | Preferred Plumbing Solutions | Spirit Lake, ID',
-    default: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
+    template: `%s | ${siteName} | Spirit Lake, ID`,
+    default: defaultTitle,
   },
-  description:
-    "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+  description: defaultDescription,
   keywords: [
     'plumber Spirit Lake Idaho', 'plumbing contractor North Idaho',
     'emergency plumber Coeur d\'Alene', 'radiant heat installer Idaho',
-    'new construction plumber Idaho Panhandle', '24 hour plumber',
+    'new construction plumber Idaho Panhandle', 'emergency plumber Spirit Lake',
     'plumbing services near me', 'Preferred Plumbing Solutions',
+    'heated driveway installation North Idaho', 'tankless water heater Spirit Lake',
     'Spirit Lake plumbing', 'Kootenai County plumber', 'North Idaho plumbing',
     'water heater repair Spirit Lake', 'septic system Idaho',
   ],
-  authors: [{ name: 'Preferred Plumbing Solutions', url: 'https://www.preferredplumbingsolution.com' }],
-  creator: 'Preferred Plumbing Solutions',
-  publisher: 'Preferred Plumbing Solutions',
-  applicationName: 'Preferred Plumbing Solutions',
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  applicationName: siteName,
   category: 'plumbing',
   classification: 'Plumbing Services',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.preferredplumbingsolution.com',
-    siteName: 'Preferred Plumbing Solutions',
-    title: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889.",
+    url: siteUrl,
+    siteName,
+    title: defaultTitle,
+    description: defaultDescription,
     images: [
       { url: '/images/og-preferred-plumbing-solutions.webp', width: 1200, height: 630, alt: 'Preferred Plumbing Solutions - Spirit Lake Plumber' },
     ],
@@ -69,8 +68,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@preferredplumbing',
-    title: 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889',
-    description: "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service.",
+    title: defaultTitle,
+    description: defaultDescription,
     images: ['/images/og-preferred-plumbing-solutions.webp'],
   },
   icons: {
@@ -100,7 +99,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0D1B2A',
+  themeColor: '#081525',
   width: 'device-width',
   initialScale: 1,
 }
@@ -125,15 +124,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema()) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema(reviews)) }}
-        />
       </head>
       <body className="font-body antialiased">
         <Header />
         <main className="min-h-screen pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
-          <PageTransition>{children}</PageTransition>
+          {children}
         </main>
         <Footer />
         <MobileCtaBar />

@@ -4,7 +4,7 @@ const siteUrl = 'https://www.preferredplumbingsolution.com'
 export const siteName = 'Preferred Plumbing Solutions'
 export const defaultTitle = 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889'
 export const defaultDescription =
-  "Family-owned plumber in Spirit Lake since 1987. New construction, radiant heat, water heaters, emergency service. Call 208-290-3889."
+  'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Licensed & insured. Call 208-290-3889.'
 
 interface SEOParams {
   title?: string
@@ -20,6 +20,17 @@ interface SEOParams {
   keywords?: string[]
 }
 
+function buildDocumentTitle(title: string): string {
+  if (/Preferred Plumbing Solutions/i.test(title)) return title
+  if (/Spirit Lake/i.test(title)) return `${title} | Preferred Plumbing Solutions`
+  return `${title} | Preferred Plumbing Solutions | Spirit Lake, ID`
+}
+
+function buildOgTitle(title: string): string {
+  if (/Preferred Plumbing Solutions/i.test(title)) return title
+  return `${title} | Preferred Plumbing Solutions`
+}
+
 export function generateMetadata({
   title,
   description,
@@ -33,19 +44,22 @@ export function generateMetadata({
   locale = 'en_US',
   keywords,
 }: SEOParams): Metadata {
-  const metaTitle = title ? `${title} | Preferred Plumbing Solutions` : defaultTitle
+  // Absolute titles avoid the root layout template double-appending the brand.
+  // Skip repeating Spirit Lake / brand when the page title already includes them.
+  const metaTitle = title ? buildDocumentTitle(title) : defaultTitle
+  const ogTitle = title ? buildOgTitle(title) : defaultTitle
   const metaDescription = description || defaultDescription
   const url = slug ? `${siteUrl}/${slug}` : siteUrl
   const canonicalUrl = canonical || url
 
   const og: Record<string, unknown> = {
-    title: metaTitle,
+    title: ogTitle,
     description: metaDescription,
     url,
     siteName,
     locale,
     type,
-    images: [{ url: ogImage, width: 1200, height: 630, alt: metaTitle }],
+    images: [{ url: ogImage, width: 1200, height: 630, alt: ogTitle }],
   }
 
   if (publishedTime) {
@@ -56,7 +70,7 @@ export function generateMetadata({
   }
 
   return {
-    title: metaTitle,
+    title: { absolute: metaTitle },
     description: metaDescription,
     metadataBase: new URL(siteUrl),
     alternates: { canonical: canonicalUrl },
@@ -68,9 +82,9 @@ export function generateMetadata({
     openGraph: og,
     twitter: {
       card: 'summary_large_image',
-      title: metaTitle,
+      title: ogTitle,
       description: metaDescription,
-      images: [{ url: ogImage, alt: metaTitle }],
+      images: [{ url: ogImage, alt: ogTitle }],
       site: '@preferredplumbing',
     },
     robots: noIndex

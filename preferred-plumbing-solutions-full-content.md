@@ -438,7 +438,7 @@ Our water softeners are designed to counteract these effects, delivering cleaner
 
 ### Experience Cleaner Water and Greater Efficiency with Expert Water Softener Solutions
 
-Hard water is a common issue in many Idaho homes, leading to scale buildup, reduced appliance lifespan, and inefficient plumbing systems. At Preferred Plumbing Solutions, we've been helping families in Spirit Lake, Idaho and surrounding areas enjoy softer, cleaner water for over 38 years. Our expert team installs and services high-performance water softeners that eliminate excess minerals like calcium and magnesium, improving water quality throughout your home.
+Hard water is a common issue in many Idaho homes, leading to scale buildup, reduced appliance lifespan, and inefficient plumbing systems. At Preferred Plumbing Solutions, we help families in Spirit Lake, Idaho and surrounding areas enjoy softer, cleaner water — backed by over 38 years of combined plumbing experience. Our expert team installs and services high-performance water softeners that eliminate excess minerals like calcium and magnesium, improving water quality throughout your home.
 
 ### Benefits of Water Softeners
 
@@ -1084,7 +1084,7 @@ Preferred Plumbing Solutions in Spirit Lake, Idaho, brings over 38 years of expe
 
 ### Rapid Response and Quality Repairs for Plumbing Emergencies
 
-Plumbing issues can be stressful and disruptive, mainly when they occur unexpectedly. Having a reliable plumbing partner with decades of local experience is invaluable. Serving Spirit Lake, Idaho, and nearby areas, including Hauser, Twin Lakes, Blanchard, Oldtown, and Coeur d'Alene, for over 38 years, we understand the local plumbing challenges—from the cold winters that cause pipe bursts to the unique needs of older homes requiring specialized attention.
+Plumbing issues can be stressful and disruptive, mainly when they occur unexpectedly. Having a reliable plumbing partner with decades of local experience is invaluable. Serving Spirit Lake, Idaho, and nearby areas, including Hauser, Twin Lakes, Blanchard, Oldtown, and Coeur d'Alene, with over 38 years of combined plumbing experience, we understand the local plumbing challenges—from the cold winters that cause pipe bursts to the unique needs of older homes requiring specialized attention.
 
 ---
 

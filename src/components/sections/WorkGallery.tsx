@@ -9,22 +9,25 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { StaggerChildren } from '@/components/animations'
 import { galleryProjects } from '@/data/gallery'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
-import { PHONE_HREF } from '@/lib/utils'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const featuredSlugs = [
-  'bathroom-remodel',
-  'kitchen-remodel-plumbing',
-  'water-heater-replacement',
   'boiler-radiant-heat',
+  'gas-line-installation',
+  'water-heater-replacement',
+  'septic-system-installation',
 ]
 
 const gridSlugs = [
   'modern-bathroom-fixtures',
-  'shower-tub-installation',
-  'commercial-grease-trap',
   'new-construction-rough-in',
-  'sewer-line-replacement',
-  'septic-system-installation',
+  'under-slab-plumbing',
+  'well-pump-system',
+  'septic-drain-field',
+  'new-construction-gas-rough-in',
+  'commercial-plumbing-project',
+  'shower-tub-installation',
+  'boiler-mechanical-room',
 ]
 
 const featuredProjects = galleryProjects.filter((p) => featuredSlugs.includes(p.slug))
@@ -45,10 +48,10 @@ export default function WorkGallery() {
           <SectionLabel text="Our Work" centered />
           <h2 className="section-heading">
             Project Gallery<br />
-            <span className="text-blue">&amp; Before / After</span>
+            <span className="text-blue">Real Job Photos</span>
           </h2>
           <p className="section-subtitle-center">
-            Real jobs from across North Idaho. Drag the slider to see the difference.
+            Recent work from across North Idaho. Drag to explore the shots.
           </p>
         </div>
 
@@ -58,8 +61,8 @@ export default function WorkGallery() {
               key={project.id}
               beforeSrc={beforeSrc}
               afterSrc={afterSrc}
-              beforeAlt={`Before: ${project.title}, ${project.location ?? 'North Idaho'}`}
-              afterAlt={`After: ${project.title}, ${project.location ?? 'North Idaho'}`}
+              beforeAlt={`${project.title}, ${project.location ?? 'North Idaho'}`}
+              afterAlt={`${project.title}, ${project.location ?? 'North Idaho'}`}
               className="rounded-xl"
             />
           </div>
@@ -140,7 +143,7 @@ export default function WorkGallery() {
             View Full Gallery <Camera className="h-4 w-4" />
           </Link>
           <a href={PHONE_HREF} className="btn-primary">
-            <Phone className="h-4 w-4" /> Call (208) 290-3889
+            <Phone className="h-4 w-4" /> Call {PHONE_DISPLAY}
           </a>
         </div>
       </div>

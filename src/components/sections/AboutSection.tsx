@@ -33,21 +33,21 @@ export default function AboutSection() {
               </div>
             </div>
             <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl border border-blue-light/20 bg-white p-4 sm:p-5 shadow-premium-xl">
-              <p className="font-display text-3xl sm:text-4xl font-black text-blue-light">1987</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mt-0.5">Est.</p>
+              <p className="font-display text-3xl sm:text-4xl font-black text-blue-light">38+</p>
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mt-0.5">Years Exp.</p>
             </div>
           </div>
 
           <div className="order-1 lg:order-2">
             <SectionLabel text="Our Story" />
             <h2 className="section-heading">
-              Family-Owned Since<br />
-              <span className="text-blue">1987</span>
+              A Father-Son<br />
+              <span className="text-blue">Plumbing Team</span>
             </h2>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed text-[15px] sm:text-base">
               <p>
                 Preferred Plumbing Solutions is owned by Ron and his son Hunter. Together they have 38+ years
-                in the trade doing new construction, residential and commercial plumbing, remodels, and radiant heating.
+                of combined plumbing experience doing new construction, residential and commercial plumbing, remodels, and radiant heating.
               </p>
               <p>
                 Ron started this business with a simple goal: do good work for a fair price. That hasn&apos;t changed.
@@ -101,7 +101,7 @@ export default function AboutSection() {
             </p>
             <p className="mt-3 text-sm sm:text-base text-gray-300 max-w-lg mx-auto">
               Ron and Hunter would love to earn your trust.{' '}
-              <span className="font-serif italic text-blue-light">No sales pitch — just honest plumbing.</span>
+              <span className="font-serif italic text-blue-light">No sales pitch. Just honest plumbing.</span>
             </p>
             <Link
               href="/about"

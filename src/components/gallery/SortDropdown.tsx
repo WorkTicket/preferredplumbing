@@ -35,7 +35,12 @@ export default function SortDropdown({ value, onChange }: SortDropdownProps) {
   return (
     <div ref={ref} className="relative w-full sm:w-auto">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
+        aria-label="Sort gallery projects"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls="gallery-sort-menu"
         className={cn(
           'inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-blue/40 hover:text-blue touch-target min-w-[140px]',
           open && 'border-blue/40 ring-2 ring-blue/10'
@@ -47,14 +52,23 @@ export default function SortDropdown({ value, onChange }: SortDropdownProps) {
             'h-4 w-4 text-gray-400 transition-transform duration-200',
             open && 'rotate-180'
           )}
+          aria-hidden
         />
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 z-50 w-full min-w-[180px] rounded-xl border border-gray-200 bg-white shadow-premium-lg overflow-hidden animate-scale-in origin-top-right">
+        <div
+          id="gallery-sort-menu"
+          role="listbox"
+          aria-label="Sort options"
+          className="absolute right-0 top-full mt-2 z-50 w-full min-w-[180px] rounded-xl border border-gray-200 bg-white shadow-premium-lg overflow-hidden animate-scale-in origin-top-right"
+        >
           {sortOptions.map((option) => (
             <button
               key={option.value}
+              type="button"
+              role="option"
+              aria-selected={value === option.value}
               onClick={() => {
                 onChange(option.value)
                 setOpen(false)

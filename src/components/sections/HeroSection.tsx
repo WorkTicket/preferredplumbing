@@ -5,18 +5,19 @@ import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star } from 'lucide-react'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const stats = [
   { number: '38+', suffix: '', label: 'Years Experience' },
   { number: '5★', suffix: '', label: 'Google Rating' },
-  { number: '24/7', suffix: '', label: 'Emergency Service' },
+  { number: '7–5', suffix: '', label: 'Sun–Fri Hours' },
   { number: '500+', suffix: '', label: 'Jobs Completed' },
 ]
 
 const trustBadges = [
   'Family-Owned',
   'Free Estimates',
-  'Same-Day Service',
+  'Sun–Fri Same-Day',
 ]
 
 const waveGradient = (
@@ -95,12 +96,12 @@ export default function HeroSection() {
 
   return (
     <>
-      <HeroImagePreload src="/images/preferred-plumbing-truck-interior.webp" />
+      <HeroImagePreload src="/images/preferred-plumbing-hero-poster.webp" />
       <section className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
         <div className="absolute inset-0 brightness-[0.85] saturate-[1.08]">
           <LcpHeroImage
-            src="/images/preferred-plumbing-truck-interior.webp"
-            alt="Preferred Plumbing service truck interior in Spirit Lake, Idaho"
+            src="/images/preferred-plumbing-hero-poster.webp"
+            alt="Aerial view of Spirit Lake in North Idaho from the Preferred Plumbing Solutions hero video"
           />
         </div>
         {showVideo && (
@@ -109,8 +110,8 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            poster="/images/generated/preferred-plumbing-truck-interior-1280.webp"
-            preload="none"
+            poster="/images/generated/preferred-plumbing-hero-poster-1280.webp"
+            preload="metadata"
             onLoadedData={() => setVideoReady(true)}
             onError={() => setVideoReady(false)}
             className={`absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.08] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
@@ -132,7 +133,7 @@ export default function HeroSection() {
           <div className="max-w-3xl w-full">
             <div className="mb-3 sm:mb-5 flex flex-wrap items-center gap-2.5">
               <p className="inline-flex flex-wrap items-center rounded-full border border-blue-light/25 bg-blue-light/10 px-3.5 py-1.5 text-[11px] sm:text-sm font-semibold text-blue-light backdrop-blur-sm">
-                Family-Owned Plumber in Spirit Lake Since 1987
+                Family-Owned Plumber in Spirit Lake, Idaho
               </p>
               <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 backdrop-blur-sm">
                 <Star className="h-3.5 w-3.5 fill-gold text-gold" /> 5.0 Google Rating
@@ -143,12 +144,12 @@ export default function HeroSection() {
               <span className="text-blue-light">Local Plumber</span>
             </h1>
             <p className="mt-3 sm:mt-4 max-w-xl text-[13px] sm:text-base lg:text-lg text-gray-300 leading-snug sm:leading-relaxed">
-              38+ years. Family-owned. Spirit Lake, Idaho. Burst pipe, new build, or remodel —{' '}
-              <span className="font-serif italic text-blue-light">call for a free estimate.</span>
+              Family-owned in Spirit Lake, Idaho. Radiant heat, new construction, and emergency service.{' '}
+              <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
             </p>
             <div className="mt-4 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">
-              <a href="tel:12082903889" className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call (208) 290-3889
+              <a href={PHONE_HREF} className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
               </a>
               <Link href="#contact" className="btn-secondary border-white/25 bg-white/8 text-white hover:bg-white/15 hover:border-white/40 !py-3.5 sm:!py-4 text-sm sm:text-base backdrop-blur-sm">
                 Get Free Estimate <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />

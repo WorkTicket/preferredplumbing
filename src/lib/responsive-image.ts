@@ -7,6 +7,7 @@ export type ImageFormat = (typeof FORMATS)[number]
 /** Common hero / OG dimensions — avoids bundling the full image manifest. */
 const KNOWN_DIMENSIONS: Record<string, { width: number; height: number }> = {
   '/images/preferred-plumbing-truck-interior.webp': { width: 2560, height: 1440 },
+  '/images/preferred-plumbing-hero-poster.webp': { width: 2560, height: 1440 },
   '/images/preferred logo.webp': { width: 512, height: 512 },
 }
 
@@ -38,6 +39,11 @@ export function getImageDimensions(src: string): { width: number; height: number
 export function getVariantUrl(src: string, format: ImageFormat, preferredWidth = 720): string {
   const pick = BREAKPOINTS.find((w) => w >= preferredWidth) ?? BREAKPOINTS[BREAKPOINTS.length - 1]
   return variantUrl(src, format, pick)
+}
+
+/** Original public path (strips cache-bust query). Use as img fallback if generated variants 404. */
+export function getOriginalImageUrl(src: string): string {
+  return normalizeImageSrc(src)
 }
 
 export function getLcpPreloadHref(src: string, preferredWidth = 768): string {

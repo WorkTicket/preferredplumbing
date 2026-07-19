@@ -5,6 +5,7 @@ import { generateMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
 import { blogPosts } from '@/data/blog'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Blog Spirit Lake ID | Tips & Guides',
@@ -59,10 +60,10 @@ export default function BlogPage() {
             Have a plumbing question? Call us.
           </p>
           <a
-            href="tel:12082903889"
+            href={PHONE_HREF}
             className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
           >
-            <Phone className="h-5 w-5" /> (208) 290-3889
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </section>

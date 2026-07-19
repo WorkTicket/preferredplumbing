@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Home, Phone } from 'lucide-react'
 import { generateMetadata } from '@/lib/seo'
+import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: '404 - Page Not Found',
   description: 'The page you are looking for does not exist or has been moved. Contact Preferred Plumbing Solutions at 208-290-3889.',
-  slug: '404',
+  canonical: 'https://www.preferredplumbingsolution.com',
   noIndex: true,
 })
 
@@ -19,7 +20,7 @@ export default function NotFound() {
       </h1>
       <p className="mt-2 text-gray-500">That page doesn&apos;t exist or was moved.</p>
       <p className="mt-1 text-sm text-gray-400">
-        Need plumbing help? We&apos;re just a phone call away.
+        Need plumbing help? Call us and we will get you sorted out.
       </p>
       <div className="mt-8 flex flex-col sm:flex-row gap-3">
         <Link
@@ -29,10 +30,10 @@ export default function NotFound() {
           <Home className="h-5 w-5" /> Back to Home
         </Link>
         <a
-          href="tel:12082903889"
+          href={PHONE_HREF}
           className="btn-secondary"
         >
-          <Phone className="h-5 w-5" /> Call (208) 290-3889
+          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
         </a>
       </div>
     </div>
