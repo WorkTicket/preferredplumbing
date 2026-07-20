@@ -46,12 +46,13 @@ export default function AboutSection() {
             </h2>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed text-[15px] sm:text-base">
               <p>
-                Preferred Plumbing Solutions is owned by Ron and his son Hunter. Together they have 38+ years
-                of combined plumbing experience doing new construction, residential and commercial plumbing, remodels, and radiant heating.
+                Preferred Plumbing Solutions is a father-son shop run by Ron and Hunter Norris out of Spirit Lake.
+                You get owners on the tools for new construction, radiant heat, remodels, and the repairs that
+                cannot wait until next week.
               </p>
               <p>
-                Ron started this business with a simple goal: do good work for a fair price. That hasn&apos;t changed.
-                We still answer our own phone, show up on time, and build things to last.
+                No call center. No handoff to a stranger. We answer the phone, show up when we say we will,
+                and build systems meant to survive North Idaho winters.
               </p>
             </div>
             <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">

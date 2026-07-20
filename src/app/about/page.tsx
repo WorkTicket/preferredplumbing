@@ -100,14 +100,13 @@ export default function AboutPage() {
             </div>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Ron and Hunter bring over 38 years of combined plumbing experience to every job.
-                What started as one guy doing quality work has grown into a father-son business
-                that covers communities across two states.
+                Between them, Ron and Hunter have more than 38 years in the trade. The company started with
+                Ron taking jobs one at a time in Spirit Lake. Today the same family crew works across North
+                Idaho and into eastern Washington.
               </p>
               <p>
-                Ron Norris started the company with a simple rule: do the job right, charge a fair price,
-                and treat every customer like family. Now Ron works alongside his son Hunter, carrying
-                that same attitude forward.
+                Ron&apos;s rule never changed: do the job right, charge a fair price, and treat the customer
+                like a neighbor. Hunter grew up on those jobsites and now runs projects with that same standard.
               </p>
               <p>
                 We do new construction plumbing, radiant heat systems, water heaters,
