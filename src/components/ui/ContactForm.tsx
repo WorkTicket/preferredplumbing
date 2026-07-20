@@ -7,16 +7,17 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Loader2, CheckCircle, ChevronRight } from 'lucide-react'
 import { services } from '@/lib/data'
-import { PHONE_DISPLAY, trackFormSubmission } from '@/lib/utils'
+import { PHONE_DISPLAY, PHONE_HREF, trackFormSubmission } from '@/lib/utils'
 
 const schema = z.object({
-  name: z.string().min(2, 'Name is required'),
-  phone: z.string().min(10, 'Valid phone number required'),
-  email: z.string().email('Enter a valid email').optional().or(z.literal('')),
-  city: z.string().min(2, 'City is required'),
+  name: z.string().trim().min(2, 'Name is required'),
+  phone: z.string().trim().min(10, 'Valid phone number required'),
+  email: z.string().trim().email('Enter a valid email').optional().or(z.literal('')),
+  city: z.string().trim().min(2, 'City is required'),
   service: z.string().min(1, 'Select a service'),
-  message: z.string().min(10, 'Please describe your project briefly'),
+  message: z.string().trim().min(10, 'Please describe your project briefly'),
   referral: z.string().optional(),
+  _honey: z.string().max(0),
 })
 
 type FormData = z.infer<typeof schema>
@@ -32,6 +33,7 @@ function FieldError({ id, message }: { id?: string; message?: string }) {
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [serverError, setServerError] = useState('')
   const router = useRouter()
 
   const {
@@ -40,27 +42,53 @@ export default function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      name: '',
+      phone: '',
+      email: '',
+      city: '',
+      service: '',
+      message: '',
+      referral: '',
+      _honey: '',
+    },
   })
 
-  const [submitError, setSubmitError] = useState(false)
-
   const onSubmit = async (data: FormData) => {
-    setSubmitError(false)
+    setServerError('')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(data),
       })
-      if (res.ok) {
-        trackFormSubmission(data.service)
-        setSubmitted(true)
-        setTimeout(() => router.push('/thank-you'), 1500)
-      } else {
-        setSubmitError(true)
+
+      const result = (await res.json().catch(() => null)) as
+        | { success?: boolean; error?: string; message?: string }
+        | null
+
+      if (!res.ok || !result?.success) {
+        throw new Error(
+          typeof result?.error === 'string'
+            ? result.error
+            : typeof result?.message === 'string'
+              ? result.message
+              : 'Unable to send your request right now.',
+        )
       }
-    } catch {
-      setSubmitError(true)
+
+      trackFormSubmission(data.service)
+      setSubmitted(true)
+      setTimeout(() => router.push('/thank-you'), 1500)
+    } catch (error) {
+      setServerError(
+        error instanceof Error
+          ? error.message
+          : 'Unable to send your request right now. Please call us directly.',
+      )
     }
   }
 
@@ -77,10 +105,19 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    'w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300'
+    'w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300 disabled:opacity-60'
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5" noValidate>
+      <input
+        type="text"
+        {...register('_honey')}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
         <div>
           <label htmlFor="contact-name" className="mb-1 block text-sm font-medium text-gray-700">
@@ -91,6 +128,7 @@ export default function ContactForm() {
             {...register('name')}
             className={inputClass}
             placeholder="John Doe"
+            disabled={isSubmitting}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? 'contact-name-error' : undefined}
           />
@@ -106,6 +144,7 @@ export default function ContactForm() {
             type="tel"
             className={inputClass}
             placeholder="208-555-0123"
+            disabled={isSubmitting}
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
           />
@@ -124,6 +163,7 @@ export default function ContactForm() {
             type="email"
             className={inputClass}
             placeholder="john@example.com"
+            disabled={isSubmitting}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? 'contact-email-error' : undefined}
           />
@@ -138,6 +178,7 @@ export default function ContactForm() {
             {...register('city')}
             className={inputClass}
             placeholder="Spirit Lake, ID"
+            disabled={isSubmitting}
             aria-invalid={Boolean(errors.city)}
             aria-describedby={errors.city ? 'contact-city-error' : undefined}
           />
@@ -153,6 +194,7 @@ export default function ContactForm() {
           id="contact-service"
           {...register('service')}
           className={inputClass}
+          disabled={isSubmitting}
           aria-invalid={Boolean(errors.service)}
           aria-describedby={errors.service ? 'contact-service-error' : undefined}
         >
@@ -174,9 +216,10 @@ export default function ContactForm() {
         <textarea
           id="contact-message"
           {...register('message')}
-          rows={3}
-          className={inputClass}
+          rows={4}
+          className={`${inputClass} min-h-[120px]`}
           placeholder="What's going on with your plumbing?"
+          disabled={isSubmitting}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'contact-message-error' : undefined}
         />
@@ -187,7 +230,12 @@ export default function ContactForm() {
         <label htmlFor="contact-referral" className="mb-1 block text-sm font-medium text-gray-700">
           How did you hear about us?
         </label>
-        <select id="contact-referral" {...register('referral')} className={inputClass}>
+        <select
+          id="contact-referral"
+          {...register('referral')}
+          className={inputClass}
+          disabled={isSubmitting}
+        >
           <option value="">Select...</option>
           <option value="Google">Google</option>
           <option value="Facebook">Facebook</option>
@@ -197,9 +245,13 @@ export default function ContactForm() {
         </select>
       </div>
 
-      {submitError && (
-        <p className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-3 text-center" role="alert">
-          Something went wrong. Please try again or call us at {PHONE_DISPLAY}.
+      {serverError && (
+        <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3" role="alert">
+          {serverError}{' '}
+          <a href={PHONE_HREF} className="font-semibold underline">
+            Call {PHONE_DISPLAY}
+          </a>{' '}
+          instead.
         </p>
       )}
 
@@ -218,6 +270,10 @@ export default function ContactForm() {
           </span>
         )}
       </button>
+
+      <p className="text-center text-xs text-gray-500">
+        No spam. We&apos;ll respond within 1 business day.
+      </p>
     </form>
   )
 }

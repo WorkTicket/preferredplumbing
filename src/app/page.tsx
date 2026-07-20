@@ -6,12 +6,15 @@ import { AnimatedSection } from '@/components/animations'
 import { faqSchema, webpageSchema, reviewSchema } from '@/lib/schema'
 import { faqItems, reviews } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
+import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 
 const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'))
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'))
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection'))
 const WorkGallery = dynamic(() => import('@/components/sections/WorkGallery'))
-const Testimonials = dynamic(() => import('@/components/sections/Testimonials'))
+const Testimonials = SHOW_GOOGLE_REVIEWS
+  ? dynamic(() => import('@/components/sections/Testimonials'))
+  : null
 const LatestArticles = dynamic(() => import('@/components/sections/LatestArticles'))
 const ServiceAreas = dynamic(() => import('@/components/sections/ServiceAreas'))
 const FAQAccordion = dynamic(() => import('@/components/sections/FAQAccordion'))
@@ -38,12 +41,14 @@ export default function HomePage() {
           __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', 'Family-owned plumber in Spirit Lake with 38+ years of combined experience', '')),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(reviewSchema(reviews.slice(0, 3))),
-        }}
-      />
+      {SHOW_GOOGLE_REVIEWS && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(reviewSchema(reviews.slice(0, 3))),
+          }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -77,9 +82,11 @@ export default function HomePage() {
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <WorkGallery />
       </AnimatedSection>
-      <AnimatedSection variant="slideUp" delay={0.1}>
-        <Testimonials />
-      </AnimatedSection>
+      {Testimonials && (
+        <AnimatedSection variant="slideUp" delay={0.1}>
+          <Testimonials />
+        </AnimatedSection>
+      )}
       <AnimatedSection variant="fadeUp" delay={0.1}>
         <LatestArticles />
       </AnimatedSection>

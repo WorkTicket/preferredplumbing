@@ -1,7 +1,8 @@
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
-import { PHONE, PHONE_HREF, GBP_URL, TIKTOK_URL, BUSINESS_HOURS } from '@/lib/utils'
+import { PHONE, PHONE_HREF, GBP_URL, FACEBOOK_URL, TIKTOK_URL, BUSINESS_HOURS } from '@/lib/utils'
+import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import FooterSignature from '@/components/FooterSignature'
 import { getNavServiceGroups, SERVICE_NAV_LABELS } from '@/lib/nav-services'
@@ -10,7 +11,9 @@ const trustStats = [
   { value: '38+', label: 'Years Experience' },
   { value: '500+', label: 'Jobs Completed' },
   { value: '16', label: 'Cities Served' },
-  { value: '5★', label: 'Google Rating' },
+  ...(SHOW_GOOGLE_REVIEWS
+    ? [{ value: '5★', label: 'Google Rating' }]
+    : [{ value: 'Sun–Fri', label: '7am–5pm Hours' }]),
 ]
 
 const trustBadges = [
@@ -82,13 +85,24 @@ export default function Footer() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+              {SHOW_GOOGLE_REVIEWS && (
+                <a
+                  href={GBP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
+                >
+                  <Star className="h-3.5 w-3.5 text-blue-light" /> Google Business
+                </a>
+              )}
               <a
-                href={GBP_URL}
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
               >
-                <Star className="h-3.5 w-3.5 text-blue-light" /> Google Business
+                Facebook
+                <ExternalLink className="h-3 w-3 text-gray-500" />
               </a>
               <a
                 href={TIKTOK_URL}
@@ -99,14 +113,16 @@ export default function Footer() {
                 TikTok
                 <ExternalLink className="h-3 w-3 text-gray-500" />
               </a>
-              <a
-                href={GBP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
-              >
-                Leave a Review
-              </a>
+              {SHOW_GOOGLE_REVIEWS && (
+                <a
+                  href={GBP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
+                >
+                  Leave a Review
+                </a>
+              )}
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10">

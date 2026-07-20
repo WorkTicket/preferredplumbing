@@ -21,8 +21,10 @@ const featuredSlugs = [
 const gridSlugs = [
   'modern-bathroom-fixtures',
   'new-construction-rough-in',
+  'waste-vent-rough-in',
   'under-slab-plumbing',
   'well-pump-system',
+  'water-tank-installation',
   'septic-drain-field',
   'new-construction-gas-rough-in',
   'commercial-plumbing-project',

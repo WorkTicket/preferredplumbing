@@ -12,6 +12,17 @@ function isPreviewHost(host: string): boolean {
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') ?? ''
+  const hostname = host.split(':')[0]?.toLowerCase() ?? ''
+
+  // Canonical host: apex → www
+  if (hostname === 'callpreferredplumbing.com') {
+    const url = request.nextUrl.clone()
+    url.protocol = 'https:'
+    url.hostname = 'www.callpreferredplumbing.com'
+    url.port = ''
+    return NextResponse.redirect(url, 301)
+  }
+
   if (!isPreviewHost(host)) {
     return NextResponse.next()
   }

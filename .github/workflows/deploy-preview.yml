@@ -48,6 +48,7 @@ jobs:
             RESEND_API_KEY
             GHL_WEBHOOK_URL
         env:
-          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          # Public measurement ID (must be present at build time for Next.js inlining)
+          NEXT_PUBLIC_GA_ID: G-13HBCP9RZB
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           GHL_WEBHOOK_URL: ${{ secrets.GHL_WEBHOOK_URL }}

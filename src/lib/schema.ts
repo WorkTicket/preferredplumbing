@@ -1,5 +1,7 @@
 import { siteUrl } from './seo'
-import { CONTACT_EMAILS, PHONE, PHONE_E164 } from './utils'
+import { CONTACT_EMAILS, FACEBOOK_URL, PHONE, PHONE_E164, TIKTOK_URL } from './utils'
+
+const socialProfiles = [FACEBOOK_URL, TIKTOK_URL]
 
 const contactPoints = CONTACT_EMAILS.map((contact) => ({
   '@type': 'ContactPoint',
@@ -30,7 +32,7 @@ export function organizationSchema() {
     geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     telephone: PHONE_E164,
     email: CONTACT_EMAILS.map((contact) => contact.email),
-    sameAs: ['https://www.tiktok.com/@preferredhnorris'],
+    sameAs: socialProfiles,
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake' },
       { '@type': 'City', name: "Coeur d'Alene" },
@@ -94,9 +96,7 @@ export function localBusinessSchema() {
       { '@type': 'State', name: 'Idaho' },
       { '@type': 'State', name: 'Washington' },
     ],
-    sameAs: [
-      'https://www.tiktok.com/@preferredhnorris',
-    ],
+    sameAs: socialProfiles,
     award: '38+ Years Experience',
     numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 10 },
     knowsAbout: [
@@ -166,7 +166,7 @@ export function personSchema(name: string, jobTitle: string, description: string
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    sameAs: ['https://www.tiktok.com/@preferredhnorris'],
+    sameAs: socialProfiles,
   }
 }
 

@@ -45,6 +45,7 @@ export const DIRECTIONS_URL =
   'https://www.google.com/maps/dir/?api=1&destination=47.9668,-116.8693'
 
 export const GBP_URL = 'https://maps.app.goo.gl/ne3NdeDCnQqC3Zni7'
+export const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61592338401631'
 export const TIKTOK_URL = 'https://www.tiktok.com/@preferredhnorris'
 
 /** Open Sun–Fri 7am–5pm; closed Saturday. No 24/7 service. */
@@ -62,6 +63,11 @@ function getGtag(): GtagFn | undefined {
   if (typeof window === 'undefined') return undefined
   const gtag = (window as Window & { gtag?: GtagFn }).gtag
   return typeof gtag === 'function' ? gtag : undefined
+}
+
+export function trackPageView(url: string) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim() || 'G-13HBCP9RZB'
+  getGtag()?.('config', gaId, { page_path: url })
 }
 
 export function trackPhoneCall(source: string) {

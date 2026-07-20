@@ -6,10 +6,13 @@ import LcpHeroImage from '@/components/ui/LcpHeroImage'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star } from 'lucide-react'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 
 const stats = [
   { number: '38+', suffix: '', label: 'Years Experience' },
-  { number: '5★', suffix: '', label: 'Google Rating' },
+  ...(SHOW_GOOGLE_REVIEWS
+    ? [{ number: '5★', suffix: '', label: 'Google Rating' }]
+    : [{ number: 'Licensed', suffix: '', label: '& Insured' }]),
   { number: '7–5', suffix: '', label: 'Sun–Fri Hours' },
   { number: '500+', suffix: '', label: 'Jobs Completed' },
 ]
@@ -135,9 +138,11 @@ export default function HeroSection() {
               <p className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
                 Family-Owned Plumber in Spirit Lake, Idaho
               </p>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
-                <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-gold text-gold" /> 5.0 Google
-              </span>
+              {SHOW_GOOGLE_REVIEWS && (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
+                  <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-gold text-gold" /> 5.0 Google
+                </span>
+              )}
             </div>
             <h1 className="font-display text-[clamp(1.85rem,8.5vw,4.75rem)] font-black uppercase leading-[0.9] text-white tracking-tight">
               North Idaho&apos;s<br />

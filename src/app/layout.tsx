@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
-import DeferredAnalytics from '@/components/layout/DeferredAnalytics'
 import { localBusinessSchema, websiteSchema, videoObjectSchema, organizationSchema } from '@/lib/schema'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -9,6 +8,10 @@ import MobileCtaBar from '@/components/layout/MobileCtaBar'
 import FloatingActionButton from '@/components/layout/FloatingActionButton'
 import AnalyticsTracker from '@/components/layout/AnalyticsTracker'
 import { defaultDescription, defaultTitle, siteName, siteUrl } from '@/lib/seo'
+
+/** Public measurement ID — fallback so builds never ship without the tag if the env secret is missing. */
+const GA_MEASUREMENT_ID = 'G-13HBCP9RZB'
+const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim() || GA_MEASUREMENT_ID
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -108,6 +111,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} ${dmSerif.variable}`}>
       <head>
+        {/* Google tag (gtag.js) — must be in initial HTML (not after interaction) for GA detection */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');
+`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
@@ -141,9 +156,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MobileCtaBar />
         <FloatingActionButton />
         <AnalyticsTracker />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <DeferredAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </body>
     </html>
   )
