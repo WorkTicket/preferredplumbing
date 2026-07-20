@@ -35,7 +35,7 @@ export default function ContactSection() {
               Tell us what you need and we&apos;ll get back to you within 24 hours.
             </p>
             <div className="mt-5 sm:mt-6">
-              <ContactForm />
+              <ContactForm formLocation="homepage" />
             </div>
           </div>
 

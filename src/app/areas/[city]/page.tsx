@@ -292,7 +292,7 @@ export default function CityPage({ params }: Props) {
                   Tell us about your {area.city} plumbing project and we&apos;ll get back to you within 24 hours.
                 </p>
                 <div className="mt-4">
-                  <ContactForm />
+                  <ContactForm formLocation={`area_${area.slug}`} />
                 </div>
               </div>
               <a

@@ -156,7 +156,7 @@ export default function ServicePage({ params }: Props) {
                       Tell us about your project and we&apos;ll get back to you within 24 hours.
                     </p>
                     <div className="mt-4">
-                      <ContactForm />
+                      <ContactForm formLocation={`service_${service.slug}`} />
                     </div>
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default function ServicePage({ params }: Props) {
                 <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium-md">
                   <h3 className="font-display text-lg font-bold uppercase text-gray-900">Get a Free Quote</h3>
                   <p className="mt-2 text-sm text-gray-500">Tell us about your project and we&apos;ll get back to you within 24 hours.</p>
-                  <div className="mt-4"><ContactForm /></div>
+                  <div className="mt-4"><ContactForm formLocation={`service_${service.slug}`} /></div>
                 </div>
               </div>
             </div>

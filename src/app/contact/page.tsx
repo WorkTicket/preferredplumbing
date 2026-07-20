@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Phone, MapPin, Clock, Navigation } from 'lucide-react'
+import TrackPageEvent from '@/components/analytics/TrackPageEvent'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
@@ -22,6 +23,7 @@ export default function ContactPage() {
 
   return (
     <div className="pt-14 sm:pt-16">
+      <TrackPageEvent event="contact_page_view" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -76,7 +78,7 @@ export default function ContactPage() {
                   Tell us what you need and we&apos;ll get back to you within 24 hours.
                 </p>
                 <div className="mt-4">
-                  <ContactForm />
+                  <ContactForm formLocation="contact_page" />
                 </div>
               </div>
             </div>

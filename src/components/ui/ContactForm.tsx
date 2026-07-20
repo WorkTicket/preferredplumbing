@@ -5,9 +5,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Loader2, CheckCircle, ChevronRight } from 'lucide-react'
+import { Loader2, ChevronRight } from 'lucide-react'
 import { services } from '@/lib/data'
-import { PHONE_DISPLAY, PHONE_HREF, trackFormSubmission } from '@/lib/utils'
+import { markLeadSubmitted, trackFormSubmit } from '@/lib/analytics'
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
 
 const schema = z.object({
   name: z.string().trim().min(2, 'Name is required'),
@@ -31,8 +32,12 @@ function FieldError({ id, message }: { id?: string; message?: string }) {
   )
 }
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
+type ContactFormProps = {
+  /** Where this form is embedded — used for GA4 form_location. */
+  formLocation?: string
+}
+
+export default function ContactForm({ formLocation = 'contact_form' }: ContactFormProps) {
   const [serverError, setServerError] = useState('')
   const router = useRouter()
 
@@ -80,9 +85,14 @@ export default function ContactForm() {
         )
       }
 
-      trackFormSubmission(data.service)
-      setSubmitted(true)
-      setTimeout(() => router.push('/thank-you'), 1500)
+      // Flag for /thank-you generate_lead (reliable conversion). Also send
+      // form_submit with callback so the beacon isn't killed by the redirect.
+      markLeadSubmitted(formLocation)
+      trackFormSubmit('Quote Request', formLocation, {
+        event_callback: () => {
+          router.push('/thank-you')
+        },
+      })
     } catch (error) {
       setServerError(
         error instanceof Error
@@ -90,18 +100,6 @@ export default function ContactForm() {
           : 'Unable to send your request right now. Please call us directly.',
       )
     }
-  }
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center rounded-xl bg-green-50 p-8 sm:p-12 text-center scale-in">
-        <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-green-500" />
-        <p className="mt-4 text-xl sm:text-2xl font-bold text-gray-900">Request Sent!</p>
-        <p className="mt-2 text-sm sm:text-base text-gray-500">
-          We&apos;ll get back to you within 24 hours.
-        </p>
-      </div>
-    )
   }
 
   const inputClass =

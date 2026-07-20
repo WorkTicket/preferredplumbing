@@ -57,38 +57,3 @@ export const BUSINESS_HOURS = {
   lines: ['Sun–Fri 7am–5pm', 'Sat Closed'] as const,
 }
 
-type GtagFn = (...args: unknown[]) => void
-
-function getGtag(): GtagFn | undefined {
-  if (typeof window === 'undefined') return undefined
-  const gtag = (window as Window & { gtag?: GtagFn }).gtag
-  return typeof gtag === 'function' ? gtag : undefined
-}
-
-export function trackPageView(url: string) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim() || 'G-13HBCP9RZB'
-  getGtag()?.('config', gaId, { page_path: url })
-}
-
-export function trackPhoneCall(source: string) {
-  getGtag()?.('event', 'phone_call', {
-    event_category: 'engagement',
-    event_label: source,
-    value: 1,
-  })
-}
-
-export function trackFormSubmission(service?: string) {
-  getGtag()?.('event', 'generate_lead', {
-    event_category: 'conversion',
-    event_label: service || 'quote_request',
-    value: 1,
-  })
-}
-
-export function trackClick(label: string) {
-  getGtag()?.('event', 'click', {
-    event_category: 'engagement',
-    event_label: label,
-  })
-}
