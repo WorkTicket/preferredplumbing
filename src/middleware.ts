@@ -10,6 +10,13 @@ function isPreviewHost(host: string): boolean {
   )
 }
 
+function withHtmlCacheHeaders(response: NextResponse): NextResponse {
+  // OpenNext defaults HTML to s-maxage=31536000. That freezes old pages at the
+  // CDN (breaks GA install checks + deploy visibility). Match a1: revalidate HTML.
+  response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+  return response
+}
+
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') ?? ''
   const hostname = host.split(':')[0]?.toLowerCase() ?? ''
@@ -24,7 +31,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (!isPreviewHost(host)) {
-    return NextResponse.next()
+    return withHtmlCacheHeaders(NextResponse.next())
   }
 
   // Preview / staging hosts must not be indexed.
@@ -51,7 +58,7 @@ export function middleware(request: NextRequest) {
     })
   }
 
-  const response = NextResponse.next()
+  const response = withHtmlCacheHeaders(NextResponse.next())
   response.headers.set('X-Robots-Tag', 'noindex, nofollow')
   return response
 }
