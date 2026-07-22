@@ -3,11 +3,7 @@ import type { NextRequest } from 'next/server'
 
 function isPreviewHost(host: string): boolean {
   const hostname = host.split(':')[0]?.toLowerCase() ?? ''
-  return (
-    hostname === 'preview.callpreferredplumbing.com' ||
-    hostname.startsWith('preview.') ||
-    hostname.endsWith('.workers.dev')
-  )
+  return hostname.startsWith('preview.') || hostname.endsWith('.workers.dev')
 }
 
 function withHtmlCacheHeaders(response: NextResponse): NextResponse {
