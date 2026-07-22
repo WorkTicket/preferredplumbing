@@ -9,6 +9,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { PHONE_DISPLAY, PHONE_HREF, PHONE_E164 } from '@/lib/utils'
+import { yearsExperienceBadge, yearsExperienceLabel } from '@/lib/company-stats'
 
 function regionLabel(slug: string, state: string): string {
   if (state === 'WA') {
@@ -63,8 +64,8 @@ export function generateMetadata({ params }: Props): Metadata {
   const area = areas.find((a) => a.slug === params.city)
   if (!area) return {}
   return genMeta({
-    title: `Plumber in ${area.fullName}`,
-    description: `Plumber serving ${area.fullName} and nearby areas. 38+ years experience, licensed and insured, emergency service Sunday through Friday 7am to 5pm. Call Preferred Plumbing Solutions at 208-290-3889 for a free quote.`,
+    title: `Plumber in ${area.city}, ${area.state}`,
+    description: `Licensed plumber serving ${area.fullName}. Free estimates and emergency service Sun–Fri 7am–5pm. Call 208-290-3889.`,
     slug: `areas/${params.city}`,
     canonical: `${siteUrl}/areas/${params.city}`,
   })
@@ -82,7 +83,7 @@ export default function CityPage({ params }: Props) {
     '@type': 'Plumber',
     name: `Preferred Plumbing Solutions - ${area.fullName}`,
     url: `${siteUrl}/areas/${area.slug}`,
-    description: `Local plumber serving ${area.fullName}. 38+ years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
+    description: `Local plumber serving ${area.fullName}. ${yearsExperienceLabel()} years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
     telephone: PHONE_E164,
     areaServed: {
       '@type': 'City',
@@ -109,7 +110,7 @@ export default function CityPage({ params }: Props) {
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    award: '38+ Years Experience',
+    award: yearsExperienceBadge(),
   }
 
   return (
@@ -148,17 +149,18 @@ export default function CityPage({ params }: Props) {
               <Clock className="h-4 w-4" /> Emergency Service
             </span>
           </div>
-          <p className="mt-4 max-w-3xl text-gray-600 leading-relaxed text-base sm:text-lg">
-            Preferred Plumbing Solutions serves {area.fullName} and surrounding areas throughout {regionLabel(area.slug, area.state)}.
-            We handle new construction plumbing,
-            water heater installation and repair, radiant floor heating, sewer line replacement, septic systems,
-            and emergency plumbing repairs.
-          </p>
-          <p className="mt-3 max-w-3xl text-gray-500 text-sm sm:text-base">
-            Located in Spirit Lake, we serve {area.city} and nearby communities with fast response times,
-            upfront pricing, and work backed by decades of North Idaho plumbing experience.
-            Faucet repair or full bathroom remodel, our licensed plumbers get it done right.
-          </p>
+          {area.pageIntro.map((paragraph, index) => (
+            <p
+              key={paragraph.slice(0, 48)}
+              className={
+                index === 0
+                  ? 'mt-4 max-w-3xl text-gray-600 leading-relaxed text-base sm:text-lg'
+                  : 'mt-3 max-w-3xl text-gray-500 leading-relaxed text-sm sm:text-base'
+              }
+            >
+              {paragraph}
+            </p>
+          ))}
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
             <a href={PHONE_HREF} className="btn-primary">
               <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
@@ -234,11 +236,17 @@ export default function CityPage({ params }: Props) {
             Serving<br />
             <span className="text-blue">the {area.city} Community</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-gray-600 leading-relaxed">
-            We work on homes and businesses in {area.city} every week. We know the local plumbing codes, water conditions, and building rules for {area.fullName}.
-          </p>
+          {area.localFocus.map((paragraph, index) => (
+            <p
+              key={paragraph.slice(0, 48)}
+              className={`${index === 0 ? 'mt-4' : 'mt-3'} max-w-2xl text-gray-600 leading-relaxed`}
+            >
+              {paragraph}
+            </p>
+          ))}
           <p className="mt-3 max-w-2xl text-gray-600 leading-relaxed">
-            We cover {area.city} and nearby areas including {landmarks.join(', ')}. If you are in the {area.state === 'ID' ? 'Idaho Panhandle' : 'Eastern Washington'} region, call us and we will get you on the schedule.
+            Nearby landmarks we work around include {landmarks.join(', ')}. If you are in the{' '}
+            {area.state === 'ID' ? 'Idaho Panhandle' : 'Eastern Washington'} region, call us and we will get you on the schedule.
           </p>
           {landmarks.length > 0 && (
             <div className="mt-6">
@@ -263,12 +271,9 @@ export default function CityPage({ params }: Props) {
             Serving <span className="text-blue">{area.city}</span><br />
             and All Surrounding Areas
           </h2>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            We serve {area.fullName} and nearby communities throughout {area.state === 'ID' ? 'Kootenai County, Bonner County, and the Idaho Panhandle' : 'Spokane County and Pend Oreille County'}.
-            Local codes, soil, and winter weather are part of how we plan every job.
-          </p>
+          <p className="mt-4 max-w-2xl text-gray-600">{area.mapBlurb}</p>
           <p className="mt-3 max-w-2xl text-gray-500 text-sm">
-            From {area.city} to the surrounding communities, you get clear pricing and work we stand behind.
+            Serving {regionLabel(area.slug, area.state)} from Spirit Lake — clear pricing and work we stand behind.
           </p>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
@@ -292,7 +297,7 @@ export default function CityPage({ params }: Props) {
                   Tell us about your {area.city} plumbing project and we&apos;ll get back to you within 24 hours.
                 </p>
                 <div className="mt-4">
-                  <ContactForm />
+                  <ContactForm formLocation={`area_${area.slug}`} />
                 </div>
               </div>
               <a

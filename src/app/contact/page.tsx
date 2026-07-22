@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { Phone, MapPin, Clock, Shield, Star, Navigation } from 'lucide-react'
+import { Phone, MapPin, Clock, Navigation } from 'lucide-react'
+import TrackPageEvent from '@/components/analytics/TrackPageEvent'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
@@ -22,6 +23,7 @@ export default function ContactPage() {
 
   return (
     <div className="pt-14 sm:pt-16">
+      <TrackPageEvent event="contact_page_view" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -69,7 +71,19 @@ export default function ContactPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-page">
           <div className="grid gap-8 lg:grid-cols-5">
-            <div className="space-y-6 lg:col-span-2">
+            <div className="order-1 lg:order-2 lg:col-span-3">
+              <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
+                <h2 className="font-display text-base sm:text-lg font-bold uppercase text-gray-900">Request a Free Quote</h2>
+                <p className="mt-2 text-sm text-gray-500">
+                  Tell us what you need and we&apos;ll get back to you within 24 hours.
+                </p>
+                <div className="mt-4">
+                  <ContactForm formLocation="contact_page" />
+                </div>
+              </div>
+            </div>
+
+            <div className="order-2 lg:order-1 space-y-6 lg:col-span-2">
               <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
                 <h2 className="font-display text-base sm:text-lg font-bold uppercase text-gray-900">Contact Information</h2>
                 <div className="mt-4 space-y-3 sm:space-y-4">
@@ -110,7 +124,7 @@ export default function ContactPage() {
                   Serving communities across North Idaho and Eastern Washington.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                  {['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum', 'Athol', 'Priest River', 'Blanchard', 'Newport', 'Chattaroy', 'Mead'].map((city) => (
+                  {['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum', 'Athol', 'Priest River', 'Blanchard', 'Moscow', 'Clark Fork', 'Oldtown', 'Newport', 'Chattaroy', 'Mead'].map((city) => (
                     <span key={city} className="rounded-full bg-blue/10 px-2.5 py-1 text-xs font-medium text-blue">
                       {city}
                     </span>
@@ -132,18 +146,6 @@ export default function ContactPage() {
               >
                 <Navigation className="h-4 w-4" /> Get Directions to Spirit Lake
               </a>
-            </div>
-
-            <div className="lg:col-span-3">
-              <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
-                <h2 className="font-display text-base sm:text-lg font-bold uppercase text-gray-900">Request a Free Quote</h2>
-                <p className="mt-2 text-sm text-gray-500">
-                  Tell us what you need and we&apos;ll get back to you within 24 hours.
-                </p>
-                <div className="mt-4">
-                  <ContactForm />
-                </div>
-              </div>
             </div>
           </div>
         </div>

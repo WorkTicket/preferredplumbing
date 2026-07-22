@@ -8,8 +8,9 @@ import { blogPosts } from '@/data/blog'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Blog Spirit Lake ID | Tips & Guides',
-  description: 'Plumbing tips, guides, and advice for North Idaho homeowners. Water heater maintenance, emergency plumbing, septic care, and more from Preferred Plumbing Solutions.',
+  title: 'Plumbing Blog Spirit Lake ID',
+  description:
+    'Plumbing tips and guides for North Idaho homeowners: water heaters, emergency plumbing, septic care, and more from Preferred Plumbing.',
   slug: 'blog',
   canonical: `${siteUrl}/blog`,
 })

@@ -8,22 +8,30 @@ import { personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import PageHero from '@/components/sections/PageHero'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import {
+  combinedExperiencePhrase,
+  getYearsOfExperience,
+  jobsCompletedLabel,
+  yearsExperienceLabel,
+} from '@/lib/company-stats'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'About Us',
-  description: 'Meet Ron & Hunter of Preferred Plumbing Solutions. Family-owned plumbers with 38+ years of combined experience serving Spirit Lake and North Idaho. Licensed, insured, free estimates.',
+  title: 'About Preferred Plumbing',
+  description:
+    'Meet Ron & Hunter of Preferred Plumbing Solutions. Family-owned plumbers serving Spirit Lake and North Idaho. Licensed, insured, free estimates.',
   slug: 'about',
   canonical: `${siteUrl}/about`,
 })
 
-const trustStats = [
-  { icon: HardHat, number: '38+', label: 'Years Experience', sub: 'Ron & Hunter combined' },
-  { icon: CheckCircle, number: '500+', label: 'Projects Completed', sub: 'Across North Idaho' },
-  { icon: Star, number: 'Free', label: 'Estimates', sub: 'No obligation' },
-  { icon: Shield, number: 'Licensed', label: '& Insured', sub: 'ID & WA' },
-]
-
 export default function AboutPage() {
+  const years = getYearsOfExperience()
+  const trustStats = [
+    { icon: HardHat, number: yearsExperienceLabel(), label: 'Years Experience', sub: 'Ron & Hunter combined' },
+    { icon: CheckCircle, number: jobsCompletedLabel(), label: 'Projects Completed', sub: 'Across North Idaho' },
+    { icon: Star, number: 'Free', label: 'Estimates', sub: 'No obligation' },
+    { icon: Shield, number: 'Licensed', label: '& Insured', sub: 'ID & WA' },
+  ]
+
   return (
     <div className="pt-14 sm:pt-16">
       <script
@@ -33,7 +41,7 @@ export default function AboutPage() {
             '@context': 'https://schema.org',
             '@type': 'AboutPage',
             name: 'About Preferred Plumbing Solutions',
-            description: 'Family-owned plumbing company with 38+ years of combined experience serving Spirit Lake and North Idaho.',
+            description: `Family-owned plumbing company with ${combinedExperiencePhrase()} serving Spirit Lake and North Idaho.`,
             url: `${siteUrl}/about`,
             founder: { '@type': 'Person', name: 'Ron Norris' },
           }),
@@ -100,14 +108,13 @@ export default function AboutPage() {
             </div>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Ron and Hunter bring over 38 years of combined plumbing experience to every job.
-                What started as one guy doing quality work has grown into a father-son business
-                that covers communities across two states.
+                Between them, Ron and Hunter have more than {years} years in the trade. The company started with
+                Ron taking jobs one at a time in Spirit Lake. Today the same family crew works across North
+                Idaho and into eastern Washington.
               </p>
               <p>
-                Ron Norris started the company with a simple rule: do the job right, charge a fair price,
-                and treat every customer like family. Now Ron works alongside his son Hunter, carrying
-                that same attitude forward.
+                Ron&apos;s rule never changed: do the job right, charge a fair price, and treat the customer
+                like a neighbor. Hunter grew up on those jobsites and now runs projects with that same standard.
               </p>
               <p>
                 We do new construction plumbing, radiant heat systems, water heaters,
@@ -133,8 +140,8 @@ export default function AboutPage() {
           <div className="mt-6 max-w-3xl space-y-4 text-gray-600 leading-relaxed">
             <p>
               We&apos;re locals. Spirit Lake is home, and we bring decades of plumbing
-              experience to every job here. New house, bathroom remodel, or a pipe that
-              burst at 2 AM, we show up.
+              experience to every job here. New house, bathroom remodel, or an emergency
+              during business hours — we show up fast.
             </p>
             <p>
               We handle residential and commercial jobs across North Idaho and into Washington.

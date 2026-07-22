@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
-import DeferredAnalytics from '@/components/layout/DeferredAnalytics'
 import { localBusinessSchema, websiteSchema, videoObjectSchema, organizationSchema } from '@/lib/schema'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -9,6 +8,10 @@ import MobileCtaBar from '@/components/layout/MobileCtaBar'
 import FloatingActionButton from '@/components/layout/FloatingActionButton'
 import AnalyticsTracker from '@/components/layout/AnalyticsTracker'
 import { defaultDescription, defaultTitle, siteName, siteUrl } from '@/lib/seo'
+
+/** Public measurement ID — fallback so builds never ship without the tag if the env secret is missing. */
+const GA_MEASUREMENT_ID = 'G-13HBCP9RZB'
+const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim() || GA_MEASUREMENT_ID
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -35,7 +38,7 @@ const dmSerif = DM_Serif_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: `%s | ${siteName} | Spirit Lake, ID`,
+    template: `%s | Preferred Plumbing`,
     default: defaultTitle,
   },
   description: defaultDescription,
@@ -73,9 +76,9 @@ export const metadata: Metadata = {
     images: ['/images/og-preferred-plumbing-solutions.webp'],
   },
   icons: {
-    icon: '/images/preferred logo.webp',
-    shortcut: '/images/preferred logo.webp',
-    apple: '/images/preferred logo.webp',
+    icon: '/images/preferred-logo.webp',
+    shortcut: '/images/preferred-logo.webp',
+    apple: '/images/preferred-logo.webp',
   },
   robots: {
     index: true,
@@ -108,6 +111,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} ${dmSerif.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+
+  gtag('config', '${gaId}');
+`,
+          }}
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
@@ -126,17 +144,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-body antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Header />
-        <main className="min-h-screen pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+        <main
+          id="main-content"
+          className="min-h-screen pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
+          tabIndex={-1}
+        >
           {children}
         </main>
         <Footer />
         <MobileCtaBar />
         <FloatingActionButton />
         <AnalyticsTracker />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <DeferredAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </body>
     </html>
   )

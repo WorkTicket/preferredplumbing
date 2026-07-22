@@ -4,8 +4,8 @@ import { useState, useEffect, useRef, type ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Menu, ChevronDown, Phone } from 'lucide-react'
+import { cn, PHONE_HREF } from '@/lib/utils'
 import { isNavActive } from '@/lib/nav-active'
 import ServicesMegaMenu from './ServicesMegaMenu'
 import LearnDropdown from './LearnDropdown'
@@ -224,7 +224,15 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
             {actions}
           </nav>
 
-          <div className="flex shrink-0 lg:hidden">
+          <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
+            <a
+              href={PHONE_HREF}
+              data-track="header_mobile_call"
+              className="flex items-center justify-center rounded-xl p-2 text-blue transition-all duration-200 hover:bg-blue/10 touch-target"
+              aria-label="Call Preferred Plumbing"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}

@@ -1,10 +1,18 @@
 import type { Metadata } from 'next'
 
-const siteUrl = 'https://www.preferredplumbingsolution.com'
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
+  'https://www.callpreferredplumbing.com'
 export const siteName = 'Preferred Plumbing Solutions'
-export const defaultTitle = 'Plumber Spirit Lake ID | Preferred Plumbing Solutions | 208-290-3889'
+/** Keep ≤60 chars for SERP display (Ahrefs / Google title length). */
+export const defaultTitle = 'Plumber Spirit Lake ID | Preferred Plumbing'
 export const defaultDescription =
-  'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Licensed & insured. Call 208-290-3889.'
+  'Family-owned plumber in Spirit Lake with 38+ years experience. Radiant heat, water heaters, emergency service. Call 208-290-3889.'
+
+/** Ahrefs: title too long >60; meta description too long >160, too short <70 (we target 120–155). */
+export const TITLE_MAX = 60
+export const DESCRIPTION_MIN = 120
+export const DESCRIPTION_MAX = 155
 
 interface SEOParams {
   title?: string
@@ -20,15 +28,57 @@ interface SEOParams {
   keywords?: string[]
 }
 
+export function clampAtWord(text: string, max: number): string {
+  const trimmed = text.trim().replace(/\s+/g, ' ')
+  if (trimmed.length <= max) return trimmed
+  const slice = trimmed.slice(0, max)
+  const lastSpace = slice.lastIndexOf(' ')
+  const cut = lastSpace > Math.floor(max * 0.6) ? slice.slice(0, lastSpace) : slice
+  return cut.replace(/[|,\s.;:\-–—]+$/g, '').trim()
+}
+
+export function normalizeDescription(description: string): string {
+  let desc = description.trim().replace(/\s+/g, ' ')
+  if (desc.length > DESCRIPTION_MAX) {
+    desc = clampAtWord(desc, DESCRIPTION_MAX)
+  }
+  if (desc.length < DESCRIPTION_MIN) {
+    const pads = [
+      ' Serving Spirit Lake and North Idaho.',
+      ' Licensed and insured.',
+      ' Call 208-290-3889 for a free estimate.',
+    ]
+    for (const pad of pads) {
+      if (desc.length >= DESCRIPTION_MIN) break
+      if (desc.length + pad.length <= DESCRIPTION_MAX) {
+        desc += pad
+      } else {
+        const room = DESCRIPTION_MAX - desc.length
+        if (room > 20) desc += pad.slice(0, room)
+        break
+      }
+    }
+    if (desc.length > DESCRIPTION_MAX) desc = clampAtWord(desc, DESCRIPTION_MAX)
+  }
+  return desc
+}
+
 function buildDocumentTitle(title: string): string {
-  if (/Preferred Plumbing Solutions/i.test(title)) return title
-  if (/Spirit Lake/i.test(title)) return `${title} | Preferred Plumbing Solutions`
-  return `${title} | Preferred Plumbing Solutions | Spirit Lake, ID`
+  const result = title.trim().replace(/\s+/g, ' ')
+  if (/Preferred Plumbing/i.test(result)) return clampAtWord(result, TITLE_MAX)
+  const brandSuffix = ' | Preferred Plumbing'
+  const withBrand = `${result}${brandSuffix}`
+  if (withBrand.length <= TITLE_MAX) return withBrand
+  return `${clampAtWord(result, TITLE_MAX - brandSuffix.length)}${brandSuffix}`
 }
 
 function buildOgTitle(title: string): string {
-  if (/Preferred Plumbing Solutions/i.test(title)) return title
-  return `${title} | Preferred Plumbing Solutions`
+  const result = title.trim().replace(/\s+/g, ' ')
+  if (/Preferred Plumbing/i.test(result)) return clampAtWord(result, 90)
+  const brandSuffix = ' | Preferred Plumbing'
+  const withBrand = `${result}${brandSuffix}`
+  if (withBrand.length <= 90) return withBrand
+  return `${clampAtWord(result, 90 - brandSuffix.length)}${brandSuffix}`
 }
 
 export function generateMetadata({
@@ -45,10 +95,9 @@ export function generateMetadata({
   keywords,
 }: SEOParams): Metadata {
   // Absolute titles avoid the root layout template double-appending the brand.
-  // Skip repeating Spirit Lake / brand when the page title already includes them.
   const metaTitle = title ? buildDocumentTitle(title) : defaultTitle
   const ogTitle = title ? buildOgTitle(title) : defaultTitle
-  const metaDescription = description || defaultDescription
+  const metaDescription = normalizeDescription(description || defaultDescription)
   const url = slug ? `${siteUrl}/${slug}` : siteUrl
   const canonicalUrl = canonical || url
 

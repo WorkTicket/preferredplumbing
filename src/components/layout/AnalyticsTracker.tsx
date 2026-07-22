@@ -1,9 +1,23 @@
 'use client'
 
-import { useEffect } from 'react'
-import { trackPhoneCall } from '@/lib/utils'
+import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
+import { trackPageView, trackPhoneCall } from '@/lib/analytics'
 
 export default function AnalyticsTracker() {
+  const pathname = usePathname()
+  const isFirstPath = useRef(true)
+
+  useEffect(() => {
+    if (!pathname) return
+    // Initial page_view is sent by the gtag('config') snippet in layout.
+    if (isFirstPath.current) {
+      isFirstPath.current = false
+      return
+    }
+    trackPageView(pathname)
+  }, [pathname])
+
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null

@@ -12,6 +12,14 @@
   },
   "routes": [
     {
+      "pattern": "www.callpreferredplumbing.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "callpreferredplumbing.com",
+      "custom_domain": true
+    },
+    {
       "pattern": "preview.callpreferredplumbing.com",
       "custom_domain": true
     }
@@ -28,5 +36,20 @@
   ],
   "images": {
     "binding": "IMAGES"
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_destination_addresses": [
+        "coltondwehr@icloud.com",
+        "preferredhnorris@gmail.com",
+        "preferredrnorris@gmail.com"
+      ]
+    }
+  ],
+  "vars": {
+    "CONTACT_TO_EMAIL": "coltondwehr@icloud.com,preferredhnorris@gmail.com,preferredrnorris@gmail.com",
+    "CONTACT_FROM_EMAIL": "quotes@callpreferredplumbing.com",
+    "NEXT_PUBLIC_GA_ID": "G-13HBCP9RZB"
   }
 }

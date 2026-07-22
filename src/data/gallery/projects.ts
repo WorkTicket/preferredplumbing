@@ -1,6 +1,6 @@
 import type { GalleryProject } from './types'
 
-const g = (name: string) => `/images/gallery/${name}?v=25`
+const g = (name: string) => `/images/gallery/${name}?v=26`
 
 const cover = (slug: string) => g(`${slug}-1.webp`)
 
@@ -61,6 +61,26 @@ export const galleryProjects: GalleryProject[] = [
     completionDate: '2025-05-18',
   },
   {
+    id: 'waste-vent-rough-in',
+    title: 'Waste & Vent Rough-In',
+    slug: 'waste-vent-rough-in',
+    category: 'New Construction',
+    location: 'North Idaho',
+    description:
+      'ABS drain, waste, and vent rough-in through wood framing — stacks, branches, and fixture stub-outs before drywall.',
+    scopeOfWork:
+      'ABS DWV routing in framed walls, laundry drain setups, P-traps, and inspection-ready waste and vent stub-outs.',
+    materials: ['ABS DWV pipe', 'Fittings', 'Washer outlet box', 'Clean-outs'],
+    // Formerly mislabeled under Gas Rough-In; these are ABS waste & vent only.
+    images: [
+      g('new-construction-gas-rough-in-2.webp'),
+      g('new-construction-gas-rough-in-1.webp'),
+      g('new-construction-gas-rough-in-3.webp'),
+    ],
+    coverImage: g('new-construction-gas-rough-in-1.webp'),
+    completionDate: '2025-05-20',
+  },
+  {
     id: 'under-slab-plumbing',
     title: 'Under-Slab Plumbing',
     slug: 'under-slab-plumbing',
@@ -82,12 +102,16 @@ export const galleryProjects: GalleryProject[] = [
     category: 'New Construction',
     location: 'North Idaho',
     description:
-      'Black iron gas piping rough-in through wood framing for ranges, furnaces, and other appliances.',
+      'Black iron gas piping rough-in for ranges, furnaces, generators, and other appliances.',
     scopeOfWork:
-      'Gas pipe routing in framed walls and floors, appliance stub-outs, and pressure-test preparation.',
+      'Gas pipe routing, appliance stub-outs, yellow-handle shut-offs, and pressure-test preparation.',
     materials: ['Black iron gas pipe', 'Fittings', 'Shut-off valves', 'Pipe straps'],
-    images: projectImages('new-construction-gas-rough-in', 3),
-    coverImage: cover('new-construction-gas-rough-in'),
+    images: [
+      g('gas-line-installation-2.webp'),
+      g('gas-line-installation-4.webp'),
+      g('gas-line-installation-1.webp'),
+    ],
+    coverImage: g('gas-line-installation-4.webp'),
     completionDate: '2025-05-22',
   },
   {
@@ -166,6 +190,25 @@ export const galleryProjects: GalleryProject[] = [
     completionDate: '2025-08-28',
   },
   {
+    id: 'water-tank-installation',
+    title: 'Water Tank Installation',
+    slug: 'water-tank-installation',
+    category: 'Residential',
+    location: 'North Idaho',
+    description:
+      'Buried potable water storage tank installs for rural North Idaho properties — excavation, placement, and ballast.',
+    scopeOfWork:
+      'Tank excavation, NSF potable tank placement, risers, inlet connections, and concrete ballast when needed.',
+    materials: ['Polyethylene water tanks', 'Risers', 'Lids', 'Concrete ballast'],
+    // Previously miscategorized under Septic Tank Installation.
+    images: [
+      g('septic-system-installation-2.webp'),
+      g('septic-system-installation-1.webp'),
+    ],
+    coverImage: g('septic-system-installation-1.webp'),
+    completionDate: '2025-07-22',
+  },
+  {
     id: 'gas-line-installation',
     title: 'Gas Line Installation',
     slug: 'gas-line-installation',
@@ -187,12 +230,18 @@ export const galleryProjects: GalleryProject[] = [
     category: 'New Construction',
     location: 'North Idaho',
     description:
-      'Concrete and plastic septic tank installs with risers, lids, and excavation for rural North Idaho properties.',
+      'Concrete septic tank installs with risers, lids, and excavation for rural North Idaho properties.',
     scopeOfWork:
       'Tank placement, inlet/outlet connections, risers, lids, and inspection-ready backfill prep.',
-    materials: ['Concrete / plastic septic tanks', 'Risers', 'Lids', 'PVC connections'],
-    images: projectImages('septic-system-installation', 7),
-    coverImage: cover('septic-system-installation'),
+    materials: ['Concrete septic tanks', 'Risers', 'Lids', 'PVC connections'],
+    // Water tanks moved to water-tank-installation.
+    images: [
+      g('septic-system-installation-5.webp'),
+      g('septic-system-installation-4.webp'),
+      g('septic-system-installation-3.webp'),
+      g('septic-system-installation-6.webp'),
+    ],
+    coverImage: g('septic-system-installation-4.webp'),
     completionDate: '2025-07-25',
   },
   {
@@ -224,5 +273,20 @@ export const galleryProjects: GalleryProject[] = [
     images: projectImages('toilets-faucets-trim', 2),
     coverImage: cover('toilets-faucets-trim'),
     completionDate: '2025-08-02',
+  },
+  {
+    id: 'site-excavation',
+    title: 'Site Excavation',
+    slug: 'site-excavation',
+    category: 'New Construction',
+    location: 'North Idaho',
+    description:
+      'On-site excavation for septic, water lines, gas trenching, and underground plumbing — compact excavator ready for North Idaho digs.',
+    scopeOfWork:
+      'Site dig-outs for tanks and utilities, trench prep for underground lines, and equipment staging for septic and water work.',
+    materials: ['Compact excavator', 'Dump trailer', 'Utility trenching'],
+    images: projectImages('site-excavation', 1),
+    coverImage: cover('site-excavation'),
+    completionDate: '2025-10-01',
   },
 ]

@@ -34,14 +34,14 @@ export default function ServicesGrid() {
           </p>
         </div>
 
-        <div className="mt-12 sm:mt-14">
-          <div className="text-center max-w-3xl mx-auto sm:text-left sm:mx-0">
+        <div className="mt-10 sm:mt-14">
+          <div className="max-w-3xl text-left">
             <SectionLabel text="Signature Services" />
-            <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
+            <h3 className="font-display text-xl sm:text-[clamp(1.5rem,5vw,2.5rem)] font-black uppercase leading-tight text-gray-900">
               Signature <span className="text-blue">Services</span>
             </h3>
-            <p className="section-subtitle mt-3">
-              Emergency response, radiant heat, heated driveways, new construction, commercial, and tankless systems. The work we specialize in.
+            <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed">
+              Emergency response, radiant heat, heated driveways, new construction, commercial, and tankless systems.
             </p>
           </div>
 
@@ -62,14 +62,14 @@ export default function ServicesGrid() {
           </StaggerChildren>
         </div>
 
-        <div className="mt-16 sm:mt-20">
-          <div className="text-center max-w-3xl mx-auto sm:text-left sm:mx-0">
+        <div className="mt-12 sm:mt-20">
+          <div className="max-w-3xl text-left">
             <SectionLabel text="All Services" />
-            <h3 className="section-heading text-[clamp(1.5rem,5vw,2.5rem)]">
+            <h3 className="font-display text-xl sm:text-[clamp(1.5rem,5vw,2.5rem)] font-black uppercase leading-tight text-gray-900">
               All <span className="text-blue">Services</span>
             </h3>
-            <p className="section-subtitle mt-3">
-              Water heaters, sewer lines, remodels, and more. Browse a few popular services or see the full list.
+            <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-500 max-w-2xl leading-relaxed">
+              Water heaters, sewer lines, remodels, and more. Browse popular services or see the full list.
             </p>
           </div>
 

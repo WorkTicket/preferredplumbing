@@ -54,7 +54,12 @@ export interface AreaPage {
   state: string
   slug: string
   fullName: string
+  /** Short blurb for the areas-we-serve index cards */
   description: string
+  /** Unique hero + body copy for the city landing page (avoids near-duplicate area pages) */
+  pageIntro: string[]
+  localFocus: string[]
+  mapBlurb: string
   latitude: number
   longitude: number
 }

@@ -50,7 +50,15 @@ const config = {
     },
     ]
   },
+  // Legacy Duda paths → new App Router paths (also covered in
+  // redirects/cloudflare-bulk-redirects.csv for the domain cutover).
   redirects: async () => [
+    // Service pages that changed slug shape
+    {
+      source: '/residential-and-commercial-plumbing-solutions',
+      destination: '/services',
+      permanent: true,
+    },
     {
       source: '/commercial-projects',
       destination: '/services/commercial',
@@ -64,6 +72,26 @@ const config = {
     {
       source: '/new-construction-plumbing-services',
       destination: '/services/new-construction',
+      permanent: true,
+    },
+    {
+      source: '/water-heaters',
+      destination: '/services/water-heaters',
+      permanent: true,
+    },
+    {
+      source: '/radiant-heat',
+      destination: '/services/radiant-heat',
+      permanent: true,
+    },
+    {
+      source: '/radiant-heating-and-in-floor-systems',
+      destination: '/services/radiant-heat',
+      permanent: true,
+    },
+    {
+      source: '/water-softeners',
+      destination: '/services/water-softeners',
       permanent: true,
     },
     {
@@ -87,13 +115,23 @@ const config = {
       permanent: true,
     },
     {
+      source: '/septic-systems',
+      destination: '/services/septic-systems',
+      permanent: true,
+    },
+    {
       source: '/plumbing-remodels-and-upgrades',
       destination: '/services/remodels',
       permanent: true,
     },
     {
-      source: '/radiant-heating-and-in-floor-systems',
-      destination: '/services/radiant-heat',
+      source: '/kitchen-remodels',
+      destination: '/services/kitchen-remodels',
+      permanent: true,
+    },
+    {
+      source: '/bathroom-remodels',
+      destination: '/services/bathroom-remodels',
       permanent: true,
     },
     {
@@ -101,21 +139,13 @@ const config = {
       destination: '/services/emergency',
       permanent: true,
     },
-    {
-      source: '/residential-and-commercial-plumbing-solutions',
-      destination: '/services',
-      permanent: true,
-    },
-    {
-      source: '/areas-we-serve/spirit-lake-id',
-      destination: '/areas/spirit-lake-id',
-      permanent: true,
-    },
+    // Area pages moved from /areas-we-serve/:city → /areas/:city
     {
       source: '/areas-we-serve/:city',
       destination: '/areas/:city',
       permanent: true,
     },
+    // Portfolio → gallery
     {
       source: '/portfolio',
       destination: '/gallery',

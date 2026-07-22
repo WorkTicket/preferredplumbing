@@ -1,18 +1,22 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { CheckCircle, Phone, ChevronRight, Clock } from 'lucide-react'
-import { siteUrl } from '@/lib/seo'
+import { CheckCircle, Phone, Clock } from 'lucide-react'
+import TrackPageEvent from '@/components/analytics/TrackPageEvent'
+import { generateMetadata } from '@/lib/seo'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Thank You | Preferred Plumbing Solutions' },
-  description: 'Your quote request has been submitted successfully. We will get back to you within 24 hours.',
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = generateMetadata({
+  title: 'Thank You',
+  description:
+    'Your quote request was submitted successfully. Preferred Plumbing Solutions will get back to you within 24 hours.',
+  slug: 'thank-you',
+  noIndex: true,
+})
 
 export default function ThankYouPage() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center pt-14 sm:pt-16 bg-gradient-to-b from-gray-50 to-white">
+      <TrackPageEvent event="thank_you_lead" />
       <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-green-100 animate-bounce">
         <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 text-green-500" />
       </div>

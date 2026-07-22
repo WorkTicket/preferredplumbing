@@ -45,6 +45,7 @@ export const DIRECTIONS_URL =
   'https://www.google.com/maps/dir/?api=1&destination=47.9668,-116.8693'
 
 export const GBP_URL = 'https://maps.app.goo.gl/ne3NdeDCnQqC3Zni7'
+export const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61592338401631'
 export const TIKTOK_URL = 'https://www.tiktok.com/@preferredhnorris'
 
 /** Open Sun–Fri 7am–5pm; closed Saturday. No 24/7 service. */
@@ -56,33 +57,3 @@ export const BUSINESS_HOURS = {
   lines: ['Sun–Fri 7am–5pm', 'Sat Closed'] as const,
 }
 
-type GtagFn = (...args: unknown[]) => void
-
-function getGtag(): GtagFn | undefined {
-  if (typeof window === 'undefined') return undefined
-  const gtag = (window as Window & { gtag?: GtagFn }).gtag
-  return typeof gtag === 'function' ? gtag : undefined
-}
-
-export function trackPhoneCall(source: string) {
-  getGtag()?.('event', 'phone_call', {
-    event_category: 'engagement',
-    event_label: source,
-    value: 1,
-  })
-}
-
-export function trackFormSubmission(service?: string) {
-  getGtag()?.('event', 'generate_lead', {
-    event_category: 'conversion',
-    event_label: service || 'quote_request',
-    value: 1,
-  })
-}
-
-export function trackClick(label: string) {
-  getGtag()?.('event', 'click', {
-    event_category: 'engagement',
-    event_label: label,
-  })
-}

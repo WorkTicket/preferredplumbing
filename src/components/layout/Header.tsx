@@ -14,7 +14,7 @@ export default function Header() {
           className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2.5 md:pr-0"
         >
           <Image
-            src="/images/preferred logo.webp"
+            src="/images/preferred-logo.webp"
             alt="Preferred Plumbing Solutions logo"
             width={36}
             height={36}

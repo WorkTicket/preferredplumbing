@@ -12,15 +12,22 @@ Disallow: /thank-you
 
 # *
 User-agent: *
-Disallow: /residential-and-commercial-plumbing-solutions
+Disallow: /search
 
 # *
 User-agent: *
-Disallow: /search
+Disallow: /images/blog/_raw/
+
+# *
+User-agent: *
+Disallow: /images/blog/_cands/
+
+# *
+User-agent: *
+Disallow: /images/blog/_preview/
 
 # Host
-Host: https://www.preferredplumbingsolution.com
+Host: https://www.callpreferredplumbing.com
 
 # Sitemaps
-Sitemap: https://www.preferredplumbingsolution.com/sitemap.xml
-Sitemap: https://www.preferredplumbingsolution.com/sitemap-0.xml
+Sitemap: https://www.callpreferredplumbing.com/sitemap.xml

@@ -1,0 +1,78 @@
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
+function isPreviewHost(host: string): boolean {
+  const hostname = host.split(':')[0]?.toLowerCase() ?? ''
+  return (
+    hostname === 'preview.callpreferredplumbing.com' ||
+    hostname.startsWith('preview.') ||
+    hostname.endsWith('.workers.dev')
+  )
+}
+
+function withHtmlCacheHeaders(response: NextResponse): NextResponse {
+  // OpenNext defaults HTML to s-maxage=31536000. That freezes old pages at the
+  // CDN (breaks GA install checks + deploy visibility). Match a1: revalidate HTML.
+  response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+  return response
+}
+
+export function middleware(request: NextRequest) {
+  const host = request.headers.get('host') ?? ''
+  const hostname = host.split(':')[0]?.toLowerCase() ?? ''
+  const proto = (
+    request.headers.get('x-forwarded-proto') ||
+    request.nextUrl.protocol.replace(':', '') ||
+    'https'
+  ).toLowerCase()
+
+  // Canonical host safety net (edge Single Redirect is primary — see redirects/README.md).
+  // Combine host + scheme in one 301 so we never chain http→https then apex→www here.
+  const needsWww =
+    hostname === 'callpreferredplumbing.com' ||
+    (hostname === 'www.callpreferredplumbing.com' && proto === 'http')
+
+  if (needsWww) {
+    const url = request.nextUrl.clone()
+    url.protocol = 'https:'
+    url.hostname = 'www.callpreferredplumbing.com'
+    url.port = ''
+    return NextResponse.redirect(url, 301)
+  }
+
+  if (!isPreviewHost(host)) {
+    return withHtmlCacheHeaders(NextResponse.next())
+  }
+
+  // Preview / staging hosts must not be indexed.
+  if (request.nextUrl.pathname === '/robots.txt') {
+    return new NextResponse('User-agent: *\nDisallow: /\n', {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Robots-Tag': 'noindex, nofollow',
+        'Cache-Control': 'no-store',
+      },
+    })
+  }
+
+  if (
+    request.nextUrl.pathname === '/sitemap.xml' ||
+    request.nextUrl.pathname.startsWith('/sitemap-')
+  ) {
+    return new NextResponse('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n', {
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'X-Robots-Tag': 'noindex, nofollow',
+        'Cache-Control': 'no-store',
+      },
+    })
+  }
+
+  const response = withHtmlCacheHeaders(NextResponse.next())
+  response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  return response
+}
+
+export const config = {
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+}

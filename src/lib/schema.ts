@@ -1,5 +1,12 @@
 import { siteUrl } from './seo'
-import { CONTACT_EMAILS, PHONE, PHONE_E164 } from './utils'
+import { CONTACT_EMAILS, FACEBOOK_URL, PHONE, PHONE_E164, TIKTOK_URL } from './utils'
+import {
+  combinedExperiencePhrase,
+  yearsExperienceBadge,
+  yearsExperienceLabel,
+} from './company-stats'
+
+const socialProfiles = [FACEBOOK_URL, TIKTOK_URL]
 
 const contactPoints = CONTACT_EMAILS.map((contact) => ({
   '@type': 'ContactPoint',
@@ -17,8 +24,8 @@ export function organizationSchema() {
     '@type': 'Organization',
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    logo: `${siteUrl}/images/preferred%20logo.webp`,
-    description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service.',
+    logo: `${siteUrl}/images/preferred-logo.webp`,
+    description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service.`,
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
       '@type': 'PostalAddress',
@@ -30,7 +37,7 @@ export function organizationSchema() {
     geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     telephone: PHONE_E164,
     email: CONTACT_EMAILS.map((contact) => contact.email),
-    sameAs: ['https://www.tiktok.com/@preferredhnorris'],
+    sameAs: socialProfiles,
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake' },
       { '@type': 'City', name: "Coeur d'Alene" },
@@ -48,7 +55,7 @@ export function localBusinessSchema() {
     '@type': 'Plumber',
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    logo: `${siteUrl}/images/preferred%20logo.webp`,
+    logo: `${siteUrl}/images/preferred-logo.webp`,
     image: [
       `${siteUrl}/images/og-preferred-plumbing-solutions.webp`,
       `${siteUrl}/images/preferred-plumbing-service-truck.webp`,
@@ -57,7 +64,7 @@ export function localBusinessSchema() {
     telephone: PHONE_E164,
     priceRange: '$$',
     email: CONTACT_EMAILS.map((contact) => contact.email),
-    description: `Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Call ${PHONE}.`,
+    description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service. Call ${PHONE}.`,
     founder: { '@type': 'Person', name: 'Ron Norris' },
     address: {
       '@type': 'PostalAddress',
@@ -94,10 +101,8 @@ export function localBusinessSchema() {
       { '@type': 'State', name: 'Idaho' },
       { '@type': 'State', name: 'Washington' },
     ],
-    sameAs: [
-      'https://www.tiktok.com/@preferredhnorris',
-    ],
-    award: '38+ Years Experience',
+    sameAs: socialProfiles,
+    award: yearsExperienceBadge(),
     numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 10 },
     knowsAbout: [
       'Plumbing installation and repair',
@@ -166,7 +171,7 @@ export function personSchema(name: string, jobTitle: string, description: string
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    sameAs: ['https://www.tiktok.com/@preferredhnorris'],
+    sameAs: socialProfiles,
   }
 }
 
@@ -209,7 +214,7 @@ export function videoObjectSchema() {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: 'Preferred Plumbing Solutions - Spirit Lake Plumber',
-    description: 'Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. 38+ years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.',
+    description: `Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. ${yearsExperienceLabel()} years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.`,
     thumbnailUrl: [
       `${siteUrl}/images/preferred-plumbing-hero-poster.webp`,
     ],
@@ -237,7 +242,6 @@ export function webpageSchema(title: string, description: string, slug: string) 
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    dateModified: new Date().toISOString().split('T')[0],
     inLanguage: 'en-US',
     isAccessibleForFree: true,
   }
@@ -249,7 +253,7 @@ export function websiteSchema() {
     '@type': 'WebSite',
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service.',
+    description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service.`,
   }
 }
 
@@ -277,7 +281,7 @@ export function serviceSchema(serviceName: string, description: string) {
     provider: {
       '@type': 'Plumber',
       name: 'Preferred Plumbing Solutions',
-      url: 'https://www.preferredplumbingsolution.com',
+      url: siteUrl,
     },
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },

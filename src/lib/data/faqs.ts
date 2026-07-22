@@ -22,7 +22,7 @@ export const faqItems = [
   },
   { question: 'Can I get an estimate before scheduling service?', answer: 'Of course. We give free estimates with no strings attached.' },
   { question: 'Do you work with general contractors on construction projects?', answer: 'Yes, we work alongside builders, architects, and general contractors all the time.' },
-  { question: 'What areas besides Spirit Lake do you serve?', answer: 'We cover Spirit Lake and 15 other communities across northern Idaho and eastern Washington.' },
+  { question: 'What areas besides Spirit Lake do you serve?', answer: 'We cover Spirit Lake and 14 other communities across northern Idaho and eastern Washington.' },
 ]
 
 

@@ -1,35 +1,36 @@
 import SectionLabel from '@/components/ui/SectionLabel'
 import { StaggerChildren } from '@/components/animations'
 import { Check } from 'lucide-react'
-
-const reasons = [
-  {
-    title: '38+ Years in the Trade',
-    description: 'We work on-site alongside the crew every day, not behind a desk.',
-  },
-  {
-    title: 'Licensed & Insured',
-    description: 'Fully licensed, bonded, and insured. Every job meets Idaho code and passes inspection.',
-  },
-  {
-    title: 'Radiant Heating Pros',
-    description: 'We specialize in in-floor radiant heat. Boilers, zone controls, retrofits. We design and build it all.',
-  },
-  {
-    title: 'Same-Day Service',
-    description: 'Need help during business hours (Sun–Fri 7am–5pm)? We respond fast. Most emergencies get a truck within the hour.',
-  },
-  {
-    title: 'Full-Service Shop',
-    description: 'New construction, kitchen remodels, bathroom remodels. We do it all in-house. No subs.',
-  },
-  {
-    title: 'Owner-Operated',
-    description: 'When you call, you talk to one of us. No dispatchers, no voicemail loops. Just real people.',
-  },
-]
+import { yearsInTradeTitle } from '@/lib/company-stats'
 
 export default function WhyChooseUs() {
+  const reasons = [
+    {
+      title: yearsInTradeTitle(),
+      description: 'We work on-site alongside the crew every day, not behind a desk.',
+    },
+    {
+      title: 'Licensed & Insured',
+      description: 'Fully licensed, bonded, and insured. Every job meets Idaho code and passes inspection.',
+    },
+    {
+      title: 'Radiant Heating Pros',
+      description: 'We specialize in in-floor radiant heat. Boilers, zone controls, retrofits. We design and build it all.',
+    },
+    {
+      title: 'Same-Day Service',
+      description: 'Need help during business hours (Sun–Fri 7am–5pm)? We respond fast. Most emergencies get a truck within the hour.',
+    },
+    {
+      title: 'Full-Service Shop',
+      description: 'New construction, kitchen remodels, bathroom remodels. We do it all in-house. No subs.',
+    },
+    {
+      title: 'Owner-Operated',
+      description: 'When you call, you talk to one of us. No dispatchers, no voicemail loops. Just real people.',
+    },
+  ]
+
   return (
     <section className="section-padding bg-gray-50 relative overflow-hidden mesh-bg-light">
       <div className="container-page relative z-10">

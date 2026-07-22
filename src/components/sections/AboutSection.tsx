@@ -6,6 +6,11 @@ import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { AnimatedCounter } from '@/components/animations'
 import { Shield, CheckCircle, Heart, MapPin } from 'lucide-react'
+import {
+  getJobsCompleted,
+  getYearsOfExperience,
+  yearsExperienceLabel,
+} from '@/lib/company-stats'
 
 const values = [
   { icon: Shield, title: 'Licensed & Insured', description: 'Licensed, insured, and bonded. Every job, every time.' },
@@ -15,11 +20,14 @@ const values = [
 ]
 
 export default function AboutSection() {
+  const years = getYearsOfExperience()
+  const jobs = getJobsCompleted()
+
   return (
     <section className="section-padding bg-white relative overflow-hidden mesh-bg-warm">
       <div className="container-page">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative order-2 lg:order-1">
+          <div className="relative order-2 lg:order-1 mx-1 sm:mx-0">
             <div className="image-frame">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-premium-xl">
                 <ResponsiveImage
@@ -32,8 +40,8 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
               </div>
             </div>
-            <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl border border-blue-light/20 bg-white p-4 sm:p-5 shadow-premium-xl">
-              <p className="font-display text-3xl sm:text-4xl font-black text-blue-light">38+</p>
+            <div className="absolute bottom-3 left-3 sm:-bottom-6 sm:-left-6 rounded-2xl border border-blue-light/20 bg-white p-3.5 sm:p-5 shadow-premium-xl">
+              <p className="font-display text-3xl sm:text-4xl font-black text-blue-light">{yearsExperienceLabel()}</p>
               <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mt-0.5">Years Exp.</p>
             </div>
           </div>
@@ -46,18 +54,19 @@ export default function AboutSection() {
             </h2>
             <div className="mt-6 space-y-4 text-gray-600 leading-relaxed text-[15px] sm:text-base">
               <p>
-                Preferred Plumbing Solutions is owned by Ron and his son Hunter. Together they have 38+ years
-                of combined plumbing experience doing new construction, residential and commercial plumbing, remodels, and radiant heating.
+                Preferred Plumbing Solutions is a father-son shop run by Ron and Hunter Norris out of Spirit Lake.
+                You get owners on the tools for new construction, radiant heat, remodels, and the repairs that
+                cannot wait until next week.
               </p>
               <p>
-                Ron started this business with a simple goal: do good work for a fair price. That hasn&apos;t changed.
-                We still answer our own phone, show up on time, and build things to last.
+                No call center. No handoff to a stranger. We answer the phone, show up when we say we will,
+                and build systems meant to survive North Idaho winters.
               </p>
             </div>
             <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
               {[
-                { end: 38, suffix: '+', label: 'Years Experience' },
-                { end: 500, suffix: '+', label: 'Projects Done' },
+                { end: years, suffix: '+', label: 'Years Experience' },
+                { end: jobs, suffix: '+', label: 'Projects Done' },
                 { end: 16, suffix: '', label: 'Cities Served' },
                 { end: 100, suffix: '%', label: 'Owner-Operated' },
               ].map((stat) => (

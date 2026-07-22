@@ -23,6 +23,7 @@ import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import { yearsExperienceLabel } from '@/lib/company-stats'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -53,7 +54,7 @@ export function generateMetadata({ params }: Props): Metadata {
     title: meta?.title || service.title,
     description:
       meta?.description ||
-      `${service.description} Serving Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and all of North Idaho. Call 208-290-3889 for a free estimate.`,
+      `${service.description} Serving North Idaho. Free estimate: 208-290-3889.`,
     slug: `services/${params.slug}`,
     canonical: `${siteUrl}/services/${params.slug}`,
   })
@@ -113,7 +114,7 @@ export default function ServicePage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
         <div className="relative z-10 container-page">
-          <span className="section-label text-blue-300 before:bg-blue-300">{'Our Services'}</span>
+          <span className="section-label !text-blue-300 before:!from-blue-300 before:!to-blue-200">{'Our Services'}</span>
           <h1 className="mt-3 font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-white">
             {meta.h1}
           </h1>
@@ -121,7 +122,7 @@ export default function ServicePage({ params }: Props) {
             {service.description}
           </p>
           <p className="mt-3 text-xs sm:text-sm font-medium tracking-wide text-blue-200/90">
-            Licensed &amp; insured · 38+ years experience · Free estimates
+            Licensed &amp; insured · {yearsExperienceLabel()} years experience · Free estimates
           </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
             <a href={PHONE_HREF} className="btn-primary-lg">
@@ -139,8 +140,8 @@ export default function ServicePage({ params }: Props) {
           {/* ── INTRO ── */}
           <section className="section-padding bg-white">
             <div className="container-page">
-              <div className="grid gap-10 lg:grid-cols-3">
-                <div className="lg:col-span-2 space-y-6">
+              <div className="grid gap-8 lg:grid-cols-3 lg:gap-10">
+                <div className="order-2 lg:order-1 lg:col-span-2 space-y-6">
                   <span className="section-label">{'About This Service'}</span>
                   <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
                     {rich.introHeading}
@@ -149,14 +150,14 @@ export default function ServicePage({ params }: Props) {
                     <p key={i} className="text-gray-600 leading-relaxed text-base sm:text-lg">{p}</p>
                   ))}
                 </div>
-                <div>
+                <div className="order-1 lg:order-2">
                   <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium-md">
                     <h3 className="font-display text-lg font-bold uppercase text-gray-900">Get a Free Quote</h3>
                     <p className="mt-2 text-sm text-gray-500">
                       Tell us about your project and we&apos;ll get back to you within 24 hours.
                     </p>
                     <div className="mt-4">
-                      <ContactForm />
+                      <ContactForm formLocation={`service_${service.slug}`} />
                     </div>
                   </div>
                 </div>
@@ -368,7 +369,7 @@ export default function ServicePage({ params }: Props) {
                 <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium-md">
                   <h3 className="font-display text-lg font-bold uppercase text-gray-900">Get a Free Quote</h3>
                   <p className="mt-2 text-sm text-gray-500">Tell us about your project and we&apos;ll get back to you within 24 hours.</p>
-                  <div className="mt-4"><ContactForm /></div>
+                  <div className="mt-4"><ContactForm formLocation={`service_${service.slug}`} /></div>
                 </div>
               </div>
             </div>

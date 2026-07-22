@@ -21,8 +21,10 @@ const featuredSlugs = [
 const gridSlugs = [
   'modern-bathroom-fixtures',
   'new-construction-rough-in',
+  'waste-vent-rough-in',
   'under-slab-plumbing',
   'well-pump-system',
+  'water-tank-installation',
   'septic-drain-field',
   'new-construction-gas-rough-in',
   'commercial-plumbing-project',
@@ -83,21 +85,23 @@ export default function WorkGallery() {
               {project.description}
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {featuredProjects.map((p, i) => (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setActiveIndex(i)}
-                  className={`rounded-full px-4 py-2 text-xs font-bold transition-all duration-300 ${
-                    i === activeIndex
-                      ? 'bg-blue text-white shadow-premium-md'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {p.title}
-                </button>
-              ))}
+            <div className="mt-6 -mx-6 px-6 sm:mx-0 sm:px-0 overflow-x-auto scrollbar-none">
+              <div className="flex w-max gap-2 sm:w-auto sm:flex-wrap">
+                {featuredProjects.map((p, i) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => setActiveIndex(i)}
+                    className={`shrink-0 rounded-full px-4 py-2.5 text-xs font-bold transition-all duration-300 touch-target ${
+                      i === activeIndex
+                        ? 'bg-blue text-white shadow-premium-md'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {p.title}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

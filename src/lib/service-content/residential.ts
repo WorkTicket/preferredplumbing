@@ -1,4 +1,5 @@
 import type { RichServiceContent } from '@/types'
+import { getYearsOfExperience } from '@/lib/company-stats'
 
 export const residentialServiceContent: Record<string, RichServiceContent> = {
   'water-heaters': {
@@ -290,7 +291,7 @@ export const residentialServiceContent: Record<string, RichServiceContent> = {
       },
     ],
     benefitsHeading: 'Why Contractors Work With Us',
-    closingHeading: 'Kitchen Remodel Plumbing Backed by 38 Years',
+    closingHeading: `Kitchen Remodel Plumbing Backed by ${getYearsOfExperience()} Years`,
     closingParagraphs: [
       'A kitchen remodel changes how you use the house every day. We build each plumbing plan around how you cook and live, not a catalog page.',
       'From the first consult to final walkthrough, we aim for a kitchen you enjoy using. Let\'s talk about your project.',
