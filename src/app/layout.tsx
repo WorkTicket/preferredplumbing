@@ -7,11 +7,8 @@ import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
 import FloatingActionButton from '@/components/layout/FloatingActionButton'
 import AnalyticsTracker from '@/components/layout/AnalyticsTracker'
+import CookieConsentBanner from '@/components/layout/CookieConsentBanner'
 import { defaultDescription, defaultTitle, siteName, siteUrl } from '@/lib/seo'
-
-/** Public measurement ID — fallback so builds never ship without the tag if the env secret is missing. */
-const GA_MEASUREMENT_ID = 'G-13HBCP9RZB'
-const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim() || GA_MEASUREMENT_ID
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -111,21 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} ${dmSerif.variable}`}>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-
-  gtag('config', '${gaId}');
-`,
-          }}
-        />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* GA4 loads only after cookie consent — see loadGoogleAnalytics() */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
@@ -159,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MobileCtaBar />
         <FloatingActionButton />
         <AnalyticsTracker />
+        <CookieConsentBanner />
       </body>
     </html>
   )

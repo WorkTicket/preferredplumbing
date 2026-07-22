@@ -202,6 +202,7 @@ export default function Footer() {
               <li><Link href="/areas-we-serve" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Service Areas</span></Link></li>
               <li><Link href="/contact" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Contact Us</span></Link></li>
               <li><Link href="/privacy-policy" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Privacy Policy</span></Link></li>
+              <li><Link href="/terms-and-conditions" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Terms &amp; Conditions</span></Link></li>
             </ul>
           </div>
         </div>
@@ -209,6 +210,15 @@ export default function Footer() {
         <div className="mt-12 sm:mt-16 border-t border-white/10 pt-8 text-center">
           <p className="text-xs sm:text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved. | Licensed & Insured in Idaho &amp; Washington | Family-Owned &amp; Operated
+          </p>
+          <p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-gray-600">
+            <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/terms-and-conditions" className="hover:text-gray-400 transition-colors">
+              Terms &amp; Conditions
+            </Link>
           </p>
           <p className="mt-2 text-xs text-gray-600">
             Spirit Lake, ID 83869 | Emergency Service · {BUSINESS_HOURS.short}
