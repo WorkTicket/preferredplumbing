@@ -34,7 +34,7 @@ export function clampAtWord(text: string, max: number): string {
   const slice = trimmed.slice(0, max)
   const lastSpace = slice.lastIndexOf(' ')
   const cut = lastSpace > Math.floor(max * 0.6) ? slice.slice(0, lastSpace) : slice
-  return cut.replace(/[|,\s.;:–—-]+$/u, '').trim()
+  return cut.replace(/[|,\s.;:\-–—]+$/g, '').trim()
 }
 
 export function normalizeDescription(description: string): string {
