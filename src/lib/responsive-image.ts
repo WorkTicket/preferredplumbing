@@ -8,7 +8,7 @@ export type ImageFormat = (typeof FORMATS)[number]
 const KNOWN_DIMENSIONS: Record<string, { width: number; height: number }> = {
   '/images/preferred-plumbing-truck-interior.webp': { width: 2560, height: 1440 },
   '/images/preferred-plumbing-hero-poster.webp': { width: 2560, height: 1440 },
-  '/images/preferred logo.webp': { width: 512, height: 512 },
+  '/images/preferred-logo.webp': { width: 512, height: 512 },
 }
 
 export function normalizeImageSrc(src: string): string {
@@ -23,7 +23,9 @@ export function imagePathBase(src: string): string {
 
 function variantUrl(src: string, format: ImageFormat, width: number): string {
   const base = imagePathBase(src)
-  return `/images/generated/${base}-${width}.${format}`
+  // Encode path segments so spaces (or other reserved chars) never break srcset parsers.
+  const encodedBase = encodeURIComponent(base)
+  return `/images/generated/${encodedBase}-${width}.${format}`
 }
 
 export function buildSrcset(src: string, format: ImageFormat): string {

@@ -7,24 +7,25 @@ import { getNavServices } from '@/lib/nav-services'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import { yearsExperienceBadge } from '@/lib/company-stats'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Services Spirit Lake Idaho | Full-Service Plumber',
-  description: 'Full-service plumbing contractor in Spirit Lake, Idaho. New construction, radiant heat, heated driveways, tankless water heaters, sewer lines, septic systems, and emergency service. Call 208-290-3889.',
+  title: 'Plumbing Services Spirit Lake ID',
+  description:
+    'Full-service plumber in Spirit Lake: new construction, radiant heat, water heaters, sewer lines, and emergency service. Call 208-290-3889.',
   slug: 'services',
   canonical: `${siteUrl}/services`,
 })
 
-const trustSignals = [
-  { icon: Shield, label: 'Licensed & Insured' },
-  { icon: Star, label: 'Free Estimates' },
-  { icon: Clock, label: 'Emergency Service' },
-  { icon: HardHat, label: '38+ Years Experience' },
-]
-
 export default function ServicesPage() {
   const orderedServices = getNavServices()
   const listServices = orderedServices.length ? orderedServices : services
+  const trustSignals = [
+    { icon: Shield, label: 'Licensed & Insured' },
+    { icon: Star, label: 'Free Estimates' },
+    { icon: Clock, label: 'Emergency Service' },
+    { icon: HardHat, label: yearsExperienceBadge() },
+  ]
   const schemas = [
     {
       '@context': 'https://schema.org',

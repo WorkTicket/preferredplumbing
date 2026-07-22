@@ -11,8 +11,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Frequently Asked Questions',
-  description: 'Plumbing FAQs for Spirit Lake and North Idaho. General questions plus answers for every service: emergency, new construction, radiant heat, water heaters, remodels, and more.',
+  title: 'Plumbing FAQs Spirit Lake ID',
+  description:
+    'Plumbing FAQs for Spirit Lake and North Idaho covering emergency service, radiant heat, water heaters, remodels, and more. Call 208-290-3889.',
   slug: 'faqs',
   canonical: `${siteUrl}/faqs`,
 })

@@ -20,9 +20,19 @@ function withHtmlCacheHeaders(response: NextResponse): NextResponse {
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') ?? ''
   const hostname = host.split(':')[0]?.toLowerCase() ?? ''
+  const proto = (
+    request.headers.get('x-forwarded-proto') ||
+    request.nextUrl.protocol.replace(':', '') ||
+    'https'
+  ).toLowerCase()
 
-  // Canonical host: apex → www
-  if (hostname === 'callpreferredplumbing.com') {
+  // Canonical host safety net (edge Single Redirect is primary — see redirects/README.md).
+  // Combine host + scheme in one 301 so we never chain http→https then apex→www here.
+  const needsWww =
+    hostname === 'callpreferredplumbing.com' ||
+    (hostname === 'www.callpreferredplumbing.com' && proto === 'http')
+
+  if (needsWww) {
     const url = request.nextUrl.clone()
     url.protocol = 'https:'
     url.hostname = 'www.callpreferredplumbing.com'

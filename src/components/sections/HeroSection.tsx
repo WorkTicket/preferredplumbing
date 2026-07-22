@@ -7,15 +7,18 @@ import Link from 'next/link'
 import { Phone, ChevronRight, Star } from 'lucide-react'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
+import { jobsCompletedLabel, yearsExperienceLabel } from '@/lib/company-stats'
 
-const stats = [
-  { number: '38+', suffix: '', label: 'Years Experience' },
-  ...(SHOW_GOOGLE_REVIEWS
-    ? [{ number: '5★', suffix: '', label: 'Google Rating' }]
-    : [{ number: 'Licensed', suffix: '', label: '& Insured' }]),
-  { number: '7–5', suffix: '', label: 'Sun–Fri Hours' },
-  { number: '500+', suffix: '', label: 'Jobs Completed' },
-]
+function getHeroStats() {
+  return [
+    { number: yearsExperienceLabel(), suffix: '', label: 'Years Experience' },
+    ...(SHOW_GOOGLE_REVIEWS
+      ? [{ number: '5★', suffix: '', label: 'Google Rating' }]
+      : [{ number: 'Licensed', suffix: '', label: '& Insured' }]),
+    { number: '7–5', suffix: '', label: 'Sun–Fri Hours' },
+    { number: jobsCompletedLabel(), suffix: '', label: 'Jobs Completed' },
+  ]
+}
 
 const trustBadges = [
   'Family-Owned',
@@ -73,6 +76,7 @@ export default function HeroSection() {
   const [scrolled, setScrolled] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
   const [showVideo, setShowVideo] = useState(false)
+  const stats = getHeroStats()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -83,14 +87,45 @@ export default function HeroSection() {
   useEffect(() => {
     if (!shouldLoadHeroVideo()) return
 
-    const enableVideo = () => setShowVideo(true)
-    if (typeof window.requestIdleCallback === 'function') {
-      const id = window.requestIdleCallback(enableVideo, { timeout: 4000 })
-      return () => window.cancelIdleCallback(id)
+    let cancelled = false
+    let idleId = 0
+    let timer = 0
+
+    const enableVideo = () => {
+      if (!cancelled) setShowVideo(true)
     }
 
-    const timer = setTimeout(enableVideo, 3000)
-    return () => clearTimeout(timer)
+    const teardown = () => {
+      window.removeEventListener('scroll', onIntent)
+      window.removeEventListener('touchstart', onIntent)
+      window.removeEventListener('pointerdown', onIntent)
+      if (idleId && typeof window.cancelIdleCallback === 'function') {
+        window.cancelIdleCallback(idleId)
+      }
+      if (timer) window.clearTimeout(timer)
+    }
+
+    // Best practice for LCP: wait for user intent first so the poster stays LCP,
+    // then fall back to idle so desktop still gets motion without competing for bandwidth.
+    function onIntent() {
+      enableVideo()
+      teardown()
+    }
+
+    window.addEventListener('scroll', onIntent, { once: true, passive: true })
+    window.addEventListener('touchstart', onIntent, { once: true, passive: true })
+    window.addEventListener('pointerdown', onIntent, { once: true })
+
+    if (typeof window.requestIdleCallback === 'function') {
+      idleId = window.requestIdleCallback(enableVideo, { timeout: 8000 })
+    } else {
+      timer = window.setTimeout(enableVideo, 6000)
+    }
+
+    return () => {
+      cancelled = true
+      teardown()
+    }
   }, [])
 
   const waveTopPos = scrolled

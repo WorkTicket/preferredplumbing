@@ -248,9 +248,9 @@
       }
     }
   },
-  "/images/preferred logo.webp": {
-    "originalPath": "/images/preferred logo.webp",
-    "altBase": "preferred logo",
+  "/images/preferred-logo.webp": {
+    "originalPath": "/images/preferred-logo.webp",
+    "altBase": "preferred-logo",
     "width": 1536,
     "height": 1024,
     "aspectRatio": 1.5,
@@ -258,28 +258,28 @@
     "blurPlaceholder": "data:image/webp;base64,UklGRi4BAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSLIAAAAJT8KgbSRHn+z1zh/vg4iI/OQnUMIwC6A07RLWXqIkI+qoaIpGzSXb0mOGlQSSgcPYtk1nx7btz9jGZ9J/S5n7W4jov9q2bRgB2px6BgAApZcHAAiGt3o1mEU/d8oGqWj45UNItrzkk6CryiElzn7G00xKNCs8qimi9kii4XAd/HCtpsQ7bbeucKxbErfOpWCtJ+3YWcIzxlamtRpu7mLhbprt9yKmFvCrfbFSy8+/f/0AVlA4IFYAAACwAwCdASoUAA0APzmGuVOvKSWisAgB4CcJbGkfRhYh+5FgALb6AAD+0YVzywIGxTuXR5apabw9fvzYO/UZY2Vt8HZyeRgC79Pot/WjkZ0NeUnqKmQAAA==",
     "variants": {
       "avif": {
-        "480": "/images/generated/preferred logo-480.avif",
-        "640": "/images/generated/preferred logo-640.avif",
-        "768": "/images/generated/preferred logo-768.avif",
-        "1024": "/images/generated/preferred logo-1024.avif",
-        "1280": "/images/generated/preferred logo-1280.avif",
-        "1536": "/images/generated/preferred logo-1536.avif"
+        "480": "/images/generated/preferred-logo-480.avif",
+        "640": "/images/generated/preferred-logo-640.avif",
+        "768": "/images/generated/preferred-logo-768.avif",
+        "1024": "/images/generated/preferred-logo-1024.avif",
+        "1280": "/images/generated/preferred-logo-1280.avif",
+        "1536": "/images/generated/preferred-logo-1536.avif"
       },
       "webp": {
-        "480": "/images/generated/preferred logo-480.webp",
-        "640": "/images/generated/preferred logo-640.webp",
-        "768": "/images/generated/preferred logo-768.webp",
-        "1024": "/images/generated/preferred logo-1024.webp",
-        "1280": "/images/generated/preferred logo-1280.webp",
-        "1536": "/images/generated/preferred logo-1536.webp"
+        "480": "/images/generated/preferred-logo-480.webp",
+        "640": "/images/generated/preferred-logo-640.webp",
+        "768": "/images/generated/preferred-logo-768.webp",
+        "1024": "/images/generated/preferred-logo-1024.webp",
+        "1280": "/images/generated/preferred-logo-1280.webp",
+        "1536": "/images/generated/preferred-logo-1536.webp"
       },
       "jpeg": {
-        "480": "/images/generated/preferred logo-480.jpeg",
-        "640": "/images/generated/preferred logo-640.jpeg",
-        "768": "/images/generated/preferred logo-768.jpeg",
-        "1024": "/images/generated/preferred logo-1024.jpeg",
-        "1280": "/images/generated/preferred logo-1280.jpeg",
-        "1536": "/images/generated/preferred logo-1536.jpeg"
+        "480": "/images/generated/preferred-logo-480.jpeg",
+        "640": "/images/generated/preferred-logo-640.jpeg",
+        "768": "/images/generated/preferred-logo-768.jpeg",
+        "1024": "/images/generated/preferred-logo-1024.jpeg",
+        "1280": "/images/generated/preferred-logo-1280.jpeg",
+        "1536": "/images/generated/preferred-logo-1536.jpeg"
       }
     }
   },

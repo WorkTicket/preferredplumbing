@@ -9,6 +9,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { PHONE_DISPLAY, PHONE_HREF, PHONE_E164 } from '@/lib/utils'
+import { yearsExperienceBadge, yearsExperienceLabel } from '@/lib/company-stats'
 
 function regionLabel(slug: string, state: string): string {
   if (state === 'WA') {
@@ -63,8 +64,8 @@ export function generateMetadata({ params }: Props): Metadata {
   const area = areas.find((a) => a.slug === params.city)
   if (!area) return {}
   return genMeta({
-    title: `Plumber in ${area.fullName}`,
-    description: `${area.description} Licensed & insured. Emergency service Sun–Fri 7am–5pm. Call Preferred Plumbing Solutions at 208-290-3889.`,
+    title: `Plumber in ${area.city}, ${area.state}`,
+    description: `Licensed plumber serving ${area.fullName}. Free estimates and emergency service Sun–Fri 7am–5pm. Call 208-290-3889.`,
     slug: `areas/${params.city}`,
     canonical: `${siteUrl}/areas/${params.city}`,
   })
@@ -82,7 +83,7 @@ export default function CityPage({ params }: Props) {
     '@type': 'Plumber',
     name: `Preferred Plumbing Solutions - ${area.fullName}`,
     url: `${siteUrl}/areas/${area.slug}`,
-    description: `Local plumber serving ${area.fullName}. 38+ years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
+    description: `Local plumber serving ${area.fullName}. ${yearsExperienceLabel()} years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
     telephone: PHONE_E164,
     areaServed: {
       '@type': 'City',
@@ -109,7 +110,7 @@ export default function CityPage({ params }: Props) {
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    award: '38+ Years Experience',
+    award: yearsExperienceBadge(),
   }
 
   return (

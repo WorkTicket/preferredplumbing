@@ -8,22 +8,30 @@ import { personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import PageHero from '@/components/sections/PageHero'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import {
+  combinedExperiencePhrase,
+  getYearsOfExperience,
+  jobsCompletedLabel,
+  yearsExperienceLabel,
+} from '@/lib/company-stats'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'About Us',
-  description: 'Meet Ron & Hunter of Preferred Plumbing Solutions. Family-owned plumbers with 38+ years of combined experience serving Spirit Lake and North Idaho. Licensed, insured, free estimates.',
+  title: 'About Preferred Plumbing',
+  description:
+    'Meet Ron & Hunter of Preferred Plumbing Solutions. Family-owned plumbers serving Spirit Lake and North Idaho. Licensed, insured, free estimates.',
   slug: 'about',
   canonical: `${siteUrl}/about`,
 })
 
-const trustStats = [
-  { icon: HardHat, number: '38+', label: 'Years Experience', sub: 'Ron & Hunter combined' },
-  { icon: CheckCircle, number: '500+', label: 'Projects Completed', sub: 'Across North Idaho' },
-  { icon: Star, number: 'Free', label: 'Estimates', sub: 'No obligation' },
-  { icon: Shield, number: 'Licensed', label: '& Insured', sub: 'ID & WA' },
-]
-
 export default function AboutPage() {
+  const years = getYearsOfExperience()
+  const trustStats = [
+    { icon: HardHat, number: yearsExperienceLabel(), label: 'Years Experience', sub: 'Ron & Hunter combined' },
+    { icon: CheckCircle, number: jobsCompletedLabel(), label: 'Projects Completed', sub: 'Across North Idaho' },
+    { icon: Star, number: 'Free', label: 'Estimates', sub: 'No obligation' },
+    { icon: Shield, number: 'Licensed', label: '& Insured', sub: 'ID & WA' },
+  ]
+
   return (
     <div className="pt-14 sm:pt-16">
       <script
@@ -33,7 +41,7 @@ export default function AboutPage() {
             '@context': 'https://schema.org',
             '@type': 'AboutPage',
             name: 'About Preferred Plumbing Solutions',
-            description: 'Family-owned plumbing company with 38+ years of combined experience serving Spirit Lake and North Idaho.',
+            description: `Family-owned plumbing company with ${combinedExperiencePhrase()} serving Spirit Lake and North Idaho.`,
             url: `${siteUrl}/about`,
             founder: { '@type': 'Person', name: 'Ron Norris' },
           }),
@@ -100,7 +108,7 @@ export default function AboutPage() {
             </div>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Between them, Ron and Hunter have more than 38 years in the trade. The company started with
+                Between them, Ron and Hunter have more than {years} years in the trade. The company started with
                 Ron taking jobs one at a time in Spirit Lake. Today the same family crew works across North
                 Idaho and into eastern Washington.
               </p>

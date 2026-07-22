@@ -7,6 +7,7 @@ import { faqSchema, webpageSchema, reviewSchema } from '@/lib/schema'
 import { faqItems, reviews } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
+import { combinedExperiencePhrase } from '@/lib/company-stats'
 
 const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'))
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'))
@@ -22,7 +23,8 @@ const FindUsSection = dynamic(() => import('@/components/sections/FindUsSection'
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'))
 
 export const metadata: Metadata = genMeta({
-  description: 'Family-owned plumber in Spirit Lake with 38+ years of combined experience. Radiant heat, new construction, water heaters, emergency service. Licensed & insured. Call 208-290-3889.',
+  description:
+    'Family-owned plumber in Spirit Lake with 38+ years experience. Radiant heat, water heaters, emergency service. Licensed and insured. Call 208-290-3889.',
   slug: '',
 })
 
@@ -38,7 +40,7 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', 'Family-owned plumber in Spirit Lake with 38+ years of combined experience', '')),
+          __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}`, '')),
         }}
       />
       {SHOW_GOOGLE_REVIEWS && (

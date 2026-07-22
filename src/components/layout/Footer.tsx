@@ -6,25 +6,28 @@ import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import FooterSignature from '@/components/FooterSignature'
 import { getNavServiceGroups, SERVICE_NAV_LABELS } from '@/lib/nav-services'
-
-const trustStats = [
-  { value: '38+', label: 'Years Experience' },
-  { value: '500+', label: 'Jobs Completed' },
-  { value: '16', label: 'Cities Served' },
-  ...(SHOW_GOOGLE_REVIEWS
-    ? [{ value: '5★', label: 'Google Rating' }]
-    : [{ value: 'Sun–Fri', label: '7am–5pm Hours' }]),
-]
-
-const trustBadges = [
-  { icon: Shield, text: 'Licensed & Insured' },
-  { icon: Award, text: 'Free Estimates' },
-  { icon: HardHat, text: '38+ Years Experience' },
-  { icon: Star, text: 'Family-Owned & Operated' },
-]
+import {
+  jobsCompletedLabel,
+  yearsExperienceBadge,
+  yearsExperienceLabel,
+} from '@/lib/company-stats'
 
 export default function Footer() {
   const serviceGroups = getNavServiceGroups()
+  const trustStats = [
+    { value: yearsExperienceLabel(), label: 'Years Experience' },
+    { value: jobsCompletedLabel(), label: 'Jobs Completed' },
+    { value: '16', label: 'Cities Served' },
+    ...(SHOW_GOOGLE_REVIEWS
+      ? [{ value: '5★', label: 'Google Rating' }]
+      : [{ value: 'Sun–Fri', label: '7am–5pm Hours' }]),
+  ]
+  const trustBadges = [
+    { icon: Shield, text: 'Licensed & Insured' },
+    { icon: Award, text: 'Free Estimates' },
+    { icon: HardHat, text: yearsExperienceBadge() },
+    { icon: Star, text: 'Family-Owned & Operated' },
+  ]
 
   return (
     <footer className="relative bg-navy-gradient pt-14 sm:pt-20 pb-24 sm:pb-12 md:pb-16 overflow-hidden">
@@ -60,7 +63,7 @@ export default function Footer() {
           <div className="lg:col-span-1 w-full text-center lg:text-left">
             <Link href="/" className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
               <ResponsiveImage
-                src="/images/preferred logo.webp"
+                src="/images/preferred-logo.webp"
                 alt="Preferred Plumbing Solutions - Spirit Lake, ID Plumber"
                 width={40}
                 height={40}

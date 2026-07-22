@@ -8,8 +8,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Service Areas | North Idaho & Eastern Washington',
-  description: 'Preferred Plumbing Solutions serves communities across North Idaho and Eastern Washington including Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, Hayden, and more. Call 208-290-3889.',
+  title: 'Plumbing Service Areas North Idaho',
+  description:
+    'We serve Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, Hayden, and communities across North Idaho and Eastern Washington. Call 208-290-3889.',
   slug: 'areas-we-serve',
   canonical: `${siteUrl}/areas-we-serve`,
 })

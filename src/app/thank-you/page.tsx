@@ -2,13 +2,16 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { CheckCircle, Phone, Clock } from 'lucide-react'
 import TrackPageEvent from '@/components/analytics/TrackPageEvent'
+import { generateMetadata } from '@/lib/seo'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Thank You | Preferred Plumbing Solutions' },
-  description: 'Your quote request has been submitted successfully. We will get back to you within 24 hours.',
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = generateMetadata({
+  title: 'Thank You',
+  description:
+    'Your quote request was submitted successfully. Preferred Plumbing Solutions will get back to you within 24 hours.',
+  slug: 'thank-you',
+  noIndex: true,
+})
 
 export default function ThankYouPage() {
   return (

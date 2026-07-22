@@ -38,7 +38,7 @@ const dmSerif = DM_Serif_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: `%s | ${siteName} | Spirit Lake, ID`,
+    template: `%s | Preferred Plumbing`,
     default: defaultTitle,
   },
   description: defaultDescription,
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
     images: ['/images/og-preferred-plumbing-solutions.webp'],
   },
   icons: {
-    icon: '/images/preferred logo.webp',
-    shortcut: '/images/preferred logo.webp',
-    apple: '/images/preferred logo.webp',
+    icon: '/images/preferred-logo.webp',
+    shortcut: '/images/preferred-logo.webp',
+    apple: '/images/preferred-logo.webp',
   },
   robots: {
     index: true,

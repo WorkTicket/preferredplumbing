@@ -1,23 +1,16 @@
 import type { Metadata } from 'next'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactEmailList from '@/components/ui/ContactEmailList'
-import { siteUrl } from '@/lib/seo'
+import { generateMetadata, siteUrl } from '@/lib/seo'
 import { PHONE_DISPLAY } from '@/lib/utils'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Privacy Policy | Preferred Plumbing Solutions' },
-  description: 'Privacy policy for Preferred Plumbing Solutions. Learn how we collect, use, and protect your personal information.',
-  robots: { index: true, follow: true },
-  alternates: { canonical: `${siteUrl}/privacy-policy` },
-  openGraph: {
-    title: 'Privacy Policy | Preferred Plumbing Solutions',
-    description: 'Privacy policy for Preferred Plumbing Solutions. Learn how we collect, use, and protect your personal information.',
-    url: `${siteUrl}/privacy-policy`,
-    siteName: 'Preferred Plumbing Solutions',
-    locale: 'en_US',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = generateMetadata({
+  title: 'Privacy Policy',
+  description:
+    'Privacy policy for Preferred Plumbing Solutions. How we collect, use, and protect your personal information when you contact us.',
+  slug: 'privacy-policy',
+  canonical: `${siteUrl}/privacy-policy`,
+})
 
 export default function PrivacyPage() {
   return (

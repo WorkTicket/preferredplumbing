@@ -1,24 +1,25 @@
 import { Award, Clock, CheckCircle } from 'lucide-react'
-
-const stats = [
-  {
-    display: '38+',
-    label: 'Years of Experience',
-    icon: Award,
-  },
-  {
-    display: '7–5',
-    label: 'Sun–Fri Hours',
-    icon: Clock,
-  },
-  {
-    display: '500+',
-    label: 'Jobs Completed',
-    icon: CheckCircle,
-  },
-]
+import { jobsCompletedLabel, yearsExperienceLabel } from '@/lib/company-stats'
 
 export default function StatisticsBanner() {
+  const stats = [
+    {
+      display: yearsExperienceLabel(),
+      label: 'Years of Experience',
+      icon: Award,
+    },
+    {
+      display: '7–5',
+      label: 'Sun–Fri Hours',
+      icon: Clock,
+    },
+    {
+      display: jobsCompletedLabel(),
+      label: 'Jobs Completed',
+      icon: CheckCircle,
+    },
+  ]
+
   return (
     <section className="bg-white border-y border-gray-100">
       <div className="container-page py-14 sm:py-16 lg:py-20">

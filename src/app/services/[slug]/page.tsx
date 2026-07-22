@@ -23,6 +23,7 @@ import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import { yearsExperienceLabel } from '@/lib/company-stats'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -53,7 +54,7 @@ export function generateMetadata({ params }: Props): Metadata {
     title: meta?.title || service.title,
     description:
       meta?.description ||
-      `${service.description} Serving Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and all of North Idaho. Call 208-290-3889 for a free estimate.`,
+      `${service.description} Serving North Idaho. Free estimate: 208-290-3889.`,
     slug: `services/${params.slug}`,
     canonical: `${siteUrl}/services/${params.slug}`,
   })
@@ -121,7 +122,7 @@ export default function ServicePage({ params }: Props) {
             {service.description}
           </p>
           <p className="mt-3 text-xs sm:text-sm font-medium tracking-wide text-blue-200/90">
-            Licensed &amp; insured · 38+ years experience · Free estimates
+            Licensed &amp; insured · {yearsExperienceLabel()} years experience · Free estimates
           </p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
             <a href={PHONE_HREF} className="btn-primary-lg">
