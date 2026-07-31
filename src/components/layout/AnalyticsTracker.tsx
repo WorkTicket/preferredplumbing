@@ -2,19 +2,26 @@
 
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
-import { trackPageView, trackPhoneCall } from '@/lib/analytics'
+import { loadGoogleAnalytics, trackPageView, trackPhoneCall } from '@/lib/analytics'
+import { hasAnalyticsConsent } from '@/lib/cookie-consent'
 
 export default function AnalyticsTracker() {
   const pathname = usePathname()
   const isFirstPath = useRef(true)
 
   useEffect(() => {
+    if (!hasAnalyticsConsent()) return
+    void loadGoogleAnalytics()
+  }, [])
+
+  useEffect(() => {
     if (!pathname) return
-    // Initial page_view is sent by the gtag('config') snippet in layout.
+    // Initial page_view is sent by gtag('config') inside loadGoogleAnalytics.
     if (isFirstPath.current) {
       isFirstPath.current = false
       return
     }
+    if (!hasAnalyticsConsent()) return
     trackPageView(pathname)
   }, [pathname])
 

@@ -34,13 +34,12 @@ export default function LcpHeroImage({
 
   return (
     <picture className={cn('absolute inset-0 block h-full w-full', className)}>
-      <source srcSet={avifSrcset} sizes={sizes} type="image/avif" />
-      <source srcSet={webpSrcset} sizes={sizes} type="image/webp" />
+      {avifSrcset ? <source srcSet={avifSrcset} sizes={sizes} type="image/avif" /> : null}
+      {webpSrcset ? <source srcSet={webpSrcset} sizes={sizes} type="image/webp" /> : null}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={getVariantUrl(src, 'webp', 480)}
-        srcSet={webpSrcset}
-        sizes={sizes}
+        {...(webpSrcset ? { srcSet: webpSrcset, sizes } : {})}
         alt={alt}
         width={dimensions?.width ?? 1920}
         height={dimensions?.height ?? 1440}

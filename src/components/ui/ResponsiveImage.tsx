@@ -72,6 +72,7 @@ export default function ResponsiveImage({
     <picture className={fill ? 'absolute inset-0 block h-full w-full' : undefined}>
       {FORMATS.map((format) => {
         const srcset = buildSrcset(src, format)
+        if (!srcset) return null
         const type = format === 'jpeg' ? 'image/jpeg' : `image/${format}`
         return <source key={format} srcSet={srcset} sizes={sizes} type={type} />
       })}

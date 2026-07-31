@@ -47,6 +47,28 @@ describe('POST /api/contact', () => {
     })
   })
 
+  it('returns 400 when phone has fewer than 10 digits even if long enough with dashes', async () => {
+    const res = await POST(
+      jsonRequest({ ...validPayload, phone: '123-456-789' }),
+    )
+    expect(res.status).toBe(400)
+    await expect(res.json()).resolves.toEqual({
+      success: false,
+      error: 'Please enter a valid phone number.',
+    })
+    expect(sendMock).not.toHaveBeenCalled()
+  })
+
+  it('accepts formatted phones that contain 10 digits', async () => {
+    sendMock.mockResolvedValue(undefined)
+    const res = await POST(
+      jsonRequest({ ...validPayload, phone: '(208) 555-0123' }),
+    )
+    expect(res.status).toBe(200)
+    await expect(res.json()).resolves.toEqual({ success: true })
+    expect(sendMock).toHaveBeenCalled()
+  })
+
   it('returns success for honeypot submissions without sending email', async () => {
     const res = await POST(jsonRequest({ ...validPayload, _honey: 'bot' }))
     expect(res.status).toBe(200)

@@ -4,6 +4,7 @@ import {
   buildEmailText,
   DEFAULT_CONTACT_FROM_EMAIL,
   getRecipientEmails,
+  isValidContactPhone,
   type ContactLead,
 } from '@/lib/contact-email'
 
@@ -22,10 +23,6 @@ type ContactEnv = {
   EMAIL?: EmailBinding
   CONTACT_TO_EMAIL?: string
   CONTACT_FROM_EMAIL?: string
-}
-
-function normalizePhone(phone: string) {
-  return phone.replace(/\D/g, '')
 }
 
 function validatePayload(body: unknown):
@@ -54,7 +51,7 @@ function validatePayload(body: unknown):
     return { ok: false, message: 'Please enter your full name.' }
   }
 
-  if (normalizePhone(phone).length < 10) {
+  if (!isValidContactPhone(phone)) {
     return { ok: false, message: 'Please enter a valid phone number.' }
   }
 

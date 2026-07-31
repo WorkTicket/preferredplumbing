@@ -16,6 +16,16 @@ export type ContactLead = {
   referral: string
 }
 
+/** Digits only — shared by client Zod and API validation. */
+export function normalizePhone(phone: string): string {
+  return phone.replace(/\D/g, '')
+}
+
+/** Require at least 10 digits (formatting like dashes/parens is ignored). */
+export function isValidContactPhone(phone: string): boolean {
+  return normalizePhone(phone).length >= 10
+}
+
 export function getRecipientEmails(raw?: string | null): string[] {
   const source = raw?.trim() || DEFAULT_CONTACT_TO_EMAILS.join(',')
   return source

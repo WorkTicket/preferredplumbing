@@ -1,3 +1,5 @@
+import { hasAnalyticsConsent } from '@/lib/cookie-consent'
+
 type GtagEventParams = Record<string, string | number | boolean | undefined>
 
 declare global {
@@ -10,20 +12,56 @@ declare global {
 const LEAD_FLAG_KEY = 'pp_quote_lead'
 const GA_FALLBACK_ID = 'G-13HBCP9RZB'
 
-function getGaId(): string {
+let gaLoadPromise: Promise<void> | null = null
+
+export function getGaId(): string {
   return process.env.NEXT_PUBLIC_GA_ID?.trim() || GA_FALLBACK_ID
 }
 
-/** Push through the global gtag installed in app/layout.tsx (queued until gtag.js loads). */
+/** Install gtag + GA4 script only after the visitor accepts analytics cookies. */
+export function loadGoogleAnalytics(): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve()
+  if (!hasAnalyticsConsent()) return Promise.resolve()
+  if (gaLoadPromise) return gaLoadPromise
+
+  gaLoadPromise = new Promise((resolve) => {
+    const gaId = getGaId()
+    window.dataLayer = window.dataLayer || []
+    // Standard gtag bootstrap — must push `arguments`, not a rest-array.
+    window.gtag = function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments)
+    }
+    window.gtag('js', new Date())
+    window.gtag('config', gaId)
+
+    const existing = document.querySelector<HTMLScriptElement>(
+      `script[src^="https://www.googletagmanager.com/gtag/js"]`,
+    )
+    if (existing) {
+      resolve()
+      return
+    }
+
+    const script = document.createElement('script')
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`
+    script.onload = () => resolve()
+    script.onerror = () => resolve()
+    document.head.appendChild(script)
+  })
+
+  return gaLoadPromise
+}
+
+/** Push through gtag after analytics has been loaded (queued until gtag.js loads). */
 function gtag(...args: unknown[]) {
   if (typeof window === 'undefined') return
   if (typeof window.gtag === 'function') {
     window.gtag(...args)
     return
   }
-  window.dataLayer = window.dataLayer || []
-  // Mirror the standard gtag bootstrap: dataLayer.push(arguments)
-  window.dataLayer.push(args)
+  // Before loadGoogleAnalytics runs there is nothing to queue against.
 }
 
 export function trackEvent(
@@ -31,6 +69,11 @@ export function trackEvent(
   params: GtagEventParams = {},
   options?: { event_callback?: () => void; event_timeout?: number },
 ) {
+  if (!hasAnalyticsConsent()) {
+    options?.event_callback?.()
+    return
+  }
+
   const gaId = getGaId()
   const payload: GtagEventParams = { ...params, send_to: gaId }
 
@@ -54,6 +97,7 @@ export function trackEvent(
 }
 
 export function trackPageView(url: string) {
+  if (!hasAnalyticsConsent()) return
   gtag('config', getGaId(), { page_path: url })
 }
 

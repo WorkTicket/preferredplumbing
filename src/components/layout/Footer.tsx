@@ -1,4 +1,4 @@
-import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
 import { PHONE, PHONE_HREF, GBP_URL, FACEBOOK_URL, TIKTOK_URL, BUSINESS_HOURS } from '@/lib/utils'
@@ -11,6 +11,7 @@ import {
   yearsExperienceBadge,
   yearsExperienceLabel,
 } from '@/lib/company-stats'
+import { areas } from '@/lib/data'
 
 export default function Footer() {
   const serviceGroups = getNavServiceGroups()
@@ -62,13 +63,12 @@ export default function Footer() {
         <div className="grid gap-x-16 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1 w-full text-center lg:text-left">
             <Link href="/" className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
-              <ResponsiveImage
+              <Image
                 src="/images/preferred-logo.webp"
                 alt="Preferred Plumbing Solutions - Spirit Lake, ID Plumber"
                 width={40}
                 height={40}
                 className="h-10 w-auto shrink-0"
-                sizes="80px"
               />
               <div className="font-display text-sm font-bold uppercase tracking-wider text-white leading-tight text-center lg:text-left">
                 Preferred<br />Plumbing<br />Solutions
@@ -180,16 +180,21 @@ export default function Footer() {
 
           <div className="w-full text-center lg:text-left">
             <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5">Service Areas</h4>
-            <ul className="space-y-2.5">
-              <li><Link href="/areas/spirit-lake-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Spirit Lake, ID</span></Link></li>
-              <li><Link href="/areas/coeur-dalene-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Coeur d&apos;Alene, ID</span></Link></li>
-              <li><Link href="/areas/post-falls-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Post Falls, ID</span></Link></li>
-              <li><Link href="/areas/sandpoint-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Sandpoint, ID</span></Link></li>
-              <li><Link href="/areas/hayden-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Hayden, ID</span></Link></li>
-              <li><Link href="/areas/rathdrum-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Rathdrum, ID</span></Link></li>
-              <li><Link href="/areas/newport-wa" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Newport, WA</span></Link></li>
-              <li><Link href="/areas-we-serve" className="text-xs font-semibold text-blue-light hover:text-blue-light mt-1 inline-block">View All Areas &rarr;</Link></li>
+            <ul className="columns-1 sm:columns-2 lg:columns-1 gap-x-6 space-y-2.5">
+              {areas.map((area) => (
+                <li key={area.slug} className="break-inside-avoid">
+                  <Link
+                    href={`/areas/${area.slug}`}
+                    className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"
+                  >
+                    <span className="link-underline">{area.city}, {area.state}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
+            <Link href="/areas-we-serve" className="mt-4 inline-flex text-xs font-semibold text-blue-light hover:text-blue-light transition-colors duration-300">
+              View All Areas &rarr;
+            </Link>
           </div>
 
           <div className="w-full text-center lg:text-left">
@@ -202,6 +207,7 @@ export default function Footer() {
               <li><Link href="/areas-we-serve" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Service Areas</span></Link></li>
               <li><Link href="/contact" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Contact Us</span></Link></li>
               <li><Link href="/privacy-policy" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Privacy Policy</span></Link></li>
+              <li><Link href="/terms-and-conditions" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Terms &amp; Conditions</span></Link></li>
             </ul>
           </div>
         </div>
@@ -209,6 +215,15 @@ export default function Footer() {
         <div className="mt-12 sm:mt-16 border-t border-white/10 pt-8 text-center">
           <p className="text-xs sm:text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved. | Licensed & Insured in Idaho &amp; Washington | Family-Owned &amp; Operated
+          </p>
+          <p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-gray-600">
+            <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link href="/terms-and-conditions" className="hover:text-gray-400 transition-colors">
+              Terms &amp; Conditions
+            </Link>
           </p>
           <p className="mt-2 text-xs text-gray-600">
             Spirit Lake, ID 83869 | Emergency Service · {BUSINESS_HOURS.short}

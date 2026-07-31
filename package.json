@@ -18,6 +18,8 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf:sync-redirects": "node scripts/sync-cloudflare-redirects.mjs",
+    "cf:sync-bulk-redirects": "node scripts/sync-cloudflare-bulk-redirects.mjs",
+    "cf:deploy-old-domain-redirects": "wrangler deploy -c workers/old-domain-redirects/wrangler.toml",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {

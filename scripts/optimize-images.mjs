@@ -46,6 +46,9 @@ const HERO_NAMES = new Set([
   'og-preferred-plumbing-solutions',
 ])
 
+/** Upscale these past native width so historical/srcset URLs never 404. */
+const FORCE_FULL_BREAKPOINTS = new Set(['preferred-logo'])
+
 function isHeroImage(name, relPath) {
   if (HERO_NAMES.has(name)) return true
   if (name.startsWith('hero-')) return true
@@ -69,11 +72,11 @@ function getFormatConfig(isHero, isGallery, format) {
   return FORMAT_CONFIG[format]
 }
 
-function getBreakpoints(width, isHero, isGallery) {
+function getBreakpoints(width, isHero, isGallery, forceFull = false) {
   const capped = BREAKPOINTS.filter((bp) => bp <= width)
   const withOriginal = [...capped, width].filter((v, i, a) => a.indexOf(v) === i)
 
-  if (isHero) {
+  if (isHero || forceFull) {
     const heroBreakpoints = BREAKPOINTS.filter((bp) => bp <= HERO_MAX_WIDTH)
     return [...new Set([...withOriginal, ...heroBreakpoints])].sort((a, b) => a - b)
   }
@@ -101,13 +104,14 @@ async function processImage(filePath) {
   const name = parsed.name
   const hero = isHeroImage(name, relPath)
   const gallery = isGalleryImage(name, relPath)
+  const forceFull = FORCE_FULL_BREAKPOINTS.has(name)
   const sourceBuf = readFileSync(filePath)
   const input = sharp(sourceBuf).rotate()
   const meta = await input.metadata()
   const originalWidth = meta.width
   const originalHeight = meta.height
   const aspectRatio = originalWidth / originalHeight
-  const breakpoints = getBreakpoints(originalWidth, hero, gallery)
+  const breakpoints = getBreakpoints(originalWidth, hero, gallery, forceFull)
 
   const variants = {}
   const blurPlaceholder = await generateBlurPlaceholder(input)
@@ -123,7 +127,7 @@ async function processImage(filePath) {
       const filename = `${name}-${bp}.${format}`
       const outputPath = path.join(OUTPUT_DIR, filename)
 
-      const upscale = (hero || gallery) && bp > originalWidth
+      const upscale = ((hero || gallery || forceFull) && bp > originalWidth)
       let pipeline = input.clone().resize(bp, height, {
         fit: 'outside',
         withoutEnlargement: !upscale,
@@ -154,11 +158,12 @@ async function processImage(filePath) {
 
   const relImagePath = `/images/${relPath.replace(/\\/g, '/')}`
 
+  const useMaxBreakpoint = hero || gallery || forceFull
   return {
     originalPath: relImagePath,
     altBase: name,
-    width: hero || gallery ? Math.max(originalWidth, ...breakpoints) : originalWidth,
-    height: hero || gallery
+    width: useMaxBreakpoint ? Math.max(originalWidth, ...breakpoints) : originalWidth,
+    height: useMaxBreakpoint
       ? Math.round(Math.max(originalWidth, ...breakpoints) / aspectRatio)
       : originalHeight,
     aspectRatio,
@@ -174,6 +179,7 @@ function shouldProcess(relPath) {
   if (normalized.startsWith('gallery-ai/')) return false
   if (/-1920w\.(webp|jpe?g)$/i.test(normalized)) return false
   if (normalized === 'favicon.ico') return false
+  if (normalized.endsWith('/favicon.ico')) return false
   return /\.(webp|png|jpg|jpeg)$/i.test(normalized)
 }
 
@@ -203,7 +209,20 @@ async function main() {
   }
 
   writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2))
+
+  // Slim map for runtime srcset capping (avoids bundling blur placeholders).
+  const maxWidths = {}
+  for (const [imagePath, entry] of Object.entries(manifest)) {
+    const webp = entry.variants?.webp
+    if (!webp) continue
+    const widths = Object.keys(webp).map(Number).filter(Boolean)
+    if (widths.length) maxWidths[imagePath] = Math.max(...widths)
+  }
+  const maxWidthsPath = path.join(__dirname, '..', 'src', 'lib', 'image-max-widths.json')
+  writeFileSync(maxWidthsPath, JSON.stringify(maxWidths))
+
   console.log(`\nDone! ${processed} images processed. Manifest written to ${MANIFEST_PATH}`)
+  console.log(`Max-width map written to ${maxWidthsPath} (${Object.keys(maxWidths).length} entries)`)
 }
 
 main().catch(console.error)

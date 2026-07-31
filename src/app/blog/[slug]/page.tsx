@@ -3,9 +3,11 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, ArrowLeft } from 'lucide-react'
-import { generateBlogMetadata, siteUrl } from '@/lib/seo'
+import { generateBlogMetadata } from '@/lib/seo'
+import { articleSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
-import { blogPosts, getBlogPost } from '@/data/blog'
+import BlogPostCard from '@/components/ui/BlogPostCard'
+import { blogPosts, getBlogPost, getRelatedPosts } from '@/data/blog'
 import { formatDisplayDate, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 interface Props {
@@ -32,34 +34,21 @@ export default function BlogPostPage({ params }: Props) {
   const post = getBlogPost(params.slug)
   if (!post) notFound()
 
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
+  const relatedPosts = getRelatedPosts(params.slug, 3)
+  const jsonLd = articleSchema({
+    title: post.title,
     description: post.excerpt || post.content[0]?.slice(0, 160) || '',
-    image: [`${siteUrl}${post.coverImage}`],
+    slug: params.slug,
+    image: post.coverImage,
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      '@type': 'Person',
-      name: 'Ron Norris',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Preferred Plumbing Solutions',
-      url: siteUrl,
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${siteUrl}/blog/${params.slug}`,
-    },
-  }
+  })
 
   return (
     <div className="pt-14 sm:pt-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <section className="section-padding bg-white">
         <div className="container-page max-w-3xl">
@@ -111,6 +100,22 @@ export default function BlogPostPage({ params }: Props) {
           )}
         </div>
       </section>
+
+      {relatedPosts.length > 0 && (
+        <section className="section-padding bg-white border-t border-gray-100">
+          <div className="container-page max-w-5xl">
+            <SectionLabel text="Keep Reading" />
+            <h2 className="mt-3 font-display text-2xl sm:text-3xl font-black uppercase text-gray-900">
+              Related Articles
+            </h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((related) => (
+                <BlogPostCard key={related.slug} post={related} plain />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
         <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">

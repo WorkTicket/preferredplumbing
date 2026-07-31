@@ -8,11 +8,15 @@ import { useRouter } from 'next/navigation'
 import { Loader2, ChevronRight } from 'lucide-react'
 import { services } from '@/lib/data'
 import { markLeadSubmitted, trackFormSubmit } from '@/lib/analytics'
+import { isValidContactPhone } from '@/lib/contact-email'
 import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
 
 const schema = z.object({
   name: z.string().trim().min(2, 'Name is required'),
-  phone: z.string().trim().min(10, 'Valid phone number required'),
+  phone: z
+    .string()
+    .trim()
+    .refine(isValidContactPhone, 'Valid phone number required'),
   email: z.string().trim().email('Enter a valid email').optional().or(z.literal('')),
   city: z.string().trim().min(2, 'City is required'),
   service: z.string().min(1, 'Select a service'),

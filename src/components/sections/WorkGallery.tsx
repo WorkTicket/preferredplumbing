@@ -2,14 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Camera, Phone } from 'lucide-react'
+import { Camera } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import CompareSlider from '@/components/ui/CompareSlider'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { StaggerChildren } from '@/components/animations'
 import { galleryProjects } from '@/data/gallery'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
-import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 const featuredSlugs = [
   'boiler-radiant-heat',
@@ -18,28 +17,16 @@ const featuredSlugs = [
   'septic-system-installation',
 ]
 
-const gridSlugs = [
-  'modern-bathroom-fixtures',
-  'new-construction-rough-in',
-  'waste-vent-rough-in',
-  'under-slab-plumbing',
-  'well-pump-system',
-  'water-tank-installation',
-  'septic-drain-field',
-  'new-construction-gas-rough-in',
-  'commercial-plumbing-project',
-  'shower-tub-installation',
-  'boiler-mechanical-room',
-]
-
-const featuredProjects = galleryProjects.filter((p) => featuredSlugs.includes(p.slug))
-const gridProjects = galleryProjects.filter((p) => gridSlugs.includes(p.slug))
+const featuredProjects = galleryProjects.filter(
+  (p) => featuredSlugs.includes(p.slug) && p.images.length >= 2,
+)
+const previewProjects = galleryProjects.slice(0, 6)
 
 export default function WorkGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
   const project = featuredProjects[activeIndex]
 
-  if (!project || project.images.length < 2) return null
+  if (!project || previewProjects.length === 0) return null
 
   const [beforeSrc, afterSrc] = project.images
 
@@ -70,16 +57,12 @@ export default function WorkGallery() {
           </div>
 
           <div className="flex flex-col premium-card p-6 sm:p-8">
-            <span className="badge-accent w-fit">
-              {project.category}
-            </span>
+            <span className="badge-accent w-fit">{project.category}</span>
             <h3 className="mt-4 font-display text-xl sm:text-2xl font-black uppercase text-gray-900 leading-tight">
               {project.title}
             </h3>
             {project.location && (
-              <p className="mt-2 text-sm text-gray-500 font-medium">
-                {project.location}
-              </p>
+              <p className="mt-2 text-sm text-gray-500 font-medium">{project.location}</p>
             )}
             <p className="mt-4 flex-1 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
               {project.description}
@@ -111,7 +94,7 @@ export default function WorkGallery() {
           staggerDelay={0.06}
           variant="fadeUp"
         >
-          {gridProjects.map((item) => (
+          {previewProjects.map((item) => (
             <Link
               key={item.id}
               href="/gallery"
@@ -142,13 +125,10 @@ export default function WorkGallery() {
           ))}
         </StaggerChildren>
 
-        <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <Link href="/gallery" className="btn-secondary">
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <Link href="/gallery" className="btn-primary">
             View Full Gallery <Camera className="h-4 w-4" />
           </Link>
-          <a href={PHONE_HREF} className="btn-primary">
-            <Phone className="h-4 w-4" /> Call {PHONE_DISPLAY}
-          </a>
         </div>
       </div>
     </section>

@@ -40,6 +40,9 @@ module.exports = {
     } else if (path === '/gallery' || path === '/faqs') {
       priority = 0.7
       changefreq = 'monthly'
+    } else if (path === '/privacy-policy' || path === '/terms-and-conditions') {
+      priority = 0.3
+      changefreq = 'yearly'
     }
 
     return {

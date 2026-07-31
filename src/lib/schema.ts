@@ -1,19 +1,42 @@
 import { siteUrl } from './seo'
-import { CONTACT_EMAILS, FACEBOOK_URL, PHONE, PHONE_E164, TIKTOK_URL } from './utils'
+import { CONTACT_EMAILS, FACEBOOK_URL, GBP_URL, PHONE, PHONE_E164, TIKTOK_URL, ZIP } from './utils'
 import {
   combinedExperiencePhrase,
   yearsExperienceBadge,
   yearsExperienceLabel,
 } from './company-stats'
 
-const socialProfiles = [FACEBOOK_URL, TIKTOK_URL]
+const socialProfiles = [FACEBOOK_URL, TIKTOK_URL, GBP_URL]
+const primaryEmail = CONTACT_EMAILS[0]?.email
+
+/** Shared PostalAddress — service-area business (no public street). */
+function postalAddress(locality = 'Spirit Lake', region = 'ID', postalCode = ZIP) {
+  return {
+    '@type': 'PostalAddress',
+    addressLocality: locality,
+    addressRegion: region,
+    postalCode,
+    addressCountry: 'US',
+  }
+}
+
+/** Google Organization / Article publisher logo as ImageObject. */
+export function logoImageObject() {
+  return {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/preferred-logo.webp`,
+    contentUrl: `${siteUrl}/images/preferred-logo.webp`,
+    width: 1536,
+    height: 1024,
+    caption: 'Preferred Plumbing Solutions logo',
+  }
+}
 
 const contactPoints = CONTACT_EMAILS.map((contact) => ({
   '@type': 'ContactPoint',
   telephone: PHONE_E164,
   contactType: 'customer service',
   email: contact.email,
-  name: contact.name,
   availableLanguage: ['English'],
   areaServed: ['US'],
 }))
@@ -22,21 +45,23 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    logo: `${siteUrl}/images/preferred-logo.webp`,
+    logo: logoImageObject(),
+    image: logoImageObject(),
     description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service.`,
     founder: { '@type': 'Person', name: 'Ron Norris' },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Spirit Lake',
-      addressRegion: 'ID',
-      postalCode: '83869',
-      addressCountry: 'US',
+    address: postalAddress(),
+    // Organization is not a Place — nest geo under location (schema.org).
+    location: {
+      '@type': 'Place',
+      name: 'Preferred Plumbing Solutions',
+      address: postalAddress(),
+      geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     },
-    geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     telephone: PHONE_E164,
-    email: CONTACT_EMAILS.map((contact) => contact.email),
+    ...(primaryEmail ? { email: primaryEmail } : {}),
     sameAs: socialProfiles,
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake' },
@@ -53,9 +78,10 @@ export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Plumber',
+    '@id': `${siteUrl}/#localbusiness`,
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
-    logo: `${siteUrl}/images/preferred-logo.webp`,
+    logo: logoImageObject(),
     image: [
       `${siteUrl}/images/og-preferred-plumbing-solutions.webp`,
       `${siteUrl}/images/preferred-plumbing-service-truck.webp`,
@@ -63,16 +89,10 @@ export function localBusinessSchema() {
     ],
     telephone: PHONE_E164,
     priceRange: '$$',
-    email: CONTACT_EMAILS.map((contact) => contact.email),
+    ...(primaryEmail ? { email: primaryEmail } : {}),
     description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service. Call ${PHONE}.`,
     founder: { '@type': 'Person', name: 'Ron Norris' },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Spirit Lake',
-      addressRegion: 'ID',
-      postalCode: '83869',
-      addressCountry: 'US',
-    },
+    address: postalAddress(),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 47.9668,
@@ -102,6 +122,7 @@ export function localBusinessSchema() {
       { '@type': 'State', name: 'Washington' },
     ],
     sameAs: socialProfiles,
+    hasMap: GBP_URL,
     award: yearsExperienceBadge(),
     numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 10 },
     knowsAbout: [
@@ -120,22 +141,13 @@ export function localBusinessSchema() {
       'Tankless water heater installation',
       'Kitchen and bathroom remodeling',
     ],
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Preferred Plumbing Solutions',
-      url: siteUrl,
-    },
   }
 }
 
 export function postalAddressSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'PostalAddress',
-    addressLocality: 'Spirit Lake',
-    addressRegion: 'ID',
-    postalCode: '83869',
-    addressCountry: 'US',
+    ...postalAddress(),
   }
 }
 
@@ -147,14 +159,15 @@ export function contactPointSchema() {
 }
 
 export function imageObjectSchema(src: string, caption: string, name: string) {
+  const url = `${siteUrl}${src}`
   return {
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
-    contentUrl: `${siteUrl}${src}`,
+    contentUrl: url,
+    url,
     name,
     caption,
     description: caption,
-    representativeOfPage: true,
   }
 }
 
@@ -168,6 +181,7 @@ export function personSchema(name: string, jobTitle: string, description: string
     image: image ? `${siteUrl}${image}` : undefined,
     worksFor: {
       '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
@@ -189,18 +203,18 @@ export function reviewSchema(
         reviewRating: {
           '@type': 'Rating',
           ratingValue: review.rating,
-          bestRating: '5',
+          bestRating: 5,
+          worstRating: 1,
         },
         author: {
           '@type': 'Person',
           name: review.name,
-          ...(review.location ? { address: review.location } : {}),
         },
         reviewBody: review.text,
         datePublished: review.date || '2025-01-01',
-        publisher: { '@type': 'Organization', name: 'Preferred Plumbing Solutions' },
         itemReviewed: {
           '@type': 'Plumber',
+          '@id': `${siteUrl}/#localbusiness`,
           name: 'Preferred Plumbing Solutions',
           url: siteUrl,
         },
@@ -215,30 +229,31 @@ export function videoObjectSchema() {
     '@type': 'VideoObject',
     name: 'Preferred Plumbing Solutions - Spirit Lake Plumber',
     description: `Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. ${yearsExperienceLabel()} years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.`,
-    thumbnailUrl: [
-      `${siteUrl}/images/preferred-plumbing-hero-poster.webp`,
-    ],
+    thumbnailUrl: [`${siteUrl}/images/preferred-plumbing-hero-poster.webp`],
     contentUrl: `${siteUrl}/videos/preferred-plumbing-hero.mp4`,
-    uploadDate: '2024-01-01',
+    uploadDate: '2024-01-01T00:00:00-08:00',
     duration: 'PT13S',
     publisher: {
       '@type': 'Organization',
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
+      logo: logoImageObject(),
     },
   }
 }
 
 export function webpageSchema(title: string, description: string, slug: string) {
+  const path = slug ? `/${slug}` : ''
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: title,
     description,
-    url: `${siteUrl}/${slug}`,
-    publisher: { '@type': 'Organization', name: 'Preferred Plumbing Solutions' },
+    url: `${siteUrl}${path}`,
+    isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'Preferred Plumbing Solutions', url: siteUrl },
     about: {
       '@type': 'Plumber',
+      '@id': `${siteUrl}/#localbusiness`,
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
@@ -251,9 +266,12 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
     name: 'Preferred Plumbing Solutions',
     url: siteUrl,
     description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service.`,
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'en-US',
   }
 }
 
@@ -272,6 +290,7 @@ export function faqSchema(questions: { question: string; answer: string; href?: 
   }
 }
 
+/** Service markup without Offer/price — we do not publish fixed prices. */
 export function serviceSchema(serviceName: string, description: string) {
   return {
     '@context': 'https://schema.org',
@@ -280,20 +299,16 @@ export function serviceSchema(serviceName: string, description: string) {
     description,
     provider: {
       '@type': 'Plumber',
+      '@id': `${siteUrl}/#localbusiness`,
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
     areaServed: [
       { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },
       { '@type': 'State', name: 'Idaho' },
+      { '@type': 'State', name: 'Washington' },
     ],
-    offers: {
-      '@type': 'Offer',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        priceCurrency: 'USD',
-      },
-    },
+    serviceType: serviceName,
   }
 }
 
@@ -307,5 +322,41 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       name: item.name,
       item: item.url,
     })),
+  }
+}
+
+export function articleSchema(input: {
+  title: string
+  description: string
+  slug: string
+  image: string
+  datePublished: string
+  dateModified?: string
+  authorName?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: input.title,
+    description: input.description,
+    image: [`${siteUrl}${input.image}`],
+    datePublished: input.datePublished,
+    dateModified: input.dateModified || input.datePublished,
+    author: {
+      '@type': 'Person',
+      name: input.authorName || 'Ron Norris',
+      url: `${siteUrl}/about`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Preferred Plumbing Solutions',
+      url: siteUrl,
+      logo: logoImageObject(),
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/blog/${input.slug}`,
+    },
+    inLanguage: 'en-US',
   }
 }
