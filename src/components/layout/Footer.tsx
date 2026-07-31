@@ -1,4 +1,4 @@
-import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
 import { PHONE, PHONE_HREF, GBP_URL, FACEBOOK_URL, TIKTOK_URL, BUSINESS_HOURS } from '@/lib/utils'
@@ -62,13 +62,12 @@ export default function Footer() {
         <div className="grid gap-x-16 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1 w-full text-center lg:text-left">
             <Link href="/" className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
-              <ResponsiveImage
+              <Image
                 src="/images/preferred-logo.webp"
                 alt="Preferred Plumbing Solutions - Spirit Lake, ID Plumber"
                 width={40}
                 height={40}
                 className="h-10 w-auto shrink-0"
-                sizes="80px"
               />
               <div className="font-display text-sm font-bold uppercase tracking-wider text-white leading-tight text-center lg:text-left">
                 Preferred<br />Plumbing<br />Solutions

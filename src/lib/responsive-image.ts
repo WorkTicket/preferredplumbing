@@ -4,15 +4,30 @@ export const FORMATS = ['avif', 'webp', 'jpeg'] as const
 
 export type ImageFormat = (typeof FORMATS)[number]
 
-/** Common hero / OG dimensions — avoids bundling the full image manifest. */
+/** Common hero / OG dimensions — avoids bundling the full image manifest.
+ *  `width` must match the largest generated variant (see image-manifest.json)
+ *  so srcset never lists sizes the optimizer did not emit. */
 const KNOWN_DIMENSIONS: Record<string, { width: number; height: number }> = {
   '/images/preferred-plumbing-truck-interior.webp': { width: 2560, height: 1440 },
   '/images/preferred-plumbing-hero-poster.webp': { width: 2560, height: 1440 },
-  '/images/preferred-logo.webp': { width: 512, height: 512 },
+  '/images/preferred-logo.webp': { width: 1536, height: 1024 },
 }
 
 export function normalizeImageSrc(src: string): string {
   return src.split('?')[0]
+}
+
+export function getImageDimensions(src: string): { width: number; height: number } | undefined {
+  const normalized = normalizeImageSrc(src)
+  return KNOWN_DIMENSIONS[normalized]
+}
+
+/** Widths to emit in srcset — never larger than the source / generated max. */
+function getSrcsetWidths(src: string): number[] {
+  const maxWidth = getImageDimensions(src)?.width
+  if (!maxWidth) return [...BREAKPOINTS]
+  const capped = BREAKPOINTS.filter((w) => w <= maxWidth)
+  return capped.length > 0 ? capped : [maxWidth]
 }
 
 export function imagePathBase(src: string): string {
@@ -29,17 +44,14 @@ function variantUrl(src: string, format: ImageFormat, width: number): string {
 }
 
 export function buildSrcset(src: string, format: ImageFormat): string {
-  const base = imagePathBase(src)
-  return BREAKPOINTS.map((width) => `${variantUrl(src, format, width)} ${width}w`).join(', ')
-}
-
-export function getImageDimensions(src: string): { width: number; height: number } | undefined {
-  const normalized = normalizeImageSrc(src)
-  return KNOWN_DIMENSIONS[normalized]
+  return getSrcsetWidths(src)
+    .map((width) => `${variantUrl(src, format, width)} ${width}w`)
+    .join(', ')
 }
 
 export function getVariantUrl(src: string, format: ImageFormat, preferredWidth = 720): string {
-  const pick = BREAKPOINTS.find((w) => w >= preferredWidth) ?? BREAKPOINTS[BREAKPOINTS.length - 1]
+  const widths = getSrcsetWidths(src)
+  const pick = widths.find((w) => w >= preferredWidth) ?? widths[widths.length - 1]
   return variantUrl(src, format, pick)
 }
 

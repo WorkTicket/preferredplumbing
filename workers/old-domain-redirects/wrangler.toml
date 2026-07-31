@@ -1,0 +1,12 @@
+name = "preferred-plumbing-old-domain-redirects"
+main = "src/index.js"
+compatibility_date = "2025-07-20"
+account_id = "6972c532d902c84b1793316ed3497124"
+
+# Catch-all routes on the retired Duda domain.
+# IMPORTANT: Disable/delete the zone Single Redirect catch-all first,
+# otherwise Redirect Rules run before this Worker and path remaps never fire.
+routes = [
+  { pattern = "preferredplumbingsolution.com/*", zone_name = "preferredplumbingsolution.com" },
+  { pattern = "www.preferredplumbingsolution.com/*", zone_name = "preferredplumbingsolution.com" },
+]
