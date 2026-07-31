@@ -11,6 +11,7 @@ import {
   yearsExperienceBadge,
   yearsExperienceLabel,
 } from '@/lib/company-stats'
+import { areas } from '@/lib/data'
 
 export default function Footer() {
   const serviceGroups = getNavServiceGroups()
@@ -179,16 +180,21 @@ export default function Footer() {
 
           <div className="w-full text-center lg:text-left">
             <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5">Service Areas</h4>
-            <ul className="space-y-2.5">
-              <li><Link href="/areas/spirit-lake-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Spirit Lake, ID</span></Link></li>
-              <li><Link href="/areas/coeur-dalene-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Coeur d&apos;Alene, ID</span></Link></li>
-              <li><Link href="/areas/post-falls-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Post Falls, ID</span></Link></li>
-              <li><Link href="/areas/sandpoint-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Sandpoint, ID</span></Link></li>
-              <li><Link href="/areas/hayden-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Hayden, ID</span></Link></li>
-              <li><Link href="/areas/rathdrum-id" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Rathdrum, ID</span></Link></li>
-              <li><Link href="/areas/newport-wa" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Newport, WA</span></Link></li>
-              <li><Link href="/areas-we-serve" className="text-xs font-semibold text-blue-light hover:text-blue-light mt-1 inline-block">View All Areas &rarr;</Link></li>
+            <ul className="columns-1 sm:columns-2 lg:columns-1 gap-x-6 space-y-2.5">
+              {areas.map((area) => (
+                <li key={area.slug} className="break-inside-avoid">
+                  <Link
+                    href={`/areas/${area.slug}`}
+                    className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"
+                  >
+                    <span className="link-underline">{area.city}, {area.state}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
+            <Link href="/areas-we-serve" className="mt-4 inline-flex text-xs font-semibold text-blue-light hover:text-blue-light transition-colors duration-300">
+              View All Areas &rarr;
+            </Link>
           </div>
 
           <div className="w-full text-center lg:text-left">

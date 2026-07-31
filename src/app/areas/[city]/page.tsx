@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle } from 'lucide-react'
 import { areas, services } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/schema'
+import { breadcrumbSchema, logoImageObject } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { PHONE_DISPLAY, PHONE_HREF, PHONE_E164 } from '@/lib/utils'
@@ -85,10 +85,11 @@ export default function CityPage({ params }: Props) {
     url: `${siteUrl}/areas/${area.slug}`,
     description: `Local plumber serving ${area.fullName}. ${yearsExperienceLabel()} years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
     telephone: PHONE_E164,
+    image: `${siteUrl}/images/preferred-plumbing-service-truck.webp`,
+    logo: logoImageObject(),
     areaServed: {
       '@type': 'City',
       name: area.city,
-      sameAs: `https://en.wikipedia.org/wiki/${encodeURIComponent(area.city)}`,
     },
     address: {
       '@type': 'PostalAddress',
@@ -103,10 +104,16 @@ export default function CityPage({ params }: Props) {
     },
     priceRange: '$$',
     openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '17:00' },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '07:00',
+        closes: '17:00',
+      },
     ],
     parentOrganization: {
-      '@type': 'Plumber',
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },

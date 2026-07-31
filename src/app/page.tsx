@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import HeroSection from '@/components/sections/HeroSection'
 import EmergencyBand from '@/components/sections/EmergencyBand'
 import { AnimatedSection } from '@/components/animations'
-import { faqSchema, webpageSchema, reviewSchema } from '@/lib/schema'
+import { faqSchema, webpageSchema, reviewSchema, videoObjectSchema } from '@/lib/schema'
 import { faqItems, reviews } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
@@ -42,6 +42,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(webpageSchema('Preferred Plumbing Solutions', `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}`, '')),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema()) }}
       />
       {SHOW_GOOGLE_REVIEWS && (
         <script

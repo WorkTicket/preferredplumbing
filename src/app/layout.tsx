@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
-import { localBusinessSchema, websiteSchema, videoObjectSchema, organizationSchema } from '@/lib/schema'
+import { localBusinessSchema, websiteSchema, organizationSchema } from '@/lib/schema'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
@@ -73,9 +73,12 @@ export const metadata: Metadata = {
     images: ['/images/og-preferred-plumbing-solutions.webp'],
   },
   icons: {
-    icon: '/images/preferred-logo.webp',
-    shortcut: '/images/preferred-logo.webp',
-    apple: '/images/preferred-logo.webp',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/preferred-logo.webp', type: 'image/webp' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
   robots: {
     index: true,
@@ -120,10 +123,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema()) }}
         />
       </head>
       <body className="font-body antialiased">

@@ -28,10 +28,10 @@ export default function GalleryPage() {
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
     contentUrl: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
+    url: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
     name: `${project.title} - ${project.location}`,
     caption: project.description,
     description: project.description,
-    representativeOfPage: false,
   }))
 
   return (

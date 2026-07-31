@@ -1,17 +1,19 @@
+import imageMaxWidths from './image-max-widths.json'
+
 const BREAKPOINTS = [480, 640, 768, 1024, 1280, 1536, 1920, 2560] as const
 
 export const FORMATS = ['avif', 'webp', 'jpeg'] as const
 
 export type ImageFormat = (typeof FORMATS)[number]
 
-/** Common hero / OG dimensions — avoids bundling the full image manifest.
- *  `width` must match the largest generated variant (see image-manifest.json)
- *  so srcset never lists sizes the optimizer did not emit. */
+/** Fallback dimensions for LCP / OG when the max-width map has no entry. */
 const KNOWN_DIMENSIONS: Record<string, { width: number; height: number }> = {
   '/images/preferred-plumbing-truck-interior.webp': { width: 2560, height: 1440 },
   '/images/preferred-plumbing-hero-poster.webp': { width: 2560, height: 1440 },
   '/images/preferred-logo.webp': { width: 1536, height: 1024 },
 }
+
+const MAX_WIDTHS = imageMaxWidths as Record<string, number>
 
 export function normalizeImageSrc(src: string): string {
   return src.split('?')[0]
@@ -22,10 +24,16 @@ export function getImageDimensions(src: string): { width: number; height: number
   return KNOWN_DIMENSIONS[normalized]
 }
 
-/** Widths to emit in srcset — never larger than the source / generated max. */
+function getMaxGeneratedWidth(src: string): number | undefined {
+  const normalized = normalizeImageSrc(src)
+  return MAX_WIDTHS[normalized] ?? getImageDimensions(normalized)?.width
+}
+
+/** Widths to emit in srcset — never larger than generated variants.
+ *  Unknown images (not in the max-width map) get no generated srcset. */
 function getSrcsetWidths(src: string): number[] {
-  const maxWidth = getImageDimensions(src)?.width
-  if (!maxWidth) return [...BREAKPOINTS]
+  const maxWidth = getMaxGeneratedWidth(src)
+  if (!maxWidth) return []
   const capped = BREAKPOINTS.filter((w) => w <= maxWidth)
   return capped.length > 0 ? capped : [maxWidth]
 }
@@ -51,6 +59,7 @@ export function buildSrcset(src: string, format: ImageFormat): string {
 
 export function getVariantUrl(src: string, format: ImageFormat, preferredWidth = 720): string {
   const widths = getSrcsetWidths(src)
+  if (widths.length === 0) return getOriginalImageUrl(src)
   const pick = widths.find((w) => w >= preferredWidth) ?? widths[widths.length - 1]
   return variantUrl(src, format, pick)
 }

@@ -40,12 +40,14 @@ curl.exe -sI http://www.callpreferredplumbing.com/about
 # Location: https://www.callpreferredplumbing.com/about
 ```
 
-## Ahrefs (expected)
+## Ahrefs (expected — do not “fix”)
+
+These are correct single-hop canonical redirects. Clearing them would mean serving duplicate hosts.
 
 | Issue | Why |
 |-------|-----|
-| **3XX redirect** | Non-canonical host/scheme URLs correctly 301. Keep them. |
-| **HTTP to HTTPS** | Same — correct. |
+| **3XX redirect** (3) | Non-canonical hosts (`http://apex`, `https://apex`, `http://www`) correctly 301 → `https://www…`. Set the Ahrefs project URL to `https://www.callpreferredplumbing.com` so the crawl seeds on the canonical host. |
+| **HTTP to HTTPS** (2) | Same — correct. |
 | **Redirect chain** | Should be **gone** after Always Use HTTPS is off + Single Redirect. |
 
 ## Old domain cutover (`preferredplumbingsolution.com`)
