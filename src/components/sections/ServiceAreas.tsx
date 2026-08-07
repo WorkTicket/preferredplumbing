@@ -26,7 +26,7 @@ export default function ServiceAreas() {
             <p className="text-sm font-bold uppercase tracking-wider text-gray-500">Coverage Map</p>
           </div>
           <StaggerChildren
-            className="flex flex-wrap justify-center gap-2.5 sm:gap-3"
+            className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5"
             staggerDelay={0.03}
             variant="fadeUp"
           >
@@ -34,7 +34,7 @@ export default function ServiceAreas() {
               <Link
                 key={area.slug}
                 href={`/areas/${area.slug}`}
-                className="group inline-flex items-center gap-1.5 rounded-xl border border-gray-200/80 bg-white px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-700 shadow-premium transition-all duration-300 hover:border-blue/30 hover:text-blue hover:shadow-premium-md hover:-translate-y-0.5"
+                className="group inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-gray-200/80 bg-white px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-gray-700 shadow-premium transition-all duration-300 hover:border-blue/30 hover:text-blue hover:shadow-premium-md hover:-translate-y-0.5"
               >
                 <MapPin className="h-3.5 w-3.5 text-blue-light/60 group-hover:text-blue transition-colors" />
                 {area.fullName}
