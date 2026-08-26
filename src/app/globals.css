@@ -140,42 +140,19 @@
 
   .premium-card-dark {
     @apply relative overflow-hidden rounded-2xl border border-white/10 bg-navy shadow-premium-xl text-white;
-    background-image: linear-gradient(165deg, rgba(26,53,80,0.65) 0%, rgba(0,102,255,0.12) 45%, transparent 75%);
+    background-image: linear-gradient(135deg, rgba(26,53,80,0.5) 0%, transparent 60%);
   }
 
   .mesh-bg-light {
     background-image:
-      linear-gradient(180deg, rgba(8,21,37,0.04) 0%, transparent 16%),
-      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,102,255,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(0,78,204,0.06) 0%, transparent 50%);
+      radial-gradient(ellipse 90% 70% at 14% 38%, rgba(0,102,255,0.07) 0%, transparent 62%),
+      radial-gradient(ellipse 70% 55% at 86% 78%, rgba(0,102,255,0.045) 0%, transparent 55%);
   }
 
   .mesh-bg-warm {
     background-image:
-      linear-gradient(180deg, rgba(0,102,255,0.03) 0%, transparent 18%),
-      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,102,255,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,78,204,0.05) 0%, transparent 50%);
-  }
-
-  .cta-band {
-    @apply relative overflow-hidden;
-    background-color: #004ECC;
-    background-image:
-      radial-gradient(ellipse 90% 120% at 0% 50%, rgba(77,143,255,0.38) 0%, transparent 58%),
-      radial-gradient(ellipse 70% 100% at 100% 80%, rgba(8,21,37,0.32) 0%, transparent 52%),
-      linear-gradient(105deg, #004ECC 0%, #0066FF 48%, #4D8FFF 100%);
-  }
-
-  .cta-band::before {
-    content: '';
-    @apply pointer-events-none absolute inset-x-0 top-0 h-px;
-    background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-  }
-
-  .cta-band::after {
-    content: '';
-    @apply pointer-events-none absolute inset-x-0 bottom-0 h-px;
-    background-image: linear-gradient(90deg, transparent, rgba(8,21,37,0.35), transparent);
+      radial-gradient(ellipse 80% 60% at 48% 42%, rgba(0,102,255,0.06) 0%, transparent 58%),
+      radial-gradient(ellipse 55% 45% at 8% 82%, rgba(0,102,255,0.04) 0%, transparent 52%);
   }
 
   .accent-rule {
@@ -353,7 +330,7 @@ body[data-mobile-overlay] .mobile-cta-bar {
 
 /* ===== HERO CINEMATIC EFFECTS ===== */
 .hero-split-tone {
-  background: linear-gradient(to top, rgba(0,102,255,0.22) 0%, rgba(0,78,204,0.08) 32%, transparent 58%);
+  background: linear-gradient(to top, rgba(0,102,255,0.12) 0%, transparent 45%);
   mix-blend-mode: soft-light;
   pointer-events: none;
 }

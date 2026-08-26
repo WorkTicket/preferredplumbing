@@ -32,10 +32,8 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-navy-gradient pt-14 sm:pt-20 pb-24 sm:pb-12 md:pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,102,255,0.16)_0%,_transparent_52%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(0,78,204,0.14)_0%,_transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue/20 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-light/40 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_30%,_rgba(0,102,255,0.12)_0%,_transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(0,78,204,0.1)_0%,_transparent_50%)] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 pb-10 border-b border-white/10">

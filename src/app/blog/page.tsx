@@ -55,7 +55,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="cta-band py-8 sm:py-10">
+      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
         <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
             Have a plumbing question? Call us.

@@ -33,7 +33,6 @@ export default function WhyChooseUs() {
 
   return (
     <section className="section-padding bg-gray-50 relative overflow-hidden mesh-bg-light">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-navy to-transparent" />
       <div className="container-page relative z-10">
         <div className="max-w-3xl">
           <SectionLabel text="Why Choose Us" />

@@ -79,33 +79,33 @@ export default function HomePage() {
       <AnimatedSection variant="fadeIn" delay={0.1} className="-mt-px bg-gray-50">
         <WhyChooseUs />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1} className="bg-white">
+      <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServicesGrid />
       </AnimatedSection>
-      <AnimatedSection variant="slideUp" delay={0.1} className="bg-white">
+      <AnimatedSection variant="slideUp" delay={0.1}>
         <AboutSection />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1} className="bg-gray-50">
+      <AnimatedSection variant="fadeUp" delay={0.1}>
         <WorkGallery />
       </AnimatedSection>
       {Testimonials && (
-        <AnimatedSection variant="slideUp" delay={0.1} className="bg-white">
+        <AnimatedSection variant="slideUp" delay={0.1}>
           <Testimonials />
         </AnimatedSection>
       )}
-      <AnimatedSection variant="fadeUp" delay={0.1} className="bg-gray-50">
+      <AnimatedSection variant="fadeUp" delay={0.1}>
         <LatestArticles />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1} className="bg-white">
+      <AnimatedSection variant="fadeUp" delay={0.1}>
         <ServiceAreas />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1} className="bg-gray-50">
+      <AnimatedSection variant="fadeUp" delay={0.1}>
         <FAQAccordion />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1} className="bg-white">
+      <AnimatedSection variant="fadeUp" delay={0.1}>
         <FindUsSection />
       </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.15} className="bg-gray-50">
+      <AnimatedSection variant="fadeUp" delay={0.15}>
         <ContactSection />
       </AnimatedSection>
     </>

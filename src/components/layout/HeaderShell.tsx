@@ -114,7 +114,7 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
       >
         <div
           className={cn(
-            'absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue-dark via-blue-light to-blue-dark transition-opacity duration-500',
+            'absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue transition-opacity duration-500',
             scrolled ? 'opacity-100' : 'opacity-0'
           )}
         />

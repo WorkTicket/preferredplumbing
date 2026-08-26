@@ -320,7 +320,7 @@ export default function CityPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="cta-band py-10 sm:py-12">
+      <section className="bg-gradient-to-r from-blue to-blue-dark py-10 sm:py-12">
         <div className="container-page flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <div className="text-center sm:text-left">
             <p className="text-xl sm:text-2xl font-bold text-white">

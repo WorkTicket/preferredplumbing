@@ -106,16 +106,13 @@ export default function ServicePage({ params }: Props) {
       )}
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center">
         <HeroImagePreload src={service.image} />
         <LcpHeroImage
           src={service.image}
           alt={`${service.title} plumbing service by Preferred Plumbing Solutions in Spirit Lake, Idaho and North Idaho`}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
-        <div className="absolute inset-0 hero-split-tone opacity-70" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-light/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70" />
         <div className="relative z-10 container-page">
           <span className="section-label !text-blue-300 before:!from-blue-300 before:!to-blue-200">{'Our Services'}</span>
           <h1 className="mt-3 font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-white">
@@ -434,7 +431,7 @@ export default function ServicePage({ params }: Props) {
       )}
 
       {/* ── CTA BAND ── */}
-      <section className="cta-band py-8 sm:py-10">
+      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
         <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
             Ready to get started? Give us a call. We&apos;ll figure it out.
