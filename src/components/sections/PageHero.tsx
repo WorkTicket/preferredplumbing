@@ -25,10 +25,11 @@ export default function PageHero({
     <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center overflow-hidden">
       {priority && <HeroImagePreload src={image} />}
       <LcpHeroImage src={image} alt={imageAlt} />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-      <div className="absolute inset-0 hero-split-tone opacity-60" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-light/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent" />
+      <div className="absolute inset-0 hero-split-tone opacity-70" />
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-navy/40 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-light/35 to-transparent" />
       <div className="relative z-10 container-page section-padding !py-12 sm:!py-20">
         <div className="mb-3 sm:mb-4 flex items-center gap-3">
           <span className="accent-rule" />

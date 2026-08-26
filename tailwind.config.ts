@@ -53,8 +53,8 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'navy-gradient': 'linear-gradient(135deg, #081525 0%, #0F2136 50%, #1A3550 100%)',
-        'blue-gradient': 'linear-gradient(135deg, #004ECC 0%, #0066FF 55%, #4D8FFF 100%)',
+        'navy-gradient': 'linear-gradient(165deg, #081525 0%, #0F2136 42%, #1A3550 78%, #0F2136 100%)',
+        'blue-gradient': 'linear-gradient(105deg, #004ECC 0%, #0066FF 48%, #4D8FFF 100%)',
       },
       keyframes: {
         'fade-up': {

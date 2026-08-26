@@ -26,37 +26,35 @@ const trustBadges = [
   'Sun–Fri Same-Day',
 ]
 
-const waveGradient = (
-  <defs>
-    <linearGradient id="topWaveFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stopColor="#004ECC" />
-      <stop offset="100%" stopColor="#4D8FFF" />
-    </linearGradient>
-    <linearGradient id="botWaveFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stopColor="#4D8FFF" />
-      <stop offset="100%" stopColor="#004ECC" />
-    </linearGradient>
-  </defs>
-)
-
 const TopWave = ({ className }: { className: string }) => (
   <div className={className}>
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-full">
-      {waveGradient}
-      <rect x="0" y="0" width="1440" height="5" fill="#004ECC" />
-      <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60 L1440,5 L0,5 Z" fill="url(#topWaveFill)" />
-      <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60" fill="none" stroke="#004ECC" strokeWidth="2.5" />
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="block h-full w-full" aria-hidden>
+      <defs>
+        <linearGradient id="topWaveFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#004ECC" />
+          <stop offset="100%" stopColor="#4D8FFF" />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1440" height="8" fill="#004ECC" />
+      <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60 L1440,0 L0,0 Z" fill="url(#topWaveFill)" />
+      <path d="M0,55 C240,95 480,25 720,60 C960,95 1200,35 1440,60" fill="none" stroke="#4D8FFF" strokeOpacity="0.5" strokeWidth="2" />
     </svg>
   </div>
 )
 
 const BottomWave = () => (
-  <div className="absolute bottom-0 left-0 w-full h-12 sm:h-20 lg:h-28 z-[7] pointer-events-none overflow-hidden">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-full">
-      {waveGradient}
-      <rect x="0" y="115" width="1440" height="5" fill="#004ECC" />
-      <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60 L1440,115 L0,115 Z" fill="url(#botWaveFill)" />
-      <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60" fill="none" stroke="#004ECC" strokeWidth="2.5" />
+  <div className="pointer-events-none absolute -bottom-px left-0 z-[7] h-12 w-full overflow-hidden sm:h-20 lg:h-28">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="block h-[calc(100%+3px)] w-full" aria-hidden>
+      <defs>
+        <linearGradient id="botWaveFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#4D8FFF" />
+          <stop offset="42%" stopColor="#004ECC" />
+          <stop offset="100%" stopColor="#081525" />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="108" width="1440" height="16" fill="#081525" />
+      <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60 L1440,120 L0,120 Z" fill="url(#botWaveFill)" />
+      <path d="M0,65 C240,25 480,95 720,60 C960,25 1200,85 1440,60" fill="none" stroke="#4D8FFF" strokeOpacity="0.4" strokeWidth="2" />
     </svg>
   </div>
 )
@@ -157,8 +155,8 @@ export default function HeroSection() {
             <source src="/videos/preferred-plumbing-hero.mp4" type="video/mp4" />
           </video>
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/82 to-navy/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/82 to-navy/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
         <div className="absolute inset-0 hero-split-tone" />
         <div className="absolute inset-0 hero-vignette" />
         <div className="absolute inset-0 bg-blue/[0.08] mix-blend-soft-light pointer-events-none" />

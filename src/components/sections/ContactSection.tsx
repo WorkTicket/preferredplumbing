@@ -16,6 +16,7 @@ const perks = [
 export default function ContactSection() {
   return (
     <section className="section-padding bg-gray-50 relative overflow-hidden mesh-bg-light" id="contact">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-navy/10" />
       <div className="container-page relative z-10">
         <div className="max-w-2xl">
           <SectionLabel text="Get In Touch" />
