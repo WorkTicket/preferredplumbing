@@ -10,7 +10,7 @@ import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Service Areas North Idaho',
   description:
-    'We serve Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, Hayden, and communities across North Idaho and Eastern Washington. Call 208-290-3889.',
+    'Plumbing services in Spirit Lake, Coeur d\'Alene, Post Falls, Rathdrum, Hayden, Sandpoint, and North Idaho. Call 208-290-3889.',
   slug: 'areas-we-serve',
   canonical: `${siteUrl}/areas-we-serve`,
 })
@@ -44,7 +44,7 @@ export default function AreasPage() {
   ]
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       {schemas.map((schema, i) => (
         <script
           key={i}

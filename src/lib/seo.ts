@@ -4,10 +4,10 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
   'https://www.callpreferredplumbing.com'
 export const siteName = 'Preferred Plumbing Solutions'
-/** Keep ≤60 chars for SERP display (Ahrefs / Google title length). */
-export const defaultTitle = 'Plumber Spirit Lake ID | Preferred Plumbing'
+/** Keep ≤60 chars for SERP display. Lead with the query, then a click reason. */
+export const defaultTitle = 'Spirit Lake Plumber | Same-Day Service | Preferred Plumbing'
 export const defaultDescription =
-  'Family-owned plumber in Spirit Lake with 38+ years experience. Radiant heat, water heaters, emergency service. Call 208-290-3889.'
+  'Plumbing services near Spirit Lake and North Idaho. Family-owned, 38+ years. Water heaters, radiant heat, emergency plumber. Call 208-290-3889.'
 
 /** Ahrefs: title too long >60; meta description too long >160, too short <70 (we target 120–155). */
 export const TITLE_MAX = 60
@@ -162,15 +162,22 @@ export function generateBlogMetadata(post: {
   slug: string
   publishedAt: string
   coverImage?: string
+  seoTitle?: string
 }): Metadata {
   return generateMetadata({
-    title: post.title,
+    title: post.seoTitle || post.title,
     description: post.excerpt,
     slug: `blog/${post.slug}`,
     ogImage: post.coverImage || '/images/og-preferred-plumbing-solutions.webp',
     publishedTime: post.publishedAt,
     modifiedTime: post.publishedAt,
     type: 'article',
+    keywords: [
+      post.title,
+      'North Idaho plumbing',
+      'Spirit Lake plumber',
+      'Preferred Plumbing Solutions',
+    ],
   })
 }
 

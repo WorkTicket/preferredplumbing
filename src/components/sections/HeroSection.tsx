@@ -39,8 +39,10 @@ const waveGradient = (
   </defs>
 )
 
-const TopWave = ({ className }: { className: string }) => (
-  <div className={className}>
+const TopWave = () => (
+  <div className="hero-top-wave pointer-events-none absolute left-0 z-[7] h-24 w-full sm:h-32">
+    {/* Tucks under the nav so the seam stays blue if header height and wave top are a frame apart. */}
+    <div className="absolute inset-x-0 bottom-full h-10 bg-blue-dark" aria-hidden />
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="block h-full w-full" aria-hidden>
       {waveGradient}
       <rect x="0" y="0" width="1440" height="5" fill="#004ECC" />
@@ -73,16 +75,9 @@ function shouldLoadHeroVideo(): boolean {
 }
 
 export default function HeroSection() {
-  const [scrolled, setScrolled] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
   const [showVideo, setShowVideo] = useState(false)
   const stats = getHeroStats()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     if (!shouldLoadHeroVideo()) return
@@ -128,10 +123,6 @@ export default function HeroSection() {
     }
   }, [])
 
-  const waveTopPos = scrolled
-    ? 'absolute top-14 sm:top-14 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
-    : 'absolute top-14 sm:top-16 left-0 w-full h-24 sm:h-32 z-[7] pointer-events-none overflow-hidden'
-
   return (
     <>
       <HeroImagePreload src="/images/preferred-plumbing-hero-poster.webp" />
@@ -165,9 +156,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 hero-texture" />
         <div className="absolute inset-0 hero-pattern" />
         <div className="absolute inset-0 hero-light-sweep hidden md:block" />
-        <TopWave className={waveTopPos} />
+        <TopWave />
         <BottomWave />
-        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-center px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-10 sm:pb-12 lg:pb-14">
+        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-center px-4 sm:px-6 lg:px-8 pt-site-header pb-10 sm:pb-12 lg:pb-14">
           <div className="max-w-3xl w-full">
             <div className="mb-2.5 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-2.5">
               <p className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
@@ -180,11 +171,11 @@ export default function HeroSection() {
               )}
             </div>
             <h1 className="font-display text-[clamp(1.85rem,8.5vw,4.75rem)] font-black uppercase leading-[0.9] text-white tracking-tight">
-              North Idaho&apos;s<br />
+              Spirit Lake&apos;s<br />
               <span className="text-blue-light">Local Plumber</span>
             </h1>
             <p className="mt-2.5 sm:mt-4 max-w-xl text-[13px] sm:text-base lg:text-lg text-gray-300 leading-snug sm:leading-relaxed">
-              Family-owned in Spirit Lake, Idaho. Radiant heat, new construction, and emergency service.{' '}
+              Plumbing services near Spirit Lake and North Idaho. Same-day water heaters, radiant heat, heated driveways, and emergency plumber.{' '}
               <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
             </p>
             <div className="mt-3.5 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">

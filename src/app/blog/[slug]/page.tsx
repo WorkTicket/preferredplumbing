@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, ArrowLeft } from 'lucide-react'
-import { generateBlogMetadata } from '@/lib/seo'
-import { articleSchema } from '@/lib/schema'
+import { generateBlogMetadata, siteUrl } from '@/lib/seo'
+import { articleSchema, breadcrumbSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
 import { blogPosts, getBlogPost, getRelatedPosts } from '@/data/blog'
@@ -23,10 +23,11 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!post) return {}
   return generateBlogMetadata({
     title: post.title,
-    excerpt: post.excerpt || post.content[0]?.slice(0, 160) || '',
+    excerpt: post.excerpt || post.content.find((block) => !block.startsWith('## '))?.slice(0, 160) || '',
     slug: params.slug,
     publishedAt: post.date,
     coverImage: post.coverImage,
+    seoTitle: post.seoTitle,
   })
 }
 
@@ -37,7 +38,7 @@ export default function BlogPostPage({ params }: Props) {
   const relatedPosts = getRelatedPosts(params.slug, 3)
   const jsonLd = articleSchema({
     title: post.title,
-    description: post.excerpt || post.content[0]?.slice(0, 160) || '',
+    description: post.excerpt || post.content.find((block) => !block.startsWith('## '))?.slice(0, 160) || '',
     slug: params.slug,
     image: post.coverImage,
     datePublished: post.date,
@@ -45,10 +46,22 @@ export default function BlogPostPage({ params }: Props) {
   })
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: 'Home', url: siteUrl },
+              { name: 'Blog', url: `${siteUrl}/blog` },
+              { name: post.title, url: `${siteUrl}/blog/${post.slug}` },
+            ])
+          ),
+        }}
       />
       <section className="section-padding bg-white">
         <div className="container-page max-w-3xl">
@@ -78,17 +91,14 @@ export default function BlogPostPage({ params }: Props) {
       </section>
       <section className="section-padding bg-gray-50">
         <div className="container-page max-w-3xl space-y-5 text-gray-600 leading-relaxed">
-          {post.content.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
           {post.relatedService && (
-            <div className="mt-8 rounded-2xl border border-blue/15 bg-white p-6 shadow-premium">
-              <p className="text-xs font-bold uppercase tracking-wider text-blue">Related Service</p>
+            <div className="rounded-2xl border border-blue/15 bg-white p-6 shadow-premium">
+              <p className="text-xs font-bold uppercase tracking-wider text-blue">Need a Plumber?</p>
               <p className="mt-2 font-display text-xl font-bold uppercase text-gray-900">
                 {post.relatedService.label}
               </p>
               <p className="mt-2 text-sm text-gray-600">
-                Learn more about this service, see what&apos;s included, and request a free estimate.
+                Get a free estimate from Preferred Plumbing Solutions. Licensed, insured, and serving North Idaho.
               </p>
               <Link
                 href={post.relatedService.href}
@@ -96,6 +106,29 @@ export default function BlogPostPage({ params }: Props) {
               >
                 View {post.relatedService.label}
               </Link>
+            </div>
+          )}
+          {post.content.map((block, i) =>
+            block.startsWith('## ') ? (
+              <h2
+                key={i}
+                className="font-display text-xl sm:text-2xl font-black uppercase text-gray-900 pt-2"
+              >
+                {block.slice(3)}
+              </h2>
+            ) : (
+              <p key={i}>{block}</p>
+            )
+          )}
+          {post.relatedService && (
+            <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
+              <p className="text-sm text-gray-600">
+                Ready to schedule?{' '}
+                <Link href={post.relatedService.href} className="font-semibold text-blue hover:underline">
+                  Request a free estimate for {post.relatedService.label.toLowerCase()}
+                </Link>
+                .
+              </p>
             </div>
           )}
         </div>

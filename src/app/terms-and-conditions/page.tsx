@@ -15,7 +15,7 @@ export const metadata: Metadata = generateMetadata({
 
 export default function TermsPage() {
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <section className="section-padding bg-white">
         <div className="container-page">
           <SectionLabel text="Legal" />

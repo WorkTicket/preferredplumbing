@@ -8,7 +8,7 @@ import { blogPosts } from '@/data/blog'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Blog Spirit Lake ID',
+  title: 'Plumbing Tips for North Idaho',
   description:
     'Plumbing tips and guides for North Idaho homeowners: water heaters, emergency plumbing, septic care, and more from Preferred Plumbing.',
   slug: 'blog',
@@ -17,7 +17,7 @@ export const metadata: Metadata = generateMetadata({
 
 export default function BlogPage() {
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

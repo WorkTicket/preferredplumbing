@@ -33,7 +33,7 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -9,6 +9,7 @@ export interface BlogPostSummary {
 }
 
 export interface BlogPost extends BlogPostSummary {
+  seoTitle?: string
   content: string[]
   relatedService?: {
     href: string

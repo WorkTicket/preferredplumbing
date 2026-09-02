@@ -5,9 +5,11 @@ import Link from 'next/link'
 import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle } from 'lucide-react'
 import { areas, services } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
-import { breadcrumbSchema, logoImageObject } from '@/lib/schema'
+import { citySeoDescription, citySeoTitle, areaFaqs, areaServicesForCity } from '@/lib/area-seo'
+import { breadcrumbSchema, faqSchema, logoImageObject } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
+import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import { PHONE_DISPLAY, PHONE_HREF, PHONE_E164 } from '@/lib/utils'
 import { yearsExperienceBadge, yearsExperienceLabel } from '@/lib/company-stats'
 
@@ -47,15 +49,6 @@ const cityLandmarks: Record<string, string[]> = {
   'oldtown-id': ['Pend Oreille River', 'Newport-Oldtown Bridge', 'Box Canyon Dam'],
 }
 
-const areaServices = [
-  { slug: 'emergency', label: 'Emergency Plumbing' },
-  { slug: 'water-heaters', label: 'Water Heater Repair & Installation' },
-  { slug: 'sewer-line', label: 'Sewer Line Replacement' },
-  { slug: 'septic-systems', label: 'Septic Systems' },
-  { slug: 'radiant-heat', label: 'Radiant Floor Heating' },
-  { slug: 'new-construction', label: 'New Construction Plumbing' },
-]
-
 export function generateStaticParams() {
   return areas.map((a) => ({ city: a.slug }))
 }
@@ -64,10 +57,17 @@ export function generateMetadata({ params }: Props): Metadata {
   const area = areas.find((a) => a.slug === params.city)
   if (!area) return {}
   return genMeta({
-    title: `Plumber in ${area.city}, ${area.state}`,
-    description: `Licensed plumber serving ${area.fullName}. Free estimates and emergency service Sun–Fri 7am–5pm. Call 208-290-3889.`,
+    title: citySeoTitle(area),
+    description: citySeoDescription(area),
     slug: `areas/${params.city}`,
     canonical: `${siteUrl}/areas/${params.city}`,
+    keywords: [
+      `plumber ${area.city} ${area.state}`,
+      `plumber in ${area.fullName}`,
+      `emergency plumber ${area.city}`,
+      `${area.city} plumbing contractor`,
+      'Preferred Plumbing Solutions',
+    ],
   })
 }
 
@@ -76,6 +76,8 @@ export default function CityPage({ params }: Props) {
   if (!area) notFound()
 
   const landmarks = cityLandmarks[area.slug] || [area.city]
+  const faqs = areaFaqs(area)
+  const cityServices = areaServicesForCity(area.slug)
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${area.latitude},${area.longitude}&destination_place_id=${encodeURIComponent(area.city)}`
 
   const areaBusinessSchema = {
@@ -121,7 +123,7 @@ export default function CityPage({ params }: Props) {
   }
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(areaBusinessSchema) }}
@@ -137,6 +139,10 @@ export default function CityPage({ params }: Props) {
             ])
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
       />
 
       <section className="section-padding bg-white">
@@ -199,7 +205,7 @@ export default function CityPage({ params }: Props) {
             These are the jobs homeowners and businesses in {area.fullName} ask for most:
           </p>
           <div className="mt-6 grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {areaServices.map((s) => (
+            {cityServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
@@ -210,6 +216,22 @@ export default function CityPage({ params }: Props) {
                 <ChevronRight className="h-4 w-4 text-blue ml-auto shrink-0" />
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-white">
+        <div className="container-page">
+          <SectionLabel text={`${area.city} FAQs`} />
+          <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
+            Plumbing Questions<br />
+            <span className="text-blue">in {area.city}</span>
+          </h2>
+          <p className="mt-3 max-w-2xl text-gray-600">
+            Common questions from homeowners and builders in {area.fullName}.
+          </p>
+          <div className="mt-8 max-w-4xl">
+            <FaqAccordionList items={faqs} idPrefix={`area-${area.slug}`} />
           </div>
         </div>
       </section>

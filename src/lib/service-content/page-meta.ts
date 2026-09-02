@@ -3,108 +3,108 @@ export const pageMeta: Record<string, { title: string; h1: string; description?:
     title: 'New Construction Plumbing Spirit Lake',
     h1: 'New Construction Plumbing in Spirit Lake, Idaho',
     description:
-      'Code-compliant plumbing for new homes and commercial builds in North Idaho. Trusted by builders. Free estimate: 208-290-3889.',
+      'New construction plumbing in Rathdrum, Coeur d\'Alene, Post Falls, and Spirit Lake. Code-compliant rough-ins. Free estimate: 208-290-3889.',
   },
   commercial: {
-    title: 'Commercial Plumbing North Idaho',
+    title: 'Commercial Plumber Coeur d\'Alene ID',
     h1: 'Commercial Plumbing Projects in Spirit Lake, Idaho',
     description:
-      'Commercial plumbing for restaurants, retail, and medical facilities across North Idaho. Licensed and insured. Call 208-290-3889.',
+      'Plumbing company for Coeur d\'Alene, Post Falls, and North Idaho commercial builds. Restaurants, retail, medical. Call 208-290-3889.',
   },
   'radiant-heat': {
     title: 'Radiant Floor Heating Spirit Lake ID',
     h1: 'Radiant Heat Installation in Spirit Lake, Idaho',
     description:
-      'In-floor radiant heat design and installation across North Idaho. Comfortable, efficient heat for cold winters. Free estimate: 208-290-3889.',
+      'Want warm floors this winter? In-floor radiant heat design and install in North Idaho. Free estimate: 208-290-3889.',
   },
   'heated-driveways': {
-    title: 'Heated Driveway Installation Spirit Lake',
+    title: 'Heated Driveways in North Idaho',
     h1: 'Heated Driveway & Snow-Melt Systems in North Idaho',
     description:
-      'Hydronic heated driveways and snow-melt systems by North Idaho radiant specialists. Free estimate: 208-290-3889.',
+      'Heated driveway install in Coeur d\'Alene, Post Falls, Moscow, and Spirit Lake. Hydronic snow-melt. Call 208-290-3889.',
   },
   'water-heaters': {
-    title: 'Water Heater Installation Spirit Lake',
-    h1: 'Water Heater Services in Spirit Lake, Idaho',
+    title: 'Water Heater Repair Near Me',
+    h1: 'Water Heater Repair & Installation in Spirit Lake, Idaho',
     description:
-      'Tank water heater install, repair, and replacement in Spirit Lake and North Idaho. Licensed, insured. Call 208-290-3889.',
+      'Water heater repair and replacement near Spirit Lake, Hayden, Rathdrum, and Post Falls. Same-day service. Call 208-290-3889.',
   },
   'tankless-water-heaters': {
     title: 'Tankless Water Heater Spirit Lake ID',
     h1: 'Tankless Water Heater Installation & Repair',
     description:
-      'Tankless water heater installation, repair, and replacement in North Idaho. Endless hot water. Call 208-290-3889.',
+      'Want endless hot water? Tankless install, repair, and replacement in North Idaho. Call 208-290-3889.',
   },
   'water-softeners': {
     title: 'Water Softener Installation Spirit Lake',
     h1: 'Water Softener Services in Spirit Lake, Idaho',
     description:
-      'Water softener install and service for hard North Idaho water. Protect pipes and fixtures. Call 208-290-3889.',
+      'Hard North Idaho water? Softener install and service that protects pipes and fixtures. Call 208-290-3889.',
   },
   emergency: {
-    title: 'Emergency Plumber Spirit Lake, ID',
+    title: 'Emergency Plumber Near Me',
     h1: 'Emergency Plumber in Spirit Lake, Idaho',
     description:
-      'Emergency plumbing for burst pipes, leaks, sewer backups, and no hot water. Open Sun–Fri 7am–5pm. Call 208-290-3889.',
+      'Emergency plumber in Rathdrum, Hayden, Post Falls, and Spirit Lake. Burst pipes, sewer backups, no hot water. Sun–Fri 7am–5pm. Call 208-290-3889.',
   },
   'sewer-line': {
     title: 'Sewer Line Replacement Spirit Lake',
     h1: 'Sewer Line Replacement in Spirit Lake, Idaho',
     description:
-      'Trenchless and traditional sewer line replacement in North Idaho. Camera inspections included. Free estimate: 208-290-3889.',
+      'Sewer backups or slow drains? Trenchless and traditional replacement in North Idaho. Free estimate: 208-290-3889.',
   },
   'water-line': {
     title: 'Water Line Replacement Spirit Lake',
     h1: 'Water Line Repair & Replacement in North Idaho',
     description:
-      'Underground water line repair and meter-to-home installs in North Idaho. Leak detection. Free estimate: 208-290-3889.',
+      'Low pressure or a wet yard? Underground water line repair and replacement in North Idaho. Call 208-290-3889.',
   },
   'gas-line': {
     title: 'Gas Line Installation Spirit Lake ID',
     h1: 'Gas Line Services in Spirit Lake, Idaho',
     description:
-      'Licensed gas line installation, repair, and appliance hookups in North Idaho. Code-compliant. Call 208-290-3889.',
+      'Need a licensed gas line in North Idaho? Install, repair, and appliance hookups to code. Call 208-290-3889.',
   },
   'septic-systems': {
     title: 'Septic System Installation Spirit Lake',
     h1: 'Septic System Service in Spirit Lake, Idaho',
     description:
-      'Septic design, install, and maintenance for Idaho soil conditions. Soil testing and drain fields. Call 208-290-3889.',
+      'Need a septic system in North Idaho? Design, install, and drain fields for local soil. Call 208-290-3889.',
   },
   remodels: {
     title: 'Plumbing Remodel Contractor Spirit Lake',
     h1: 'Plumbing Remodels & Upgrades in Spirit Lake',
     description:
-      'Plumbing remodels and fixture upgrades in Spirit Lake and North Idaho. Energy-efficient piping. Call 208-290-3889.',
+      'Remodeling in Spirit Lake? Fixture upgrades and energy-efficient piping. Free estimate: 208-290-3889.',
   },
   'bathtubs-showers': {
     title: 'Bathtub Shower Installation Spirit Lake',
     h1: 'Bathtubs & Showers in Spirit Lake, Idaho',
     description:
-      'Bathtub and shower installation including walk-in tubs and tiled showers. Spirit Lake plumber. Call 208-290-3889.',
+      'Need a new tub or shower in Spirit Lake? Walk-in tubs and tiled showers. Call 208-290-3889.',
   },
   'toilets-faucets': {
     title: 'Toilet Faucet Installation Spirit Lake',
     h1: 'Toilet & Faucet Services in Spirit Lake, Idaho',
     description:
-      'Toilet and faucet install, repair, and low-flow upgrades in Spirit Lake and North Idaho. Call 208-290-3889.',
+      'Running toilet or leaky faucet in Spirit Lake? Install, repair, and low-flow upgrades. Call 208-290-3889.',
   },
   dishwashers: {
     title: 'Dishwasher Disposal Install Spirit Lake',
     h1: 'Dishwasher & Disposal Services in Spirit Lake, Idaho',
     description:
-      'Dishwasher and garbage disposal installation with leak-free connections in North Idaho. Call 208-290-3889.',
+      'Need a dishwasher or disposal hooked up in North Idaho? Leak-free connections. Call 208-290-3889.',
   },
   'kitchen-remodels': {
     title: 'Kitchen Remodel Plumbing Spirit Lake',
     h1: 'Kitchen Remodels in Spirit Lake, Idaho',
     description:
-      'Kitchen remodel plumbing: layouts, appliance hookups, and efficient fixtures in North Idaho. Call 208-290-3889.',
+      'Kitchen remodel in Spirit Lake? Layouts, appliance hookups, and efficient fixtures. Call 208-290-3889.',
   },
   'bathroom-remodels': {
     title: 'Bathroom Remodel Plumbing Spirit Lake',
     h1: 'Bathroom Remodels in Spirit Lake, Idaho',
     description:
-      'Bathroom remodel plumbing for showers, tubs, vanities, and toilets in Spirit Lake. Call 208-290-3889.',
+      'Bathroom remodel in Spirit Lake? Showers, tubs, vanities, and toilets. Free estimate: 208-290-3889.',
   },
 }

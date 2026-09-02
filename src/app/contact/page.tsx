@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { Phone, MapPin, Clock, Navigation } from 'lucide-react'
 import TrackPageEvent from '@/components/analytics/TrackPageEvent'
 import { generateMetadata, siteUrl } from '@/lib/seo'
-import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
+import { contactPointSchema, postalAddressSchema, servedCityPlaces } from '@/lib/schema'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
 import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL, PHONE_E164 } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
@@ -22,7 +22,7 @@ export default function ContactPage() {
   const directionsUrl = DIRECTIONS_URL
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <TrackPageEvent event="contact_page_view" />
       <script
         type="application/ld+json"
@@ -38,7 +38,7 @@ export default function ContactPage() {
               name: 'Preferred Plumbing Solutions',
               telephone: PHONE_E164,
               url: siteUrl,
-              areaServed: ['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum'],
+              areaServed: servedCityPlaces().map((city) => city.name),
             },
           }),
         }}

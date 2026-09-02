@@ -13,10 +13,10 @@ export default function ServiceAreas() {
           <SectionLabel text="Service Areas" centered />
           <h2 className="section-heading">
             We Serve All of<br />
-            <span className="text-blue">North Idaho &amp; Beyond</span>
+            <span className="text-blue">North Idaho &amp; Eastern Washington</span>
           </h2>
           <p className="section-subtitle-center">
-            One phone call. If you&apos;re in North Idaho or eastern Washington, we can get a truck to you.
+            One phone call. If you&apos;re in Kootenai, Bonner, or nearby Pend Oreille and Spokane counties, we can get a truck to you.
           </p>
         </div>
 

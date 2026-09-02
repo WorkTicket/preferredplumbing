@@ -24,7 +24,7 @@ export default function FAQsPage() {
   const serviceSections = sections.filter((section) => section.id !== 'general')
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(allFaqs)) }}

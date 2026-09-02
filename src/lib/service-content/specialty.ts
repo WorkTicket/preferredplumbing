@@ -5,7 +5,7 @@ export const specialtyServiceContent: Record<string, RichServiceContent> = {
     introHeading: 'Emergency Plumbing Across North Idaho',
     introParagraphs: [
       'Burst pipe, sewage backup, or a water heater that just died: we respond fast during business hours to stop the damage and get things back online.',
-      'Our trucks are stocked and our guys know what to do. We handle urgent plumbing across North Idaho and show up ready to work.',
+      'Our trucks are stocked and our guys know what to do. We handle urgent plumbing in Spirit Lake, Rathdrum, Hayden, Post Falls, and Coeur d\'Alene, and show up ready to work.',
       'Emergency service is available Sunday through Friday, 7am to 5pm. We are closed on Saturday.',
     ],
     subServices: [
@@ -152,7 +152,7 @@ export const specialtyServiceContent: Record<string, RichServiceContent> = {
     introParagraphs: [
       'The same hydronic radiant systems we put under floors, we put under driveways. Stay ice-free all winter without the salt, the shoveling, or the slip risk.',
       'If you already know us for in-floor heat, heated driveways use the same idea outdoors. Hydronic tubing under the driveway, walkway, or entry pad connects to a boiler or dedicated heat source so snow and ice melt on contact.',
-      'North Idaho winters are long. A heated driveway means no more 6am shoveling before work, no ice by the garage, and no rock salt chewing up concrete or landscaping.',
+      'We install heated driveways in Spirit Lake, Coeur d\'Alene, Post Falls, Moscow, Hayden, and Rathdrum. North Idaho winters are long. A heated driveway means no more 6am shoveling before work, no ice by the garage, and no rock salt chewing up concrete or landscaping.',
     ],
     subServices: [
       {
@@ -219,7 +219,7 @@ export const specialtyServiceContent: Record<string, RichServiceContent> = {
     closingHeading: 'Get a Free Heated Driveway Estimate',
     closingParagraphs: [
       'Want the same radiant heat specialists who warm your floors to keep your driveway clear? We will evaluate your site, boiler capacity, and layout options.',
-      'Call for a free estimate. We serve Spirit Lake, Coeur d\'Alene, Post Falls, Sandpoint, and communities across North Idaho.',
+      'Call for a free estimate. We serve Spirit Lake, Coeur d\'Alene, Post Falls, Moscow, Hayden, Rathdrum, Sandpoint, and the surrounding North Idaho towns.',
     ],
   },
   'new-construction': {

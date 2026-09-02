@@ -37,9 +37,12 @@ const cityLinks = [
   { name: 'Spirit Lake, ID', slug: 'spirit-lake-id' },
   { name: "Coeur d'Alene, ID", slug: 'coeur-dalene-id' },
   { name: 'Post Falls, ID', slug: 'post-falls-id' },
-  { name: 'Sandpoint, ID', slug: 'sandpoint-id' },
   { name: 'Hayden, ID', slug: 'hayden-id' },
   { name: 'Rathdrum, ID', slug: 'rathdrum-id' },
+  { name: 'Sandpoint, ID', slug: 'sandpoint-id' },
+  { name: 'Moscow, ID', slug: 'moscow-id' },
+  { name: 'Athol, ID', slug: 'athol-id' },
+  { name: 'Oldtown, ID', slug: 'oldtown-id' },
 ]
 
 export function generateStaticParams() {
@@ -56,6 +59,28 @@ export function generateMetadata({ params }: Props): Metadata {
       meta?.description ||
       `${service.description} Serving North Idaho. Free estimate: 208-290-3889.`,
     slug: `services/${params.slug}`,
+    keywords: [
+      meta?.title || service.title,
+      `${service.title} Spirit Lake`,
+      `${service.title} North Idaho`,
+      ...(params.slug === 'water-heaters'
+        ? ['water heater repair near me', 'water heater replacement Spirit Lake', 'water heater installation North Idaho']
+        : []),
+      ...(params.slug === 'emergency'
+        ? ['emergency plumber near me', 'emergency plumbing Rathdrum', 'emergency plumber Hayden']
+        : []),
+      ...(params.slug === 'new-construction'
+        ? ['new construction plumbing Rathdrum', 'new construction plumbing Coeur d\'Alene']
+        : []),
+      ...(params.slug === 'commercial'
+        ? ['plumbing company Coeur d\'Alene', 'commercial plumber Post Falls']
+        : []),
+      ...(params.slug === 'heated-driveways'
+        ? ['heated driveway Coeur d\'Alene', 'heated driveway Post Falls', 'heated driveway Moscow Idaho']
+        : []),
+      'plumber Spirit Lake Idaho',
+      'Preferred Plumbing Solutions',
+    ],
     canonical: `${siteUrl}/services/${params.slug}`,
   })
 }
@@ -71,11 +96,11 @@ export default function ServicePage({ params }: Props) {
     .filter(Boolean) as typeof services
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema(service.title, service.description)),
+          __html: JSON.stringify(serviceSchema(service.title, service.description, service.slug)),
         }}
       />
       <script

@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest'
+import { blogPosts } from '@/data/blog'
 import {
   clampAtWord,
   defaultTitle,
+  generateBlogMetadata,
   generateMetadata,
   normalizeDescription,
   siteName,
@@ -60,3 +62,35 @@ describe('clamp helpers', () => {
     expect(siteName).toBe('Preferred Plumbing Solutions')
   })
 })
+
+describe('generateBlogMetadata', () => {
+  it('uses seoTitle so long headlines are not truncated in the SERP', () => {
+    const meta = generateBlogMetadata({
+      title: 'Is a Heated Driveway Worth It in North Idaho Winters?',
+      seoTitle: 'Heated Driveway Worth It in Idaho?',
+      excerpt:
+        'Hydronic snow-melt costs more upfront. In Spirit Lake winters you get safer walks, less salt damage, and no more shoveling.',
+      slug: 'heated-driveway-worth-it-north-idaho',
+      publishedAt: '2026-07-17',
+    })
+    const title = (meta.title as { absolute: string }).absolute
+    expect(title).toBe('Heated Driveway Worth It in Idaho? | Preferred Plumbing')
+    expect(title.length).toBeLessThanOrEqual(TITLE_MAX)
+  })
+
+  it('keeps every published post seoTitle within SERP length', () => {
+    for (const post of blogPosts) {
+      expect(post.seoTitle, post.slug).toBeTruthy()
+      const meta = generateBlogMetadata({
+        title: post.title,
+        seoTitle: post.seoTitle,
+        excerpt: post.excerpt,
+        slug: post.slug,
+        publishedAt: post.date,
+      })
+      const title = (meta.title as { absolute: string }).absolute
+      expect(title.length, post.slug).toBeLessThanOrEqual(TITLE_MAX)
+    }
+  })
+})
+

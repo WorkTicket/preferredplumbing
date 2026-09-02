@@ -1,3 +1,4 @@
+import { areas } from './data/areas'
 import { siteUrl } from './seo'
 import { CONTACT_EMAILS, FACEBOOK_URL, GBP_URL, PHONE, PHONE_E164, TIKTOK_URL, ZIP } from './utils'
 import {
@@ -8,6 +9,33 @@ import {
 
 const socialProfiles = [FACEBOOK_URL, TIKTOK_URL, GBP_URL]
 const primaryEmail = CONTACT_EMAILS[0]?.email
+
+const CITY_WIKI_IDS: Record<string, string> = {
+  'spirit-lake-id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho',
+  'coeur-dalene-id': 'https://en.wikipedia.org/wiki/Coeur_d%27Alene,_Idaho',
+  'post-falls-id': 'https://en.wikipedia.org/wiki/Post_Falls,_Idaho',
+}
+
+/** Actual towns we serve — not the whole state (avoids Idaho Falls / Sun Valley / Burley matches). */
+export function servedCityPlaces() {
+  return areas.map((area) => ({
+    '@type': 'City' as const,
+    name: area.city,
+    ...(CITY_WIKI_IDS[area.slug] ? { '@id': CITY_WIKI_IDS[area.slug] } : {}),
+  }))
+}
+
+const SERVED_COUNTIES = [
+  { '@type': 'AdministrativeArea', name: 'Kootenai County, Idaho' },
+  { '@type': 'AdministrativeArea', name: 'Bonner County, Idaho' },
+  { '@type': 'AdministrativeArea', name: 'Latah County, Idaho' },
+  { '@type': 'AdministrativeArea', name: 'Pend Oreille County, Washington' },
+  { '@type': 'AdministrativeArea', name: 'Spokane County, Washington' },
+]
+
+export function serviceAreaServed() {
+  return [...servedCityPlaces(), ...SERVED_COUNTIES]
+}
 
 /** Shared PostalAddress — service-area business (no public street). */
 function postalAddress(locality = 'Spirit Lake', region = 'ID', postalCode = ZIP) {
@@ -38,7 +66,7 @@ const contactPoints = CONTACT_EMAILS.map((contact) => ({
   contactType: 'customer service',
   email: contact.email,
   availableLanguage: ['English'],
-  areaServed: ['US'],
+  areaServed: servedCityPlaces().map((city) => city.name),
 }))
 
 export function organizationSchema() {
@@ -63,13 +91,7 @@ export function organizationSchema() {
     telephone: PHONE_E164,
     ...(primaryEmail ? { email: primaryEmail } : {}),
     sameAs: socialProfiles,
-    areaServed: [
-      { '@type': 'City', name: 'Spirit Lake' },
-      { '@type': 'City', name: "Coeur d'Alene" },
-      { '@type': 'City', name: 'Post Falls' },
-      { '@type': 'City', name: 'Sandpoint' },
-      { '@type': 'State', name: 'Idaho' },
-    ],
+    areaServed: serviceAreaServed(),
     contactPoint: contactPoints,
   }
 }
@@ -106,21 +128,7 @@ export function localBusinessSchema() {
         closes: '17:00',
       },
     ],
-    areaServed: [
-      { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },
-      { '@type': 'City', name: "Coeur d'Alene", '@id': 'https://en.wikipedia.org/wiki/Coeur_d%27Alene,_Idaho' },
-      { '@type': 'City', name: 'Post Falls', '@id': 'https://en.wikipedia.org/wiki/Post_Falls,_Idaho' },
-      { '@type': 'City', name: 'Sandpoint' },
-      { '@type': 'City', name: 'Hayden' },
-      { '@type': 'City', name: 'Rathdrum' },
-      { '@type': 'City', name: 'Priest River' },
-      { '@type': 'City', name: 'Athol' },
-      { '@type': 'City', name: 'Blanchard' },
-      { '@type': 'City', name: 'Newport' },
-      { '@type': 'City', name: 'Chattaroy' },
-      { '@type': 'State', name: 'Idaho' },
-      { '@type': 'State', name: 'Washington' },
-    ],
+    areaServed: serviceAreaServed(),
     sameAs: socialProfiles,
     hasMap: GBP_URL,
     award: yearsExperienceBadge(),
@@ -141,6 +149,22 @@ export function localBusinessSchema() {
       'Tankless water heater installation',
       'Kitchen and bathroom remodeling',
     ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Plumbing Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Emergency Plumbing', url: `${siteUrl}/services/emergency` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Water Heater Installation', url: `${siteUrl}/services/water-heaters` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Radiant Floor Heating', url: `${siteUrl}/services/radiant-heat` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Heated Driveway Installation', url: `${siteUrl}/services/heated-driveways` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'New Construction Plumbing', url: `${siteUrl}/services/new-construction` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sewer Line Replacement', url: `${siteUrl}/services/sewer-line` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Water Line Replacement', url: `${siteUrl}/services/water-line` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tankless Water Heater Installation', url: `${siteUrl}/services/tankless-water-heaters` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Septic System Installation', url: `${siteUrl}/services/septic-systems` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` } },
+      ],
+    },
   }
 }
 
@@ -291,23 +315,20 @@ export function faqSchema(questions: { question: string; answer: string; href?: 
 }
 
 /** Service markup without Offer/price — we do not publish fixed prices. */
-export function serviceSchema(serviceName: string, description: string) {
+export function serviceSchema(serviceName: string, description: string, slug?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
     description,
+    ...(slug ? { url: `${siteUrl}/services/${slug}` } : {}),
     provider: {
       '@type': 'Plumber',
       '@id': `${siteUrl}/#localbusiness`,
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    areaServed: [
-      { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },
-      { '@type': 'State', name: 'Idaho' },
-      { '@type': 'State', name: 'Washington' },
-    ],
+    areaServed: serviceAreaServed(),
     serviceType: serviceName,
   }
 }
