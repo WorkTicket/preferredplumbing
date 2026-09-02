@@ -249,7 +249,7 @@
   }
 
   .nav-link-premium {
-    @apply text-sm font-semibold text-gray-700 transition-all duration-300 relative whitespace-nowrap;
+    @apply relative whitespace-nowrap text-sm font-bold text-gray-700 transition-all duration-300;
   }
   .nav-link-premium::after {
     content: '';

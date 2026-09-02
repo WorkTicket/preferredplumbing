@@ -11,7 +11,7 @@ export default function Header() {
       brand={
         <Link
           href="/"
-          className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:flex-initial md:gap-2.5 md:pr-0"
+          className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:gap-2.5 md:pr-0 xl:flex-none"
         >
           <Image
             src="/images/preferred-logo.webp"
@@ -21,7 +21,7 @@ export default function Header() {
             priority
             className="header-brand-logo h-9 w-auto shrink-0 md:h-11"
           />
-          <span className="min-w-0 -ml-1 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.02em] text-gray-900 md:ml-0 md:tracking-wider text-[clamp(0.8125rem,3.3vw,1.0625rem)] md:text-xl lg:text-2xl">
+          <span className="min-w-0 -ml-1 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.02em] text-gray-900 md:ml-0 md:tracking-wider text-[clamp(0.8125rem,3.3vw,1.0625rem)] md:text-xl">
             Preferred Plumbing <span className="text-blue">Solutions</span>
           </span>
         </Link>

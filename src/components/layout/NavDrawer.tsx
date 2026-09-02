@@ -561,7 +561,7 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm xl:hidden"
             onClick={onClose}
           />
           <motion.div
@@ -570,7 +570,7 @@ export default function NavDrawer({ open, onClose }: NavDrawerProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed top-0 right-0 z-[60] h-full w-80 max-w-[85vw] bg-white shadow-2xl lg:hidden flex flex-col"
+            className="fixed top-0 right-0 z-[60] h-full w-80 max-w-[85vw] bg-white shadow-2xl xl:hidden flex flex-col"
           >
             <div className="flex items-center justify-between border-b border-gray-100 px-4 py-3">
               <span className="font-bold text-sm uppercase tracking-wider text-gray-400">Menu</span>

@@ -98,10 +98,10 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
     <>
       <header className="fixed top-0 left-0 right-0 z-40 h-[var(--site-header-h)] border-b border-gray-200/60 bg-white/95 shadow-premium-md backdrop-blur-lg">
         <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue" />
-        <div className="mx-auto flex h-[var(--site-header-h)] max-w-[90rem] items-center justify-between gap-3 px-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-[var(--site-header-h)] w-full min-w-0 max-w-[90rem] items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
           {brand}
 
-          <nav className="hidden lg:flex items-center gap-5 lg:gap-7 shrink-0" aria-label="Primary">
+          <nav className="ml-4 hidden shrink-0 items-center gap-4 xl:flex 2xl:gap-6" aria-label="Primary">
             <Link
               href="/"
               className={cn('nav-link-premium', homeActive && 'is-active')}
@@ -199,7 +199,7 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
             {actions}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
+          <div className="flex shrink-0 items-center gap-0.5 xl:hidden">
             <a
               href={PHONE_HREF}
               data-track="header_mobile_call"
