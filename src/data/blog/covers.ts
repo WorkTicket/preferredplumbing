@@ -1,5 +1,30 @@
 /** Cover images for blog posts — AI-generated photoreal North Idaho / Spirit Lake scenes, stored locally as WebP. */
 export const blogCovers: Record<string, { coverImage: string; coverImageAlt: string }> = {
+  'radiant-heat-cost-north-idaho': {
+    coverImage: '/images/blog/radiant-heat-cost-north-idaho.webp',
+    coverImageAlt:
+      'Hydronic radiant heat boiler and brass manifold with PEX tubing in a North Idaho basement utility room',
+  },
+  'heated-driveway-cost-north-idaho': {
+    coverImage: '/images/blog/heated-driveway-cost-north-idaho.webp',
+    coverImageAlt:
+      'Heated North Idaho driveway with melted tire tracks through packed snow leading to a timber home among pines',
+  },
+  'tankless-water-heater-cost-north-idaho': {
+    coverImage: '/images/blog/tankless-water-heater-cost-north-idaho.webp',
+    coverImageAlt:
+      'Wall-mounted gas tankless water heater with venting and piping in a North Idaho garage utility alcove',
+  },
+  'trenchless-sewer-repair-north-idaho': {
+    coverImage: '/images/blog/trenchless-sewer-repair-north-idaho.webp',
+    coverImageAlt:
+      'Trenchless sewer replacement pit exposing fused HDPE pipe beside a cedar-sided North Idaho home',
+  },
+  'radiant-heat-new-construction-idaho': {
+    coverImage: '/images/blog/radiant-heat-new-construction-idaho.webp',
+    coverImageAlt:
+      'PEX radiant tubing laid in loops on a new-construction slab before the pour at a North Idaho timber home',
+  },
   'heated-driveway-worth-it-north-idaho': {
     coverImage: '/images/blog/heated-driveway-worth-it-north-idaho.webp',
     coverImageAlt:

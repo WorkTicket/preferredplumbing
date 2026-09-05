@@ -1,7 +1,9 @@
 import type { BlogPost } from './types'
 import { blogCovers } from './covers'
+import { authorityPosts } from './posts-authority'
 
 export const blogPosts: BlogPost[] = [
+  ...authorityPosts,
   {
     slug: 'heated-driveway-worth-it-north-idaho',
     ...blogCovers['heated-driveway-worth-it-north-idaho'],

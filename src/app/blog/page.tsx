@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
-import { blogPosts } from '@/data/blog'
+import { getPostsByDate, toBlogSummary } from '@/data/blog'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
@@ -48,8 +48,8 @@ export default function BlogPage() {
         <div className="container-page">
           <SectionLabel text="Latest Posts" />
           <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <BlogPostCard key={post.slug} post={post} />
+            {getPostsByDate().map((post) => (
+              <BlogPostCard key={post.slug} post={toBlogSummary(post)} />
             ))}
           </div>
         </div>

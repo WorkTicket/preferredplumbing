@@ -4,12 +4,12 @@ import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star, Shield, Clock, HardHat, CheckCircle, Award } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
-import { personSchema } from '@/lib/schema'
+import { aboutPageSchema, personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import PageHero from '@/components/sections/PageHero'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import { getPostsForService } from '@/data/blog'
 import {
-  combinedExperiencePhrase,
   getYearsOfExperience,
   jobsCompletedLabel,
   yearsExperienceLabel,
@@ -25,6 +25,7 @@ export const metadata: Metadata = generateMetadata({
 
 export default function AboutPage() {
   const years = getYearsOfExperience()
+  const relatedPosts = getPostsForService('/about', 3)
   const trustStats = [
     { icon: HardHat, number: yearsExperienceLabel(), label: 'Years Experience', sub: 'Ron & Hunter combined' },
     { icon: CheckCircle, number: jobsCompletedLabel(), label: 'Projects Completed', sub: 'Across North Idaho' },
@@ -36,16 +37,7 @@ export default function AboutPage() {
     <div className="pt-site-header">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'AboutPage',
-            name: 'About Preferred Plumbing Solutions',
-            description: `Family-owned plumbing company with ${combinedExperiencePhrase()} serving Spirit Lake and North Idaho.`,
-            url: `${siteUrl}/about`,
-            founder: { '@type': 'Person', name: 'Ron Norris' },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema()) }}
       />
       <script
         type="application/ld+json"
@@ -170,6 +162,29 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {relatedPosts.length > 0 && (
+        <section className="section-padding bg-white">
+          <div className="container-page">
+            <SectionLabel text="Guides" />
+            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
+              Related Articles
+            </h2>
+            <div className="mt-8 flex flex-col gap-3">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wide text-gray-700 transition-colors hover:text-blue"
+                >
+                  {post.title}
+                  <ChevronRight className="h-4 w-4 text-blue transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
         <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">

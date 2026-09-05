@@ -12,6 +12,7 @@ import {
   yearsExperienceLabel,
 } from '@/lib/company-stats'
 import { areas } from '@/lib/data'
+import { getPostsByDate } from '@/data/blog'
 
 export default function Footer() {
   const serviceGroups = getNavServiceGroups()
@@ -210,6 +211,27 @@ export default function Footer() {
               <li><Link href="/terms-and-conditions" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Terms &amp; Conditions</span></Link></li>
             </ul>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5 text-center lg:text-left">
+            Plumbing Guides
+          </h4>
+          <ul className="columns-1 sm:columns-2 lg:columns-3 gap-x-8 space-y-2.5">
+            {getPostsByDate().map((post) => (
+              <li key={post.slug} className="break-inside-avoid">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"
+                >
+                  <span className="link-underline">{post.title}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href="/blog" className="mt-4 inline-flex text-xs font-semibold text-blue-light hover:text-blue-light transition-colors duration-300">
+            View All Articles &rarr;
+          </Link>
         </div>
 
         <div className="mt-12 sm:mt-16 border-t border-white/10 pt-8 text-center">

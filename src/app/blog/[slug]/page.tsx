@@ -7,7 +7,7 @@ import { generateBlogMetadata, siteUrl } from '@/lib/seo'
 import { articleSchema, breadcrumbSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
-import { blogPosts, getBlogPost, getRelatedPosts } from '@/data/blog'
+import { blogPosts, getBlogPost, getRelatedPosts, getContentWordCount, getReadTimeMinutes } from '@/data/blog'
 import { formatDisplayDate, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 interface Props {
@@ -36,6 +36,8 @@ export default function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const relatedPosts = getRelatedPosts(params.slug, 3)
+  const wordCount = getContentWordCount(post.content)
+  const readTimeMinutes = getReadTimeMinutes(post.content)
   const jsonLd = articleSchema({
     title: post.title,
     description: post.excerpt || post.content.find((block) => !block.startsWith('## '))?.slice(0, 160) || '',
@@ -43,6 +45,8 @@ export default function BlogPostPage({ params }: Props) {
     image: post.coverImage,
     datePublished: post.date,
     dateModified: post.date,
+    wordCount,
+    readTimeMinutes,
   })
 
   return (
@@ -73,6 +77,10 @@ export default function BlogPostPage({ params }: Props) {
           </div>
           <p className="mt-4 text-sm text-gray-400">
             {formatDisplayDate(post.date)}
+            <span className="mx-2 text-gray-300" aria-hidden>
+              ·
+            </span>
+            {`${readTimeMinutes} min read`}
           </p>
           <h1 className="mt-2 font-display text-[clamp(2rem,6vw,3.5rem)] font-black uppercase leading-[0.95] text-gray-900">
             {post.title}

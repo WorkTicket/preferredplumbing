@@ -63,8 +63,15 @@ const BottomWave = () => (
   </div>
 )
 
+function isCrawler(): boolean {
+  return /bot|crawler|spider|ahrefs|semrush|bingpreview|googlebot|facebookexternalhit|lighthouse|pagespeed/i.test(
+    navigator.userAgent,
+  )
+}
+
 function shouldLoadHeroVideo(): boolean {
   if (typeof window === 'undefined') return false
+  if (isCrawler()) return false
   if (!window.matchMedia('(min-width: 768px)').matches) return false
 
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection
@@ -83,8 +90,6 @@ export default function HeroSection() {
     if (!shouldLoadHeroVideo()) return
 
     let cancelled = false
-    let idleId = 0
-    let timer = 0
 
     const enableVideo = () => {
       if (!cancelled) setShowVideo(true)
@@ -94,14 +99,10 @@ export default function HeroSection() {
       window.removeEventListener('scroll', onIntent)
       window.removeEventListener('touchstart', onIntent)
       window.removeEventListener('pointerdown', onIntent)
-      if (idleId && typeof window.cancelIdleCallback === 'function') {
-        window.cancelIdleCallback(idleId)
-      }
-      if (timer) window.clearTimeout(timer)
     }
 
-    // Best practice for LCP: wait for user intent first so the poster stays LCP,
-    // then fall back to idle so desktop still gets motion without competing for bandwidth.
+    // User intent only — idle/timeout loading made crawlers download the MP4
+    // and flag the homepage as a slow page.
     function onIntent() {
       enableVideo()
       teardown()
@@ -110,12 +111,6 @@ export default function HeroSection() {
     window.addEventListener('scroll', onIntent, { once: true, passive: true })
     window.addEventListener('touchstart', onIntent, { once: true, passive: true })
     window.addEventListener('pointerdown', onIntent, { once: true })
-
-    if (typeof window.requestIdleCallback === 'function') {
-      idleId = window.requestIdleCallback(enableVideo, { timeout: 8000 })
-    } else {
-      timer = window.setTimeout(enableVideo, 6000)
-    }
 
     return () => {
       cancelled = true

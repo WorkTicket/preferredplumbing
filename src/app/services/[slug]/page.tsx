@@ -24,6 +24,7 @@ import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 import { yearsExperienceLabel } from '@/lib/company-stats'
+import { getPostsForService } from '@/data/blog'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -94,6 +95,7 @@ export default function ServicePage({ params }: Props) {
   const relatedServices = (service.relatedServices || [])
     .map((slug) => services.find((s) => s.slug === slug))
     .filter(Boolean) as typeof services
+  const relatedPosts = getPostsForService(`/services/${service.slug}`, 3)
 
   return (
     <div className="pt-site-header">
@@ -421,6 +423,33 @@ export default function ServicePage({ params }: Props) {
                   className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
                 >
                   <ArrowRight className="h-3 w-3" /> {city.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── RELATED ARTICLES ── */}
+      {relatedPosts.length > 0 && (
+        <section className="section-padding bg-white">
+          <div className="container-page">
+            <span className="section-label">{'Guides'}</span>
+            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
+              Related Articles
+            </h2>
+            <p className="mt-3 text-gray-600 max-w-2xl">
+              Practical reading on {service.title.toLowerCase()} for North Idaho homeowners.
+            </p>
+            <div className="mt-8 flex flex-col gap-3">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group inline-flex items-center gap-2 border-b border-transparent pb-0.5 font-display text-sm font-bold uppercase tracking-wide text-gray-700 transition-colors hover:border-blue hover:text-blue"
+                >
+                  {post.title}
+                  <ArrowRight className="h-4 w-4 text-blue transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
               ))}
             </div>

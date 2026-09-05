@@ -10,9 +10,11 @@ module.exports = {
   priority: 0.8,
   sitemapSize: 7000,
   // Dynamic routes come from Next generateStaticParams after build — no duplicated slug lists.
-  exclude: ['/thank-you', '/api/*'],
+  exclude: ['/thank-you', '/api/*', '/icon.png', '/apple-icon.png', '/icon', '/apple-icon'],
   alternateRefs: [],
   transform: async (config, path) => {
+    if (/\.(png|ico|jpe?g|webp|svg|xml)$/i.test(path)) return null
+
     const defaultPriority = 0.8
     const defaultChangefreq = 'weekly'
 

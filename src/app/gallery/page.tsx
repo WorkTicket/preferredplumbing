@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Phone, ChevronRight } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
+import { imageGallerySchema } from '@/lib/schema'
 import PageHero from '@/components/sections/PageHero'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { StatisticsBanner } from '@/components/gallery'
@@ -24,46 +25,23 @@ export const metadata: Metadata = generateMetadata({
 })
 
 export default function GalleryPage() {
-  const imageObjectSchemas = galleryProjects.slice(0, 10).map((project) => ({
-    '@context': 'https://schema.org',
-    '@type': 'ImageObject',
-    contentUrl: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
-    url: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
-    name: `${project.title} - ${project.location}`,
-    caption: project.description,
-    description: project.description,
-  }))
-
   return (
     <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            itemListElement: galleryProjects.map((project, i) => ({
-              '@type': 'ListItem',
-              position: i + 1,
-              item: {
-                '@type': 'CreativeWork',
-                name: project.title,
+          __html: JSON.stringify(
+            imageGallerySchema(
+              galleryProjects.slice(0, 10).map((project) => ({
+                title: project.title,
                 description: project.description,
-                contentLocation: project.location,
-                dateCreated: project.completionDate,
+                location: project.location || 'North Idaho',
                 image: `${siteUrl}${normalizeImageSrc(project.coverImage)}`,
-              },
-            })),
-          }),
+              })),
+            ),
+          ),
         }}
       />
-      {imageObjectSchemas.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
 
       <PageHero
         label="Gallery"

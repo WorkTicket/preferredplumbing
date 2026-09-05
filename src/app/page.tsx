@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic'
 import HeroSection from '@/components/sections/HeroSection'
 import EmergencyBand from '@/components/sections/EmergencyBand'
 import { AnimatedSection } from '@/components/animations'
-import { faqSchema, webpageSchema, reviewSchema, videoObjectSchema } from '@/lib/schema'
-import { faqItems, reviews } from '@/lib/data'
+import { webpageSchema, reviewSchema, videoObjectSchema, featuredServicesItemList } from '@/lib/schema'
+import { reviews } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 import { combinedExperiencePhrase } from '@/lib/company-stats'
@@ -46,12 +46,6 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(faqItems.slice(0, 7))),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
             __html: JSON.stringify(webpageSchema('Spirit Lake Plumber | Same-Day Service', `Plumbing services near Spirit Lake and North Idaho. Family-owned with ${combinedExperiencePhrase()}. Water heaters, radiant heat, and emergency plumber.`, '')),
         }}
       />
@@ -70,25 +64,23 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            itemListElement: [
-              { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Emergency Plumbing', url: `${siteUrl}/services/emergency` } },
-              { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Water Heater Repair & Installation', url: `${siteUrl}/services/water-heaters` } },
-              { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'Heated Driveway Installation', url: `${siteUrl}/services/heated-driveways` } },
-              { '@type': 'ListItem', position: 4, item: { '@type': 'Service', name: 'Radiant Floor Heating', url: `${siteUrl}/services/radiant-heat` } },
-              { '@type': 'ListItem', position: 5, item: { '@type': 'Service', name: 'New Construction Plumbing', url: `${siteUrl}/services/new-construction` } },
-              { '@type': 'ListItem', position: 6, item: { '@type': 'Service', name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` } },
-            ],
-          }),
+          __html: JSON.stringify(
+            featuredServicesItemList([
+              { name: 'Emergency Plumbing', url: `${siteUrl}/services/emergency` },
+              { name: 'Water Heater Repair & Installation', url: `${siteUrl}/services/water-heaters` },
+              { name: 'Heated Driveway Installation', url: `${siteUrl}/services/heated-driveways` },
+              { name: 'Radiant Floor Heating', url: `${siteUrl}/services/radiant-heat` },
+              { name: 'New Construction Plumbing', url: `${siteUrl}/services/new-construction` },
+              { name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` },
+            ]),
+          ),
         }}
       />
       <div className="hero-fold flex flex-col">
         <HeroSection />
         <EmergencyBand />
       </div>
-      <AnimatedSection variant="fadeIn" delay={0.1} className="-mt-px bg-gray-50">
+      <AnimatedSection variant="fadeIn" delay={0.1} className="bg-gray-50">
         <WhyChooseUs />
       </AnimatedSection>
       <AnimatedSection variant="fadeUp" delay={0.1}>

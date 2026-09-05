@@ -13,6 +13,7 @@
     --gold: #F59E0B;
     --hero-loaded: 0;
     --site-header-h: 4rem;
+    --mobile-cta-h: 3.5rem;
   }
 
   @media (min-width: 640px) {
@@ -318,7 +319,7 @@
   background-color: var(--navy);
   /* Fills the rubber-band gap above the fold so the wave never separates from the nav. */
   box-shadow: 0 -6rem 0 0 var(--blue-dark);
-  min-height: calc(100dvh - var(--site-header-h) - env(safe-area-inset-bottom, 0px));
+  min-height: calc(100dvh - var(--mobile-cta-h) - env(safe-area-inset-bottom, 0px));
 }
 
 /* Wave sits 1px under the nav and tracks --site-header-h with the header. */
