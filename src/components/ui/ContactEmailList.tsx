@@ -3,31 +3,11 @@ import { CONTACT_EMAILS } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
 interface ContactEmailListProps {
-  variant?: 'stacked' | 'footer' | 'inline'
   className?: string
   plain?: boolean
 }
 
-export default function ContactEmailList({ variant = 'stacked', className, plain = false }: ContactEmailListProps) {
-  if (variant === 'footer') {
-    return (
-      <div className={cn('flex flex-col gap-2', className)}>
-        {CONTACT_EMAILS.map((contact) => (
-          <a
-            key={contact.email}
-            href={`mailto:${contact.email}`}
-            className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-400 hover:text-blue-light transition-colors duration-300"
-          >
-            <Mail className="h-4 w-4 text-blue-light shrink-0" />
-            <span>
-              {contact.name} · {contact.email}
-            </span>
-          </a>
-        ))}
-      </div>
-    )
-  }
-
+export default function ContactEmailList({ className, plain = false }: ContactEmailListProps) {
   return (
     <div className={cn('space-y-3 sm:space-y-4', className)}>
       {CONTACT_EMAILS.map((contact) => (
