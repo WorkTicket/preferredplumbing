@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import type { BlogPostSummary } from '@/data/blog'
+import { formatReadTime } from '@/data/blog'
 import { cn, formatDisplayDate } from '@/lib/utils'
 
 interface BlogPostCardProps {
@@ -53,8 +54,9 @@ export default function BlogPostCard({ post, plain = false }: BlogPostCardProps)
 
         <p className="mt-3 text-sm text-gray-500 line-clamp-2 leading-relaxed">{post.excerpt}</p>
 
-        <p className="mt-5 pt-4 border-t border-gray-100 text-xs font-medium text-gray-400 uppercase tracking-wider">
-          {formatDisplayDate(post.date)}
+        <p className="mt-5 flex items-center justify-between gap-3 pt-4 border-t border-gray-100 text-xs font-medium text-gray-400 uppercase tracking-wider">
+          <span>{formatDisplayDate(post.date)}</span>
+          <span>{formatReadTime(post.readTimeMinutes)}</span>
         </p>
       </div>
     </Link>

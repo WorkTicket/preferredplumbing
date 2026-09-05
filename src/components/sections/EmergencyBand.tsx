@@ -3,7 +3,7 @@ import { BUSINESS_HOURS, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export default function EmergencyBand() {
   return (
-    <section className="relative shrink-0 overflow-hidden bg-navy">
+    <section className="relative -mt-px shrink-0 overflow-hidden bg-navy">
       <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(26,53,80,0.5),transparent)] pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-2.5 sm:gap-0 sm:flex-row sm:justify-between px-4 sm:px-6 lg:px-8 py-3.5 sm:py-5 lg:py-6">

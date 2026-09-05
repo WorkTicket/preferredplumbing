@@ -12,6 +12,14 @@
     --blue-dark: #004ECC;
     --gold: #F59E0B;
     --hero-loaded: 0;
+    --site-header-h: 4rem;
+    --mobile-cta-h: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --site-header-h: 5rem;
+    }
   }
 
   html {
@@ -63,6 +71,10 @@
 @layer components {
   .container-page {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .pt-site-header {
+    padding-top: var(--site-header-h);
   }
 
   .section-padding {
@@ -145,14 +157,14 @@
 
   .mesh-bg-light {
     background-image:
-      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,102,255,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(0,102,255,0.04) 0%, transparent 50%);
+      radial-gradient(ellipse 90% 70% at 14% 38%, rgba(0,102,255,0.07) 0%, transparent 62%),
+      radial-gradient(ellipse 70% 55% at 86% 78%, rgba(0,102,255,0.045) 0%, transparent 55%);
   }
 
   .mesh-bg-warm {
     background-image:
-      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,102,255,0.06) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 40% at 0% 100%, rgba(0,102,255,0.04) 0%, transparent 50%);
+      radial-gradient(ellipse 80% 60% at 48% 42%, rgba(0,102,255,0.06) 0%, transparent 58%),
+      radial-gradient(ellipse 55% 45% at 8% 82%, rgba(0,102,255,0.04) 0%, transparent 52%);
   }
 
   .accent-rule {
@@ -238,7 +250,7 @@
   }
 
   .nav-link-premium {
-    @apply text-sm font-semibold text-gray-700 transition-all duration-300 relative whitespace-nowrap;
+    @apply relative whitespace-nowrap text-sm font-bold text-gray-700 transition-all duration-300;
   }
   .nav-link-premium::after {
     content: '';
@@ -304,7 +316,15 @@
 
 /* ===== HOME HERO FOLD (hero + emergency band = one viewport) ===== */
 .hero-fold {
-  min-height: calc(100dvh - 3.5rem - env(safe-area-inset-bottom, 0px));
+  background-color: var(--navy);
+  /* Fills the rubber-band gap above the fold so the wave never separates from the nav. */
+  box-shadow: 0 -6rem 0 0 var(--blue-dark);
+  min-height: calc(100dvh - var(--mobile-cta-h) - env(safe-area-inset-bottom, 0px));
+}
+
+/* Wave sits 1px under the nav and tracks --site-header-h with the header. */
+.hero-top-wave {
+  top: calc(var(--site-header-h) - 1px);
 }
 
 /* Short phones: let content size naturally instead of clipping the fold */

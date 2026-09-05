@@ -1,234 +1,287 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, MapPin, ChevronRight, Shield, Star, Award, HardHat, ExternalLink } from 'lucide-react'
-import { PHONE, PHONE_HREF, GBP_URL, FACEBOOK_URL, TIKTOK_URL, BUSINESS_HOURS } from '@/lib/utils'
-import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
-import ContactEmailList from '@/components/ui/ContactEmailList'
-import FooterSignature from '@/components/FooterSignature'
-import { getNavServiceGroups, SERVICE_NAV_LABELS } from '@/lib/nav-services'
+import { Phone, Mail, MapPin, Star, Shield, ChevronRight, Facebook } from 'lucide-react'
 import {
-  jobsCompletedLabel,
-  yearsExperienceBadge,
-  yearsExperienceLabel,
-} from '@/lib/company-stats'
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  GBP_URL,
+  FACEBOOK_URL,
+  TIKTOK_URL,
+  CONTACT_EMAILS,
+  CITY,
+  STATE,
+  ZIP,
+} from '@/lib/utils'
+import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
+import FooterSignature from '@/components/FooterSignature'
+import { jobsCompletedLabel, yearsExperienceLabel } from '@/lib/company-stats'
 import { areas } from '@/lib/data'
 
-export default function Footer() {
-  const serviceGroups = getNavServiceGroups()
-  const trustStats = [
-    { value: yearsExperienceLabel(), label: 'Years Experience' },
-    { value: jobsCompletedLabel(), label: 'Jobs Completed' },
-    { value: '16', label: 'Cities Served' },
-    ...(SHOW_GOOGLE_REVIEWS
-      ? [{ value: '5★', label: 'Google Rating' }]
-      : [{ value: 'Sun–Fri', label: '7am–5pm Hours' }]),
-  ]
-  const trustBadges = [
-    { icon: Shield, text: 'Licensed & Insured' },
-    { icon: Award, text: 'Free Estimates' },
-    { icon: HardHat, text: yearsExperienceBadge() },
-    { icon: Star, text: 'Family-Owned & Operated' },
-  ]
+const companyLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+] as const
+
+const popularServiceLinks = [
+  { label: 'Emergency Plumbing', href: '/services/emergency' },
+  { label: 'Radiant Heat', href: '/services/radiant-heat' },
+  { label: 'New Construction', href: '/services/new-construction' },
+  { label: 'Water Heaters', href: '/services/water-heaters' },
+] as const
+
+const guideLinks = [
+  { label: 'Radiant Heat Cost', href: '/blog/radiant-heat-cost-north-idaho' },
+  { label: 'Heated Driveway Cost', href: '/blog/heated-driveway-cost-north-idaho' },
+  { label: 'Tankless Cost', href: '/blog/tankless-water-heater-cost-north-idaho' },
+  { label: 'Hiring a Plumber', href: '/blog/how-to-choose-plumber-spirit-lake-idaho' },
+] as const
+
+const resourceLinks = [
+  { label: 'Blog', href: '/blog' },
+  { label: 'FAQs', href: '/faqs' },
+  { label: 'Service Areas', href: '/areas-we-serve' },
+  { label: 'All Services', href: '/services' },
+] as const
+
+function FooterEmail({ email }: { email: string }) {
+  const at = email.lastIndexOf('@')
+  const local = at >= 0 ? email.slice(0, at + 1) : email
+  const domain = at >= 0 ? email.slice(at + 1) : ''
 
   return (
-    <footer className="relative bg-navy-gradient pt-14 sm:pt-20 pb-24 sm:pb-12 md:pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,102,255,0.12)_0%,_transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(0,78,204,0.1)_0%,_transparent_50%)] pointer-events-none" />
+    <a
+      href={`mailto:${email}`}
+      className="flex items-start gap-2.5 text-sm text-gray-400 transition-colors hover:text-white"
+    >
+      <Mail size={15} className="mt-0.5 shrink-0 text-blue-light" />
+      <span className="min-w-0 leading-snug">
+        {local}
+        {domain ? (
+          <>
+            <wbr />
+            <span className="whitespace-nowrap">{domain}</span>
+          </>
+        ) : null}
+      </span>
+    </a>
+  )
+}
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 pb-10 border-b border-white/10">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-            {trustStats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="font-display text-3xl sm:text-4xl font-black text-blue-light">{stat.value}</p>
-                <p className="mt-1.5 text-xs sm:text-sm text-gray-400 font-medium uppercase tracking-wider">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+function FooterNav({
+  title,
+  links,
+}: {
+  title: string
+  links: readonly { label: string; href: string }[]
+}) {
+  return (
+    <nav aria-label={title}>
+      <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white">
+        {title}
+      </p>
+      <ul className="mt-2.5 space-y-1.5">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className="text-sm text-gray-400 transition-colors hover:text-white"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
 
-        <div className="mb-12 pb-10 border-b border-white/10">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {trustBadges.map((badge) => (
-              <div key={badge.text} className="flex items-center justify-center sm:justify-start gap-2.5 text-gray-400">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-                  <badge.icon className="h-4 w-4 text-blue-light shrink-0" />
-                </div>
-                <span className="text-xs sm:text-sm font-medium">{badge.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+export default function Footer() {
+  return (
+    <footer className="bg-navy pb-[calc(var(--mobile-cta-h)+env(safe-area-inset-bottom,0px))] text-gray-300 md:pb-0">
+      <div className="h-1 bg-blue" />
 
-        <div className="grid gap-x-16 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-1 w-full text-center lg:text-left">
-            <Link href="/" className="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-3 lg:grid-cols-[minmax(0,1.1fr)_repeat(4,minmax(0,0.85fr))_minmax(16.5rem,1.4fr)] lg:gap-x-6">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2.5">
               <Image
                 src="/images/preferred-logo.webp"
-                alt="Preferred Plumbing Solutions - Spirit Lake, ID Plumber"
-                width={40}
-                height={40}
-                className="h-10 w-auto shrink-0"
+                alt="Preferred Plumbing Solutions logo"
+                width={36}
+                height={36}
+                className="h-9 w-auto shrink-0"
               />
-              <div className="font-display text-sm font-bold uppercase tracking-wider text-white leading-tight text-center lg:text-left">
-                Preferred<br />Plumbing<br />Solutions
+              <div>
+                <p className="font-display text-base font-bold leading-tight text-white">
+                  Preferred Plumbing Solutions
+                </p>
+                <p className="text-[0.6875rem] font-medium uppercase tracking-wider text-blue-light">
+                  {CITY}, {STATE}
+                </p>
               </div>
             </Link>
-            <p className="mt-4 text-sm text-gray-400 leading-relaxed">
-              Family-owned. Licensed &amp; insured. We cover North Idaho and Eastern Washington.
+            <p className="mt-3 text-sm leading-snug text-gray-400">
+              Family-owned plumbing for North Idaho and Eastern Washington.
             </p>
-            <div className="mt-5 flex flex-col gap-2.5">
-              <a href={PHONE_HREF} className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-300 hover:text-blue-light transition-colors duration-300 font-semibold">
-                <Phone className="h-4 w-4 text-blue-light" /> {PHONE}
-              </a>
-              <ContactEmailList variant="footer" />
-              <p className="inline-flex lg:justify-start justify-center items-center gap-2 text-sm text-gray-400">
-                <MapPin className="h-4 w-4 text-blue-light shrink-0" /> Spirit Lake, ID 83869
-              </p>
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+            <p className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
               {SHOW_GOOGLE_REVIEWS && (
-                <a
-                  href={GBP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
-                >
-                  <Star className="h-3.5 w-3.5 text-blue-light" /> Google Business
-                </a>
+                <span className="inline-flex items-center gap-1">
+                  <Star size={12} className="text-blue-light" /> 5-Star Rated
+                </span>
               )}
-              <a
-                href={FACEBOOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
-              >
-                Facebook
-                <ExternalLink className="h-3 w-3 text-gray-500" />
-              </a>
-              <a
-                href={TIKTOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
-              >
-                TikTok
-                <ExternalLink className="h-3 w-3 text-gray-500" />
-              </a>
-              {SHOW_GOOGLE_REVIEWS && (
-                <a
-                  href={GBP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-semibold text-gray-300 transition-all hover:border-blue-light/30 hover:text-white hover:bg-white/10"
-                >
-                  Leave a Review
-                </a>
-              )}
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <h4 className="font-display text-xs font-bold uppercase tracking-wider text-blue-light mb-3 text-center lg:text-left">Get Help Now</h4>
-              <p className="text-sm text-gray-400 mb-4 text-center lg:text-left">Emergency? Call during business hours ({BUSINESS_HOURS.short}).</p>
-              <a
-                href={PHONE_HREF}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-5 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-dark active:scale-[0.97] shadow-premium-lg"
-              >
-                <Phone className="h-4 w-4" /> Call {PHONE}
-              </a>
+              <span className="inline-flex items-center gap-1">
+                <Shield size={12} className="text-blue-light" /> Licensed &amp; Insured
+              </span>
+            </p>
+            <div className="mt-4 flex flex-col items-start gap-2">
               <Link
                 href="/contact"
-                className="mt-2.5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 px-5 py-3.5 text-sm font-semibold text-gray-300 transition-all duration-300 hover:bg-white/5 hover:border-blue-light/30 active:scale-[0.97]"
+                className="inline-flex h-8 items-center gap-1 whitespace-nowrap rounded-md bg-blue px-3 text-[0.6875rem] font-semibold leading-none tracking-wide text-white transition-colors hover:bg-blue-dark"
               >
                 Get Free Quote
+                <ChevronRight className="h-3 w-3" aria-hidden />
               </Link>
+              <a
+                href={PHONE_HREF}
+                className="text-sm font-medium text-gray-300 underline-offset-4 transition-colors hover:text-white hover:underline"
+              >
+                Call {PHONE_DISPLAY}
+              </a>
             </div>
           </div>
 
-          <div className="w-full text-center lg:text-left">
-            <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5">Services</h4>
-            <div className="space-y-5">
-              {serviceGroups.map((group) => (
-                <div key={group.id}>
-                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
-                    {group.label}
-                  </p>
-                  <ul className="space-y-2">
-                    {group.services.map((service) => {
-                      const label = SERVICE_NAV_LABELS[service.slug] ?? service.title
-                      return (
-                        <li key={service.slug}>
-                          <Link
-                            href={`/services/${service.slug}`}
-                            className="group text-sm text-gray-400 transition-all duration-300 hover:text-white inline-flex items-center gap-1"
-                          >
-                            <ChevronRight className="h-3 w-3 text-blue-light/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-blue-light" />
-                            <span className="link-underline">{label}</span>
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
+          <FooterNav title="Company" links={companyLinks} />
+          <FooterNav title="Popular Services" links={popularServiceLinks} />
+          <FooterNav title="Guides" links={guideLinks} />
+          <FooterNav title="Resources" links={resourceLinks} />
+
+          <div className="col-span-2 min-w-0 sm:col-span-3 lg:col-span-1">
+            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white">
+              Contact
+            </p>
+            <ul className="mt-2.5 space-y-2">
+              <li className="flex items-start gap-2.5 text-sm text-gray-400">
+                <MapPin size={15} className="mt-0.5 shrink-0 text-blue-light" />
+                <span>
+                  {CITY}, {STATE} {ZIP}
+                </span>
+              </li>
+              <li>
+                <a
+                  href={PHONE_HREF}
+                  className="flex items-center gap-2.5 text-sm text-gray-400 transition-colors hover:text-white"
+                >
+                  <Phone size={15} className="shrink-0 text-blue-light" />
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              {CONTACT_EMAILS.map((contact) => (
+                <li key={contact.email}>
+                  <FooterEmail email={contact.email} />
+                </li>
               ))}
-            </div>
-            <Link href="/services" className="mt-4 inline-flex text-xs font-semibold text-blue-light hover:text-blue-light transition-colors duration-300">
-              View All Services &rarr;
-            </Link>
-          </div>
-
-          <div className="w-full text-center lg:text-left">
-            <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5">Service Areas</h4>
-            <ul className="columns-1 sm:columns-2 lg:columns-1 gap-x-6 space-y-2.5">
-              {areas.map((area) => (
-                <li key={area.slug} className="break-inside-avoid">
-                  <Link
-                    href={`/areas/${area.slug}`}
-                    className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"
+              <li className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
+                >
+                  <Facebook size={15} className="shrink-0 text-blue-light" />
+                  Facebook
+                </a>
+                <a
+                  href={TIKTOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-400 transition-colors hover:text-white"
+                >
+                  TikTok
+                </a>
+                {SHOW_GOOGLE_REVIEWS && (
+                  <a
+                    href={GBP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
                   >
-                    <span className="link-underline">{area.city}, {area.state}</span>
+                    <Star size={15} className="shrink-0 text-blue-light" />
+                    Google
+                  </a>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-6 border-t border-white/10 pt-4">
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white">
+              Service Area
+            </p>
+            <ul className="flex flex-wrap items-center text-sm text-gray-400">
+              {areas.map((area, index) => (
+                <li key={area.slug} className="inline-flex items-center">
+                  {index > 0 && (
+                    <span className="px-1.5 text-white/20" aria-hidden>
+                      ·
+                    </span>
+                  )}
+                  <Link href={`/areas/${area.slug}`} className="transition-colors hover:text-white">
+                    {area.city}
                   </Link>
                 </li>
               ))}
             </ul>
-            <Link href="/areas-we-serve" className="mt-4 inline-flex text-xs font-semibold text-blue-light hover:text-blue-light transition-colors duration-300">
-              View All Areas &rarr;
-            </Link>
           </div>
 
-          <div className="w-full text-center lg:text-left">
-            <h4 className="font-display font-bold text-xs uppercase tracking-wider text-blue-light mb-5">Quick Links</h4>
-            <ul className="space-y-2.5">
-              <li><Link href="/about" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">About Us</span></Link></li>
-              <li><Link href="/gallery" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Project Gallery</span></Link></li>
-              <li><Link href="/faqs" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">FAQs</span></Link></li>
-              <li><Link href="/blog" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Blog</span></Link></li>
-              <li><Link href="/areas-we-serve" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Service Areas</span></Link></li>
-              <li><Link href="/contact" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Contact Us</span></Link></li>
-              <li><Link href="/privacy-policy" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Privacy Policy</span></Link></li>
-              <li><Link href="/terms-and-conditions" className="group text-sm text-gray-400 transition-all duration-300 hover:text-white"><span className="link-underline">Terms &amp; Conditions</span></Link></li>
-            </ul>
+          <div className="mt-3 flex flex-col gap-2 text-xs text-gray-400 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+            <p>
+              &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span>{jobsCompletedLabel()} Jobs</span>
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <span>{yearsExperienceLabel()} Years</span>
+              {SHOW_GOOGLE_REVIEWS && (
+                <>
+                  <span className="text-white/20" aria-hidden>
+                    ·
+                  </span>
+                  <span>5.0 Average Rating</span>
+                </>
+              )}
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <span>Licensed &amp; Insured</span>
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <span>Idaho &amp; Washington</span>
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <Link href="/privacy-policy" className="transition-colors hover:text-white">
+                Privacy Policy
+              </Link>
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <Link href="/terms-and-conditions" className="transition-colors hover:text-white">
+                Terms
+              </Link>
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <FooterSignature />
+            </div>
           </div>
-        </div>
-
-        <div className="mt-12 sm:mt-16 border-t border-white/10 pt-8 text-center">
-          <p className="text-xs sm:text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved. | Licensed & Insured in Idaho &amp; Washington | Family-Owned &amp; Operated
-          </p>
-          <p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-gray-600">
-            <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <span aria-hidden="true">·</span>
-            <Link href="/terms-and-conditions" className="hover:text-gray-400 transition-colors">
-              Terms &amp; Conditions
-            </Link>
-          </p>
-          <p className="mt-2 text-xs text-gray-600">
-            Spirit Lake, ID 83869 | Emergency Service · {BUSINESS_HOURS.short}
-          </p>
-          <FooterSignature />
         </div>
       </div>
     </footer>

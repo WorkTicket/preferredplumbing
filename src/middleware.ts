@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { shouldApplyHtmlCacheHeaders } from '@/lib/static-asset-path'
 
 const WWW_HOST = 'www.callpreferredplumbing.com'
 const APEX_HOST = 'callpreferredplumbing.com'
@@ -55,6 +56,9 @@ export function middleware(request: NextRequest) {
   }
 
   if (!isPreviewHost(host)) {
+    if (!shouldApplyHtmlCacheHeaders(request.nextUrl.pathname)) {
+      return NextResponse.next()
+    }
     return withHtmlCacheHeaders(NextResponse.next())
   }
 
@@ -91,5 +95,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|images/|videos/).*)'],
 }

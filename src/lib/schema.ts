@@ -1,3 +1,4 @@
+import { areas } from './data/areas'
 import { siteUrl } from './seo'
 import { CONTACT_EMAILS, FACEBOOK_URL, GBP_URL, PHONE, PHONE_E164, TIKTOK_URL, ZIP } from './utils'
 import {
@@ -8,6 +9,34 @@ import {
 
 const socialProfiles = [FACEBOOK_URL, TIKTOK_URL, GBP_URL]
 const primaryEmail = CONTACT_EMAILS[0]?.email
+
+const CITY_WIKI_IDS: Record<string, string> = {
+  'spirit-lake-id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho',
+  'coeur-dalene-id': 'https://en.wikipedia.org/wiki/Coeur_d%27Alene,_Idaho',
+  'post-falls-id': 'https://en.wikipedia.org/wiki/Post_Falls,_Idaho',
+}
+
+/** Actual towns we serve — not the whole state (avoids Idaho Falls / Sun Valley / Burley matches). */
+export function servedCityPlaces() {
+  return areas.map((area) => ({
+    '@type': 'City' as const,
+    name: area.city,
+    // sameAs, not @id — Wikipedia URLs are references, not this node's identity.
+    ...(CITY_WIKI_IDS[area.slug] ? { sameAs: CITY_WIKI_IDS[area.slug] } : {}),
+  }))
+}
+
+const SERVED_COUNTIES = [
+  { '@type': 'AdministrativeArea', name: 'Kootenai County, Idaho' },
+  { '@type': 'AdministrativeArea', name: 'Bonner County, Idaho' },
+  { '@type': 'AdministrativeArea', name: 'Latah County, Idaho' },
+  { '@type': 'AdministrativeArea', name: 'Pend Oreille County, Washington' },
+  { '@type': 'AdministrativeArea', name: 'Spokane County, Washington' },
+]
+
+export function serviceAreaServed() {
+  return [...servedCityPlaces(), ...SERVED_COUNTIES]
+}
 
 /** Shared PostalAddress — service-area business (no public street). */
 function postalAddress(locality = 'Spirit Lake', region = 'ID', postalCode = ZIP) {
@@ -38,7 +67,7 @@ const contactPoints = CONTACT_EMAILS.map((contact) => ({
   contactType: 'customer service',
   email: contact.email,
   availableLanguage: ['English'],
-  areaServed: ['US'],
+  areaServed: servedCityPlaces().map((city) => city.name),
 }))
 
 export function organizationSchema() {
@@ -63,13 +92,7 @@ export function organizationSchema() {
     telephone: PHONE_E164,
     ...(primaryEmail ? { email: primaryEmail } : {}),
     sameAs: socialProfiles,
-    areaServed: [
-      { '@type': 'City', name: 'Spirit Lake' },
-      { '@type': 'City', name: "Coeur d'Alene" },
-      { '@type': 'City', name: 'Post Falls' },
-      { '@type': 'City', name: 'Sandpoint' },
-      { '@type': 'State', name: 'Idaho' },
-    ],
+    areaServed: serviceAreaServed(),
     contactPoint: contactPoints,
   }
 }
@@ -106,21 +129,7 @@ export function localBusinessSchema() {
         closes: '17:00',
       },
     ],
-    areaServed: [
-      { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },
-      { '@type': 'City', name: "Coeur d'Alene", '@id': 'https://en.wikipedia.org/wiki/Coeur_d%27Alene,_Idaho' },
-      { '@type': 'City', name: 'Post Falls', '@id': 'https://en.wikipedia.org/wiki/Post_Falls,_Idaho' },
-      { '@type': 'City', name: 'Sandpoint' },
-      { '@type': 'City', name: 'Hayden' },
-      { '@type': 'City', name: 'Rathdrum' },
-      { '@type': 'City', name: 'Priest River' },
-      { '@type': 'City', name: 'Athol' },
-      { '@type': 'City', name: 'Blanchard' },
-      { '@type': 'City', name: 'Newport' },
-      { '@type': 'City', name: 'Chattaroy' },
-      { '@type': 'State', name: 'Idaho' },
-      { '@type': 'State', name: 'Washington' },
-    ],
+    areaServed: serviceAreaServed(),
     sameAs: socialProfiles,
     hasMap: GBP_URL,
     award: yearsExperienceBadge(),
@@ -141,20 +150,46 @@ export function localBusinessSchema() {
       'Tankless water heater installation',
       'Kitchen and bathroom remodeling',
     ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Plumbing Services',
+      // Nested OfferCatalog (not Offer) — we do not publish fixed prices.
+      itemListElement: [
+        { '@type': 'OfferCatalog', name: 'Emergency Plumbing', url: `${siteUrl}/services/emergency` },
+        { '@type': 'OfferCatalog', name: 'Water Heater Installation', url: `${siteUrl}/services/water-heaters` },
+        { '@type': 'OfferCatalog', name: 'Radiant Floor Heating', url: `${siteUrl}/services/radiant-heat` },
+        { '@type': 'OfferCatalog', name: 'Heated Driveway Installation', url: `${siteUrl}/services/heated-driveways` },
+        { '@type': 'OfferCatalog', name: 'New Construction Plumbing', url: `${siteUrl}/services/new-construction` },
+        { '@type': 'OfferCatalog', name: 'Sewer Line Replacement', url: `${siteUrl}/services/sewer-line` },
+        { '@type': 'OfferCatalog', name: 'Water Line Replacement', url: `${siteUrl}/services/water-line` },
+        { '@type': 'OfferCatalog', name: 'Tankless Water Heater Installation', url: `${siteUrl}/services/tankless-water-heaters` },
+        { '@type': 'OfferCatalog', name: 'Septic System Installation', url: `${siteUrl}/services/septic-systems` },
+        { '@type': 'OfferCatalog', name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` },
+      ],
+    },
   }
 }
 
-export function postalAddressSchema() {
+export function contactPageSchema() {
   return {
     '@context': 'https://schema.org',
-    ...postalAddress(),
+    '@type': 'ContactPage',
+    name: 'Contact Preferred Plumbing Solutions',
+    description: `Get a free plumbing quote from Preferred Plumbing Solutions. Call ${PHONE}.`,
+    url: `${siteUrl}/contact`,
+    mainEntity: { '@id': `${siteUrl}/#localbusiness` },
+    about: { '@id': `${siteUrl}/#localbusiness` },
   }
 }
 
-export function contactPointSchema() {
+export function aboutPageSchema() {
   return {
     '@context': 'https://schema.org',
-    '@graph': contactPoints,
+    '@type': 'AboutPage',
+    name: 'About Preferred Plumbing Solutions',
+    description: `Family-owned plumbing company with ${combinedExperiencePhrase()} serving Spirit Lake and North Idaho.`,
+    url: `${siteUrl}/about`,
+    mainEntity: { '@id': `${siteUrl}/#organization` },
   }
 }
 
@@ -178,6 +213,7 @@ export function personSchema(name: string, jobTitle: string, description: string
     name,
     jobTitle,
     description,
+    url: `${siteUrl}/about`,
     image: image ? `${siteUrl}${image}` : undefined,
     worksFor: {
       '@type': 'Organization',
@@ -185,7 +221,6 @@ export function personSchema(name: string, jobTitle: string, description: string
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    sameAs: socialProfiles,
   }
 }
 
@@ -229,7 +264,7 @@ export function videoObjectSchema() {
     '@type': 'VideoObject',
     name: 'Preferred Plumbing Solutions - Spirit Lake Plumber',
     description: `Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. ${yearsExperienceLabel()} years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.`,
-    thumbnailUrl: [`${siteUrl}/images/preferred-plumbing-hero-poster.webp`],
+    thumbnailUrl: `${siteUrl}/images/preferred-plumbing-hero-poster.webp`,
     contentUrl: `${siteUrl}/videos/preferred-plumbing-hero.mp4`,
     uploadDate: '2024-01-01T00:00:00-08:00',
     duration: 'PT13S',
@@ -291,23 +326,20 @@ export function faqSchema(questions: { question: string; answer: string; href?: 
 }
 
 /** Service markup without Offer/price — we do not publish fixed prices. */
-export function serviceSchema(serviceName: string, description: string) {
+export function serviceSchema(serviceName: string, description: string, slug?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
     description,
+    ...(slug ? { url: `${siteUrl}/services/${slug}` } : {}),
     provider: {
       '@type': 'Plumber',
       '@id': `${siteUrl}/#localbusiness`,
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    areaServed: [
-      { '@type': 'City', name: 'Spirit Lake', '@id': 'https://en.wikipedia.org/wiki/Spirit_Lake,_Idaho' },
-      { '@type': 'State', name: 'Idaho' },
-      { '@type': 'State', name: 'Washington' },
-    ],
+    areaServed: serviceAreaServed(),
     serviceType: serviceName,
   }
 }
@@ -333,19 +365,27 @@ export function articleSchema(input: {
   datePublished: string
   dateModified?: string
   authorName?: string
+  wordCount?: number
+  readTimeMinutes?: number
 }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: input.title,
     description: input.description,
-    image: [`${siteUrl}${input.image}`],
+    image: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}${input.image}`,
+      width: 1920,
+      height: 1080,
+    },
     datePublished: input.datePublished,
     dateModified: input.dateModified || input.datePublished,
     author: {
       '@type': 'Person',
       name: input.authorName || 'Ron Norris',
       url: `${siteUrl}/about`,
+      jobTitle: 'Founder & Master Plumber',
     },
     publisher: {
       '@type': 'Organization',
@@ -358,5 +398,46 @@ export function articleSchema(input: {
       '@id': `${siteUrl}/blog/${input.slug}`,
     },
     inLanguage: 'en-US',
+    ...(input.wordCount ? { wordCount: input.wordCount } : {}),
+    ...(input.readTimeMinutes ? { timeRequired: `PT${input.readTimeMinutes}M` } : {}),
+  }
+}
+
+export function featuredServicesItemList(
+  items: { name: string; url: string }[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Featured plumbing services',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      url: item.url,
+    })),
+  }
+}
+
+export function imageGallerySchema(
+  projects: { title: string; description: string; location: string; image: string }[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: 'Plumbing Project Gallery',
+    url: `${siteUrl}/gallery`,
+    about: { '@id': `${siteUrl}/#localbusiness` },
+    associatedMedia: projects.map((project) => ({
+      '@type': 'ImageObject',
+      contentUrl: project.image,
+      url: project.image,
+      name: project.title,
+      caption: project.description,
+      contentLocation: {
+        '@type': 'Place',
+        name: project.location,
+      },
+    })),
   }
 }

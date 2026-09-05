@@ -15,7 +15,7 @@ export const metadata: Metadata = generateMetadata({
 
 export default function ThankYouPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center pt-14 sm:pt-16 bg-gradient-to-b from-gray-50 to-white">
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center pt-site-header bg-gradient-to-b from-gray-50 to-white">
       <TrackPageEvent event="thank_you_lead" />
       <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-green-100 animate-bounce">
         <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 text-green-500" />

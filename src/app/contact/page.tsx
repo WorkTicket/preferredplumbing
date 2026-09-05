@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic'
 import { Phone, MapPin, Clock, Navigation } from 'lucide-react'
 import TrackPageEvent from '@/components/analytics/TrackPageEvent'
 import { generateMetadata, siteUrl } from '@/lib/seo'
-import { contactPointSchema, postalAddressSchema } from '@/lib/schema'
+import { contactPageSchema } from '@/lib/schema'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
-import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL, PHONE_E164 } from '@/lib/utils'
+import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import PageHero from '@/components/sections/PageHero'
 
@@ -22,38 +22,11 @@ export default function ContactPage() {
   const directionsUrl = DIRECTIONS_URL
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <TrackPageEvent event="contact_page_view" />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'ContactPage',
-            name: 'Contact Preferred Plumbing Solutions',
-            description: `Get a free plumbing quote from Preferred Plumbing Solutions. Call ${PHONE}.`,
-            url: `${siteUrl}/contact`,
-            mainEntity: {
-              '@type': 'Plumber',
-              name: 'Preferred Plumbing Solutions',
-              telephone: PHONE_E164,
-              url: siteUrl,
-              areaServed: ['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum'],
-            },
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(contactPointSchema()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(postalAddressSchema()),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema()) }}
       />
       <PageHero
         label="Contact Us"

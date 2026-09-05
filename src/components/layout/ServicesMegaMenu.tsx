@@ -54,12 +54,7 @@ export default function ServicesMegaMenu({ open, onClose, onKeepOpen }: Services
       onMouseEnter={onKeepOpen}
     >
       <div className="relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-premium-2xl ring-1 ring-black/[0.03]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-gray-200/80 bg-white"
-        />
-
-        <div className="h-1 bg-gradient-to-r from-blue via-blue-light to-blue" />
+        <div className="h-1 bg-blue" />
 
         <div className="flex items-center justify-between gap-4 border-b border-gray-100 px-5 py-4">
           <div>

@@ -5,7 +5,7 @@ export const residentialServiceContent: Record<string, RichServiceContent> = {
   'water-heaters': {
     introHeading: 'Hot Water You Can Count On',
     introParagraphs: [
-      'You do not think about hot water until it is gone. Cold showers and a dishwasher that will not clean right are no fun. We have been installing and servicing water heaters in Spirit Lake, Coeur d\'Alene, Post Falls, and Sandpoint for nearly 40 years.',
+      'You do not think about hot water until it is gone. Cold showers and a dishwasher that will not clean right are no fun. We install, repair, and replace tank water heaters in Spirit Lake, Coeur d\'Alene, Post Falls, Hayden, Rathdrum, Athol, and Oldtown.',
       'North Idaho winters are hard on heaters. We focus on performance, safety, and value. Traditional tanks and tankless units both have a place, and we help you pick what fits your space, usage, and budget.',
       'Efficiency and longevity matter here. Every unit we install or service gets checked against state and local code. We know what this climate asks of a water heater.',
     ],

@@ -21,7 +21,7 @@ const allServicesPreview = FEATURED_HOME_SERVICE_SLUGS.map((slug) =>
 export default function ServicesGrid() {
   return (
     <section className="section-padding bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,102,255,0.05)_0%,_transparent_60%)] pointer-events-none" />
+      <div className="absolute right-0 top-[30%] h-1/2 w-1/2 bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.05)_0%,_transparent_60%)] pointer-events-none" />
       <div className="container-page relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <SectionLabel text="Our Services" centered />

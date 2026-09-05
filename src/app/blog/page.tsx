@@ -4,11 +4,11 @@ import { Phone } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
-import { blogPosts } from '@/data/blog'
+import { getPostsByDate, toBlogSummary } from '@/data/blog'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Blog Spirit Lake ID',
+  title: 'Plumbing Tips for North Idaho',
   description:
     'Plumbing tips and guides for North Idaho homeowners: water heaters, emergency plumbing, septic care, and more from Preferred Plumbing.',
   slug: 'blog',
@@ -17,7 +17,7 @@ export const metadata: Metadata = generateMetadata({
 
 export default function BlogPage() {
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -48,8 +48,8 @@ export default function BlogPage() {
         <div className="container-page">
           <SectionLabel text="Latest Posts" />
           <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <BlogPostCard key={post.slug} post={post} />
+            {getPostsByDate().map((post) => (
+              <BlogPostCard key={post.slug} post={toBlogSummary(post)} />
             ))}
           </div>
         </div>

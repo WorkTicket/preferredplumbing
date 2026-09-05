@@ -43,7 +43,27 @@ describe('content modules', () => {
 
   it('exposes blog and gallery lookups', () => {
     expect(getAllBlogSlugs()).toEqual(blogPosts.map((p) => p.slug))
+    expect(new Set(getAllBlogSlugs()).size).toBe(blogPosts.length)
     expect(galleryProjects.length).toBeGreaterThan(0)
     expect(getGalleryProjectById(galleryProjects[0].id)?.slug).toBe(galleryProjects[0].slug)
+  })
+
+  it('gives signature and underground services supporting blog posts', () => {
+    const linked = new Set(
+      blogPosts
+        .map((post) => post.relatedService?.href)
+        .filter((href): href is string => Boolean(href))
+        .map((href) => href.replace('/services/', ''))
+    )
+    for (const slug of [
+      'radiant-heat',
+      'heated-driveways',
+      'tankless-water-heaters',
+      'new-construction',
+      'sewer-line',
+      'commercial',
+    ]) {
+      expect(linked.has(slug), slug).toBe(true)
+    }
   })
 })

@@ -85,6 +85,7 @@ export const services: Service[] = [
     image: '/images/service-water-heater-installation.webp',
     features: ['Tank water heaters (gas and electric)', 'Water heater repair', 'Water heater replacement', 'Hybrid and heat pump models', 'Annual maintenance', 'Energy-efficient recommendations'],
     faqs: [
+      { question: 'Do you repair water heaters near Spirit Lake?', answer: 'Yes. We repair, replace, and install tank water heaters in Spirit Lake, Coeur d\'Alene, Post Falls, Hayden, Rathdrum, Athol, Oldtown, and nearby North Idaho towns.' },
       { question: 'How long does a water heater typically last in Idaho?', answer: 'Tank models last 8 to 12 years. Hard water in North Idaho means regular flushing helps them last longer.' },
       { question: 'What size water heater do I need for my home?', answer: 'It depends on household size and water use. A family of four usually needs a 50-gallon tank. We help you pick without overspending.' },
       { question: 'Why is my water heater making rumbling noises?', answer: 'Sediment buildup at the bottom of the tank. Annual flushing prevents damage and keeps it running efficiently.' },

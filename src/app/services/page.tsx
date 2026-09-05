@@ -10,7 +10,7 @@ import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 import { yearsExperienceBadge } from '@/lib/company-stats'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Services Spirit Lake ID',
+  title: 'Plumbing Services in Spirit Lake',
   description:
     'Full-service plumber in Spirit Lake: new construction, radiant heat, water heaters, sewer lines, and emergency service. Call 208-290-3889.',
   slug: 'services',
@@ -39,7 +39,7 @@ export default function ServicesPage() {
           description: s.description,
           url: `${siteUrl}/services/${s.slug}`,
           provider: { '@type': 'Plumber', name: 'Preferred Plumbing Solutions', url: siteUrl },
-          areaServed: [{ '@type': 'City', name: 'Spirit Lake' }, { '@type': 'State', name: 'Idaho' }],
+          areaServed: [{ '@type': 'City', name: 'Spirit Lake' }, { '@type': 'City', name: "Coeur d'Alene" }, { '@type': 'City', name: 'Post Falls' }],
         },
       })),
     },
@@ -54,7 +54,7 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-site-header">
       {schemas.map((schema, i) => (
         <script
           key={i}

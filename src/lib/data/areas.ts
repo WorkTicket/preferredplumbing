@@ -8,7 +8,7 @@ export const areas: AreaPage[] = [
     fullName: 'Spirit Lake, Idaho',
     description: 'We are based here. Spirit Lake homes and businesses know us for showing up and doing the job right.',
     pageIntro: [
-      'Spirit Lake is home base for Preferred Plumbing Solutions. When you call, you are talking to a local crew that already knows the codes, wells, septic layouts, and winter freeze patterns around Twin Lakes and Farragut.',
+      'Looking for a plumber in Spirit Lake? Preferred Plumbing Solutions is home base — when you call, you talk to a local crew that knows the codes, wells, septic layouts, and winter freeze patterns around Twin Lakes and Farragut.',
       'From lake cabins to new subdivisions, we handle water heaters, radiant heat, sewer and water lines, remodels, and emergency repairs during business hours. Same-day slots are often available because we are already in town.',
     ],
     localFocus: [
@@ -27,7 +27,7 @@ export const areas: AreaPage[] = [
     fullName: "Coeur d'Alene, Idaho",
     description: "Plumbing for Coeur d'Alene homes and businesses. From new construction to emergency repairs, we cover the whole area.",
     pageIntro: [
-      "Coeur d'Alene keeps us busy with waterfront remodels, downtown commercial tenant improvements, and new homes climbing the hillsides. Preferred Plumbing Solutions brings Spirit Lake-based crews into CDA for installs that pass inspection the first time.",
+      "Looking for a plumbing company in Coeur d'Alene? Preferred Plumbing Solutions brings Spirit Lake-based crews into CDA for waterfront remodels, downtown commercial tenant improvements, and new homes climbing the hillsides — installs that pass inspection the first time.",
       'We regularly work near Tubbs Hill, the lake corridor, and growing neighborhoods toward Silverwood. Tankless conversions, sewer camera diagnostics, and radiant floor heat are among the jobs we get called for most.',
     ],
     localFocus: [
@@ -46,7 +46,7 @@ export const areas: AreaPage[] = [
     fullName: 'Post Falls, Idaho',
     description: 'Full plumbing services for Post Falls. New builds, remodels, water heaters, and emergency calls.',
     pageIntro: [
-      'Post Falls is one of the fastest-growing cities we serve. Preferred Plumbing Solutions supports new construction rough-ins, production-home punch lists, and established neighborhoods near the Spokane River and Q\'emiln Park.',
+      'Need a plumber in Post Falls? It is one of the fastest-growing cities we serve. Preferred Plumbing Solutions supports new construction rough-ins, production-home punch lists, and established neighborhoods near the Spokane River and Q\'emiln Park.',
       'Builders call us for code-compliant underground and top-out. Homeowners call us when a water heater dies, a sewer backs up, or a bathroom remodel needs the plumbing moved before framing closes.',
     ],
     localFocus: [
@@ -84,7 +84,7 @@ export const areas: AreaPage[] = [
     fullName: 'Hayden, Idaho',
     description: 'Hayden homeowners and businesses count on us for quality plumbing work. Repairs, remodels, new construction.',
     pageIntro: [
-      'Hayden sits between Coeur d\'Alene and Rathdrum, with lake homes, golf-course neighborhoods, and busy commercial strips. Preferred Plumbing Solutions covers Hayden for residential repairs, remodels, and new construction plumbing.',
+      'Looking for a plumber in Hayden? We cover lake homes, golf-course neighborhoods, and commercial strips between Coeur d\'Alene and Rathdrum — residential repairs, remodels, and new construction plumbing.',
       'Common jobs include water softener installs for hard well and city water, bathroom remodels near Hayden Lake, and emergency leak repairs during business hours.',
     ],
     localFocus: [
@@ -103,7 +103,7 @@ export const areas: AreaPage[] = [
     fullName: 'Rathdrum, Idaho',
     description: 'Plumbing contractor for Rathdrum and the surrounding area. Residential and commercial, big or small.',
     pageIntro: [
-      'Rathdrum has grown from a quiet prairie town into a full-service community with new subdivisions and long-standing homes. Preferred Plumbing Solutions handles both: production rough-ins and repairs on older systems that need an honest diagnosis.',
+      'Looking for a plumber in Rathdrum? Preferred Plumbing Solutions handles new construction rough-ins and repairs on older systems that need an honest diagnosis. Rathdrum has grown from a quiet prairie town into a full-service community, and we cover both.',
       'We are a short drive from Spirit Lake, so Rathdrum customers often get faster scheduling for water heaters, sewer work, gas lines, and emergency plumbing Sunday through Friday.',
     ],
     localFocus: [

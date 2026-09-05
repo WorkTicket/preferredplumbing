@@ -20,7 +20,6 @@ type HeaderShellProps = {
 export default function HeaderShell({ brand, actions }: HeaderShellProps) {
   const pathname = usePathname()
   const [drawerOpen, setDrawerOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [learnOpen, setLearnOpen] = useState(false)
   const servicesRef = useRef<HTMLDivElement>(null)
@@ -53,12 +52,6 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
   const closeLearnMenu = () => {
     learnCloseTimer.current = setTimeout(() => setLearnOpen(false), 150)
   }
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     setDrawerOpen(false)
@@ -103,30 +96,12 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
 
   return (
     <>
-      <header
-        data-scrolled={scrolled ? 'true' : 'false'}
-        className={cn(
-          'group/hdr fixed top-0 left-0 right-0 z-40 transition-all duration-500',
-          'bg-white/95 backdrop-blur-lg border-b border-transparent',
-          scrolled ? 'shadow-premium-md border-gray-200/60' : '',
-          scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-        )}
-      >
-        <div
-          className={cn(
-            'absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue transition-opacity duration-500',
-            scrolled ? 'opacity-100' : 'opacity-0'
-          )}
-        />
-        <div
-          className={cn(
-            'mx-auto flex max-w-[90rem] items-center justify-between gap-3 px-3 sm:px-6 lg:px-8 transition-all duration-500',
-            scrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
-          )}
-        >
+      <header className="fixed top-0 left-0 right-0 z-40 h-[var(--site-header-h)] border-b border-gray-200/60 bg-white/95 shadow-premium-md backdrop-blur-lg">
+        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue" />
+        <div className="mx-auto flex h-[var(--site-header-h)] w-full min-w-0 max-w-[90rem] items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
           {brand}
 
-          <nav className="hidden lg:flex items-center gap-5 lg:gap-7 shrink-0" aria-label="Primary">
+          <nav className="ml-4 hidden shrink-0 items-center gap-4 xl:flex 2xl:gap-6" aria-label="Primary">
             <Link
               href="/"
               className={cn('nav-link-premium', homeActive && 'is-active')}
@@ -224,7 +199,7 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
             {actions}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-0.5 lg:hidden">
+          <div className="flex shrink-0 items-center gap-0.5 xl:hidden">
             <a
               href={PHONE_HREF}
               data-track="header_mobile_call"
