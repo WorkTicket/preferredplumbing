@@ -120,4 +120,54 @@ export const blogCovers: Record<string, { coverImage: string; coverImageAlt: str
     coverImageAlt:
       'Bright remodeled North Idaho kitchen with island sink, updated fixtures, and evergreen trees outside the window',
   },
+  'why-is-my-water-heater-leaking': {
+    coverImage: '/images/blog/water-heater-installation-cost-idaho.webp',
+    coverImageAlt:
+      'Residential tank water heater with copper piping in an unfinished Idaho basement, the kind of unit that leaks at fittings or the tank itself',
+  },
+  'water-heater-repair-or-replace': {
+    coverImage: '/images/blog/tankless-vs-tank-water-heaters-north-idaho.webp',
+    coverImageAlt:
+      'Tank and tankless water heater piping in a North Idaho utility room, used when deciding repair versus replacement',
+  },
+  'why-does-my-drain-keep-backing-up': {
+    coverImage: '/images/blog/signs-sewer-line-replacement-north-idaho.webp',
+    coverImageAlt:
+      'Exposed drain and sewer piping beside a North Idaho home, typical of a line that keeps backing up after temporary clears',
+  },
+  'drain-cleaning-cost-north-idaho': {
+    coverImage: '/images/blog/trenchless-sewer-repair-north-idaho.webp',
+    coverImageAlt:
+      'Outdoor plumbing excavation at a cedar-sided North Idaho home, the kind of access sometimes needed when a drain clog sits deep in the line',
+  },
+  'sewer-repair-vs-replacement-north-idaho': {
+    coverImage: '/images/blog/trenchless-sewer-repair-north-idaho.webp',
+    coverImageAlt:
+      'Trenchless sewer pipe exposed in a pit beside a North Idaho home, used when comparing repair with full replacement',
+  },
+  'sewer-line-repair-cost-idaho': {
+    coverImage: '/images/blog/signs-sewer-line-replacement-north-idaho.webp',
+    coverImageAlt:
+      'White sewer pipe in a trench beside a North Idaho foundation, the starting point for pricing sewer repair or replacement',
+  },
+  'signs-hidden-plumbing-leak': {
+    coverImage: '/images/blog/water-line-replacement-signs-north-idaho.webp',
+    coverImageAlt:
+      'Trench exposing a residential water line toward a North Idaho home, a common source of hidden leaks and high water bills',
+  },
+  'leak-detection-cost-north-idaho': {
+    coverImage: '/images/blog/water-line-replacement-signs-north-idaho.webp',
+    coverImageAlt:
+      'Yard trench and water service line at a North Idaho home, where leak detection often leads after indoor fixtures check out',
+  },
+  'plumber-cost-spirit-lake-idaho': {
+    coverImage: '/images/blog/how-to-choose-plumber-spirit-lake-idaho.webp',
+    coverImageAlt:
+      'Spirit Lake shoreline in North Idaho, home base for Preferred Plumbing Solutions service-call and project pricing',
+  },
+  'what-to-do-when-sewer-backs-up': {
+    coverImage: '/images/blog/emergency-plumbing-when-to-call-spirit-lake.webp',
+    coverImageAlt:
+      'Basement plumbing emergency with standing water, the situation homeowners face when a sewer line backs up',
+  },
 }

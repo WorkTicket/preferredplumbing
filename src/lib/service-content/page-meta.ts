@@ -53,11 +53,23 @@ export const pageMeta: Record<string, { title: string; h1: string; description?:
     description:
       'Sewer backups or slow drains? Trenchless and traditional replacement in North Idaho. Free estimate: 208-290-3889.',
   },
+  'drain-cleaning': {
+    title: 'Drain Cleaning in Spirit Lake',
+    h1: 'Drain Cleaning in Spirit Lake, Idaho',
+    description:
+      'Clogged sink, shower, or main drain? Drain cleaning and hydro jetting in Spirit Lake and North Idaho. Call 208-290-3889.',
+  },
   'water-line': {
     title: 'Water Line Replacement Spirit Lake',
     h1: 'Water Line Repair & Replacement in North Idaho',
     description:
       'Low pressure or a wet yard? Underground water line repair and replacement in North Idaho. Call 208-290-3889.',
+  },
+  'leak-detection': {
+    title: 'Leak Detection in Spirit Lake',
+    h1: 'Leak Detection & Repair in Spirit Lake, Idaho',
+    description:
+      'High water bill or a hidden leak? Leak detection and repair in Spirit Lake and North Idaho. Call 208-290-3889.',
   },
   'gas-line': {
     title: 'Gas Line Installation Spirit Lake ID',

@@ -9,7 +9,7 @@ describe('isNavActive', () => {
 
   it('matches section roots and nested paths', () => {
     expect(isNavActive('/services', '/services')).toBe(true)
-    expect(isNavActive('/services/emergency', '/services')).toBe(true)
+    expect(isNavActive('/services/emergency/coeur-dalene-id', '/services')).toBe(true)
     expect(isNavActive('/gallery', '/services')).toBe(false)
   })
 })

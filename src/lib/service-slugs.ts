@@ -41,7 +41,7 @@ export const SERVICE_NAV_GROUPS: ServiceNavGroupSlugs[] = [
     id: 'underground',
     label: 'Underground & Utility',
     description: 'Sewer, water, gas & septic',
-    slugs: ['sewer-line', 'water-line', 'gas-line', 'septic-systems'],
+    slugs: ['sewer-line', 'drain-cleaning', 'water-line', 'leak-detection', 'gas-line', 'septic-systems'],
   },
 ]
 

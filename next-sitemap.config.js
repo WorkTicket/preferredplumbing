@@ -24,6 +24,9 @@ module.exports = {
     if (path === '/') {
       priority = 1.0
       changefreq = 'weekly'
+    } else if (/^\/services\/[^/]+\/[^/]+$/.test(path)) {
+      priority = 0.85
+      changefreq = 'monthly'
     } else if (path.startsWith('/services/')) {
       priority = 0.9
       changefreq = 'monthly'

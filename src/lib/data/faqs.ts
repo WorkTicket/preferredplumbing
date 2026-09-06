@@ -15,6 +15,18 @@ export const faqItems = [
     linkLabel: 'Learn about heated driveways →',
   },
   {
+    question: 'Do you offer drain cleaning in Spirit Lake?',
+    answer: 'Yes. We clear clogged sinks, showers, toilets, and main drains, and we hydro jet when a cable will not hold. Camera inspection tells us if the pipe needs sewer repair instead.',
+    href: '/services/drain-cleaning',
+    linkLabel: 'See drain cleaning →',
+  },
+  {
+    question: 'Can you find a hidden plumbing leak?',
+    answer: 'Yes. High water bills, a meter that runs when everything is off, or damp crawlspace insulation are common signs. We locate the leak, then quote the repair.',
+    href: '/services/leak-detection',
+    linkLabel: 'See leak detection →',
+  },
+  {
     question: 'Do you install tankless water heaters?',
     answer: 'Yes. We install, repair, and replace tankless water heaters across North Idaho. We can help you decide between tank and tankless based on your household usage.',
     href: '/services/tankless-water-heaters',

@@ -6,6 +6,7 @@ import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle } fro
 import { areas, services } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { citySeoDescription, citySeoTitle, areaFaqs, areaServicesForCity } from '@/lib/area-seo'
+import { serviceHrefForCity } from '@/lib/data/service-city'
 import { breadcrumbSchema, faqSchema, logoImageObject } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
@@ -208,7 +209,7 @@ export default function CityPage({ params }: Props) {
             {cityServices.map((s) => (
               <Link
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={serviceHrefForCity(s.slug, area.slug)}
                 className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 shadow-premium transition-all hover:border-blue/30 hover:bg-blue/5 hover:-translate-y-0.5"
               >
                 <CheckCircle className="h-5 w-5 text-blue shrink-0" />

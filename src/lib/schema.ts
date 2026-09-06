@@ -142,7 +142,9 @@ export function localBusinessSchema() {
       'Water heater installation',
       'Water softener installation',
       'Sewer line replacement',
+      'Drain cleaning',
       'Water line replacement',
+      'Leak detection and repair',
       'Gas line installation and repair',
       'Septic system installation',
       'Emergency plumbing',
@@ -161,7 +163,9 @@ export function localBusinessSchema() {
         { '@type': 'OfferCatalog', name: 'Heated Driveway Installation', url: `${siteUrl}/services/heated-driveways` },
         { '@type': 'OfferCatalog', name: 'New Construction Plumbing', url: `${siteUrl}/services/new-construction` },
         { '@type': 'OfferCatalog', name: 'Sewer Line Replacement', url: `${siteUrl}/services/sewer-line` },
+        { '@type': 'OfferCatalog', name: 'Drain Cleaning', url: `${siteUrl}/services/drain-cleaning` },
         { '@type': 'OfferCatalog', name: 'Water Line Replacement', url: `${siteUrl}/services/water-line` },
+        { '@type': 'OfferCatalog', name: 'Leak Detection', url: `${siteUrl}/services/leak-detection` },
         { '@type': 'OfferCatalog', name: 'Tankless Water Heater Installation', url: `${siteUrl}/services/tankless-water-heaters` },
         { '@type': 'OfferCatalog', name: 'Septic System Installation', url: `${siteUrl}/services/septic-systems` },
         { '@type': 'OfferCatalog', name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` },
@@ -326,7 +330,12 @@ export function faqSchema(questions: { question: string; answer: string; href?: 
 }
 
 /** Service markup without Offer/price — we do not publish fixed prices. */
-export function serviceSchema(serviceName: string, description: string, slug?: string) {
+export function serviceSchema(
+  serviceName: string,
+  description: string,
+  slug?: string,
+  areaServedOverride?: ReturnType<typeof serviceAreaServed> | Array<{ '@type': string; name: string }>,
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -339,7 +348,7 @@ export function serviceSchema(serviceName: string, description: string, slug?: s
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    areaServed: serviceAreaServed(),
+    areaServed: areaServedOverride ?? serviceAreaServed(),
     serviceType: serviceName,
   }
 }

@@ -1,8 +1,10 @@
 import type { BlogPost } from './types'
 import { blogCovers } from './covers'
 import { authorityPosts } from './posts-authority'
+import { commercialPosts } from './posts-commercial'
 
 export const blogPosts: BlogPost[] = [
+  ...commercialPosts,
   ...authorityPosts,
   {
     slug: 'heated-driveway-worth-it-north-idaho',

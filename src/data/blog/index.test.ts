@@ -11,7 +11,7 @@ describe('blog internal linking', () => {
   it('maps every post to an internal page for extra inbound links', () => {
     for (const post of blogPosts) {
       expect(post.relatedService?.href).toMatch(/^\//)
-      const inbound = getPostsForService(post.relatedService!.href)
+      const inbound = getPostsForService(post.relatedService!.href, 50)
       expect(inbound.some((item) => item.slug === post.slug)).toBe(true)
     }
   })

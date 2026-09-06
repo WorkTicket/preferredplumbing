@@ -104,7 +104,9 @@ export function areaServicesForCity(citySlug: string) {
   const base = [
     { slug: 'emergency', label: 'Emergency Plumbing' },
     { slug: 'water-heaters', label: 'Water Heater Repair & Installation' },
+    { slug: 'drain-cleaning', label: 'Drain Cleaning' },
     { slug: 'sewer-line', label: 'Sewer Line Replacement' },
+    { slug: 'leak-detection', label: 'Leak Detection' },
     { slug: 'septic-systems', label: 'Septic Systems' },
     { slug: 'radiant-heat', label: 'Radiant Floor Heating' },
     { slug: 'new-construction', label: 'New Construction Plumbing' },

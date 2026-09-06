@@ -13,6 +13,7 @@ import {
   Heater,
   Home,
   Landmark,
+  Search,
   ShowerHead,
   Siren,
   Sparkles,
@@ -57,7 +58,9 @@ export const SERVICE_NAV_LABELS: Record<string, string> = {
   'bathtubs-showers': 'Bathtubs & Showers',
   dishwashers: 'Dishwashers',
   'sewer-line': 'Sewer Lines',
+  'drain-cleaning': 'Drain Cleaning',
   'water-line': 'Water Line Replacement',
+  'leak-detection': 'Leak Detection',
   'gas-line': 'Gas Line Services',
   'septic-systems': 'Septic Systems',
 }
@@ -78,7 +81,9 @@ export const SERVICE_NAV_ICONS: Record<string, LucideIcon> = {
   'bathtubs-showers': ShowerHead,
   dishwashers: WashingMachine,
   'sewer-line': GitBranch,
+  'drain-cleaning': Waves,
   'water-line': Waves,
+  'leak-detection': Search,
   'gas-line': Fuel,
   'septic-systems': Container,
 }

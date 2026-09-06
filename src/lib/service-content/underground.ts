@@ -73,7 +73,82 @@ export const undergroundServiceContent: Record<string, RichServiceContent> = {
     closingHeading: 'Sewer Work That Protects Your Property',
     closingParagraphs: [
       'Replacing a sewer line is a big job, but a new line can last decades. We handle diagnosis through install, and we do it carefully.',
-      'Having water service issues too? We also repair and replace underground water lines. Ask us to look at both while we are on site.',
+      'If the camera shows a clog instead of a broken pipe, start with drain cleaning rather than replacement. We will tell you which one you actually need.',
+    ],
+  },
+  'drain-cleaning': {
+    introHeading: 'Drain Cleaning That Clears the Cause, Not Just the Symptom',
+    introParagraphs: [
+      'A slow shower or a kitchen sink that backs up is a plumbing problem, not a plunger contest. We clear clogged drains in Spirit Lake, Coeur d\'Alene, Post Falls, Hayden, Rathdrum, and Sandpoint — and we check whether the blockage is in the fixture, the branch, or the main.',
+      'North Idaho water is hard. Grease, hair, soap scum, and mineral scale stack up faster here than a lot of homeowners expect. Wipes and roots make it worse. A cable can poke a hole through a clog. Hydro jetting and a camera tell you if the pipe is actually clear, or if the main is failing.',
+      'We do this work during business hours, Sunday through Friday. If sewage is coming up a floor drain or several fixtures are backing up at once, treat it as an emergency and call.',
+    ],
+    subServices: [
+      {
+        title: 'Kitchen and Bath Drain Cleaning',
+        description: 'Sinks, showers, tubs, and laundry stands. We clear the trap and the line so water leaves the fixture instead of sitting in it.',
+      },
+      {
+        title: 'Toilet and Floor Drain Clearing',
+        description: 'A toilet that will not go down, or a basement floor drain that gurgles, often means a blockage farther down the line. We find it instead of guessing.',
+      },
+      {
+        title: 'Main Line Drain Cleaning',
+        description: 'When more than one fixture is slow, the clog is often in the building drain or the sewer. We clean the main and camera it when the backup keeps returning.',
+      },
+      {
+        title: 'Hydro Jetting',
+        description: 'High-pressure water strips grease, scale, and debris off the pipe wall. Use it when a cable only buys you a week.',
+      },
+      {
+        title: 'Camera Drain Inspection',
+        description: 'A camera shows roots, bellies, broken pipe, and grease layers. That is how we decide between cleaning and sewer repair.',
+      },
+      {
+        title: 'Preventive Drain Maintenance',
+        description: 'Restaurants, rentals, and older homes with a backup history benefit from scheduled cleaning before the next overflow.',
+      },
+    ],
+    photos: [
+      '/images/service-sewer-line-replacement.webp',
+      '/images/service-dishwasher-disposal-install.webp',
+    ],
+    summaryHeading: 'Clear Drains Without Paying for the Wrong Fix',
+    summaryParagraphs: [
+      'Most clogged drains do not need a new sewer line. They need a real cleaning and an honest look at the pipe. We will not sell replacement because it is a bigger ticket.',
+      'If the camera shows a collapsed or root-invaded main, we say so and move you to sewer line repair. That is the point of diagnosing first.',
+    ],
+    benefits: [
+      {
+        title: 'Stops Repeat Clogs',
+        description: 'Clearing the full blockage — not just poking a hole — is what keeps the same sink from backing up next weekend.',
+      },
+      {
+        title: 'Protects the Home',
+        description: 'Overflows damage floors, cabinets, and drywall. Getting water moving again limits the mess.',
+      },
+      {
+        title: 'Camera-Backed Answers',
+        description: 'You see what we see. Grease, roots, or a broken pipe: the next step is based on the line, not a sales script.',
+      },
+      {
+        title: 'Hydro Jetting When It Fits',
+        description: 'Jetting is the right tool for grease and scale. We use it when a cable will not last, not on every job by default.',
+      },
+      {
+        title: 'Local Response',
+        description: 'We dispatch from Spirit Lake. Coeur d\'Alene, Post Falls, Hayden, and Rathdrum jobs often get same-day windows during business hours.',
+      },
+      {
+        title: 'Clear Pricing',
+        description: 'You get the cost before we run a cable or a jetter. No surprise add-ons after the water starts moving.',
+      },
+    ],
+    benefitsHeading: 'Why Call Us for a Clogged Drain',
+    closingHeading: 'Get the Drain Moving Again',
+    closingParagraphs: [
+      'Slow shower, standing water in the sink, or a backup that will not quit? Call 208-290-3889. We will tell you if it is a cleaning job or a sewer problem.',
+      'Need the sewer itself repaired or replaced? That is a separate service with its own page — we will point you there only if the camera shows damage.',
     ],
   },
   'water-line': {
@@ -94,7 +169,7 @@ export const undergroundServiceContent: Record<string, RichServiceContent> = {
       },
       {
         title: 'Leak Detection',
-        description: 'High bills or wet spots in the yard? We help find underground leaks so you are not digging blind.',
+        description: 'High bills or wet spots in the yard? We locate underground leaks so you are not digging blind. Indoor and hidden leaks have a dedicated leak detection page.',
       },
       {
         title: 'Meter-to-Home Installs',
@@ -148,7 +223,82 @@ export const undergroundServiceContent: Record<string, RichServiceContent> = {
     closingHeading: 'Get a Free Water Line Estimate',
     closingParagraphs: [
       'Low pressure, wet yard spots, or a water bill that does not make sense? Call us. We will diagnose the line and give you a straight recommendation.',
-      'Serving Spirit Lake and communities across North Idaho and eastern Washington. Ask about coordinating with sewer line replacement if both utilities need attention.',
+      'If the leak is inside the house — under a slab, in a crawlspace, or behind a wall — start with leak detection. Underground service line failure is what this page covers.',
+    ],
+  },
+  'leak-detection': {
+    introHeading: 'Find the Leak Before It Finds the Floor',
+    introParagraphs: [
+      'Hidden plumbing leaks rarely announce themselves with a geyser. They show up as a water bill that jumped, a meter that spins when everything is off, warm spots in a slab, or damp insulation in a crawlspace. We locate those leaks in Spirit Lake and across North Idaho before the repair turns into a remodel.',
+      'Hard water, freeze-thaw, and mixed pipe materials (copper, galvanized, PEX, poly) are common here. A pinhole in a supply line or a failed fitting under a tub can run for weeks. Guessing which wall to open is expensive. Detection first is cheaper.',
+      'If water is actively spraying or a ceiling is failing, shut the main off and call. Slow, unexplained usage can wait for a scheduled visit Sunday through Friday, 7am to 5pm.',
+    ],
+    subServices: [
+      {
+        title: 'Hidden Supply Leak Locating',
+        description: 'We isolate sections, pressure-test, and listen so we can mark the leak instead of opening three rooms to find one fitting.',
+      },
+      {
+        title: 'Slab and Crawlspace Detection',
+        description: 'North Idaho homes sit on slabs, crawlspaces, and mixed foundations. Each needs a different approach to find water that never reaches a visible fixture.',
+      },
+      {
+        title: 'High Water Bill Diagnosis',
+        description: 'A sudden spike is often a leak, a running toilet, or an underground service line. We check fixtures first, then the meter, then the buried line.',
+      },
+      {
+        title: 'Fixture and Valve Leak Repair',
+        description: 'Stops, supply lines, and valves fail quietly. Once we find the source, we repair it the same visit when parts and access allow.',
+      },
+      {
+        title: 'Water Heater and Tank Leaks',
+        description: 'Puddles at the heater can be a tank failure, a loose fitting, or the T&P valve. We tell you if it is a repair or a replacement.',
+      },
+      {
+        title: 'Service Line Leak Confirmation',
+        description: 'If detection points past the foundation to the yard, we confirm it is the water service and hand you a water line repair plan — not another guess.',
+      },
+    ],
+    photos: [
+      '/images/blog/water-line-replacement-signs-north-idaho.webp',
+      '/images/service-emergency-plumbing-repair.webp',
+    ],
+    summaryHeading: 'Detection First, Then a Repair You Can See',
+    summaryParagraphs: [
+      'The job is not “find moisture.” The job is name the failed part, show you where it is, and quote the fix. That is how you avoid paying for exploratory demolition.',
+      'Some leaks are an emergency. Most are not — until they sit. Calling when the bill looks wrong is cheaper than calling when the subfloor is wet.',
+    ],
+    benefits: [
+      {
+        title: 'Less Guesswork',
+        description: 'We narrow the leak before we cut. You are not paying to open a wall that was never the problem.',
+      },
+      {
+        title: 'Protects the Structure',
+        description: 'Water in a crawlspace or under a slab does not stay a plumbing issue. It becomes mold, rot, and flooring work.',
+      },
+      {
+        title: 'Stops the Meter',
+        description: 'A leak that runs 24 hours a day is why the bill doubled. Finding it is the only way the usage comes back down.',
+      },
+      {
+        title: 'Repair, Not Just a Report',
+        description: 'We fix what we find when it is safe and quoted. Detection without a next step wastes your time.',
+      },
+      {
+        title: 'Honest Emergency Triage',
+        description: 'We will tell you if it can wait until morning or if you should shut the water off now. We do not upsell panic.',
+      },
+      {
+        title: 'Local Crew',
+        description: 'Same licensed team that does water line, water heater, and emergency work. One call if the leak turns into a bigger job.',
+      },
+    ],
+    benefitsHeading: 'Why Professional Leak Detection Matters',
+    closingHeading: 'Stop Paying for Water You Are Not Using',
+    closingParagraphs: [
+      'Meter running, bill up, or a damp spot you cannot explain? Call 208-290-3889. We will find the leak and tell you what it costs to fix.',
+      'If the problem is the buried line from the meter to the house, we will send you to water line replacement with a diagnosis already done.',
     ],
   },
   'gas-line': {

@@ -62,6 +62,10 @@ describe('content modules', () => {
       'new-construction',
       'sewer-line',
       'commercial',
+      'water-heaters',
+      'emergency',
+      'drain-cleaning',
+      'leak-detection',
     ]) {
       expect(linked.has(slug), slug).toBe(true)
     }

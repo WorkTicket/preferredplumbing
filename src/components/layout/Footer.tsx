@@ -27,16 +27,16 @@ const companyLinks = [
 
 const popularServiceLinks = [
   { label: 'Emergency Plumbing', href: '/services/emergency' },
-  { label: 'Radiant Heat', href: '/services/radiant-heat' },
-  { label: 'New Construction', href: '/services/new-construction' },
+  { label: 'Drain Cleaning', href: '/services/drain-cleaning' },
   { label: 'Water Heaters', href: '/services/water-heaters' },
+  { label: 'Sewer Lines', href: '/services/sewer-line' },
 ] as const
 
 const guideLinks = [
-  { label: 'Radiant Heat Cost', href: '/blog/radiant-heat-cost-north-idaho' },
-  { label: 'Heated Driveway Cost', href: '/blog/heated-driveway-cost-north-idaho' },
-  { label: 'Tankless Cost', href: '/blog/tankless-water-heater-cost-north-idaho' },
-  { label: 'Hiring a Plumber', href: '/blog/how-to-choose-plumber-spirit-lake-idaho' },
+  { label: 'Plumber Cost in Spirit Lake', href: '/blog/plumber-cost-spirit-lake-idaho' },
+  { label: 'Water Heater Repair or Replace', href: '/blog/water-heater-repair-or-replace' },
+  { label: 'Sewer Repair vs Replacement', href: '/blog/sewer-repair-vs-replacement-north-idaho' },
+  { label: 'Drain Cleaning Cost', href: '/blog/drain-cleaning-cost-north-idaho' },
 ] as const
 
 const resourceLinks = [

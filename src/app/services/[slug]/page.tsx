@@ -25,6 +25,7 @@ import FaqAccordionList from '@/components/ui/FaqAccordionList'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 import { yearsExperienceLabel } from '@/lib/company-stats'
 import { getPostsForService } from '@/data/blog'
+import { isServiceCityCombo, serviceCityPath } from '@/lib/data/service-city'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
@@ -69,6 +70,12 @@ export function generateMetadata({ params }: Props): Metadata {
         : []),
       ...(params.slug === 'emergency'
         ? ['emergency plumber near me', 'emergency plumbing Rathdrum', 'emergency plumber Hayden']
+        : []),
+      ...(params.slug === 'drain-cleaning'
+        ? ['drain cleaning Spirit Lake', 'clogged drain Coeur d\'Alene', 'hydro jetting North Idaho']
+        : []),
+      ...(params.slug === 'leak-detection'
+        ? ['leak detection Spirit Lake', 'hidden water leak North Idaho', 'high water bill leak']
         : []),
       ...(params.slug === 'new-construction'
         ? ['new construction plumbing Rathdrum', 'new construction plumbing Coeur d\'Alene']
@@ -307,18 +314,23 @@ export default function ServicePage({ params }: Props) {
               </h2>
               <p className="mt-3 max-w-2xl text-gray-600">
                 We provide {service.title.toLowerCase()} throughout North Idaho and Eastern Washington.
-                Click your city to learn more about our services in your area.
+                {cityLinks.some((city) => isServiceCityCombo(service.slug, city.slug))
+                  ? ' Open a city page for local scheduling and what we see on jobs there.'
+                  : ' Click your city to learn more about our services in your area.'}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {cityLinks.map((city) => (
-                  <Link
-                    key={city.slug}
-                    href={`/areas/${city.slug}`}
-                    className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
-                  >
-                    <ArrowRight className="h-3 w-3" /> {city.name}
-                  </Link>
-                ))}
+                {cityLinks.map((city) => {
+                  const cityService = isServiceCityCombo(service.slug, city.slug)
+                  return (
+                    <Link
+                      key={city.slug}
+                      href={cityService ? serviceCityPath(service.slug, city.slug) : `/areas/${city.slug}`}
+                      className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
+                    >
+                      <ArrowRight className="h-3 w-3" /> {city.name}
+                    </Link>
+                  )
+                })}
                 <Link
                   href="/areas-we-serve"
                   className="inline-flex items-center gap-1 rounded-lg border border-blue/30 bg-blue/5 px-4 py-2 text-sm font-semibold text-blue transition-colors hover:bg-blue/10"
@@ -416,15 +428,18 @@ export default function ServicePage({ params }: Props) {
               We provide {service.title.toLowerCase()} throughout North Idaho and Eastern Washington.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {cityLinks.map((city) => (
-                <Link
-                  key={city.slug}
-                  href={`/areas/${city.slug}`}
-                  className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
-                >
-                  <ArrowRight className="h-3 w-3" /> {city.name}
-                </Link>
-              ))}
+              {cityLinks.map((city) => {
+                const cityService = isServiceCityCombo(service.slug, city.slug)
+                return (
+                  <Link
+                    key={city.slug}
+                    href={cityService ? serviceCityPath(service.slug, city.slug) : `/areas/${city.slug}`}
+                    className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-blue/30 hover:text-blue"
+                  >
+                    <ArrowRight className="h-3 w-3" /> {city.name}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>

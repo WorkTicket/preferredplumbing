@@ -208,7 +208,48 @@ export const services: Service[] = [
       { question: 'What types of pipe materials do you use?', answer: 'PVC and HDPE. They resist corrosion, root intrusion, and ground movement.' },
       { question: 'Is sewer line replacement covered by homeowners insurance?', answer: 'It depends on your policy and the cause. We help document the issue for claims, but check with your provider.' },
     ],
-    relatedServices: ['water-line', 'septic-systems', 'emergency'],
+    relatedServices: ['drain-cleaning', 'water-line', 'emergency'],
+  },
+  {
+    slug: 'drain-cleaning',
+    title: 'Drain Cleaning',
+    description: 'We clear clogged sinks, showers, toilets, and main drains. Camera inspection and hydro jetting when a cable will not hold. Fast, clean work across North Idaho.',
+    image: '/images/service-sewer-line-replacement.webp',
+    features: [
+      'Clogged sink and shower drain cleaning',
+      'Toilet and tub drain clearing',
+      'Main line drain cleaning',
+      'Hydro jetting',
+      'Camera drain inspection',
+      'Grease and scale buildup removal',
+    ],
+    faqs: [
+      {
+        question: 'Do you unclog drains in Spirit Lake and nearby towns?',
+        answer: 'Yes. We clear kitchen, bath, laundry, and main drains in Spirit Lake, Coeur d\'Alene, Post Falls, Hayden, Rathdrum, Sandpoint, and surrounding North Idaho communities.',
+      },
+      {
+        question: 'When is a clogged drain an emergency?',
+        answer: 'Call the same day if multiple fixtures back up, sewage is coming up a floor drain, or water is overflowing. A single slow sink can usually wait for a scheduled visit during business hours.',
+      },
+      {
+        question: 'What is the difference between drain cleaning and sewer replacement?',
+        answer: 'Drain cleaning clears a blockage in a fixture or branch line. Sewer replacement is for a damaged or collapsed main. We camera the line so you are not paying for replacement when a cleaning would fix it — or the other way around.',
+      },
+      {
+        question: 'Do you hydro jet drains?',
+        answer: 'Yes. Hydro jetting uses high-pressure water to cut grease, scale, and debris off the pipe wall. It is the better choice when a cable only pokes a hole through a clog that keeps coming back.',
+      },
+      {
+        question: 'Why does my drain keep backing up?',
+        answer: 'Recurring backups usually mean grease, hair, wipes, roots, or a belly in the line. We find the cause instead of sending you home with a temporary clear.',
+      },
+      {
+        question: 'How much does drain cleaning cost in North Idaho?',
+        answer: 'Most residential cleanings fall in a few hundred dollars depending on access, how far the clog sits, and whether we need a camera or jetter. We explain the price before work starts.',
+      },
+    ],
+    relatedServices: ['sewer-line', 'emergency', 'leak-detection'],
   },
   {
     slug: 'water-line',
@@ -231,7 +272,48 @@ export const services: Service[] = [
       { question: 'Will you tear up my whole yard?', answer: 'We dig only what is needed and restore trenches when the work is done. When site conditions allow, we use methods that limit landscape disruption.' },
       { question: 'Do you handle permits for water service work?', answer: 'Yes. We take care of required permits and inspections so the new line meets local code.' },
     ],
-    relatedServices: ['sewer-line', 'emergency', 'new-construction'],
+    relatedServices: ['leak-detection', 'sewer-line', 'emergency'],
+  },
+  {
+    slug: 'leak-detection',
+    title: 'Leak Detection & Repair',
+    description: 'We find hidden plumbing leaks before they wreck floors, crawlspaces, and foundations. Electronic detection, pressure testing, and a clear repair plan — not exploratory demolition.',
+    image: '/images/blog/water-line-replacement-signs-north-idaho.webp',
+    features: [
+      'Hidden leak detection',
+      'Slab and crawlspace leak locating',
+      'High water bill diagnosis',
+      'Supply line leak repair',
+      'Pressure testing',
+      'Fixture and valve leak repair',
+    ],
+    faqs: [
+      {
+        question: 'How do I know if I have a hidden plumbing leak?',
+        answer: 'A sudden jump in the water bill, the meter running when everything is off, warm spots in a floor, damp crawlspace insulation, or the sound of water when no fixture is running. We confirm with testing instead of guessing.',
+      },
+      {
+        question: 'Do you locate leaks without tearing up the house?',
+        answer: 'That is the point. We use listening equipment, pressure tests, and visual inspection to narrow the leak before we open a wall or slab. We still have to access the repair, but we are not fishing blindly.',
+      },
+      {
+        question: 'Is a plumbing leak an emergency?',
+        answer: 'Active spraying, a ceiling about to fail, or a gas smell is an emergency — shut the water off and call. A slowly rising bill can wait for a scheduled detection visit during business hours, Sunday through Friday 7am to 5pm.',
+      },
+      {
+        question: 'Can a leak be in the underground water line?',
+        answer: 'Yes. Wet yard spots, low pressure, and a meter that never stops often point to the service line from the meter to the house. If that is the issue, we move from detection into water line repair or replacement.',
+      },
+      {
+        question: 'How much does leak detection cost?',
+        answer: 'Most residential detection visits are a few hundred dollars depending on access and how long it takes to isolate the line. Repair is separate and quoted once we know what failed.',
+      },
+      {
+        question: 'Do you repair the leak after you find it?',
+        answer: 'Yes. Detection without a repair plan is not useful. We show you what failed, what it costs to fix, and whether a spot repair or a section replacement is the smarter long-term call.',
+      },
+    ],
+    relatedServices: ['water-line', 'emergency', 'water-heaters'],
   },
   {
     slug: 'gas-line',
@@ -344,6 +426,6 @@ export const services: Service[] = [
       { question: 'How do I shut off my water in an emergency?', answer: 'The main valve is near your water meter, in the basement, or where the main line enters your home. Call us if you can\'t find it.' },
       { question: 'Will emergency plumbing service cost more than regular service?', answer: 'Yes, due to the immediate response. We always give an estimate before starting work.' },
     ],
-    relatedServices: ['sewer-line', 'water-line', 'gas-line'],
+    relatedServices: ['drain-cleaning', 'leak-detection', 'sewer-line'],
   },
 ]
