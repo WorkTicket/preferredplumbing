@@ -13,12 +13,13 @@ export default function ReviewCard({ name, location, rating, text, plain = false
   return (
     <div
       className={cn(
-        'relative rounded-2xl border bg-white p-6 sm:p-7 shadow-premium overflow-hidden',
-        plain
-          ? 'border-gray-200/80'
-          : 'border-gray-200/80 card-lift hover:border-blue-light/30'
+        'premium-card relative p-6 sm:p-7',
+        !plain && 'card-lift hover:border-blue/20'
       )}
     >
+      <span className="font-serif absolute right-5 top-3 select-none text-7xl leading-none text-blue/[0.07]" aria-hidden>
+        ”
+      </span>
       <div className="flex items-center gap-3">
         <div className="flex gap-0.5">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -31,21 +32,19 @@ export default function ReviewCard({ name, location, rating, text, plain = false
             />
           ))}
         </div>
-        <span className="text-xs font-bold uppercase tracking-wider text-gold-dark">Verified</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gold-dark">Verified</span>
       </div>
 
-      <p className="mt-5 text-gray-600 leading-relaxed text-[15px] sm:text-base">
+      <p className="relative mt-5 text-[15px] leading-relaxed text-gray-600 sm:text-base">
         {text}
       </p>
 
-      <div className="mt-5 pt-5 border-t border-gray-100 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue/10 to-blue-light/10 font-display font-bold text-blue text-sm">
+      <div className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-5">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue/15 to-blue-light/10 font-display text-sm font-bold text-blue">
           {name.charAt(0)}
         </div>
         <div>
-          <p className="font-bold text-gray-900">
-            {name}
-          </p>
+          <p className="font-bold text-gray-900">{name}</p>
           {location && <p className="text-sm text-gray-400">{location}</p>}
         </div>
       </div>

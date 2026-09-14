@@ -1,26 +1,22 @@
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
+import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import HeroSection from '@/components/sections/HeroSection'
 import EmergencyBand from '@/components/sections/EmergencyBand'
-import { AnimatedSection } from '@/components/animations'
-import { webpageSchema, reviewSchema, videoObjectSchema, featuredServicesItemList } from '@/lib/schema'
+import WhyChooseUs from '@/components/sections/WhyChooseUs'
+import ServicesGrid from '@/components/sections/ServicesGrid'
+import AboutSection from '@/components/sections/AboutSection'
+import WorkGallery from '@/components/sections/WorkGallery'
+import LatestArticles from '@/components/sections/LatestArticles'
+import ServiceAreas from '@/components/sections/ServiceAreas'
+import FAQAccordion from '@/components/sections/FAQAccordion'
+import FindUsSection from '@/components/sections/FindUsSection'
+import ContactSection from '@/components/sections/ContactSection'
+import Testimonials from '@/components/sections/Testimonials'
+import { webpageSchema, reviewSchema, videoObjectSchema, featuredServicesItemList, organizationSchema, localBusinessSchema, websiteSchema } from '@/lib/schema'
 import { reviews } from '@/lib/data'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 import { combinedExperiencePhrase } from '@/lib/company-stats'
-
-const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'))
-const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'))
-const AboutSection = dynamic(() => import('@/components/sections/AboutSection'))
-const WorkGallery = dynamic(() => import('@/components/sections/WorkGallery'))
-const Testimonials = SHOW_GOOGLE_REVIEWS
-  ? dynamic(() => import('@/components/sections/Testimonials'))
-  : null
-const LatestArticles = dynamic(() => import('@/components/sections/LatestArticles'))
-const ServiceAreas = dynamic(() => import('@/components/sections/ServiceAreas'))
-const FAQAccordion = dynamic(() => import('@/components/sections/FAQAccordion'))
-const FindUsSection = dynamic(() => import('@/components/sections/FindUsSection'))
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection'))
 
 export const metadata: Metadata = genMeta({
   title: 'Spirit Lake Plumber | Same-Day Service',
@@ -43,6 +39,19 @@ export const metadata: Metadata = genMeta({
 export default function HomePage() {
   return (
     <>
+      <HeroImagePreload src="/images/preferred-plumbing-hero-poster.webp" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -80,38 +89,38 @@ export default function HomePage() {
         <HeroSection />
         <EmergencyBand />
       </div>
-      <AnimatedSection variant="fadeIn" delay={0.1} className="bg-gray-50">
+      <div className="below-fold bg-gray-50">
         <WhyChooseUs />
-      </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      </div>
+      <div className="below-fold">
         <ServicesGrid />
-      </AnimatedSection>
-      <AnimatedSection variant="slideUp" delay={0.1}>
+      </div>
+      <div className="below-fold">
         <AboutSection />
-      </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      </div>
+      <div className="below-fold">
         <WorkGallery />
-      </AnimatedSection>
-      {Testimonials && (
-        <AnimatedSection variant="slideUp" delay={0.1}>
+      </div>
+      {SHOW_GOOGLE_REVIEWS && (
+        <div className="below-fold">
           <Testimonials />
-        </AnimatedSection>
+        </div>
       )}
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      <div className="below-fold">
         <LatestArticles />
-      </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      </div>
+      <div className="below-fold">
         <ServiceAreas />
-      </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      </div>
+      <div className="below-fold">
         <FAQAccordion />
-      </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.1}>
+      </div>
+      <div className="below-fold">
         <FindUsSection />
-      </AnimatedSection>
-      <AnimatedSection variant="fadeUp" delay={0.15}>
+      </div>
+      <div className="below-fold">
         <ContactSection />
-      </AnimatedSection>
+      </div>
     </>
   )
 }

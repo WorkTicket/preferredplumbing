@@ -34,7 +34,7 @@ function normalizePath(pathname) {
   return pathname.replace(/\/+$/, '') || '/'
 }
 
-export default {
+const worker = {
   async fetch(request) {
     const url = new URL(request.url)
     const key = normalizePath(url.pathname)
@@ -50,3 +50,5 @@ export default {
     })
   },
 }
+
+export default worker

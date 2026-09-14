@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   aboutPageSchema,
+  areaPlumberSchema,
   articleSchema,
   contactPageSchema,
   featuredServicesItemList,
@@ -9,7 +10,9 @@ import {
   serviceAreaServed,
   serviceSchema,
   servedCityPlaces,
+  webpageSchema,
 } from './schema'
+import { areas } from './data/areas'
 
 describe('service area schema', () => {
   it('lists actual cities and counties, not whole states', () => {
@@ -29,6 +32,35 @@ describe('service area schema', () => {
     }
   })
 
+  it('keeps area-page plumber NAP on the Spirit Lake shop, not a fake city address', () => {
+    const schema = areaPlumberSchema({
+      city: "Coeur d'Alene",
+      fullName: "Coeur d'Alene, Idaho",
+      slug: 'coeur-dalene-id',
+    })
+    expect(schema.name).toBe('Preferred Plumbing Solutions')
+    expect(schema.legalName).toBe('Preferred Plumbing Solutions')
+    expect(schema.address.addressLocality).toBe('Spirit Lake')
+    expect(schema.address.addressRegion).toBe('ID')
+    expect(schema.geo.latitude).toBe(47.9668)
+    expect(schema.areaServed).toMatchObject({ '@type': 'City', name: "Coeur d'Alene" })
+  })
+
+  it('uses the same Spirit Lake NAP on every published city hub', () => {
+    for (const area of areas) {
+      const schema = areaPlumberSchema(area)
+      expect(schema.name, area.slug).toBe('Preferred Plumbing Solutions')
+      expect(schema.legalName, area.slug).toBe('Preferred Plumbing Solutions')
+      expect(schema.address.addressLocality, area.slug).toBe('Spirit Lake')
+      expect(schema.address.addressRegion, area.slug).toBe('ID')
+      expect(schema.address.postalCode, area.slug).toBe('83869')
+      expect(schema.geo.latitude, area.slug).toBe(47.9668)
+      expect(schema.geo.longitude, area.slug).toBe(-116.8693)
+      expect(schema.areaServed, area.slug).toMatchObject({ '@type': 'City', name: area.city })
+      expect(schema.telephone, area.slug).toBe('+12082903889')
+    }
+  })
+
   it('includes service url when slug is provided', () => {
     const schema = serviceSchema(
       'Water Heater Repair',
@@ -41,6 +73,12 @@ describe('service area schema', () => {
 })
 
 describe('rich result schema', () => {
+  it('publishes the legal business name on Organization and Plumber nodes', () => {
+    const local = localBusinessSchema()
+    expect(local.name).toBe('Preferred Plumbing Solutions')
+    expect(local.legalName).toBe('Preferred Plumbing Solutions')
+  })
+
   it('does not emit priceless Offer nodes in the local business catalog', () => {
     const catalog = localBusinessSchema().hasOfferCatalog.itemListElement
     expect(catalog.every((item) => item['@type'] === 'OfferCatalog')).toBe(true)
@@ -60,6 +98,24 @@ describe('rich result schema', () => {
     expect(schema.image).toMatchObject({ '@type': 'ImageObject', width: 1920, height: 1080 })
     expect(schema.author).toMatchObject({ '@type': 'Person', url: expect.stringContaining('/about') })
     expect(schema.timeRequired).toBe('PT2M')
+    expect(schema.url).toBe('https://www.callpreferredplumbing.com/blog/test')
+    expect(schema['@id']).toBe('https://www.callpreferredplumbing.com/blog/test#article')
+    expect(schema.mainEntityOfPage).toEqual({
+      '@type': 'WebPage',
+      '@id': 'https://www.callpreferredplumbing.com/blog/test',
+    })
+  })
+
+  it('keeps inner WebPage nodes from repeating the homepage Plumber URL', () => {
+    const schema = webpageSchema(
+      'Privacy Policy',
+      'How we collect and use information.',
+      'privacy-policy',
+    )
+    expect(schema.url).toBe('https://www.callpreferredplumbing.com/privacy-policy')
+    expect(schema['@id']).toBe('https://www.callpreferredplumbing.com/privacy-policy')
+    expect(schema.about).toEqual({ '@id': 'https://www.callpreferredplumbing.com/#localbusiness' })
+    expect(schema.isPartOf).toEqual({ '@id': 'https://www.callpreferredplumbing.com/#website' })
   })
 
   it('keeps AboutPage and ContactPage free of invalid extra properties', () => {

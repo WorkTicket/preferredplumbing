@@ -23,7 +23,7 @@ export default function FaqAccordionList({
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex)
 
   return (
-    <div className={cn('premium-card shadow-premium-xl overflow-hidden', className)}>
+    <div className={cn('premium-card overflow-hidden shadow-premium-xl', className)}>
       {items.map((faq, index) => {
         const isOpen = openIndex === index
 
@@ -38,13 +38,13 @@ export default function FaqAccordionList({
               onClick={() => setOpenIndex(isOpen ? null : index)}
               aria-expanded={isOpen}
               className={cn(
-                'flex w-full items-center justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 text-left touch-target transition-colors duration-300',
-                isOpen && 'bg-blue/[0.03]'
+                'flex w-full items-center justify-between gap-4 px-5 py-5 text-left touch-target transition-colors duration-300 sm:px-7 sm:py-6',
+                isOpen && 'bg-blue/[0.035]'
               )}
             >
               <span
                 className={cn(
-                  'font-bold text-sm sm:text-base leading-snug pr-2',
+                  'pr-2 text-sm font-bold leading-snug sm:text-base',
                   isOpen ? 'text-blue' : 'text-gray-900'
                 )}
               >

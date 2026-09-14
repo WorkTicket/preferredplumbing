@@ -1,6 +1,4 @@
-'use client'
-
-import type { CSSProperties, SyntheticEvent } from 'react'
+import type { CSSProperties } from 'react'
 import { cn } from '@/lib/utils'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
 import {
@@ -23,8 +21,8 @@ type ResponsiveImageProps = {
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
   objectPosition?: string
   style?: CSSProperties
-  onLoad?: () => void
-  onError?: (e: SyntheticEvent<HTMLImageElement>) => void
+  /** Cap srcset / fallback width so thumbnails never request 1920–2560 files. */
+  srcsetMaxWidth?: number
 }
 
 export default function ResponsiveImage({
@@ -39,8 +37,7 @@ export default function ResponsiveImage({
   objectFit = 'cover',
   objectPosition,
   style,
-  onLoad,
-  onError,
+  srcsetMaxWidth,
 }: ResponsiveImageProps) {
   const dimensions = getImageDimensions(src)
   const originalUrl = getOriginalImageUrl(src)
@@ -57,27 +54,16 @@ export default function ResponsiveImage({
     className,
   )
 
-  const handleError = (e: SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget
-    if (img.dataset.fallbackApplied === '1') {
-      onError?.(e)
-      return
-    }
-    img.dataset.fallbackApplied = '1'
-    img.src = originalUrl
-    onError?.(e)
-  }
-
   return (
     <picture className={fill ? 'absolute inset-0 block h-full w-full' : undefined}>
       {FORMATS.map((format) => {
-        const srcset = buildSrcset(src, format)
+        const srcset = buildSrcset(src, format, srcsetMaxWidth)
         if (!srcset) return null
         const type = format === 'jpeg' ? 'image/jpeg' : `image/${format}`
         return <source key={format} srcSet={srcset} sizes={sizes} type={type} />
       })}
       <img
-        src={getVariantUrl(src, 'webp', priority ? 1280 : 768)}
+        src={getVariantUrl(src, 'webp', priority ? 1280 : 768, srcsetMaxWidth) || originalUrl}
         alt={alt}
         width={fill ? dimensions?.width : width}
         height={fill ? dimensions?.height : height}
@@ -86,8 +72,6 @@ export default function ResponsiveImage({
         fetchPriority={priority ? 'high' : 'auto'}
         className={imgClass}
         style={imgStyle}
-        onLoad={onLoad}
-        onError={handleError}
       />
     </picture>
   )

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { Phone, MapPin, Clock, Navigation } from 'lucide-react'
+import { Phone, MapPin, Clock, Navigation, Star } from 'lucide-react'
 import TrackPageEvent from '@/components/analytics/TrackPageEvent'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import { contactPageSchema } from '@/lib/schema'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
-import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL } from '@/lib/utils'
+import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL, GBP_URL } from '@/lib/utils'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import PageHero from '@/components/sections/PageHero'
 
@@ -45,8 +45,8 @@ export default function ContactPage() {
         <div className="container-page">
           <div className="grid gap-8 lg:grid-cols-5">
             <div className="order-1 lg:order-2 lg:col-span-3">
-              <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
-                <h2 className="font-display text-base sm:text-lg font-bold uppercase text-gray-900">Request a Free Quote</h2>
+              <div className="premium-card p-5 shadow-premium-xl sm:p-8">
+                <h2 className="font-display text-base font-bold uppercase text-gray-900 sm:text-lg">Request a Free Quote</h2>
                 <p className="mt-2 text-sm text-gray-500">
                   Tell us what you need and we&apos;ll get back to you within 24 hours.
                 </p>
@@ -56,9 +56,9 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="order-2 lg:order-1 space-y-6 lg:col-span-2">
-              <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
-                <h2 className="font-display text-base sm:text-lg font-bold uppercase text-gray-900">Contact Information</h2>
+            <div className="order-2 space-y-6 lg:order-1 lg:col-span-2">
+              <div className="premium-card p-5 sm:p-7">
+                <h2 className="font-display text-base font-bold uppercase text-gray-900 sm:text-lg">Contact Information</h2>
                 <div className="mt-4 space-y-3 sm:space-y-4">
                   <a href={PHONE_HREF} className="flex items-center gap-3 text-gray-700 transition hover:text-blue group">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 group-hover:bg-blue transition-colors">
@@ -88,10 +88,24 @@ export default function ContactPage() {
                       <span>Sun–Fri 7am–5pm<br />Sat Closed</span>
                     </div>
                   </div>
+                  <a
+                    href={GBP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-gray-700 transition hover:text-blue group"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 group-hover:bg-blue transition-colors">
+                      <Star className="h-5 w-5 text-blue group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400">Reviews</p>
+                      <span className="font-semibold">Leave a Google Review</span>
+                    </div>
+                  </a>
                 </div>
               </div>
 
-              <div className="rounded-xl bg-white border border-gray-200 p-5 sm:p-6 shadow-premium-md">
+              <div className="premium-card p-5 sm:p-7">
                 <h3 className="font-display text-base font-bold uppercase text-gray-900">Service Areas</h3>
                 <p className="mt-2 text-sm text-gray-500">
                   Serving communities across North Idaho and Eastern Washington.
@@ -105,7 +119,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 shadow-premium-md">
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/70 shadow-premium-xl">
                 <LazyMapEmbed
                   src={MAP_EMBED_URL}
                   title="Preferred Plumbing Solutions - Spirit Lake, Idaho Service Area Map"
@@ -115,7 +129,7 @@ export default function ContactPage() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-blue/30 bg-blue/5 px-5 py-3 text-sm font-semibold text-blue transition-all hover:bg-blue/10"
+                className="btn-secondary w-full"
               >
                 <Navigation className="h-4 w-4" /> Get Directions to Spirit Lake
               </a>

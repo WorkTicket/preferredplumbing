@@ -42,11 +42,7 @@ export default function AnimatedCounter({
   }, [])
 
   useEffect(() => {
-    if (!inView) return
-    if (reduced) {
-      setCount(end)
-      return
-    }
+    if (!inView || reduced) return
 
     let startTime: number | null = null
     let rafId: number
@@ -69,7 +65,7 @@ export default function AnimatedCounter({
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {inView ? count : end}
+      {!inView || reduced ? end : count}
       {suffix}
     </span>
   )

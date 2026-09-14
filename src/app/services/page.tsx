@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Phone, ChevronRight, Star, Shield, Clock, HardHat } from 'lucide-react'
+import { ChevronRight, Star, Shield, Clock, HardHat } from 'lucide-react'
 import ServiceCard from '@/components/ui/ServiceCard'
 import { services } from '@/lib/data'
 import { getNavServices } from '@/lib/nav-services'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
-import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import CtaBand from '@/components/ui/CtaBand'
 import { yearsExperienceBadge } from '@/lib/company-stats'
 
 export const metadata: Metadata = generateMetadata({
@@ -72,12 +72,14 @@ export default function ServicesPage() {
       />
 
       {/* Trust Signals */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container-page py-4">
-          <div className="flex flex-wrap items-center justify-center gap-6">
+      <section className="border-b border-gray-100 bg-white">
+        <div className="container-page py-5 sm:py-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {trustSignals.map((signal) => (
-              <div key={signal.label} className="flex items-center gap-2">
-                <signal.icon className="h-5 w-5 text-blue shrink-0" />
+              <div key={signal.label} className="flex items-center gap-2.5">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue/10 text-blue">
+                  <signal.icon className="h-4 w-4 shrink-0" />
+                </span>
                 <span className="text-sm font-semibold text-gray-700">{signal.label}</span>
               </div>
             ))}
@@ -134,19 +136,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
-            Not sure what you need? Call us. We&apos;ll figure it out.
-          </p>
-          <a
-            href={PHONE_HREF}
-            className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
-          >
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message="Not sure what you need? Call us. We'll figure it out." />
     </div>
   )
 }

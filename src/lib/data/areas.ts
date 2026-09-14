@@ -6,14 +6,15 @@ export const areas: AreaPage[] = [
     state: 'ID',
     slug: 'spirit-lake-id',
     fullName: 'Spirit Lake, Idaho',
-    description: 'We are based here. Spirit Lake homes and businesses know us for showing up and doing the job right.',
+    description: 'Spirit Lake is home base. Wells, septic, freeze-thaw, and same-day calls from a shop that is already in town.',
     pageIntro: [
-      'Looking for a plumber in Spirit Lake? Preferred Plumbing Solutions is home base — when you call, you talk to a local crew that knows the codes, wells, septic layouts, and winter freeze patterns around Twin Lakes and Farragut.',
-      'From lake cabins to new subdivisions, we handle water heaters, radiant heat, sewer and water lines, remodels, and emergency repairs during business hours. Same-day slots are often available because we are already in town.',
+      'Preferred Plumbing Solutions is the Spirit Lake plumber — father and son, Ron and Hunter Norris, running the shop in the same town they serve. When you call, you are not routed through a call center in another state. You talk to a local crew that already knows Twin Lakes freeze patterns, Farragut-area well houses, and which suppliers actually stock the fittings we use on Maine Street remodels.',
+      'A lot of Spirit Lake plumbing is not city-connected the way Coeur d\'Alene is. Private wells, pressure tanks, and septic systems are common on acreage off Blanchard Road, around Twin Lakes, and toward Cape Horn. We treat those as one system: if a toilet backs up, it might be a clog, a lateral, or a tank that is due. That diagnosis is the difference between a real repair and a second service call.',
+      'From lake cabins to new subdivisions, we handle water heaters, radiant heat, sewer and water lines, remodels, and emergency repairs Sunday through Friday, 7am to 5pm. Same-day slots are often available because we are already in town.',
     ],
     localFocus: [
-      'Hard water and freeze-thaw cycles hit Spirit Lake plumbing hard. We size softeners, protect outdoor hose bibs, and build radiant systems that keep floors warm when temps drop below zero.',
-      'Whether you are near the lake, out toward Blanchard Road, or by Farragut State Park, we schedule around local traffic and know which suppliers stock the parts we use most often here.',
+      'Hard water and freeze-thaw cycles hit Spirit Lake plumbing hard. We size softeners for well chemistry, protect outdoor hose bibs, and build radiant systems that keep floors warm when temps drop below zero. Heated driveway snow-melt is the outdoor version of that same hydronic work — useful on steep or shaded approaches that ice over after a lake-effect dump.',
+      'Whether you are near the lake, out toward Blanchard Road, by Timberlake, or on the Farragut State Park side of town, we schedule around local traffic and know which crawlspaces and well houses fail first in January. We do not copy a Coeur d\'Alene city-water install onto a Spirit Lake well property and hope it holds.',
     ],
     mapBlurb:
       'Based in Spirit Lake, we cover the city and nearby Kootenai County communities with short drive times and clear pricing. Local soil, well systems, and Idaho Panhandle winters shape how we plan every job.',
@@ -103,15 +104,15 @@ export const areas: AreaPage[] = [
     fullName: 'Rathdrum, Idaho',
     description: 'Plumbing contractor for Rathdrum and the surrounding area. Residential and commercial, big or small.',
     pageIntro: [
-      'Looking for a plumber in Rathdrum? Preferred Plumbing Solutions handles new construction rough-ins and repairs on older systems that need an honest diagnosis. Rathdrum has grown from a quiet prairie town into a full-service community, and we cover both.',
-      'We are a short drive from Spirit Lake, so Rathdrum customers often get faster scheduling for water heaters, sewer work, gas lines, and emergency plumbing Sunday through Friday.',
+      'Looking for a plumber in Rathdrum? Preferred Plumbing Solutions handles new construction rough-ins and repairs on older systems that need an honest diagnosis. Rathdrum has grown from a quiet prairie town into a full-service community, and we cover both — from the highway corridor to Twin Lakes.',
+      'The shop is in Spirit Lake, 20–30 minutes away. That is a home-radius run, not a valley dispatch. Rathdrum customers often get same-day water heater, sewer, gas, and emergency plumbing Sunday through Friday because the truck is already north of I-90.',
     ],
     localFocus: [
-      'Prairie soils and frost lines around Rathdrum Mountain affect how we trench and bed pipe. We also see a lot of hard water scale that shortens heater life if nobody flushes or softens.',
-      'Whether you are building near the highway corridor or fixing a cabin-style home, we keep the scope tight and the jobsite clean.',
+      'Prairie soils and frost lines around Rathdrum Mountain affect how we trench and bed pipe. Twin Lakes and well-and-septic lots on the prairie are regular jobs because we live next door. Hard water scale still shortens heater life if nobody flushes or softens.',
+      'Whether you are building near the highway corridor or fixing a cabin-style home toward Twin Lakes, we keep the scope tight and the jobsite clean — and we quote with no dispatch fee.',
     ],
     mapBlurb:
-      'Rathdrum jobs are planned from our Spirit Lake shop with quick response across Kootenai County. Expect code-compliant work sized for local water quality and winter temps.',
+      'Rathdrum and Twin Lakes jobs leave from our Spirit Lake shop. Short drive, same-day windows during business hours, and pricing that does not start with a trip charge.',
     latitude: 47.8105,
     longitude: -116.8966,
   },
@@ -164,7 +165,7 @@ export const areas: AreaPage[] = [
       'We see a lot of well systems, septic ties, water heater failures, and new construction as Athol continues to grow between the lakes.',
     ],
     localFocus: [
-      'Being close means less wait when a pipe bursts or a heater dumps water into the garage. Call early in the day for the best chance at a same-day Athol slot.',
+      'Being close means less wait when a pipe bursts or a heater dumps water into the garage. Call early in the day for the best chance at a same-day Athol slot — we are 10–20 minutes away, not coming up from the valley.',
       'Rural lots around Athol often need thoughtful water-line depth and freeze protection. We install for the climate you actually live in.',
     ],
     mapBlurb:
@@ -184,7 +185,7 @@ export const areas: AreaPage[] = [
     ],
     localFocus: [
       'Out here, a wrong water-line depth or undersized pressure system shows up fast. We size pumps, tanks, and distribution for how the property is actually used.',
-      'If you are building or renovating off the main corridors, we coordinate material delivery and access so the job does not stall halfway through.',
+      'If you are building or renovating off the main corridors, we coordinate material delivery and access from the Spirit Lake shop so the job does not stall halfway through. Winter well-house calls are a 15–25 minute run, not an all-day windshield estimate.',
     ],
     mapBlurb:
       'Blanchard and western Bonner/Kootenai fringe areas are part of our regular coverage from Spirit Lake. Expect practical designs for wells, septic, and North Idaho winters.',

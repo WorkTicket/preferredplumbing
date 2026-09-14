@@ -18,17 +18,17 @@ export default function ServiceCard({ href, slug, title, description, plain = fa
   return (
     <div
       className={cn(
-        'relative flex h-full flex-col overflow-hidden rounded-xl border bg-white shadow-premium',
+        'premium-card relative flex h-full flex-col',
         !plain && 'group card-lift',
         isEmergency
-          ? plain ? 'border-red-200/80' : 'border-red-200/80 hover:border-red-300'
-          : plain ? 'border-gray-200/80' : 'border-gray-200/80 hover:border-blue-light/30'
+          ? 'border-red-200/70 hover:border-red-300'
+          : !plain && 'hover:border-blue/25'
       )}
     >
       <div
         aria-hidden
         className={cn(
-          'h-1 w-full',
+          'h-0.5 w-full',
           isEmergency
             ? 'bg-gradient-to-r from-red-700 via-red-500 to-red-400'
             : 'bg-gradient-to-r from-blue-dark via-blue to-blue-light'
@@ -40,10 +40,10 @@ export default function ServiceCard({ href, slug, title, description, plain = fa
           {!plain && (
             <div
               className={cn(
-                'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-premium-md',
+                'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-300',
                 isEmergency
-                  ? 'bg-red-50 text-red-600 group-hover:bg-red-600 group-hover:text-white'
-                  : 'bg-blue/10 text-blue group-hover:bg-blue group-hover:text-white'
+                  ? 'border-red-100 bg-red-50 text-red-600 group-hover:border-red-600 group-hover:bg-red-600 group-hover:text-white'
+                  : 'border-blue/10 bg-blue/[0.07] text-blue group-hover:border-blue group-hover:bg-blue group-hover:text-white group-hover:shadow-glow'
               )}
             >
               <Icon className="h-6 w-6" strokeWidth={2.25} />
@@ -59,20 +59,20 @@ export default function ServiceCard({ href, slug, title, description, plain = fa
               isEmergency
                 ? plain
                   ? 'border-red-100 bg-red-50/80 text-red-500'
-                  : 'border-red-100 bg-red-50/80 text-red-500 opacity-100 sm:opacity-0 sm:translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 group-hover:border-red-200 group-hover:bg-red-600 group-hover:text-white'
+                  : 'border-red-100 bg-red-50/80 text-red-500 opacity-100 sm:translate-y-1 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 group-hover:border-red-200 group-hover:bg-red-600 group-hover:text-white'
                 : plain
                   ? 'border-gray-100 bg-gray-50/80 text-gray-400'
-                  : 'border-gray-100 bg-gray-50/80 text-gray-400 opacity-100 sm:opacity-0 sm:translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 group-hover:border-blue/20 group-hover:bg-blue group-hover:text-white'
+                  : 'border-gray-100 bg-gray-50/80 text-gray-400 opacity-100 sm:translate-y-1 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 group-hover:border-blue/20 group-hover:bg-blue group-hover:text-white'
             )}
           >
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <Link href={href} className={plain ? 'block' : 'mt-4 block'}>
+        <Link href={href} className={plain ? 'block' : 'mt-5 block'}>
           <h3
             className={cn(
-              'font-bold text-lg sm:text-xl uppercase tracking-wide leading-tight',
+              'font-display text-lg font-black uppercase leading-tight tracking-wide sm:text-xl',
               !plain && 'transition-colors duration-300',
               isEmergency
                 ? plain ? 'text-gray-900' : 'text-gray-900 group-hover:text-red-700'
@@ -83,7 +83,7 @@ export default function ServiceCard({ href, slug, title, description, plain = fa
           </h3>
         </Link>
 
-        <p className="mt-2 flex-1 text-sm text-gray-500 line-clamp-3 leading-relaxed">
+        <p className="mt-2.5 flex-1 text-sm leading-relaxed text-gray-500 line-clamp-3">
           {description}
         </p>
 
@@ -97,7 +97,7 @@ export default function ServiceCard({ href, slug, title, description, plain = fa
             )}
           >
             Learn More
-            <ArrowUpRight className={cn('h-3.5 w-3.5', !plain && 'transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5')} />
+            <ArrowUpRight className={cn('h-3.5 w-3.5', !plain && 'transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5')} />
           </Link>
           <span className="text-gray-200">|</span>
           <a

@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import {
+  canonicalLinkHeaderValue,
+  shouldSetCanonicalLinkHeader,
+} from '@/lib/canonical'
+import { canonicalDestinationPath } from '@/lib/legacy-redirects'
 import { shouldApplyHtmlCacheHeaders } from '@/lib/static-asset-path'
 
 const WWW_HOST = 'www.callpreferredplumbing.com'
@@ -10,10 +15,13 @@ function isPreviewHost(host: string): boolean {
   return hostname.startsWith('preview.') || hostname.endsWith('.workers.dev')
 }
 
-function withHtmlCacheHeaders(response: NextResponse): NextResponse {
+function withHtmlCacheHeaders(response: NextResponse, pathname: string): NextResponse {
   // OpenNext defaults HTML to s-maxage=31536000. That freezes old pages at the
   // CDN (breaks GA install checks + deploy visibility). Match a1: revalidate HTML.
   response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+  if (shouldSetCanonicalLinkHeader(pathname)) {
+    response.headers.set('Link', canonicalLinkHeaderValue(pathname))
+  }
   return response
 }
 
@@ -31,35 +39,34 @@ function isHttpRequest(request: NextRequest): boolean {
   return false
 }
 
-function buildCanonicalRedirect(request: NextRequest): NextResponse {
-  const url = request.nextUrl.clone()
-  url.protocol = 'https:'
-  url.host = WWW_HOST
-  url.port = ''
-  return NextResponse.redirect(url, 301)
+function redirectToPath(request: NextRequest, pathname: string, toWww: boolean): NextResponse {
+  const origin = toWww ? `https://${WWW_HOST}` : request.nextUrl.origin
+  const target = new URL(pathname + request.nextUrl.search, origin)
+  return NextResponse.redirect(target, 301)
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const host = request.headers.get('host') ?? ''
   const hostname = host.split(':')[0]?.toLowerCase() ?? ''
   const isLocalHost = hostname === 'localhost' || hostname === '127.0.0.1'
+  const destPath = canonicalDestinationPath(request.nextUrl.pathname)
 
-  // Safety net: one 301 to https://www when apex/HTTP reaches the Worker.
-  // Primary path is Cloudflare Single Redirect + Always Use HTTPS OFF
-  // (see redirects/README.md).
+  // One 301: apex/HTTP + trailing slash + legacy Duda path.
   if (!isLocalHost && !isPreviewHost(host)) {
     const needsWww = hostname === APEX_HOST
     const needsHttps = isHttpRequest(request)
-    if (needsWww || needsHttps) {
-      return buildCanonicalRedirect(request)
+    if (needsWww || needsHttps || destPath) {
+      return redirectToPath(request, destPath ?? request.nextUrl.pathname, true)
     }
+  } else if (destPath) {
+    return redirectToPath(request, destPath, false)
   }
 
   if (!isPreviewHost(host)) {
     if (!shouldApplyHtmlCacheHeaders(request.nextUrl.pathname)) {
       return NextResponse.next()
     }
-    return withHtmlCacheHeaders(NextResponse.next())
+    return withHtmlCacheHeaders(NextResponse.next(), request.nextUrl.pathname)
   }
 
   // Preview / staging hosts must not be indexed.
@@ -89,8 +96,9 @@ export function middleware(request: NextRequest) {
     )
   }
 
-  const response = withHtmlCacheHeaders(NextResponse.next())
+  const response = withHtmlCacheHeaders(NextResponse.next(), request.nextUrl.pathname)
   response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  response.headers.delete('Link')
   return response
 }
 

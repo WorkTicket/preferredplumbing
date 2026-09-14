@@ -26,7 +26,7 @@ export default function ContactEmailList({ className, plain = false }: ContactEm
             </div>
           ) : (
             <>
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 transition-all duration-300 group-hover:bg-blue shrink-0">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue/10 transition-all duration-300 group-hover:bg-blue shrink-0">
                 <Mail className="h-5 w-5 text-blue transition-colors duration-300 group-hover:text-white" />
               </div>
               <div className="min-w-0">

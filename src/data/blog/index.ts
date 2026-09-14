@@ -73,3 +73,11 @@ export function getPostsForService(serviceHref: string, count = 3): BlogPostSumm
     .slice(0, count)
     .map(toBlogSummary)
 }
+
+/** Posts written for a city hub — used on area pages. */
+export function getPostsForArea(areaHref: string, count = 3): BlogPostSummary[] {
+  return getPostsByDate()
+    .filter((post) => post.relatedArea?.href === areaHref)
+    .slice(0, count)
+    .map(toBlogSummary)
+}

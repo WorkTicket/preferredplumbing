@@ -19,7 +19,7 @@ function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
     <button
       type="button"
       onClick={() => onSelect(project.id)}
-      className="group relative w-full text-left overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-premium transition-all duration-300 hover:-translate-y-1.5 hover:shadow-premium-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 [content-visibility:auto] [contain-intrinsic-size:320px]"
+      className="group relative w-full overflow-hidden rounded-2xl border border-gray-200/70 bg-white text-left shadow-premium transition-all duration-300 hover:-translate-y-1.5 hover:border-blue/20 hover:shadow-premium-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 [content-visibility:auto] [contain-intrinsic-size:320px]"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
         <ResponsiveImage

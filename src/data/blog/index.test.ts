@@ -23,4 +23,9 @@ describe('blog internal linking', () => {
       expect(related.every((item) => item.slug !== post.slug)).toBe(true)
     }
   })
+
+  it('gives every post its own cover image', () => {
+    const covers = blogPosts.map((post) => post.coverImage)
+    expect(new Set(covers).size).toBe(blogPosts.length)
+  })
 })

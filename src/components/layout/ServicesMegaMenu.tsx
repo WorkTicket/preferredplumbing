@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ArrowRight, Phone, Wrench } from 'lucide-react'
@@ -18,29 +18,35 @@ interface ServicesMegaMenuProps {
   onKeepOpen?: () => void
 }
 
+function groupFromPath(pathname: string, fallback: string) {
+  const match = pathname.match(/^\/services\/([^/]+)/)
+  return (match ? getNavGroupIdForSlug(match[1]) : undefined) ?? fallback
+}
+
 export default function ServicesMegaMenu({ open, onClose, onKeepOpen }: ServicesMegaMenuProps) {
   const pathname = usePathname()
   const groups = getNavServiceGroups()
   const defaultGroupId = groups[0]?.id ?? 'specialty'
-  const [activeGroupId, setActiveGroupId] = useState(defaultGroupId)
+  const [activeGroupId, setActiveGroupId] = useState(() => groupFromPath(pathname, defaultGroupId))
+  const [syncedPath, setSyncedPath] = useState(pathname)
+  const [syncedOpen, setSyncedOpen] = useState(open)
+
+  if (pathname !== syncedPath) {
+    setSyncedPath(pathname)
+    const match = pathname.match(/^\/services\/([^/]+)/)
+    if (match) {
+      const groupId = getNavGroupIdForSlug(match[1])
+      if (groupId) setActiveGroupId(groupId)
+    }
+  }
+  if (open !== syncedOpen) {
+    setSyncedOpen(open)
+    if (!open) setActiveGroupId(groupFromPath(pathname, defaultGroupId))
+  }
 
   const allServicesActive = pathname === '/services'
   const activeGroup = groups.find((group) => group.id === activeGroupId) ?? groups[0]
   const ActiveGroupIcon = activeGroup?.icon
-
-  useEffect(() => {
-    const match = pathname.match(/^\/services\/([^/]+)/)
-    if (!match) return
-    const groupId = getNavGroupIdForSlug(match[1])
-    if (groupId) setActiveGroupId(groupId)
-  }, [pathname])
-
-  useEffect(() => {
-    if (open) return
-    const match = pathname.match(/^\/services\/([^/]+)/)
-    const groupId = match ? getNavGroupIdForSlug(match[1]) : undefined
-    setActiveGroupId(groupId ?? defaultGroupId)
-  }, [open, pathname, defaultGroupId])
 
   return (
     <div
@@ -54,7 +60,7 @@ export default function ServicesMegaMenu({ open, onClose, onKeepOpen }: Services
       onMouseEnter={onKeepOpen}
     >
       <div className="relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-premium-2xl ring-1 ring-black/[0.03]">
-        <div className="h-1 bg-blue" />
+        <div className="h-0.5 bg-gradient-to-r from-blue-dark via-blue to-blue-light" />
 
         <div className="flex items-center justify-between gap-4 border-b border-gray-100 px-5 py-4">
           <div>

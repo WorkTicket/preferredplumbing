@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
-import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, Phone, MapPin, Calendar } from 'lucide-react'
 import { getGalleryProjectById } from '@/data/gallery'
 import { formatDisplayDate, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
@@ -14,15 +13,11 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ projectId, onClose }: ProjectModalProps) {
   const project = getGalleryProjectById(projectId)
-  const [currentImage, setCurrentImage] = useState(0)
+  const [currentImage, setCurrentImage] = useState(() =>
+    project && project.images.length >= 2 ? 1 : 0,
+  )
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
-
-  useEffect(() => {
-    const p = getGalleryProjectById(projectId)
-    // projectImages() orders as [before, after/cover, ...rest] — open on the finished shot
-    setCurrentImage(p && p.images.length >= 2 ? 1 : 0)
-  }, [projectId])
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -78,23 +73,14 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
   const hasMultipleImages = project.images.length > 1
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-0 sm:p-4 overflow-y-auto"
-        onClick={handleBackdropClick}
+    <div
+      className="nav-drawer-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-0 sm:p-4 overflow-y-auto"
+      onClick={handleBackdropClick}
+    >
+      <div
+        className="nav-drawer-panel relative w-full max-w-4xl bg-white rounded-none sm:rounded-2xl overflow-hidden shadow-premium-2xl max-h-[100dvh] sm:max-h-[90vh] flex flex-col"
+        onClick={(e) => e.stopPropagation()}
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative w-full max-w-4xl bg-white rounded-none sm:rounded-2xl overflow-hidden shadow-premium-2xl max-h-[100dvh] sm:max-h-[90vh] flex flex-col"
-          onClick={(e) => e.stopPropagation()}
-        >
           <button
             type="button"
             onClick={onClose}
@@ -111,15 +97,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentImage}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute inset-0"
-                >
+              <div key={currentImage} className="absolute inset-0">
                   <ResponsiveImage
                     src={project.images[currentImage]}
                     alt={`${project.title} - Image ${currentImage + 1}`}
@@ -128,8 +106,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                     sizes="(max-width: 768px) 100vw, 900px"
                     priority
                   />
-                </motion.div>
-              </AnimatePresence>
+              </div>
             </div>
 
             <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
@@ -281,8 +258,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
               Request Service: {PHONE_DISPLAY}
             </a>
           </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+      </div>
+    </div>
   )
 }

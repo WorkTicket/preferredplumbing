@@ -10,12 +10,16 @@
 /.next/
 /out/
 .open-next/
+.open-next.bak/
+.open-next.lockbak*/
 
 # production
 /build
 
 # misc
 .DS_Store
+# local Search Console exports (do not commit)
+/.gsc-export*/
 *.pem
 
 # local client photo imports (HEIC sources + previews)

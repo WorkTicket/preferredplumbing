@@ -34,7 +34,7 @@ export default function StatisticsBanner() {
                 {i > 0 && (
                   <div className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gray-200" />
                 )}
-                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue">
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl border border-blue/10 bg-blue/[0.07] text-blue">
                   <Icon className="h-7 w-7" />
                 </div>
                 <div className="font-display text-[clamp(2.5rem,6vw,3.75rem)] font-black leading-none text-gray-900 tracking-tight tabular-nums">

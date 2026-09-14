@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
+import { CANONICAL_ORIGIN, toCanonicalUrl } from './canonical'
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
-  'https://www.callpreferredplumbing.com'
+export const siteUrl = CANONICAL_ORIGIN
 export const siteName = 'Preferred Plumbing Solutions'
 /** Keep ≤60 chars for SERP display. Lead with the query, then a click reason. */
 export const defaultTitle = 'Spirit Lake Plumber | Same-Day Service | Preferred Plumbing'
@@ -98,13 +97,12 @@ export function generateMetadata({
   const metaTitle = title ? buildDocumentTitle(title) : defaultTitle
   const ogTitle = title ? buildOgTitle(title) : defaultTitle
   const metaDescription = normalizeDescription(description || defaultDescription)
-  const url = slug ? `${siteUrl}/${slug}` : siteUrl
-  const canonicalUrl = canonical || url
+  const canonicalUrl = toCanonicalUrl(canonical || slug)
 
   const og: Record<string, unknown> = {
     title: ogTitle,
     description: metaDescription,
-    url,
+    url: canonicalUrl,
     siteName,
     locale,
     type,
@@ -168,6 +166,7 @@ export function generateBlogMetadata(post: {
     title: post.seoTitle || post.title,
     description: post.excerpt,
     slug: `blog/${post.slug}`,
+    canonical: toCanonicalUrl(`blog/${post.slug}`),
     ogImage: post.coverImage || '/images/og-preferred-plumbing-solutions.webp',
     publishedTime: post.publishedAt,
     modifiedTime: post.publishedAt,
@@ -180,5 +179,3 @@ export function generateBlogMetadata(post: {
     ],
   })
 }
-
-export { siteUrl }

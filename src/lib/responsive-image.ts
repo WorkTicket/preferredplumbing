@@ -31,11 +31,12 @@ function getMaxGeneratedWidth(src: string): number | undefined {
 
 /** Widths to emit in srcset — never larger than generated variants.
  *  Unknown images (not in the max-width map) get no generated srcset. */
-function getSrcsetWidths(src: string): number[] {
+function getSrcsetWidths(src: string, maxWidthCap?: number): number[] {
   const maxWidth = getMaxGeneratedWidth(src)
   if (!maxWidth) return []
-  const capped = BREAKPOINTS.filter((w) => w <= maxWidth)
-  return capped.length > 0 ? capped : [maxWidth]
+  const limit = maxWidthCap ? Math.min(maxWidth, maxWidthCap) : maxWidth
+  const capped = BREAKPOINTS.filter((w) => w <= limit)
+  return capped.length > 0 ? capped : [limit]
 }
 
 export function imagePathBase(src: string): string {
@@ -51,14 +52,19 @@ function variantUrl(src: string, format: ImageFormat, width: number): string {
   return `/images/generated/${encodedBase}-${width}.${format}`
 }
 
-export function buildSrcset(src: string, format: ImageFormat): string {
-  return getSrcsetWidths(src)
+export function buildSrcset(src: string, format: ImageFormat, maxWidthCap?: number): string {
+  return getSrcsetWidths(src, maxWidthCap)
     .map((width) => `${variantUrl(src, format, width)} ${width}w`)
     .join(', ')
 }
 
-export function getVariantUrl(src: string, format: ImageFormat, preferredWidth = 720): string {
-  const widths = getSrcsetWidths(src)
+export function getVariantUrl(
+  src: string,
+  format: ImageFormat,
+  preferredWidth = 720,
+  maxWidthCap?: number,
+): string {
+  const widths = getSrcsetWidths(src, maxWidthCap)
   if (widths.length === 0) return getOriginalImageUrl(src)
   const pick = widths.find((w) => w >= preferredWidth) ?? widths[widths.length - 1]
   return variantUrl(src, format, pick)
@@ -69,10 +75,12 @@ export function getOriginalImageUrl(src: string): string {
   return normalizeImageSrc(src)
 }
 
+const LCP_SRCSET_MAX = 1920
+
 export function getLcpPreloadHref(src: string, preferredWidth = 768): string {
-  return getVariantUrl(src, 'avif', preferredWidth)
+  return getVariantUrl(src, 'avif', preferredWidth, LCP_SRCSET_MAX)
 }
 
 export function getLcpPreloadSrcset(src: string): string {
-  return buildSrcset(src, 'avif')
+  return buildSrcset(src, 'avif', LCP_SRCSET_MAX)
 }

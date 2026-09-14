@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Navigation, Clock } from 'lucide-react'
+import { Navigation, Clock, Phone, MapPin } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
@@ -33,7 +33,7 @@ export default function FindUsSection() {
               <div className="space-y-5">
                 <a href={PHONE_HREF} className="group flex items-start gap-4 text-gray-700">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue/10 text-blue transition-colors group-hover:bg-blue group-hover:text-white">
-                    <Navigation className="h-5 w-5" />
+                    <Phone className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Phone</p>
@@ -43,7 +43,7 @@ export default function FindUsSection() {
                 <ContactEmailList />
                 <div className="flex items-start gap-4 text-gray-700">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-light/10 text-blue-dark">
-                    <Navigation className="h-5 w-5" />
+                    <MapPin className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Address</p>

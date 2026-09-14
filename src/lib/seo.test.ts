@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { blogPosts } from '@/data/blog'
+import { pageMeta } from './service-content/page-meta'
 import {
   clampAtWord,
   defaultTitle,
@@ -21,6 +22,7 @@ describe('generateMetadata', () => {
     })
     expect((meta.title as { absolute: string }).absolute.length).toBeLessThanOrEqual(TITLE_MAX)
     expect(meta.alternates?.canonical).toBe(`${siteUrl}/contact`)
+    expect((meta.openGraph as { url?: string }).url).toBe(`${siteUrl}/contact`)
     expect(meta.description).toBeTruthy()
     expect((meta.description as string).length).toBeGreaterThanOrEqual(DESCRIPTION_MIN)
     expect((meta.description as string).length).toBeLessThanOrEqual(DESCRIPTION_MAX)
@@ -31,6 +33,7 @@ describe('generateMetadata', () => {
     expect(meta.title).toEqual({ absolute: defaultTitle })
     expect(defaultTitle.length).toBeLessThanOrEqual(TITLE_MAX)
     expect(meta.alternates?.canonical).toBe(siteUrl)
+    expect((meta.openGraph as { url?: string }).url).toBe(siteUrl)
   })
 
   it('clamps long titles and descriptions', () => {
@@ -44,6 +47,29 @@ describe('generateMetadata', () => {
     expect(title.length).toBeLessThanOrEqual(TITLE_MAX)
     expect(description.length).toBeLessThanOrEqual(DESCRIPTION_MAX)
     expect(description.length).toBeGreaterThanOrEqual(DESCRIPTION_MIN)
+  })
+
+  it('localizes the water-heater hub title instead of a near-me template', () => {
+    const meta = generateMetadata({
+      title: pageMeta['water-heaters'].title,
+      description: pageMeta['water-heaters'].description,
+      slug: 'services/water-heaters',
+    })
+    const title = (meta.title as { absolute: string }).absolute
+    expect(title).toBe('Water Heater Repair | Spirit Lake ID | Preferred Plumbing')
+    expect(title.length).toBeLessThanOrEqual(TITLE_MAX)
+    expect(title.toLowerCase()).not.toContain('near me')
+    expect(meta.description as string).toContain('Spirit Lake')
+  })
+
+  it('does not double-prefix an absolute canonical URL', () => {
+    const meta = generateMetadata({
+      title: 'Privacy Policy',
+      slug: 'privacy-policy',
+      canonical: `${siteUrl}/privacy-policy`,
+    })
+    expect(meta.alternates?.canonical).toBe(`${siteUrl}/privacy-policy`)
+    expect((meta.openGraph as { url?: string }).url).toBe(`${siteUrl}/privacy-policy`)
   })
 })
 
@@ -76,6 +102,9 @@ describe('generateBlogMetadata', () => {
     const title = (meta.title as { absolute: string }).absolute
     expect(title).toBe('Heated Driveway Worth It in Idaho? | Preferred Plumbing')
     expect(title.length).toBeLessThanOrEqual(TITLE_MAX)
+    expect(meta.alternates?.canonical).toBe(
+      `${siteUrl}/blog/heated-driveway-worth-it-north-idaho`,
+    )
   })
 
   it('keeps every published post seoTitle within SERP length', () => {

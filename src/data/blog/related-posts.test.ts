@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { blogPosts } from './posts'
-import { getPostsForService, getRelatedPosts } from './index'
+import { getPostsForArea, getPostsForService, getRelatedPosts } from './index'
 
 describe('getRelatedPosts', () => {
   it('returns up to three other posts', () => {
@@ -20,6 +20,14 @@ describe('getRelatedPosts', () => {
     inbound.forEach((count, slug) => {
       expect(count, slug).toBeGreaterThanOrEqual(1)
     })
+  })
+})
+
+describe('getPostsForArea', () => {
+  it('returns Spirit Lake hydronic and cost posts that declare that hub', () => {
+    const posts = getPostsForArea('/areas/spirit-lake-id', 5)
+    expect(posts.length).toBeGreaterThan(0)
+    expect(posts.some((post) => post.slug.includes('radiant') || post.slug.includes('spirit-lake'))).toBe(true)
   })
 })
 

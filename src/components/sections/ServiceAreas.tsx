@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
-import { StaggerChildren } from '@/components/animations'
 import { MapPin, ChevronRight } from 'lucide-react'
 import { areas } from '@/lib/data'
 
@@ -20,16 +19,12 @@ export default function ServiceAreas() {
           </p>
         </div>
 
-        <div className="mt-10 sm:mt-12 rounded-2xl border border-gray-200/80 bg-gray-50/50 p-6 sm:p-8 shadow-premium">
+        <div className="premium-card mt-10 p-6 sm:mt-12 sm:p-8">
           <div className="flex items-center justify-center gap-2 mb-6">
             <MapPin className="h-5 w-5 text-blue-light" />
             <p className="text-sm font-bold uppercase tracking-wider text-gray-500">Coverage Map</p>
           </div>
-          <StaggerChildren
-            className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5"
-            staggerDelay={0.03}
-            variant="fadeUp"
-          >
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5">
             {areas.map((area) => (
               <Link
                 key={area.slug}
@@ -40,7 +35,7 @@ export default function ServiceAreas() {
                 {area.fullName}
               </Link>
             ))}
-          </StaggerChildren>
+          </div>
         </div>
 
         <div className="mt-10 text-center">

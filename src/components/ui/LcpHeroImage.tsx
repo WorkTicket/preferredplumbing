@@ -20,8 +20,8 @@ export default function LcpHeroImage({
   objectPosition,
 }: LcpHeroImageProps) {
   const dimensions = getImageDimensions(src)
-  const avifSrcset = buildSrcset(src, 'avif')
-  const webpSrcset = buildSrcset(src, 'webp')
+  const avifSrcset = buildSrcset(src, 'avif', 1920)
+  const webpSrcset = buildSrcset(src, 'webp', 1920)
   const imgStyle: CSSProperties = {
     position: 'absolute',
     top: 0,
@@ -36,7 +36,6 @@ export default function LcpHeroImage({
     <picture className={cn('absolute inset-0 block h-full w-full', className)}>
       {avifSrcset ? <source srcSet={avifSrcset} sizes={sizes} type="image/avif" /> : null}
       {webpSrcset ? <source srcSet={webpSrcset} sizes={sizes} type="image/webp" /> : null}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={getVariantUrl(src, 'webp', 480)}
         {...(webpSrcset ? { srcSet: webpSrcset, sizes } : {})}

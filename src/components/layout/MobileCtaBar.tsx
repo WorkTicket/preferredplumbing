@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { Phone, MessageSquare } from 'lucide-react'
 import { PHONE_HREF } from '@/lib/utils'
@@ -7,7 +5,7 @@ import { PHONE_HREF } from '@/lib/utils'
 export default function MobileCtaBar() {
   return (
     <div
-      className="mobile-cta-bar fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 md:hidden shadow-premium-2xl border-t border-white/10 transition-[transform,opacity] duration-200"
+      className="mobile-cta-bar fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 border-t border-white/15 shadow-premium-2xl transition-[transform,opacity] duration-200 md:hidden"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       <a

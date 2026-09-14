@@ -50,6 +50,9 @@ describe('reading time', () => {
       'tankless-water-heater-cost-north-idaho',
       'trenchless-sewer-repair-north-idaho',
       'radiant-heat-new-construction-idaho',
+      'is-radiant-floor-heating-worth-it-idaho',
+      'heated-driveway-snow-loads-spirit-lake',
+      'radiant-heat-vs-forced-air-idaho',
     ]
     for (const slug of slugs) {
       const post = blogPosts.find((p) => p.slug === slug)

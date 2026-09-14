@@ -6,6 +6,7 @@ const siteUrl =
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
+  trailingSlash: false,
   changefreq: 'weekly',
   priority: 0.8,
   sitemapSize: 7000,

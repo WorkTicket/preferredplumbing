@@ -1,6 +1,5 @@
 import SectionLabel from '@/components/ui/SectionLabel'
 import ReviewCard from '@/components/ui/ReviewCard'
-import { StaggerChildren } from '@/components/animations'
 import { reviews } from '@/lib/data'
 import { GBP_URL } from '@/lib/utils'
 import { Star, ExternalLink } from 'lucide-react'
@@ -26,7 +25,7 @@ export default function Testimonials() {
             href={GBP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 rounded-2xl border border-gray-200/80 bg-gray-50/80 px-6 py-4 shadow-premium transition-shadow duration-300 hover:border-blue-light/30 hover:shadow-premium-lg"
+            className="inline-flex items-center gap-4 rounded-2xl border border-gray-200/80 bg-white px-6 py-4 shadow-premium transition-all duration-300 hover:-translate-y-0.5 hover:border-blue/20 hover:shadow-premium-lg"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-premium">
               <Star className="h-6 w-6 fill-gold text-gold" />
@@ -43,11 +42,7 @@ export default function Testimonials() {
           </a>
         </div>
 
-        <StaggerChildren
-          className="mt-10 sm:mt-12 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          staggerDelay={0.08}
-          variant="fadeUp"
-        >
+        <div className="mt-10 sm:mt-12 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.slice(0, 3).map((review) => (
             <ReviewCard
               key={review.id}
@@ -57,7 +52,7 @@ export default function Testimonials() {
               text={review.text}
             />
           ))}
-        </StaggerChildren>
+        </div>
 
         <div className="mt-10 text-center">
           <p className="text-gray-600 font-medium">Satisfied with our services? Let us know on Google!</p>

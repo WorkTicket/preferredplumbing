@@ -3,6 +3,7 @@ import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import { generateMetadata, siteUrl } from '@/lib/seo'
+import { webpageSchema } from '@/lib/schema'
 import { FULL_ADDRESS, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
@@ -16,6 +17,18 @@ export const metadata: Metadata = generateMetadata({
 export default function TermsPage() {
   return (
     <div className="pt-site-header">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webpageSchema(
+              'Terms & Conditions',
+              'Terms and conditions for Preferred Plumbing Solutions. Website use, service estimates, liability limits, and governing law for our Idaho plumbing business.',
+              'terms-and-conditions',
+            ),
+          ),
+        }}
+      />
       <section className="section-padding bg-white">
         <div className="container-page">
           <SectionLabel text="Legal" />

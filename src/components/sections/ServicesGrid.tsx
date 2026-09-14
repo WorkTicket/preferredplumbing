@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
-import { StaggerChildren } from '@/components/animations'
 import { services } from '@/lib/data'
 import {
   FEATURED_HOME_SERVICE_SLUGS,
@@ -45,11 +44,7 @@ export default function ServicesGrid() {
             </p>
           </div>
 
-          <StaggerChildren
-            className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            staggerDelay={0.06}
-            variant="fadeUp"
-          >
+          <div className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {specialtyServices.map((service) => (
               <ServiceCard
                 key={service.slug}
@@ -59,7 +54,7 @@ export default function ServicesGrid() {
                 description={service.description}
               />
             ))}
-          </StaggerChildren>
+          </div>
         </div>
 
         <div className="mt-12 sm:mt-20">
@@ -73,11 +68,7 @@ export default function ServicesGrid() {
             </p>
           </div>
 
-          <StaggerChildren
-            className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            staggerDelay={0.07}
-            variant="fadeUp"
-          >
+          <div className="mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {allServicesPreview.map((service) => (
               <ServiceCard
                 key={service.slug}
@@ -87,7 +78,7 @@ export default function ServicesGrid() {
                 description={service.description}
               />
             ))}
-          </StaggerChildren>
+          </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link href="/services" className="btn-secondary">

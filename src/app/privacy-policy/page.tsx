@@ -3,6 +3,7 @@ import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ContactEmailList from '@/components/ui/ContactEmailList'
 import { generateMetadata, siteUrl } from '@/lib/seo'
+import { webpageSchema } from '@/lib/schema'
 import { FULL_ADDRESS, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
@@ -16,6 +17,18 @@ export const metadata: Metadata = generateMetadata({
 export default function PrivacyPage() {
   return (
     <div className="pt-site-header">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webpageSchema(
+              'Privacy Policy',
+              'Privacy policy for Preferred Plumbing Solutions. How we collect, use, and protect your personal information when you contact us or visit our website.',
+              'privacy-policy',
+            ),
+          ),
+        }}
+      />
       <section className="section-padding bg-white">
         <div className="container-page">
           <SectionLabel text="Legal" />

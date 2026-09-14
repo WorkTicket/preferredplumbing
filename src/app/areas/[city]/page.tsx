@@ -2,17 +2,20 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle } from 'lucide-react'
+import { Phone, ChevronRight, Star, Clock, Shield, Navigation, CheckCircle, ArrowRight } from 'lucide-react'
 import { areas, services } from '@/lib/data'
+import { extrasForArea } from '@/lib/data/area-extras'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { citySeoDescription, citySeoTitle, areaFaqs, areaServicesForCity } from '@/lib/area-seo'
 import { serviceHrefForCity } from '@/lib/data/service-city'
-import { breadcrumbSchema, faqSchema, logoImageObject } from '@/lib/schema'
+import { areaPlumberSchema, breadcrumbSchema, faqSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceCard from '@/components/ui/ServiceCard'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
-import { PHONE_DISPLAY, PHONE_HREF, PHONE_E164 } from '@/lib/utils'
-import { yearsExperienceBadge, yearsExperienceLabel } from '@/lib/company-stats'
+import CtaBand from '@/components/ui/CtaBand'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import { PHONE_DISPLAY, PHONE_HREF, DIRECTIONS_URL } from '@/lib/utils'
+import { getPostsForArea } from '@/data/blog'
 
 function regionLabel(slug: string, state: string): string {
   if (state === 'WA') {
@@ -29,39 +32,22 @@ function regionLabel(slug: string, state: string): string {
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 interface Props {
-  params: { city: string }
-}
-
-const cityLandmarks: Record<string, string[]> = {
-  'spirit-lake-id': ['Spirit Lake', 'Twin Lakes', 'Farragut State Park'],
-  'coeur-dalene-id': ["Coeur d'Alene Lake", 'Silverwood Theme Park', 'Tubbs Hill'],
-  'post-falls-id': ['Q\'emiln Park', 'Falls Park', 'Spokane River'],
-  'sandpoint-id': ['Schweitzer Mountain Resort', 'Lake Pend Oreille', 'City Beach'],
-  'hayden-id': ['Hayden Lake', 'Honeysuckle Beach', 'Avondale Golf Course'],
-  'rathdrum-id': ['Rathdrum Mountain', 'Mountain View Park', 'Spokane River'],
-  'moscow-id': ['University of Idaho', 'Moscow Mountain', 'Paradise Path'],
-  'priest-river-id': ['Priest Lake', 'Kaniksu National Forest', 'Pend Oreille River'],
-  'athol-id': ['Silverwood Theme Park', 'Farragut State Park', 'Athol Bay'],
-  'blanchard-id': ['Blanchard Lake', 'Cocolalla Lake', 'Pend Oreille River'],
-  'clark-fork-id': ['Lake Pend Oreille', 'Clark Fork River', 'Cabinet Mountains'],
-  'newport-wa': ['Pend Oreille River', 'Newport-Oldtown Bridge', 'Box Canyon Dam'],
-  'mead-wa': ['Little Spokane River', 'Mount Spokane', 'Riverside State Park'],
-  'chattaroy-wa': ['Little Spokane River', 'Mount Spokane', 'Riverside State Park'],
-  'oldtown-id': ['Pend Oreille River', 'Newport-Oldtown Bridge', 'Box Canyon Dam'],
+  params: Promise<{ city: string }>
 }
 
 export function generateStaticParams() {
   return areas.map((a) => ({ city: a.slug }))
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const area = areas.find((a) => a.slug === params.city)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { city } = await params
+  const area = areas.find((a) => a.slug === city)
   if (!area) return {}
   return genMeta({
     title: citySeoTitle(area),
     description: citySeoDescription(area),
-    slug: `areas/${params.city}`,
-    canonical: `${siteUrl}/areas/${params.city}`,
+    slug: `areas/${city}`,
+    canonical: `${siteUrl}/areas/${city}`,
     keywords: [
       `plumber ${area.city} ${area.state}`,
       `plumber in ${area.fullName}`,
@@ -72,62 +58,25 @@ export function generateMetadata({ params }: Props): Metadata {
   })
 }
 
-export default function CityPage({ params }: Props) {
-  const area = areas.find((a) => a.slug === params.city)
+export default async function CityPage({ params }: Props) {
+  const { city } = await params
+  const area = areas.find((a) => a.slug === city)
   if (!area) notFound()
 
-  const landmarks = cityLandmarks[area.slug] || [area.city]
+  const extras = extrasForArea(area)
+  const landmarks = extras.neighborhoods
   const faqs = areaFaqs(area)
   const cityServices = areaServicesForCity(area.slug)
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${area.latitude},${area.longitude}&destination_place_id=${encodeURIComponent(area.city)}`
-
-  const areaBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Plumber',
-    name: `Preferred Plumbing Solutions - ${area.fullName}`,
-    url: `${siteUrl}/areas/${area.slug}`,
-    description: `Local plumber serving ${area.fullName}. ${yearsExperienceLabel()} years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
-    telephone: PHONE_E164,
-    image: `${siteUrl}/images/preferred-plumbing-service-truck.webp`,
-    logo: logoImageObject(),
-    areaServed: {
-      '@type': 'City',
-      name: area.city,
-    },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: area.city,
-      addressRegion: area.state,
-      addressCountry: 'US',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: area.latitude,
-      longitude: area.longitude,
-    },
-    priceRange: '$$',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '07:00',
-        closes: '17:00',
-      },
-    ],
-    parentOrganization: {
-      '@type': 'Organization',
-      '@id': `${siteUrl}/#organization`,
-      name: 'Preferred Plumbing Solutions',
-      url: siteUrl,
-    },
-    award: yearsExperienceBadge(),
-  }
+  const basedHere = area.slug === 'spirit-lake-id'
+  const relatedPosts = getPostsForArea(`/areas/${area.slug}`, 3)
+  const shopDirectionsUrl = DIRECTIONS_URL
+  const cityMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${area.latitude},${area.longitude}&destination_place_id=${encodeURIComponent(area.city)}`
 
   return (
     <div className="pt-site-header">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaPlumberSchema(area)) }}
       />
       <script
         type="application/ld+json"
@@ -156,6 +105,11 @@ export default function CityPage({ params }: Props) {
             <span className="inline-flex items-center gap-1.5 text-green-600 font-semibold">
               <Star className="h-4 w-4 fill-current" /> Free Estimates
             </span>
+            {extras.ctaNote && (
+              <span className="inline-flex items-center gap-1.5 text-green-600 font-semibold">
+                <CheckCircle className="h-4 w-4" /> No Dispatch Fee
+              </span>
+            )}
             <span className="inline-flex items-center gap-1.5 text-gray-500">
               <Shield className="h-4 w-4" /> Licensed &amp; Insured
             </span>
@@ -175,6 +129,7 @@ export default function CityPage({ params }: Props) {
               {paragraph}
             </p>
           ))}
+          <p className="mt-3 max-w-3xl text-sm text-gray-500 leading-relaxed">{extras.driveTime}</p>
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
             <a href={PHONE_HREF} className="btn-primary">
               <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
@@ -183,19 +138,38 @@ export default function CityPage({ params }: Props) {
               Get Free Quote <ChevronRight className="h-4 w-4" />
             </Link>
             <a
-              href={directionsUrl}
+              href={basedHere ? shopDirectionsUrl : cityMapUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              <Navigation className="h-4 w-4" /> Get Directions
+              <Navigation className="h-4 w-4" />
+              {basedHere ? 'Directions to our shop' : `Map of ${area.city}`}
             </a>
           </div>
+          {extras.ctaNote && (
+            <p className="mt-3 max-w-3xl text-sm font-medium text-gray-700">{extras.ctaNote}</p>
+          )}
         </div>
       </section>
 
-      {/* ── POPULAR SERVICES IN AREA ── */}
-      <section className="section-padding bg-gray-50">
+      {extras.localPhoto && (
+        <section className="bg-gray-50">
+          <div className="container-page py-8 sm:py-10">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-gray-200 shadow-premium-md sm:aspect-[21/9]">
+              <ResponsiveImage
+                src={extras.localPhoto.src}
+                alt={extras.localPhoto.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1152px"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section-padding bg-white">
         <div className="container-page">
           <SectionLabel text={`Services in ${area.city}`} />
           <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
@@ -220,6 +194,41 @@ export default function CityPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {extras.comboSections && extras.comboSections.length > 0 && (
+        <section className="section-padding bg-gray-50">
+          <div className="container-page">
+            <SectionLabel text={`${area.city} jobs`} />
+            <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
+              Common plumbing work<br />
+              <span className="text-blue">in {area.city}</span>
+            </h2>
+            <p className="mt-3 max-w-2xl text-gray-600">
+              Specific jobs we handle around {area.fullName} — not a swapped city name on a generic template.
+            </p>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {extras.comboSections.map((section) => (
+                <article
+                  key={section.slug}
+                  className="rounded-xl border border-gray-200 bg-white p-5 shadow-premium sm:p-6"
+                >
+                  <h3 className="font-display text-lg font-bold uppercase text-gray-900">
+                    {section.heading}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{section.body}</p>
+                  <Link
+                    href={serviceHrefForCity(section.slug, area.slug)}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue hover:underline"
+                  >
+                    {section.heading.replace(/ in .+$/, '')} service page
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section-padding bg-white">
         <div className="container-page">
@@ -258,7 +267,6 @@ export default function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── LOCAL LANDMARKS & COMMUNITY ── */}
       <section className="section-padding bg-white">
         <div className="container-page">
           <SectionLabel text={`About ${area.city}`} />
@@ -275,12 +283,15 @@ export default function CityPage({ params }: Props) {
             </p>
           ))}
           <p className="mt-3 max-w-2xl text-gray-600 leading-relaxed">
-            Nearby landmarks we work around include {landmarks.join(', ')}. If you are in the{' '}
-            {area.state === 'ID' ? 'Idaho Panhandle' : 'Eastern Washington'} region, call us and we will get you on the schedule.
+            Neighborhoods and landmarks we work around include {landmarks.join(', ')}. If you are in the{' '}
+            {area.state === 'ID' ? 'Idaho Panhandle' : 'Eastern Washington'} region, call us and we will get you on
+            the schedule.
           </p>
           {landmarks.length > 0 && (
             <div className="mt-6">
-              <h3 className="font-display text-base font-bold uppercase text-gray-900 mb-3">Local Landmarks We Serve Near {area.city}</h3>
+              <h3 className="font-display text-base font-bold uppercase text-gray-900 mb-3">
+                Local Landmarks We Serve Near {area.city}
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {landmarks.map((landmark) => (
                   <span key={landmark} className="rounded-full bg-blue/10 px-3 py-1.5 text-sm font-medium text-blue">
@@ -293,8 +304,31 @@ export default function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── MAP & QUOTE ── */}
-      <section className="section-padding bg-gray-50">
+      {relatedPosts.length > 0 && (
+        <section className="section-padding bg-gray-50">
+          <div className="container-page">
+            <SectionLabel text="Guides" />
+            <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
+              Local reading<br />
+              <span className="text-blue">for {area.city}</span>
+            </h2>
+            <div className="mt-8 flex flex-col gap-3">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group inline-flex items-center gap-2 border-b border-transparent pb-0.5 font-display text-sm font-bold uppercase tracking-wide text-gray-700 transition-colors hover:border-blue hover:text-blue"
+                >
+                  {post.title}
+                  <ArrowRight className="h-4 w-4 text-blue transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section-padding bg-white">
         <div className="container-page">
           <SectionLabel text="Service Area" />
           <h2 className="font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase text-gray-900 leading-[0.95]">
@@ -303,13 +337,14 @@ export default function CityPage({ params }: Props) {
           </h2>
           <p className="mt-4 max-w-2xl text-gray-600">{area.mapBlurb}</p>
           <p className="mt-3 max-w-2xl text-gray-500 text-sm">
-            Serving {regionLabel(area.slug, area.state)} from Spirit Lake — clear pricing and work we stand behind.
+            Serving {regionLabel(area.slug, area.state)} from our Spirit Lake shop. Licensed in Idaho
+            {area.state === 'WA' ? ' and Washington' : ''} with clear pricing before work starts.
           </p>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div className="aspect-[16/9] overflow-hidden rounded-xl border border-gray-200 shadow-premium-md">
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d${area.longitude}!3d${area.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s${encodeURIComponent(area.city)}!5e0!3m2!1sen!2sus!4v1`}
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d${area.longitude}!3d${area.latitude}!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s${encodeURIComponent(area.city)}!5e0!3m2!1sen!2sus!4v1`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -324,43 +359,34 @@ export default function CityPage({ params }: Props) {
               <div className="rounded-xl border border-gray-200 bg-white p-5 sm:p-6 shadow-premium-md">
                 <h3 className="font-display text-lg font-bold uppercase text-gray-900">Get a Free Quote</h3>
                 <p className="mt-2 text-sm text-gray-500">
-                  Tell us about your {area.city} plumbing project and we&apos;ll get back to you within 24 hours.
+                  {extras.ctaNote
+                    ? extras.ctaNote
+                    : `Tell us about your ${area.city} plumbing project and we'll get back to you within 24 hours.`}
                 </p>
                 <div className="mt-4">
                   <ContactForm formLocation={`area_${area.slug}`} />
                 </div>
               </div>
               <a
-                href={directionsUrl}
+                href={shopDirectionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-blue/30 bg-blue/5 px-5 py-3 text-sm font-semibold text-blue transition-all hover:bg-blue/10"
               >
-                <Navigation className="h-4 w-4" /> Get Directions to {area.city}
+                <Navigation className="h-4 w-4" /> Directions to our Spirit Lake shop
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-10 sm:py-12">
-        <div className="container-page flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <div className="text-center sm:text-left">
-            <p className="text-xl sm:text-2xl font-bold text-white">
-              Need a plumber in {area.city}? Call us.
-            </p>
-            <p className="mt-1 text-sm text-blue-200">
-              Same-day service available. Call now for a free estimate.
-            </p>
-          </div>
-          <a
-            href={PHONE_HREF}
-            className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-blue-dark transition-all duration-300 hover:bg-blue-50 active:scale-[0.97] shadow-premium-lg"
-          >
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand
+        message={`Need a plumber in ${area.city}? Call us.`}
+        subtitle={
+          extras.ctaBandSubtitle ||
+          'Same-day service available. Call now for a free estimate.'
+        }
+      />
     </div>
   )
 }

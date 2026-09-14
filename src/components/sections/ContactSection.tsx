@@ -1,5 +1,3 @@
-'use client'
-
 import dynamic from 'next/dynamic'
 import { Phone, CheckCircle, Clock, MessageSquare } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
@@ -43,7 +41,7 @@ export default function ContactSection() {
             <div className="space-y-3 sm:space-y-4">
               {perks.map((perk) => (
                 <div key={perk.text} className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue/10 text-blue">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-blue/10 bg-blue/[0.07] text-blue">
                     <perk.icon className="h-4 w-4" />
                   </div>
                   <span className="text-sm sm:text-base font-medium text-gray-600">{perk.text}</span>
@@ -53,12 +51,12 @@ export default function ContactSection() {
 
             <a
               href={PHONE_HREF}
-              className="mt-6 sm:mt-8 inline-flex w-full sm:w-auto items-center gap-3 rounded-2xl bg-blue px-6 sm:px-7 py-4 font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-xl active:scale-[0.97] shadow-premium-lg"
+              className="btn-primary mt-6 inline-flex w-full items-center !justify-start gap-3 sm:mt-8 sm:w-auto"
             >
               <Phone className="h-5 w-5" />
               <div className="text-left">
-                <p className="text-xs text-blue-100 font-medium">Call us directly</p>
-                <p className="text-lg">{PHONE}</p>
+                <p className="text-xs font-medium text-blue-100">Call us directly</p>
+                <p className="text-lg leading-tight">{PHONE}</p>
               </div>
             </a>
             <p className="mt-3 text-xs sm:text-sm text-gray-400">
@@ -70,7 +68,7 @@ export default function ContactSection() {
               <p className="mt-2 text-sm text-gray-300">Plumbing emergency across North Idaho? Call us during business hours.</p>
               <a
                 href={PHONE_HREF}
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-6 py-3.5 font-bold text-white transition-all duration-300 hover:bg-blue-dark active:scale-[0.97]"
+                className="btn-primary mt-5 w-full"
               >
                 <Phone className="h-4 w-4" /> Emergency Line
               </a>

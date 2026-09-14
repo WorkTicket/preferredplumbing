@@ -1,8 +1,5 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import HeroImagePreload from '@/components/ui/HeroImagePreload'
 import LcpHeroImage from '@/components/ui/LcpHeroImage'
+import HeroVideo from '@/components/sections/HeroVideo'
 import Link from 'next/link'
 import { Phone, ChevronRight, Star } from 'lucide-react'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
@@ -63,146 +60,78 @@ const BottomWave = () => (
   </div>
 )
 
-function isCrawler(): boolean {
-  return /bot|crawler|spider|ahrefs|semrush|bingpreview|googlebot|facebookexternalhit|lighthouse|pagespeed/i.test(
-    navigator.userAgent,
-  )
-}
-
-function shouldLoadHeroVideo(): boolean {
-  if (typeof window === 'undefined') return false
-  if (isCrawler()) return false
-  if (!window.matchMedia('(min-width: 768px)').matches) return false
-
-  const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection
-  if (connection?.saveData) return false
-  if (connection?.effectiveType && ['slow-2g', '2g', '3g'].includes(connection.effectiveType)) return false
-
-  return true
-}
-
 export default function HeroSection() {
-  const [videoReady, setVideoReady] = useState(false)
-  const [showVideo, setShowVideo] = useState(false)
   const stats = getHeroStats()
 
-  useEffect(() => {
-    if (!shouldLoadHeroVideo()) return
-
-    let cancelled = false
-
-    const enableVideo = () => {
-      if (!cancelled) setShowVideo(true)
-    }
-
-    const teardown = () => {
-      window.removeEventListener('scroll', onIntent)
-      window.removeEventListener('touchstart', onIntent)
-      window.removeEventListener('pointerdown', onIntent)
-    }
-
-    // User intent only — idle/timeout loading made crawlers download the MP4
-    // and flag the homepage as a slow page.
-    function onIntent() {
-      enableVideo()
-      teardown()
-    }
-
-    window.addEventListener('scroll', onIntent, { once: true, passive: true })
-    window.addEventListener('touchstart', onIntent, { once: true, passive: true })
-    window.addEventListener('pointerdown', onIntent, { once: true })
-
-    return () => {
-      cancelled = true
-      teardown()
-    }
-  }, [])
-
   return (
-    <>
-      <HeroImagePreload src="/images/preferred-plumbing-hero-poster.webp" />
-      <section className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="absolute inset-0 brightness-[0.85] saturate-[1.08]">
-          <LcpHeroImage
-            src="/images/preferred-plumbing-hero-poster.webp"
-            alt="Aerial view of Spirit Lake in North Idaho from the Preferred Plumbing Solutions hero video"
-          />
-        </div>
-        {showVideo && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/images/generated/preferred-plumbing-hero-poster-1280.webp"
-            preload="metadata"
-            onLoadedData={() => setVideoReady(true)}
-            onError={() => setVideoReady(false)}
-            className={`absolute inset-0 h-full w-full object-cover brightness-[0.85] saturate-[1.08] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <source src="/videos/preferred-plumbing-hero.mp4" type="video/mp4" />
-          </video>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/82 to-navy/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-transparent to-transparent" />
-        <div className="absolute inset-0 hero-split-tone" />
-        <div className="absolute inset-0 hero-vignette" />
-        <div className="absolute inset-0 bg-blue/[0.08] mix-blend-soft-light pointer-events-none" />
-        <div className="absolute inset-0 hero-texture" />
-        <div className="absolute inset-0 hero-pattern" />
-        <div className="absolute inset-0 hero-light-sweep hidden md:block" />
-        <TopWave />
-        <BottomWave />
-        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-center px-4 sm:px-6 lg:px-8 pt-site-header pb-10 sm:pb-12 lg:pb-14">
-          <div className="max-w-3xl w-full">
-            <div className="mb-2.5 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-2.5">
-              <p className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
-                Family-Owned Plumber in Spirit Lake, Idaho
-              </p>
-              {SHOW_GOOGLE_REVIEWS && (
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 text-[11px] sm:text-sm font-semibold text-white backdrop-blur-sm">
-                  <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-gold text-gold" /> 5.0 Google
-                </span>
-              )}
-            </div>
-            <h1 className="font-display text-[clamp(1.85rem,8.5vw,4.75rem)] font-black uppercase leading-[0.9] text-white tracking-tight">
-              Spirit Lake&apos;s<br />
-              <span className="text-blue-light">Local Plumber</span>
-            </h1>
-            <p className="mt-2.5 sm:mt-4 max-w-xl text-[13px] sm:text-base lg:text-lg text-gray-300 leading-snug sm:leading-relaxed">
-              Plumbing services near Spirit Lake and North Idaho. Same-day water heaters, radiant heat, heated driveways, and emergency plumber.{' '}
-              <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
+    <section className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
+      <div className="absolute inset-0 brightness-[0.85] saturate-[1.08]">
+        <LcpHeroImage
+          src="/images/preferred-plumbing-hero-poster.webp"
+          alt="Aerial view of Spirit Lake in North Idaho from the Preferred Plumbing Solutions hero video"
+        />
+      </div>
+      <HeroVideo />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/82 to-navy/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-transparent to-transparent" />
+      <div className="absolute inset-0 hero-split-tone" />
+      <div className="absolute inset-0 hero-vignette" />
+      <div className="absolute inset-0 bg-blue/[0.08] mix-blend-soft-light pointer-events-none" />
+      <div className="absolute inset-0 hero-texture" />
+      <div className="absolute inset-0 hero-pattern" />
+      <div className="absolute inset-0 hero-light-sweep hidden md:block" />
+      <TopWave />
+      <BottomWave />
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-7xl flex-1 items-center px-4 sm:px-6 lg:px-8 pt-site-header pb-8 sm:pb-12 lg:pb-14">
+        <div className="max-w-3xl w-full">
+          <div className="mb-2.5 sm:mb-5 flex flex-wrap items-center gap-2 sm:gap-2.5">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-md sm:px-3.5 sm:text-sm">
+              <span className="live-dot" aria-hidden />
+              Family-Owned Plumber in Spirit Lake, Idaho
             </p>
-            <div className="mt-3.5 sm:mt-7 flex flex-col sm:flex-row gap-2.5 sm:gap-4">
-              <a href={PHONE_HREF} className="btn-primary-lg !py-3.5 sm:!py-4 lg:!py-5 text-sm sm:text-base lg:text-lg shadow-glow-lg" data-track="hero_call">
-                <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
-              </a>
-              <Link href="#contact" className="btn-secondary border-white/25 bg-white/10 text-white hover:bg-white/15 hover:border-white/40 !py-3.5 sm:!py-4 text-sm sm:text-base backdrop-blur-sm">
-                Get Free Estimate <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-              </Link>
-            </div>
-            <div className="mt-3 sm:mt-6 flex flex-wrap gap-2">
-              {trustBadges.map((badge) => (
-                <span key={badge} className="badge-premium text-[11px] sm:text-xs">
-                  {badge}
-                </span>
-              ))}
-            </div>
-            <div className="mt-4 sm:mt-10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
-              {stats.map((stat) => (
-                <div key={stat.label || stat.number} className="rounded-xl sm:rounded-2xl border border-white/10 bg-white/8 px-3 py-2.5 sm:p-4 backdrop-blur-md text-left shadow-inner">
-                  <p className="font-display font-black text-base sm:text-xl lg:text-2xl text-white tabular-nums">
-                    {stat.number}<span className="text-blue-light">{stat.suffix}</span>
-                  </p>
-                  {stat.label && (
-                    <p className="text-[11px] sm:text-[10px] lg:text-xs font-medium text-white/70 leading-tight mt-0.5">{stat.label}</p>
-                  )}
-                </div>
-              ))}
-            </div>
+            {SHOW_GOOGLE_REVIEWS && (
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-md sm:px-3.5 sm:text-sm">
+                <Star className="h-3 w-3 fill-gold text-gold sm:h-3.5 sm:w-3.5" /> 5.0 Google
+              </span>
+            )}
+          </div>
+          <h1 className="font-display text-[clamp(1.85rem,8.5vw,4.85rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white">
+            Spirit Lake&apos;s<br />
+            <span className="text-blue-light">Local Plumber</span>
+          </h1>
+          <p className="mt-2.5 max-w-xl text-[13px] leading-snug text-white/75 sm:mt-5 sm:text-base sm:leading-relaxed lg:text-lg">
+            Plumbing services near Spirit Lake and North Idaho. Same-day water heaters, radiant heat, heated driveways, and emergency plumber.{' '}
+            <span className="font-serif italic text-blue-light">Call for a free estimate.</span>
+          </p>
+          <div className="mt-4 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-4">
+            <a href={PHONE_HREF} className="btn-primary-lg !py-3.5 text-sm shadow-glow-lg sm:!py-4 sm:text-base lg:!py-5 lg:text-lg" data-track="hero_call">
+              <Phone className="h-4 w-4 sm:h-5 sm:w-5" /> Call {PHONE_DISPLAY}
+            </a>
+            <Link href="#contact" className="btn-secondary border-white/25 bg-white/10 text-white backdrop-blur-sm !py-3.5 text-sm hover:border-white/40 hover:bg-white/15 sm:!py-4 sm:text-base">
+              Get Free Estimate <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+            </Link>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2 sm:mt-6">
+            {trustBadges.map((badge) => (
+              <span key={badge} className="badge-premium text-[11px] sm:text-xs">
+                {badge}
+              </span>
+            ))}
+          </div>
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-10 sm:grid-cols-4 sm:gap-3 lg:gap-4">
+            {stats.map((stat) => (
+              <div key={stat.label || stat.number} className="rounded-xl border border-white/10 bg-white/[0.07] px-3 py-2.5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md sm:rounded-2xl sm:p-4">
+                <p className="font-display text-base font-black tabular-nums text-white sm:text-xl lg:text-2xl">
+                  {stat.number}<span className="text-blue-light">{stat.suffix}</span>
+                </p>
+                {stat.label && (
+                  <p className="mt-0.5 text-[11px] font-medium leading-tight text-white/65 sm:text-[10px] lg:text-xs">{stat.label}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

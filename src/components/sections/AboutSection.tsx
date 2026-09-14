@@ -1,5 +1,3 @@
-'use client'
-
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { IMAGE_SIZES } from '@/lib/image-sizes'
 import Link from 'next/link'
@@ -70,7 +68,7 @@ export default function AboutSection() {
                 { end: 16, suffix: '', label: 'Cities Served' },
                 { end: 100, suffix: '%', label: 'Owner-Operated' },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-gray-200/80 bg-gray-50/50 p-4">
+                <div key={stat.label} className="premium-card p-4 sm:p-5">
                   <p className="stat-value text-2xl sm:text-3xl">
                     <AnimatedCounter end={stat.end} suffix={stat.suffix} duration={1400} />
                   </p>
@@ -102,20 +100,16 @@ export default function AboutSection() {
           ))}
         </div>
 
-        <div className="mt-14 sm:mt-16 relative overflow-hidden rounded-2xl bg-navy-gradient p-8 sm:p-12 text-center shadow-premium-xl">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.14)_0%,_transparent_60%)] pointer-events-none" />
-          <div className="relative">
-            <p className="font-display text-2xl sm:text-3xl font-black uppercase text-white leading-tight">
+        <div className="premium-card-dark relative mt-14 overflow-hidden p-8 text-center sm:mt-16 sm:p-12">
+          <div className="relative z-10">
+            <p className="font-display text-2xl font-black uppercase leading-tight text-white sm:text-3xl">
               Meet the family behind the work.
             </p>
-            <p className="mt-3 text-sm sm:text-base text-gray-300 max-w-lg mx-auto">
+            <p className="mx-auto mt-3 max-w-lg text-sm text-white/70 sm:text-base">
               Ron and Hunter would love to earn your trust.{' '}
               <span className="font-serif italic text-blue-light">No sales pitch. Just honest plumbing.</span>
             </p>
-            <Link
-              href="/about"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue px-8 py-3.5 font-bold text-white transition-all duration-300 hover:bg-blue-dark hover:shadow-glow active:scale-[0.97]"
-            >
+            <Link href="/about" className="btn-primary mt-6 inline-flex">
               Read Our Full Story &rarr;
             </Link>
           </div>

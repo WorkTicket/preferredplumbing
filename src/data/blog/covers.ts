@@ -1,5 +1,15 @@
 /** Cover images for blog posts — AI-generated photoreal North Idaho / Spirit Lake scenes, stored locally as WebP. */
 export const blogCovers: Record<string, { coverImage: string; coverImageAlt: string }> = {
+  'is-radiant-floor-heating-worth-it-idaho': {
+    coverImage: '/images/blog/is-radiant-floor-heating-worth-it-idaho.webp',
+    coverImageAlt:
+      'Warm North Idaho living room with hardwood floors and lake views through snowy pines, the kind of space in-floor radiant heat keeps even in winter',
+  },
+  'heated-driveway-snow-loads-spirit-lake': {
+    coverImage: '/images/blog/heated-driveway-snow-loads-spirit-lake.webp',
+    coverImageAlt:
+      'Hydronic heated driveway with melted tire tracks through packed snow toward a timber home after a North Idaho storm near Spirit Lake',
+  },
   'radiant-heat-cost-north-idaho': {
     coverImage: '/images/blog/radiant-heat-cost-north-idaho.webp',
     coverImageAlt:
@@ -121,53 +131,53 @@ export const blogCovers: Record<string, { coverImage: string; coverImageAlt: str
       'Bright remodeled North Idaho kitchen with island sink, updated fixtures, and evergreen trees outside the window',
   },
   'why-is-my-water-heater-leaking': {
-    coverImage: '/images/blog/water-heater-installation-cost-idaho.webp',
+    coverImage: '/images/blog/why-is-my-water-heater-leaking.webp',
     coverImageAlt:
-      'Residential tank water heater with copper piping in an unfinished Idaho basement, the kind of unit that leaks at fittings or the tank itself',
+      'Residential tank water heater leaking rust-colored water onto a North Idaho basement floor',
   },
   'water-heater-repair-or-replace': {
-    coverImage: '/images/blog/tankless-vs-tank-water-heaters-north-idaho.webp',
+    coverImage: '/images/blog/water-heater-repair-or-replace.webp',
     coverImageAlt:
-      'Tank and tankless water heater piping in a North Idaho utility room, used when deciding repair versus replacement',
+      'Old rusted tank water heater beside a new replacement tank in a Spirit Lake basement utility room',
   },
   'why-does-my-drain-keep-backing-up': {
-    coverImage: '/images/blog/signs-sewer-line-replacement-north-idaho.webp',
+    coverImage: '/images/blog/why-does-my-drain-keep-backing-up.webp',
     coverImageAlt:
-      'Exposed drain and sewer piping beside a North Idaho home, typical of a line that keeps backing up after temporary clears',
+      'Kitchen sink overflowing with standing water in a North Idaho home, a drain that keeps backing up',
   },
   'drain-cleaning-cost-north-idaho': {
-    coverImage: '/images/blog/trenchless-sewer-repair-north-idaho.webp',
+    coverImage: '/images/blog/drain-cleaning-cost-north-idaho.webp',
     coverImageAlt:
-      'Outdoor plumbing excavation at a cedar-sided North Idaho home, the kind of access sometimes needed when a drain clog sits deep in the line',
+      'Professional drain-cleaning machine on a lawn beside a cedar-sided Spirit Lake home',
   },
   'sewer-repair-vs-replacement-north-idaho': {
-    coverImage: '/images/blog/trenchless-sewer-repair-north-idaho.webp',
+    coverImage: '/images/blog/sewer-repair-vs-replacement-north-idaho.webp',
     coverImageAlt:
-      'Trenchless sewer pipe exposed in a pit beside a North Idaho home, used when comparing repair with full replacement',
+      'Sewer camera monitor at a cleanout in a Spirit Lake yard, used to decide repair versus replacement',
   },
   'sewer-line-repair-cost-idaho': {
-    coverImage: '/images/blog/signs-sewer-line-replacement-north-idaho.webp',
+    coverImage: '/images/blog/sewer-line-repair-cost-idaho.webp',
     coverImageAlt:
-      'White sewer pipe in a trench beside a North Idaho foundation, the starting point for pricing sewer repair or replacement',
+      'Long sewer trench with a measuring tape beside a cedar-sided North Idaho home, the kind of work that drives repair cost',
   },
   'signs-hidden-plumbing-leak': {
-    coverImage: '/images/blog/water-line-replacement-signs-north-idaho.webp',
+    coverImage: '/images/blog/signs-hidden-plumbing-leak.webp',
     coverImageAlt:
-      'Trench exposing a residential water line toward a North Idaho home, a common source of hidden leaks and high water bills',
+      'Water meter pit with standing water and a wet stripe across a Spirit Lake lawn, a common sign of a hidden leak',
   },
   'leak-detection-cost-north-idaho': {
-    coverImage: '/images/blog/water-line-replacement-signs-north-idaho.webp',
+    coverImage: '/images/blog/leak-detection-cost-north-idaho.webp',
     coverImageAlt:
-      'Yard trench and water service line at a North Idaho home, where leak detection often leads after indoor fixtures check out',
+      'Acoustic leak-detection equipment on a damp lawn in front of a North Idaho home among pines',
   },
   'plumber-cost-spirit-lake-idaho': {
-    coverImage: '/images/blog/how-to-choose-plumber-spirit-lake-idaho.webp',
+    coverImage: '/images/blog/plumber-cost-spirit-lake-idaho.webp',
     coverImageAlt:
-      'Spirit Lake shoreline in North Idaho, home base for Preferred Plumbing Solutions service-call and project pricing',
+      'Plumbing service van in the driveway of a craftsman home among pines in Spirit Lake, Idaho',
   },
   'what-to-do-when-sewer-backs-up': {
-    coverImage: '/images/blog/emergency-plumbing-when-to-call-spirit-lake.webp',
+    coverImage: '/images/blog/what-to-do-when-sewer-backs-up.webp',
     coverImageAlt:
-      'Basement plumbing emergency with standing water, the situation homeowners face when a sewer line backs up',
+      'Sewage overflowing from a basement floor drain onto concrete, the first thing homeowners see when a sewer backs up',
   },
 }

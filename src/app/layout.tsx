@@ -1,27 +1,26 @@
 import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
-import { localBusinessSchema, websiteSchema, organizationSchema } from '@/lib/schema'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileCtaBar from '@/components/layout/MobileCtaBar'
-import FloatingActionButton from '@/components/layout/FloatingActionButton'
-import AnalyticsTracker from '@/components/layout/AnalyticsTracker'
-import CookieConsentBanner from '@/components/layout/CookieConsentBanner'
+import DeferredChrome from '@/components/layout/DeferredChrome'
 import { defaultDescription, defaultTitle, siteName, siteUrl } from '@/lib/seo'
 
 const barlow = Barlow({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '700'],
   variable: '--font-barlow',
   display: 'swap',
+  adjustFontFallback: true,
 })
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
-  weight: ['500', '700', '900'],
+  weight: ['700', '900'],
   variable: '--font-barlow-condensed',
   display: 'swap',
+  adjustFontFallback: true,
 })
 
 const dmSerif = DM_Serif_Display({
@@ -30,6 +29,8 @@ const dmSerif = DM_Serif_Display({
   style: ['italic'],
   variable: '--font-dm-serif',
   display: 'swap',
+  preload: false,
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
@@ -55,7 +56,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
     siteName,
     title: defaultTitle,
     description: defaultDescription,
@@ -108,21 +108,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} ${dmSerif.variable}`}>
-      <head>
-        {/* GA4 loads only after cookie consent — see loadGoogleAnalytics() */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
-        />
-      </head>
       <body className="font-body antialiased">
         <a href="#main-content" className="skip-link">
           Skip to main content
@@ -137,9 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <MobileCtaBar />
-        <FloatingActionButton />
-        <AnalyticsTracker />
-        <CookieConsentBanner />
+        <DeferredChrome />
       </body>
     </html>
   )

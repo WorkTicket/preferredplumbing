@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { ArrowUpRight } from 'lucide-react'
 import type { BlogPostSummary } from '@/data/blog'
 import { formatReadTime } from '@/data/blog'
@@ -15,21 +15,23 @@ export default function BlogPostCard({ post, plain = false }: BlogPostCardProps)
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        'group relative flex h-full flex-col rounded-2xl border border-gray-200/80 bg-white shadow-premium overflow-hidden',
-        !plain && 'card-lift hover:border-blue-light/30'
+        'premium-card group relative flex h-full flex-col overflow-hidden',
+        !plain && 'card-lift hover:border-blue/25'
       )}
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-        <Image
+        <ResponsiveImage
           src={post.coverImage}
           alt={post.coverImageAlt}
           fill
+          srcsetMaxWidth={1024}
           className={cn(
-            'object-cover transition-transform duration-500',
+            'object-cover transition-transform duration-700',
             !plain && 'group-hover:scale-105'
           )}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/25 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
 
       <div className="relative flex flex-1 flex-col p-6 sm:p-7">

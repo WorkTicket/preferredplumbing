@@ -1,7 +1,13 @@
 'use client'
 
 import { useCallback, useEffect, useRef } from 'react'
-import { getOriginalImageUrl, getVariantUrl } from '@/lib/responsive-image'
+import { IMAGE_SIZES } from '@/lib/image-sizes'
+import {
+  FORMATS,
+  buildSrcset,
+  getOriginalImageUrl,
+  getVariantUrl,
+} from '@/lib/responsive-image'
 import { cn } from '@/lib/utils'
 
 interface CompareSliderProps {
@@ -10,6 +16,54 @@ interface CompareSliderProps {
   beforeAlt: string
   afterAlt: string
   className?: string
+}
+
+const COMPARE_MAX_WIDTH = 1024
+
+function ComparePicture({
+  src,
+  alt,
+  className,
+  sizes,
+  fetchPriority = 'auto',
+}: {
+  src: string
+  alt: string
+  className?: string
+  sizes: string
+  fetchPriority?: 'high' | 'low' | 'auto'
+}) {
+  const fallback = getOriginalImageUrl(src)
+
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    if (img.dataset.fallbackApplied === '1') return
+    img.dataset.fallbackApplied = '1'
+    img.src = fallback
+  }
+
+  return (
+    <picture className={cn('absolute inset-0 block h-full w-full', className)}>
+      {FORMATS.map((format) => {
+        const srcset = buildSrcset(src, format, COMPARE_MAX_WIDTH)
+        if (!srcset) return null
+        const type = format === 'jpeg' ? 'image/jpeg' : `image/${format}`
+        return <source key={format} srcSet={srcset} sizes={sizes} type={type} />
+      })}
+      <img
+        src={getVariantUrl(src, 'webp', 768, COMPARE_MAX_WIDTH)}
+        alt={alt}
+        width={1024}
+        height={768}
+        loading="lazy"
+        decoding="async"
+        fetchPriority={fetchPriority}
+        draggable={false}
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        onError={handleImgError}
+      />
+    </picture>
+  )
 }
 
 export default function CompareSlider({
@@ -79,17 +133,7 @@ export default function CompareSlider({
     }
   }
 
-  const afterUrl = getVariantUrl(afterSrc, 'webp', 1024)
-  const beforeUrl = getVariantUrl(beforeSrc, 'webp', 1024)
-  const afterFallback = getOriginalImageUrl(afterSrc)
-  const beforeFallback = getOriginalImageUrl(beforeSrc)
-
-  const handleImgError = (fallback: string) => (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget
-    if (img.dataset.fallbackApplied === '1') return
-    img.dataset.fallbackApplied = '1'
-    img.src = fallback
-  }
+  const sizes = IMAGE_SIZES.galleryCompare
 
   return (
     <div
@@ -105,32 +149,10 @@ export default function CompareSlider({
       role="img"
       aria-label={`Job photo comparison: ${beforeAlt}`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={afterUrl}
-        alt={afterAlt}
-        width={1024}
-        height={768}
-        loading="lazy"
-        decoding="async"
-        draggable={false}
-        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-        onError={handleImgError(afterFallback)}
-      />
+      <ComparePicture src={afterSrc} alt={afterAlt} sizes={sizes} />
 
       <div className="compare-slider-before absolute inset-0 overflow-hidden pointer-events-none">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={beforeUrl}
-          alt={beforeAlt}
-          width={1024}
-          height={768}
-          loading="lazy"
-          decoding="async"
-          draggable={false}
-          className="absolute inset-0 h-full w-full object-cover"
-          onError={handleImgError(beforeFallback)}
-        />
+        <ComparePicture src={beforeSrc} alt={beforeAlt} sizes={sizes} fetchPriority="low" />
       </div>
 
       <div className="compare-slider-handle pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_12px_rgba(0,102,255,0.4)]">

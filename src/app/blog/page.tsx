@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { Phone } from 'lucide-react'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
+import CtaBand from '@/components/ui/CtaBand'
 import { getPostsByDate, toBlogSummary } from '@/data/blog'
-import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Plumbing Tips for North Idaho',
@@ -55,19 +53,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
-            Have a plumbing question? Call us.
-          </p>
-          <a
-            href={PHONE_HREF}
-            className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
-          >
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message="Have a plumbing question? Call us." />
     </div>
   )
 }

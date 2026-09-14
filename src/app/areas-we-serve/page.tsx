@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Phone, ChevronRight, MapPin, Star, Shield, Clock, HardHat } from 'lucide-react'
+import { Phone, ChevronRight, Star, Shield, Clock } from 'lucide-react'
 import { areas } from '@/lib/data'
 import { generateMetadata, siteUrl } from '@/lib/seo'
 import PageHero from '@/components/sections/PageHero'
 import SectionLabel from '@/components/ui/SectionLabel'
+import CtaBand from '@/components/ui/CtaBand'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 
 export const metadata: Metadata = generateMetadata({
@@ -169,19 +170,7 @@ export default function AreasPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
-            Need a plumber in your area? Call us.
-          </p>
-          <a
-            href={PHONE_HREF}
-            className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
-          >
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message="Need a plumber in your area? Call us." />
     </div>
   )
 }

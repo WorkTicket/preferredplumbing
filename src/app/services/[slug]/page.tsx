@@ -22,6 +22,7 @@ import { serviceContent, pageMeta } from '@/lib/service-content'
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { serviceSchema, breadcrumbSchema, webpageSchema, faqSchema } from '@/lib/schema'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
+import CtaBand from '@/components/ui/CtaBand'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 import { yearsExperienceLabel } from '@/lib/company-stats'
 import { getPostsForService } from '@/data/blog'
@@ -30,7 +31,7 @@ import { isServiceCityCombo, serviceCityPath } from '@/lib/data/service-city'
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 const benefitIcons = [Zap, Wrench, Shield, Clock, HardHat, BadgeCheck]
@@ -51,54 +52,56 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }))
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const service = services.find((s) => s.slug === params.slug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const service = services.find((s) => s.slug === slug)
   if (!service) return {}
-  const meta = pageMeta[params.slug]
+  const meta = pageMeta[slug]
   return genMeta({
     title: meta?.title || service.title,
     description:
       meta?.description ||
       `${service.description} Serving North Idaho. Free estimate: 208-290-3889.`,
-    slug: `services/${params.slug}`,
+    slug: `services/${slug}`,
     keywords: [
       meta?.title || service.title,
       `${service.title} Spirit Lake`,
       `${service.title} North Idaho`,
-      ...(params.slug === 'water-heaters'
+      ...(slug === 'water-heaters'
         ? ['water heater repair near me', 'water heater replacement Spirit Lake', 'water heater installation North Idaho']
         : []),
-      ...(params.slug === 'emergency'
+      ...(slug === 'emergency'
         ? ['emergency plumber near me', 'emergency plumbing Rathdrum', 'emergency plumber Hayden']
         : []),
-      ...(params.slug === 'drain-cleaning'
+      ...(slug === 'drain-cleaning'
         ? ['drain cleaning Spirit Lake', 'clogged drain Coeur d\'Alene', 'hydro jetting North Idaho']
         : []),
-      ...(params.slug === 'leak-detection'
+      ...(slug === 'leak-detection'
         ? ['leak detection Spirit Lake', 'hidden water leak North Idaho', 'high water bill leak']
         : []),
-      ...(params.slug === 'new-construction'
+      ...(slug === 'new-construction'
         ? ['new construction plumbing Rathdrum', 'new construction plumbing Coeur d\'Alene']
         : []),
-      ...(params.slug === 'commercial'
+      ...(slug === 'commercial'
         ? ['plumbing company Coeur d\'Alene', 'commercial plumber Post Falls']
         : []),
-      ...(params.slug === 'heated-driveways'
+      ...(slug === 'heated-driveways'
         ? ['heated driveway Coeur d\'Alene', 'heated driveway Post Falls', 'heated driveway Moscow Idaho']
         : []),
       'plumber Spirit Lake Idaho',
       'Preferred Plumbing Solutions',
     ],
-    canonical: `${siteUrl}/services/${params.slug}`,
+    canonical: `${siteUrl}/services/${slug}`,
   })
 }
 
-export default function ServicePage({ params }: Props) {
-  const service = services.find((s) => s.slug === params.slug)
+export default async function ServicePage({ params }: Props) {
+  const { slug } = await params
+  const service = services.find((s) => s.slug === slug)
   if (!service) notFound()
 
-  const meta = pageMeta[params.slug] || { title: service.title, h1: service.title }
-  const rich = serviceContent[params.slug]
+  const meta = pageMeta[slug] || { title: service.title, h1: service.title }
+  const rich = serviceContent[slug]
   const relatedServices = (service.relatedServices || [])
     .map((slug) => services.find((s) => s.slug === slug))
     .filter(Boolean) as typeof services
@@ -499,17 +502,7 @@ export default function ServicePage({ params }: Props) {
         </section>
       )}
 
-      {/* ── CTA BAND ── */}
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
-            Ready to get started? Give us a call. We&apos;ll figure it out.
-          </p>
-          <a href={PHONE_HREF} className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex">
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message="Ready to get started? Give us a call. We'll figure it out." />
     </div>
   )
 }

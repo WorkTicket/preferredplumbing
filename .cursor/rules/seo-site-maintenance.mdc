@@ -1,0 +1,103 @@
+---
+description: SEO, local content, and NAP guardrails for Preferred Plumbing Solutions
+alwaysApply: true
+---
+
+# Preferred Plumbing SEO
+
+Family-owned plumber **headquartered in Spirit Lake, Idaho** (Ron & Hunter Norris). Serve North Idaho and Eastern Washington. Do not invent stats, reviews, 24/7 hours, or job counts.
+
+## Technical (never regress)
+
+- Unique `<title>` and meta description per URL; one `<h1>`; logical heading order.
+- Canonical `https://www.callpreferredplumbing.com/...`; valid LocalBusiness/Plumber, Service, FAQPage, BreadcrumbList.
+- NAP must match the Spirit Lake GBP on every page (never a fake city address). No fabricated AggregateRating.
+- Descriptive image alt; webp/avif; no blank or filename-style alt.
+- Sitemap via next-sitemap; do not block indexable URLs in robots.txt.
+- Mobile-first: header/click-to-call visible without scrolling on home, service, and area pages.
+
+## Content strategy (priority order)
+
+1. `/areas/spirit-lake-id` is the deepest page: named neighborhoods, wells/septic, service+location sections, local FAQ. Own “plumber Spirit Lake.”
+2. Radiant heat / heated driveways are the low-competition wedge. Cluster posts must link to those service pages and a relevant area page; service pages link back.
+3. Area pages need unique local copy (drive time from Spirit Lake, landmarks, town-specific FAQs and 2–3 featured services). No city-name-swap templates. No thin new town pages.
+4. Blog posts ≥600 words, original, locally specific, with a service link and an area link. Steady cadence, not bursts.
+
+## Do not
+
+- Keyword-stuff or copy competitor phrasing (Lilac City templates).
+- Create near-duplicate URLs (e.g. extra “emergency plumber Spirit Lake” pages). Parent service hubs already own Spirit Lake.
+- Split `/services/water-heaters` or `/services/sewer-line`; company is not 24/7 (Sun–Fri 7am–5pm).
+- Remove area/service coverage to “simplify.”
+- Add third-party scripts without a Core Web Vitals check.
+- Claim gallery jobs as a specific city unless the photo is verified for that town.
+
+## Recurring (flag to the owner)
+
+Quarterly competitor and Search Console town/query gaps before building new pages. After a Google update, check GSC before blaming a code change.
+
+**Copy, not new URLs:** On Post Falls / Rathdrum / Hayden (Lilac City cross-shop), surface free estimates and no dispatch fee near CTAs — never name the competitor. On Spirit Lake / Rathdrum / Athol / Blanchard, lean on shop radius and same-day reality, not well/septic prose a Spokane shop can copy. Do not invent town-tagged job photos or timestamps.
+
+## Competitor log
+
+Diff the next recrawl against this baseline. Do not unfreeze URLs from this log alone — wait for Search Console.
+
+### 2026-09-13
+
+- **Archer** (archer.plumbing): still 4 pages, no blog/town URLs. Seasonal pre-winter banner. Hours Mon–Fri 8–5; implies emergency anytime. Spirit Lake HQ trust still their edge.
+- **Lilac City**: dedicated ID pages CDA, Post Falls, Hayden, Rathdrum. Templated history blocks. 24/7. **$79 dispatch, not a free estimate.** ID list still CDA / Post Falls / Hayden / Rathdrum / Dalton Gardens / Fernan / Hauser. No Spirit Lake, Sandpoint, Athol, Blanchard, Priest River pages.
+- **Mr. Rooter CDA** (mrrooter.com/cda): 24/7, Hayden office, Spirit Lake in the town list, **no Spirit Lake page**. No heated driveway. Radiator repair ≠ in-floor radiant. 2026 staff bios. Do not fight generic “plumber CDA.”
+- **AAA / plumbingcoeurdalene.com**: now **Always Available & Affordable Plumbing**. CDA / Post Falls / Hayden / Rathdrum. No Spirit Lake page.
+- **Mainstream**: city pages CDA, Post Falls, Hayden, Rathdrum with HQ drive-time. Rathdrum copy names Twin Lakes + well/septic **from Spokane Valley**. No Spirit Lake page — watch next quarter.
+- **Gold Seal**: service×city mill. Boiler pages mention radiant in passing. No heated-driveway cluster.
+- **Still open:** only Spirit Lake HQ in this set; hydronic driveway cluster uncontested.
+
+### GSC 2026-09-13 (Web, “Last 16 months”; real impressions ~2026-07-21 → 2026-09-11)
+
+12 clicks / ~11.3k impressions. **Do not unfreeze new URLs from this file.** Query×page overlay was not in the export.
+
+**Google-selected pages (impressions):** Post Falls 1950 p40, Hayden 1756 p21, Rathdrum 1609 p29, CDA 1582 p46, home 715 p15 (7 clicks), water-heaters 477 p24, Sandpoint 461 p23, heated-driveway blog 364 p16, septic 315 p32, Spirit Lake area 225 p32, heated-driveways service 187 p16 (1 click). **No `/services/[slug]/[city]` rows** — treat those 20 URLs as not-yet-measured; do not add more.
+
+**Optimize existing only (pos ~11–22 + real local intent):** Hayden + Sandpoint + water-heaters title/meta shipped 2026-09-13 (see experiment log). Heated-driveway service + worth-it post: do not split into city URLs and do not retitle both — CDA/Post Falls/Moscow HD queries already p9–11. Homepage is the Spirit Lake click URL — do not cannibalize it.
+
+**Do not build:** Sagle (11), Worley (6), St. Maries (35 at p70+), Ponderay (1), 24/7 pages, Idaho Falls/Sun Valley/Rexburg HD, HVAC/furnace, Newport OR.
+
+**Out of area:** ~607 impressions / 134 queries. Ignore.
+
+**Mobile avg position 19.9 vs desktop 38.7.** Lighthouse mobile on Spirit Lake still due.
+
+**Heated driveway `near me` (1 click, pos 3.5):** directional evidence the wedge works. Do not replicate “near me” into other titles.
+
+### Title/meta experiments (shipped 2026-09-13)
+
+CTR-band only (page 2–3). Next GSC pull: diff position and CTR against this baseline. Do not iterate titles if position is still ~page 3+ and CTR is still 0 — that means ranking, not the snippet.
+
+| URL | Lever | Baseline (2026-09-13) | Before title | After title |
+|---|---|---|---|---|
+| `/areas/hayden-id` | **CTR** | 0 clicks / 1756 imp / **0% CTR** / pos **21.29** | `Plumber in Hayden, ID \| Same-Day \| Preferred Plumbing` | `Hayden Plumbing \| Free Estimates \| Preferred Plumbing` |
+| `/areas/sandpoint-id` | **CTR** | 0 clicks / 461 imp / **0% CTR** / pos **22.59** | `Plumber in Sandpoint, ID \| Same-Day \| Preferred Plumbing` | `Plumber Sandpoint ID \| Radiant Heat \| Preferred Plumbing` |
+| `/services/water-heaters` | **CTR** (edge of band, pos 24.5) | 0 clicks / 477 imp / **0% CTR** / pos **24.48** | `Water Heater Repair Near Me \| Preferred Plumbing` | `Water Heater Repair \| Spirit Lake ID \| Preferred Plumbing` |
+
+Hayden meta now leads with free estimates / no dispatch fee. Sandpoint meta names Pend Oreille, radiant, septic. Water-heater meta keeps replacement + same-day during hours; dropped “near me.” H1s unchanged.
+
+### Parked — ranking problem, not a title skip (2026-09-13)
+
+Title tweaks will look like failures here. Need links, unique depth, and verified town-tagged photos (none yet). Revisit after ranking moves into the teens.
+
+| URL | Baseline | Why parked |
+|---|---|---|
+| `/areas/post-falls-id` | 0 / 1950 / 0% CTR / pos **40.55** | Page 4–5. No dispatch-fee copy already on-page. |
+| `/areas/rathdrum-id` | 0 / 1609 / 0% CTR / pos **29.48** | Page 3. Owns `new construction plumbing rathdrum` and `emergency plumbing rathdrum` already. |
+| `/areas/coeur-dalene-id` | 0 / 1582 / 0% CTR / pos **46.04** | Page 5. Do not fight generic “plumber CDA.” |
+
+Do not retitle heated-driveway service or worth-it post. City HD queries (Post Falls / CDA / Moscow) already p9–11 on existing URLs.
+
+### Brand / citation (parallel, not a new URL)
+
+`preferred plumbing` pos **60** vs `preferred plumbing solutions` pos **10.7**. Collision with other Preferred Plumbings (incl. Ontario). Do **not** set schema `alternateName` to the short form.
+
+**On-site 2026-09-13:** Organization / Plumber / area NAP `name` + `legalName` = Preferred Plumbing Solutions. Visible footer, contact, and body copy already used the full name. SERP title suffix stays `\| Preferred Plumbing` (60-char limit — do not blow up parked-page titles to fit “Solutions”). CDA FAQ and call aria-labels now use the full name.
+
+**Owner check (cannot do from the repo):** GBP primary name, Facebook page name, Apple Maps, and any Yelp/BBB/directories must match **Preferred Plumbing Solutions**. Maps place URL from the old site already uses that string. Do not shorten it to win the generic brand query.
+
+

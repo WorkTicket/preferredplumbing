@@ -20,4 +20,8 @@ export interface BlogPost extends BlogPostMeta {
     href: string
     label: string
   }
+  relatedArea?: {
+    href: string
+    label: string
+  }
 }

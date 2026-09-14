@@ -16,6 +16,10 @@ export const commercialPosts: BlogPost[] = [
       href: '/contact',
       label: 'free plumbing estimate',
     },
+    relatedArea: {
+      href: '/areas/spirit-lake-id',
+      label: 'Plumber in Spirit Lake',
+    },
     content: [
       '“How much does a plumber cost?” is the question we get before almost every Spirit Lake job. The honest answer is a range, not a website special. Diagnostic visits, clogged drains, water heater swaps, and sewer work do not share a price — and anyone who quotes a sewer replacement over the phone without seeing the line is guessing.',
       '## Typical ranges in Spirit Lake and Kootenai County',

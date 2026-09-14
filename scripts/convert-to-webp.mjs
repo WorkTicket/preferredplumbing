@@ -1,5 +1,5 @@
 import sharp from 'sharp'
-import { readdirSync, statSync } from 'fs'
+import { readdirSync } from 'fs'
 import { join, extname, parse } from 'path'
 import { fileURLToPath } from 'url'
 

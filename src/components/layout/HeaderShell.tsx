@@ -7,10 +7,10 @@ import { usePathname } from 'next/navigation'
 import { Menu, ChevronDown, Phone } from 'lucide-react'
 import { cn, PHONE_HREF } from '@/lib/utils'
 import { isNavActive } from '@/lib/nav-active'
-import ServicesMegaMenu from './ServicesMegaMenu'
-import LearnDropdown from './LearnDropdown'
 
 const NavDrawer = dynamic(() => import('./NavDrawer'), { ssr: false })
+const ServicesMegaMenu = dynamic(() => import('./ServicesMegaMenu'))
+const LearnDropdown = dynamic(() => import('./LearnDropdown'))
 
 type HeaderShellProps = {
   brand: ReactNode
@@ -22,6 +22,13 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [learnOpen, setLearnOpen] = useState(false)
+  const [navPath, setNavPath] = useState(pathname)
+  if (navPath !== pathname) {
+    setNavPath(pathname)
+    setDrawerOpen(false)
+    setServicesOpen(false)
+    setLearnOpen(false)
+  }
   const servicesRef = useRef<HTMLDivElement>(null)
   const learnRef = useRef<HTMLDivElement>(null)
   const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -52,12 +59,6 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
   const closeLearnMenu = () => {
     learnCloseTimer.current = setTimeout(() => setLearnOpen(false), 150)
   }
-
-  useEffect(() => {
-    setDrawerOpen(false)
-    setServicesOpen(false)
-    setLearnOpen(false)
-  }, [pathname])
 
   useEffect(() => {
     return () => {
@@ -96,8 +97,8 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 h-[var(--site-header-h)] border-b border-gray-200/60 bg-white/95 shadow-premium-md backdrop-blur-lg">
-        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue via-blue-light to-blue" />
+      <header className="fixed top-0 left-0 right-0 z-40 h-[var(--site-header-h)] border-b border-gray-200/50 bg-white shadow-premium-md md:bg-white/90 md:backdrop-blur-xl">
+        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-blue-dark via-blue-light to-blue" />
         <div className="mx-auto flex h-[var(--site-header-h)] w-full min-w-0 max-w-[90rem] items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
           {brand}
 
@@ -138,11 +139,13 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
                 />
               </button>
 
-              <ServicesMegaMenu
-                open={servicesOpen}
-                onClose={() => setServicesOpen(false)}
-                onKeepOpen={openServicesMenu}
-              />
+              {servicesOpen && (
+                <ServicesMegaMenu
+                  open={servicesOpen}
+                  onClose={() => setServicesOpen(false)}
+                  onKeepOpen={openServicesMenu}
+                />
+              )}
             </div>
 
             <Link
@@ -178,7 +181,7 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
                 />
               </button>
 
-              <LearnDropdown open={learnOpen} onClose={() => setLearnOpen(false)} />
+              {learnOpen && <LearnDropdown open={learnOpen} onClose={() => setLearnOpen(false)} />}
             </div>
 
             <Link
@@ -204,7 +207,7 @@ export default function HeaderShell({ brand, actions }: HeaderShellProps) {
               href={PHONE_HREF}
               data-track="header_mobile_call"
               className="flex items-center justify-center rounded-xl p-2 text-blue transition-all duration-200 hover:bg-blue/10 touch-target"
-              aria-label="Call Preferred Plumbing"
+              aria-label="Call Preferred Plumbing Solutions"
             >
               <Phone className="h-5 w-5" />
             </a>

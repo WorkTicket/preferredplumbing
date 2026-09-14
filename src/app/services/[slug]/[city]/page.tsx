@@ -12,27 +12,29 @@ import {
 import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
 import { breadcrumbSchema, faqSchema, serviceSchema, webpageSchema } from '@/lib/schema'
 import FaqAccordionList from '@/components/ui/FaqAccordionList'
+import CtaBand from '@/components/ui/CtaBand'
 import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
 import { getPostsForService } from '@/data/blog'
 
 const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
 
 interface Props {
-  params: { slug: string; city: string }
+  params: Promise<{ slug: string; city: string }>
 }
 
 export function generateStaticParams() {
   return getServiceCityParams()
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const page = getServiceCityPage(params.slug, params.city)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug, city } = await params
+  const page = getServiceCityPage(slug, city)
   if (!page) return {}
   return genMeta({
     title: page.title,
     description: page.description,
-    slug: `services/${params.slug}/${params.city}`,
-    canonical: `${siteUrl}/services/${params.slug}/${params.city}`,
+    slug: `services/${slug}/${city}`,
+    canonical: `${siteUrl}/services/${slug}/${city}`,
     keywords: [
       page.title,
       page.h1,
@@ -41,10 +43,11 @@ export function generateMetadata({ params }: Props): Metadata {
   })
 }
 
-export default function ServiceCityPage({ params }: Props) {
-  const page = getServiceCityPage(params.slug, params.city)
-  const service = services.find((item) => item.slug === params.slug)
-  const area = areas.find((item) => item.slug === params.city)
+export default async function ServiceCityPage({ params }: Props) {
+  const { slug, city } = await params
+  const page = getServiceCityPage(slug, city)
+  const service = services.find((item) => item.slug === slug)
+  const area = areas.find((item) => item.slug === city)
   if (!page || !service || !area) notFound()
 
   const relatedPosts = getPostsForService(`/services/${service.slug}`, 3)
@@ -244,16 +247,7 @@ export default function ServiceCityPage({ params }: Props) {
         </section>
       )}
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg font-bold text-white sm:text-left sm:text-xl">
-            Need {service.title.toLowerCase()} in {area.city}? Call us.
-          </p>
-          <a href={PHONE_HREF} className="btn-primary inline-flex bg-white text-blue hover:bg-blue-50">
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message={`Need ${service.title.toLowerCase()} in ${area.city}? Call us.`} />
     </div>
   )
 }

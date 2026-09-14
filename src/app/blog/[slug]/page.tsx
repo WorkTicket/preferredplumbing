@@ -1,47 +1,51 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
+import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { generateBlogMetadata, siteUrl } from '@/lib/seo'
-import { articleSchema, breadcrumbSchema } from '@/lib/schema'
+import { articleSchema, breadcrumbSchema, webpageSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import BlogPostCard from '@/components/ui/BlogPostCard'
+import CtaBand from '@/components/ui/CtaBand'
 import { blogPosts, getBlogPost, getRelatedPosts, getContentWordCount, getReadTimeMinutes } from '@/data/blog'
-import { formatDisplayDate, PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
+import { formatDisplayDate } from '@/lib/utils'
+import BlogRichText from '@/components/ui/BlogRichText'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }))
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getBlogPost(params.slug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const post = getBlogPost(slug)
   if (!post) return {}
   return generateBlogMetadata({
     title: post.title,
     excerpt: post.excerpt || post.content.find((block) => !block.startsWith('## '))?.slice(0, 160) || '',
-    slug: params.slug,
+    slug,
     publishedAt: post.date,
     coverImage: post.coverImage,
     seoTitle: post.seoTitle,
   })
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getBlogPost(params.slug)
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  const post = getBlogPost(slug)
   if (!post) notFound()
 
-  const relatedPosts = getRelatedPosts(params.slug, 3)
+  const relatedPosts = getRelatedPosts(slug, 3)
   const wordCount = getContentWordCount(post.content)
   const readTimeMinutes = getReadTimeMinutes(post.content)
   const jsonLd = articleSchema({
     title: post.title,
     description: post.excerpt || post.content.find((block) => !block.startsWith('## '))?.slice(0, 160) || '',
-    slug: params.slug,
+    slug,
     image: post.coverImage,
     datePublished: post.date,
     dateModified: post.date,
@@ -54,6 +58,18 @@ export default function BlogPostPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webpageSchema(
+              post.title,
+              post.excerpt || post.content.find((block) => !block.startsWith('## '))?.slice(0, 160) || '',
+              `blog/${post.slug}`,
+            ),
+          ),
+        }}
       />
       <script
         type="application/ld+json"
@@ -86,11 +102,12 @@ export default function BlogPostPage({ params }: Props) {
             {post.title}
           </h1>
           <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-gray-100">
-            <Image
+            <ResponsiveImage
               src={post.coverImage}
               alt={post.coverImageAlt}
               fill
               priority
+              srcsetMaxWidth={1280}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 768px"
             />
@@ -99,23 +116,28 @@ export default function BlogPostPage({ params }: Props) {
       </section>
       <section className="section-padding bg-gray-50">
         <div className="container-page max-w-3xl space-y-5 text-gray-600 leading-relaxed">
-          {post.relatedService && (
-            <div className="rounded-2xl border border-blue/15 bg-white p-6 shadow-premium">
+          <div className="rounded-2xl border border-blue/15 bg-white p-6 shadow-premium">
               <p className="text-xs font-bold uppercase tracking-wider text-blue">Need a Plumber?</p>
               <p className="mt-2 font-display text-xl font-bold uppercase text-gray-900">
-                {post.relatedService.label}
+                {post.relatedService?.label || 'Preferred Plumbing Solutions'}
               </p>
               <p className="mt-2 text-sm text-gray-600">
                 Get a free estimate from Preferred Plumbing Solutions. Licensed, insured, and serving North Idaho.
               </p>
-              <Link
-                href={post.relatedService.href}
-                className="btn-primary mt-4 inline-flex"
-              >
-                View {post.relatedService.label}
-              </Link>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {post.relatedService && (
+                  <Link href={post.relatedService.href} className="btn-primary inline-flex">
+                    View {post.relatedService.label}
+                  </Link>
+                )}
+                <Link
+                  href={post.relatedArea?.href || '/areas/spirit-lake-id'}
+                  className="btn-secondary inline-flex"
+                >
+                  {post.relatedArea?.label || 'Plumber in Spirit Lake'}
+                </Link>
+              </div>
             </div>
-          )}
           {post.content.map((block, i) =>
             block.startsWith('## ') ? (
               <h2
@@ -125,7 +147,7 @@ export default function BlogPostPage({ params }: Props) {
                 {block.slice(3)}
               </h2>
             ) : (
-              <p key={i}>{block}</p>
+              <BlogRichText key={i} text={block} />
             )
           )}
           {post.relatedService && (
@@ -158,19 +180,7 @@ export default function BlogPostPage({ params }: Props) {
         </section>
       )}
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
-            Need plumbing help? Call us.
-          </p>
-          <a
-            href={PHONE_HREF}
-            className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
-          >
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message="Need plumbing help? Call us." />
     </div>
   )
 }

@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import BrandLogo from '@/components/ui/BrandLogo'
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Star, Shield, ChevronRight, Facebook } from 'lucide-react'
+import { Phone, Mail, MapPin, Star, Shield, ChevronRight } from 'lucide-react'
+import FacebookIcon from '@/components/icons/FacebookIcon'
 import {
   PHONE_DISPLAY,
   PHONE_HREF,
@@ -14,7 +15,6 @@ import {
 } from '@/lib/utils'
 import { SHOW_GOOGLE_REVIEWS } from '@/lib/feature-flags'
 import FooterSignature from '@/components/FooterSignature'
-import { jobsCompletedLabel, yearsExperienceLabel } from '@/lib/company-stats'
 import { areas } from '@/lib/data'
 
 const companyLinks = [
@@ -34,9 +34,9 @@ const popularServiceLinks = [
 
 const guideLinks = [
   { label: 'Plumber Cost in Spirit Lake', href: '/blog/plumber-cost-spirit-lake-idaho' },
+  { label: 'Radiant Heat Cost in North Idaho', href: '/blog/radiant-heat-cost-north-idaho' },
+  { label: 'Heated Driveway Cost', href: '/blog/heated-driveway-cost-north-idaho' },
   { label: 'Water Heater Repair or Replace', href: '/blog/water-heater-repair-or-replace' },
-  { label: 'Sewer Repair vs Replacement', href: '/blog/sewer-repair-vs-replacement-north-idaho' },
-  { label: 'Drain Cleaning Cost', href: '/blog/drain-cleaning-cost-north-idaho' },
 ] as const
 
 const resourceLinks = [
@@ -100,20 +100,16 @@ function FooterNav({
 
 export default function Footer() {
   return (
-    <footer className="bg-navy pb-[calc(var(--mobile-cta-h)+env(safe-area-inset-bottom,0px))] text-gray-300 md:pb-0">
-      <div className="h-1 bg-blue" />
+    <footer className="relative overflow-hidden bg-navy text-gray-300">
+      <div className="h-[2px] bg-gradient-to-r from-blue-dark via-blue-light to-blue" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")" }} />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_10%_0%,rgba(0,102,255,0.16),transparent_55%)]" />
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         <div className="grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-3 lg:grid-cols-[minmax(0,1.1fr)_repeat(4,minmax(0,0.85fr))_minmax(16.5rem,1.4fr)] lg:gap-x-6">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5">
-              <Image
-                src="/images/preferred-logo.webp"
-                alt="Preferred Plumbing Solutions logo"
-                width={36}
-                height={36}
-                className="h-9 w-auto shrink-0"
-              />
+              <BrandLogo size={36} className="h-9 w-auto shrink-0" />
               <div>
                 <p className="font-display text-base font-bold leading-tight text-white">
                   Preferred Plumbing Solutions
@@ -139,7 +135,7 @@ export default function Footer() {
             <div className="mt-4 flex flex-col items-start gap-2">
               <Link
                 href="/contact"
-                className="inline-flex h-8 items-center gap-1 whitespace-nowrap rounded-md bg-blue px-3 text-[0.6875rem] font-semibold leading-none tracking-wide text-white transition-colors hover:bg-blue-dark"
+                className="inline-flex h-9 items-center gap-1 whitespace-nowrap rounded-lg bg-blue px-4 text-xs font-bold leading-none tracking-wide text-white shadow-glow transition-all hover:bg-blue-dark"
               >
                 Get Free Quote
                 <ChevronRight className="h-3 w-3" aria-hidden />
@@ -190,7 +186,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
                 >
-                  <Facebook size={15} className="shrink-0 text-blue-light" />
+                  <FacebookIcon size={15} className="shrink-0 text-blue-light" />
                   Facebook
                 </a>
                 <a
@@ -201,86 +197,55 @@ export default function Footer() {
                 >
                   TikTok
                 </a>
-                {SHOW_GOOGLE_REVIEWS && (
-                  <a
-                    href={GBP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
-                  >
-                    <Star size={15} className="shrink-0 text-blue-light" />
-                    Google
-                  </a>
-                )}
+                <a
+                  href={GBP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-white"
+                >
+                  <Star size={15} className="shrink-0 text-blue-light" />
+                  Leave a Google Review
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-6 border-t border-white/10 pt-4">
-          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white">
-              Service Area
-            </p>
-            <ul className="flex flex-wrap items-center text-sm text-gray-400">
-              {areas.map((area, index) => (
-                <li key={area.slug} className="inline-flex items-center">
-                  {index > 0 && (
-                    <span className="px-1.5 text-white/20" aria-hidden>
-                      ·
-                    </span>
-                  )}
-                  <Link href={`/areas/${area.slug}`} className="transition-colors hover:text-white">
-                    {area.city}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-10 border-t border-white/10 pt-6">
+          <p className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-white">
+            Service Area
+          </p>
+          <ul className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
+            {areas.map((area) => (
+              <li key={area.slug}>
+                <Link href={`/areas/${area.slug}`} className="transition-colors hover:text-white">
+                  {area.city}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-          <div className="mt-3 flex flex-col gap-2 text-xs text-gray-400 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-            <p>
-              &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved.
-            </p>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span>{jobsCompletedLabel()} Jobs</span>
-              <span className="text-white/20" aria-hidden>
-                ·
-              </span>
-              <span>{yearsExperienceLabel()} Years</span>
-              {SHOW_GOOGLE_REVIEWS && (
-                <>
-                  <span className="text-white/20" aria-hidden>
-                    ·
-                  </span>
-                  <span>5.0 Average Rating</span>
-                </>
-              )}
-              <span className="text-white/20" aria-hidden>
-                ·
-              </span>
-              <span>Licensed &amp; Insured</span>
-              <span className="text-white/20" aria-hidden>
-                ·
-              </span>
-              <span>Idaho &amp; Washington</span>
-              <span className="text-white/20" aria-hidden>
-                ·
-              </span>
-              <Link href="/privacy-policy" className="transition-colors hover:text-white">
-                Privacy Policy
-              </Link>
-              <span className="text-white/20" aria-hidden>
-                ·
-              </span>
-              <Link href="/terms-and-conditions" className="transition-colors hover:text-white">
-                Terms
-              </Link>
-              <span className="text-white/20" aria-hidden>
-                ·
-              </span>
-              <FooterSignature />
-            </div>
+      <div className="border-t border-white/[0.08] pb-[calc(var(--mobile-cta-h)+env(safe-area-inset-bottom,0px))] md:pb-0">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-[11px] leading-4 text-gray-500 sm:justify-between sm:px-6 lg:px-8">
+          <p className="text-center sm:text-left">
+            &copy; {new Date().getFullYear()} Preferred Plumbing Solutions. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <Link href="/privacy-policy" className="transition-colors hover:text-gray-300">
+              Privacy Policy
+            </Link>
+            <span className="text-white/15" aria-hidden>
+              ·
+            </span>
+            <Link href="/terms-and-conditions" className="transition-colors hover:text-gray-300">
+              Terms
+            </Link>
+            <span className="text-white/15" aria-hidden>
+              ·
+            </span>
+            <FooterSignature />
           </div>
         </div>
       </div>

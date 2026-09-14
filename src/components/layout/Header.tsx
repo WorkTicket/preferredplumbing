@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import BrandLogo from '@/components/ui/BrandLogo'
 import Link from 'next/link'
 import { Phone } from 'lucide-react'
 import { PHONE, PHONE_HREF } from '@/lib/utils'
@@ -13,12 +13,8 @@ export default function Header() {
           href="/"
           className="group flex min-w-0 flex-1 items-center gap-0.5 pr-2 md:gap-2.5 md:pr-0 xl:flex-none"
         >
-          <Image
-            src="/images/preferred-logo.webp"
-            alt="Preferred Plumbing Solutions logo"
-            width={44}
-            height={44}
-            priority
+          <BrandLogo
+            size={44}
             className="header-brand-logo h-9 w-auto shrink-0 md:h-11"
           />
           <span className="min-w-0 -ml-1 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.02em] text-gray-900 md:ml-0 md:tracking-wider text-[clamp(0.8125rem,3.3vw,1.0625rem)] md:text-xl">
@@ -30,14 +26,14 @@ export default function Header() {
         <div className="ml-1 flex items-center gap-2 lg:gap-2.5">
           <a
             href={PHONE_HREF}
-            className="flex items-center gap-2 whitespace-nowrap rounded-xl border-2 border-blue/80 px-4 py-2.5 text-sm font-bold text-blue transition-all duration-300 hover:bg-blue hover:text-white hover:shadow-premium active:scale-[0.97]"
+            className="flex items-center gap-2 whitespace-nowrap rounded-xl border-2 border-blue/70 px-4 py-2.5 text-sm font-bold text-blue transition-all duration-300 hover:border-blue hover:bg-blue hover:text-white hover:shadow-glow active:scale-[0.97]"
           >
             <Phone className="h-3.5 w-3.5 shrink-0" />
             {PHONE}
           </a>
           <Link
             href="/contact"
-            className="whitespace-nowrap rounded-xl bg-blue px-5 py-2.5 text-sm font-bold text-white shadow-premium-md transition-all duration-300 hover:bg-blue-dark hover:shadow-premium-lg active:scale-[0.97]"
+            className="relative overflow-hidden whitespace-nowrap rounded-xl bg-blue px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:bg-blue-dark hover:shadow-glow-lg active:scale-[0.97] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-1/2 before:bg-gradient-to-b before:from-white/20 before:to-transparent"
           >
             Free Quote
           </Link>

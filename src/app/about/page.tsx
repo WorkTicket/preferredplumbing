@@ -7,6 +7,7 @@ import { generateMetadata, siteUrl } from '@/lib/seo'
 import { aboutPageSchema, personSchema } from '@/lib/schema'
 import SectionLabel from '@/components/ui/SectionLabel'
 import PageHero from '@/components/sections/PageHero'
+import CtaBand from '@/components/ui/CtaBand'
 import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
 import { getPostsForService } from '@/data/blog'
 import {
@@ -76,7 +77,7 @@ export default function AboutPage() {
         <div className="container-page">
           <div className="grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-4">
             {trustStats.map((stat) => (
-              <div key={stat.label} className="rounded-xl bg-white border border-gray-200 p-6 text-center shadow-premium">
+              <div key={stat.label} className="premium-card p-6 text-center">
                 <stat.icon className="h-6 w-6 text-blue mx-auto" />
                 <p className="mt-2 font-display text-2xl sm:text-3xl font-black text-blue">{stat.number}</p>
                 <p className="text-sm font-semibold text-gray-900">{stat.label}</p>
@@ -186,19 +187,7 @@ export default function AboutPage() {
         </section>
       )}
 
-      <section className="bg-gradient-to-r from-blue to-blue-dark py-8 sm:py-10">
-        <div className="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-center text-lg sm:text-xl font-bold text-white sm:text-left">
-            Ready to work with us? Give us a call.
-          </p>
-          <a
-            href={PHONE_HREF}
-            className="btn-primary bg-white text-blue hover:bg-blue-50 inline-flex"
-          >
-            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
-          </a>
-        </div>
-      </section>
+      <CtaBand message="Ready to work with us? Give us a call." />
     </div>
   )
 }

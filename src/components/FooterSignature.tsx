@@ -8,7 +8,7 @@ export default function FooterSignature() {
         href="https://www.kinexisdigital.com/en"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-medium text-gray-300 underline decoration-gray-500 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
+        className="font-medium text-gray-400 underline decoration-gray-600 underline-offset-2 transition-colors hover:text-gray-200 hover:decoration-gray-200"
       >
         Kinexis Digital
       </Link>

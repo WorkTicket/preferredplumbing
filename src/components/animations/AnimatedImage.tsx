@@ -1,6 +1,5 @@
 'use client'
 
-import { useState, useCallback } from 'react'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import { cn } from '@/lib/utils'
 
@@ -14,7 +13,6 @@ interface AnimatedImageProps {
   wrapperClassName?: string
   sizes?: string
   priority?: boolean
-  hasSkeleton?: boolean
   hoverZoom?: boolean
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
 }
@@ -29,16 +27,9 @@ export default function AnimatedImage({
   wrapperClassName,
   sizes,
   priority = false,
-  hasSkeleton = true,
   hoverZoom = false,
   objectFit = 'cover',
 }: AnimatedImageProps) {
-  const [loaded, setLoaded] = useState(false)
-  const [error, setError] = useState(false)
-
-  const onLoad = useCallback(() => setLoaded(true), [])
-  const onError = useCallback(() => setError(true), [])
-
   return (
     <div
       className={cn(
@@ -47,33 +38,20 @@ export default function AnimatedImage({
         wrapperClassName
       )}
     >
-      {hasSkeleton && !loaded && !error && (
-        <div className="absolute inset-0 skeleton-pulse" />
-      )}
-      {error ? (
-        <div className="flex h-full w-full items-center justify-center bg-gray-100 text-gray-400 text-sm">
-          Failed to load image
-        </div>
-      ) : (
-        <ResponsiveImage
-          src={src}
-          alt={alt}
-          width={!fill ? width : undefined}
-          height={!fill ? height : undefined}
-          fill={fill}
-          sizes={sizes}
-          priority={priority}
-          objectFit={objectFit}
-          onLoad={onLoad}
-          onError={onError}
-          className={cn(
-            'transition-all duration-700',
-            loaded ? 'opacity-100' : 'opacity-0',
-            hoverZoom && 'group-hover:scale-110',
-            className
-          )}
-        />
-      )}
+      <ResponsiveImage
+        src={src}
+        alt={alt}
+        width={!fill ? width : undefined}
+        height={!fill ? height : undefined}
+        fill={fill}
+        sizes={sizes}
+        priority={priority}
+        objectFit={objectFit}
+        className={cn(
+          hoverZoom && 'group-hover:scale-110',
+          className
+        )}
+      />
     </div>
   )
 }

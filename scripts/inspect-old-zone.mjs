@@ -82,8 +82,6 @@ console.log('\nWORKERS', (routes.result || []).map((s) => s.id).join(', '))
 for (const name of ['preferred-plumbing-old-domain-redirects', 'preferred-plumbing-preview']) {
   const r = await cf(`/accounts/${ACCOUNT_ID}/workers/scripts/${name}/routes`)
   console.log(`\nROUTES ${name}:`, JSON.stringify(r.result || r.errors, null, 2).slice(0, 1500))
-  const d = await cf(`/accounts/${ACCOUNT_ID}/workers/domains?page=1`)
-  // only once
 }
 
 const domains = await cf(`/accounts/${ACCOUNT_ID}/workers/domains`)

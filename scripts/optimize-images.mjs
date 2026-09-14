@@ -47,9 +47,11 @@ const HERO_NAMES = new Set([
 ])
 
 /** Upscale these past native width so historical/srcset URLs never 404. */
-const FORCE_FULL_BREAKPOINTS = new Set(['preferred-logo'])
+const FORCE_FULL_BREAKPOINTS = new Set([])
+const LOGO_BREAKPOINTS = [64, 96, 128, 256]
+const LOGO_NAMES = new Set(['preferred-logo'])
 
-function isHeroImage(name, relPath) {
+function isHeroImage(name) {
   if (HERO_NAMES.has(name)) return true
   if (name.startsWith('hero-')) return true
   if (name.startsWith('service-')) return true
@@ -72,7 +74,9 @@ function getFormatConfig(isHero, isGallery, format) {
   return FORMAT_CONFIG[format]
 }
 
-function getBreakpoints(width, isHero, isGallery, forceFull = false) {
+function getBreakpoints(width, isHero, isGallery, forceFull = false, isLogo = false) {
+  if (isLogo) return LOGO_BREAKPOINTS
+
   const capped = BREAKPOINTS.filter((bp) => bp <= width)
   const withOriginal = [...capped, width].filter((v, i, a) => a.indexOf(v) === i)
 
@@ -102,16 +106,17 @@ async function processImage(filePath) {
   const parsed = path.parse(filePath)
   const relPath = path.relative(ROOT, filePath)
   const name = parsed.name
-  const hero = isHeroImage(name, relPath)
+  const hero = isHeroImage(name)
   const gallery = isGalleryImage(name, relPath)
   const forceFull = FORCE_FULL_BREAKPOINTS.has(name)
+  const isLogo = LOGO_NAMES.has(name)
   const sourceBuf = readFileSync(filePath)
   const input = sharp(sourceBuf).rotate()
   const meta = await input.metadata()
   const originalWidth = meta.width
   const originalHeight = meta.height
   const aspectRatio = originalWidth / originalHeight
-  const breakpoints = getBreakpoints(originalWidth, hero, gallery, forceFull)
+  const breakpoints = getBreakpoints(originalWidth, hero, gallery, forceFull, isLogo)
 
   const variants = {}
   const blurPlaceholder = await generateBlurPlaceholder(input)

@@ -1,13 +1,21 @@
+/** 301 both `/path` and `/path/` so trailing-slash stripping cannot create a second hop. */
+function seoRedirects(rules) {
+  return rules.flatMap(({ source, destination }) => {
+    const sources = source.endsWith('/') ? [source] : [source, `${source}/`]
+    return sources.map((src) => ({ source: src, destination, statusCode: 301 }))
+  })
+}
+
 /** @type {import('next').NextConfig} */
 const config = {
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
   },
   images: {
     // Serve pre-optimized /public/images directly. The default `/_next/image` route
     // returns 400 on Cloudflare Workers even with the IMAGES binding configured.
     unoptimized: true,
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/webp'],
     deviceSizes: [640, 768, 1024, 1280, 1536, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
@@ -48,115 +56,43 @@ const config = {
       source: '/favicon.ico',
       headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
     },
+    {
+      source: '/_next/static/(.*)',
+      headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+    },
     ]
   },
+  trailingSlash: false,
+  skipTrailingSlashRedirect: true,
+  // Put canonical tags in the first HTML bytes for every UA (GSC "duplicate without
+  // user-selected canonical" happens when metadata is streamed past Googlebot).
+  htmlLimitedBots: /.*/,
   // Legacy Duda paths → new App Router paths (also covered in
   // redirects/cloudflare-bulk-redirects.csv for the domain cutover).
-  redirects: async () => [
-    // Service pages that changed slug shape
-    {
-      source: '/residential-and-commercial-plumbing-solutions',
-      destination: '/services',
-      permanent: true,
-    },
-    {
-      source: '/commercial-projects',
-      destination: '/services/commercial',
-      permanent: true,
-    },
-    {
-      source: '/new-construction-projects',
-      destination: '/services/new-construction',
-      permanent: true,
-    },
-    {
-      source: '/new-construction-plumbing-services',
-      destination: '/services/new-construction',
-      permanent: true,
-    },
-    {
-      source: '/water-heaters',
-      destination: '/services/water-heaters',
-      permanent: true,
-    },
-    {
-      source: '/radiant-heat',
-      destination: '/services/radiant-heat',
-      permanent: true,
-    },
-    {
-      source: '/radiant-heating-and-in-floor-systems',
-      destination: '/services/radiant-heat',
-      permanent: true,
-    },
-    {
-      source: '/water-softeners',
-      destination: '/services/water-softeners',
-      permanent: true,
-    },
-    {
-      source: '/toilets-and-faucets',
-      destination: '/services/toilets-faucets',
-      permanent: true,
-    },
-    {
-      source: '/bathtubs-and-showers',
-      destination: '/services/bathtubs-showers',
-      permanent: true,
-    },
-    {
-      source: '/dishwashers-and-disposals',
-      destination: '/services/dishwashers',
-      permanent: true,
-    },
-    {
-      source: '/sewer-line-replacement',
-      destination: '/services/sewer-line',
-      permanent: true,
-    },
-    {
-      source: '/septic-systems',
-      destination: '/services/septic-systems',
-      permanent: true,
-    },
-    {
-      source: '/plumbing-remodels-and-upgrades',
-      destination: '/services/remodels',
-      permanent: true,
-    },
-    {
-      source: '/kitchen-remodels',
-      destination: '/services/kitchen-remodels',
-      permanent: true,
-    },
-    {
-      source: '/bathroom-remodels',
-      destination: '/services/bathroom-remodels',
-      permanent: true,
-    },
-    {
-      source: '/plumbing-repairs-and-emergency-services',
-      destination: '/services/emergency',
-      permanent: true,
-    },
-    // Area pages moved from /areas-we-serve/:city → /areas/:city
-    {
-      source: '/areas-we-serve/:city',
-      destination: '/areas/:city',
-      permanent: true,
-    },
-    // Portfolio → gallery
-    {
-      source: '/portfolio',
-      destination: '/gallery',
-      permanent: true,
-    },
-    {
-      source: '/portfolio/:slug',
-      destination: '/gallery',
-      permanent: true,
-    },
-  ],
+  redirects: async () =>
+    seoRedirects([
+      { source: '/residential-and-commercial-plumbing-solutions', destination: '/services' },
+      { source: '/commercial-projects', destination: '/services/commercial' },
+      { source: '/new-construction-projects', destination: '/services/new-construction' },
+      { source: '/new-construction-plumbing-services', destination: '/services/new-construction' },
+      { source: '/water-heaters', destination: '/services/water-heaters' },
+      { source: '/radiant-heat', destination: '/services/radiant-heat' },
+      { source: '/radiant-heating-and-in-floor-systems', destination: '/services/radiant-heat' },
+      { source: '/water-softeners', destination: '/services/water-softeners' },
+      { source: '/toilets-and-faucets', destination: '/services/toilets-faucets' },
+      { source: '/bathtubs-and-showers', destination: '/services/bathtubs-showers' },
+      { source: '/dishwashers-and-disposals', destination: '/services/dishwashers' },
+      { source: '/sewer-line-replacement', destination: '/services/sewer-line' },
+      { source: '/septic-systems', destination: '/services/septic-systems' },
+      { source: '/plumbing-remodels-and-upgrades', destination: '/services/remodels' },
+      { source: '/kitchen-remodels', destination: '/services/kitchen-remodels' },
+      { source: '/bathroom-remodels', destination: '/services/bathroom-remodels' },
+      { source: '/plumbing-repairs-and-emergency-services', destination: '/services/emergency' },
+      { source: '/areas-we-serve/:city', destination: '/areas/:city' },
+      { source: '/portfolio', destination: '/gallery' },
+      { source: '/portfolio/:slug', destination: '/gallery' },
+      { source: '/privacy', destination: '/privacy-policy' },
+    ]),
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,

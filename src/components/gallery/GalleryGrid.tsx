@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import type { GalleryProjectSummary } from '@/data/gallery'
 import CategoryFilter from './CategoryFilter'
@@ -41,10 +41,6 @@ export default function GalleryGrid({ projects }: GalleryGridProps) {
   const visibleProjects = filtered.slice(0, visibleCount)
   const hasMore = visibleCount < filtered.length
 
-  useEffect(() => {
-    setVisibleCount(INITIAL_VISIBLE)
-  }, [activeCategory, sort])
-
   const handleSelect = useCallback((id: string) => {
     setSelectedProjectId(id)
   }, [])
@@ -56,8 +52,20 @@ export default function GalleryGrid({ projects }: GalleryGridProps) {
   return (
     <>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
-        <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
-        <SortDropdown value={sort} onChange={setSort} />
+        <CategoryFilter
+          active={activeCategory}
+          onChange={(category) => {
+            setActiveCategory(category)
+            setVisibleCount(INITIAL_VISIBLE)
+          }}
+        />
+        <SortDropdown
+          value={sort}
+          onChange={(value) => {
+            setSort(value)
+            setVisibleCount(INITIAL_VISIBLE)
+          }}
+        />
       </div>
 
       {filtered.length === 0 ? (
@@ -65,7 +73,10 @@ export default function GalleryGrid({ projects }: GalleryGridProps) {
           <p className="text-gray-400 text-lg font-medium">No projects match this category.</p>
           <button
             type="button"
-            onClick={() => setActiveCategory('All Projects')}
+            onClick={() => {
+              setActiveCategory('All Projects')
+              setVisibleCount(INITIAL_VISIBLE)
+            }}
             className="mt-3 text-blue font-semibold text-sm hover:underline"
           >
             View all projects
@@ -99,7 +110,7 @@ export default function GalleryGrid({ projects }: GalleryGridProps) {
       )}
 
       {selectedProjectId && (
-        <ProjectModal projectId={selectedProjectId} onClose={handleClose} />
+        <ProjectModal key={selectedProjectId} projectId={selectedProjectId} onClose={handleClose} />
       )}
     </>
   )

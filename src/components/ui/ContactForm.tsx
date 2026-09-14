@@ -17,7 +17,10 @@ const schema = z.object({
     .string()
     .trim()
     .refine(isValidContactPhone, 'Valid phone number required'),
-  email: z.string().trim().email('Enter a valid email').optional().or(z.literal('')),
+  email: z
+    .string()
+    .trim()
+    .pipe(z.union([z.literal(''), z.email('Enter a valid email')])),
   city: z.string().trim().min(2, 'City is required'),
   service: z.string().min(1, 'Select a service'),
   message: z.string().trim().min(10, 'Please describe your project briefly'),
@@ -107,7 +110,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
   }
 
   const inputClass =
-    'w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue focus:outline-none focus:ring-2 focus:ring-blue/20 transition-all duration-300 disabled:opacity-60'
+    'w-full min-h-[48px] rounded-xl border border-gray-200 bg-gray-50/60 px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-all duration-300 focus:border-blue focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue/20 disabled:opacity-60'
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5" noValidate>
@@ -122,7 +125,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
 
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
         <div>
-          <label htmlFor="contact-name" className="mb-1 block text-sm font-medium text-gray-700">
+          <label htmlFor="contact-name" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
             Full Name *
           </label>
           <input
@@ -137,7 +140,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
           <FieldError id="contact-name-error" message={errors.name?.message} />
         </div>
         <div>
-          <label htmlFor="contact-phone" className="mb-1 block text-sm font-medium text-gray-700">
+          <label htmlFor="contact-phone" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
             Phone *
           </label>
           <input
@@ -156,7 +159,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
 
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
         <div>
-          <label htmlFor="contact-email" className="mb-1 block text-sm font-medium text-gray-700">
+          <label htmlFor="contact-email" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
             Email
           </label>
           <input
@@ -172,7 +175,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
           <FieldError id="contact-email-error" message={errors.email?.message} />
         </div>
         <div>
-          <label htmlFor="contact-city" className="mb-1 block text-sm font-medium text-gray-700">
+          <label htmlFor="contact-city" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
             City / Zip *
           </label>
           <input
@@ -189,7 +192,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
       </div>
 
       <div>
-        <label htmlFor="contact-service" className="mb-1 block text-sm font-medium text-gray-700">
+        <label htmlFor="contact-service" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
           Service Needed *
         </label>
         <select
@@ -212,7 +215,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="mb-1 block text-sm font-medium text-gray-700">
+        <label htmlFor="contact-message" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
           Describe the Job *
         </label>
         <textarea
@@ -229,7 +232,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
       </div>
 
       <div>
-        <label htmlFor="contact-referral" className="mb-1 block text-sm font-medium text-gray-700">
+        <label htmlFor="contact-referral" className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500">
           How did you hear about us?
         </label>
         <select
@@ -260,7 +263,7 @@ export default function ContactForm({ formLocation = 'contact_form' }: ContactFo
       <button
         type="submit"
         disabled={isSubmitting}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue px-8 py-3.5 sm:py-4 font-bold text-white transition-all duration-300 hover:bg-blue-dark disabled:cursor-not-allowed disabled:opacity-60 shadow-premium-md active:scale-[0.97]"
+        className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? (
           <span className="flex items-center gap-2">

@@ -1,5 +1,7 @@
+import type { AreaPage } from '@/types'
 import { areas } from './data/areas'
-import { siteUrl } from './seo'
+import { SHOP_COORDS } from './data/area-extras'
+import { siteName, siteUrl } from './seo'
 import { CONTACT_EMAILS, FACEBOOK_URL, GBP_URL, PHONE, PHONE_E164, TIKTOK_URL, ZIP } from './utils'
 import {
   combinedExperiencePhrase,
@@ -75,7 +77,8 @@ export function organizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
-    name: 'Preferred Plumbing Solutions',
+    name: siteName,
+    legalName: siteName,
     url: siteUrl,
     logo: logoImageObject(),
     image: logoImageObject(),
@@ -85,7 +88,7 @@ export function organizationSchema() {
     // Organization is not a Place — nest geo under location (schema.org).
     location: {
       '@type': 'Place',
-      name: 'Preferred Plumbing Solutions',
+      name: siteName,
       address: postalAddress(),
       geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
     },
@@ -102,7 +105,8 @@ export function localBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'Plumber',
     '@id': `${siteUrl}/#localbusiness`,
-    name: 'Preferred Plumbing Solutions',
+    name: siteName,
+    legalName: siteName,
     url: siteUrl,
     logo: logoImageObject(),
     image: [
@@ -171,6 +175,48 @@ export function localBusinessSchema() {
         { '@type': 'OfferCatalog', name: 'Commercial Plumbing', url: `${siteUrl}/services/commercial` },
       ],
     },
+  }
+}
+
+/** Area landing pages: same NAP as GBP (Spirit Lake shop), city is areaServed only. */
+export function areaPlumberSchema(area: Pick<AreaPage, 'city' | 'fullName' | 'slug'>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Plumber',
+    name: siteName,
+    legalName: siteName,
+    url: `${siteUrl}/areas/${area.slug}`,
+    description: `Local plumber serving ${area.fullName} from our Spirit Lake shop. ${yearsExperienceLabel()} years experience, licensed, emergency service Sunday through Friday 7am to 5pm.`,
+    telephone: PHONE_E164,
+    image: `${siteUrl}/images/preferred-plumbing-service-truck.webp`,
+    logo: logoImageObject(),
+    areaServed: {
+      '@type': 'City',
+      name: area.city,
+      ...(CITY_WIKI_IDS[area.slug] ? { sameAs: CITY_WIKI_IDS[area.slug] } : {}),
+    },
+    address: postalAddress(),
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: SHOP_COORDS.latitude,
+      longitude: SHOP_COORDS.longitude,
+    },
+    priceRange: '$$',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '07:00',
+        closes: '17:00',
+      },
+    ],
+    parentOrganization: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Preferred Plumbing Solutions',
+      url: siteUrl,
+    },
+    award: yearsExperienceBadge(),
   }
 }
 
@@ -283,19 +329,16 @@ export function videoObjectSchema() {
 
 export function webpageSchema(title: string, description: string, slug: string) {
   const path = slug ? `/${slug}` : ''
+  const url = `${siteUrl}${path}`
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': url,
     name: title,
     description,
-    url: `${siteUrl}${path}`,
-    isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'Preferred Plumbing Solutions', url: siteUrl },
-    about: {
-      '@type': 'Plumber',
-      '@id': `${siteUrl}/#localbusiness`,
-      name: 'Preferred Plumbing Solutions',
-      url: siteUrl,
-    },
+    url,
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    about: { '@id': `${siteUrl}/#localbusiness` },
     inLanguage: 'en-US',
     isAccessibleForFree: true,
   }
@@ -306,7 +349,7 @@ export function websiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${siteUrl}/#website`,
-    name: 'Preferred Plumbing Solutions',
+    name: siteName,
     url: siteUrl,
     description: `Family-owned plumber in Spirit Lake with ${combinedExperiencePhrase()}. Radiant heat, new construction, water heaters, emergency service.`,
     publisher: { '@id': `${siteUrl}/#organization` },
@@ -377,9 +420,12 @@ export function articleSchema(input: {
   wordCount?: number
   readTimeMinutes?: number
 }) {
+  const url = `${siteUrl}/blog/${input.slug}`
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    '@id': `${url}#article`,
+    url,
     headline: input.title,
     description: input.description,
     image: {
@@ -404,7 +450,7 @@ export function articleSchema(input: {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${siteUrl}/blog/${input.slug}`,
+      '@id': url,
     },
     inLanguage: 'en-US',
     ...(input.wordCount ? { wordCount: input.wordCount } : {}),
