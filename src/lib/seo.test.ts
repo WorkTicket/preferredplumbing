@@ -56,7 +56,7 @@ describe('generateMetadata', () => {
       slug: 'services/water-heaters',
     })
     const title = (meta.title as { absolute: string }).absolute
-    expect(title).toBe('Water Heater Repair | Spirit Lake ID | Preferred Plumbing')
+    expect(title).toBe('Water Heater Repair | Same-Day | Preferred Plumbing')
     expect(title.length).toBeLessThanOrEqual(TITLE_MAX)
     expect(title.toLowerCase()).not.toContain('near me')
     expect(meta.description as string).toContain('Spirit Lake')

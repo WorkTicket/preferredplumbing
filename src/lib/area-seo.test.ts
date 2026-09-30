@@ -126,9 +126,14 @@ describe('city SERP copy', () => {
     expect((sandpointMeta.description as string).length).toBeGreaterThanOrEqual(120)
     expect((sandpointMeta.description as string).length).toBeLessThanOrEqual(DESCRIPTION_MAX)
 
-    for (const slug of ['post-falls-id', 'coeur-dalene-id', 'rathdrum-id'] as const) {
-      const area = areas.find((item) => item.slug === slug)!
-      expect(citySeoTitle(area), slug).toMatch(/^Plumber in /)
-    }
+    expect(citySeoTitle(areas.find((item) => item.slug === 'post-falls-id')!)).toBe(
+      'Post Falls Plumber | Same-Day',
+    )
+    expect(citySeoTitle(areas.find((item) => item.slug === 'coeur-dalene-id')!)).toBe(
+      "Coeur d'Alene Plumber | Same-Day",
+    )
+    expect(citySeoTitle(areas.find((item) => item.slug === 'rathdrum-id')!)).toBe(
+      'Rathdrum Plumber | Same-Day',
+    )
   })
 })

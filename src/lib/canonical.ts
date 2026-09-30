@@ -26,5 +26,6 @@ export function shouldSetCanonicalLinkHeader(pathname: string): boolean {
   if (pathname === '/robots.txt') return false
   if (pathname.startsWith('/sitemap')) return false
   if (pathname.startsWith('/api/')) return false
+  if (pathname === '/index' || pathname === '/home') return false
   return true
 }

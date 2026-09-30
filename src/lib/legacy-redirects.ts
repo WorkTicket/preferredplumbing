@@ -19,6 +19,8 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   '/plumbing-repairs-and-emergency-services': '/services/emergency',
   '/portfolio': '/gallery',
   '/privacy': '/privacy-policy',
+  '/index': '/',
+  '/home': '/',
 }
 
 export function normalizePathname(pathname: string): string {

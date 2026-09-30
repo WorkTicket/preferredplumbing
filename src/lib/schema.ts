@@ -5,7 +5,6 @@ import { siteName, siteUrl } from './seo'
 import { CONTACT_EMAILS, FACEBOOK_URL, GBP_URL, PHONE, PHONE_E164, TIKTOK_URL, ZIP } from './utils'
 import {
   combinedExperiencePhrase,
-  yearsExperienceBadge,
   yearsExperienceLabel,
 } from './company-stats'
 
@@ -90,7 +89,7 @@ export function organizationSchema() {
       '@type': 'Place',
       name: siteName,
       address: postalAddress(),
-      geo: { '@type': 'GeoCoordinates', latitude: 47.9668, longitude: -116.8693 },
+      geo: { '@type': 'GeoCoordinates', latitude: SHOP_COORDS.latitude, longitude: SHOP_COORDS.longitude },
     },
     telephone: PHONE_E164,
     ...(primaryEmail ? { email: primaryEmail } : {}),
@@ -122,8 +121,8 @@ export function localBusinessSchema() {
     address: postalAddress(),
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 47.9668,
-      longitude: -116.8693,
+      latitude: SHOP_COORDS.latitude,
+      longitude: SHOP_COORDS.longitude,
     },
     openingHoursSpecification: [
       {
@@ -136,7 +135,6 @@ export function localBusinessSchema() {
     areaServed: serviceAreaServed(),
     sameAs: socialProfiles,
     hasMap: GBP_URL,
-    award: yearsExperienceBadge(),
     numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 10 },
     knowsAbout: [
       'Plumbing installation and repair',
@@ -183,6 +181,7 @@ export function areaPlumberSchema(area: Pick<AreaPage, 'city' | 'fullName' | 'sl
   return {
     '@context': 'https://schema.org',
     '@type': 'Plumber',
+    '@id': `${siteUrl}/areas/${area.slug}#localbusiness`,
     name: siteName,
     legalName: siteName,
     url: `${siteUrl}/areas/${area.slug}`,
@@ -216,7 +215,6 @@ export function areaPlumberSchema(area: Pick<AreaPage, 'city' | 'fullName' | 'sl
       name: 'Preferred Plumbing Solutions',
       url: siteUrl,
     },
-    award: yearsExperienceBadge(),
   }
 }
 
@@ -309,12 +307,14 @@ export function reviewSchema(
 }
 
 export function videoObjectSchema() {
+  const poster = `${siteUrl}/images/preferred-plumbing-hero-poster.webp`
+  const poster16x9 = `${siteUrl}/images/generated/preferred-plumbing-hero-poster-1280.webp`
   return {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: 'Preferred Plumbing Solutions - Spirit Lake Plumber',
     description: `Preferred Plumbing Solutions is a family-owned plumber in Spirit Lake, Idaho. ${yearsExperienceLabel()} years of experience, radiant heat specialists, emergency service Sunday through Friday 7am to 5pm.`,
-    thumbnailUrl: `${siteUrl}/images/preferred-plumbing-hero-poster.webp`,
+    thumbnailUrl: [poster16x9, poster],
     contentUrl: `${siteUrl}/videos/preferred-plumbing-hero.mp4`,
     uploadDate: '2024-01-01T00:00:00-08:00',
     duration: 'PT13S',
@@ -358,17 +358,33 @@ export function websiteSchema() {
 }
 
 export function faqSchema(questions: { question: string; answer: string; href?: string; linkLabel?: string }[]) {
+  const seen = new Set<string>()
+  const mainEntity: Array<{
+    '@type': 'Question'
+    name: string
+    acceptedAnswer: { '@type': 'Answer'; text: string }
+  }> = []
+
+  for (const q of questions) {
+    const name = q.question.trim()
+    const answer = (q.href && q.linkLabel ? `${q.answer} ${q.linkLabel}` : q.answer).trim()
+    const key = name.toLowerCase()
+    if (!name || !answer || seen.has(key)) continue
+    seen.add(key)
+    mainEntity.push({
+      '@type': 'Question',
+      name,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: answer,
+      },
+    })
+  }
+
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: questions.map((q) => ({
-      '@type': 'Question',
-      name: q.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: q.href && q.linkLabel ? `${q.answer} ${q.linkLabel}` : q.answer,
-      },
-    })),
+    mainEntity,
   }
 }
 
@@ -479,20 +495,27 @@ export function imageGallerySchema(
 ) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ImageGallery',
+    '@type': 'CollectionPage',
     name: 'Plumbing Project Gallery',
     url: `${siteUrl}/gallery`,
     about: { '@id': `${siteUrl}/#localbusiness` },
-    associatedMedia: projects.map((project) => ({
-      '@type': 'ImageObject',
-      contentUrl: project.image,
-      url: project.image,
-      name: project.title,
-      caption: project.description,
-      contentLocation: {
-        '@type': 'Place',
-        name: project.location,
-      },
-    })),
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: projects.map((project, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'ImageObject',
+          contentUrl: project.image,
+          url: project.image,
+          name: project.title,
+          caption: project.description,
+          contentLocation: {
+            '@type': 'Place',
+            name: project.location,
+          },
+        },
+      })),
+    },
   }
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, ChevronRight, ArrowUpRight } from 'lucide-react'
-import { getAllFaqItems, getFaqSections } from '@/lib/data'
+import { faqItems, getFaqSections } from '@/lib/data'
 import { SERVICE_NAV_LABELS } from '@/lib/nav-services'
 import { faqSchema } from '@/lib/schema'
 import { generateMetadata, siteUrl } from '@/lib/seo'
@@ -20,14 +20,13 @@ export const metadata: Metadata = generateMetadata({
 
 export default function FAQsPage() {
   const sections = getFaqSections()
-  const allFaqs = getAllFaqItems()
   const serviceSections = sections.filter((section) => section.id !== 'general')
 
   return (
     <div className="pt-site-header">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(allFaqs)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqItems)) }}
       />
       <PageHero
         label="FAQ"

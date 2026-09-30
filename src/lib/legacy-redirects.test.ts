@@ -20,5 +20,8 @@ describe('canonicalDestinationPath', () => {
     expect(canonicalDestinationPath('/privacy/')).toBe('/privacy-policy')
     expect(canonicalDestinationPath('/areas-we-serve/spirit-lake-id')).toBe('/areas/spirit-lake-id')
     expect(canonicalDestinationPath('/portfolio/old-job')).toBe('/gallery')
+    expect(canonicalDestinationPath('/index')).toBe('/')
+    expect(canonicalDestinationPath('/home')).toBe('/')
+    expect(canonicalDestinationPath('/index/')).toBe('/')
   })
 })

@@ -5,7 +5,7 @@ import {
   shouldSetCanonicalLinkHeader,
 } from '@/lib/canonical'
 import { canonicalDestinationPath } from '@/lib/legacy-redirects'
-import { shouldApplyHtmlCacheHeaders } from '@/lib/static-asset-path'
+import { HTML_CACHE_CONTROL, shouldApplyHtmlCacheHeaders } from '@/lib/static-asset-path'
 
 const WWW_HOST = 'www.callpreferredplumbing.com'
 const APEX_HOST = 'callpreferredplumbing.com'
@@ -18,7 +18,7 @@ function isPreviewHost(host: string): boolean {
 function withHtmlCacheHeaders(response: NextResponse, pathname: string): NextResponse {
   // OpenNext defaults HTML to s-maxage=31536000. That freezes old pages at the
   // CDN (breaks GA install checks + deploy visibility). Match a1: revalidate HTML.
-  response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
+  response.headers.set('Cache-Control', HTML_CACHE_CONTROL)
   if (shouldSetCanonicalLinkHeader(pathname)) {
     response.headers.set('Link', canonicalLinkHeaderValue(pathname))
   }

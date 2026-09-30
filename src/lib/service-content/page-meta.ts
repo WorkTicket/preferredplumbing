@@ -24,7 +24,7 @@ export const pageMeta: Record<string, { title: string; h1: string; description?:
       'Heated driveway install in Coeur d\'Alene, Post Falls, Moscow, and Spirit Lake. Hydronic snow-melt. Call 208-290-3889.',
   },
   'water-heaters': {
-    title: 'Water Heater Repair | Spirit Lake ID',
+    title: 'Water Heater Repair | Same-Day',
     h1: 'Water Heater Repair & Installation in Spirit Lake, Idaho',
     description:
       'Water heater repair and replacement in Spirit Lake, Hayden, Rathdrum, and Post Falls. Same-day during business hours. Free estimate: 208-290-3889.',

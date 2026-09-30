@@ -41,5 +41,7 @@ describe('canonical Link header', () => {
     expect(shouldSetCanonicalLinkHeader('/sitemap.xml')).toBe(false)
     expect(shouldSetCanonicalLinkHeader('/sitemap-0.xml')).toBe(false)
     expect(shouldSetCanonicalLinkHeader('/api/contact')).toBe(false)
+    expect(shouldSetCanonicalLinkHeader('/index')).toBe(false)
+    expect(shouldSetCanonicalLinkHeader('/home')).toBe(false)
   })
 })

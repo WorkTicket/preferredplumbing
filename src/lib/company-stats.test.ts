@@ -4,6 +4,7 @@ import {
   getYearsOfExperience,
   jobsCompletedLabel,
   yearsExperienceLabel,
+  copyrightYear,
 } from './company-stats'
 
 describe('company-stats', () => {
@@ -31,5 +32,10 @@ describe('company-stats', () => {
     const late2025 = new Date(2025, 11, 31)
     expect(getYearsOfExperience(late2025)).toBe(38)
     expect(getJobsCompleted(late2025)).toBe(500)
+  })
+
+  it('uses a static default date so pages can prerender', () => {
+    expect(getYearsOfExperience()).toBe(38)
+    expect(copyrightYear()).toBe(2026)
   })
 })

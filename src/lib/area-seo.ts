@@ -22,6 +22,21 @@ const CITY_SERP_OVERRIDE: Record<string, { title: string; description: string }>
     description:
       'Plumber in Sandpoint for Lake Pend Oreille homes: radiant heat, septic, and freeze repairs. Scheduled trips from Spirit Lake. Call 208-290-3889.',
   },
+  'post-falls-id': {
+    title: 'Post Falls Plumber | Same-Day',
+    description:
+      'Post Falls plumber for water heaters, sewer, and emergency repairs. Same-day trips from Spirit Lake. Free estimates. Call 208-290-3889.',
+  },
+  'coeur-dalene-id': {
+    title: "Coeur d'Alene Plumber | Same-Day",
+    description:
+      "Coeur d'Alene plumber for water heaters, drains, and emergency work. Family-owned shop in Spirit Lake. Call 208-290-3889.",
+  },
+  'rathdrum-id': {
+    title: 'Rathdrum Plumber | Same-Day',
+    description:
+      'Rathdrum plumber for water heaters, sewer lines, and repairs. Same-day service from Spirit Lake. Free estimates. Call 208-290-3889.',
+  },
 }
 
 /** SERP title: keep the money keyword, add a click hook when it still fits. */

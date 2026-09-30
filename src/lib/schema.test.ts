@@ -4,12 +4,14 @@ import {
   areaPlumberSchema,
   articleSchema,
   contactPageSchema,
+  faqSchema,
   featuredServicesItemList,
   imageGallerySchema,
   localBusinessSchema,
   serviceAreaServed,
   serviceSchema,
   servedCityPlaces,
+  videoObjectSchema,
   webpageSchema,
 } from './schema'
 import { areas } from './data/areas'
@@ -42,7 +44,7 @@ describe('service area schema', () => {
     expect(schema.legalName).toBe('Preferred Plumbing Solutions')
     expect(schema.address.addressLocality).toBe('Spirit Lake')
     expect(schema.address.addressRegion).toBe('ID')
-    expect(schema.geo.latitude).toBe(47.9668)
+    expect(schema.geo.latitude).toBe(47.96681)
     expect(schema.areaServed).toMatchObject({ '@type': 'City', name: "Coeur d'Alene" })
   })
 
@@ -54,8 +56,8 @@ describe('service area schema', () => {
       expect(schema.address.addressLocality, area.slug).toBe('Spirit Lake')
       expect(schema.address.addressRegion, area.slug).toBe('ID')
       expect(schema.address.postalCode, area.slug).toBe('83869')
-      expect(schema.geo.latitude, area.slug).toBe(47.9668)
-      expect(schema.geo.longitude, area.slug).toBe(-116.8693)
+      expect(schema.geo.latitude, area.slug).toBe(47.96681)
+      expect(schema.geo.longitude, area.slug).toBe(-116.86931)
       expect(schema.areaServed, area.slug).toMatchObject({ '@type': 'City', name: area.city })
       expect(schema.telephone, area.slug).toBe('+12082903889')
     }
@@ -77,6 +79,9 @@ describe('rich result schema', () => {
     const local = localBusinessSchema()
     expect(local.name).toBe('Preferred Plumbing Solutions')
     expect(local.legalName).toBe('Preferred Plumbing Solutions')
+    expect(JSON.stringify(local.geo.latitude)).toBe('47.96681')
+    expect(JSON.stringify(local.geo.longitude)).toBe('-116.86931')
+    expect(local).not.toHaveProperty('award')
   })
 
   it('does not emit priceless Offer nodes in the local business catalog', () => {
@@ -142,7 +147,7 @@ describe('rich result schema', () => {
     })
   })
 
-  it('types gallery locations as Place', () => {
+  it('types gallery as CollectionPage with Place locations', () => {
     const schema = imageGallerySchema([
       {
         title: 'Radiant heat',
@@ -151,10 +156,31 @@ describe('rich result schema', () => {
         image: 'https://www.callpreferredplumbing.com/images/gallery/boiler-radiant-heat-1.webp',
       },
     ])
-    expect(schema['@type']).toBe('ImageGallery')
-    expect(schema.associatedMedia[0].contentLocation).toEqual({
+    expect(schema['@type']).toBe('CollectionPage')
+    expect(schema.mainEntity.itemListElement[0].item.contentLocation).toEqual({
       '@type': 'Place',
       name: 'Spirit Lake',
     })
+  })
+
+  it('emits unique FAQ questions and skips blanks', () => {
+    const schema = faqSchema([
+      { question: 'Do you serve Spirit Lake?', answer: 'Yes.' },
+      { question: 'Do you serve Spirit Lake?', answer: 'Duplicate should drop.' },
+      { question: '  ', answer: 'blank name' },
+      { question: 'Valid two?', answer: 'Also yes.' },
+    ])
+    expect(schema.mainEntity).toHaveLength(2)
+    expect(schema.mainEntity.map((item) => item.name)).toEqual([
+      'Do you serve Spirit Lake?',
+      'Valid two?',
+    ])
+  })
+
+  it('uses an array of crawlable video thumbnails', () => {
+    const schema = videoObjectSchema()
+    expect(Array.isArray(schema.thumbnailUrl)).toBe(true)
+    expect(schema.thumbnailUrl[0]).toContain('preferred-plumbing-hero-poster')
+    expect(schema.contentUrl).toContain('/videos/preferred-plumbing-hero.mp4')
   })
 })

@@ -19,6 +19,7 @@ interface SEOParams {
   slug?: string
   ogImage?: string
   noIndex?: boolean
+  omitCanonical?: boolean
   canonical?: string
   publishedTime?: string
   modifiedTime?: string
@@ -86,6 +87,7 @@ export function generateMetadata({
   slug = '',
   ogImage = '/images/og-preferred-plumbing-solutions.webp',
   noIndex = false,
+  omitCanonical = false,
   canonical,
   publishedTime,
   modifiedTime,
@@ -120,7 +122,7 @@ export function generateMetadata({
     title: { absolute: metaTitle },
     description: metaDescription,
     metadataBase: new URL(siteUrl),
-    alternates: { canonical: canonicalUrl },
+    ...(omitCanonical ? {} : { alternates: { canonical: canonicalUrl } }),
     keywords: keywords || [
       'plumber Spirit Lake Idaho', 'plumbing contractor North Idaho',
       'emergency plumber Coeur d\'Alene', 'Preferred Plumbing Solutions',
