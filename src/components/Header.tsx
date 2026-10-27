@@ -121,7 +121,6 @@ export function Header() {
             {navLink("/about/", "About")}
             {navLink("/locations/", "Locations")}
             {navLink("/gallery/", "Gallery")}
-            {navLink("/blog/", "Blog")}
             {navLink("/contact/", "Contact")}
           </div>
           <div className="nav-right">

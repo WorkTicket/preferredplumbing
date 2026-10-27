@@ -108,7 +108,6 @@ export function Footer() {
               <a href="/about/">Our story</a>
               <a href="/gallery/">Project gallery</a>
               <a href="/learn/">Homeowner resources</a>
-              <a href="/blog/">Plumbing blog</a>
               <a href="/faqs/">Common questions</a>
               <a href="/contact/">Contact &amp; estimates</a>
             </nav>
