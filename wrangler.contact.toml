@@ -2,9 +2,10 @@ name = "preferred-plumbing-contact"
 main = "workers/contact.ts"
 compatibility_date = "2026-10-27"
 workers_dev = false
+preview_urls = false
 
 [[routes]]
-pattern = "www.callpreferredplumbing.com/api/contact*"
+pattern = "www.callpreferredplumbing.com/api/contact"
 zone_name = "callpreferredplumbing.com"
 
 [[ratelimits]]

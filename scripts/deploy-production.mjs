@@ -1,15 +1,20 @@
 import { execFileSync } from "node:child_process";
 
-const run = (command, args, options = {}) =>
-  execFileSync(command, args, {
-    stdio: "inherit",
-    shell: process.platform === "win32",
-    ...options,
-  });
+const run = (command, args, options = {}) => {
+  if (process.platform === "win32" && ["npm", "npx"].includes(command)) {
+    execFileSync(process.env.ComSpec || "cmd.exe", [
+      "/d",
+      "/s",
+      "/c",
+      [command, ...args].join(" "),
+    ], { stdio: "inherit", ...options });
+    return;
+  }
+  execFileSync(command, args, { stdio: "inherit", ...options });
+};
 const output = (command, args) =>
   execFileSync(command, args, {
     encoding: "utf8",
-    shell: process.platform === "win32",
   }).trim();
 
 try {
