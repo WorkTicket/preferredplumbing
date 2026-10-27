@@ -23,7 +23,7 @@ npm run check:links
 
 Run `npm run check` to build the complete static export and verify every local link and asset reference in one command.
 
-`next build` exports the site to `out/`. Upload the contents of `out/` to a static host. Use `npm run dev` for editing and your host’s static preview for the built output.
+`next build` exports the site to `out/`. Use `npm run dev` for editing and your host’s static preview for the built output.
 
 ## Cloudflare Pages
 
@@ -31,9 +31,19 @@ Run `npm run check` to build the complete static export and verify every local l
 - Build output directory: `out`
 - Node.js version: `22`
 - Set `NEXT_PUBLIC_SITE_URL` to the production origin, without a trailing slash.
-- No server adapter or Cloudflare Worker is needed for this static export.
+- The static site runs on Pages. A separate Worker handles only `POST /api/contact`.
 
 The `_headers` file is included in `public/` and copied to `out/` for Cloudflare Pages.
+
+### Manual production deployment
+
+Production deployment is guarded even without GitHub Actions:
+
+```bash
+npm run deploy:production
+```
+
+The command only deploys from a clean `main` branch that exactly matches `origin/main`. It installs from the lockfile, runs TypeScript, build, and link checks, deploys the contact Worker, and associates the Pages deployment with the exact Git commit. Keep previous Pages deployments available for rollback.
 
 ## Edit the project
 
@@ -56,7 +66,7 @@ This is native App Router/React source. It does not use iframes or inject HTML s
 
 ## Contact form
 
-The form currently prepares an email in the visitor's email app. It does **not** submit to a server, store leads, or silently send messages. To receive submissions directly, connect `EstimateForm.tsx` to your chosen form endpoint. A static export does not provide Next.js API routes.
+The form posts to a same-origin Cloudflare Worker route at `/api/contact`. The Worker validates the request origin, content type, payload size, and lead fields, uses a honeypot, and applies a per-client rate limit before sending email through Cloudflare Email Routing. Its public `workers.dev` endpoint is disabled.
 
 ## Images and launch notes
 
