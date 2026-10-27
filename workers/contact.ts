@@ -16,6 +16,7 @@ type Env = {
   CONTACT_RATE_LIMITER: RateLimiter;
   CONTACT_TO_EMAIL?: string;
   CONTACT_FROM_EMAIL?: string;
+  TURNSTILE_SECRET?: string;
 };
 
 type Lead = {
@@ -44,24 +45,57 @@ const escapeHtml = (value: string) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
+const verifyTurnstile = async (
+  token: string,
+  secret: string,
+  remoteip: string,
+) => {
+  const response = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token, remoteip }),
+    },
+  );
+  if (!response.ok) return false;
+  const result = (await response.json()) as {
+    success?: boolean;
+    hostname?: string;
+  };
+  return (
+    result.success === true &&
+    result.hostname === "www.callpreferredplumbing.com"
+  );
+};
+
 export default {
   async fetch(request: Request, env: Env) {
     const url = new URL(request.url);
-    if (url.hostname !== "www.callpreferredplumbing.com" || url.pathname !== "/api/contact") {
+    if (
+      url.hostname !== "www.callpreferredplumbing.com" ||
+      url.pathname !== "/api/contact"
+    ) {
       return json({ success: false, error: "Not found." }, 404);
     }
     if (request.method !== "POST") {
-      return json(
-        { success: false, error: "Method not allowed." },
-        405,
-        { Allow: "POST" },
-      );
+      return json({ success: false, error: "Method not allowed." }, 405, {
+        Allow: "POST",
+      });
     }
     if (request.headers.get("Origin") !== SITE_ORIGIN) {
       return json({ success: false, error: "Invalid request origin." }, 403);
     }
-    if (!request.headers.get("Content-Type")?.toLowerCase().startsWith("application/json")) {
-      return json({ success: false, error: "Content type must be application/json." }, 415);
+    if (
+      !request.headers
+        .get("Content-Type")
+        ?.toLowerCase()
+        .startsWith("application/json")
+    ) {
+      return json(
+        { success: false, error: "Content type must be application/json." },
+        415,
+      );
     }
     const contentLength = Number(request.headers.get("Content-Length") || 0);
     if (contentLength > MAX_BODY_BYTES) {
@@ -74,7 +108,10 @@ export default {
     });
     if (!withinLimit) {
       return json(
-        { success: false, error: "Too many requests. Please wait a minute and try again." },
+        {
+          success: false,
+          error: "Too many requests. Please wait a minute and try again.",
+        },
         429,
         { "Retry-After": "60" },
       );
@@ -84,7 +121,10 @@ export default {
     try {
       const body = await request.text();
       if (new TextEncoder().encode(body).byteLength > MAX_BODY_BYTES) {
-        return json({ success: false, error: "Request body is too large." }, 413);
+        return json(
+          { success: false, error: "Request body is too large." },
+          413,
+        );
       }
       raw = JSON.parse(body) as Record<string, unknown>;
     } catch {
@@ -103,20 +143,57 @@ export default {
     };
 
     if (lead.name.length < 2)
-      return json({ success: false, error: "Please enter your full name." }, 400);
+      return json(
+        { success: false, error: "Please enter your full name." },
+        400,
+      );
     if (lead.phone.replace(/\D/g, "").length < 10)
-      return json({ success: false, error: "Please enter a valid phone number." }, 400);
+      return json(
+        { success: false, error: "Please enter a valid phone number." },
+        400,
+      );
     if (lead.city.length < 2)
-      return json({ success: false, error: "Please enter your city or ZIP." }, 400);
+      return json(
+        { success: false, error: "Please enter your city or ZIP." },
+        400,
+      );
     if (!lead.service)
       return json({ success: false, error: "Please select a service." }, 400);
     if (lead.message.length < 10)
-      return json({ success: false, error: "Please describe your project briefly." }, 400);
+      return json(
+        { success: false, error: "Please describe your project briefly." },
+        400,
+      );
     if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
-      return json({ success: false, error: "Please enter a valid email address." }, 400);
+      return json(
+        { success: false, error: "Please enter a valid email address." },
+        400,
+      );
+    }
+    const turnstileToken = text(raw.turnstileToken);
+    if (!turnstileToken || !env.TURNSTILE_SECRET) {
+      return json(
+        { success: false, error: "Please complete the security check." },
+        400,
+      );
+    }
+    if (
+      !(await verifyTurnstile(
+        turnstileToken,
+        env.TURNSTILE_SECRET,
+        rateLimitKey,
+      ))
+    ) {
+      return json(
+        { success: false, error: "Security check failed. Please try again." },
+        403,
+      );
     }
     if (!env.EMAIL) {
-      return json({ success: false, error: "Contact delivery is not configured yet." }, 503);
+      return json(
+        { success: false, error: "Contact delivery is not configured yet." },
+        503,
+      );
     }
 
     const recipients = (
@@ -156,7 +233,10 @@ export default {
       });
       return json({ success: true });
     } catch {
-      return json({ success: false, error: "Unable to send your request right now." }, 502);
+      return json(
+        { success: false, error: "Unable to send your request right now." },
+        502,
+      );
     }
   },
 };

@@ -1,17 +1,62 @@
 "use client";
-import { useEffect, useState, type FormEvent } from "react";
+import Script from "next/script";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { services } from "@/data/services";
 import { Icon } from "./Icon";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render(
+        element: HTMLElement,
+        options: {
+          sitekey: string;
+          callback: (token: string) => void;
+          "expired-callback": () => void;
+          "error-callback": () => void;
+        },
+      ): string;
+      remove(widgetId: string): void;
+      reset(widgetId: string): void;
+    };
+  }
+}
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFoontrgAeyZ2g5v";
+
 export function EstimateForm() {
   const [service, setService] = useState("");
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileElement = useRef<HTMLDivElement>(null);
+  const turnstileWidget = useRef<string | null>(null);
   useEffect(() => {
     const selected = new URLSearchParams(window.location.search).get("service");
     if (selected && services.some((item) => item.slug === selected))
       setService(selected);
   }, []);
+  useEffect(() => {
+    if (!turnstileReady || !window.turnstile || !turnstileElement.current)
+      return;
+    turnstileWidget.current = window.turnstile.render(
+      turnstileElement.current,
+      {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: setTurnstileToken,
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+      },
+    );
+    return () => {
+      if (turnstileWidget.current && window.turnstile) {
+        window.turnstile.remove(turnstileWidget.current);
+      }
+      turnstileWidget.current = null;
+    };
+  }, [turnstileReady]);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("");
@@ -34,17 +79,23 @@ export function EstimateForm() {
           message: form.get("details"),
           referral: form.get("referral"),
           _honey: form.get("_honey"),
+          turnstileToken,
         }),
       });
-      const result = (await response.json().catch(() => null)) as
-        | { success?: boolean; error?: string }
-        | null;
+      const result = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        error?: string;
+      } | null;
       if (!response.ok || !result?.success) {
-        throw new Error(result?.error || "Unable to send your request right now.");
+        throw new Error(
+          result?.error || "Unable to send your request right now.",
+        );
       }
       event.currentTarget.reset();
       setService("");
-      setStatus("Thanks — your request was sent. We’ll get back to you within one business day.");
+      setStatus(
+        "Thanks — your request was sent. We’ll get back to you within one business day.",
+      );
     } catch (reason) {
       setError(
         reason instanceof Error
@@ -53,10 +104,19 @@ export function EstimateForm() {
       );
     } finally {
       setSubmitting(false);
+      setTurnstileToken("");
+      if (turnstileWidget.current && window.turnstile) {
+        window.turnstile.reset(turnstileWidget.current);
+      }
     }
   }
   return (
     <form className="form contact-form" id="estimate" onSubmit={submit}>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={() => setTurnstileReady(true)}
+      />
       <input
         name="_honey"
         type="text"
@@ -140,12 +200,15 @@ export function EstimateForm() {
           />
         </label>
       </div>
-      <button className="btn" type="submit" disabled={submitting}>
+      <div ref={turnstileElement} className="mt-3" />
+      <button
+        className="btn"
+        type="submit"
+        disabled={submitting || !turnstileToken}
+      >
         {submitting ? "Sending…" : "Get my free estimate"} <Icon name="arrow" />
       </button>
-      <small>
-        No spam. We’ll respond within one business day.
-      </small>
+      <small>No spam. We’ll respond within one business day.</small>
       <p role="status" className="mt-3 text-xs" style={{ color: "#176b3a" }}>
         {status}
       </p>

@@ -66,7 +66,7 @@ This is native App Router/React source. It does not use iframes or inject HTML s
 
 ## Contact form
 
-The form posts to a same-origin Cloudflare Worker route at `/api/contact`. The Worker validates the request origin, content type, payload size, and lead fields, uses a honeypot, and applies a per-client rate limit before sending email through Cloudflare Email Routing. Its public `workers.dev` endpoint is disabled.
+The form posts to a same-origin Cloudflare Worker route at `/api/contact`. The Worker validates the request origin, content type, payload size, lead fields, and Cloudflare Turnstile token, uses a honeypot, and applies a per-client rate limit before sending email through Cloudflare Email Routing. Its public `workers.dev` endpoint is disabled. `TURNSTILE_SECRET` is stored as a Worker secret and must never be committed.
 
 ## Images and launch notes
 
