@@ -16,6 +16,18 @@ export default function Page() {
   return (
     <>
       <section className={"hero home-hero"}>
+        <img
+          className="hero-background"
+          src="/assets/lake-1536.webp"
+          srcSet="/assets/lake-640.webp 640w, /assets/lake-1024.webp 1024w, /assets/lake-1536.webp 1536w"
+          sizes="100vw"
+          alt=""
+          width={1536}
+          height={1024}
+          fetchPriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
         <div className={"wrap hero-grid hero-text-only home-hero-grid"}>
           <div>
             <div className={"eyebrow"}>

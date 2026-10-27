@@ -78,10 +78,13 @@ export function Header() {
           >
             <img
               className="brand-full"
-              src={site.logo}
+              src="/assets/preferred-logo-truck-520.webp"
+              srcSet="/assets/preferred-logo-truck-520.webp 520w, /assets/preferred-logo-truck-920.webp 920w"
+              sizes="(max-width: 720px) 240px, 260px"
               alt={site.name}
               width={1200}
               height={438}
+              decoding="async"
             />
           </a>
           <div className={`navlinks ${mobileOpen ? "open" : ""}`} id="navlinks">

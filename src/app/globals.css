@@ -213,6 +213,28 @@
       url("/assets/lake.webp") center/cover no-repeat;
     z-index: -2;
   }
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+  }
+  .hero.home-hero:before {
+    background: linear-gradient(
+      90deg,
+      #021428 0%,
+      #021428e8 20%,
+      #021428cc 45%,
+      #02142888 65%,
+      #02142833 80%,
+      #02142800 100%
+    );
+    z-index: -1;
+  }
   .hero:after {
     content: "";
     position: absolute;
