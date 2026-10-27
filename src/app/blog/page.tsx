@@ -1,59 +1,24 @@
-import type { Metadata } from 'next'
-import { generateMetadata, siteUrl } from '@/lib/seo'
-import SectionLabel from '@/components/ui/SectionLabel'
-import BlogPostCard from '@/components/ui/BlogPostCard'
-import CtaBand from '@/components/ui/CtaBand'
-import { getPostsByDate, toBlogSummary } from '@/data/blog'
+import type { Metadata } from "next";
+import { BlogPostCard } from "@/components/BlogPostCard";
+import { Icon } from "@/components/Icon";
+import { getPostsByDate, toBlogSummary } from "@/data/blog";
+import { withSocialMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Tips for North Idaho',
-  description:
-    'Plumbing tips and guides for North Idaho homeowners: water heaters, emergency plumbing, septic care, and more from Preferred Plumbing.',
-  slug: 'blog',
-  canonical: `${siteUrl}/blog`,
-})
+export const metadata: Metadata = withSocialMetadata({
+  title: "Plumbing tips for North Idaho",
+  description: "Practical plumbing, water-heater, radiant-heat, drain, sewer, and remodeling guides for North Idaho homeowners.",
+  alternates: { canonical: "/blog/" },
+});
 
 export default function BlogPage() {
-  return (
-    <div className="pt-site-header">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Blog',
-            name: 'Preferred Plumbing Solutions Blog',
-            description: 'Plumbing tips, guides, and advice for North Idaho homeowners.',
-            url: `${siteUrl}/blog`,
-            publisher: { '@type': 'Organization', name: 'Preferred Plumbing Solutions' },
-          }),
-        }}
-      />
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <SectionLabel text="Blog" />
-          <h1 className="font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            Plumbing Tips &amp; Guides<br />
-            <span className="text-blue">for North Idaho Homeowners</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-gray-600">
-            Practical tips on plumbing maintenance, water heaters, emergencies, and more.
-          </p>
-        </div>
-      </section>
-
-      <section className="section-padding bg-gray-50">
-        <div className="container-page">
-          <SectionLabel text="Latest Posts" />
-          <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {getPostsByDate().map((post) => (
-              <BlogPostCard key={post.slug} post={toBlogSummary(post)} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CtaBand message="Have a plumbing question? Call us." />
-    </div>
-  )
+  return <>
+    <section className="pagehero"><div className="wrap">
+      <div className="bread"><a href="/">Home</a><Icon name="arrow" /><span>Blog</span></div>
+      <div className="hero-grid"><div><div className="eyebrow">Plumbing tips &amp; guides</div><h1>Useful answers.<br /><span className="cyan">Built for North Idaho.</span></h1><p>Practical advice on repairs, water heaters, drains, heating systems, and planning your next project.</p></div>
+      <img className="cutout" src="/Preferred-Plumbing-Hero-Images/about.webp" alt="North Idaho plumbing guides" width={1536} height={1024} /></div>
+    </div></section>
+    <section className="section wrap"><div className="sectionhead"><div><div className="eyebrow">Latest articles</div><h2>Plan with better information.</h2></div></div>
+      <div className="svc-features">{getPostsByDate().map((post) => <BlogPostCard key={post.slug} post={toBlogSummary(post)} />)}</div>
+    </section>
+  </>;
 }

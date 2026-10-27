@@ -1,142 +1,174 @@
-import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
-import { Phone, MapPin, Clock, Navigation, Star } from 'lucide-react'
-import TrackPageEvent from '@/components/analytics/TrackPageEvent'
-import { generateMetadata, siteUrl } from '@/lib/seo'
-import { contactPageSchema } from '@/lib/schema'
-import LazyMapEmbed from '@/components/ui/LazyMapEmbed'
-import { PHONE, PHONE_HREF, MAP_EMBED_URL, DIRECTIONS_URL, GBP_URL } from '@/lib/utils'
-import ContactEmailList from '@/components/ui/ContactEmailList'
-import PageHero from '@/components/sections/PageHero'
+import { ContactPreparation } from "@/components/EditorialSections";
+import type { Metadata } from "next";
+import { withSocialMetadata } from "@/lib/metadata";
+import { Icon } from "@/components/Icon";
+import { EstimateForm } from "@/components/EstimateForm";
 
-const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
+export const metadata: Metadata = withSocialMetadata({
+  title: "Contact and free estimates",
+  description:
+    "Contact and free estimates. Owner-operated plumbing in Spirit Lake and North Idaho. Contact Preferred Plumbing Solutions for a free estimate.",
+  alternates: {
+    canonical: "/contact/",
+  },
+});
 
-export const metadata: Metadata = generateMetadata({
-  title: 'Contact Us',
-  description: `Get a free plumbing quote from Preferred Plumbing Solutions. Call ${PHONE} or fill out our online form. Serving Spirit Lake and North Idaho.`,
-  slug: 'contact',
-  canonical: `${siteUrl}/contact`,
-})
-
-export default function ContactPage() {
-  const directionsUrl = DIRECTIONS_URL
-
+export default function Page() {
   return (
-    <div className="pt-site-header">
-      <TrackPageEvent event="contact_page_view" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema()) }}
-      />
-      <PageHero
-        label="Contact Us"
-        title={<>Get Your Free<br /><span className="text-blue-300">Plumbing Quote</span></>}
-        description="Call us or fill out the form. We'll get back to you within 24 hours. Emergency service available Sun–Fri 7am–5pm (closed Saturday)."
-        image="/images/hero-contact.webp"
-        imageAlt="Contact Preferred Plumbing Solutions for a free plumbing quote"
-        priority
-      >
-        <a href={PHONE_HREF} className="btn-primary-lg">
-          <Phone className="h-5 w-5" /> Call {PHONE}
-        </a>
-      </PageHero>
-
-      <section className="section-padding bg-gray-50">
-        <div className="container-page">
-          <div className="grid gap-8 lg:grid-cols-5">
-            <div className="order-1 lg:order-2 lg:col-span-3">
-              <div className="premium-card p-5 shadow-premium-xl sm:p-8">
-                <h2 className="font-display text-base font-bold uppercase text-gray-900 sm:text-lg">Request a Free Quote</h2>
-                <p className="mt-2 text-sm text-gray-500">
-                  Tell us what you need and we&apos;ll get back to you within 24 hours.
-                </p>
-                <div className="mt-4">
-                  <ContactForm formLocation="contact_page" />
-                </div>
+    <>
+      <section className={"pagehero"}>
+        <div className={"wrap"}>
+          <div className={"bread"}>
+            <a href={"/"}>{"Home"}</a>
+            <Icon name="arrow" />
+            <span>{"Contact our team"}</span>
+          </div>
+          <div className={"hero-grid"}>
+            <div>
+              <div className={"eyebrow"}>{"Contact our team"}</div>
+              <h1>
+                {"Your next step?"}
+                <br />
+                <span className={"cyan"}>{"Talk to Preferred."}</span>
+              </h1>
+              <p>
+                {
+                  "A new project, an urgent repair, or a quick question. We’re ready to hear what you need."
+                }
+              </p>
+              <div className={"actions"}>
+                <a className={"btn"} href={"#estimate"}>
+                  {"Get a free estimate "}
+                  <Icon name="arrow" />
+                </a>
+                <a
+                  href={"tel:2082903889"}
+                  style={{ fontWeight: "800", fontSize: "14px" }}
+                >
+                  {"208-290-3889"}
+                </a>
+              </div>
+              <div className={"pillrow"}>
+                <span>
+                  <Icon name="shield" />
+                  {" Licensed & insured"}
+                </span>
+                <span>
+                  <Icon name="users" />
+                  {" Owner-operated"}
+                </span>
+                <span>
+                  <Icon name="chat" />
+                  {" Free estimates"}
+                </span>
               </div>
             </div>
-
-            <div className="order-2 space-y-6 lg:order-1 lg:col-span-2">
-              <div className="premium-card p-5 sm:p-7">
-                <h2 className="font-display text-base font-bold uppercase text-gray-900 sm:text-lg">Contact Information</h2>
-                <div className="mt-4 space-y-3 sm:space-y-4">
-                  <a href={PHONE_HREF} className="flex items-center gap-3 text-gray-700 transition hover:text-blue group">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 group-hover:bg-blue transition-colors">
-                      <Phone className="h-5 w-5 text-blue group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400">Phone</p>
-                      <span className="font-semibold">{PHONE}</span>
-                    </div>
-                  </a>
-                  <ContactEmailList />
-                  <div className="flex items-center gap-3 text-gray-500">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10">
-                      <MapPin className="h-5 w-5 text-blue" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400">Location</p>
-                      <span>Spirit Lake, ID 83869</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 text-gray-500">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 shrink-0">
-                      <Clock className="h-5 w-5 text-blue" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400">Hours</p>
-                      <span>Sun–Fri 7am–5pm<br />Sat Closed</span>
-                    </div>
-                  </div>
-                  <a
-                    href={GBP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 transition hover:text-blue group"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue/10 group-hover:bg-blue transition-colors">
-                      <Star className="h-5 w-5 text-blue group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400">Reviews</p>
-                      <span className="font-semibold">Leave a Google Review</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div className="premium-card p-5 sm:p-7">
-                <h3 className="font-display text-base font-bold uppercase text-gray-900">Service Areas</h3>
-                <p className="mt-2 text-sm text-gray-500">
-                  Serving communities across North Idaho and Eastern Washington.
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {['Spirit Lake', "Coeur d'Alene", 'Post Falls', 'Sandpoint', 'Hayden', 'Rathdrum', 'Athol', 'Priest River', 'Blanchard', 'Moscow', 'Clark Fork', 'Oldtown', 'Newport', 'Chattaroy', 'Mead'].map((city) => (
-                    <span key={city} className="rounded-full bg-blue/10 px-2.5 py-1 text-xs font-medium text-blue">
-                      {city}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/70 shadow-premium-xl">
-                <LazyMapEmbed
-                  src={MAP_EMBED_URL}
-                  title="Preferred Plumbing Solutions - Spirit Lake, Idaho Service Area Map"
-                />
-              </div>
-              <a
-                href={directionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary w-full"
-              >
-                <Navigation className="h-4 w-4" /> Get Directions to Spirit Lake
-              </a>
-            </div>
+            <img
+              className={"cutout"}
+              src={"/Preferred-Plumbing-Hero-Images/contact.webp"}
+              alt={"Contact the Preferred Plumbing Solutions team"}
+              fetchPriority={"high"}
+              width={1536}
+              height={1024}
+            />
           </div>
         </div>
       </section>
-    </div>
-  )
+      <section className={"section wrap"}>
+        <div className={"contact-grid"}>
+          <div>
+            <div className={"eyebrow"}>{"Real people. Direct answers."}</div>
+            <h2>
+              {"Let’s get"}
+              <br />
+              {"connected."}
+            </h2>
+            <p>
+              {
+                "Call during business hours for urgent help. For planned projects, send an estimate request with a few details."
+              }
+            </p>
+            <div className={"contact-card"}>
+              <Icon name="phone" />
+              <div>
+                <strong>{"Call Preferred"}</strong>
+                <p>
+                  <a href={"tel:2082903889"}>{"208-290-3889"}</a>
+                </p>
+              </div>
+            </div>
+            <div className={"contact-card"}>
+              <Icon name="mail" />
+              <div>
+                <strong>{"Email Hunter"}</strong>
+                <p>
+                  <a href={"mailto:preferredhnorris@gmail.com"}>
+                    {"preferredhnorris@gmail.com"}
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div className={"contact-card"}>
+              <Icon name="mail" />
+              <div>
+                <strong>{"Email Ron"}</strong>
+                <p>
+                  <a href={"mailto:preferredrnorris@gmail.com"}>
+                    {"preferredrnorris@gmail.com"}
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div className={"contact-card"}>
+              <Icon name="clock" />
+              <div>
+                <strong>{"Business hours"}</strong>
+                <p>
+                  {"Sunday–Friday · 7am–5pm"}
+                  <br />
+                  {"Saturday closed"}
+                </p>
+              </div>
+            </div>
+            <div className={"contact-card"}>
+              <Icon name="pin" />
+              <div>
+                <strong>{"Our home base"}</strong>
+                <p>{"Spirit Lake, Idaho 83869"}</p>
+              </div>
+            </div>
+          </div>
+          <EstimateForm />
+        </div>
+        <div className={"area-panel"}>
+          <div className={"split"}>
+            <div>
+              <div className={"eyebrow cyan"}>
+                {"North Idaho & Eastern Washington"}
+              </div>
+              <h3>{"Local roots. A wider reach."}</h3>
+              <p>
+                {
+                  "Spirit Lake, Coeur d’Alene, Post Falls, Sandpoint, Hayden, Rathdrum, and surrounding communities."
+                }
+              </p>
+              <a className={"btn"} href={"/locations/"}>
+                {"Find your area "}
+                <Icon name="pin" />
+              </a>
+            </div>
+            <img
+              src={"/assets/van.webp"}
+              alt={"Preferred Plumbing branded van"}
+              loading={"lazy"}
+              width={1600}
+              height={640}
+            />
+          </div>
+        </div>
+      </section>
+
+      <ContactPreparation />
+    </>
+  );
 }

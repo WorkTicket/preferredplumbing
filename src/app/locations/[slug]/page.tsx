@@ -1,0 +1,27 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { LocationPage } from "@/components/LocationPage";
+import { locations } from "@/data/locations";
+import { withSocialMetadata } from "@/lib/metadata";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return locations.map((location) => ({ slug: location.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const location = locations.find((item) => item.slug === slug);
+  if (!location) notFound();
+  return withSocialMetadata({
+    title: `Plumber in ${location.city}, ${location.state}`,
+    description: `${location.intro[0]} Request a free estimate from Preferred Plumbing Solutions.`,
+    alternates: { canonical: `/locations/${location.slug}/` },
+  });
+}
+
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  return <LocationPage slug={slug} />;
+}

@@ -1,0 +1,34 @@
+PREFERRED PLUMBING — HERO IMAGE GUIDE
+
+26 PNG images, with transparent backgrounds. Each file is named for its intended page hero.
+Generated marketing imagery; images have not been installed on the website.
+Images showing equipment or connections should be reviewed by Ron or Hunter before publication; they are not certified installation diagrams.
+
+PAGE HERO MAPPING
+
+home.png  →  /
+about.png  →  /about/
+gallery.png  →  /gallery/
+contact.png  →  /contact/
+locations.png  →  /locations/
+spirit-lake.png  →  /locations/spirit-lake-id/
+emergency.png  →  /services/emergency/
+radiant-heat.png  →  /services/radiant-heat/
+heated-driveways.png  →  /services/heated-driveways/
+new-construction.png  →  /services/new-construction/
+commercial.png  →  /services/commercial/
+tankless-water-heaters.png  →  /services/tankless-water-heaters/
+water-heaters.png  →  /services/water-heaters/
+water-softeners.png  →  /services/water-softeners/
+remodels.png  →  /services/remodels/
+kitchen-remodels.png  →  /services/kitchen-remodels/
+bathroom-remodels.png  →  /services/bathroom-remodels/
+toilets-faucets.png  →  /services/toilets-faucets/
+bathtubs-showers.png  →  /services/bathtubs-showers/
+dishwashers.png  →  /services/dishwashers/
+sewer-line.png  →  /services/sewer-line/
+drain-cleaning.png  →  /services/drain-cleaning/
+water-line.png  →  /services/water-line/
+leak-detection.png  →  /services/leak-detection/
+gas-line.png  →  /services/gas-line/
+septic-systems.png  →  /services/septic-systems/

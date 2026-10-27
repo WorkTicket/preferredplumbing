@@ -1,82 +1,68 @@
-import type { Metadata, Viewport } from 'next'
-import { Barlow, Barlow_Condensed, DM_Serif_Display } from 'next/font/google'
-import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import MobileCtaBar from '@/components/layout/MobileCtaBar'
-import DeferredChrome from '@/components/layout/DeferredChrome'
-import { defaultDescription, defaultTitle, siteName, siteUrl } from '@/lib/seo'
+import type { Metadata } from "next";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { site } from "@/data/site";
+import { locations } from "@/data/locations";
+import { services } from "@/data/services";
+import { Barlow_Condensed, Inter } from "next/font/google";
+import "./globals.css";
 
-const barlow = Barlow({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-barlow',
-  display: 'swap',
-  adjustFontFallback: true,
-})
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const barlowCondensed = Barlow_Condensed({
-  subsets: ['latin'],
-  weight: ['700', '900'],
-  variable: '--font-barlow-condensed',
-  display: 'swap',
-  adjustFontFallback: true,
-})
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+  variable: "--font-barlow-condensed",
+});
 
-const dmSerif = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['italic'],
-  variable: '--font-dm-serif',
-  display: 'swap',
-  preload: false,
-  adjustFontFallback: true,
-})
+const description =
+  "Local plumber in Spirit Lake, Idaho for repairs, water heaters, drains, radiant heat, remodeling, and new construction across North Idaho.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.url),
   title: {
-    template: `%s | Preferred Plumbing`,
-    default: defaultTitle,
+    default: "Plumber in Spirit Lake, Idaho | Preferred Plumbing Solutions",
+    template: "%s | Preferred Plumbing Solutions",
   },
-  description: defaultDescription,
-  keywords: [
-    'plumber Spirit Lake Idaho', 'plumbing services near me',
-    'plumber Coeur d\'Alene', 'plumber Post Falls', 'plumber Rathdrum',
-    'emergency plumber North Idaho', 'water heater repair near me',
-    'heated driveway Coeur d\'Alene', 'new construction plumber Rathdrum',
-    'Preferred Plumbing Solutions', 'Kootenai County plumber',
-  ],
-  authors: [{ name: siteName, url: siteUrl }],
-  creator: siteName,
-  publisher: siteName,
-  applicationName: siteName,
-  category: 'plumbing',
-  classification: 'Plumbing Services',
+  description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "Plumbing services",
+  referrer: "origin-when-cross-origin",
+  formatDetection: { telephone: false, address: false, email: false },
+  icons: {
+    icon: [{ url: "/assets/logo.webp", type: "image/webp" }],
+    apple: "/assets/logo.webp",
+  },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName,
-    title: defaultTitle,
-    description: defaultDescription,
+    type: "website",
+    locale: "en_US",
+    url: site.url,
+    siteName: site.name,
+    title: "Plumber in Spirit Lake, Idaho | Preferred Plumbing Solutions",
+    description,
     images: [
-      { url: '/images/og-preferred-plumbing-solutions.webp', width: 1200, height: 630, alt: 'Preferred Plumbing Solutions - Spirit Lake Plumber' },
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Preferred Plumbing Solutions — plumber in Spirit Lake, Idaho",
+      },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    site: '@preferredplumbing',
-    title: defaultTitle,
-    description: defaultDescription,
-    images: ['/images/og-preferred-plumbing-solutions.webp'],
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/preferred-logo.webp', type: 'image/webp' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
+    card: "summary_large_image",
+    title: "Plumber in Spirit Lake, Idaho | Preferred Plumbing Solutions",
+    description,
+    images: ["/og-image.webp"],
   },
   robots: {
     index: true,
@@ -84,46 +70,82 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
-  verification: {
-    google: 'XT0FWUcWxSnGoN04Hg-n1T4eVmj7sc8cLUWuXSjpBWk',
-  },
-  other: {
-    'geo.region': 'US-ID',
-    'geo.placename': 'Spirit Lake',
-    'format-detection': 'telephone=yes',
-  },
-}
+};
 
-export const viewport: Viewport = {
-  themeColor: '#081525',
-  width: 'device-width',
-  initialScale: 1,
-}
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Plumber", "LocalBusiness"],
+  "@id": `${site.url}/#business`,
+  name: site.name,
+  description,
+  url: site.url,
+  logo: `${site.url}/assets/preferred-logo-truck.webp`,
+  image: `${site.url}/og-image.webp`,
+  telephone: `+1-${site.phone}`,
+  email: site.hunterEmail,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Spirit Lake",
+    addressRegion: "ID",
+    postalCode: "83869",
+    addressCountry: "US",
+  },
+  areaServed: locations.map((location) => ({
+    "@type": "City",
+    name: `${location.city}, ${location.state}`,
+  })),
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ],
+      opens: "07:00",
+      closes: "17:00",
+    },
+  ],
+  sameAs: [site.facebook, site.tiktok],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Plumbing services",
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        url: `${site.url}/services/${service.slug}/`,
+      },
+    })),
+  },
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} ${dmSerif.variable}`}>
-      <body className="font-body antialiased">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
+    <html lang="en-US">
+      <head>
+        <meta name="theme-color" content="#061c35" />
+      </head>
+      <body
+        className={`${inter.variable} ${barlowCondensed.variable} antialiased`}
+      >
+        <JsonLd data={localBusinessSchema} />
         <Header />
-        <main
-          id="main-content"
-          className="min-h-screen pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
-          tabIndex={-1}
-        >
-          {children}
-        </main>
+        <main id="main-content">{children}</main>
         <Footer />
-        <MobileCtaBar />
-        <DeferredChrome />
       </body>
     </html>
-  )
+  );
 }

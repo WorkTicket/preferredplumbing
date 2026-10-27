@@ -17,7 +17,7 @@ export const commercialPosts: BlogPost[] = [
       label: 'free plumbing estimate',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [

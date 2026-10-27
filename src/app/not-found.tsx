@@ -1,41 +1,17 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { Home, Phone } from 'lucide-react'
-import { generateMetadata, siteUrl } from '@/lib/seo'
-import { PHONE_HREF, PHONE_DISPLAY } from '@/lib/utils'
-
-export const metadata: Metadata = generateMetadata({
-  title: '404 - Page Not Found',
-  description: 'The page you are looking for does not exist or has been moved. Contact Preferred Plumbing Solutions at 208-290-3889.',
-  canonical: siteUrl,
-  noIndex: true,
-})
-
+import { Icon } from "@/components/Icon";
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 px-4 text-center mesh-bg-light">
-      <p className="font-display text-8xl sm:text-9xl font-black text-blue">404</p>
-      <h1 className="mt-4 font-display text-2xl sm:text-3xl font-black uppercase text-gray-900">
-        Page Not Found
+    <section className="section wrap min-h-[55vh]">
+      <div className="eyebrow">Page not found</div>
+      <h1 className="text-6xl md:text-8xl">
+        Let’s get you
+        <br />
+        back on track.
       </h1>
-      <p className="mt-2 text-gray-500">That page doesn&apos;t exist or was moved.</p>
-      <p className="mt-1 text-sm text-gray-400">
-        Need plumbing help? Call us and we will get you sorted out.
-      </p>
-      <div className="mt-8 flex flex-col sm:flex-row gap-3">
-        <Link
-          href="/"
-          className="btn-primary"
-        >
-          <Home className="h-5 w-5" /> Back to Home
-        </Link>
-        <a
-          href={PHONE_HREF}
-          className="btn-secondary"
-        >
-          <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
-        </a>
-      </div>
-    </div>
-  )
+      <p>The page you’re looking for isn’t here. Our team can still help.</p>
+      <a className="btn" href="/">
+        Back to home <Icon name="arrow" />
+      </a>
+    </section>
+  );
 }

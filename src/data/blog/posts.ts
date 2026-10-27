@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
       label: 'Heated driveway & snow-melt installation',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
       'Commercial properties use the same approach for parking lots, entryways, and loading docks. Ice-free access matters for restaurants, clinics, and retail shops that cannot afford closed doors after a storm.',
       '## Is a heated driveway worth it?',
       'Is it worth it? For homeowners who care about safety, concrete that lasts, and not spending winters behind a shovel, yes, especially on steep lots, shaded approaches, and properties with a lot of freeze-thaw. The upfront cost is real. So is the annual hassle of fighting ice.',
-      'Preferred Plumbing Solutions designs and installs hydronic systems across North Idaho. If you want a straight look at your driveway, boiler capacity, and budget options, call us for a free [heated driveway](/services/heated-driveways) estimate in [Spirit Lake](/areas/spirit-lake-id), Coeur d\'Alene, Post Falls, Sandpoint, and the surrounding communities. For storm-night sizing, read [how heated driveways handle Spirit Lake and Coeur d\'Alene snow](/blog/heated-driveway-snow-loads-spirit-lake).',
+      'Preferred Plumbing Solutions designs and installs hydronic systems across North Idaho. If you want a straight look at your driveway, boiler capacity, and budget options, call us for a free [heated driveway](/services/heated-driveways) estimate in [Spirit Lake](/locations/spirit-lake-id), Coeur d\'Alene, Post Falls, Sandpoint, and the surrounding communities. For storm-night sizing, read [how heated driveways handle Spirit Lake and Coeur d\'Alene snow](/blog/heated-driveway-snow-loads-spirit-lake).',
     ],
   },
   {
@@ -277,11 +277,11 @@ export const blogPosts: BlogPost[] = [
       label: 'Radiant heat & in-floor systems',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
-      'Radiant in-floor heating and forced air each have a place in North Idaho. The wrong choice is usually a brochure comparison written for a mild climate. Here is how the two actually stack up in [Spirit Lake](/areas/spirit-lake-id), Coeur d\'Alene, and the rest of the Panhandle, where design-day temperatures, crawl-space ducts, and hard-water boilers change the math.',
+      'Radiant in-floor heating and forced air each have a place in North Idaho. The wrong choice is usually a brochure comparison written for a mild climate. Here is how the two actually stack up in [Spirit Lake](/locations/spirit-lake-id), Coeur d\'Alene, and the rest of the Panhandle, where design-day temperatures, crawl-space ducts, and hard-water boilers change the math.',
       '## How radiant heat works here',
       'Radiant heat circulates warm water through PEX tubing in the slab or in joist bays. The floor becomes the radiator. You get even, draft-free warmth that feels like the room is simply not cold — not a blast of air followed by a chill. Idaho homeowners like it for bathrooms, basements, main living slabs, and whole-house new construction. Zone thermostats let you heat the rooms you live in without cooking empty bedrooms all night.',
       'The boiler (or other heat source) is the plant. It has to be sized for January groundwater and outdoor design temperatures, not a February afternoon. That is the same discipline we use on [radiant heat installs](/services/radiant-heat). If you also want snow-melt, a [heated driveway](/services/heated-driveways) zone belongs in that plant conversation from day one.',
@@ -464,11 +464,11 @@ export const blogPosts: BlogPost[] = [
       label: 'Radiant heat installation',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
-      'Radiant in-floor heating circulates warm water through tubing in your floors. Instead of blowing hot air, it heats surfaces directly, so you get even, draft-free warmth. That is why it fits [Spirit Lake](/areas/spirit-lake-id) and Coeur d\'Alene winters better than a system designed for a short cold snap. Here is how the parts actually work, and what has to be true for the system to hold up in the Panhandle.',
+      'Radiant in-floor heating circulates warm water through tubing in your floors. Instead of blowing hot air, it heats surfaces directly, so you get even, draft-free warmth. That is why it fits [Spirit Lake](/locations/spirit-lake-id) and Coeur d\'Alene winters better than a system designed for a short cold snap. Here is how the parts actually work, and what has to be true for the system to hold up in the Panhandle.',
       '## How the system is built',
       'A boiler heats water — often in the 85 to 125°F range for floors — and a circulator pushes it through PEX laid in loops. In a slab, the tubing sits on insulation before the pour. In a framed floor, it can staple to the subfloor or ride in joist bays with heat-transfer plates. Each zone gets a thermostat and a manifold port so the living room, bedrooms, and bathrooms are not stuck at one temperature.',
       'Outdoor reset controls drop water temperature as the weather warms so you are not running mid-winter water on a 40-degree afternoon. That is ordinary hydronic practice, not a luxury add-on. Skip insulation under the slab and you heat the dirt. Skip zoning and you heat unused rooms all night. Both mistakes show up as “radiant is expensive” when the design was the problem.',

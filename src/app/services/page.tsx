@@ -1,142 +1,94 @@
-import Link from 'next/link'
-import type { Metadata } from 'next'
-import { ChevronRight, Star, Shield, Clock, HardHat } from 'lucide-react'
-import ServiceCard from '@/components/ui/ServiceCard'
-import { services } from '@/lib/data'
-import { getNavServices } from '@/lib/nav-services'
-import { generateMetadata, siteUrl } from '@/lib/seo'
-import PageHero from '@/components/sections/PageHero'
-import CtaBand from '@/components/ui/CtaBand'
-import { yearsExperienceBadge } from '@/lib/company-stats'
+import type { Metadata } from "next";
+import { withSocialMetadata } from "@/lib/metadata";
+import { Icon } from "@/components/Icon";
+import { ServicesExplorer } from "@/components/ServicesExplorer";
 
-export const metadata: Metadata = generateMetadata({
-  title: 'Plumbing Services in Spirit Lake',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Plumbing services in Spirit Lake",
   description:
-    'Full-service plumber in Spirit Lake: new construction, radiant heat, water heaters, sewer lines, and emergency service. Call 208-290-3889.',
-  slug: 'services',
-  canonical: `${siteUrl}/services`,
-})
+    "Plumbing services in Spirit Lake. Owner-operated plumbing in Spirit Lake and North Idaho. Contact Preferred Plumbing Solutions for a free estimate.",
+  alternates: {
+    canonical: "/services/",
+  },
+});
 
-export default function ServicesPage() {
-  const orderedServices = getNavServices()
-  const listServices = orderedServices.length ? orderedServices : services
-  const trustSignals = [
-    { icon: Shield, label: 'Licensed & Insured' },
-    { icon: Star, label: 'Free Estimates' },
-    { icon: Clock, label: 'Emergency Service' },
-    { icon: HardHat, label: yearsExperienceBadge() },
-  ]
-  const schemas = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      itemListElement: listServices.map((s, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        item: {
-          '@type': 'Service',
-          name: s.title,
-          description: s.description,
-          url: `${siteUrl}/services/${s.slug}`,
-          provider: { '@type': 'Plumber', name: 'Preferred Plumbing Solutions', url: siteUrl },
-          areaServed: [{ '@type': 'City', name: 'Spirit Lake' }, { '@type': 'City', name: "Coeur d'Alene" }, { '@type': 'City', name: 'Post Falls' }],
-        },
-      })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
-      ],
-    },
-  ]
-
+export default function Page() {
   return (
-    <div className="pt-site-header">
-      {schemas.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
-      <PageHero
-        label="Our Services"
-        title={<>Plumbing Services<br /><span className="text-blue-300">in Spirit Lake, Idaho</span></>}
-        description="Emergency repairs, radiant heat, heated driveways, new construction, tankless water heaters, and more. Family-owned and code-compliant."
-        image="/images/hero-services.webp"
-        imageAlt="Plumbing services in Spirit Lake and North Idaho"
-        priority
-      />
-
-      {/* Trust Signals */}
-      <section className="border-b border-gray-100 bg-white">
-        <div className="container-page py-5 sm:py-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {trustSignals.map((signal) => (
-              <div key={signal.label} className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue/10 text-blue">
-                  <signal.icon className="h-4 w-4 shrink-0" />
-                </span>
-                <span className="text-sm font-semibold text-gray-700">{signal.label}</span>
+    <>
+      <section className={"pagehero"}>
+        <div className={"wrap"}>
+          <div className={"bread"}>
+            <a href={"/"}>{"Home"}</a>
+            <Icon name="arrow" />
+            <span>{"Our services"}</span>
+          </div>
+          <div className={"hero-grid"}>
+            <div>
+              <div className={"eyebrow"}>{"Our services"}</div>
+              <h1>
+                {"Big builds."}
+                <br />
+                <span className={"cyan"}>{"Everyday fixes."}</span>
+              </h1>
+              <p>
+                {
+                  "All the plumbing expertise your home or business needs, from one owner-operated team."
+                }
+              </p>
+              <div className={"actions"}>
+                <a className={"btn"} href={"/contact/"}>
+                  {"Get a free estimate "}
+                  <Icon name="arrow" />
+                </a>
+                <a
+                  href={"tel:2082903889"}
+                  style={{ fontWeight: "800", fontSize: "14px" }}
+                >
+                  {"208-290-3889"}
+                </a>
               </div>
-            ))}
+              <div className={"pillrow"}>
+                <span>
+                  <Icon name="shield" />
+                  {" Licensed & insured"}
+                </span>
+                <span>
+                  <Icon name="users" />
+                  {" Owner-operated"}
+                </span>
+                <span>
+                  <Icon name="chat" />
+                  {" Free estimates"}
+                </span>
+              </div>
+            </div>
+            <img
+              className={"cutout"}
+              src={"/assets/tools-services.webp"}
+              alt={"Big builds.  Everyday fixes."}
+              fetchPriority={"high"}
+              width={960}
+              height={827}
+            />
           </div>
         </div>
       </section>
-
-      <section className="section-padding bg-gray-50">
-        <div className="container-page">
-          <div className="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {listServices.map((service) => (
-              <ServiceCard
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                slug={service.slug}
-                title={service.title}
-                description={service.description}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <div className="max-w-4xl">
-            <h2 className="font-display text-[clamp(1.8rem,5vw,2.5rem)] font-black uppercase text-gray-900 leading-[0.95]">
-              Plumbing You Can<br />
-              <span className="text-blue">Count On in North Idaho</span>
-            </h2>
-            <p className="mt-6 text-gray-600 leading-relaxed">
-              Folks around Spirit Lake know us for showing up on time and doing the job right.
-              That is the reputation we have earned.
+      <ServicesExplorer />
+      <section className={"cta-band"}>
+        <div className={"wrap"}>
+          <div>
+            <div className={"eyebrow cyan"}>{"Let’s get it handled."}</div>
+            <h2>{"Your plumbing. Our family’s word."}</h2>
+            <p>
+              {"Tell us what you need. We’ll help you work out the next step."}
             </p>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              We handle residential and commercial jobs of all sizes. Leaky faucet, full new-construction
-              build, or something in between. We have got you covered.
-            </p>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="btn-primary"
-            >
-              Get a Free Quote <ChevronRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/areas-we-serve"
-              className="btn-secondary"
-            >
-              View Service Areas <ChevronRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <a className={"btn"} href={"/contact/"}>
+            {"Request a free estimate "}
+            <Icon name="arrow" />
+          </a>
         </div>
       </section>
-
-      <CtaBand message="Not sure what you need? Call us. We'll figure it out." />
-    </div>
-  )
+    </>
+  );
 }

@@ -1,253 +1,62 @@
-import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { Phone, ArrowRight, Shield, Clock, CheckCircle, ChevronRight } from 'lucide-react'
-import { areas, services } from '@/lib/data'
-import {
-  getServiceCityPage,
-  getServiceCityParams,
-  siblingServiceCityLinks,
-} from '@/lib/data/service-city'
-import { generateMetadata as genMeta, siteUrl } from '@/lib/seo'
-import { breadcrumbSchema, faqSchema, serviceSchema, webpageSchema } from '@/lib/schema'
-import FaqAccordionList from '@/components/ui/FaqAccordionList'
-import CtaBand from '@/components/ui/CtaBand'
-import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/utils'
-import { getPostsForService } from '@/data/blog'
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { EstimateForm } from "@/components/EstimateForm";
+import { Icon } from "@/components/Icon";
+import { JsonLd } from "@/components/JsonLd";
+import { locations } from "@/data/locations";
+import { services } from "@/data/services";
+import { getServiceCityPage, getServiceCityParams, siblingServiceCityLinks } from "@/data/service-city";
+import { site } from "@/data/site";
+import { withSocialMetadata } from "@/lib/metadata";
 
-const ContactForm = dynamic(() => import('@/components/ui/ContactForm'))
+export const dynamicParams = false;
+export function generateStaticParams() { return getServiceCityParams(); }
 
-interface Props {
-  params: Promise<{ slug: string; city: string }>
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; city: string }> }): Promise<Metadata> {
+  const { slug, city } = await params;
+  const page = getServiceCityPage(slug, city);
+  if (!page) notFound();
+  return withSocialMetadata({ title: page.title, description: page.description, alternates: { canonical: page.path } });
 }
 
-export function generateStaticParams() {
-  return getServiceCityParams()
-}
+export default async function ServiceCityPage({ params }: { params: Promise<{ slug: string; city: string }> }) {
+  const { slug, city } = await params;
+  const page = getServiceCityPage(slug, city);
+  const service = services.find((item) => item.slug === slug);
+  const location = locations.find((item) => item.slug === city);
+  if (!page || !service || !location) notFound();
+  const nearby = siblingServiceCityLinks(slug, city);
+  const url = `${site.url}${page.path}`;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, city } = await params
-  const page = getServiceCityPage(slug, city)
-  if (!page) return {}
-  return genMeta({
-    title: page.title,
-    description: page.description,
-    slug: `services/${slug}/${city}`,
-    canonical: `${siteUrl}/services/${slug}/${city}`,
-    keywords: [
-      page.title,
-      page.h1,
-      'Preferred Plumbing Solutions',
-    ],
-  })
-}
+  return <>
+    <JsonLd data={[
+      { "@context": "https://schema.org", "@type": "Service", name: page.h1, description: page.description, url, provider: { "@id": `${site.url}/#business` }, areaServed: { "@type": "City", name: location.city } },
+      { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: page.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
+    ]} />
+    <section className="pagehero svc-hero"><div className="wrap">
+      <div className="bread"><a href="/">Home</a><Icon name="arrow" /><a href={`/services/${slug}/`}>{service.title}</a><Icon name="arrow" /><span>{location.city}</span></div>
+      <div className="hero-grid"><div>
+        <div className="eyebrow">Local {service.title.toLowerCase()}</div>
+        <h1>{page.h1}<br /><span className="cyan">Done right.</span></h1>
+        <p>{page.intro[0]}</p>
+        <div className="actions"><a className="btn" href="#estimate">Get a free estimate <Icon name="arrow" /></a><a href={site.phoneHref}>{site.phone}</a></div>
+        <p className="svc-hero-note">Licensed &amp; insured. Owner-operated. Free estimates.</p>
+      </div><img className="cutout" src={`/Preferred-Plumbing-Hero-Images/${slug}.webp`} alt={`${service.title} in ${location.city}`} fetchPriority="high" width={1536} height={1024} /></div>
+    </div></section>
 
-export default async function ServiceCityPage({ params }: Props) {
-  const { slug, city } = await params
-  const page = getServiceCityPage(slug, city)
-  const service = services.find((item) => item.slug === slug)
-  const area = areas.find((item) => item.slug === city)
-  if (!page || !service || !area) notFound()
+    <section className="section wrap"><div className="svc-intro"><div>
+      <h2 className="svc-h2">{service.title} for {location.city}</h2>
+      {page.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      <h3 className="svc-label">Local planning</h3>
+      {page.localFocus.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      <p><a href={`/services/${slug}/`}>See the complete {service.title.toLowerCase()} service page →</a></p>
+    </div><aside className="svc-aside" id="estimate"><h3>Get a {location.city} estimate</h3><p>Tell us what failed, where, and what timing you need.</p><EstimateForm /></aside></div></section>
 
-  const relatedPosts = getPostsForService(`/services/${service.slug}`, 3)
-  const nearby = siblingServiceCityLinks(service.slug, area.slug)
-  const parentHref = `/services/${service.slug}`
-  const areaHref = `/areas/${area.slug}`
+    <section className="section tint"><div className="wrap"><div className="faq-grid">
+      <div><div className="eyebrow">{location.city} FAQs</div><h2>Questions about<br />{service.title.toLowerCase()}.</h2></div>
+      <div>{page.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+    </div></div></section>
 
-  return (
-    <div className="pt-site-header">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            serviceSchema(page.h1, page.description, `${service.slug}/${area.slug}`, [
-              { '@type': 'City', name: area.city },
-            ]),
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: 'Home', url: siteUrl },
-              { name: 'Services', url: `${siteUrl}/services` },
-              { name: service.title, url: `${siteUrl}${parentHref}` },
-              { name: page.h1, url: `${siteUrl}${page.path}` },
-            ]),
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webpageSchema(page.h1, page.description, page.path.slice(1))),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(page.faqs)) }}
-      />
-
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <p className="text-sm text-gray-500">
-            <Link href={parentHref} className="hover:text-blue">
-              {service.title}
-            </Link>
-            <span className="px-1.5 text-gray-300">/</span>
-            <Link href={areaHref} className="hover:text-blue">
-              {area.city}
-            </Link>
-          </p>
-          <h1 className="mt-3 font-display text-[clamp(2.2rem,8vw,4.5rem)] font-black uppercase leading-[0.9] text-gray-900">
-            {page.h1}
-          </h1>
-          <div className="mt-4 flex flex-wrap gap-4 text-sm">
-            <span className="inline-flex items-center gap-1.5 font-semibold text-blue">
-              <Clock className="h-4 w-4" /> Sun–Fri 7am–5pm
-            </span>
-            <span className="inline-flex items-center gap-1.5 text-gray-500">
-              <Shield className="h-4 w-4" /> Licensed &amp; Insured
-            </span>
-          </div>
-          {page.intro.map((paragraph, index) => (
-            <p
-              key={paragraph.slice(0, 40)}
-              className={
-                index === 0
-                  ? 'mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg'
-                  : 'mt-3 max-w-3xl text-sm leading-relaxed text-gray-500 sm:text-base'
-              }
-            >
-              {paragraph}
-            </p>
-          ))}
-          <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
-            <a href={PHONE_HREF} className="btn-primary">
-              <Phone className="h-5 w-5" /> Call {PHONE_DISPLAY}
-            </a>
-            <Link href="/contact" className="btn-secondary">
-              Get Free Quote <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-gray-50">
-        <div className="container-page grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <span className="section-label">{`In ${area.city}`}</span>
-            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-              Local {service.title} Work
-            </h2>
-            {page.localFocus.map((paragraph) => (
-              <p key={paragraph.slice(0, 40)} className="mt-4 max-w-3xl leading-relaxed text-gray-600">
-                {paragraph}
-              </p>
-            ))}
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {(service.features ?? []).slice(0, 6).map((feature) => (
-                <li key={feature} className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-blue" aria-hidden />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm text-gray-500">
-              Full scope, photos, and process:{' '}
-              <Link href={parentHref} className="font-semibold text-blue hover:underline">
-                {service.title} in North Idaho
-              </Link>
-              . More about our crew in{' '}
-              <Link href={areaHref} className="font-semibold text-blue hover:underline">
-                {area.fullName}
-              </Link>
-              .
-            </p>
-          </div>
-          <div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-premium-md sm:p-6">
-              <h3 className="font-display text-lg font-bold uppercase text-gray-900">
-                Get a {area.city} Quote
-              </h3>
-              <p className="mt-2 text-sm text-gray-500">
-                Tell us what failed and where. We reply within 24 hours.
-              </p>
-              <div className="mt-4">
-                <ContactForm formLocation={`service_city_${service.slug}_${area.slug}`} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-white">
-        <div className="container-page">
-          <span className="section-label">{`${area.city} FAQs`}</span>
-          <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-            Questions About {service.title} in {area.city}
-          </h2>
-          <div className="mt-8 max-w-4xl">
-            <FaqAccordionList items={page.faqs} idPrefix={`${service.slug}-${area.slug}`} />
-          </div>
-        </div>
-      </section>
-
-      {relatedPosts.length > 0 && (
-        <section className="section-padding bg-gray-50">
-          <div className="container-page">
-            <span className="section-label">Guides</span>
-            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-              Related Articles
-            </h2>
-            <div className="mt-8 flex flex-col gap-3">
-              {relatedPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="group inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wide text-gray-700 hover:text-blue"
-                >
-                  {post.title}
-                  <ArrowRight className="h-4 w-4 text-blue transition-transform group-hover:translate-x-1" />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {nearby.length > 0 && (
-        <section className="section-padding bg-white">
-          <div className="container-page">
-            <span className="section-label">Nearby</span>
-            <h2 className="mt-3 font-display text-[clamp(1.8rem,6vw,3rem)] font-black uppercase leading-[0.95] text-gray-900">
-              {service.title} in Nearby Cities
-            </h2>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {nearby.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-blue/30 hover:text-blue"
-                >
-                  <ChevronRight className="h-3 w-3" /> {item.label}
-                </Link>
-              ))}
-              <Link
-                href={parentHref}
-                className="inline-flex items-center gap-1 rounded-lg border border-blue/30 bg-blue/5 px-4 py-2 text-sm font-semibold text-blue hover:bg-blue/10"
-              >
-                All {service.title} <ArrowRight className="h-3 w-3" />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <CtaBand message={`Need ${service.title.toLowerCase()} in ${area.city}? Call us.`} />
-    </div>
-  )
+    {nearby.length > 0 && <section className="section wrap"><div className="sectionhead"><div><div className="eyebrow">Nearby service</div><h2>{service.title} in nearby cities.</h2></div></div><div className="actions">{nearby.map((item) => <a className="btn dark" key={item.href} href={item.href}>{item.label} <Icon name="arrow" /></a>)}</div></section>}
+  </>;
 }

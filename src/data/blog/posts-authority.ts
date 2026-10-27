@@ -17,11 +17,11 @@ export const authorityPosts: BlogPost[] = [
       label: 'Radiant heat & in-floor systems',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
-      '“Is radiant floor heating worth it?” is the question we get after the first bid, not before. The number is higher than a furnace swap, and it should be. You are buying a heat plant, tubing in the floor, zones, and a system designed for North Idaho design-day temperatures — not a box that blows air through leaky ducts in a crawl space. Whether it is worth it depends on the house, the fuel, and how you actually live here in winter. This is the honest version we walk through with homeowners in [Spirit Lake](/areas/spirit-lake-id), Coeur d\'Alene, Athol, and on acreage in Bonner County.',
+      '“Is radiant floor heating worth it?” is the question we get after the first bid, not before. The number is higher than a furnace swap, and it should be. You are buying a heat plant, tubing in the floor, zones, and a system designed for North Idaho design-day temperatures — not a box that blows air through leaky ducts in a crawl space. Whether it is worth it depends on the house, the fuel, and how you actually live here in winter. This is the honest version we walk through with homeowners in [Spirit Lake](/locations/spirit-lake-id), Coeur d\'Alene, Athol, and on acreage in Bonner County.',
       '## What you are actually buying',
       'Hydronic radiant heat is warm water circulating through PEX in the slab or in joist bays, fed by a boiler or other heat source, controlled by zone thermostats. Tile and hardwood feel it first. Carpet works, but it is a weaker radiator. Electric mats under a bathroom floor are a different product: cheaper in one room, usually the wrong tool for a whole house in our climate, and they do not give you a path to a [heated driveway](/services/heated-driveways) later on the same plant.',
       'The worth-it conversation is not “warm floors feel nice.” It is whether the comfort, operating cost, and resale of a hydronic system beat the extra install price against a high-efficiency furnace you might buy anyway. For the square-foot ranges we actually bid, read [how much radiant floor heat costs in North Idaho](/blog/radiant-heat-cost-north-idaho). This article is about when that spend makes sense.',
@@ -52,11 +52,11 @@ export const authorityPosts: BlogPost[] = [
       label: 'Heated driveway & snow-melt installation',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
-      'A heated driveway in Phoenix and a heated driveway in [Spirit Lake](/areas/spirit-lake-id) are not the same product. Snow here does not fall once and melt by noon. We get lake-effect dumps off Coeur d\'Alene and Pend Oreille, freeze-thaw that bonds ice to concrete, and shaded north approaches that stay a rink for days after town streets are clear. If the system is not designed for that load, you get a warm stripe that still ices over at the garage door. This is how hydronic snow-melt actually handles North Idaho snow — and what we refuse to undersize.',
+      'A heated driveway in Phoenix and a heated driveway in [Spirit Lake](/locations/spirit-lake-id) are not the same product. Snow here does not fall once and melt by noon. We get lake-effect dumps off Coeur d\'Alene and Pend Oreille, freeze-thaw that bonds ice to concrete, and shaded north approaches that stay a rink for days after town streets are clear. If the system is not designed for that load, you get a warm stripe that still ices over at the garage door. This is how hydronic snow-melt actually handles North Idaho snow — and what we refuse to undersize.',
       '## What “snow load” means for a driveway',
       'Roof snow load is a structural number. Driveway snow-melt is a heat-load number: how much energy it takes to keep the slab above freezing while snow is falling and while the air and the ground are trying to steal that heat. Intensity, duration, wind, and shade all move it. A short, sunny two-car pad in Post Falls is a different job than a long, steep, tree-covered lane off Blanchard Road or a north-facing Coeur d\'Alene hillside.',
       'The failure mode we see on underbuilt systems is not “it never melts.” It is delayed melt. Snow lands, bonds, and turns to ice before the slab catches up. Then you are scraping ice off a supposedly heated driveway. Sensors, insulation under the slab, and a boiler sized for storm-night output are what prevent that. Skip any of the three and the marketing photos still look good in September.',
@@ -89,11 +89,11 @@ export const authorityPosts: BlogPost[] = [
       label: 'Radiant heat & in-floor systems',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
-      'Radiant floor heat is one of the highest-value upgrades we install in North Idaho, and it is also one of the most misunderstood on price. Homeowners hear a square-foot number online, then get surprised when the boiler, manifolds, zones, and insulation show up on the bid. This guide breaks down what a hydronic system actually costs around [Spirit Lake](/areas/spirit-lake-id), Coeur d\'Alene, Post Falls, and Sandpoint, and what you can control before you sign.',
+      'Radiant floor heat is one of the highest-value upgrades we install in North Idaho, and it is also one of the most misunderstood on price. Homeowners hear a square-foot number online, then get surprised when the boiler, manifolds, zones, and insulation show up on the bid. This guide breaks down what a hydronic system actually costs around [Spirit Lake](/locations/spirit-lake-id), Coeur d\'Alene, Post Falls, and Sandpoint, and what you can control before you sign.',
       '## Typical installed cost in North Idaho',
       'For a hydronic (water-based) system, most residential jobs in our area land between $10 and $18 per square foot of heated floor, installed. A 2,000 square foot home with most of the living area on radiant often falls in the $18,000 to $35,000 range once you include the boiler or heat source, manifolds, zone valves, thermostats, tubing, and labor. Smaller bathroom or kitchen zones cost more per square foot because the boiler and controls do not shrink as fast as the floor area.',
       'Electric mats are cheaper to install in a single room, often $8 to $14 per square foot, and they make sense under bathroom tile. They are usually the wrong tool for a whole house in our climate. Operating cost on electric whole-home heat is higher, and you lose the option to add a heated driveway zone later on the same boiler.',
@@ -127,11 +127,11 @@ export const authorityPosts: BlogPost[] = [
       label: 'Heated driveway & snow-melt installation',
     },
     relatedArea: {
-      href: '/areas/coeur-dalene-id',
+      href: '/locations/coeur-dalene-id',
       label: "Plumber in Coeur d'Alene",
     },
     content: [
-      'A heated driveway is a premium install, and the first question is always cost. North Idaho winters make the upgrade easier to justify than it looks on paper: steep lots, shaded approaches, and months of freeze-thaw that wreck concrete and turn every grocery run into a slip hazard. Here is how we price hydronic snow-melt around [Spirit Lake](/areas/spirit-lake-id), Hayden, Rathdrum, and [Coeur d\'Alene](/areas/coeur-dalene-id), and how to keep the budget honest.',
+      'A heated driveway is a premium install, and the first question is always cost. North Idaho winters make the upgrade easier to justify than it looks on paper: steep lots, shaded approaches, and months of freeze-thaw that wreck concrete and turn every grocery run into a slip hazard. Here is how we price hydronic snow-melt around [Spirit Lake](/locations/spirit-lake-id), Hayden, Rathdrum, and [Coeur d\'Alene](/locations/coeur-dalene-id), and how to keep the budget honest.',
       '## Installed cost: tire tracks vs. full slab',
       'Most homeowners do not need to heat every square foot of asphalt or concrete. A tire-track and apron system (two melted paths plus the garage threshold and a walkway) is the common residential design. Installed, that often lands in the $12,000 to $25,000 range depending on length, boiler capacity, and whether we are tying into an existing hydronic plant.',
       'Full-slab snow melt costs more because the tubing grid, insulation, and heat load all scale with area. Larger driveways, circular approaches, and commercial entries typically run $18 to $30 per square foot of heated surface, plus the heat source if you do not already have one. A long, steep driveway to a timber home is a different job than a short two-car pad in town.',
@@ -227,7 +227,7 @@ export const authorityPosts: BlogPost[] = [
       label: 'New construction plumbing',
     },
     relatedArea: {
-      href: '/areas/spirit-lake-id',
+      href: '/locations/spirit-lake-id',
       label: 'Plumber in Spirit Lake',
     },
     content: [
