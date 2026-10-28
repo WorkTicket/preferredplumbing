@@ -23,24 +23,6 @@ export function Footer() {
     <>
       <footer className="site-footer">
         <div className="wrap">
-          <div className="sf-cta">
-            <div>
-              <h2>Plumbing trouble? Talk to the family.</h2>
-              <p>
-                Call or send a request. Owner-operated, licensed &amp; insured,
-                free estimates.
-              </p>
-            </div>
-            <div className="sf-cta-actions">
-              <a className="btn white" href={site.phoneHref}>
-                <Icon name="phone" /> {site.phone}
-              </a>
-              <a className="btn sf-ghost" href="/contact/">
-                Free estimate <Icon name="arrow" />
-              </a>
-            </div>
-          </div>
-
           <div className="sf-grid">
             <div className="sf-brand">
               <a href="/" aria-label="Preferred Plumbing Solutions home">
