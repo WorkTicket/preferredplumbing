@@ -1,6 +1,6 @@
 import { Icon } from "./Icon";
 import { services } from "@/data/services";
-import { locations } from "@/data/locations";
+import { publishedLocations } from "@/data/locations";
 import { site } from "@/data/site";
 import { StickyMobileBar } from "./StickyMobileBar";
 
@@ -97,22 +97,14 @@ export function Footer() {
             <nav aria-label="Service areas">
               <h3>Service areas</h3>
               <div className="sf-areas">
-                {[...locations]
-                  .sort((a, b) =>
-                    a.city === "Spirit Lake"
-                      ? -1
-                      : b.city === "Spirit Lake"
-                        ? 1
-                        : a.city.localeCompare(b.city),
-                  )
-                  .map((l) => (
-                    <span key={l.slug}>
-                      <a href={`/locations/${l.slug}/`}>{l.city}</a>
-                    </span>
-                  ))}
+                {publishedLocations.map((l) => (
+                  <span key={l.slug}>
+                    <a href={`/locations/${l.slug}/`}>{l.city}</a>
+                  </span>
+                ))}
               </div>
               <a className="sf-more" href="/locations/">
-                All locations →
+                View service area →
               </a>
             </nav>
 

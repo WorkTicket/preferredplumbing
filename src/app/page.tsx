@@ -484,7 +484,7 @@ export default function Page() {
             </div>
             <div className={"actions"}>
               <a className={"btn dark"} href={"/locations/"}>
-                {`See all ${locations.length} locations `}
+                {"View our service area "}
                 <Icon name="arrow" />
               </a>
               <a

@@ -503,3 +503,9 @@ export const locations: Location[] = [
     ],
   },
 ];
+
+// Keep future service-area content in the data set without publishing its
+// dedicated location page until it is ready to launch.
+export const publishedLocations = locations.filter(
+  (location) => location.slug === "spirit-lake-id",
+);
