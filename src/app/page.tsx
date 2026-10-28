@@ -62,8 +62,19 @@ export default function Page() {
                 {"208-290-3889 ↗"}
               </a>
             </div>
-            <div className={"hero-note"}>
-              {"✓ Family-owned   ✓ Licensed & insured   ✓ Free estimates"}
+            <div className={"pillrow"}>
+              <span>
+                <Icon name="shield" />
+                {" Licensed & insured"}
+              </span>
+              <span>
+                <Icon name="users" />
+                {" Owner-operated"}
+              </span>
+              <span>
+                <Icon name="chat" />
+                {" Free estimates"}
+              </span>
             </div>
           </div>
         </div>

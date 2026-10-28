@@ -349,6 +349,9 @@
   .home-hero .hero-note {
     margin-top: 18px;
   }
+  .home-hero .pillrow {
+    justify-content: center;
+  }
   .home-hero-grid .eyebrow,
   .home-hero-grid .hero-note {
     text-align: center;
