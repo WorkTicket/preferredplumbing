@@ -73,7 +73,7 @@
     max-width: 100%;
     display: block;
   }
-  main > section:not(:first-child) {
+  main > section:not(.hero):not(.pagehero) {
     content-visibility: auto;
     contain-intrinsic-size: auto 800px;
   }
@@ -1306,6 +1306,13 @@
     overflow: hidden;
     padding: 65px 0 85px;
   }
+  @media (min-width: 721px) {
+    .pagehero:not(.contact-hero) {
+      display: flex;
+      min-height: 690px;
+      align-items: center;
+    }
+  }
   .pagehero:before {
     content: "";
     position: absolute;
@@ -1370,6 +1377,7 @@
   }
   .pillrow {
     display: flex;
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     font-size: 11px;

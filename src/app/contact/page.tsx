@@ -16,7 +16,7 @@ export const metadata: Metadata = withSocialMetadata({
 export default function Page() {
   return (
     <>
-      <section className={"pagehero"}>
+      <section className={"pagehero contact-hero"}>
         <div className={"wrap"}>
           <div className={"bread"}>
             <a href={"/"}>{"Home"}</a>

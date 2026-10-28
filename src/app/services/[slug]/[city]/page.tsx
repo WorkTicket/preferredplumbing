@@ -40,7 +40,11 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ sl
         <h1>{page.h1}<br /><span className="cyan">Done right.</span></h1>
         <p>{page.intro[0]}</p>
         <div className="actions"><a className="btn" href="#estimate">Get a free estimate <Icon name="arrow" /></a><a href={site.phoneHref}>{site.phone}</a></div>
-        <p className="svc-hero-note">Licensed &amp; insured. Owner-operated. Free estimates.</p>
+        <div className="pillrow">
+          <span><Icon name="shield" /> Licensed &amp; insured</span>
+          <span><Icon name="users" /> Owner-operated</span>
+          <span><Icon name="chat" /> Free estimates</span>
+        </div>
       </div><img className="cutout" src={`/Preferred-Plumbing-Hero-Images/${slug}.webp`} alt={`${service.title} in ${location.city}`} fetchPriority="high" width={1536} height={1024} /></div>
     </div></section>
 

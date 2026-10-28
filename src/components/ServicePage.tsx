@@ -104,9 +104,17 @@ export function ServicePage({ slug }: { slug: string }) {
                 </a>
                 <a href="tel:2082903889">208-290-3889</a>
               </div>
-              <p className="svc-hero-note">
-                Licensed & insured. Owner-operated. Free estimates.
-              </p>
+              <div className="pillrow">
+                <span>
+                  <Icon name="shield" /> Licensed & insured
+                </span>
+                <span>
+                  <Icon name="users" /> Owner-operated
+                </span>
+                <span>
+                  <Icon name="chat" /> Free estimates
+                </span>
+              </div>
             </div>
             <img
               className="cutout"
