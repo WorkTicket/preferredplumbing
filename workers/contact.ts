@@ -198,7 +198,7 @@ export default {
 
     const recipients = (
       env.CONTACT_TO_EMAIL ||
-      "preferredhnorris@gmail.com,preferredrnorris@gmail.com"
+      "preferredhnorris@gmail.com,preferredrnorris@gmail.com,coltondwehr@icloud.com"
     )
       .split(",")
       .map((email) => email.trim())

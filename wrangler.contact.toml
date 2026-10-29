@@ -21,8 +21,9 @@ name = "EMAIL"
 allowed_destination_addresses = [
   "preferredhnorris@gmail.com",
   "preferredrnorris@gmail.com",
+  "coltondwehr@icloud.com",
 ]
 
 [vars]
-CONTACT_TO_EMAIL = "preferredhnorris@gmail.com,preferredrnorris@gmail.com"
+CONTACT_TO_EMAIL = "preferredhnorris@gmail.com,preferredrnorris@gmail.com,coltondwehr@icloud.com"
 CONTACT_FROM_EMAIL = "quotes@callpreferredplumbing.com"
