@@ -16,7 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug, city } = await params;
   const page = getServiceCityPage(slug, city);
   if (!page) notFound();
-  return withSocialMetadata({ title: page.title, description: page.description, alternates: { canonical: page.path } });
+  const description = page.description.length < 110
+    ? `${page.description} Call 208-290-3889 for a free estimate.`
+    : page.description;
+  return withSocialMetadata({ title: page.title, description, alternates: { canonical: page.path } });
 }
 
 export default async function ServiceCityPage({ params }: { params: Promise<{ slug: string; city: string }> }) {

@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit",
     "check:links": "node scripts/check-export.mjs",
     "check": "npm run build && npm run check:links",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
     "deploy:production": "node scripts/deploy-production.mjs",
     "format": "prettier --write src scripts *.json *.ts *.mjs"
   },

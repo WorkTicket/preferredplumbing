@@ -19,8 +19,8 @@ export async function generateMetadata({
   const location = publishedLocations.find((item) => item.slug === slug);
   if (!location) notFound();
   return withSocialMetadata({
-    title: `Plumber in ${location.city}, ${location.state}`,
-    description: `${location.intro[0]} Request a free estimate from Preferred Plumbing Solutions.`,
+    title: `${location.city}, ${location.state} Plumber`,
+    description: `Local plumbing in ${location.city}, ${location.state} for repairs, water heaters, drains, wells, septic systems, remodels, and new construction. Request a free estimate.`,
     alternates: { canonical: `/locations/${location.slug}/` },
   });
 }

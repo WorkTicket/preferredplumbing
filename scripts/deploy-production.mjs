@@ -56,6 +56,7 @@ run("npx", [
   "--commit-hash",
   commit,
 ]);
+run("npm", ["run", "submit:indexnow"]);
 
 console.log(
   `Production deployed from ${commit}. Previous deployments were retained for rollback.`,

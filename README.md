@@ -34,6 +34,7 @@ Run `npm run check` to build the complete static export and verify every local l
 - The static site runs on Pages. A separate Worker handles only `POST /api/contact`.
 
 The `_headers` file is included in `public/` and copied to `out/` for Cloudflare Pages.
+The production deploy also submits every canonical sitemap URL to IndexNow after the Pages upload succeeds. The public root key file proves site ownership to participating search engines.
 
 ### Manual production deployment
 

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { LocationsPage } from "@/components/LocationsPage";
 export const metadata: Metadata = withSocialMetadata({
-  title: "Locations — North Idaho & Eastern Washington",
+  title: "Plumbing Service Areas",
   description:
-    "Explore Preferred Plumbing service locations in North Idaho and Eastern Washington.",
+    "Explore plumbing service areas across North Idaho and Eastern Washington for homes and businesses. Our owner-operated team is based in Spirit Lake, Idaho.",
   alternates: { canonical: "/locations/" },
 });
 export default function Page() {

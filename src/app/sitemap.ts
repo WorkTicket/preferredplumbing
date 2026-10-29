@@ -5,6 +5,12 @@ import { publishedLocations } from "@/data/locations";
 import { services } from "@/data/services";
 import { getAllServiceCityPages } from "@/data/service-city";
 export const dynamic = "force-static";
+
+function canonicalUrl(route: string): string {
+  const path = route === "/" ? route : `${route.replace(/\/+$/, "")}/`;
+  return new URL(path, site.url).toString();
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const generated = [
     ...services.map((service) => `/services/${service.slug}`),
@@ -12,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getAllServiceCityPages().map((page) => page.path),
   ];
   return [...new Set([...routes, ...generated])].map((route) => ({
-    url: new URL(route === "/" ? "/" : `${route}/`, site.url).toString(),
+    url: canonicalUrl(route),
     changeFrequency: "weekly",
     priority:
       route === "/"

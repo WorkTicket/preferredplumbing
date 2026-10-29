@@ -59,7 +59,7 @@ const SERVICE_PHRASES: Record<
   'drain-cleaning': { title: 'Drain Cleaning', h1: 'Drain Cleaning' },
 }
 
-const BRAND_LEN = ' | Preferred Plumbing'.length
+const BRAND_LEN = ' | Preferred Plumbing Solutions'.length
 
 function comboKey(serviceSlug: string, citySlug: string) {
   return `${serviceSlug}__${citySlug}`

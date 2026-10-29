@@ -4,6 +4,7 @@ import { serviceDepth } from "@/data/service-depth";
 import { services } from "@/data/services";
 import { projectPhotos, type ProjectPhoto } from "@/data/gallery";
 import { locations } from "@/data/locations";
+import { getAllServiceCityPages } from "@/data/service-city";
 import { site } from "@/data/site";
 import { Icon } from "./Icon";
 import { JsonLd } from "./JsonLd";
@@ -44,6 +45,14 @@ export function ServicePage({ slug }: { slug: string }) {
   const [heroWidth, heroHeight] = portraitHeroSizes[slug] ?? [1536, 1024];
   // Each photo appears once on the page; the hero is an illustration.
   const photos = [...new Set(page.photos)].map(findPhoto);
+  const localPages = getAllServiceCityPages()
+    .filter((item) => item.serviceSlug === slug)
+    .map((item) => ({
+      ...item,
+      cityName:
+        locations.find((location) => location.slug === item.citySlug)?.city ||
+        item.citySlug,
+    }));
 
   return (
     <>
@@ -259,6 +268,24 @@ export function ServicePage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {localPages.length > 0 && (
+        <section className="section wrap">
+          <div className="sectionhead">
+            <div>
+              <div className="eyebrow">Local service guides</div>
+              <h2>{service.title} near you.</h2>
+            </div>
+          </div>
+          <div className="actions">
+            {localPages.map((localPage) => (
+              <a className="btn dark" href={localPage.path} key={localPage.path}>
+                {localPage.cityName} <Icon name="arrow" />
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       {page.related.length > 0 && (
         <section className="section tint">
