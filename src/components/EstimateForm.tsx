@@ -59,10 +59,11 @@ export function EstimateForm() {
   }, [turnstileReady]);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setStatus("");
     setError("");
     setSubmitting(true);
-    const form = new FormData(event.currentTarget);
+    const form = new FormData(formElement);
     const serviceName =
       services.find((item) => item.slug === service)?.title ||
       "Other / Not sure";
@@ -91,7 +92,7 @@ export function EstimateForm() {
           result?.error || "Unable to send your request right now.",
         );
       }
-      event.currentTarget.reset();
+      formElement.reset();
       setService("");
       setStatus(
         "Thanks — your request was sent. We’ll get back to you within one business day.",
