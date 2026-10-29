@@ -1304,12 +1304,12 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: 65px 0 85px;
+    padding: 58px 0;
   }
   @media (min-width: 721px) {
-    .pagehero:not(.contact-hero) {
+    .pagehero {
       display: flex;
-      min-height: 690px;
+      min-height: 590px;
       align-items: center;
     }
   }
@@ -1323,14 +1323,7 @@
     z-index: -1;
   }
   .pagehero:after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: white;
-    clip-path: polygon(0 90%, 100% 0, 100% 100%, 0 100%);
+    content: none;
   }
   .pagehero .eyebrow {
     color: #65d6f3;
@@ -1358,11 +1351,13 @@
     height: 13px;
   }
   .pagehero .hero-grid {
-    gap: 35px;
+    gap: clamp(38px, 5vw, 72px);
     grid-template-columns: 1.1fr 1fr;
+    align-items: center;
   }
   .pagehero .cutout {
-    max-height: 350px;
+    height: 320px;
+    max-height: none;
     width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 20px 25px #0003);
@@ -3166,7 +3161,8 @@
     width: 18px;
   }
   .pagehero .cutout {
-    max-height: 390px;
+    height: 320px;
+    max-height: none;
   }
   .navlinks {
     gap: 23px;
@@ -3381,7 +3377,8 @@
       margin-top: 23px;
     }
     .pagehero .cutout {
-      max-height: 280px;
+      height: 250px;
+      max-height: none;
     }
     .navlinks {
       gap: 0;

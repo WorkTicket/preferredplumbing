@@ -53,7 +53,6 @@ export function LocationPage({ slug }: { slug: string }) {
                 <a className="btn" href={`/contact/?location=${location.slug}`}>Get a free estimate <Icon name="arrow" /></a>
                 <a href={site.phoneHref}>{site.phone}</a>
               </div>
-              <p className="svc-hero-note">Licensed &amp; insured. Sunday–Friday, 7am–5pm.</p>
             </div>
             <div className="location-visual">
               <div className="location-stamp" aria-hidden="true">
