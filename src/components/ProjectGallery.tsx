@@ -20,7 +20,14 @@ export function ProjectGallery({ items }: { items: ProjectPhoto[] }) {
             aria-label={`View ${item.title}`}
           >
             <div className="project-image">
-              <img src={item.src} alt={item.title} loading="lazy" />
+              <img
+                src={item.src}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={1600}
+              />
               <span className="expand">
                 <Icon name="expand" />
               </span>
@@ -54,7 +61,13 @@ export function ProjectGallery({ items }: { items: ProjectPhoto[] }) {
       >
         {photo && (
           <>
-            <img src={photo.src} alt={photo.title} />
+            <img
+              src={photo.src}
+              alt={photo.title}
+              width={1200}
+              height={1600}
+              decoding="async"
+            />
             <div className="modal-bottom">
               <h3>{photo.title}</h3>
               <button

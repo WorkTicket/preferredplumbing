@@ -177,7 +177,14 @@ export function ProjectStory() {
             ],
           ].map(([src, ic, h, p]) => (
             <article key={h}>
-              <img src={src} alt={h} loading="lazy" />
+              <img
+                src={src}
+                alt={h}
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={1600}
+              />
               <div>
                 <Icon name={ic as "home" | "heat" | "spark"} />
                 <h3>{h}</h3>
@@ -205,6 +212,9 @@ export function GuidePlanning({ topic }: { topic: string }) {
             }
             alt="Plumbing project planning illustration"
             loading="lazy"
+            decoding="async"
+            width={1536}
+            height={1024}
           />
         </div>
         <div className="depth-copy">

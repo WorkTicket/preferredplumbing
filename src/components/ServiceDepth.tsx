@@ -60,6 +60,8 @@ export function ServiceDepth({ slug }: { slug: string }) {
               src={data.asset}
               alt={`${service.title} equipment illustration`}
               loading="lazy"
+              width={1536}
+              height={1024}
             />
             <div className="art-label">
               <Icon name={data.icon} />

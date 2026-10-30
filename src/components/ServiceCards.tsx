@@ -55,6 +55,8 @@ export function ServiceCards({
               alt={`${service.title} illustration`}
               loading="lazy"
               decoding="async"
+              width={1536}
+              height={1024}
             />
             <span className="service-icon">
               <Icon name={service.icon} />
