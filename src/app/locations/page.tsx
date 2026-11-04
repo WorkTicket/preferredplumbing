@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { LocationsPage } from "@/components/LocationsPage";
 export const metadata: Metadata = withSocialMetadata({
-  title: "Plumbing Service Areas",
+  title: "North Idaho Service Areas",
   description:
-    "Explore plumbing service areas across North Idaho and Eastern Washington for homes and businesses. Our owner-operated team is based in Spirit Lake, Idaho.",
+    "Preferred Plumbing serves Spirit Lake, Hayden, Coeur d'Alene, Post Falls, Rathdrum, Sandpoint, and nearby towns. Free estimates: 208-290-3889.",
   alternates: { canonical: "/locations/" },
 });
 export default function Page() {

@@ -504,8 +504,6 @@ export const locations: Location[] = [
   },
 ];
 
-// Keep future service-area content in the data set without publishing its
-// dedicated location page until it is ready to launch.
-export const publishedLocations = locations.filter(
-  (location) => location.slug === "spirit-lake-id",
-);
+// All service-area pages with written content ship publicly. Old /areas/*
+// URLs redirect here so Search Console equity is not stranded on 404s.
+export const publishedLocations = locations;

@@ -6,7 +6,7 @@ import { ServicesExplorer } from "@/components/ServicesExplorer";
 export const metadata: Metadata = withSocialMetadata({
   title: "Plumbing Services",
   description:
-    "Plumbing services in Spirit Lake. Owner-operated plumbing in Spirit Lake and North Idaho. Contact Preferred Plumbing Solutions for a free estimate.",
+    "Emergency plumbing, water heaters, drains, radiant heat, heated driveways, septic, and new construction. Free estimates — call 208-290-3889.",
   alternates: {
     canonical: "/services/",
   },

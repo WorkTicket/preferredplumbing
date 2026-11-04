@@ -22,15 +22,27 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 const description =
-  "Local plumber in Spirit Lake, Idaho for repairs, water heaters, drains, radiant heat, remodeling, and new construction across North Idaho.";
+  "Preferred Plumbing Solutions — owner-operated plumber in Spirit Lake, ID for repairs, water heaters, radiant heat, and new work. Call 208-290-3889.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Plumber in Spirit Lake, Idaho | Preferred Plumbing Solutions",
+    default: "Preferred Plumbing | Spirit Lake Plumber",
     template: "%s | Preferred Plumbing Solutions",
   },
   description,
+  keywords: [
+    "Preferred Plumbing Solutions",
+    "plumber Spirit Lake",
+    "plumber North Idaho",
+    "plumber Coeur d'Alene",
+    "plumber Hayden",
+    "plumber Post Falls",
+    "plumber Rathdrum",
+    "water heater repair",
+    "heated driveway Idaho",
+    "emergency plumber",
+  ],
   applicationName: site.name,
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
@@ -47,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Plumber in Spirit Lake, Idaho | Preferred Plumbing Solutions",
+    title: "Preferred Plumbing | Spirit Lake Plumber",
     description,
     images: [
       {
@@ -60,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Plumber in Spirit Lake, Idaho | Preferred Plumbing Solutions",
+    title: "Preferred Plumbing | Spirit Lake Plumber",
     description,
     images: ["/og-image.webp"],
   },
@@ -79,9 +91,14 @@ export const metadata: Metadata = {
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": ["Plumber", "LocalBusiness"],
+  "@type": ["Plumber", "LocalBusiness", "HomeAndConstructionBusiness"],
   "@id": `${site.url}/#business`,
   name: site.name,
+  alternateName: [
+    "Preferred Plumbing",
+    "Call Preferred Plumbing",
+    "Preferred Plumbing Spirit Lake",
+  ],
   description,
   url: site.url,
   logo: `${site.url}/assets/preferred-logo-truck.webp`,
@@ -95,6 +112,11 @@ const localBusinessSchema = {
     addressRegion: "ID",
     postalCode: "83869",
     addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 47.9627,
+    longitude: -116.8685,
   },
   areaServed: locations.map((location) => ({
     "@type": "City",
@@ -115,7 +137,7 @@ const localBusinessSchema = {
       closes: "17:00",
     },
   ],
-  sameAs: [site.facebook, site.tiktok],
+  sameAs: [site.facebook, site.tiktok, site.googleReview],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Plumbing services",

@@ -1,0 +1,45 @@
+# Permanent redirects for the /areas → /locations migration and retired blog URLs.
+# Cloudflare Pages: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Legacy service-area hub
+/areas-we-serve /locations/ 301
+/areas-we-serve/ /locations/ 301
+/areas /locations/ 301
+/areas/ /locations/ 301
+
+# City pages (placeholder keeps trailing-slash requests clean)
+/areas/:slug /locations/:slug/ 301
+/areas/:slug/ /locations/:slug/ 301
+
+# Retired blog → closest live service / location pages
+/blog /learn/ 301
+/blog/ /learn/ 301
+/blog/heated-driveway-worth-it-north-idaho /services/heated-driveways/ 301
+/blog/heated-driveway-worth-it-north-idaho/ /services/heated-driveways/ 301
+/blog/water-heater-installation-cost-idaho /services/water-heaters/ 301
+/blog/water-heater-installation-cost-idaho/ /services/water-heaters/ 301
+/blog/how-radiant-heat-works-idaho /services/radiant-heat/ 301
+/blog/how-radiant-heat-works-idaho/ /services/radiant-heat/ 301
+/blog/water-softeners-idaho-panhandle /services/water-softeners/ 301
+/blog/water-softeners-idaho-panhandle/ /services/water-softeners/ 301
+/blog/septic-system-bonner-county-idaho /services/septic-systems/ 301
+/blog/septic-system-bonner-county-idaho/ /services/septic-systems/ 301
+/blog/sewer-repair-vs-replacement-north-idaho /services/sewer-line/ 301
+/blog/sewer-repair-vs-replacement-north-idaho/ /services/sewer-line/ 301
+/blog/new-construction-plumbing-guide-idaho /services/new-construction/ 301
+/blog/new-construction-plumbing-guide-idaho/ /services/new-construction/ 301
+/blog/burst-pipe-winter-idaho-what-to-do /services/emergency/ 301
+/blog/burst-pipe-winter-idaho-what-to-do/ /services/emergency/ 301
+/blog/gas-line-installation-repair-north-idaho /services/gas-line/ 301
+/blog/gas-line-installation-repair-north-idaho/ /services/gas-line/ 301
+/blog/radiant-heat-vs-forced-air-idaho /services/radiant-heat/ 301
+/blog/radiant-heat-vs-forced-air-idaho/ /services/radiant-heat/ 301
+/blog/tankless-vs-tank-water-heaters-north-idaho /services/tankless-water-heaters/ 301
+/blog/tankless-vs-tank-water-heaters-north-idaho/ /services/tankless-water-heaters/ 301
+/blog/plumbing-permits-spirit-lake-idaho /locations/spirit-lake-id/ 301
+/blog/plumbing-permits-spirit-lake-idaho/ /locations/spirit-lake-id/ 301
+/blog/commercial-plumbing-contractor-north-idaho /services/commercial/ 301
+/blog/commercial-plumbing-contractor-north-idaho/ /services/commercial/ 301
+/blog/how-to-choose-plumber-spirit-lake-idaho /about/ 301
+/blog/how-to-choose-plumber-spirit-lake-idaho/ /about/ 301
+/blog/* /learn/ 301

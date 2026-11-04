@@ -73,11 +73,7 @@ export function LocationsDirectory() {
                     >
                       <Icon name="pin" />
                       <span>
-                        {town.slug === baseTown ? (
-                          <a href="/locations/spirit-lake-id/">{town.city}</a>
-                        ) : (
-                          town.city
-                        )}
+                        <a href={`/locations/${town.slug}/`}>{town.city}</a>
                         <small>
                           {town.state}
                           {town.slug === baseTown ? " · Our shop" : ""}

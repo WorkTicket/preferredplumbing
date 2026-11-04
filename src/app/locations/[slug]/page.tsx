@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocationPage } from "@/components/LocationPage";
 import { publishedLocations } from "@/data/locations";
-import { withSocialMetadata } from "@/lib/metadata";
+import { locationMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
 
@@ -18,11 +18,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const location = publishedLocations.find((item) => item.slug === slug);
   if (!location) notFound();
-  return withSocialMetadata({
-    title: `${location.city}, ${location.state} Plumber`,
-    description: `Local plumbing in ${location.city}, ${location.state} for repairs, water heaters, drains, wells, septic systems, remodels, and new construction. Request a free estimate.`,
-    alternates: { canonical: `/locations/${location.slug}/` },
-  });
+  return locationMetadata(location.city, location.state, location.slug);
 }
 
 export default async function Page({

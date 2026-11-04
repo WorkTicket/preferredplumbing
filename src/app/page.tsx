@@ -4,9 +4,11 @@ import { Icon } from "@/components/Icon";
 import { locations } from "@/data/locations";
 
 export const metadata: Metadata = withSocialMetadata({
-  title: "Spirit Lake Plumber | Preferred Plumbing Solutions",
+  title: {
+    absolute: "Preferred Plumbing | Spirit Lake Plumber",
+  },
   description:
-    "Local Spirit Lake plumber for repairs, water heaters, drains, radiant heat, remodels, and new construction. Free estimates from an owner-operated team.",
+    "Preferred Plumbing Solutions — owner-operated plumber in Spirit Lake, ID for repairs, water heaters, radiant heat, and new work. Call 208-290-3889.",
   alternates: {
     canonical: "/",
   },

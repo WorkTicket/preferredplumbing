@@ -5,9 +5,9 @@ import { Icon } from "@/components/Icon";
 import { EstimateForm } from "@/components/EstimateForm";
 
 export const metadata: Metadata = withSocialMetadata({
-  title: "Contact and free estimates",
+  title: "Free Estimate — 208-290-3889",
   description:
-    "Contact and free estimates. Owner-operated plumbing in Spirit Lake and North Idaho. Contact Preferred Plumbing Solutions for a free estimate.",
+    "Request a free plumbing estimate from Preferred Plumbing in Spirit Lake, ID. Call 208-290-3889 or send the form — clear pricing first.",
   alternates: {
     canonical: "/contact/",
   },
