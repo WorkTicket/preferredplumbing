@@ -4,8 +4,13 @@ import { serviceDepth } from "@/data/service-depth";
 import { services } from "@/data/services";
 import { projectPhotos, type ProjectPhoto } from "@/data/gallery";
 import { locations } from "@/data/locations";
-import { getAllServiceCityPages } from "@/data/service-city";
+import {
+  emergencyChecklist,
+  serviceCoverage,
+} from "@/data/service-coverage";
+import { getPostsForService } from "@/data/blog";
 import { site } from "@/data/site";
+import { BlogPostCard } from "./BlogPostCard";
 import { Icon } from "./Icon";
 import { JsonLd } from "./JsonLd";
 import { ProjectGallery } from "./ProjectGallery";
@@ -22,6 +27,13 @@ const portraitHeroSizes: Record<string, [number, number]> = {
   "kitchen-remodels": [1312, 1199],
   "water-heaters": [1024, 1536],
   "water-softeners": [1312, 1199],
+};
+
+const serviceH1: Record<string, string> = {
+  emergency: "Emergency Plumbing in North Idaho",
+  "heated-driveways": "Heated Driveway Installation in Idaho",
+  commercial: "Commercial Plumbing in North Idaho",
+  "new-construction": "New Construction Plumbing in North Idaho",
 };
 
 function findPhoto(stem: string): ProjectPhoto {
@@ -43,16 +55,19 @@ export function ServicePage({ slug }: { slug: string }) {
   const url = `${site.url}/services/${slug}/`;
   const heroImage = `/Preferred-Plumbing-Hero-Images/${slug}.webp`;
   const [heroWidth, heroHeight] = portraitHeroSizes[slug] ?? [1536, 1024];
-  // Each photo appears once on the page; the hero is an illustration.
   const photos = [...new Set(page.photos)].map(findPhoto);
-  const localPages = getAllServiceCityPages()
-    .filter((item) => item.serviceSlug === slug)
-    .map((item) => ({
-      ...item,
-      cityName:
-        locations.find((location) => location.slug === item.citySlug)?.city ||
-        item.citySlug,
-    }));
+  const coverage = serviceCoverage[slug];
+  const h1 = serviceH1[slug] || service.title;
+  const relatedPosts = getPostsForService(`/services/${slug}`, 3);
+  const areaServed = coverage
+    ? coverage.cities.map((city) => {
+        const location = locations.find((item) => item.slug === city.slug);
+        return {
+          "@type": "City" as const,
+          name: location ? `${location.city}, ${location.state}` : city.slug,
+        };
+      })
+    : ["North Idaho", "Eastern Washington"];
 
   return (
     <>
@@ -62,20 +77,35 @@ export function ServicePage({ slug }: { slug: string }) {
             "@context": "https://schema.org",
             "@type": "Service",
             "@id": `${url}#service`,
-            name: service.title,
+            name: h1,
             description: service.description,
             url,
             serviceType: service.title,
             provider: { "@id": `${site.url}/#business` },
-            areaServed: ["North Idaho", "Eastern Washington"],
+            areaServed,
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-              { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services/` },
-              { "@type": "ListItem", position: 3, name: service.title, item: url },
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${site.url}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${site.url}/services/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: service.title,
+                item: url,
+              },
             ],
           },
           {
@@ -102,22 +132,37 @@ export function ServicePage({ slug }: { slug: string }) {
           <div className="hero-grid">
             <div>
               <h1>
-                {service.title}
+                {h1}
                 <br />
                 <span className="cyan">Done right.</span>
               </h1>
               <p>{page.lead}</p>
               <div className="actions">
-                <a className="btn" href={`/contact/?service=${slug}`}>
+                <a className="btn" href={site.phoneHref}>
+                  Call {site.phone} <Icon name="phone" />
+                </a>
+                <a className="btn dark" href={`/contact/?service=${slug}`}>
                   Get a free estimate <Icon name="arrow" />
                 </a>
-                <a href="tel:2082903889">208-290-3889</a>
               </div>
+              {slug === "emergency" && (
+                <div className="svc-emergency-list">
+                  <h2 className="svc-label">What counts as an emergency</h2>
+                  <ul className="svc-checks">
+                    {emergencyChecklist.map((item) => (
+                      <li key={item}>
+                        <Icon name="check" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
             <img
               className="cutout"
               src={heroImage}
-              alt={`${service.title} illustration`}
+              alt={`${service.title} in North Idaho`}
               fetchPriority="high"
               width={heroWidth}
               height={heroHeight}
@@ -140,9 +185,9 @@ export function ServicePage({ slug }: { slug: string }) {
             <a className="btn" href={`/contact/?service=${slug}`}>
               Request an estimate <Icon name="arrow" />
             </a>
-            <a className="svc-aside-phone" href="tel:2082903889">
+            <a className="svc-aside-phone" href={site.phoneHref}>
               <Icon name="phone" />
-              208-290-3889
+              {site.phone}
             </a>
             <ul>
               <li>
@@ -163,77 +208,106 @@ export function ServicePage({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <section className="section tint">
-        <div className="wrap">
-          <h2 className="svc-h2">{page.featuresHeading}</h2>
-          <div className="svc-features">
-            {page.features.map((feature) => (
-              <article key={feature.title}>
-                <h3>{feature.title}</h3>
-                <p>{feature.text}</p>
-              </article>
-            ))}
+      {coverage && (
+        <section className="section tint">
+          <div className="wrap">
+            <div className="sectionhead">
+              <div>
+                <div className="eyebrow">Cities we cover</div>
+                <h2 className="svc-h2">{coverage.heading}</h2>
+                <p>{coverage.intro}</p>
+              </div>
+            </div>
+            <ul className="svc-coverage">
+              {coverage.cities.map((city) => {
+                const location = locations.find(
+                  (item) => item.slug === city.slug,
+                );
+                if (!location) return null;
+                return (
+                  <li key={city.slug}>
+                    <a href={`/locations/${city.slug}/`}>
+                      {location.city},{" "}
+                      {location.state === "Idaho" ? "ID" : "WA"}
+                    </a>
+                    <span>{city.blurb}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
+        </section>
+      )}
+
+      <section className="section wrap">
+        <h2 className="svc-h2">{page.featuresHeading}</h2>
+        <div className="svc-features">
+          {page.features.map((feature) => (
+            <article key={feature.title}>
+              <h3>{feature.title}</h3>
+              <p>{feature.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="section wrap">
-        <div className="svc-process">
-          <div>
-            <h2 className="svc-h2">{depth.title}</h2>
-            <p>{depth.lead}</p>
-            <h3 className="svc-label">Signs it’s time to call</h3>
-            <ul className="svc-checks">
-              {depth.signals.map((signal) => (
-                <li key={signal}>
-                  <Icon name="check" />
-                  {signal}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="svc-label">How it works</h3>
-            <ol className="svc-steps">
-              {depth.steps.map((step, index) => (
-                <li key={step}>
-                  <h4>{step}</h4>
-                  <p>{stepText[index]}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="svc-ready">
-              <h3 className="svc-label">Helpful to have ready</h3>
+      <section className="section tint">
+        <div className="wrap">
+          <div className="svc-process">
+            <div>
+              <h2 className="svc-h2">{depth.title}</h2>
+              <p>{depth.lead}</p>
+              <h3 className="svc-label">Signs it’s time to call</h3>
               <ul className="svc-checks">
-                {depth.prep.map((item) => (
-                  <li key={item}>
+                {depth.signals.map((signal) => (
+                  <li key={signal}>
                     <Icon name="check" />
-                    {item}
+                    {signal}
                   </li>
                 ))}
               </ul>
+            </div>
+            <div>
+              <h3 className="svc-label">How it works</h3>
+              <ol className="svc-steps">
+                {depth.steps.map((step, index) => (
+                  <li key={step}>
+                    <h4>{step}</h4>
+                    <p>{stepText[index]}</p>
+                  </li>
+                ))}
+              </ol>
+              <div className="svc-ready">
+                <h3 className="svc-label">Helpful to have ready</h3>
+                <ul className="svc-checks">
+                  {depth.prep.map((item) => (
+                    <li key={item}>
+                      <Icon name="check" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {photos.length >= 2 ? (
-        <section className="section tint">
-          <div className="wrap">
-            <div className="sectionhead">
-              <div>
-                <h2>
-                  Recent work
-                  <br />
-                  from the field.
-                </h2>
-              </div>
-              <a href="/gallery/" className="btn dark">
-                Full project gallery <Icon name="camera" />
-              </a>
+        <section className="section wrap">
+          <div className="sectionhead">
+            <div>
+              <h2>
+                Recent work
+                <br />
+                from the field.
+              </h2>
             </div>
-            <ProjectGallery items={photos} />
+            <a href="/gallery/" className="btn dark">
+              Full project gallery <Icon name="camera" />
+            </a>
           </div>
+          <ProjectGallery items={photos} />
         </section>
       ) : (
         <section className="svc-photo-bar">
@@ -249,39 +323,42 @@ export function ServicePage({ slug }: { slug: string }) {
         </section>
       )}
 
-      <section className="section wrap">
-        <div className="faq-grid">
-          <div>
-            <h2>
-              Before we
-              <br />
-              get started.
-            </h2>
-          </div>
-          <div>
-            {page.faqs.map((item) => (
-              <details key={item.q}>
-                <summary>{item.q}</summary>
-                <p>{item.a}</p>
-              </details>
-            ))}
+      <section className="section tint">
+        <div className="wrap">
+          <div className="faq-grid">
+            <div>
+              <h2>
+                Before we
+                <br />
+                get started.
+              </h2>
+            </div>
+            <div>
+              {page.faqs.map((item) => (
+                <details key={item.q}>
+                  <summary>{item.q}</summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {localPages.length > 0 && (
+      {relatedPosts.length > 0 && (
         <section className="section wrap">
           <div className="sectionhead">
             <div>
-              <div className="eyebrow">Local service guides</div>
-              <h2>{service.title} near you.</h2>
+              <div className="eyebrow">Guides</div>
+              <h2>Related reading.</h2>
             </div>
+            <a href="/blog/" className="btn dark">
+              All guides <Icon name="arrow" />
+            </a>
           </div>
-          <div className="actions">
-            {localPages.map((localPage) => (
-              <a className="btn dark" href={localPage.path} key={localPage.path}>
-                {localPage.cityName} <Icon name="arrow" />
-              </a>
+          <div className="svc-features">
+            {relatedPosts.map((post) => (
+              <BlogPostCard key={post.slug} post={post} />
             ))}
           </div>
         </section>

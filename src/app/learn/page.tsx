@@ -87,15 +87,13 @@ export default function Page() {
                 }
               </p>
               <div className={"actions"}>
-                <a className={"btn"} href={"/contact/"}>
-                  {"Get a free estimate "}
+                <a className={"btn"} href={"/blog/"}>
+                  {"Read the blog "}
                   <Icon name="arrow" />
                 </a>
-                <a
-                  href={"tel:2082903889"}
-                  style={{ fontWeight: "800", fontSize: "14px" }}
-                >
-                  {"208-290-3889"}
+                <a className={"btn dark"} href={"/contact/"}>
+                  {"Get a free estimate "}
+                  <Icon name="arrow" />
                 </a>
               </div>
             </div>

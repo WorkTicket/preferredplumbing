@@ -163,64 +163,64 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   "commercial": {
     "title": "Commercial Plumbing",
-    "lead": "We handle plumbing for retail, industrial, and office properties. High-demand systems built to code and built to last. We manage every stage, from new builds to renovations.",
-    "introHeading": "Commercial Plumbing That Keeps Your Building Running",
+    "lead": "Commercial plumbing contractor for restaurants, retail, offices, tenant improvements, backflow, and grease traps across North Idaho. Clear quotes — call 208-290-3889.",
+    "introHeading": "Commercial plumbing we handle",
     "intro": [
-      "Commercial plumbing has to keep up with daily use, inspections, and tight schedules. Preferred Plumbing Solutions builds and services systems for businesses in Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and Spokane.",
-      "We work on retail centers, warehouses, office buildings, restaurants, and more. Every job gets planned around how your place actually operates. We know North Idaho winters, freeze-ups, and the water quality quirks that hit rural properties.",
-      "We stay code-compliant, keep energy waste down, and coordinate with general contractors, property managers, and owners so the job stays on track. From design through final inspection, we handle the plumbing side."
+      "Commercial plumbing has to keep up with daily use, inspections, and tight schedules. Preferred Plumbing Solutions builds and services systems for businesses in Post Falls, Hayden, Coeur d'Alene, Spirit Lake, Rathdrum, and the rest of our service towns.",
+      "We handle restaurants and food service, retail spaces, offices, tenant improvements, backflow prevention, grease traps, and light industrial work. Every job is planned around how the building actually operates — including North Idaho freeze risk and hard water.",
+      "We stay code-compliant, coordinate with general contractors and property managers, and give a clear quote before work starts. From design through final inspection, we own the plumbing scope."
     ],
-    "featuresHeading": "How we can help.",
+    "featuresHeading": "Commercial plumbing we handle.",
     "features": [
       {
-        "title": "Plumbing System Design & Planning",
-        "text": "We work with architects and project leads to design systems that pass code, run efficiently, and match how the building will be used. Fixture counts, pipe sizing, demand, and room to grow later all get worked out up front."
+        "title": "Restaurants & food service",
+        "text": "Kitchen drains, grease traps, high-demand hot water, and fixture packages built for daily wash-down cycles."
       },
       {
-        "title": "Commercial Water Heater Installation",
-        "text": "We install high-capacity tanks and tankless units for hotels, medical offices, and other high-demand sites. We look at your real usage and recommend equipment that balances cost with performance."
+        "title": "Retail & office plumbing",
+        "text": "Restrooms, break rooms, and remodel work that keeps tenants open with minimal downtime."
       },
       {
-        "title": "Backflow Prevention & Testing",
-        "text": "Many commercial sites need certified backflow protection. We install and test assemblies to keep potable water safe, and we handle annual testing, certifications, and repairs."
+        "title": "Tenant improvements",
+        "text": "TI rough-in and finish plumbing coordinated with your GC so inspections and openings stay on schedule."
       },
       {
-        "title": "Sewer & Drain Infrastructure",
-        "text": "We build and repair drain systems, stormwater lines, and sewer runs. Camera work and solid routing help cut down on clogs and backups later."
+        "title": "Backflow prevention & testing",
+        "text": "Install, repair, and testing for assemblies that protect potable water and keep you compliant."
       },
       {
-        "title": "Grease Trap Installation & Maintenance",
-        "text": "A must for restaurants and food service. We install new traps and keep them on a schedule so you avoid clogs, fines, and messy shutdowns."
+        "title": "Grease trap install & service",
+        "text": "New traps and maintenance schedules that prevent backups, fines, and messy shutdowns."
       },
       {
-        "title": "Commercial Fixture & Appliance Installations",
-        "text": "We install commercial toilets, faucets, urinals, kitchen sinks, dishwashers, and disposals built for heavy use. Every install gets pressure testing, leak checks, and proper sealing."
+        "title": "Commercial fixtures & water heating",
+        "text": "Heavy-use toilets, faucets, sinks, and high-capacity tank or tankless water heaters sized for real demand."
       }
     ],
     "faqs": [
       {
         "q": "What types of commercial buildings do you service?",
-        "a": "Office buildings, restaurants, warehouses, medical centers, retail stores, schools, and mixed-use developments. Each gets a system built for its specific needs."
+        "a": "Restaurants, retail, offices, tenant improvements, warehouses, medical offices, schools, and mixed-use buildings across our North Idaho service area."
       },
       {
         "q": "Do you handle plumbing for new commercial builds?",
-        "a": "Yes. We do full commercial systems for new construction. We coordinate with builders to hit code and keep the project on schedule."
+        "a": "Yes. We do full commercial systems for new construction and coordinate with builders to hit code and keep the project on schedule."
       },
       {
-        "q": "Are your commercial plumbing systems energy efficient?",
-        "a": "Yes. We use high-efficiency water heaters, low-flow fixtures, and smart layouts to cut water use and operating costs."
+        "q": "Do you install and test backflow assemblies?",
+        "a": "Yes. We install, repair, and test backflow prevention assemblies and help keep your certifications current."
       },
       {
-        "q": "Can you install ADA-compliant plumbing fixtures?",
-        "a": "Yes. We install ADA-compliant sinks and toilets that meet all clearance and height requirements. Your property will be fully accessible."
+        "q": "Can you install grease traps for restaurants?",
+        "a": "Yes. We install new grease traps and set up maintenance so you avoid clogs and inspection issues."
       },
       {
-        "q": "How soon can you start on a commercial project?",
-        "a": "It depends on the scope. We give you a clear timeline and start as soon as permits and plans are finalized."
+        "q": "How do I get a commercial plumbing quote?",
+        "a": "Call 208-290-3889 or send the contact form with the property address, tenant space, and scope. We quote before work starts."
       },
       {
-        "q": "What areas around Spirit Lake do you cover?",
-        "a": "We serve commercial clients in Spirit Lake, Athol, Rathdrum, Blanchard, and Sandpoint. Also rural areas in Kootenai and Bonner Counties."
+        "q": "Which cities do you cover for commercial work?",
+        "a": "Post Falls, Hayden, Coeur d'Alene, Spirit Lake, Rathdrum, and the other towns on our locations list."
       }
     ],
     "related": [
@@ -377,11 +377,11 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   "emergency": {
     "title": "Emergency Plumbing",
-    "lead": "Fast emergency plumbing to stop damage and get your system back online. Available during business hours (Sunday through Friday, 7am to 5pm) across North Idaho.",
+    "lead": "Emergency plumber for North Idaho — Sunday through Friday, 7am to 5pm. Call 208-290-3889 and we will tell you the soonest truck we can send.",
     "introHeading": "Emergency Plumbing Across North Idaho",
     "intro": [
-      "Burst pipe, sewage backup, or a water heater that just died: we respond fast during business hours to stop the damage and get things back online.",
-      "Our trucks are stocked and our guys know what to do. We handle urgent plumbing in Spirit Lake, Rathdrum, Hayden, Post Falls, and Coeur d'Alene, and show up ready to work.",
+      "Burst pipe, sewage backup, or a water heater that just died: we respond during business hours to stop the damage and get things back online. We are not a 24/7 call center — you reach the same owner-operated crew that works Spirit Lake every week.",
+      "Trucks leave from Spirit Lake for Rathdrum, Hayden, Post Falls, Coeur d'Alene, Athol, and Sandpoint (northern runs staged when called early). We show up stocked and ready to stabilize the failure.",
       "Emergency service is available Sunday through Friday, 7am to 5pm. We are closed on Saturday."
     ],
     "featuresHeading": "How we can help.",
@@ -426,15 +426,19 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
       {
         "q": "Can you handle emergency gas line repairs?",
-        "a": "Yes. Our licensed techs are trained in gas line shutdown and repair. If you smell gas, leave the area and call us."
+        "a": "If you smell gas, leave the building immediately and call the gas utility or 911 first. Once you are safe, call us at 208-290-3889 during business hours. Our licensed techs handle shutdown, locating, and repair after the scene is secure."
       },
       {
         "q": "What should I do while waiting for the emergency plumber?",
-        "a": "Shut off the main water valve if you can. Move valuables away from the area. Our dispatch team can walk you through it."
+        "a": "For water emergencies, shut off the main valve if you can and move valuables. For a gas smell, leave and call the utility or 911 first. When you call us we can walk you through the next safe step."
       },
       {
         "q": "What are your emergency service hours?",
-        "a": "We handle emergency plumbing Sunday through Friday, 7am to 5pm. We are closed on Saturday."
+        "a": "Sunday through Friday, 7am to 5pm. We are closed Saturday and we do not offer overnight 24/7 emergency service."
+      },
+      {
+        "q": "Do after-hours rates apply during business-hour emergencies?",
+        "a": "Emergency rates can be higher than a scheduled appointment because we prioritize the truck and materials. We quote the rate before work starts so you can decide."
       }
     ],
     "related": [
@@ -522,12 +526,12 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   "heated-driveways": {
     "title": "Heated Driveways & Snow-Melt",
-    "lead": "Hydronic heated driveways and snow-melt systems that keep North Idaho driveways ice-free. The same radiant expertise we use under floors, installed under your driveway.",
-    "introHeading": "Never Shovel Snow Again",
+    "lead": "Hydronic heated driveway and snow-melt installs across our North Idaho and Eastern Washington service area. Same radiant expertise we use under floors — outdoors under your slab.",
+    "introHeading": "Where we install heated driveways",
     "intro": [
       "The same hydronic radiant systems we put under floors, we put under driveways. Stay ice-free all winter without the salt, the shoveling, or the slip risk.",
-      "If you already know us for in-floor heat, heated driveways use the same idea outdoors. Hydronic tubing under the driveway, walkway, or entry pad connects to a boiler or dedicated heat source so snow and ice melt on contact.",
-      "We install heated driveways in Spirit Lake, Coeur d'Alene, Post Falls, Moscow, Hayden, and Rathdrum. North Idaho winters are long. A heated driveway means no more 6am shoveling before work, no ice by the garage, and no rock salt chewing up concrete or landscaping."
+      "Hydronic tubing under the driveway, walkway, or entry pad connects to a boiler or dedicated heat source so snow and ice melt on contact. Electric mats can make sense for small walkways; hydronic usually wins on larger driveways for operating cost.",
+      "We install heated driveways in the towns we already serve — Spirit Lake, Rathdrum, Hayden, Post Falls, Coeur d'Alene, Sandpoint, Moscow, Newport, and the rest of our locations list. We do not take installs in distant cities outside that service area. Typical timeline: design and bid first, then tubing with new pours or a planned retrofit phase."
     ],
     "featuresHeading": "How we can help.",
     "features": [
@@ -733,63 +737,64 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   "new-construction": {
     "title": "New Construction Plumbing",
-    "lead": "We handle all phases of plumbing for new builds. Systems are code-compliant and built to last. We work with contractors and architects on custom homes and commercial developments.",
-    "introHeading": "New Construction Plumbing Done Right From the Start",
+    "lead": "New construction plumbing in North Idaho for builders and homeowners — rough-in, top-out, final, and inspections. Request a bid at 208-290-3889.",
+    "introHeading": "Builder-focused plumbing from underground to trim",
     "intro": [
-      "Getting plumbing right on a new build saves everyone headaches later. Homes, multi-unit projects, and commercial buildings all need solid rough-in and finish work. We handle new construction plumbing across Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and Spokane.",
-      "Our licensed crew works with general contractors, developers, architects, and homeowners. We match the plumbing plan to the layout, the utilities, and how the building will be used. From underground to trim-out, we deliver complete packages. We know Kootenai County soils, winter weather, and permitting."
+      "Getting plumbing right on a new build saves everyone headaches later. We handle underground, rough-in, top-out, final trim, and inspection timing for custom homes, production builds, and light commercial in Rathdrum, Coeur d'Alene, Hayden, Post Falls, and Spirit Lake.",
+      "Our licensed crew works with general contractors, developers, architects, and homeowners. We match the plumbing plan to the layout, the utilities, and how the building will be used. We know Kootenai County soils, frost depth, permits, and inspection windows.",
+      "Call early in the schedule so underground and top-out land when framing and slab windows are open — not after finish materials are waiting on us."
     ],
     "featuresHeading": "How we can help.",
     "features": [
       {
-        "title": "Underground & Rough-In Plumbing",
-        "text": "We install under-slab and in-wall piping early in the build. We coordinate with builders to match blueprints and avoid rework. Connections are made to last."
+        "title": "Underground & rough-in",
+        "text": "Under-slab and in-wall piping early in the build, coordinated to blueprints so you avoid rework before insulation."
       },
       {
-        "title": "Fixture Planning & Final Installation",
-        "text": "We install toilets, sinks, showers, and water heaters per the plans. Fixtures are code-compliant, water-efficient, and tested before closeout."
+        "title": "Top-out & final trim",
+        "text": "Supply, DWV, and fixture setting through final, with pressure and flow checks before closeout."
       },
       {
-        "title": "Water Line Installation & Pressure Testing",
-        "text": "We run main water lines and set pressure regulation for residential or commercial demand. Quality pipe and fittings go in the ground and in the walls."
+        "title": "Permits & inspection timing",
+        "text": "We pull what is required and schedule inspections so GCs are not stuck waiting on plumbing sign-off."
       },
       {
-        "title": "Drain, Waste & Vent (DWV) Systems",
-        "text": "Good venting and drainage keep sewer gas out and blockages down. We install complete DWV systems with the right slope and sizing."
+        "title": "Working with GCs",
+        "text": "Clear scopes, change-order discipline, and punch-list follow-through so the plumbing lane stays predictable."
       },
       {
-        "title": "Gas Line Installation for Appliances",
-        "text": "We run gas lines with certified shut-offs and regulators for furnaces, stoves, water heaters, and more. Everything gets leak tested to code."
+        "title": "Gas rough-in for appliances",
+        "text": "Sized gas runs with shutoffs and leak testing for furnaces, ranges, water heaters, and fireplaces."
       },
       {
-        "title": "Utility Coordination & Final System Testing",
-        "text": "We coordinate utility hookups and inspections, then run full-system tests for flow, pressure, and leaks before we call it done."
+        "title": "Request a bid",
+        "text": "Send plans or a scope note and we return a clear bid for underground through trim. Call 208-290-3889 to start."
       }
     ],
     "faqs": [
       {
         "q": "Do you provide plumbing design for custom home builds?",
-        "a": "Yes. We design layouts around your home's architecture and how you use each room. We focus on water efficiency, good pressure, and easy access."
+        "a": "Yes. We design layouts around the architecture and how each room will be used, with water efficiency and service access in mind."
       },
       {
         "q": "Can you handle plumbing for multi-unit residential buildings?",
-        "a": "Yes. We install systems for duplexes, townhomes, and apartments with shared water and sewer. We handle complex layouts and meter setups."
+        "a": "Yes. We install systems for duplexes, townhomes, and apartments with shared water and sewer, including meter setups."
       },
       {
         "q": "Will my new plumbing system meet state codes?",
-        "a": "Yes. Everything we install meets current Idaho plumbing codes. Your property will be ready for city or county inspection."
-      },
-      {
-        "q": "Do you offer water-saving plumbing options for new homes?",
-        "a": "Yes. We install low-flow toilets, efficient showerheads, and smart water heaters. These save water and lower your utility bills."
+        "a": "Yes. Everything we install meets current Idaho plumbing codes and is ready for city or county inspection."
       },
       {
         "q": "How early should plumbing start during new construction?",
-        "a": "Plumbing starts during the rough-in phase, right after framing and before insulation. We coordinate with your builder to time it right."
+        "a": "Underground and rough-in start after foundation and framing windows open, before insulation. We coordinate timing with your GC."
       },
       {
         "q": "Do you install tankless water heaters during construction?",
-        "a": "Yes. We install tankless systems during the build with proper venting and hookups. They save space and give you hot water on demand."
+        "a": "Yes. We install tankless systems during the build with proper venting, gas or electric capacity, and hookups."
+      },
+      {
+        "q": "How do I request a new construction plumbing bid?",
+        "a": "Call 208-290-3889 or use the contact form. Share the address, plans if you have them, and target rough-in dates."
       }
     ],
     "related": [
@@ -1023,7 +1028,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     "lead": "We replace damaged or outdated sewer lines using camera inspections and trenchless methods when possible. Minimal digging, maximum reliability.",
     "introHeading": "Sewer Line Replacement When the Old Line Gives Out",
     "intro": [
-      "A failed sewer line is not something you can put off. Older pipes and seasonal soil movement in North Idaho make these jobs urgent. We replace sewer lines in Spirit Lake, Coeur d'Alene, Post Falls, and Sandpoint, and we do the job carefully.",
+      "A failed sewer line is not something you can put off. Older pipes and seasonal soil movement in North Idaho make these jobs urgent. We replace sewer lines in Rathdrum, Coeur d'Alene, Post Falls, Spirit Lake, and nearby towns, and we do the job carefully.",
       "Every job starts with a camera inspection so we can see what is going on. Then we recommend the best approach, including trenchless methods when they fit. Residential or commercial, we work to limit disruption to your property.",
       "Estimates are honest, work is guaranteed, and we leave the site clean and safe when we are done."
     ],
@@ -1241,7 +1246,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     "lead": "We install and repair tank water heaters for homes and businesses across North Idaho. We help you pick the right model for your family size, usage, and budget.",
     "introHeading": "Hot Water You Can Count On",
     "intro": [
-      "You do not think about hot water until it is gone. Cold showers and a dishwasher that will not clean right are no fun. We install, repair, and replace tank water heaters in Spirit Lake, Coeur d'Alene, Post Falls, Hayden, Rathdrum, Athol, and Oldtown.",
+      "You do not think about hot water until it is gone. Cold showers and a dishwasher that will not clean right are no fun. We install, repair, and replace tank water heaters in Spirit Lake, Sandpoint, Coeur d'Alene, Post Falls, Hayden, Rathdrum, Athol, and Oldtown.",
       "North Idaho winters are hard on heaters. We focus on performance, safety, and value. Traditional tanks and tankless units both have a place, and we help you pick what fits your space, usage, and budget.",
       "Efficiency and longevity matter here. Every unit we install or service gets checked against state and local code. We know what this climate asks of a water heater."
     ],

@@ -30,19 +30,19 @@ const serviceTitles: Record<string, string> = {
 
 const serviceDescriptions: Record<string, string> = {
   emergency:
-    "Emergency plumber in North Idaho for burst pipes, backups, and no-hot-water calls. Owner-operated. Call 208-290-3889.",
+    "Emergency plumber in North Idaho — Sun–Fri 7am–5pm for burst pipes, sewer backups, and no water. Call 208-290-3889.",
   "radiant-heat":
     "Radiant floor heating design and install for North Idaho homes. Built for cold winters. Free estimates: 208-290-3889.",
   "heated-driveways":
-    "Heated driveway and snow-melt systems for North Idaho. Hydronic installs sized for ice and freeze depth. Call 208-290-3889.",
+    "Heated driveway installs across our North Idaho service area. Hydronic snow-melt sized for freeze depth. Call 208-290-3889.",
   "new-construction":
-    "New construction plumbing for North Idaho builds — rough-in through trim. Clear scope, free estimates. Call 208-290-3889.",
+    "New construction plumbing in North Idaho — rough-in, top-out, final, and inspections. Free bids: 208-290-3889.",
   commercial:
-    "Commercial plumbing for North Idaho businesses and light commercial jobs. Repairs and project work. Call 208-290-3889.",
+    "Commercial plumbing for restaurants, retail, offices, TI, backflow, and grease traps in North Idaho. Call 208-290-3889.",
   "tankless-water-heaters":
     "Tankless water heater install and service in North Idaho. Right-sized units and clean installs. Call 208-290-3889.",
   "water-heaters":
-    "Water heater repair and replacement in North Idaho. Same-week installs when stock allows. Free estimates: 208-290-3889.",
+    "Water heater repair and replacement in North Idaho, including Sandpoint and Spirit Lake. Call 208-290-3889 today.",
   "water-softeners":
     "Water softener installation for hard North Idaho well and city water. Sized correctly. Free estimates: 208-290-3889.",
   remodels:
@@ -58,7 +58,7 @@ const serviceDescriptions: Record<string, string> = {
   dishwashers:
     "Dishwasher and garbage disposal install or replacement in North Idaho. Owner-operated. Call 208-290-3889 today.",
   "sewer-line":
-    "Sewer line repair and replacement in North Idaho. Diagnose first, then clear options and pricing. Call 208-290-3889.",
+    "Sewer line repair and replacement in Rathdrum, Coeur d'Alene, and Post Falls. Camera first — call 208-290-3889.",
   "drain-cleaning":
     "Drain cleaning for sinks, tubs, and main lines in North Idaho. Owner-operated team. Free estimates: 208-290-3889.",
   "water-line":
@@ -132,6 +132,42 @@ export function serviceMetadata(slug: string): Metadata {
   });
 }
 
+const locationSeo: Record<
+  string,
+  { title: string; description: string }
+> = {
+  "post-falls-id": {
+    title: "Plumber in Post Falls, ID",
+    description:
+      "Plumber in Post Falls for repairs, water heaters, and emergency plumbing Sun–Fri 7–5. Free estimates — call 208-290-3889.",
+  },
+  "coeur-dalene-id": {
+    title: "Plumber in Coeur d'Alene, ID",
+    description:
+      "Plumber in Coeur d'Alene for emergency repairs, water heaters, and remodels. Owner-operated — call 208-290-3889.",
+  },
+  "hayden-id": {
+    title: "Plumber in Hayden, ID",
+    description:
+      "Plumber in Hayden for plumbing repair, water heaters, and same-week service. Free estimates — call 208-290-3889.",
+  },
+  "rathdrum-id": {
+    title: "Plumber in Rathdrum, ID",
+    description:
+      "Plumber in Rathdrum — short dispatch from Spirit Lake. Emergency, water heaters, new construction. Call 208-290-3889.",
+  },
+  "sandpoint-id": {
+    title: "Plumber in Sandpoint, ID",
+    description:
+      "Plumber in Sandpoint for water heaters, sewer, radiant heat, and freeze repairs. Call 208-290-3889 for a free estimate.",
+  },
+  "spirit-lake-id": {
+    title: "Plumber in Spirit Lake, ID",
+    description:
+      "Spirit Lake plumber for emergency plumbing, water heaters, and new work. Home-base dispatch — call 208-290-3889.",
+  },
+};
+
 export function locationMetadata(
   city: string,
   state: string,
@@ -139,9 +175,12 @@ export function locationMetadata(
 ): Metadata {
   const stateAbbr =
     state === "Idaho" ? "ID" : state === "Washington" ? "WA" : state;
+  const custom = locationSeo[slug];
   return withSocialMetadata({
-    title: `Plumber in ${city}, ${stateAbbr}`,
-    description: `Need a plumber in ${city}, ${stateAbbr}? Preferred Plumbing Solutions is owner-operated from Spirit Lake. Free estimates — call 208-290-3889.`,
+    title: custom?.title || `Plumber in ${city}, ${stateAbbr}`,
+    description:
+      custom?.description ||
+      `Need a plumber in ${city}, ${stateAbbr}? Preferred Plumbing Solutions is owner-operated from Spirit Lake. Free estimates — call 208-290-3889.`,
     alternates: { canonical: `/locations/${slug}/` },
   });
 }

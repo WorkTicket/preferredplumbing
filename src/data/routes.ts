@@ -3,6 +3,7 @@ export const routes = [
   "/locations/spirit-lake-id",
   "/",
   "/about",
+  "/blog",
   "/contact",
   "/faqs",
   "/gallery",

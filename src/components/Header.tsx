@@ -123,6 +123,7 @@ export function Header() {
             </div>
             {navLink("/about/", "About")}
             {navLink("/locations/", "Locations")}
+            {navLink("/blog/", "Blog")}
             {navLink("/gallery/", "Gallery")}
             {navLink("/contact/", "Contact")}
           </div>

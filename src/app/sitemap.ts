@@ -3,7 +3,7 @@ import { routes } from "@/data/routes";
 import { site } from "@/data/site";
 import { publishedLocations } from "@/data/locations";
 import { services } from "@/data/services";
-import { getAllServiceCityPages } from "@/data/service-city";
+import { getAllBlogSlugs } from "@/data/blog";
 export const dynamic = "force-static";
 
 function canonicalUrl(route: string): string {
@@ -15,18 +15,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const generated = [
     ...services.map((service) => `/services/${service.slug}`),
     ...publishedLocations.map((location) => `/locations/${location.slug}`),
-    ...getAllServiceCityPages().map((page) => page.path),
+    "/blog",
+    ...getAllBlogSlugs().map((slug) => `/blog/${slug}`),
   ];
+  const now = new Date();
   return [...new Set([...routes, ...generated])].map((route) => ({
     url: canonicalUrl(route),
-    changeFrequency: "weekly",
+    lastModified: now,
+    changeFrequency: "weekly" as const,
     priority:
       route === "/"
         ? 1
         : route === "/services" ||
             route === "/locations" ||
+            route === "/blog" ||
             route === "/locations/spirit-lake-id"
           ? 0.9
-          : 0.7,
+          : route.startsWith("/blog/")
+            ? 0.75
+            : 0.7,
   }));
 }
