@@ -356,7 +356,7 @@ export function ServicePage({ slug }: { slug: string }) {
               All guides <Icon name="arrow" />
             </a>
           </div>
-          <div className="svc-features">
+          <div className="blog-grid">
             {relatedPosts.map((post) => (
               <BlogPostCard key={post.slug} post={post} />
             ))}
