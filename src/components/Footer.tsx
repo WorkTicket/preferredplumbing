@@ -39,7 +39,10 @@ export function Footer() {
                 Owner-operated plumbing, radiant heat, and repairs. Spirit Lake
                 roots. North Idaho reach.
               </p>
-              <div className="sf-social" aria-label="Follow Preferred Plumbing">
+              <div
+                className="sf-social"
+                aria-label="Follow Preferred Plumbing Solutions"
+              >
                 {social.map((s) => (
                   <a
                     key={s.label}

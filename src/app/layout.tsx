@@ -27,7 +27,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Preferred Plumbing | Spirit Lake Plumber",
+    default: "Preferred Plumbing Solutions | Spirit Lake Plumber",
     template: "%s | Preferred Plumbing Solutions",
   },
   description,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Preferred Plumbing | Spirit Lake Plumber",
+    title: "Preferred Plumbing Solutions | Spirit Lake Plumber",
     description,
     images: [
       {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Preferred Plumbing | Spirit Lake Plumber",
+    title: "Preferred Plumbing Solutions | Spirit Lake Plumber",
     description,
     images: ["/og-image.webp"],
   },
@@ -104,7 +104,7 @@ const localBusinessSchema = {
   logo: `${site.url}/assets/preferred-logo-truck.webp`,
   image: `${site.url}/og-image.webp`,
   telephone: `+1-${site.phone}`,
-  email: site.hunterEmail,
+  email: [site.hunterEmail, site.ronEmail],
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",

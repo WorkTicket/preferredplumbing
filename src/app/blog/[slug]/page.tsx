@@ -35,9 +35,9 @@ function clipDescription(text: string): string {
 }
 
 function absoluteTitle(preferred: string, fallback: string): string {
-  const brand = " | Preferred Plumbing";
+  const brand = " | Preferred Plumbing Solutions";
   const base = (preferred || fallback).replace(/\s+/g, " ").trim();
-  const full = base.includes("Preferred") ? base : `${base}${brand}`;
+  const full = base.includes("Preferred Plumbing") ? base : `${base}${brand}`;
   if (full.length <= 60) return full;
   const budget = 60 - brand.length;
   const short = base.slice(0, budget - 1).replace(/\s+\S*$/, "").trim();

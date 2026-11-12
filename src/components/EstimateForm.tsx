@@ -144,7 +144,7 @@ export function EstimateForm() {
             type="tel"
             required
             autoComplete="tel"
-            placeholder="(208) 555-0123"
+            placeholder="208-XXX-XXXX"
           />
         </label>
         <label>

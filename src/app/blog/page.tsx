@@ -6,7 +6,9 @@ import { site } from "@/data/site";
 import { withSocialMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = withSocialMetadata({
-  title: { absolute: "Plumbing Tips for North Idaho | Preferred Plumbing" },
+  title: {
+    absolute: "Plumbing Tips for North Idaho | Preferred Plumbing Solutions",
+  },
   description:
     "Practical plumbing, water heater, radiant heat, drain, sewer, and remodel guides for Spirit Lake and North Idaho homeowners.",
   alternates: { canonical: "/blog/" },

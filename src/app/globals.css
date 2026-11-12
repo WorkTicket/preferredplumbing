@@ -833,7 +833,7 @@
     .navlinks {
       gap: 16px;
     }
-    .navcall {
+    .navcall small {
       display: none;
     }
     .hero {
@@ -2036,7 +2036,7 @@
     nav {
       gap: 18px;
     }
-    .navcall {
+    .navcall small {
       display: none;
     }
     .brand {

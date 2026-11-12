@@ -5,7 +5,7 @@ import { locations } from "@/data/locations";
 
 export const metadata: Metadata = withSocialMetadata({
   title: {
-    absolute: "Preferred Plumbing | Spirit Lake Plumber",
+    absolute: "Preferred Plumbing Solutions | Spirit Lake Plumber",
   },
   description:
     "Preferred Plumbing Solutions — owner-operated plumber in Spirit Lake, ID for repairs, water heaters, radiant heat, and new work. Call 208-290-3889.",
