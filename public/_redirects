@@ -22,3 +22,15 @@
 # Retired / mistyped service aliases
 /dishwashers-and-disposals /services/dishwashers/ 301
 /dishwashers-and-disposals/ /services/dishwashers/ 301
+
+# Legacy path aliases still targeted by preferredplumbingsolution.com redirects.
+# Keep these on the new host so old-domain hops do not end on soft 404s.
+/dishwashers /services/dishwashers/ 301
+/dishwashers/ /services/dishwashers/ 301
+/about-us /about/ 301
+/about-us/ /about/ 301
+/emergency-plumbing /services/emergency/ 301
+/emergency-plumbing/ /services/emergency/ 301
+/drain-cleaning /services/drain-cleaning/ 301
+/drain-cleaning/ /services/drain-cleaning/ 301
+/index.php / 301
