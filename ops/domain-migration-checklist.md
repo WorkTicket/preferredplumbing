@@ -37,9 +37,15 @@ Google snippets may still show old copy (555 number, 24/7, Spokane/Castlegar). T
 
 `public/_redirects` catches legacy path aliases on the **new** host (`/dishwashers`, `/about-us`, `/emergency-plumbing`, `/drain-cleaning`, `/index.php`) so imperfect old-domain hops recover after deploy. `/wp-admin` is intentionally left as 404.
 
-## Cloudflare import
+## Old-domain redirects (actual mechanism)
 
-Use `ops/old-domain-bulk-redirects.csv` on the **old** zone (Bulk Redirects). Incoming traffic must stay proxied through Cloudflare. Preserve MX/SPF/DKIM/DMARC if email uses the old domain. CSV excludes `robots.txt` and `/wp-admin`.
+Live redirects are served by Worker `preferred-plumbing-old-domain-redirects`
+(routes: `preferredplumbingsolution.com/*` and `www.preferredplumbingsolution.com/*`),
+not Cloudflare Bulk Redirects. Source of truth in-repo:
+
+- `workers/old-domain-redirects/`
+- Backup of prior PATH_MAP: `ops/old-domain-worker-backup/`
+- CSV kept as a human-readable map: `ops/old-domain-bulk-redirects.csv` (excludes `robots.txt` and `/wp-admin`)
 
 Do **not** put old-hostname rules only in this Pages `_redirects` file — path rules are hostname-agnostic and would risk looping the new site.
 

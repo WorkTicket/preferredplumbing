@@ -1,0 +1,12 @@
+name = "preferred-plumbing-old-domain-redirects"
+main = "src/index.js"
+compatibility_date = "2026-07-31"
+workers_dev = false
+
+[[routes]]
+pattern = "preferredplumbingsolution.com/*"
+zone_name = "preferredplumbingsolution.com"
+
+[[routes]]
+pattern = "www.preferredplumbingsolution.com/*"
+zone_name = "preferredplumbingsolution.com"
