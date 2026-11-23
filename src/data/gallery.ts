@@ -7,7 +7,7 @@ export const projectPhotos: ProjectPhoto[] = [
   },
   {
     src: "/assets/real-boiler-mechanical-room-1.webp",
-    title: "Boiler Mechanical Room",
+    title: "Boiler mechanical room for a hydronic heat plant",
     category: "Residential",
   },
   {
@@ -82,8 +82,20 @@ export const projectPhotos: ProjectPhoto[] = [
   },
   {
     src: "/assets/real-boiler-radiant-heat-1.webp",
-    title: "Boiler & Radiant Heat System",
+    title: "Boiler and radiant heat system installed by Preferred",
     category: "Residential",
+  },
+  {
+    src: "/assets/real-heated-driveway-residential-1.webp",
+    title:
+      "Residential hydronic snow-melt tubing laid before the driveway pour",
+    category: "Heated Driveways",
+  },
+  {
+    src: "/assets/real-heated-driveway-commercial-1.webp",
+    title:
+      "Commercial hydronic snow-melt loops for entry walks before concrete",
+    category: "Heated Driveways",
   },
   {
     src: "/assets/real-gas-line-installation-2.webp",

@@ -17,10 +17,10 @@ export const services: Service[] = [
   },
   {
     slug: "radiant-heat",
-    title: "Radiant Heat & In-Floor Systems",
+    title: "Hydronic Radiant Floor Heating",
     category: "Heating",
     description:
-      "Stay warm through Idaho's winters with radiant heating. We install and maintain in-floor systems that heat evenly and save energy. We design custom layouts for your home.",
+      "Hydronic radiant floor heating for North Idaho new builds and existing homes. Custom layouts, boiler integration, and project-specific estimates.",
     icon: "heat",
   },
   {
@@ -28,7 +28,7 @@ export const services: Service[] = [
     title: "Heated Driveways & Snow-Melt",
     category: "Heating",
     description:
-      "Hydronic heated driveways and snow-melt systems that keep North Idaho driveways ice-free. The same radiant expertise we use under floors, installed under your driveway.",
+      "Hydronic heated driveway and snow-melt installs for North Idaho properties. Feasibility review for new pours and replacements, coordinated with the surface crew.",
     icon: "snow",
   },
   {
@@ -36,7 +36,7 @@ export const services: Service[] = [
     title: "New Construction Plumbing",
     category: "Building",
     description:
-      "We handle all phases of plumbing for new builds. Systems are code-compliant and built to last. We work with contractors and architects on custom homes and commercial developments.",
+      "Builder plumbing for custom homes and new construction in North Idaho — underground, rough-in, top-out, final, and inspection timing. Bring us in during planning.",
     icon: "home",
   },
   {

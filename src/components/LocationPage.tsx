@@ -9,12 +9,12 @@ import { JsonLd } from "./JsonLd";
 import { ServiceCards } from "./ServiceCards";
 
 const featuredServices = [
-  "emergency",
-  "water-heaters",
-  "sewer-line",
-  "drain-cleaning",
+  "radiant-heat",
   "heated-driveways",
   "new-construction",
+  "emergency",
+  "water-heaters",
+  "drain-cleaning",
 ] as const;
 
 export function LocationPage({ slug }: { slug: string }) {
@@ -194,18 +194,8 @@ export function LocationPage({ slug }: { slug: string }) {
           </div>
           <ul className="location-service-links">
             <li>
-              <a href="/services/emergency/">
-                Emergency plumbing in {location.city}
-              </a>
-            </li>
-            <li>
-              <a href="/services/water-heaters/">
-                Water heater repair in {location.city}
-              </a>
-            </li>
-            <li>
-              <a href="/services/sewer-line/">
-                Sewer line service in {location.city}
+              <a href="/services/radiant-heat/">
+                Hydronic radiant floor heating in {location.city}
               </a>
             </li>
             <li>
@@ -216,6 +206,16 @@ export function LocationPage({ slug }: { slug: string }) {
             <li>
               <a href="/services/new-construction/">
                 New construction plumbing in {location.city}
+              </a>
+            </li>
+            <li>
+              <a href="/services/emergency/">
+                Emergency plumbing in {location.city}
+              </a>
+            </li>
+            <li>
+              <a href="/services/water-heaters/">
+                Water heater repair in {location.city}
               </a>
             </li>
             <li>

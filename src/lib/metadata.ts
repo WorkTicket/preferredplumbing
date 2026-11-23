@@ -7,7 +7,7 @@ const fallbackDescription =
 
 const serviceTitles: Record<string, string> = {
   emergency: "Emergency Plumber",
-  "radiant-heat": "Radiant Floor Heating",
+  "radiant-heat": "Hydronic Radiant Floor Heating",
   "heated-driveways": "Heated Driveways",
   "new-construction": "New Construction Plumbing",
   commercial: "Commercial Plumbing",
@@ -32,11 +32,11 @@ const serviceDescriptions: Record<string, string> = {
   emergency:
     "Emergency plumber in North Idaho — Sun–Fri 7am–5pm for burst pipes, sewer backups, and no water. Call 208-290-3889.",
   "radiant-heat":
-    "Radiant floor heating design and install for North Idaho homes. Built for cold winters. Free estimates: 208-290-3889.",
+    "Hydronic radiant floor heating for North Idaho homes — new builds and retrofit evaluation. Request a radiant heat estimate: 208-290-3889.",
   "heated-driveways":
-    "Heated driveway installs across our North Idaho service area. Hydronic snow-melt sized for freeze depth. Call 208-290-3889.",
+    "Hydronic heated driveway and snow-melt installs in North Idaho. New pours, replacements, and feasibility reviews. Call 208-290-3889.",
   "new-construction":
-    "New construction plumbing in North Idaho — rough-in, top-out, final, and inspections. Free bids: 208-290-3889.",
+    "New construction plumbing for North Idaho builders — rough-in through final, plus early planning for radiant and custom scopes. Call 208-290-3889.",
   commercial:
     "Commercial plumbing for restaurants, retail, offices, TI, backflow, and grease traps in North Idaho. Call 208-290-3889.",
   "tankless-water-heaters":
