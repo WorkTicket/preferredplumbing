@@ -86,6 +86,18 @@ export const projectPhotos: ProjectPhoto[] = [
     category: "Residential",
   },
   {
+    src: "/assets/real-radiant-floor-residential-1.webp",
+    title:
+      "Custom-home hydronic radiant loops and manifold before finished flooring",
+    category: "Radiant Heat",
+  },
+  {
+    src: "/assets/real-radiant-floor-shop-1.webp",
+    title:
+      "Shop and commercial slab radiant tubing on insulation before the pour",
+    category: "Radiant Heat",
+  },
+  {
     src: "/assets/real-heated-driveway-residential-1.webp",
     title:
       "Residential hydronic snow-melt tubing laid before the driveway pour",

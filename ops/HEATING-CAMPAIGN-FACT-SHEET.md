@@ -48,9 +48,14 @@ Farther runs are planned as project days.
 | Used on | Heated driveways, new construction | Heated driveways, commercial |
 | Performance / price claims | None — progress photos only | None — progress photos only |
 
-### Still needed
+### Radiant floor installs (added to site)
 
-One approved **radiant floor** install (location, build type, crew scope, finished + progress photos).
+| Field | Custom home | Shop / commercial slab |
+| --- | --- | --- |
+| Asset | `real-radiant-floor-residential-1.webp` | `real-radiant-floor-shop-1.webp` |
+| What it shows | Orange PEX loops to manifold in a timber-frame living area before finish flooring | Full-slab PEX on foam insulation with manifold and overhead doors before pour |
+| Used on | Radiant heat, new construction | Radiant heat, commercial |
+| Performance / price claims | None — progress photos only | None — progress photos only |
 
 ## Claims policy (launch)
 

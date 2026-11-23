@@ -233,9 +233,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       "septic-systems"
     ],
     "photos": [
+      "radiant-floor-shop",
       "heated-driveway-commercial",
-      "commercial-plumbing-project",
-      "new-construction-rough-in"
+      "commercial-plumbing-project"
     ],
   },
   "dishwashers": {
@@ -815,9 +815,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       "gas-line"
     ],
     "photos": [
+      "radiant-floor-residential",
       "heated-driveway-residential",
-      "new-construction-rough-in",
-      "under-slab-plumbing"
+      "new-construction-rough-in"
     ],
     "ctaLabel": "Discuss a New Construction Project",
     "estimateFirst": true,
@@ -889,9 +889,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       "new-construction"
     ],
     "photos": [
-      "boiler-radiant-heat",
-      "boiler-mechanical-room",
-      "under-slab-plumbing"
+      "radiant-floor-residential",
+      "radiant-floor-shop",
+      "boiler-mechanical-room"
     ],
     "ctaLabel": "Request a Radiant Heat Estimate",
     "estimateFirst": true,
