@@ -82,11 +82,11 @@ export const authorityPosts: BlogPost[] = [
     seoTitle: 'Radiant Heat Cost in Idaho',
     excerpt:
       'Hydronic in-floor heat costs more to install than forced air. Here is what North Idaho homeowners actually pay, what drives the price, and when it pays back.',
-    date: '2026-09-04',
+    date: '2026-11-22',
     category: 'Guides',
     relatedService: {
       href: '/services/radiant-heat',
-      label: 'Radiant heat & in-floor systems',
+      label: 'Hydronic radiant floor heating',
     },
     relatedArea: {
       href: '/locations/spirit-lake-id',
@@ -94,10 +94,12 @@ export const authorityPosts: BlogPost[] = [
     },
     content: [
       'Radiant floor heat is one of the highest-value upgrades we install in North Idaho, and it is also one of the most misunderstood on price. Homeowners hear a square-foot number online, then get surprised when the boiler, manifolds, zones, and insulation show up on the bid. This guide breaks down what a hydronic system actually costs around [Spirit Lake](/locations/spirit-lake-id), Coeur d\'Alene, Post Falls, and Sandpoint, and what you can control before you sign.',
+      '## Price basis (updated November 2026)',
+      'Ranges below are planning bands from Preferred Plumbing Solutions hydronic bids in North Idaho and nearby Eastern Washington. They assume typical residential construction, standard zone counts, and a walkthrough or plan review — not a website calculator. They exclude unusual site work, major gas upgrades, finished-floor demolition beyond the quoted path, and decorative flooring. Ask for a written radiant heat estimate for your project.',
       '## Typical installed cost in North Idaho',
       'For a hydronic (water-based) system, most residential jobs in our area land between $10 and $18 per square foot of heated floor, installed. A 2,000 square foot home with most of the living area on radiant often falls in the $18,000 to $35,000 range once you include the boiler or heat source, manifolds, zone valves, thermostats, tubing, and labor. Smaller bathroom or kitchen zones cost more per square foot because the boiler and controls do not shrink as fast as the floor area.',
       'Electric mats are cheaper to install in a single room, often $8 to $14 per square foot, and they make sense under bathroom tile. They are usually the wrong tool for a whole house in our climate. Operating cost on electric whole-home heat is higher, and you lose the option to add a heated driveway zone later on the same boiler.',
-      'Those ranges are planning numbers, not a quote. Soil, slab vs. framed floors, boiler location, gas capacity, and how many zones you want all move the total. We price after a walkthrough or plan review, not from a website calculator.',
+      'Those ranges are planning numbers, not a quote. Soil, slab vs. framed floors, boiler location, gas capacity, and how many zones you want all move the total. We price after a walkthrough or plan review.',
       '## What actually drives the price',
       'The heat source is a big line item. A high-efficiency condensing boiler sized for a North Idaho heating load costs more than a small electric mat transformer, and it should. The boiler has to handle design-day temperatures, not a mild February afternoon. If you already have a hydronic boiler with spare capacity, adding a zone is far cheaper than a new plant.',
       'Floor construction matters. New slabs are the cleanest install: tubing goes down on insulation before the pour. Stapling tubing to a subfloor or using aluminum heat transfer plates in a joist bay takes more labor. Retrofitting an existing finished floor means either living with a small height change or opening the floor, which is why remodel-phase installs beat ripping out finished rooms later.',
@@ -110,7 +112,7 @@ export const authorityPosts: BlogPost[] = [
       'Retrofits still work. Bathrooms, basements, and additions are the usual starting points. We can often add a zone to an existing boiler or install a dedicated heat source for one area. Full-house retrofits are possible but they cost more and disrupt more. We will tell you if a hybrid (radiant in living areas, existing forced air upstairs) is the smarter spend.',
       'If you also want a heated driveway, plan both systems together. Sharing a properly sized boiler and outdoor reset controls is cheaper than two separate plants, and the snow-melt zone needs to be in the original design, not bolted on later.',
       '## How to get an accurate number',
-      'Bring floor plans or a rough square footage, note which rooms you want heated, and tell us whether gas is already at the house. We look at insulation, flooring, and existing equipment, then give a written scope. Preferred Plumbing Solutions designs and installs radiant heat across North Idaho. Call 208-290-3889 for a free radiant heat estimate.',
+      'Bring floor plans or a rough square footage, note which rooms you want heated, timing, and tell us whether gas is already at the house. We look at insulation, flooring, and existing equipment, then give a written scope. Preferred Plumbing Solutions designs and installs [hydronic radiant floor heating](/services/radiant-heat) across every Preferred service town. Call 208-290-3889 or [request a radiant heat estimate](/contact/?service=radiant-heat).',
     ],
   },
   {
@@ -120,7 +122,7 @@ export const authorityPosts: BlogPost[] = [
     seoTitle: 'Heated Driveway Cost in Idaho',
     excerpt:
       'Hydronic snow-melt pricing for Spirit Lake and Coeur d\'Alene homes. What a tire-track system costs, what a full slab costs, and how operating cost actually works.',
-    date: '2026-09-03',
+    date: '2026-11-22',
     category: 'Guides',
     relatedService: {
       href: '/services/heated-driveways',
@@ -132,6 +134,8 @@ export const authorityPosts: BlogPost[] = [
     },
     content: [
       'A heated driveway is a premium install, and the first question is always cost. North Idaho winters make the upgrade easier to justify than it looks on paper: steep lots, shaded approaches, and months of freeze-thaw that wreck concrete and turn every grocery run into a slip hazard. Here is how we price hydronic snow-melt around [Spirit Lake](/locations/spirit-lake-id), Hayden, Rathdrum, and [Coeur d\'Alene](/locations/coeur-dalene-id), and how to keep the budget honest.',
+      '## Price basis (updated November 2026)',
+      'Figures below are planning bands from Preferred hydronic snow-melt bids. They cover typical residential tire-track or slab work and assume a site walk or clear dimensions. They exclude major drainage redesign, decorative concrete finishes, and utility work outside the snow-melt scope. Performance depends on heated area, insulation, controls, and storm conditions — we do not promise ice-free results in every weather event. [Request a heated driveway estimate](/contact/?service=heated-driveways) for a written number.',
       '## Installed cost: tire tracks vs. full slab',
       'Most homeowners do not need to heat every square foot of asphalt or concrete. A tire-track and apron system (two melted paths plus the garage threshold and a walkway) is the common residential design. Installed, that often lands in the $12,000 to $25,000 range depending on length, boiler capacity, and whether we are tying into an existing hydronic plant.',
       'Full-slab snow melt costs more because the tubing grid, insulation, and heat load all scale with area. Larger driveways, circular approaches, and commercial entries typically run $18 to $30 per square foot of heated surface, plus the heat source if you do not already have one. A long, steep driveway to a timber home is a different job than a short two-car pad in town.',
@@ -146,7 +150,7 @@ export const authorityPosts: BlogPost[] = [
       'Electric mats can still make sense for a short walkway or a small stoop where hydronic piping is impractical. For a full driveway in Spirit Lake or on a shaded north slope, hydronic is the system we recommend most often.',
       '## When the upgrade is worth it',
       'Steep driveways, north-facing lots, homes with deliveries or aging family members, and commercial entries that cannot close after a storm are the strongest cases. If you already plan radiant floors, adding a driveway zone during construction is the cheapest time you will ever do it. If the driveway is already poured and in good shape, we will be honest about whether a retrofit is worth the disruption.',
-      'Preferred Plumbing Solutions designs hydronic snow-melt for homes and businesses across North Idaho. Call 208-290-3889 for a free heated driveway estimate. We will measure the area that actually needs heat, check boiler capacity, and give you a written scope, not a vague per-foot guess.',
+      'Preferred Plumbing Solutions designs [hydronic heated driveways and snow-melt](/services/heated-driveways) for homes and businesses across every Preferred service town. Call 208-290-3889 or [request a heated driveway estimate](/contact/?service=heated-driveways). We will measure the area that actually needs heat, check boiler capacity, and give you a written scope, not a vague per-foot guess.',
     ],
   },
   {
@@ -220,7 +224,7 @@ export const authorityPosts: BlogPost[] = [
     seoTitle: 'Radiant Heat in New Idaho Homes',
     excerpt:
       'Slab tubing, boiler location, and driveway zones are cheap during the pour and expensive later. What custom home plumbing should include before insulation.',
-    date: '2026-08-28',
+    date: '2026-11-22',
     category: 'Guides',
     relatedService: {
       href: '/services/new-construction',
@@ -231,7 +235,9 @@ export const authorityPosts: BlogPost[] = [
       label: 'Plumber in Spirit Lake',
     },
     content: [
-      'New construction is the cheapest, cleanest time to get North Idaho plumbing right, and it is the only practical time to put hydronic radiant heat and a heated driveway in without tearing the house apart later. Builders and homeowners who wait until after the slab and drywall are done pay more for less of a system. Here is what we want on the plans before framing closes in Spirit Lake, Athol, Rathdrum, Coeur d\'Alene, and custom acreage builds.',
+      'New construction is the cheapest, cleanest time to get North Idaho plumbing right, and it is the only practical time to put hydronic radiant heat and a heated driveway in without tearing the house apart later. Builders and homeowners who wait until after the slab and drywall are done pay more for less of a system. Here is what we want on the plans before framing closes across Preferred\'s North Idaho and Eastern Washington service towns.',
+      '## What to bring to the first builder conversation',
+      'Send what you have so Preferred can talk scope and timing early: architectural plans or a current floor plan, fixture schedule if available, target underground and slab dates, whether [hydronic radiant](/services/radiant-heat) or a [heated driveway](/services/heated-driveways) is on the wish list, gas availability, and the GC or owner contact. Even a sketch with heated areas marked is enough to start. Use [new construction contact](/contact/?service=new-construction) for plumbing coordination, and the radiant estimate path when heating is the main question.',
       '## Rough-in is a schedule, not a suggestion',
       'Underground water and sewer go in early. Drain, waste, vent, and supply rough-in happen after framing and before insulation. Miss that window and you are cutting finished walls or living with a layout that was never designed for the fixture count you actually want. We coordinate with the builder so inspections hit on the same calendar as electrical and HVAC, not as a scramble the week before drywall.',
       'Idaho code requires proper pipe sizing, venting, backflow protection, and inspections at each phase. We schedule those and stay on site for questions. Unpermitted shortcuts become a problem at sale, insurance, and the next remodel.',
@@ -246,7 +252,7 @@ export const authorityPosts: BlogPost[] = [
       '## Other plumbing decisions that are cheap now',
       'Stub gas for a future range, fireplace, or outdoor kitchen while walls are open. Size the water service for the fixture count and any tankless heater, not last decade’s three-bath assumption. Plan a water softener loop if the well or municipal supply is hard, which it often is in the Panhandle. Tankless venting and gas capacity should be on the drawings if that is the direction, not a change order after the tank closet is framed.',
       'Kitchen islands with sinks or dishwashers need supply and drain under the floor before the subfloor is closed. Moving those later is the kind of surprise that blows a trim-out week.',
-      'Preferred Plumbing Solutions works with custom home builders, developers, and homeowners building in North Idaho. We handle underground, rough-in, hydronic radiant, heated driveways, and trim-out as one trade instead of three subcontractors. Call 208-290-3889 to review plans or walk a site before the slab date.',
+      'Preferred Plumbing Solutions works with custom home builders, developers, and homeowners building across every Preferred service town. We handle underground, rough-in, [hydronic radiant](/services/radiant-heat), [heated driveways](/services/heated-driveways), and trim-out as one trade instead of three subcontractors. Call 208-290-3889, [discuss a new construction project](/contact/?service=new-construction), or [request a radiant heat estimate](/contact/?service=radiant-heat) before the slab date.',
     ],
   },
 ]

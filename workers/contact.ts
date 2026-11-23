@@ -29,6 +29,16 @@ type Lead = {
   referral: string;
 };
 
+/** Keep high-ticket heating tags recognizable in inbox subjects. */
+const heatingSubjectPrefix = (service: string) => {
+  const value = service.toLowerCase();
+  if (value.includes("radiant")) return "[Radiant heat] ";
+  if (value.includes("heated driveway") || value.includes("snow"))
+    return "[Heated driveway] ";
+  if (value.includes("new construction")) return "[New construction] ";
+  return "";
+};
+
 const SITE_ORIGIN = "https://www.callpreferredplumbing.com";
 const MAX_BODY_BYTES = 16_384;
 const json = (body: object, status = 200, headers: HeadersInit = {}) =>
@@ -226,7 +236,7 @@ export default {
           email: env.CONTACT_FROM_EMAIL || "quotes@callpreferredplumbing.com",
           name: "Preferred Plumbing Solutions",
         },
-        subject: `New Quote Request - ${lead.name} (${lead.service})`,
+        subject: `${heatingSubjectPrefix(lead.service)}New Quote Request - ${lead.name} (${lead.service})`,
         html,
         text: plain,
         ...(lead.email ? { replyTo: lead.email } : {}),
