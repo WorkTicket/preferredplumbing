@@ -31,7 +31,8 @@ const portraitHeroSizes: Record<string, [number, number]> = {
 
 const serviceH1: Record<string, string> = {
   emergency: "Emergency Plumbing in North Idaho",
-  "heated-driveways": "Heated Driveway Installation in Idaho",
+  "radiant-heat": "Hydronic Radiant Floor Heating for North Idaho Homes",
+  "heated-driveways": "Hydronic Heated Driveway Installation in North Idaho",
   commercial: "Commercial Plumbing in North Idaho",
   "new-construction": "New Construction Plumbing in North Idaho",
 };
@@ -58,6 +59,19 @@ export function ServicePage({ slug }: { slug: string }) {
   const photos = [...new Set(page.photos)].map(findPhoto);
   const coverage = serviceCoverage[slug];
   const h1 = serviceH1[slug] || service.title;
+  const ctaLabel = page.ctaLabel || "Request an estimate";
+  const heroPrimaryHref = page.estimateFirst
+    ? `/contact/?service=${slug}`
+    : site.phoneHref;
+  const heroPrimaryLabel = page.estimateFirst ? ctaLabel : `Call ${site.phone}`;
+  const heroPrimaryIcon = page.estimateFirst ? "arrow" : "phone";
+  const heroSecondaryHref = page.estimateFirst
+    ? site.phoneHref
+    : `/contact/?service=${slug}`;
+  const heroSecondaryLabel = page.estimateFirst
+    ? `Call ${site.phone}`
+    : page.ctaLabel || "Get a free estimate";
+  const heroSecondaryIcon = page.estimateFirst ? "phone" : "arrow";
   const relatedPosts = getPostsForService(`/services/${slug}`, 3);
   const areaServed = coverage
     ? coverage.cities.map((city) => {
@@ -138,11 +152,11 @@ export function ServicePage({ slug }: { slug: string }) {
               </h1>
               <p>{page.lead}</p>
               <div className="actions">
-                <a className="btn" href={site.phoneHref}>
-                  Call {site.phone} <Icon name="phone" />
+                <a className="btn" href={heroPrimaryHref}>
+                  {heroPrimaryLabel} <Icon name={heroPrimaryIcon} />
                 </a>
-                <a className="btn dark" href={`/contact/?service=${slug}`}>
-                  Get a free estimate <Icon name="arrow" />
+                <a className="btn dark" href={heroSecondaryHref}>
+                  {heroSecondaryLabel} <Icon name={heroSecondaryIcon} />
                 </a>
               </div>
               {slug === "emergency" && (
@@ -179,11 +193,11 @@ export function ServicePage({ slug }: { slug: string }) {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <aside className="svc-aside" aria-label="Request an estimate">
-            <h3>Get a free estimate</h3>
+          <aside className="svc-aside" aria-label={ctaLabel}>
+            <h3>{ctaLabel}</h3>
             <p>Describe the job and we’ll talk through the scope.</p>
             <a className="btn" href={`/contact/?service=${slug}`}>
-              Request an estimate <Icon name="arrow" />
+              {ctaLabel} <Icon name="arrow" />
             </a>
             <a className="svc-aside-phone" href={site.phoneHref}>
               <Icon name="phone" />
@@ -273,7 +287,7 @@ export function ServicePage({ slug }: { slug: string }) {
                 {depth.steps.map((step, index) => (
                   <li key={step}>
                     <h4>{step}</h4>
-                    <p>{stepText[index]}</p>
+                    <p>{depth.stepDetails?.[index] || stepText[index]}</p>
                   </li>
                 ))}
               </ol>
@@ -389,7 +403,7 @@ export function ServicePage({ slug }: { slug: string }) {
             </p>
           </div>
           <a className="btn" href={`/contact/?service=${slug}`}>
-            Request a free estimate <Icon name="arrow" />
+            {page.ctaLabel || "Request a free estimate"} <Icon name="arrow" />
           </a>
         </div>
       </section>

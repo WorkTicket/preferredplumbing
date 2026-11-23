@@ -33,6 +33,70 @@ const CORE_KOOTENAI: CoverageCity[] = [
   },
 ];
 
+/** Full Preferred service map — used for high-ticket heating and builder pages. */
+const ALL_SERVICE_AREAS: CoverageCity[] = [
+  {
+    slug: "spirit-lake-id",
+    blurb: "Home base for radiant, snow-melt, and custom-home coordination.",
+  },
+  {
+    slug: "athol-id",
+    blurb: "Next-door runs for new slabs, well homes, and heated approaches.",
+  },
+  {
+    slug: "blanchard-id",
+    blurb: "Rural acreage, shops, and seasonal homes that need hydronic plans.",
+  },
+  {
+    slug: "rathdrum-id",
+    blurb: "Prairie new builds where whole-home radiant belongs in the slab window.",
+  },
+  {
+    slug: "hayden-id",
+    blurb: "Lake and inland custom homes plus driveway snow-melt reviews.",
+  },
+  {
+    slug: "post-falls-id",
+    blurb: "Growing corridors for custom plumbing, radiant, and new pours.",
+  },
+  {
+    slug: "coeur-dalene-id",
+    blurb: "Lake-corridor custom homes, retrofits, and hillside approaches.",
+  },
+  {
+    slug: "sandpoint-id",
+    blurb: "Lake Pend Oreille winters — strong demand for radiant and snow-melt.",
+  },
+  {
+    slug: "priest-river-id",
+    blurb: "Northern Idaho installs planned as project days from Spirit Lake.",
+  },
+  {
+    slug: "oldtown-id",
+    blurb: "Border-area custom work and heated driveway feasibility reviews.",
+  },
+  {
+    slug: "clark-fork-id",
+    blurb: "Remote builds where early radiant planning protects the schedule.",
+  },
+  {
+    slug: "newport-wa",
+    blurb: "Washington-licensed crews for Pend Oreille County heating projects.",
+  },
+  {
+    slug: "chattaroy-wa",
+    blurb: "Rural Spokane County wells, long driveways, and shop slabs.",
+  },
+  {
+    slug: "mead-wa",
+    blurb: "North Spokane corridor custom homes and snow-melt approaches.",
+  },
+  {
+    slug: "moscow-id",
+    blurb: "Palouse installs by appointment — radiant and builder scopes welcome.",
+  },
+];
+
 export const serviceCoverage: Partial<Record<string, ServiceCoverage>> = {
   emergency: {
     heading: "Emergency plumbing coverage",
@@ -50,25 +114,17 @@ export const serviceCoverage: Partial<Record<string, ServiceCoverage>> = {
       },
     ],
   },
+  "radiant-heat": {
+    heading: "Where we install and quote radiant heat",
+    intro:
+      "Hydronic radiant projects are quoted across every Preferred service town. Farther runs are planned as project days so the crew can finish meaningful work on site.",
+    cities: ALL_SERVICE_AREAS,
+  },
   "heated-driveways": {
     heading: "Where we install heated driveways",
     intro:
-      "We install hydronic heated driveways and snow-melt systems across our North Idaho and Eastern Washington service area — the same towns on our locations list. We do not advertise installs in distant cities we do not serve.",
-    cities: [
-      ...CORE_KOOTENAI,
-      {
-        slug: "sandpoint-id",
-        blurb: "Lake Pend Oreille winters make snow-melt a practical upgrade.",
-      },
-      {
-        slug: "moscow-id",
-        blurb: "Palouse installs by appointment from Spirit Lake.",
-      },
-      {
-        slug: "newport-wa",
-        blurb: "Washington-licensed crews for Pend Oreille County properties.",
-      },
-    ],
+      "Hydronic heated driveway and snow-melt projects are reviewed across the full Preferred service area — the same towns on our locations list.",
+    cities: ALL_SERVICE_AREAS,
   },
   commercial: {
     heading: "Commercial plumbing coverage",
@@ -100,29 +156,8 @@ export const serviceCoverage: Partial<Record<string, ServiceCoverage>> = {
   "new-construction": {
     heading: "New construction coverage",
     intro:
-      "Rough-in, top-out, final, and inspection coordination for builders and homeowners in our core North Idaho towns.",
-    cities: [
-      {
-        slug: "rathdrum-id",
-        blurb: "High volume of new builds on the prairie and Twin Lakes.",
-      },
-      {
-        slug: "coeur-dalene-id",
-        blurb: "Custom homes and multi-unit work with city inspection timing.",
-      },
-      {
-        slug: "hayden-id",
-        blurb: "New construction and addition plumbing around Hayden Lake.",
-      },
-      {
-        slug: "post-falls-id",
-        blurb: "Production homes and builder punch-list plumbing.",
-      },
-      {
-        slug: "spirit-lake-id",
-        blurb: "Local custom homes with the shortest coordination loop.",
-      },
-    ],
+      "Rough-in, top-out, final, inspection timing, and early radiant planning for builders and homeowners across every Preferred service town.",
+    cities: ALL_SERVICE_AREAS,
   },
   "sewer-line": {
     heading: "Sewer line service area",

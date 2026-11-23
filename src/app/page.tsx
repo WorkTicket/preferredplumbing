@@ -273,17 +273,22 @@ export default function Page() {
             </h2>
             <p>
               {
-                "Our radiant expertise goes beyond your floors. Hydronic snow-melt systems help keep driveways and walkways clear when North Idaho weather moves in."
+                "Our hydronic radiant expertise goes beyond your floors. Heated driveways and snow-melt systems help keep approaches clearer when North Idaho weather moves in — reviewed as their own project, not an afterthought."
               }
             </p>
             <ul className={"checks"}>
-              <li>{"Radiant in-floor heating"}</li>
+              <li>{"Hydronic radiant floor heating"}</li>
               <li>{"Heated driveways & snow-melt systems"}</li>
-              <li>{"Custom layouts for your home"}</li>
+              <li>{"Builder planning for custom homes"}</li>
             </ul>
-            <a className={"btn"} href={"/contact/"}>
-              {"Let's talk radiant heat ↗"}
-            </a>
+            <div className={"actions"}>
+              <a className={"btn"} href={"/contact/?service=radiant-heat"}>
+                {"Request a Radiant Heat Estimate ↗"}
+              </a>
+              <a className={"btn white"} href={"/services/heated-driveways/"}>
+                {"Heated driveway projects ↗"}
+              </a>
+            </div>
           </div>
         </div>
       </section>

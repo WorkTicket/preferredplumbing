@@ -12,6 +12,10 @@ export type ServicePageContent = {
   related: string[];
   /** Real project photos relevant to this service. Each appears once. */
   photos: string[];
+  /** Override estimate CTA label on the service page. */
+  ctaLabel?: string;
+  /** Put the estimate CTA before Call in the hero. */
+  estimateFirst?: boolean;
 };
 
 export const servicePages: Record<string, ServicePageContent> = {
@@ -526,74 +530,81 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   "heated-driveways": {
     "title": "Heated Driveways & Snow-Melt",
-    "lead": "Hydronic heated driveway and snow-melt installs across our North Idaho and Eastern Washington service area. Same radiant expertise we use under floors — outdoors under your slab.",
-    "introHeading": "Where we install heated driveways",
+    "lead": "Hydronic heated driveway and snow-melt installs for North Idaho properties. Tell us about a new pour, a replacement driveway, or a feasibility question and we will review what the project needs.",
+    "introHeading": "Projects we evaluate for snow-melt",
     "intro": [
-      "The same hydronic radiant systems we put under floors, we put under driveways. Stay ice-free all winter without the salt, the shoveling, or the slip risk.",
-      "Hydronic tubing under the driveway, walkway, or entry pad connects to a boiler or dedicated heat source so snow and ice melt on contact. Electric mats can make sense for small walkways; hydronic usually wins on larger driveways for operating cost.",
-      "We install heated driveways in the towns we already serve — Spirit Lake, Rathdrum, Hayden, Post Falls, Coeur d'Alene, Sandpoint, Moscow, Newport, and the rest of our locations list. We do not take installs in distant cities outside that service area. Typical timeline: design and bid first, then tubing with new pours or a planned retrofit phase."
+      "The same hydronic know-how we use under floors can go under a driveway, walkway, or entry pad. Tubing connects to a boiler or dedicated heat source so snow and ice can melt instead of relying on rock salt and constant shoveling.",
+      "New driveway builds are the cleanest path — tubing goes in with the pour. Replacement projects and phased upgrades need a surface plan, drainage review, and clear coordination with the concrete or paving crew. Feasibility inquiries are welcome when you are still deciding whether snow-melt belongs in the budget.",
+      "We quote heated driveway work across every Preferred service town in North Idaho and Eastern Washington. Bring dimensions, photos of the approach, whether the surface is new or existing, and the heat source you already have — or expect to install."
     ],
     "featuresHeading": "How we can help.",
     "features": [
       {
-        "title": "Residential Heated Driveways",
-        "text": "Hydronic tubing under driveways and walkways keeps the entrance clear all winter. Layouts for full slabs or high-traffic paths."
+        "title": "New driveway builds",
+        "text": "Hydronic tubing laid with a new pour or planned slab so the melt system is ready before the surface is finished."
       },
       {
-        "title": "Commercial Snow-Melt Systems",
-        "text": "Snow-melt for parking lots, entryways, and loading docks. Built for heavy use and commercial code requirements."
+        "title": "Replacement driveways",
+        "text": "When a driveway is coming out anyway, we review whether snow-melt belongs in the rebuild and what the surface crew needs from us."
       },
       {
-        "title": "Ice-Prevention Systems",
-        "text": "Steep or shaded driveways that ice first get targeted heating where it matters most, often at a lower cost than heating the full slab."
+        "title": "Commercial snow-melt",
+        "text": "Parking entries, walkways, and loading approaches for businesses that need reliable winter access — quoted as a project, not a patch."
       },
       {
-        "title": "Boiler-Connected Heated Slabs",
-        "text": "Tie into an existing hydronic boiler when capacity allows, or install a dedicated heat source sized for outdoor snow melt."
+        "title": "Boiler or dedicated heat source",
+        "text": "We check whether an existing hydronic plant has capacity, or whether outdoor melt needs its own heat source sized for storm load."
       },
       {
-        "title": "New Construction Integration",
-        "text": "Cleanest when tubing goes in with the slab. We coordinate with builders so the system is ready before pour."
+        "title": "Builder and GC coordination",
+        "text": "We align tubing timing with the general contractor, concrete, or paving crew so the melt system lands with the pour."
       },
       {
-        "title": "Retrofit Installations",
-        "text": "Existing driveways can be upgraded in phases. We plan the work to limit disruption while putting in a reliable melt system."
+        "title": "Targeted ice-prone zones",
+        "text": "Steep or shaded approaches often need heat on the main path and entry, not always the full footprint. We size for the problem you actually have."
       }
     ],
     "faqs": [
       {
         "q": "Does a heated driveway work with my existing boiler?",
-        "a": "In many cases, yes. We evaluate your existing system's capacity during the estimate and recommend the right setup."
+        "a": "Sometimes. Outdoor melt is a different load than indoor radiant. We evaluate capacity during the estimate and recommend tying in or using a dedicated heat source."
       },
       {
         "q": "How much of my driveway needs heating?",
-        "a": "Most homeowners heat the main path and entry point rather than the full driveway, which keeps cost down while solving the ice problem."
+        "a": "Many homeowners heat the main tire path and entry rather than the full slab. The right footprint depends on slope, shade, parking, and budget."
       },
       {
-        "q": "Does this work for commercial properties?",
-        "a": "Yes. We install snow-melt systems for parking lots, entryways, and loading docks."
+        "q": "Do you install commercial snow-melt?",
+        "a": "Yes. We quote hydronic melt for business entries, walkways, and loading approaches when the site and schedule support a proper install."
+      },
+      {
+        "q": "What should I bring to the estimate conversation?",
+        "a": "Approximate dimensions, photos of the approach, whether the surface is new or a replacement, drainage notes, and any existing boiler or radiant system on the property."
       },
       {
         "q": "What's the installation timeline?",
-        "a": "New construction is easiest to integrate during the build. Retrofits are done in phases to minimize disruption."
+        "a": "New construction is easiest when tubing goes in with the pour. Replacements follow the surface schedule. We bid after the heated area and coordination path are clear."
       },
       {
         "q": "Is hydronic better than electric mats for driveways?",
-        "a": "For larger areas, hydronic usually costs less to operate. Electric mats can work for small walkways. We help you choose based on size and use."
+        "a": "For larger driveways, hydronic is usually the better operating-cost choice. Electric mats can make sense for short walkways. We help you choose based on size and use."
       },
       {
-        "q": "Will a heated driveway damage my concrete?",
-        "a": "Properly designed systems protect concrete by reducing freeze-thaw cycles and eliminating rock salt that eats into slabs and landscaping."
+        "q": "Will a heated driveway keep the surface clear in every storm?",
+        "a": "Performance depends on design, heated area, controls, and storm conditions. We size systems for your site rather than promising ice-free results in every weather event."
       }
     ],
     "related": [
-      "radiant-heat"
+      "radiant-heat",
+      "new-construction"
     ],
     "photos": [
       "boiler-radiant-heat",
       "boiler-mechanical-room",
       "site-excavation"
     ],
+    "ctaLabel": "Request a Heated Driveway Estimate",
+    "estimateFirst": true,
   },
   "kitchen-remodels": {
     "title": "Kitchen Remodels",
@@ -737,12 +748,12 @@ export const servicePages: Record<string, ServicePageContent> = {
   },
   "new-construction": {
     "title": "New Construction Plumbing",
-    "lead": "New construction plumbing in North Idaho for builders and homeowners — rough-in, top-out, final, and inspections. Request a bid at 208-290-3889.",
-    "introHeading": "Builder-focused plumbing from underground to trim",
+    "lead": "New construction plumbing for North Idaho builders and homeowners — underground, rough-in, top-out, final, and inspection timing. Bring Preferred in while plans and schedules are still open.",
+    "introHeading": "Bring us in during planning",
     "intro": [
-      "Getting plumbing right on a new build saves everyone headaches later. We handle underground, rough-in, top-out, final trim, and inspection timing for custom homes, production builds, and light commercial in Rathdrum, Coeur d'Alene, Hayden, Post Falls, and Spirit Lake.",
-      "Our licensed crew works with general contractors, developers, architects, and homeowners. We match the plumbing plan to the layout, the utilities, and how the building will be used. We know Kootenai County soils, frost depth, permits, and inspection windows.",
-      "Call early in the schedule so underground and top-out land when framing and slab windows are open — not after finish materials are waiting on us."
+      "Getting plumbing right on a new build saves rework later. We handle underground, rough-in, top-out, final trim, and inspection timing for custom homes, production builds, and light commercial across every Preferred service town.",
+      "Early conversations are useful when radiant heat, snow-melt, gas loads, or fixture schedules still have room to change. Share plans, target rough-in dates, and how you want Preferred involved so scope and timing stay realistic.",
+      "Our licensed crew works with general contractors, developers, architects, and homeowners. We match the plumbing plan to the layout, the utilities, and how the building will be used — including hydronic radiant when that is part of the mechanical plan."
     ],
     "featuresHeading": "How we can help.",
     "features": [
@@ -763,18 +774,18 @@ export const servicePages: Record<string, ServicePageContent> = {
         "text": "Clear scopes, change-order discipline, and punch-list follow-through so the plumbing lane stays predictable."
       },
       {
-        "title": "Gas rough-in for appliances",
-        "text": "Sized gas runs with shutoffs and leak testing for furnaces, ranges, water heaters, and fireplaces."
+        "title": "Radiant and hydronic coordination",
+        "text": "When in-floor heat or snow-melt is on the plans, we connect builders to the radiant estimate path early — before the slab window closes."
       },
       {
-        "title": "Request a bid",
-        "text": "Send plans or a scope note and we return a clear bid for underground through trim. Call 208-290-3889 to start."
+        "title": "Discuss plans, scope, and timing",
+        "text": "Send plans or a scope note with address and target dates. We return a clear builder conversation for underground through trim."
       }
     ],
     "faqs": [
       {
-        "q": "Do you provide plumbing design for custom home builds?",
-        "a": "Yes. We design layouts around the architecture and how each room will be used, with water efficiency and service access in mind."
+        "q": "Do you review plans before bidding?",
+        "a": "Yes. Architectural plans, fixture schedules, and target rough-in dates help us discuss scope and timing early. Call or use the contact form tagged for new construction."
       },
       {
         "q": "Can you handle plumbing for multi-unit residential buildings?",
@@ -786,97 +797,104 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
       {
         "q": "How early should plumbing start during new construction?",
-        "a": "Underground and rough-in start after foundation and framing windows open, before insulation. We coordinate timing with your GC."
+        "a": "Underground and rough-in start after foundation and framing windows open, before insulation. Bring Preferred in during planning so slab and top-out windows are not missed."
       },
       {
-        "q": "Do you install tankless water heaters during construction?",
-        "a": "Yes. We install tankless systems during the build with proper venting, gas or electric capacity, and hookups."
+        "q": "Do you install radiant heat on new builds?",
+        "a": "Hydronic radiant is a Preferred capability on custom and new construction projects. Use the radiant heat estimate path for heating scope, and new construction for overall plumbing coordination."
       },
       {
         "q": "How do I request a new construction plumbing bid?",
-        "a": "Call 208-290-3889 or use the contact form. Share the address, plans if you have them, and target rough-in dates."
+        "a": "Call 208-290-3889 or use the contact form with service set to new construction. Share the address, plans if you have them, and target rough-in dates."
       }
     ],
     "related": [
+      "radiant-heat",
+      "heated-driveways",
       "commercial",
-      "gas-line",
-      "septic-systems"
+      "gas-line"
     ],
     "photos": [
       "new-construction-rough-in",
       "under-slab-plumbing",
       "new-construction-gas-rough-in"
     ],
+    "ctaLabel": "Discuss a New Construction Project",
+    "estimateFirst": true,
   },
   "radiant-heat": {
-    "title": "Radiant Heat & In-Floor Systems",
-    "lead": "Stay warm through Idaho's winters with radiant heating. We install and maintain in-floor systems that heat evenly and save energy. We design custom layouts for your home.",
-    "introHeading": "Warm Floors for North Idaho Winters",
+    "title": "Hydronic Radiant Floor Heating",
+    "lead": "Planning a custom home or exploring in-floor heat for an existing one? Tell us about your project, and we’ll help you determine whether hydronic radiant heat fits the build.",
+    "introHeading": "Whole-home hydronic radiant for North Idaho projects",
     "intro": [
-      "Winter around here is no joke. Radiant heat warms the floor itself so the whole room feels even, without noisy vents pushing dust around.",
-      "We install and service radiant systems in Spirit Lake, Coeur d'Alene, Post Falls, Sandpoint, and Spokane. We know the insulation needs, home styles, and energy codes in this area.",
-      "We design hydronic and electric radiant systems that sit quietly in the structure. Slab foundations or multi-level homes, radiant heat makes winter living a lot more comfortable."
+      "Hydronic radiant floor heating warms the structure from the floor up — quiet zones, even comfort, and a system designed around how the house is built. Preferred focuses on substantial hydronic projects: whole-home and multi-zone installs, custom builds, shop and garage slabs, carefully evaluated retrofits, and the boiler and controls that make the loops reliable.",
+      "New construction is the highest-value path. Tubing goes in with the slab or subfloor while plans are still flexible. Retrofit work starts with an honest look at flooring, access, heated area, and whether a full-home or partial-zone approach makes sense for the property.",
+      "We quote from project details — stage of the build, heated area, timing, and any existing heat source — across every Preferred service town in North Idaho and Eastern Washington. Farther properties are planned as project days."
     ],
-    "featuresHeading": "How we can help.",
+    "featuresHeading": "Projects we evaluate.",
     "features": [
       {
-        "title": "Hydronic Radiant Heat Installation",
-        "text": "Water-based systems circulate heated water through tubing under the floor. Strong efficiency for larger homes with multiple zones."
+        "title": "New construction radiant",
+        "text": "Layouts coordinated with builders and architects while the slab or floor assembly is open — the best window for whole-home hydronic heat."
       },
       {
-        "title": "Electric Radiant Floor Heating",
-        "text": "Electric mats work well for spot heating in single rooms, especially under tile or stone. Compact and responsive for bathrooms, kitchens, and remodels."
+        "title": "Whole-home and multi-zone retrofits",
+        "text": "Existing homes are reviewed for access, flooring, and heated area. We bid full-home or targeted zones when the structure and budget support it."
       },
       {
-        "title": "Radiant Heat in New Construction",
-        "text": "Putting radiant in during the design phase gets the best efficiency. We work with contractors and architects so the layout matches the structure."
+        "title": "Shop and garage slabs",
+        "text": "Outbuildings and heated shops are real hydronic projects. We size loops and the heat source for how the space is used in winter."
       },
       {
-        "title": "Retrofit Radiant Heat Installation",
-        "text": "We add radiant systems to existing homes without tearing the place apart. We look at your flooring and find the cleanest path forward."
+        "title": "Boiler and heat-source integration",
+        "text": "Gas or electric boilers and related plant work matched to the load when hydronic radiant is the heating system."
       },
       {
-        "title": "Boiler System Integration",
-        "text": "For hydronic systems, we size and install gas or electric boilers that match your heating load. Proper integration keeps every zone reliable."
+        "title": "Thermostats and zone control",
+        "text": "Separate control where you live, work, and gather so unused areas are not heated the same way."
       },
       {
-        "title": "Thermostat & Zone Control Setup",
-        "text": "Zoned radiant systems give you control and savings. We set up thermostats that let you manage temperature room by room."
+        "title": "Related outdoor snow-melt",
+        "text": "When a driveway or entry pad is part of the same build, we connect that conversation to our heated driveway estimate path."
       }
     ],
     "faqs": [
       {
-        "q": "Is radiant heat suitable for older homes in Spirit Lake?",
-        "a": "Yes. Modern retrofitting lets us add radiant heat to older homes without tearing up the whole floor. We work with what you have."
+        "q": "Do you take both new builds and retrofits?",
+        "a": "Yes — with different expectations. New construction is usually the cleanest and highest-value install. Retrofits, shops, and garage slabs start with an evaluation of flooring, access, heated area, and project goals before we bid."
+      },
+      {
+        "q": "What should I have ready for a radiant heat estimate?",
+        "a": "Town or address, project stage (plans, under construction, or existing home), approximate heated area, preferred timing, flooring notes, and whether a boiler or other heat source already exists."
       },
       {
         "q": "Can radiant floor heating be used with carpet?",
-        "a": "Yes, but tile and hardwood transfer heat better. We can make it work under carpet with the right insulation and padding."
+        "a": "Tile and hardwood transfer heat better. Carpet can work with the right assembly; we will tell you what your flooring means for performance."
       },
       {
-        "q": "How long does radiant heating last?",
-        "a": "Usually 25 to 35 years. Hydronic systems use durable tubing that holds up well. With basic maintenance, they run for decades."
+        "q": "How long does a hydronic radiant system last?",
+        "a": "Tubing and well-installed plant often run for decades with basic maintenance. Exact life depends on materials, water quality, and how the system is cared for."
       },
       {
-        "q": "Will radiant heat increase my energy bills?",
-        "a": "No. Radiant heating often lowers costs. It heats surfaces directly at lower temperatures and doesn't waste energy cycling on and off."
-      },
-      {
-        "q": "Is radiant heat safe for families with children or pets?",
-        "a": "Yes. The system is hidden with no hot surfaces or exposed parts. No vents, no dust, no sharp edges."
+        "q": "Will radiant heat lower my energy bills?",
+        "a": "Operating cost depends on insulation, fuel, controls, and how the house is used. We do not promise fixed savings; estimates stay project-specific."
       },
       {
         "q": "Can I control different areas of the house separately?",
-        "a": "Yes. We divide the system into zones with their own thermostats. You heat only the rooms you use."
+        "a": "Yes. Zoned hydronic systems use separate thermostats so you heat the rooms you use."
       }
     ],
     "related": [
-      "heated-driveways"
+      "heated-driveways",
+      "new-construction"
     ],
     "photos": [
       "boiler-radiant-heat",
-      "boiler-mechanical-room"
+      "boiler-mechanical-room",
+      "under-slab-plumbing"
     ],
+    "ctaLabel": "Request a Radiant Heat Estimate",
+    "estimateFirst": true,
   },
   "remodels": {
     "title": "Plumbing Remodels & Upgrades",

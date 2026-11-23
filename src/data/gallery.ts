@@ -7,7 +7,7 @@ export const projectPhotos: ProjectPhoto[] = [
   },
   {
     src: "/assets/real-boiler-mechanical-room-1.webp",
-    title: "Boiler Mechanical Room",
+    title: "Boiler mechanical room for a hydronic heat plant",
     category: "Residential",
   },
   {
@@ -82,7 +82,7 @@ export const projectPhotos: ProjectPhoto[] = [
   },
   {
     src: "/assets/real-boiler-radiant-heat-1.webp",
-    title: "Boiler & Radiant Heat System",
+    title: "Boiler and radiant heat system installed by Preferred",
     category: "Residential",
   },
   {

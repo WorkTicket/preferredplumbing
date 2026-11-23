@@ -8,6 +8,8 @@ export type ServiceDepthData = {
   prep: string[];
   signals: string[];
   steps: string[];
+  /** Optional per-step body copy; falls back to shared service-page defaults. */
+  stepDetails?: string[];
 };
 export const serviceDepth: Record<string, ServiceDepthData> = {
   emergency: {
@@ -34,65 +36,80 @@ export const serviceDepth: Record<string, ServiceDepthData> = {
   },
   "radiant-heat": {
     family: "heating",
-    title: "Comfort starts below the surface.",
-    lead: "A good radiant system begins with the room, the floor, and the way you live.",
+    title: "How a radiant estimate works.",
+    lead: "We quote from project stage, heated area, timing, and the heat source on site — not a generic square-foot promise.",
     icon: "heat",
     asset: "/assets/floor.webp",
     prep: [
-      "Your floor plan and flooring material",
-      "New construction or an existing home",
-      "Which rooms need separate control",
+      "Project stage and approximate heated area",
+      "New construction plans or existing flooring notes",
+      "Preferred timing and any existing boiler or heat source",
     ],
     signals: [
-      "Cold tile in the morning",
-      "A new build ready for a heating plan",
-      "A system that needs service",
+      "A custom home that still has an open slab or floor window",
+      "An existing home you want evaluated for in-floor heat",
+      "A builder or homeowner ready to talk zones and controls",
     ],
     steps: [
-      "Understand the space",
-      "Plan the heat and controls",
-      "Coordinate the installation",
+      "Share the project details",
+      "Review new-build or retrofit fit",
+      "Confirm the estimate path",
+    ],
+    stepDetails: [
+      "Tell us the address or town, build stage, heated area, and what you want the system to cover.",
+      "We separate new-construction installs from retrofit evaluation so the scope matches how the house is built.",
+      "When the fit is clear, we schedule the visit or plan review and keep the conversation tagged as radiant heat.",
     ],
   },
   "heated-driveways": {
     family: "heating",
-    title: "Make winter part of the plan.",
-    lead: "Snow-melt is a property-specific system, not a one-size-fits-all product.",
+    title: "What the driveway estimate needs.",
+    lead: "Snow-melt is a property-specific system. Coverage, surface work, and heat source drive the quote.",
     icon: "snow",
     asset: "/assets/snowmelt.webp",
     prep: [
-      "Driveway or walkway dimensions",
-      "Existing surface or a planned pour",
-      "Drainage, access, and the area you want to heat",
+      "Driveway or walkway dimensions and photos",
+      "New pour, replacement, or feasibility-only question",
+      "Drainage, access, and any existing boiler or radiant plant",
     ],
     signals: [
-      "A sloped approach to the garage",
-      "Walkways that are hard to keep clear",
-      "A new driveway project",
+      "A new driveway already on the schedule",
+      "A replacement slab where snow-melt could be added",
+      "A steep or shaded approach that ices first",
     ],
     steps: [
-      "Define the heated area",
-      "Coordinate the system design",
-      "Plan around the surface work",
+      "Define the heated footprint",
+      "Coordinate the surface crew",
+      "Size the heat source",
+    ],
+    stepDetails: [
+      "Tell us what you want clear — full slab, tire tracks, walkway, or entry pad — and whether the surface is new or existing.",
+      "If Preferred confirms the workflow, we align tubing timing with the general contractor, concrete, or paving schedule.",
+      "We check boiler capacity or plan a dedicated outdoor plant before you lock the bid.",
     ],
   },
   "new-construction": {
     family: "building",
     title: "Get the hidden work right.",
-    lead: "The best time to think about plumbing is while the plans are still on the table.",
+    lead: "The best time to think about plumbing — and radiant — is while the plans are still on the table.",
     icon: "home",
     asset: "/assets/construction-model.webp",
     prep: [
       "Architectural plans and fixture schedule",
-      "Build stage and contractor contact",
-      "Water, sewer, well, or septic information",
+      "Build stage, contractor contact, and target dates",
+      "Whether radiant heat or snow-melt is on the wish list",
     ],
     signals: [
-      "A custom home taking shape",
+      "A custom home still in planning or early build",
       "A contractor ready to coordinate trades",
-      "Rough-in work that needs a plan",
+      "Rough-in work that needs a clear plumbing lane",
     ],
     steps: ["Review the plans", "Coordinate rough-in", "Finish the fixtures"],
+    stepDetails: [
+      "Share plans, address, and how you want Preferred involved so we can discuss scope and timing early.",
+      "We align underground and top-out with framing and slab windows, including radiant tubing when it is part of the job.",
+      "Fixture trim and inspection timing close out the plumbing lane without last-minute surprises.",
+    ],
   },
   commercial: {
     family: "building",
