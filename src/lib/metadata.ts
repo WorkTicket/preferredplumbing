@@ -7,7 +7,7 @@ const fallbackDescription =
 
 const serviceTitles: Record<string, string> = {
   emergency: "Emergency Plumber",
-  "radiant-heat": "Hydronic Radiant Floor Heating",
+  "radiant-heat": "Hydronic Radiant Heating",
   "heated-driveways": "Heated Driveways",
   "new-construction": "New Construction Plumbing",
   commercial: "Commercial Plumbing",
