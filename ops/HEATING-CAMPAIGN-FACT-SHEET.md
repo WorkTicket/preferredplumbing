@@ -39,16 +39,18 @@ Farther runs are planned as project days.
 
 ## Project proof to publish
 
-Need one approved radiant install (location, build type, crew scope, finished + 2–3 progress photos, permission). Current pages use existing boiler/mechanical/under-slab photos until that arrives.
+### Snow-melt installs (added to site)
 
-| Field | Value |
-| --- | --- |
-| Project name / internal label | _pending crew_ |
-| Town | |
-| New build or retrofit | |
-| Preferred scope | |
-| Photos approved for web? | |
-| Performance / price claims allowed? | None beyond project description |
+| Field | Residential | Commercial |
+| --- | --- | --- |
+| Asset | `real-heated-driveway-residential-1.webp` | `real-heated-driveway-commercial-1.webp` |
+| What it shows | PEX snow-melt loops on mesh before driveway pour at a custom home | Orange hydronic loops in formed walks/entries at a commercial building |
+| Used on | Heated driveways, new construction | Heated driveways, commercial |
+| Performance / price claims | None — progress photos only | None — progress photos only |
+
+### Still needed
+
+One approved **radiant floor** install (location, build type, crew scope, finished + progress photos).
 
 ## Claims policy (launch)
 

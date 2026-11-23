@@ -233,9 +233,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       "septic-systems"
     ],
     "photos": [
+      "heated-driveway-commercial",
       "commercial-plumbing-project",
-      "new-construction-rough-in",
-      "under-slab-plumbing"
+      "new-construction-rough-in"
     ],
   },
   "dishwashers": {
@@ -599,9 +599,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       "new-construction"
     ],
     "photos": [
-      "boiler-radiant-heat",
-      "boiler-mechanical-room",
-      "site-excavation"
+      "heated-driveway-residential",
+      "heated-driveway-commercial",
+      "boiler-mechanical-room"
     ],
     "ctaLabel": "Request a Heated Driveway Estimate",
     "estimateFirst": true,
@@ -815,9 +815,9 @@ export const servicePages: Record<string, ServicePageContent> = {
       "gas-line"
     ],
     "photos": [
+      "heated-driveway-residential",
       "new-construction-rough-in",
-      "under-slab-plumbing",
-      "new-construction-gas-rough-in"
+      "under-slab-plumbing"
     ],
     "ctaLabel": "Discuss a New Construction Project",
     "estimateFirst": true,

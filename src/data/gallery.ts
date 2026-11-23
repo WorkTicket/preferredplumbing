@@ -86,6 +86,18 @@ export const projectPhotos: ProjectPhoto[] = [
     category: "Residential",
   },
   {
+    src: "/assets/real-heated-driveway-residential-1.webp",
+    title:
+      "Residential hydronic snow-melt tubing laid before the driveway pour",
+    category: "Heated Driveways",
+  },
+  {
+    src: "/assets/real-heated-driveway-commercial-1.webp",
+    title:
+      "Commercial hydronic snow-melt loops for entry walks before concrete",
+    category: "Heated Driveways",
+  },
+  {
     src: "/assets/real-gas-line-installation-2.webp",
     title: "Gas Line Installation",
     category: "Additional Photos",
