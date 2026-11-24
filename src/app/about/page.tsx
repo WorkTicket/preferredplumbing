@@ -32,7 +32,7 @@ export default function Page() {
               </h1>
               <p>
                 {
-                  "Meet the owner-operated father-son team behind Preferred Plumbing Solutions."
+                  "Meet the owner-operated, locally owned team behind Preferred Plumbing Solutions."
                 }
               </p>
               <div className={"actions"}>

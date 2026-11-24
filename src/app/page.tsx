@@ -311,7 +311,7 @@ export default function Page() {
           <div className={"story-copy"}>
             <div className={"eyebrow"}>{"Our family. Your home."}</div>
             <h2>
-              {"A father-son team."}
+              {"Locally owned."}
               <br />
               <span style={{ color: "#078ac9" }}>
                 {"A name we stand behind."}
@@ -319,7 +319,7 @@ export default function Page() {
             </h2>
             <p>
               {
-                "Preferred Plumbing Solutions is a father-son shop run by Ron and Hunter Norris out of Spirit Lake. You get owners on the tools for new construction, radiant heat, remodels, and everyday repairs."
+                "Preferred Plumbing Solutions is locally owned, run by Ron and Hunter Norris out of Spirit Lake. You get owners on the tools for new construction, radiant heat, remodels, and everyday repairs."
               }
             </p>
             <p>

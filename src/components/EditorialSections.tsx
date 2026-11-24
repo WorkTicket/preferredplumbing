@@ -34,7 +34,7 @@ export function FamilyStandard() {
             <span className="cyan">on the work.</span>
           </h2>
           <p className="family-intro">
-            Preferred Plumbing Solutions is a father-son shop run by Ron and
+            Preferred Plumbing Solutions is locally owned, run by Ron and
             Hunter Norris out of Spirit Lake. You get owners on the tools for
             new construction, radiant heat, remodels, and everyday repairs.
           </p>
