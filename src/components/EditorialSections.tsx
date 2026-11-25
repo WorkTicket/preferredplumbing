@@ -1,4 +1,5 @@
 import { Icon } from "./Icon";
+import { ResponsiveImg } from "./ResponsiveImg";
 export function FamilyStandard() {
   return (
     <section className="family-standard" id="about">
@@ -9,12 +10,15 @@ export function FamilyStandard() {
           </div>
           <div className="family-photo family-photo--inspect">
             <div className="orb" />
-            <img
+            <ResponsiveImg
               src="/assets/hunter-inspects.webp"
               alt="Hunter Norris of Preferred Plumbing Solutions inspecting the plumbing beneath a bathroom sink"
-              loading="lazy"
-              width={1100}
-              height={1005}
+              width={480}
+              height={438}
+              widths={[480]}
+              sizes="(max-width: 720px) 92vw, 420px"
+              loading="eager"
+              fetchPriority="low"
             />
             <div className="experience-mark">
               <b>38+</b>

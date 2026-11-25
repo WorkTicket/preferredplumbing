@@ -27,10 +27,12 @@ export function Footer() {
             <div className="sf-brand">
               <a href="/" aria-label="Preferred Plumbing Solutions home">
                 <img
-                  src="/assets/footer-logo.webp"
+                  src="/assets/footer-logo-w480.webp"
+                  srcSet="/assets/footer-logo-w240.webp 240w, /assets/footer-logo-w480.webp 480w"
+                  sizes="(max-width: 720px) 180px, 220px"
                   alt="Preferred Plumbing Solutions"
-                  width={1254}
-                  height={1254}
+                  width={480}
+                  height={480}
                   loading="lazy"
                   decoding="async"
                 />

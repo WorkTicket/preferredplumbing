@@ -2,6 +2,7 @@ import { FamilyStandard } from "@/components/EditorialSections";
 import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { Icon } from "@/components/Icon";
+import { ResponsiveImg } from "@/components/ResponsiveImg";
 
 export const metadata: Metadata = withSocialMetadata({
   title: "About Ron & Hunter",
@@ -86,15 +87,14 @@ export default function Page() {
             </p>
           </div>
           <div className={"visual"}>
-            <img
-              className={"largephoto"}
-              src={"/assets/hunter-about.webp"}
-              alt={
-                "Hunter Norris of Preferred Plumbing Solutions working on a radiant heating manifold"
-              }
-              loading={"lazy"}
-              width={1536}
-              height={1024}
+            <ResponsiveImg
+              className="largephoto"
+              src="/assets/hunter-about.webp"
+              alt="Hunter Norris of Preferred Plumbing Solutions working on a radiant heating manifold"
+              width={960}
+              height={640}
+              widths={[480, 960]}
+              sizes="(max-width: 720px) 92vw, 520px"
             />
             <div className={"image-caption"}>
               <b>{"Hunter Norris."}</b>

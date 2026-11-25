@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { Icon } from "@/components/Icon";
+import { ResponsiveImg } from "@/components/ResponsiveImg";
 import { locations } from "@/data/locations";
 
 export const metadata: Metadata = withSocialMetadata({
@@ -20,8 +21,8 @@ export default function Page() {
       <section className={"hero home-hero"}>
         <img
           className="hero-background"
-          src="/assets/lake-1536.webp"
-          srcSet="/assets/lake-640.webp 640w, /assets/lake-1024.webp 1024w, /assets/lake-1536.webp 1536w"
+          src="/assets/lake-1024.webp"
+          srcSet="/assets/lake-480.webp 480w, /assets/lake-640.webp 640w, /assets/lake-1024.webp 1024w, /assets/lake-1536.webp 1536w"
           sizes="100vw"
           alt=""
           width={1536}
@@ -124,12 +125,11 @@ export default function Page() {
             <span className={"service-icon"}>
               <Icon name="wrench" />
             </span>
-            <img
-              src={"/assets/repairs-realistic.webp"}
-              alt={"Plumbing & repairs illustration"}
-              loading={"lazy"}
-              width={1536}
-              height={1024}
+            <ResponsiveImg
+              src="/assets/repairs-realistic.webp"
+              alt="Plumbing & repairs illustration"
+              width={960}
+              height={640}
             />
             <h3>{"Plumbing & repairs"}</h3>
             <p>
@@ -146,12 +146,11 @@ export default function Page() {
             <span className={"service-icon"}>
               <Icon name="heat" />
             </span>
-            <img
-              src={"/assets/floor.webp"}
-              alt={"Radiant floor heat illustration"}
-              loading={"lazy"}
-              width={1536}
-              height={1024}
+            <ResponsiveImg
+              src="/assets/floor.webp"
+              alt="Radiant floor heat illustration"
+              width={960}
+              height={640}
             />
             <h3>{"Radiant floor heat"}</h3>
             <p>
@@ -166,12 +165,11 @@ export default function Page() {
             <span className={"service-icon"}>
               <Icon name="tank" />
             </span>
-            <img
-              src={"/assets/tankless.webp"}
-              alt={"Tankless water heaters illustration"}
-              loading={"lazy"}
-              width={1000}
-              height={1500}
+            <ResponsiveImg
+              src="/assets/tankless.webp"
+              alt="Tankless water heaters illustration"
+              width={960}
+              height={1440}
             />
             <h3>{"Tankless water heaters"}</h3>
             <p>
@@ -188,12 +186,11 @@ export default function Page() {
             <span className={"service-icon"}>
               <Icon name="pipe" />
             </span>
-            <img
-              src={"/assets/camera.webp"}
-              alt={"Drains & sewer lines illustration"}
-              loading={"lazy"}
-              width={1349}
-              height={1166}
+            <ResponsiveImg
+              src="/assets/camera.webp"
+              alt="Drains & sewer lines illustration"
+              width={960}
+              height={830}
             />
             <h3>{"Drains & sewer lines"}</h3>
             <p>{"Find the problem and get your plumbing moving again."}</p>
@@ -206,12 +203,11 @@ export default function Page() {
             <span className={"service-icon"}>
               <Icon name="heat" />
             </span>
-            <img
-              src={"/assets/manifold.webp"}
-              alt={"Boilers & hydronics illustration"}
-              loading={"lazy"}
-              width={1312}
-              height={1199}
+            <ResponsiveImg
+              src="/assets/manifold.webp"
+              alt="Boilers & hydronics illustration"
+              width={960}
+              height={877}
             />
             <h3>{"Boilers & hydronics"}</h3>
             <p>
@@ -228,12 +224,11 @@ export default function Page() {
             <span className={"service-icon"}>
               <Icon name="home" />
             </span>
-            <img
-              src={"/assets/new-construction-rough-in-transparent.webp"}
-              alt={"New construction plumbing rough-in illustration"}
-              loading={"lazy"}
-              width={900}
-              height={822}
+            <ResponsiveImg
+              src="/assets/new-construction-rough-in-transparent.webp"
+              alt="New construction plumbing rough-in illustration"
+              width={960}
+              height={877}
             />
             <h3>{"New construction"}</h3>
             <p>{"Plumbing from the first rough-in to the final fixture."}</p>
@@ -296,12 +291,12 @@ export default function Page() {
       <section className={"story home-family-preview"} id={"about"}>
         <div className={"wrap story-grid"}>
           <div className={"owner-frame"}>
-            <img
-              src={"/assets/hunter.webp"}
-              alt={"Hunter Norris of Preferred Plumbing Solutions"}
-              loading={"lazy"}
-              width={1145}
-              height={1374}
+            <ResponsiveImg
+              src="/assets/hunter.webp"
+              alt="Hunter Norris of Preferred Plumbing Solutions"
+              width={960}
+              height={1152}
+              sizes="(max-width: 720px) 92vw, 420px"
             />
             <div className={"owner-label"}>
               <strong>{"Owners on the tools."}</strong>
@@ -420,12 +415,12 @@ export default function Page() {
         </div>
         <div className={"photos"}>
           <div className={"photo"}>
-            <img
-              src={"/assets/real-modern-bathroom-fixtures-1.webp"}
-              alt={"Preferred Plumbing bathroom vanity project"}
-              loading={"lazy"}
-              width={1200}
-              height={1600}
+            <ResponsiveImg
+              src="/assets/real-modern-bathroom-fixtures-1.webp"
+              alt="Preferred Plumbing bathroom vanity project"
+              width={960}
+              height={1280}
+              sizes="(max-width: 720px) 92vw, 560px"
             />
             <div>
               <span>{"REMODELS & UPGRADES"}</span>
@@ -433,12 +428,12 @@ export default function Page() {
             </div>
           </div>
           <div className={"photo"}>
-            <img
-              src={"/assets/real-new-construction-rough-in-1.webp"}
-              alt={"Preferred Plumbing construction rough-in project"}
-              loading={"lazy"}
-              width={1200}
-              height={1600}
+            <ResponsiveImg
+              src="/assets/real-new-construction-rough-in-1.webp"
+              alt="Preferred Plumbing construction rough-in project"
+              width={960}
+              height={1280}
+              sizes="(max-width: 720px) 92vw, 560px"
             />
             <div>
               <span>{"NEW CONSTRUCTION"}</span>
@@ -506,12 +501,13 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <img
-            src={"/assets/van.webp"}
-            loading={"lazy"}
-            alt={"Preferred Plumbing service van in Spirit Lake, Idaho"}
-            width={1600}
-            height={640}
+          <ResponsiveImg
+            src="/assets/van.webp"
+            alt="Preferred Plumbing service van in Spirit Lake, Idaho"
+            width={1280}
+            height={512}
+            widths={[640, 1280]}
+            sizes="(max-width: 720px) 92vw, 560px"
           />
         </div>
       </section>
@@ -598,13 +594,14 @@ export default function Page() {
           </a>
         </div>
       </section>
-      <img
-        src={"/assets/mountains.webp"}
-        alt={""}
+      <ResponsiveImg
+        src="/assets/mountains.webp"
+        alt=""
         style={{ background: "#061c35", width: "100%" }}
-        loading={"lazy"}
-        width={1920}
-        height={640}
+        width={1280}
+        height={427}
+        widths={[640, 1280]}
+        sizes="100vw"
       />
     </>
   );

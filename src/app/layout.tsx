@@ -5,19 +5,15 @@ import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/data/site";
 import { locations } from "@/data/locations";
 import { services } from "@/data/services";
-import { Barlow_Condensed, Inter } from "next/font/google";
+import { Barlow_Condensed } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["800"],
   display: "swap",
+  preload: false,
+  adjustFontFallback: true,
   variable: "--font-barlow-condensed",
 });
 
@@ -160,9 +156,7 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#061c35" />
       </head>
-      <body
-        className={`${inter.variable} ${barlowCondensed.variable} antialiased`}
-      >
+      <body className={`${barlowCondensed.variable} antialiased`}>
         <JsonLd data={localBusinessSchema} />
         <Header />
         <main id="main-content">{children}</main>

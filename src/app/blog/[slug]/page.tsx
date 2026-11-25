@@ -158,10 +158,12 @@ export default async function BlogPostPage({
               <p className="blog-post-deck">{post.excerpt}</p>
               <div className="blog-byline">
                 <img
-                  src="/assets/preferred-logo-truck.webp"
+                  src="/assets/preferred-logo-truck-520.webp"
                   alt=""
                   width={72}
                   height={26}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div>
                   <strong>{site.name}</strong>
@@ -175,7 +177,9 @@ export default async function BlogPostPage({
                 alt={post.coverImageAlt}
                 width={1280}
                 height={720}
-                fetchPriority="high"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
               />
             </figure>
           </div>
