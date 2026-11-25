@@ -250,11 +250,15 @@ export function LocationsPage() {
           </a>
         </div>
         <img
-          src="/assets/mountains.webp"
+          className="mountain-foot"
+          src="/assets/mountains-w1200.webp"
+          srcSet="/assets/mountains-w800.webp 800w, /assets/mountains-w1200.webp 1200w, /assets/mountains-w1600.webp 1600w, /assets/mountains-w2000.webp 2000w"
+          sizes="100vw"
           alt=""
           loading="lazy"
-          width={1920}
-          height={640}
+          decoding="async"
+          width={2000}
+          height={697}
         />
       </section>
     </>

@@ -612,12 +612,12 @@ export default function Page() {
         </div>
       </section>
       <ResponsiveImg
+        className="mountain-foot"
         src="/assets/mountains.webp"
         alt=""
-        style={{ background: "#061c35", width: "100%" }}
-        width={1280}
-        height={427}
-        widths={[640, 1280]}
+        width={2000}
+        height={697}
+        widths={[800, 1200, 1600, 2000]}
         sizes="100vw"
       />
     </>

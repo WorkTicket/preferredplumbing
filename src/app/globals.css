@@ -850,12 +850,13 @@
     margin-top: 12px;
   }
   .mountain-foot {
+    display: block;
     width: 100%;
-    margin-top: -30px;
-    max-height: 310px;
+    height: clamp(160px, 22vw, 280px);
+    margin: 0;
     object-fit: cover;
-    object-position: top;
-    opacity: 0.72;
+    object-position: center 35%;
+    background: #061c35;
   }
   footer {
     background: #041326;
@@ -1095,8 +1096,7 @@
       padding: 24px;
     }
     .mountain-foot {
-      margin-top: 20px;
-      min-height: 150px;
+      height: clamp(140px, 34vw, 220px);
     }
     .fields {
       gap: 12px;
@@ -5922,6 +5922,22 @@ header .site-nav .mega-foot a:hover {
   height: auto;
   display: block;
   image-rendering: auto;
+}
+
+img.mountain-foot {
+  display: block;
+  width: 100%;
+  height: clamp(160px, 22vw, 280px);
+  margin: 0;
+  object-fit: cover;
+  object-position: center 35%;
+  background: #061c35;
+}
+
+@media (max-width: 720px) {
+  img.mountain-foot {
+    height: clamp(140px, 34vw, 220px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

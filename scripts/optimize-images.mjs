@@ -105,7 +105,7 @@ const variants = [
   { src: "assets/winter.webp", widths: [640, 1280] },
   { src: "assets/van.webp", widths: [640, 1280] },
   { src: "assets/hunter.webp", widths: [360, 480] },
-  { src: "assets/mountains.webp", widths: [640, 1280] },
+  { src: "assets/mountains.webp", widths: [800, 1200, 1600, 2000], quality: 88 },
   {
     src: "assets/real-modern-bathroom-fixtures-1.webp",
     widths: [360, 480],
