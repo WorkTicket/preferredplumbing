@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useId,
-  useRef,
-  useState,
-  type MouseEvent as ReactMouseEvent,
-} from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Icon } from "./Icon";
 import { services, type Service } from "@/data/services";
 
@@ -18,7 +12,6 @@ const CATEGORY_ORDER = [
   "Remodeling",
 ] as const;
 
-const DESKTOP_MQ = "(min-width: 1241px)";
 const OPEN_DELAY_MS = 40;
 const CLOSE_DELAY_MS = 160;
 
@@ -40,10 +33,7 @@ function groupServices(items: Service[]) {
 
 const groups = groupServices(services);
 
-function isDesktopNav() {
-  return window.matchMedia(DESKTOP_MQ).matches;
-}
-
+/** Desktop-only Services mega menu. Mobile uses MobileMenu. */
 export function ServicesNavDrop() {
   const [open, setOpen] = useState(false);
   const menuId = useId();
@@ -88,47 +78,29 @@ export function ServicesNavDrop() {
       if (!rootRef.current?.contains(event.target as Node)) closeMenu();
     };
 
-    const media = window.matchMedia(DESKTOP_MQ);
-    const onBreakpoint = () => closeMenu();
-
     window.addEventListener("keydown", onKeyDown);
     document.addEventListener("pointerdown", onPointerDown);
-    media.addEventListener("change", onBreakpoint);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("pointerdown", onPointerDown);
-      media.removeEventListener("change", onBreakpoint);
     };
   }, [open]);
-
-  const onDesktopEnter = () => {
-    if (!isDesktopNav()) return;
-    clearTimers();
-    openTimer.current = window.setTimeout(() => setOpen(true), OPEN_DELAY_MS);
-  };
-
-  const onDesktopLeave = () => {
-    if (!isDesktopNav()) return;
-    clearTimers();
-    closeTimer.current = window.setTimeout(
-      () => setOpen(false),
-      CLOSE_DELAY_MS,
-    );
-  };
-
-  const onTriggerClick = (event: ReactMouseEvent<HTMLAnchorElement>) => {
-    if (isDesktopNav()) return;
-    event.preventDefault();
-    clearTimers();
-    setOpen((value) => !value);
-  };
 
   return (
     <div
       className={`navdrop${open ? " is-open" : ""}`}
       ref={rootRef}
-      onMouseEnter={onDesktopEnter}
-      onMouseLeave={onDesktopLeave}
+      onMouseEnter={() => {
+        clearTimers();
+        openTimer.current = window.setTimeout(() => setOpen(true), OPEN_DELAY_MS);
+      }}
+      onMouseLeave={() => {
+        clearTimers();
+        closeTimer.current = window.setTimeout(
+          () => setOpen(false),
+          CLOSE_DELAY_MS,
+        );
+      }}
     >
       <a
         className="navdrop-label"
@@ -136,10 +108,7 @@ export function ServicesNavDrop() {
         aria-expanded={open}
         aria-controls={menuId}
         aria-haspopup="true"
-        onClick={onTriggerClick}
-        onFocus={() => {
-          if (isDesktopNav()) openMenu();
-        }}
+        onFocus={openMenu}
       >
         <span>Services</span>
         <Icon name="chevron" />
@@ -151,9 +120,7 @@ export function ServicesNavDrop() {
         role="region"
         aria-label="Services menu"
         aria-hidden={!open}
-        onFocusCapture={() => {
-          if (isDesktopNav()) openMenu();
-        }}
+        onFocusCapture={openMenu}
       >
         <div className="mega-inner">
           <div className="mega-top">

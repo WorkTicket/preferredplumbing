@@ -1,9 +1,7 @@
 import { Icon } from "./Icon";
-import { MobileNavToggle } from "./MobileNavToggle";
+import { MobileMenu } from "./MobileMenu";
 import { ServicesNavDrop } from "./ServicesNavDrop";
 import { site } from "@/data/site";
-
-const NAV_ID = "site-navlinks";
 
 export function Header() {
   return (
@@ -42,7 +40,7 @@ export function Header() {
             />
           </a>
 
-          <div className="navlinks" id={NAV_ID}>
+          <div className="navlinks">
             <a href="/">Home</a>
             <ServicesNavDrop />
             <a href="/about/">About</a>
@@ -50,15 +48,6 @@ export function Header() {
             <a href="/blog/">Blog</a>
             <a href="/gallery/">Gallery</a>
             <a href="/contact/">Contact</a>
-            <div className="navlinks-mobile-actions">
-              <a className="navcall" href={site.phoneHref}>
-                <Icon name="phone" />
-                <span>{site.phone}</span>
-              </a>
-              <a className="btn nav-cta" href="/contact/">
-                Free estimate <Icon name="arrow" />
-              </a>
-            </div>
           </div>
 
           <div className="nav-right">
@@ -78,7 +67,7 @@ export function Header() {
             </a>
           </div>
 
-          <MobileNavToggle navId={NAV_ID} />
+          <MobileMenu />
         </nav>
       </header>
     </>
