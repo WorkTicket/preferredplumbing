@@ -64,8 +64,9 @@ export function ServiceCards({
               <ResponsiveImg
                 src={art.get(service.slug) ?? fallbackArt[0]}
                 alt={`${service.title} illustration`}
-                width={960}
-                height={640}
+                width={360}
+                height={240}
+                widths={[360]}
                 sizes="(max-width: 720px) 92vw, 360px"
               />
             ) : (

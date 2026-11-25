@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import { Icon } from "./Icon";
 import { services, type Service } from "@/data/services";
 
@@ -11,6 +17,10 @@ const CATEGORY_ORDER = [
   "Building",
   "Remodeling",
 ] as const;
+
+const DESKTOP_MQ = "(min-width: 1241px)";
+const OPEN_DELAY_MS = 60;
+const CLOSE_DELAY_MS = 180;
 
 function groupServices(items: Service[]) {
   const groups: { category: string; items: Service[] }[] = CATEGORY_ORDER.map(
@@ -30,13 +40,22 @@ function groupServices(items: Service[]) {
 
 const groups = groupServices(services);
 
+function isDesktopNav() {
+  return window.matchMedia(DESKTOP_MQ).matches;
+}
+
 export function ServicesNavDrop() {
   const [open, setOpen] = useState(false);
   const menuId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
+  const openTimer = useRef<number | null>(null);
   const closeTimer = useRef<number | null>(null);
 
-  const clearCloseTimer = () => {
+  const clearTimers = () => {
+    if (openTimer.current !== null) {
+      window.clearTimeout(openTimer.current);
+      openTimer.current = null;
+    }
     if (closeTimer.current !== null) {
       window.clearTimeout(closeTimer.current);
       closeTimer.current = null;
@@ -44,75 +63,119 @@ export function ServicesNavDrop() {
   };
 
   const openMenu = () => {
-    clearCloseTimer();
+    clearTimers();
     setOpen(true);
   };
 
-  const scheduleClose = () => {
-    clearCloseTimer();
-    closeTimer.current = window.setTimeout(() => setOpen(false), 140);
+  const closeMenu = () => {
+    clearTimers();
+    setOpen(false);
   };
+
+  const scheduleOpen = () => {
+    clearTimers();
+    openTimer.current = window.setTimeout(() => setOpen(true), OPEN_DELAY_MS);
+  };
+
+  const scheduleClose = () => {
+    clearTimers();
+    closeTimer.current = window.setTimeout(
+      () => setOpen(false),
+      CLOSE_DELAY_MS,
+    );
+  };
+
+  useEffect(() => () => clearTimers(), []);
 
   useEffect(() => {
     if (!open) return;
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenu();
+        rootRef.current
+          ?.querySelector<HTMLElement>(".navdrop-label")
+          ?.focus();
+      }
     };
-    const onPointerDown = (event: MouseEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) closeMenu();
     };
+
+    const onResize = () => {
+      if (isDesktopNav()) closeMenu();
+    };
+
     window.addEventListener("keydown", onKeyDown);
-    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("resize", onResize);
     };
   }, [open]);
 
-  useEffect(() => () => clearCloseTimer(), []);
+  const onDesktopEnter = () => {
+    if (!isDesktopNav()) return;
+    scheduleOpen();
+  };
+
+  const onDesktopLeave = () => {
+    if (!isDesktopNav()) return;
+    scheduleClose();
+  };
+
+  const onTriggerClick = (event: ReactMouseEvent<HTMLAnchorElement>) => {
+    if (isDesktopNav()) return;
+    // Mobile: Services row is an accordion control, not a navigation jump.
+    event.preventDefault();
+    clearTimers();
+    setOpen((value) => !value);
+  };
 
   return (
     <div
       className={`navdrop${open ? " is-open" : ""}`}
       ref={rootRef}
-      onMouseEnter={openMenu}
-      onMouseLeave={scheduleClose}
+      onMouseEnter={onDesktopEnter}
+      onMouseLeave={onDesktopLeave}
     >
-      <div className="navdrop-trigger">
-        <a
-          className="navdrop-label"
-          href="/services/"
-          aria-expanded={open}
-          aria-controls={menuId}
-          onFocus={openMenu}
-        >
-          Services
-          <Icon name="chevron" />
-        </a>
-        <button
-          type="button"
-          className="navdrop-mobile-toggle"
-          aria-expanded={open}
-          aria-controls={menuId}
-          aria-label={open ? "Collapse services menu" : "Expand services menu"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <Icon name="chevron" />
-        </button>
-      </div>
+      <a
+        className="navdrop-label"
+        href="/services/"
+        aria-expanded={open}
+        aria-controls={menuId}
+        aria-haspopup="true"
+        onClick={onTriggerClick}
+        onFocus={() => {
+          if (isDesktopNav()) openMenu();
+        }}
+      >
+        <span>Services</span>
+        <Icon name="chevron" />
+      </a>
 
       <div
         id={menuId}
         className="mega"
         role="region"
         aria-label="Services menu"
-        onMouseEnter={openMenu}
-        onFocusCapture={openMenu}
+        aria-hidden={!open}
+        onMouseEnter={onDesktopEnter}
+        onFocusCapture={() => {
+          if (isDesktopNav()) openMenu();
+        }}
       >
         <div className="mega-top">
           <div>
             <strong>Plumbing for every part of your home</strong>
-            <p>Explore the full Preferred lineup, from urgent repairs to radiant heat.</p>
+            <p>
+              Explore the full Preferred lineup, from urgent repairs to radiant
+              heat.
+            </p>
           </div>
           <a className="mega-all" href="/services/">
             All services <Icon name="arrow" />

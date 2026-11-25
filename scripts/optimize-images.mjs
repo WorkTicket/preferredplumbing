@@ -92,41 +92,52 @@ for (const file of files) {
 const variants = [
   {
     src: "assets/repairs-realistic.webp",
-    widths: [480, 960],
+    widths: [360, 480],
   },
-  { src: "assets/floor.webp", widths: [480, 960] },
-  { src: "assets/tankless.webp", widths: [480, 960] },
-  { src: "assets/camera.webp", widths: [480, 960] },
-  { src: "assets/manifold.webp", widths: [480, 960] },
+  { src: "assets/floor.webp", widths: [360, 480] },
+  { src: "assets/tankless.webp", widths: [360, 480] },
+  { src: "assets/camera.webp", widths: [360, 480] },
+  { src: "assets/manifold.webp", widths: [360, 480] },
   {
     src: "assets/new-construction-rough-in-transparent.webp",
-    widths: [480, 960],
+    widths: [360, 480],
   },
   { src: "assets/winter.webp", widths: [640, 1280] },
   { src: "assets/van.webp", widths: [640, 1280] },
-  { src: "assets/hunter.webp", widths: [480, 960] },
+  { src: "assets/hunter.webp", widths: [360, 480] },
   { src: "assets/mountains.webp", widths: [640, 1280] },
   {
     src: "assets/real-modern-bathroom-fixtures-1.webp",
-    widths: [480, 960],
+    widths: [360, 480],
   },
   {
     src: "assets/real-new-construction-rough-in-1.webp",
-    widths: [480, 960],
+    widths: [360, 480],
   },
-  { src: "assets/footer-logo.webp", widths: [240, 480] },
+  { src: "assets/footer-logo.webp", widths: [280, 560, 840], quality: 95 },
 ];
 
 for (const item of variants) {
   const srcPath = path.join(root, item.src);
   const input = await readFile(srcPath);
   const base = item.src.replace(/\.webp$/, "");
+  const quality = item.quality ?? 72;
   for (const width of item.widths) {
     const outRel = `${base}-w${width}.webp`;
     const outPath = path.join(root, outRel);
     const buffer = await sharp(input, { failOn: "none" })
-      .resize({ width, withoutEnlargement: true, fit: "inside" })
-      .webp({ quality: 72, alphaQuality: 80, effort: 6, smartSubsample: true })
+      .resize({
+        width,
+        withoutEnlargement: true,
+        fit: "inside",
+        kernel: sharp.kernel.lanczos3,
+      })
+      .webp({
+        quality,
+        alphaQuality: Math.min(quality + 8, 100),
+        effort: 6,
+        smartSubsample: quality < 90,
+      })
       .toBuffer();
     await writeFile(outPath, buffer);
     console.log(`variant ${outRel}: ${(buffer.length / 1024).toFixed(0)}KB`);

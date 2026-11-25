@@ -23,22 +23,24 @@ export function ResponsiveImg({
   alt,
   width,
   height,
-  widths = [480],
-  sizes = "(max-width: 720px) 360px, 360px",
+  widths = [360],
+  sizes = "(max-width: 720px) 92vw, 360px",
   className,
   loading = "lazy",
   fetchPriority,
   decoding = "async",
   style,
 }: ResponsiveImgProps) {
-  const srcSet = widths
+  const ordered = [...widths].sort((a, b) => a - b);
+  const srcSet = ordered
     .map((w) => `${variantPath(src, w)} ${w}w`)
     .join(", ");
+  const primary = ordered[0] ?? width;
 
   return (
     <img
       className={className}
-      src={variantPath(src, widths[widths.length - 1] ?? width)}
+      src={variantPath(src, primary)}
       srcSet={srcSet}
       sizes={sizes}
       alt={alt}

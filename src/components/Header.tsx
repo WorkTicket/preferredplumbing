@@ -31,12 +31,12 @@ export function Header() {
           >
             <img
               className="brand-full"
-              src="/assets/preferred-logo-truck-520.webp"
-              srcSet="/assets/preferred-logo-truck-520.webp 520w, /assets/preferred-logo-truck-920.webp 920w"
-              sizes="(max-width: 1100px) 180px, 220px"
+              src="/assets/preferred-logo-truck-240.webp"
+              srcSet="/assets/preferred-logo-truck-240.webp 240w"
+              sizes="180px"
               alt={site.name}
-              width={520}
-              height={190}
+              width={240}
+              height={88}
               decoding="async"
               fetchPriority="low"
             />

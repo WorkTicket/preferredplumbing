@@ -155,6 +155,14 @@ export default function RootLayout({
     <html lang="en-US">
       <head>
         <meta name="theme-color" content="#061c35" />
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/lake-480.webp"
+          imageSrcSet="/assets/lake-480.webp 1x, /assets/lake-640.webp 2x"
+          media="(max-width: 700px)"
+          fetchPriority="high"
+        />
       </head>
       <body className={`${barlowCondensed.variable} antialiased`}>
         <JsonLd data={localBusinessSchema} />

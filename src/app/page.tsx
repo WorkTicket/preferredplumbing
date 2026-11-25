@@ -19,18 +19,24 @@ export default function Page() {
   return (
     <>
       <section className={"hero home-hero"}>
-        <img
-          className="hero-background"
-          src="/assets/lake-640.webp"
-          srcSet="/assets/lake-480.webp 480w, /assets/lake-640.webp 640w, /assets/lake-1024.webp 1024w, /assets/lake-1536.webp 1536w"
-          sizes="100vw"
-          alt=""
-          width={1536}
-          height={1024}
-          fetchPriority="high"
-          decoding="sync"
-          aria-hidden="true"
-        />
+        <picture>
+          <source
+            media="(max-width: 700px)"
+            srcSet="/assets/lake-480.webp 1x, /assets/lake-640.webp 2x"
+          />
+          <img
+            className="hero-background"
+            src="/assets/lake-640.webp"
+            srcSet="/assets/lake-640.webp 640w, /assets/lake-1024.webp 1024w"
+            sizes="(max-width: 1100px) 100vw, 1024px"
+            alt=""
+            width={1024}
+            height={683}
+            fetchPriority="high"
+            decoding="async"
+            aria-hidden="true"
+          />
+        </picture>
         <div className={"wrap hero-grid hero-text-only home-hero-grid"}>
           <div>
             <div className={"eyebrow"}>
@@ -128,8 +134,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/repairs-realistic.webp"
               alt="Plumbing & repairs illustration"
-              width={960}
-              height={640}
+              width={360}
+              height={240}
+              widths={[360]}
             />
             <h3>{"Plumbing & repairs"}</h3>
             <p>
@@ -149,8 +156,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/floor.webp"
               alt="Radiant floor heat illustration"
-              width={960}
-              height={640}
+              width={360}
+              height={240}
+              widths={[360]}
             />
             <h3>{"Radiant floor heat"}</h3>
             <p>
@@ -168,8 +176,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/tankless.webp"
               alt="Tankless water heaters illustration"
-              width={960}
-              height={1440}
+              width={360}
+              height={540}
+              widths={[360]}
             />
             <h3>{"Tankless water heaters"}</h3>
             <p>
@@ -189,8 +198,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/camera.webp"
               alt="Drains & sewer lines illustration"
-              width={960}
-              height={830}
+              width={360}
+              height={311}
+              widths={[360]}
             />
             <h3>{"Drains & sewer lines"}</h3>
             <p>{"Find the problem and get your plumbing moving again."}</p>
@@ -206,8 +216,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/manifold.webp"
               alt="Boilers & hydronics illustration"
-              width={960}
-              height={877}
+              width={360}
+              height={329}
+              widths={[360]}
             />
             <h3>{"Boilers & hydronics"}</h3>
             <p>
@@ -227,8 +238,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/new-construction-rough-in-transparent.webp"
               alt="New construction plumbing rough-in illustration"
-              width={960}
-              height={877}
+              width={360}
+              height={329}
+              widths={[360]}
             />
             <h3>{"New construction"}</h3>
             <p>{"Plumbing from the first rough-in to the final fixture."}</p>

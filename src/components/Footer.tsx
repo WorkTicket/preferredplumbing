@@ -27,12 +27,12 @@ export function Footer() {
             <div className="sf-brand">
               <a href="/" aria-label="Preferred Plumbing Solutions home">
                 <img
-                  src="/assets/footer-logo-w480.webp"
-                  srcSet="/assets/footer-logo-w240.webp 240w, /assets/footer-logo-w480.webp 480w"
-                  sizes="(max-width: 720px) 180px, 220px"
+                  src="/assets/footer-logo-w560.webp"
+                  srcSet="/assets/footer-logo-w280.webp 280w, /assets/footer-logo-w560.webp 560w, /assets/footer-logo-w840.webp 840w"
+                  sizes="(max-width: 720px) 200px, 220px"
                   alt="Preferred Plumbing Solutions"
-                  width={480}
-                  height={480}
+                  width={560}
+                  height={560}
                   loading="lazy"
                   decoding="async"
                 />
