@@ -21,7 +21,7 @@ export function Header() {
       </div>
       <header>
         <nav
-          className="wrap flex items-center justify-between"
+          className="wrap site-nav"
           aria-label="Main navigation"
         >
           <a
@@ -33,7 +33,7 @@ export function Header() {
               className="brand-full"
               src="/assets/preferred-logo-truck-520.webp"
               srcSet="/assets/preferred-logo-truck-520.webp 520w, /assets/preferred-logo-truck-920.webp 920w"
-              sizes="(max-width: 720px) 240px, 260px"
+              sizes="(max-width: 1100px) 180px, 220px"
               alt={site.name}
               width={520}
               height={190}
@@ -41,12 +41,14 @@ export function Header() {
               fetchPriority="low"
             />
           </a>
+
           <input
             type="checkbox"
             id="nav-toggle"
             className="nav-toggle"
             aria-controls="navlinks"
           />
+
           <div className="navlinks" id="navlinks">
             <a href="/">Home</a>
             <div className="navdrop">
@@ -73,9 +75,23 @@ export function Header() {
             <a href="/blog/">Blog</a>
             <a href="/gallery/">Gallery</a>
             <a href="/contact/">Contact</a>
+            <div className="navlinks-mobile-actions">
+              <a className="navcall" href={site.phoneHref}>
+                <Icon name="phone" />
+                <span>{site.phone}</span>
+              </a>
+              <a className="btn nav-cta" href="/contact/">
+                Free estimate <Icon name="arrow" />
+              </a>
+            </div>
           </div>
+
           <div className="nav-right">
-            <a className="navcall" href={site.phoneHref}>
+            <a
+              className="navcall"
+              href={site.phoneHref}
+              aria-label={`Call ${site.phone}`}
+            >
               <Icon name="phone" />
               <span>
                 <small>LET’S TALK PLUMBING</small>
@@ -86,12 +102,17 @@ export function Header() {
               Free estimate <Icon name="arrow" />
             </a>
           </div>
+
           <label
             htmlFor="nav-toggle"
             className="menu"
             aria-label="Open navigation"
           >
-            ☰
+            <span className="menu-bars" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </label>
         </nav>
       </header>
