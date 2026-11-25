@@ -6012,12 +6012,3 @@ img.mountain-foot {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  header .site-nav .menu-bars > span,
-  header .site-nav .mega,
-  header .site-nav .navdrop > .navdrop-label .icon,
-  header .site-nav > .navlinks,
-  header .site-nav .nav-backdrop {
-    transition: none !important;
-  }
-}
