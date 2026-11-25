@@ -1,6 +1,6 @@
 import { Icon } from "./Icon";
 import { MobileNavToggle } from "./MobileNavToggle";
-import { services } from "@/data/services";
+import { ServicesNavDrop } from "./ServicesNavDrop";
 import { site } from "@/data/site";
 
 const NAV_ID = "site-navlinks";
@@ -44,25 +44,7 @@ export function Header() {
 
           <div className="navlinks" id={NAV_ID}>
             <a href="/">Home</a>
-            <div className="navdrop">
-              <a className="navdrop-label" href="/services/">
-                Services <Icon name="chevron" />
-              </a>
-              <div id="services-menu" className="mega">
-                <div className="mega-top">
-                  Plumbing for every part of your home.
-                  <a href="/services/">All services ↗</a>
-                </div>
-                <div className="mega-grid">
-                  {services.map((service) => (
-                    <a key={service.slug} href={`/services/${service.slug}/`}>
-                      <Icon name={service.icon} />
-                      <span>{service.title}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ServicesNavDrop />
             <a href="/about/">About</a>
             <a href="/locations/">Locations</a>
             <a href="/blog/">Blog</a>

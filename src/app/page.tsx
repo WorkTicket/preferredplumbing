@@ -250,13 +250,18 @@ export default function Page() {
       {"\n"}
       <section className={"winter"}>
         <div className={"wrap winter-grid"}>
-          <div
-            className={"winter-photo"}
-            role={"img"}
-            aria-label={
-              "Illustration of a snow-free heated driveway at a mountain home"
-            }
-          ></div>
+          <div className={"winter-photo"}>
+            <img
+              src="/assets/winter-w1600.webp"
+              srcSet="/assets/winter-w960.webp 960w, /assets/winter-w1600.webp 1280w, /assets/winter.webp 1280w"
+              sizes="(max-width: 1120px) 100vw, 55vw"
+              alt="Snow-clear heated driveway at a North Idaho mountain home at dusk"
+              width={1280}
+              height={720}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div className={"winter-copy"}>
             <div className={"eyebrow"}>
               {"A little less winter in your winter."}
