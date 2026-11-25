@@ -235,18 +235,16 @@
     content: "";
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(
-        90deg,
-        #021428 0%,
-        #021428e8 20%,
-        #021428cc 45%,
-        #02142888 65%,
-        #02142833 80%,
-        #02142800 100%
-      ),
-      url("/assets/lake-1024.webp") center/cover no-repeat;
-    z-index: -2;
+    background: linear-gradient(
+      90deg,
+      #021428 0%,
+      #021428e8 20%,
+      #021428cc 45%,
+      #02142888 65%,
+      #02142833 80%,
+      #02142800 100%
+    );
+    z-index: -1;
   }
   .hero-background {
     position: absolute;
