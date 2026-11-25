@@ -37,12 +37,6 @@ export function MobileNavToggle({ navId }: MobileNavToggleProps) {
     const onClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!target) return;
-
-      if (target.closest("[data-nav-backdrop]")) {
-        setMenuOpen(false);
-        return;
-      }
-
       const link = target.closest(`#${CSS.escape(navId)} a`);
       if (!link) return;
       if (link.classList.contains("navdrop-label")) return;
@@ -60,29 +54,19 @@ export function MobileNavToggle({ navId }: MobileNavToggleProps) {
   }, [menuOpen, navId]);
 
   return (
-    <>
-      <button
-        type="button"
-        className={`menu${menuOpen ? " is-open" : ""}`}
-        aria-expanded={menuOpen}
-        aria-controls={navId}
-        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-        onClick={() => setMenuOpen((open) => !open)}
-      >
-        <span className="menu-bars" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </span>
-      </button>
-      {menuOpen ? (
-        <button
-          type="button"
-          className="nav-backdrop is-open"
-          data-nav-backdrop=""
-          aria-label="Close navigation"
-        />
-      ) : null}
-    </>
+    <button
+      type="button"
+      className={`menu${menuOpen ? " is-open" : ""}`}
+      aria-expanded={menuOpen}
+      aria-controls={navId}
+      aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+      onClick={() => setMenuOpen((open) => !open)}
+    >
+      <span className="menu-bars" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </span>
+    </button>
   );
 }
