@@ -1,6 +1,9 @@
 import { Icon } from "./Icon";
+import { MobileNavToggle } from "./MobileNavToggle";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
+
+const NAV_ID = "site-navlinks";
 
 export function Header() {
   return (
@@ -20,10 +23,7 @@ export function Header() {
         </div>
       </div>
       <header>
-        <nav
-          className="wrap site-nav"
-          aria-label="Main navigation"
-        >
+        <nav className="wrap site-nav" aria-label="Main navigation">
           <a
             href="/"
             className="brand"
@@ -42,14 +42,7 @@ export function Header() {
             />
           </a>
 
-          <input
-            type="checkbox"
-            id="nav-toggle"
-            className="nav-toggle"
-            aria-controls="navlinks"
-          />
-
-          <div className="navlinks" id="navlinks">
+          <div className="navlinks" id={NAV_ID}>
             <a href="/">Home</a>
             <div className="navdrop">
               <a className="navdrop-label" href="/services/">
@@ -103,17 +96,7 @@ export function Header() {
             </a>
           </div>
 
-          <label
-            htmlFor="nav-toggle"
-            className="menu"
-            aria-label="Open navigation"
-          >
-            <span className="menu-bars" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </span>
-          </label>
+          <MobileNavToggle navId={NAV_ID} />
         </nav>
       </header>
     </>

@@ -24,7 +24,7 @@ export function ResponsiveImg({
   width,
   height,
   widths = [480],
-  sizes = "(max-width: 720px) 92vw, 360px",
+  sizes = "(max-width: 720px) 360px, 360px",
   className,
   loading = "lazy",
   fetchPriority,

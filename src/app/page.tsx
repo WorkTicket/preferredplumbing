@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
+import { HomeHeroPreload } from "@/components/HomeHeroPreload";
 import { Icon } from "@/components/Icon";
 import { ResponsiveImg } from "@/components/ResponsiveImg";
 import { locations } from "@/data/locations";
@@ -18,10 +19,11 @@ export const metadata: Metadata = withSocialMetadata({
 export default function Page() {
   return (
     <>
+      <HomeHeroPreload />
       <section className={"hero home-hero"}>
         <img
           className="hero-background"
-          src="/assets/lake-1024.webp"
+          src="/assets/lake-640.webp"
           srcSet="/assets/lake-480.webp 480w, /assets/lake-640.webp 640w, /assets/lake-1024.webp 1024w, /assets/lake-1536.webp 1536w"
           sizes="100vw"
           alt=""
