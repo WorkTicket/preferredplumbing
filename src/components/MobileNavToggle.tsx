@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 
 type MobileNavToggleProps = {
   navId: string;
@@ -10,31 +10,11 @@ const DESKTOP_MQ = "(min-width: 1241px)";
 
 export function MobileNavToggle({ navId }: MobileNavToggleProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const backdropId = useId();
 
   useEffect(() => {
     const nav = document.getElementById(navId);
     if (!nav) return;
-
-    if (menuOpen) {
-      nav.classList.add("is-open");
-      requestAnimationFrame(() => {
-        nav.classList.add("is-visible");
-      });
-    } else {
-      nav.classList.remove("is-visible");
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      window.setTimeout(
-        () => {
-          if (!nav.classList.contains("is-visible")) {
-            nav.classList.remove("is-open");
-          }
-        },
-        reduceMotion ? 0 : 220,
-      );
-    }
+    nav.classList.toggle("is-open", menuOpen);
   }, [menuOpen, navId]);
 
   useEffect(() => {
@@ -48,32 +28,36 @@ export function MobileNavToggle({ navId }: MobileNavToggleProps) {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setMenuOpen(false);
     };
-    const onResize = () => {
-      if (window.matchMedia(DESKTOP_MQ).matches) setMenuOpen(false);
+
+    const media = window.matchMedia(DESKTOP_MQ);
+    const onBreakpoint = (event: MediaQueryListEvent) => {
+      if (event.matches) setMenuOpen(false);
     };
+
     const onClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!target) return;
-      if (target.closest(`[data-nav-backdrop="${CSS.escape(backdropId)}"]`)) {
+
+      if (target.closest("[data-nav-backdrop]")) {
         setMenuOpen(false);
         return;
       }
+
       const link = target.closest(`#${CSS.escape(navId)} a`);
       if (!link) return;
-      // Keep drawer open while toggling the Services accordion.
       if (link.classList.contains("navdrop-label")) return;
       setMenuOpen(false);
     };
 
     window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("resize", onResize);
+    media.addEventListener("change", onBreakpoint);
     document.addEventListener("click", onClick);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("resize", onResize);
+      media.removeEventListener("change", onBreakpoint);
       document.removeEventListener("click", onClick);
     };
-  }, [menuOpen, navId, backdropId]);
+  }, [menuOpen, navId]);
 
   return (
     <>
@@ -91,14 +75,14 @@ export function MobileNavToggle({ navId }: MobileNavToggleProps) {
           <span />
         </span>
       </button>
-      <button
-        type="button"
-        className={`nav-backdrop${menuOpen ? " is-open" : ""}`}
-        data-nav-backdrop={backdropId}
-        aria-label="Close navigation"
-        tabIndex={menuOpen ? 0 : -1}
-        hidden={!menuOpen}
-      />
+      {menuOpen ? (
+        <button
+          type="button"
+          className="nav-backdrop is-open"
+          data-nav-backdrop=""
+          aria-label="Close navigation"
+        />
+      ) : null}
     </>
   );
 }

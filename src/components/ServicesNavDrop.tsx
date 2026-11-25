@@ -19,8 +19,8 @@ const CATEGORY_ORDER = [
 ] as const;
 
 const DESKTOP_MQ = "(min-width: 1241px)";
-const OPEN_DELAY_MS = 60;
-const CLOSE_DELAY_MS = 180;
+const OPEN_DELAY_MS = 40;
+const CLOSE_DELAY_MS = 160;
 
 function groupServices(items: Service[]) {
   const groups: { category: string; items: Service[] }[] = CATEGORY_ORDER.map(
@@ -72,12 +72,43 @@ export function ServicesNavDrop() {
     setOpen(false);
   };
 
-  const scheduleOpen = () => {
+  useEffect(() => () => clearTimers(), []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      closeMenu();
+      rootRef.current?.querySelector<HTMLElement>(".navdrop-label")?.focus();
+    };
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) closeMenu();
+    };
+
+    const media = window.matchMedia(DESKTOP_MQ);
+    const onBreakpoint = () => closeMenu();
+
+    window.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    media.addEventListener("change", onBreakpoint);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+      media.removeEventListener("change", onBreakpoint);
+    };
+  }, [open]);
+
+  const onDesktopEnter = () => {
+    if (!isDesktopNav()) return;
     clearTimers();
     openTimer.current = window.setTimeout(() => setOpen(true), OPEN_DELAY_MS);
   };
 
-  const scheduleClose = () => {
+  const onDesktopLeave = () => {
+    if (!isDesktopNav()) return;
     clearTimers();
     closeTimer.current = window.setTimeout(
       () => setOpen(false),
@@ -85,52 +116,8 @@ export function ServicesNavDrop() {
     );
   };
 
-  useEffect(() => () => clearTimers(), []);
-
-  useEffect(() => {
-    if (!open) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        closeMenu();
-        rootRef.current
-          ?.querySelector<HTMLElement>(".navdrop-label")
-          ?.focus();
-      }
-    };
-
-    const onPointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) closeMenu();
-    };
-
-    const onResize = () => {
-      if (isDesktopNav()) closeMenu();
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [open]);
-
-  const onDesktopEnter = () => {
-    if (!isDesktopNav()) return;
-    scheduleOpen();
-  };
-
-  const onDesktopLeave = () => {
-    if (!isDesktopNav()) return;
-    scheduleClose();
-  };
-
   const onTriggerClick = (event: ReactMouseEvent<HTMLAnchorElement>) => {
     if (isDesktopNav()) return;
-    // Mobile: Services row is an accordion control, not a navigation jump.
     event.preventDefault();
     clearTimers();
     setOpen((value) => !value);
@@ -164,47 +151,48 @@ export function ServicesNavDrop() {
         role="region"
         aria-label="Services menu"
         aria-hidden={!open}
-        onMouseEnter={onDesktopEnter}
         onFocusCapture={() => {
           if (isDesktopNav()) openMenu();
         }}
       >
-        <div className="mega-top">
-          <div>
-            <strong>Plumbing for every part of your home</strong>
-            <p>
-              Explore the full Preferred lineup, from urgent repairs to radiant
-              heat.
-            </p>
-          </div>
-          <a className="mega-all" href="/services/">
-            All services <Icon name="arrow" />
-          </a>
-        </div>
-
-        <div className="mega-groups">
-          {groups.map((group) => (
-            <div className="mega-group" key={group.category}>
-              <p className="mega-group-label">{group.category}</p>
-              <ul className="mega-list">
-                {group.items.map((service) => (
-                  <li key={service.slug}>
-                    <a href={`/services/${service.slug}/`}>
-                      <span className="mega-icon" aria-hidden="true">
-                        <Icon name={service.icon} />
-                      </span>
-                      <span className="mega-link-text">{service.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+        <div className="mega-inner">
+          <div className="mega-top">
+            <div>
+              <strong>Plumbing for every part of your home</strong>
+              <p>
+                Explore the full Preferred lineup, from urgent repairs to
+                radiant heat.
+              </p>
             </div>
-          ))}
-        </div>
+            <a className="mega-all" href="/services/">
+              All services <Icon name="arrow" />
+            </a>
+          </div>
 
-        <div className="mega-foot">
-          <a href="/contact/">Free estimate</a>
-          <a href="tel:2082903889">Call 208-290-3889</a>
+          <div className="mega-groups">
+            {groups.map((group) => (
+              <div className="mega-group" key={group.category}>
+                <p className="mega-group-label">{group.category}</p>
+                <ul className="mega-list">
+                  {group.items.map((service) => (
+                    <li key={service.slug}>
+                      <a href={`/services/${service.slug}/`}>
+                        <span className="mega-icon" aria-hidden="true">
+                          <Icon name={service.icon} />
+                        </span>
+                        <span className="mega-link-text">{service.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mega-foot">
+            <a href="/contact/">Free estimate</a>
+            <a href="tel:2082903889">Call 208-290-3889</a>
+          </div>
         </div>
       </div>
     </div>
