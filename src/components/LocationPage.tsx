@@ -280,7 +280,7 @@ export function LocationPage({ slug }: { slug: string }) {
             Call {site.phone} or tell us about your project online.
           </p>
           <a
-            href={`/contact/?location=${location.slug}`}
+            href="/contact/"
             className="btn"
           >
             Request a free estimate <Icon name="arrow" />

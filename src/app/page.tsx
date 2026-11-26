@@ -3,6 +3,7 @@ import { withSocialMetadata } from "@/lib/metadata";
 import { Icon } from "@/components/Icon";
 import { ResponsiveImg } from "@/components/ResponsiveImg";
 import { locations } from "@/data/locations";
+import { contactHref } from "@/lib/contact";
 
 export const metadata: Metadata = withSocialMetadata({
   title: {
@@ -294,7 +295,10 @@ export default function Page() {
               <li>{"Builder planning for custom homes"}</li>
             </ul>
             <div className={"actions"}>
-              <a className={"btn"} href={"/contact/?service=radiant-heat"}>
+              <a
+                className={"btn"}
+                href={contactHref({ service: "radiant-heat" })}
+              >
                 {"Request a Radiant Heat Estimate ↗"}
               </a>
               <a className={"btn white"} href={"/services/heated-driveways/"}>

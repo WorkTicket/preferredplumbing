@@ -3,6 +3,7 @@ import { services } from "@/data/services";
 import { Icon } from "./Icon";
 import { JsonLd } from "./JsonLd";
 import { site } from "@/data/site";
+import { contactHref } from "@/lib/contact";
 export function ServiceDepth({ slug }: { slug: string }) {
   const data = serviceDepth[slug];
   const service = services.find((item) => item.slug === slug);
@@ -84,7 +85,7 @@ export function ServiceDepth({ slug }: { slug: string }) {
                 </div>
               ))}
             </div>
-            <a className="btn dark" href={`/contact/?service=${slug}`}>
+            <a className="btn dark" href={contactHref({ service: slug })}>
               Talk through your options <Icon name="arrow" />
             </a>
           </div>

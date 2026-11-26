@@ -3,7 +3,13 @@ import { site } from "@/data/site";
 export const dynamic = "force-static";
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/" },
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      // Cloudflare edge paths are not site content; crawling them creates
+      // false 404 / broken-link noise in Site Audit (email-protection, etc.).
+      disallow: ["/cdn-cgi/"],
+    },
     sitemap: `${site.url}/sitemap.xml`,
     host: site.url,
   };

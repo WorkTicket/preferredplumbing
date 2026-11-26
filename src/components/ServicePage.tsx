@@ -10,6 +10,7 @@ import {
 } from "@/data/service-coverage";
 import { getPostsForService } from "@/data/blog";
 import { site } from "@/data/site";
+import { contactHref } from "@/lib/contact";
 import { BlogPostCard } from "./BlogPostCard";
 import { Icon } from "./Icon";
 import { JsonLd } from "./JsonLd";
@@ -60,14 +61,13 @@ export function ServicePage({ slug }: { slug: string }) {
   const coverage = serviceCoverage[slug];
   const h1 = serviceH1[slug] || service.title;
   const ctaLabel = page.ctaLabel || "Request an estimate";
-  const heroPrimaryHref = page.estimateFirst
-    ? `/contact/?service=${slug}`
-    : site.phoneHref;
+  const estimateHref = contactHref({ service: slug });
+  const heroPrimaryHref = page.estimateFirst ? estimateHref : site.phoneHref;
   const heroPrimaryLabel = page.estimateFirst ? ctaLabel : `Call ${site.phone}`;
   const heroPrimaryIcon = page.estimateFirst ? "arrow" : "phone";
   const heroSecondaryHref = page.estimateFirst
     ? site.phoneHref
-    : `/contact/?service=${slug}`;
+    : estimateHref;
   const heroSecondaryLabel = page.estimateFirst
     ? `Call ${site.phone}`
     : page.ctaLabel || "Get a free estimate";
@@ -196,7 +196,7 @@ export function ServicePage({ slug }: { slug: string }) {
           <aside className="svc-aside" aria-label={ctaLabel}>
             <h3>{ctaLabel}</h3>
             <p>Describe the job and we’ll talk through the scope.</p>
-            <a className="btn" href={`/contact/?service=${slug}`}>
+            <a className="btn" href={estimateHref}>
               {ctaLabel} <Icon name="arrow" />
             </a>
             <a className="svc-aside-phone" href={site.phoneHref}>
@@ -402,7 +402,7 @@ export function ServicePage({ slug }: { slug: string }) {
               Tell us what you need. We’ll help you work out the next step.
             </p>
           </div>
-          <a className="btn" href={`/contact/?service=${slug}`}>
+          <a className="btn" href={estimateHref}>
             {page.ctaLabel || "Request a free estimate"} <Icon name="arrow" />
           </a>
         </div>

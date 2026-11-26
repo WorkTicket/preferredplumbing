@@ -34,9 +34,15 @@ export function EstimateForm() {
   const turnstileElement = useRef<HTMLDivElement>(null);
   const turnstileWidget = useRef<string | null>(null);
   useEffect(() => {
-    const selected = new URLSearchParams(window.location.search).get("service");
-    if (selected && services.some((item) => item.slug === selected))
+    const hash = window.location.hash.replace(/^#/, "");
+    const fromHash = new URLSearchParams(hash).get("service");
+    const fromQuery = new URLSearchParams(window.location.search).get(
+      "service",
+    );
+    const selected = fromHash || fromQuery;
+    if (selected && services.some((item) => item.slug === selected)) {
       setService(selected);
+    }
   }, []);
   useEffect(() => {
     if (!turnstileReady || !window.turnstile || !turnstileElement.current)

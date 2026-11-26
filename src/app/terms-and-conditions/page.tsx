@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { Icon } from "@/components/Icon";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = withSocialMetadata({
   title: "Terms & Conditions",
@@ -122,16 +123,21 @@ export default function Page() {
             }
           </p>
           <h2>{"Contact"}</h2>
-          <h2>
+          <p>
             {
-              "Preferred Plumbing SolutionsSpirit Lake, Idaho 83869Phone: (208) 290-3889"
+              "Preferred Plumbing Solutions · Spirit Lake, Idaho 83869 · Phone: "
             }
-          </h2>
-          <h2>{"Questions about these Terms:"}</h2>
-          <h2>{"Email"}</h2>
-          <h2>{"Hunter Norrispreferredhnorris@gmail.com"}</h2>
-          <h2>{"Email"}</h2>
-          <h2>{"Ron Norrispreferredrnorris@gmail.com"}</h2>
+            <a href={"tel:2082903889"}>{"(208) 290-3889"}</a>
+          </p>
+          <p>{"Questions about these Terms:"}</p>
+          <p>
+            {"Hunter Norris — "}
+            <a href={`mailto:${site.hunterEmail}`}>{site.hunterEmail}</a>
+          </p>
+          <p>
+            {"Ron Norris — "}
+            <a href={`mailto:${site.ronEmail}`}>{site.ronEmail}</a>
+          </p>
         </article>
       </section>
     </>
