@@ -315,8 +315,9 @@ export default function Page() {
             <ResponsiveImg
               src="/assets/hunter.webp"
               alt="Hunter Norris of Preferred Plumbing Solutions"
-              width={960}
-              height={1152}
+              width={1145}
+              height={1374}
+              widths={[640, 960, 1145]}
               sizes="(max-width: 720px) 92vw, 420px"
             />
             <div className={"owner-label"}>
@@ -441,6 +442,7 @@ export default function Page() {
               alt="Preferred Plumbing bathroom vanity project"
               width={960}
               height={1280}
+              widths={[640, 960]}
               sizes="(max-width: 720px) 92vw, 560px"
             />
             <div>
@@ -454,6 +456,7 @@ export default function Page() {
               alt="Preferred Plumbing construction rough-in project"
               width={960}
               height={1280}
+              widths={[640, 960]}
               sizes="(max-width: 720px) 92vw, 560px"
             />
             <div>

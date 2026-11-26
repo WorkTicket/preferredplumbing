@@ -4,6 +4,8 @@ export const site = {
   phoneHref: "tel:2082903889",
   hunterEmail: "preferredhnorris@gmail.com",
   ronEmail: "preferredrnorris@gmail.com",
+  hunterEmailParts: { user: "preferredhnorris", domain: "gmail.com" },
+  ronEmailParts: { user: "preferredrnorris", domain: "gmail.com" },
   location: "Spirit Lake, Idaho 83869",
   hours: "Sunday–Friday, 7am–5pm",
   logo: "/assets/preferred-logo-truck.webp",

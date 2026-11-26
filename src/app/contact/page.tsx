@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { Icon } from "@/components/Icon";
 import { EstimateForm } from "@/components/EstimateForm";
+import { SafeEmail } from "@/components/SafeEmail";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = withSocialMetadata({
@@ -89,7 +90,7 @@ export default function Page() {
               <div>
                 <strong>{"Email Hunter"}</strong>
                 <p>
-                  <a href={`mailto:${site.hunterEmail}`}>{site.hunterEmail}</a>
+                  <SafeEmail {...site.hunterEmailParts} />
                 </p>
               </div>
             </div>
@@ -98,7 +99,7 @@ export default function Page() {
               <div>
                 <strong>{"Email Ron"}</strong>
                 <p>
-                  <a href={`mailto:${site.ronEmail}`}>{site.ronEmail}</a>
+                  <SafeEmail {...site.ronEmailParts} />
                 </p>
               </div>
             </div>

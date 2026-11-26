@@ -104,15 +104,20 @@ const variants = [
   },
   { src: "assets/winter.webp", widths: [640, 1280] },
   { src: "assets/van.webp", widths: [640, 1280] },
-  { src: "assets/hunter.webp", widths: [360, 480] },
+  { src: "assets/hunter.webp", widths: [640, 960, 1145], quality: 92 },
+  {
+    src: "assets/hunter-inspects.webp",
+    widths: [960, 1400],
+    quality: 92,
+  },
   { src: "assets/mountains.webp", widths: [800, 1200, 1600, 2000], quality: 88 },
   {
     src: "assets/real-modern-bathroom-fixtures-1.webp",
-    widths: [360, 480],
+    widths: [640, 960],
   },
   {
     src: "assets/real-new-construction-rough-in-1.webp",
-    widths: [360, 480],
+    widths: [640, 960],
   },
   { src: "assets/footer-logo.webp", widths: [280, 560, 840], quality: 95 },
 ];

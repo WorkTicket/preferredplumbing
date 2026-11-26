@@ -2,6 +2,7 @@ import { Icon } from "./Icon";
 import { services } from "@/data/services";
 import { publishedLocations } from "@/data/locations";
 import { site } from "@/data/site";
+import { SafeEmail } from "./SafeEmail";
 import { StickyMobileBar } from "./StickyMobileBar";
 
 const social = [
@@ -124,10 +125,8 @@ export function Footer() {
                 <li>
                   <Icon name="mail" />
                   <span>
-                    <a href={`mailto:${site.hunterEmail}`}>
-                      {site.hunterEmail}
-                    </a>
-                    <a href={`mailto:${site.ronEmail}`}>{site.ronEmail}</a>
+                    <SafeEmail {...site.hunterEmailParts} />
+                    <SafeEmail {...site.ronEmailParts} />
                   </span>
                 </li>
                 <li>

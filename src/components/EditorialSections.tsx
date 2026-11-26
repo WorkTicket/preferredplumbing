@@ -13,9 +13,9 @@ export function FamilyStandard() {
             <ResponsiveImg
               src="/assets/hunter-inspects.webp"
               alt="Hunter Norris of Preferred Plumbing Solutions inspecting the plumbing beneath a bathroom sink"
-              width={480}
-              height={438}
-              widths={[480]}
+              width={1400}
+              height={1278}
+              widths={[960, 1400]}
               sizes="(max-width: 720px) 92vw, 420px"
               loading="eager"
               fetchPriority="low"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { withSocialMetadata } from "@/lib/metadata";
 import { Icon } from "@/components/Icon";
+import { SafeEmail } from "@/components/SafeEmail";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = withSocialMetadata({
@@ -132,11 +133,11 @@ export default function Page() {
           <p>{"Questions about these Terms:"}</p>
           <p>
             {"Hunter Norris — "}
-            <a href={`mailto:${site.hunterEmail}`}>{site.hunterEmail}</a>
+            <SafeEmail {...site.hunterEmailParts} />
           </p>
           <p>
             {"Ron Norris — "}
-            <a href={`mailto:${site.ronEmail}`}>{site.ronEmail}</a>
+            <SafeEmail {...site.ronEmailParts} />
           </p>
         </article>
       </section>

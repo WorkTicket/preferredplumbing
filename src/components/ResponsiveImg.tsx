@@ -35,7 +35,9 @@ export function ResponsiveImg({
   const srcSet = ordered
     .map((w) => `${variantPath(src, w)} ${w}w`)
     .join(", ");
-  const primary = ordered[0] ?? width;
+  // Prefer the largest candidate as src so oversized/portrait slots stay sharp
+  // when sizes is approximate or DPR selection undershoots.
+  const primary = ordered[ordered.length - 1] ?? width;
 
   return (
     <img
